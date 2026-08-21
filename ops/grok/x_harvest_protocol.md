@@ -1,6 +1,6 @@
 # X 采集协议（Codex 访问 Grok）
 
-X 只走 Grok 检索。日报流水线不调用官方 X API，不读取 Bearer Token。
+X 只走 Grok 检索。日报流水线不调用官方 X API，不读取 Bearer Token。自动访问固定使用 `grok-4.6` 与 `low` 推理强度。
 
 方法：Codex 不会搜 X。它每天先在仓库里放下访问票，再启动本机 `grok.exe`。Grok 读票、检索、把规范化结果放回 `work/source-cache/x/`。Codex 回来只读这份缓存，继续五频道审阅和发布。
 
@@ -14,7 +14,7 @@ X 只走 Grok 检索。日报流水线不调用官方 X API，不读取 Bearer T
 4. 否则启动：
 
 ```powershell
-grok.exe --cwd <repo> --prompt-file ops/grok/daily_visit_prompt.md --always-approve --permission-mode bypassPermissions --max-turns 48
+grok.exe --cwd <repo> --model grok-4.6 --reasoning-effort low --prompt-file ops/grok/daily_visit_prompt.md --always-approve --permission-mode bypassPermissions --max-turns 48
 ```
 
 5. Grok 按 `ops/grok/daily_visit_prompt.md` 检索，写入 `work/grok-x/<date>.json`，再 ingest 到 `work/source-cache/x/<date>.json.gz`，最后写 `work/grok-x/<date>.done.json`。

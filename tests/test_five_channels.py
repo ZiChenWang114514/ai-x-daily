@@ -28,6 +28,14 @@ class FiveChannelConfigurationTests(unittest.TestCase):
         self.assertIn('model_reasoning_effort=', runner)
         self.assertNotIn("gpt-5.6-sol", runner)
 
+    def test_grok_x_harvest_uses_grok_46_low(self):
+        settings = (ROOT / "config" / "local.settings.example.psd1").read_text(encoding="utf-8")
+        runner = (ROOT / "ops" / "run_local_pipeline.ps1").read_text(encoding="utf-8")
+        self.assertIn('GrokModel = "grok-4.6"', settings)
+        self.assertIn('GrokReasoningEffort = "low"', settings)
+        self.assertIn('"--model", [string]$Settings.GrokModel', runner)
+        self.assertIn('"--reasoning-effort", [string]$Settings.GrokReasoningEffort', runner)
+
     def test_unified_morning_run_is_configured(self):
         settings = (ROOT / "config" / "local.settings.example.psd1").read_text(encoding="utf-8")
         self.assertIn('ScheduleTime = "07:00"', settings)

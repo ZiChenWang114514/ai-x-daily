@@ -13,6 +13,8 @@ $StatusRoot = Join-Path $RunRoot "status"
 $Settings = @{
     Model = "gpt-5.6-terra"
     ReasoningEffort = "high"
+    GrokModel = "grok-4.6"
+    GrokReasoningEffort = "low"
     ScheduleTime = "07:00"
     GrokVisitTimeoutMinutes = 20
 }
@@ -114,6 +116,8 @@ function Invoke-GrokVisit {
     $TimeoutMilliseconds = $TimeoutMinutes * 60 * 1000
     $GrokArgs = @(
         "--cwd", $RepoRoot,
+        "--model", [string]$Settings.GrokModel,
+        "--reasoning-effort", [string]$Settings.GrokReasoningEffort,
         "--prompt-file", $Prompt,
         "--always-approve",
         "--permission-mode", "bypassPermissions",
@@ -123,7 +127,7 @@ function Invoke-GrokVisit {
     foreach ($Attempt in 1..2) {
         $StdoutPath = Join-Path $RunRoot "$RunDate-grok-x-attempt-$Attempt-output.txt"
         $StderrPath = Join-Path $RunRoot "$RunDate-grok-x-attempt-$Attempt-error.txt"
-        Write-Host "Codex visiting Grok for X harvest ($RunDate, attempt $Attempt of 2)"
+        Write-Host "Codex visiting Grok $($Settings.GrokModel) / $($Settings.GrokReasoningEffort) for X harvest ($RunDate, attempt $Attempt of 2)"
         try {
             $Process = Start-Process -FilePath $Grok.Source -ArgumentList $GrokArgs -WorkingDirectory $RepoRoot -RedirectStandardOutput $StdoutPath -RedirectStandardError $StderrPath -WindowStyle Hidden -PassThru
             $Completed = $Process.WaitForExit($TimeoutMilliseconds)

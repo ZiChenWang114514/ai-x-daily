@@ -6,5 +6,7 @@
     DynamicLimit = 10
     Model = "gpt-5.6-terra"
     ReasoningEffort = "high"
+    GrokModel = "grok-4.6"
+    GrokReasoningEffort = "low"
     NotificationEmail = "wangzc@stu.pku.edu.cn"
 }

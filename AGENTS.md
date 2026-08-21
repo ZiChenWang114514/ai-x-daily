@@ -1,6 +1,6 @@
 # AIxDaily
 
-X 只走 Grok 检索，不走官方 X API。
+X 只走 Grok 检索，不走官方 X API。自动访问固定使用 `grok-4.6` 与 `low` 推理强度。
 
 ## Codex
 

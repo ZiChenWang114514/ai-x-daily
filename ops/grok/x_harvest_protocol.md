@@ -17,7 +17,7 @@ X 只走 Grok 检索。日报流水线不调用官方 X API，不读取 Bearer T
 grok.exe --cwd <repo> --model grok-4.6 --reasoning-effort low --prompt-file ops/grok/daily_visit_prompt.md --always-approve --permission-mode bypassPermissions --max-turns 48
 ```
 
-5. Grok 按 `ops/grok/daily_visit_prompt.md` 检索，写入 `work/grok-x/<date>.json`，再 ingest 到 `work/source-cache/x/<date>.json.gz`，最后写 `work/grok-x/<date>.done.json`。
+5. Grok 按 `ops/grok/daily_visit_prompt.md` 检索；若存在多张访问票，优先处理日期最新且缓存尚未就绪的一张，跳过已有可用缓存的票。它写入 `work/grok-x/<date>.json`，再 ingest 到 `work/source-cache/x/<date>.json.gz`，最后写 `work/grok-x/<date>.done.json`。
 6. 每次 Grok 访问最多运行 20 分钟。首次执行失败、超时或没有生成可用缓存时，脚本再执行一次。
 7. Codex 只在完成回执与非空缓存同时有效时读取 X；没有可用缓存则 X 记失败，研究博客继续。
 8. Codex 完成五套审阅、综合日报、测试与推送。Grok 不审阅、不改 `public/`、不 commit、不 push。

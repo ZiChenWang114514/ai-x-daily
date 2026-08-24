@@ -3,7 +3,7 @@
 当前访问固定使用 `grok-4.6` 与 `low` 推理强度。按下面做完即停：
 
 1. 阅读 `ops/grok/x_harvest_protocol.md`。
-2. 读取 `work/grok-x/` 里日期最新、`status` 为 `pending` 的 `*.request.json`。没有请求票则用 Asia/Shanghai 的今天。
+2. 检查 `work/grok-x/` 中 `status` 为 `pending` 的每一张 `*.request.json`，并分别执行 `python backend/x_harvest.py status --date <date> --root .`。选择日期最新且 `ready=false` 的票；已经 `ready=true` 的票不再检索。没有待处理票则用 Asia/Shanghai 的今天。
 3. 执行 `python backend/x_harvest.py request --date <date> --root .`，再执行 `python backend/x_harvest.py status --date <date> --root .`。若 `ready=true`，说明缓存已经可用，直接结束；否则继续采集，即使缓存文件名已经存在。
 4. 否则执行 `python backend/x_harvest.py queries --date <date> --root .`。请求票里若已有 `queries`，可直接使用。
 5. 对每一条查询调用 `x_keyword_search`：账号查询 `mode=Latest`，主题查询 `mode=Top`，`limit=10`。

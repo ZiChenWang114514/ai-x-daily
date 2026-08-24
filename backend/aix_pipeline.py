@@ -467,6 +467,7 @@ def fetch_openreview(runtime: Runtime, watchlists: dict[str, Any]) -> list[dict[
                     "limit": 200,
                     "sort": "tcdate:desc",
                     "mintcdate": int(datetime.combine(start, datetime.min.time(), tzinfo=SHANGHAI).timestamp() * 1000),
+                    "maxtcdate": int(datetime.combine(end + timedelta(days=1), datetime.min.time(), tzinfo=SHANGHAI).timestamp() * 1000) - 1,
                 }
                 if after:
                     params["after"] = after

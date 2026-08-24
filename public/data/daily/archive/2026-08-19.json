@@ -1463,13 +1463,14 @@
       "id": "aixmath",
       "name": "AI × Math",
       "stats": {
-        "fetched": 452,
-        "candidates": 60,
-        "selected": 7,
+        "fetched": 455,
+        "candidates": 61,
+        "selected": 8,
         "sources": {
           "arXiv": 452,
-          "OpenReview": 0
-        }
+          "OpenReview": 3
+        },
+        "suppressed_previous": 0
       },
       "source_errors": [
         "OpenReview: RuntimeError: 未配置 OpenReview 账号"
@@ -1810,6 +1811,53 @@
           "abstract_zh": "LLM 在长时程规划中仍不可靠，常常生成逻辑不一致或不可适用的计划。近期混合方法转而将自然语言翻译为规划领域定义语言（PDDL），使符号规划器能够生成可验证计划。然而，现有方法常依赖僵化的生成流程、不完整的 PDDL 定义或人工反馈。此外，由于缺乏具有自动验证功能的标准化基准，它们的评测受到限制。为解决这些限制，我们提出 PDDLCoder：一个从自然语言生成 PDDL 的智能体框架，可迭代地生成、分析和修订规划规格。我们还引入 NL-pddlgym，一个基准数据集，包含跨 23 个领域的 711 个规划问题，并提供用于自动验证计划适用性的可执行 gym 环境。在 NL-pddlgym 测试集上——它包含来自 4 个留出领域的 106 个问题——实验表明，PDDLCoder 为 89.6% 的受测规划问题生成了可适用的计划。这优于我们对既有 PDDL 生成方法的改编版本，后者最高达到 45.3%，也优于直接 LLM 规划方法，后者在同一测试集上最高达到 74.5%。我们的工作展示了面向 LLM 辅助符号规划的智能体式 PDDL 生成的有效性，并建立了一个可复现的基准，供未来研究使用。",
           "published": "2026-08-17",
           "author_line": "Veit Laule, Jiangtao Shuai, Manfred Hauswirth 等 4 人"
+        },
+        {
+          "id": "openreview:jap6wk2kmk",
+          "channel": "aixmath",
+          "related_channels": [
+            "engineering"
+          ],
+          "item_type": "paper",
+          "source": "OpenReview",
+          "title": "Future Policy Approximation for Offline Reinforcement Learning in LLM Reasoning",
+          "url": "https://openreview.net/forum?id=Jap6wk2Kmk",
+          "published_at": "2026-08-19",
+          "updated_at": "2026-08-23",
+          "creators": [],
+          "language": "en",
+          "abstract_or_text": "Reinforcement learning (RL) has emerged as a key driver of post-training for complex reasoning in large language models (LLMs), yet online RL introduces substantial instability and computational overhead. Offline RL offers a compelling alternative by decoupling generation from training; however, offline algorithms for reasoning remain under-optimized relative to their online counterparts. We revisit the potential of policy-gradient-style offline RL and address a central challenge in offline learning: gradient entanglement. In long-horizon reasoning trajectories, correct and incorrect solutions share substantial token overlap, causing gradient updates from incorrect trajectories to suppress tokens that are also critical for correct ones. We propose Future Policy Approximation (FPA), a simple offline policy-gradient method that weights gradients using an estimate of the future policy rather than the current policy, enabling proactive gradient reweighting. We estimate the future policy through logit- space extrapolation. Across three models, seven mathematical reasoning benchmarks, and three code-generation benchmarks, FPA consistently improves over strong offline baselines, including DPO, RPO, KTO, and vanilla offline RL. FPA stabilizes long-horizon training, where vanilla objectives degrade, and achieves accuracy comparable to state-of-the-art RLVR methods such as GRPO and DAPO at a fraction of the GPU hours.",
+          "summary_zh": "论文提出 Future Policy Approximation（FPA），一种用于大语言模型推理后训练的离线策略梯度方法。其核心是以对未来策略的估计替代当前策略进行梯度加权，并通过 logit 空间外推估计未来策略；作者报告该方法在数学推理与代码生成基准上优于多种离线强化学习基线。",
+          "why_it_matters_zh": "工作直接以长链数学推理为评测对象，并给出跨模型、跨基准的可检验比较。它关注离线强化学习中正确与错误轨迹共享词元所造成的训练干扰，为较低算力成本下的推理能力后训练提供了值得关注的方法线索。",
+          "quality_score": 78.0,
+          "tags": [
+            "方法与模型",
+            "离线强化学习",
+            "大语言模型推理",
+            "数学推理评测",
+            "策略梯度"
+          ],
+          "evidence_flags": [
+            "OpenReview 公开投稿",
+            "TMLR 在审",
+            "3 个模型",
+            "7 个数学推理基准",
+            "3 个代码生成基准",
+            "benchmark"
+          ],
+          "publication_status": "Under review for TMLR",
+          "rank": 8,
+          "featured": false,
+          "category": "方法与模型",
+          "metrics": {},
+          "metadata": {
+            "forum_id": "Jap6wk2Kmk",
+            "domain": "TMLR",
+            "invitation": "TMLR/-/Submission"
+          },
+          "abstract_zh": "强化学习（RL）已成为大语言模型（LLM）复杂推理后训练的关键驱动力，但在线强化学习会带来显著的不稳定性和计算开销。离线强化学习通过将生成与训练解耦，提供了一种有吸引力的替代方案；然而，面向推理任务的离线算法相较其在线对应方法仍未得到充分优化。我们重新考察策略梯度式离线强化学习的潜力，并解决离线学习中的一个核心挑战：梯度纠缠。在长时程推理轨迹中，正确与错误解答往往共享大量词元，因此错误轨迹带来的梯度更新会抑制那些对正确轨迹同样关键的词元。我们提出 Future Policy Approximation（FPA），一种简洁的离线策略梯度方法：它使用对未来策略而非当前策略的估计来加权梯度，从而实现前瞻性的梯度重加权。我们通过 logit 空间外推估计未来策略。在三个模型、七个数学推理基准和三个代码生成基准上，FPA 均稳定优于包括 DPO、RPO、KTO 和朴素离线强化学习在内的强离线基线。FPA 还能稳定长时程训练；在这一情形中，朴素目标会退化。它以一小部分 GPU 小时达到与 GRPO、DAPO 等当前最先进的可验证奖励强化学习（RLVR）方法相当的准确率。",
+          "published": "2026-08-19",
+          "author_line": "作者信息暂缺"
         }
       ]
     },

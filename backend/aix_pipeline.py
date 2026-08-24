@@ -159,6 +159,70 @@ def natural_key(item: dict[str, Any]) -> str:
     return re.sub(r"[?#].*$", "", str(item.get("url") or item.get("id") or "")).rstrip("/").lower()
 
 
+def report_key(item: dict[str, Any]) -> str:
+    """Identify one reportable event while allowing verifiable later updates."""
+    key = natural_key(item)
+    if not key or item.get("item_type") != "paper":
+        return key
+    source = str(item.get("source") or "").lower()
+    metadata = item.get("metadata") or {}
+    doi = str(metadata.get("doi") or "").strip().lower()
+    if doi and source in {"biorxiv", "medrxiv"}:
+        revision_date = publication_date(str(item.get("updated_at") or item.get("published_at") or ""))
+        if revision_date:
+            return f"{key}@revision:{revision_date.isoformat()}"
+    return key
+
+
+def archive_items(payload: dict[str, Any]) -> list[dict[str, Any]]:
+    items: list[dict[str, Any]] = []
+    channels = payload.get("channels") or []
+    if channels:
+        for channel in channels:
+            items.extend(channel.get("items") or channel.get("papers") or [])
+        return items
+    return list(payload.get("items") or payload.get("papers") or [])
+
+
+def previously_reported_keys(site_root: Path, before_date: date) -> set[str]:
+    """Read report identities from combined daily archives before a run date."""
+    keys: set[str] = set()
+    archive_root = site_root / "data" / "daily" / "archive"
+    if not archive_root.exists():
+        return keys
+    for path in archive_root.glob("????-??-??.json"):
+        payload = load_json(path, {})
+        try:
+            archive_date = date.fromisoformat(str(payload.get("date") or path.stem))
+        except ValueError:
+            continue
+        if archive_date >= before_date:
+            continue
+        for item in archive_items(payload):
+            key = report_key(item)
+            if key:
+                keys.add(key)
+    return keys
+
+
+def exclude_previously_reported(
+    items: list[dict[str, Any]], site_root: Path, run_date: date
+) -> tuple[list[dict[str, Any]], list[dict[str, Any]]]:
+    """Keep unseen events and distinct updates; return suppressed repeats separately."""
+    seen = previously_reported_keys(site_root, run_date)
+    kept: list[dict[str, Any]] = []
+    suppressed: list[dict[str, Any]] = []
+    for item in items:
+        key = report_key(item)
+        if key and key in seen:
+            suppressed.append(item)
+            continue
+        if key:
+            seen.add(key)
+        kept.append(item)
+    return kept, suppressed
+
+
 def paper_to_item(paper: Paper, channel: str) -> dict[str, Any]:
     arxiv_id = paper.id.split(":", 1)[1] if paper.id.startswith("arxiv:") else ""
     status = "preprint" if paper.source in {"arXiv", "bioRxiv", "medRxiv", "ChemRxiv"} else "peer_reviewed"
@@ -634,8 +698,9 @@ def collect_channel(root: Path, site_root: Path, channel: str, run_date: date) -
 
     raw = deduplicate([item for batch in sources.values() for item in batch])
     write_raw(runtime, channel, raw, errors)
+    reportable, suppressed = exclude_previously_reported(raw, site_root, run_date)
     candidates = []
-    for item in raw:
+    for item in reportable:
         score = score_item(item, channel)
         if score >= max(45, THRESHOLDS[channel] - 15):
             candidates.append(item)
@@ -659,8 +724,15 @@ def collect_channel(root: Path, site_root: Path, channel: str, run_date: date) -
         "schema_version": "2.0", "date": str(run_date), "channel": channel,
         "generated_at": utc_now().isoformat(timespec="seconds"), "title": title, "subtitle": subtitle,
         "window": {"start": str(collection_window(run_date)[0]), "end": str(run_date)},
-        "method": "公开来源采集、规则筛选与模型审阅", "method_note": "系统保存当日公开元数据，依据频道主题与证据信号筛选候选，随后由指定模型阅读全文摘要并完成精选。",
-        "stats": {"fetched": len(raw), "candidates": len(candidates), "selected": len(preliminary), "sources": {name: len(batch) for name, batch in sources.items()}},
+        "method": "公开来源采集、历史去重、规则筛选与模型审阅",
+        "method_note": "系统保存当日公开元数据，与历史日报核验后排除已报道事件；论文新版本、新修订及不同软件发布等可核实更新仍可入选，随后由指定模型阅读全文摘要并完成精选。",
+        "stats": {
+            "fetched": len(raw),
+            "suppressed_previous": len(suppressed),
+            "candidates": len(candidates),
+            "selected": len(preliminary),
+            "sources": {name: len(batch) for name, batch in sources.items()},
+        },
         "source_status": {
             name: {
                 "state": "failed" if any(error.startswith(f"{name}:") for error in errors) else ("ok" if batch else "empty"),
@@ -673,7 +745,7 @@ def collect_channel(root: Path, site_root: Path, channel: str, run_date: date) -
     }
     write_json(channel_root / "latest.json", payload)
     write_json(root / "work" / "local-pipeline" / "status" / f"{channel}.json", {"channel": channel, "date": str(run_date), "state": "collected", "updated_at": utc_now().isoformat(timespec="seconds"), "stats": payload["stats"], "source_errors": errors})
-    log(f"{channel}: fetched={len(raw)}, candidates={len(candidates)}, preliminary={len(preliminary)}")
+    log(f"{channel}: fetched={len(raw)}, suppressed_previous={len(suppressed)}, candidates={len(candidates)}, preliminary={len(preliminary)}")
     return payload
 
 

@@ -205,6 +205,7 @@ function Publish-Daily {
     $SummaryPath = Join-Path $RunRoot "$RunDate-daily-summary.json"
     Invoke-CodexJson (Join-Path $RepoRoot "ops\codex\daily_summary_prompt.md") (Join-Path $RepoRoot "ops\codex\daily_summary.schema.json") $SummaryPath "daily-summary"
     Invoke-Python @("backend/publish_daily.py", "--site-root", "public", "--summary", $SummaryPath)
+    Invoke-Python @("backend/audit_cross_day_dedup.py", "--site-root", "public", "--target-date", $RunDate)
     Invoke-Python @("backend/hub_publish.py", "--site-root", "public")
     Invoke-Python @("-m", "unittest", "discover", "-s", "tests", "-v")
 }

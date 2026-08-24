@@ -9,7 +9,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
-from aix_pipeline import CHANNELS, CHANNEL_META, natural_key
+from aix_pipeline import CHANNELS, CHANNEL_META, previously_reported_keys, report_key
 from daily_digest import SITE_NAME, SITE_TITLE, load_json, slim_public_item, write_json
 
 
@@ -82,21 +82,25 @@ def build(site_root: Path, summary_path: Path | None, site_url: str, *, write_pa
     if not channel_dates:
         raise RuntimeError("No channel dates available")
     run_date = max(channel_dates)
+    run_day = datetime.fromisoformat(run_date).date()
     channels = []
     archive_channels = []
-    seen: set[str] = set()
+    seen: set[str] = set(previously_reported_keys(site_root, run_day))
     for channel_id in CHANNELS:
         latest = latest_by_channel[channel_id]
         stale = str(latest.get("date") or "") != run_date
         items = []
+        suppressed = 0
         if not stale:
             for item in latest.get("items") or latest.get("papers") or []:
-                key = natural_key(item)
+                key = report_key(item)
                 if key in seen:
+                    suppressed += 1
                     continue
                 seen.add(key)
                 items.append(item)
         stats = dict(latest.get("stats") or {})
+        stats["suppressed_previous"] = int(stats.get("suppressed_previous") or 0) + suppressed
         stats["selected"] = len(items)
         name = CHANNEL_META[channel_id][0].replace(" 每日精选", "")
         errors = list(latest.get("source_errors") or [])

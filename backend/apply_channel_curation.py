@@ -4,9 +4,10 @@
 from __future__ import annotations
 
 import argparse
+from datetime import date
 from pathlib import Path
 
-from aix_pipeline import CHANNELS, LIMITS, THRESHOLDS, natural_key
+from aix_pipeline import CHANNELS, LIMITS, THRESHOLDS, previously_reported_keys, report_key
 from daily_digest import archive_index_entry, author_line, clean_text, load_json, looks_cjk, publish_tags, slim_public_item, write_json
 from publish_daily import SITE_URL, build as build_daily
 
@@ -20,7 +21,7 @@ def earlier_channel_keys(site_root: Path, channel: str, day: str) -> set[str]:
         if payload.get("date") != day:
             continue
         for item in payload.get("items") or payload.get("papers") or []:
-            key = natural_key(item)
+            key = report_key(item)
             if key:
                 claimed.add(key)
     return claimed
@@ -50,20 +51,26 @@ def main() -> int:
         raise ValueError(f"Too many selected items for {args.channel}")
     by_id = {item["id"]: item for item in candidates.get("items", [])}
     claimed = earlier_channel_keys(args.site_root, args.channel, str(latest.get("date") or ""))
+    run_date = date.fromisoformat(str(latest.get("date") or ""))
+    reported = previously_reported_keys(args.site_root, run_date)
     output = []
     seen_ids: set[str] = set()
     seen_natural: set[str] = set()
-    skipped = 0
+    skipped_claimed = 0
+    skipped_previous = 0
     for review in selected:
         current_id = str(review.get("id") or "")
         if not current_id or current_id in seen_ids or current_id not in by_id:
             raise ValueError(f"Unknown or duplicate item id: {current_id}")
         item = dict(by_id[current_id])
-        key = natural_key(item)
+        key = report_key(item)
         if key in seen_natural:
             raise ValueError(f"Duplicate natural identifier: {current_id}")
+        if key in reported:
+            skipped_previous += 1
+            continue
         if key in claimed:
-            skipped += 1
+            skipped_claimed += 1
             continue
         seen_ids.add(current_id)
         seen_natural.add(key)
@@ -101,6 +108,7 @@ def main() -> int:
     latest["items"] = output
     latest.pop("papers", None)
     latest["stats"]["selected"] = len(output)
+    latest["stats"]["suppressed_previous"] = int(latest["stats"].get("suppressed_previous") or 0) + skipped_previous
     latest["review"] = {
         "model": "gpt-5.6-terra",
         "reasoning_effort": "high",
@@ -152,7 +160,12 @@ def main() -> int:
         build_daily(args.site_root, None, args.site_url, write_payload=False)
     except RuntimeError:
         pass
-    skipped_note = f", skipped {skipped} claimed by earlier channels" if skipped else ""
+    skipped_notes = []
+    if skipped_previous:
+        skipped_notes.append(f"{skipped_previous} reported previously")
+    if skipped_claimed:
+        skipped_notes.append(f"{skipped_claimed} claimed by earlier channels")
+    skipped_note = f", skipped {' and '.join(skipped_notes)}" if skipped_notes else ""
     print(f"Published {args.channel}: {len(output)} selected{skipped_note}")
     return 0
 

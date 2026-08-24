@@ -13,7 +13,8 @@ BACKEND = ROOT / "backend"
 if str(BACKEND) not in sys.path:
     sys.path.insert(0, str(BACKEND))
 
-from aix_pipeline import CHANNELS, LIMITS, Runtime, fetch_openreview, fetch_x, publication_date  # noqa: E402
+from aix_pipeline import CHANNELS, LIMITS, Runtime, exclude_previously_reported, fetch_openreview, fetch_x, publication_date, report_key  # noqa: E402
+from audit_cross_day_dedup import audit as audit_cross_day_dedup, audit_target_date  # noqa: E402
 from x_harvest import harvest_status, ingest_harvest, write_cache, write_request  # noqa: E402
 from apply_channel_curation import earlier_channel_keys, main as apply_channel_curation_main  # noqa: E402
 from apply_curation import main as apply_curation_main  # noqa: E402
@@ -123,6 +124,86 @@ class PublishDailyTests(unittest.TestCase):
             home_ids = [item["id"] for channel in payload["channels"] for item in channel["items"]]
             self.assertNotIn("arxiv:stale", home_ids)
             self.assertIn("arxiv:today", home_ids)
+
+    def test_previous_daily_item_is_suppressed_during_publish(self):
+        repeated = sample_item("arxiv:old", "Already reported", "https://arxiv.org/abs/old")
+        fresh = sample_item("arxiv:new", "Fresh", "https://arxiv.org/abs/new")
+        with tempfile.TemporaryDirectory() as directory:
+            site = Path(directory)
+            write_json(
+                site / "data" / "daily" / "archive" / "2026-08-17.json",
+                {"date": "2026-08-17", "channels": [{"id": "aixchem", "items": [repeated]}]},
+            )
+            for channel in CHANNELS:
+                items = [repeated, fresh] if channel == "aixchem" else []
+                write_json(
+                    site / "data" / "channels" / channel / "latest.json",
+                    channel_payload(channel, "2026-08-18", items),
+                )
+            payload = build_daily(site, None, "https://example.com/", write_payload=False)
+            chem = next(channel for channel in payload["channels"] if channel["id"] == "aixchem")
+            self.assertEqual([item["id"] for item in chem["items"]], ["arxiv:new"])
+            self.assertEqual(chem["stats"]["suppressed_previous"], 1)
+
+
+class CrossDayReportDedupTests(unittest.TestCase):
+    def test_repeated_event_is_removed_but_distinct_updates_are_kept(self):
+        original = sample_item("arxiv:1234v1", "Original", "https://arxiv.org/abs/1234v1")
+        original["metadata"] = {"arxiv_id": "1234v1"}
+        repeat = dict(original)
+        revision = dict(original, id="arxiv:1234v2", url="https://arxiv.org/abs/1234v2", title="Revised")
+        revision["metadata"] = {"arxiv_id": "1234v2"}
+        release = sample_item("github:2", "v2", "https://github.com/example/tool/releases/tag/v2")
+        release.update(item_type="software_release", source="GitHub Releases", metadata={"release_id": "2"})
+        with tempfile.TemporaryDirectory() as directory:
+            site = Path(directory)
+            write_json(
+                site / "data" / "daily" / "archive" / "2026-08-22.json",
+                {"date": "2026-08-22", "channels": [{"id": "aixmath", "items": [original]}]},
+            )
+            kept, suppressed = exclude_previously_reported(
+                [repeat, revision, release], site, date(2026, 8, 23)
+            )
+            self.assertEqual([item["id"] for item in suppressed], ["arxiv:1234v1"])
+            self.assertEqual([item["id"] for item in kept], ["arxiv:1234v2", "github:2"])
+
+    def test_biorxiv_revision_date_is_a_new_reportable_event(self):
+        first = sample_item("biorxiv:10.1/example", "First", "https://biorxiv.org/content/10.1/example")
+        first.update(source="bioRxiv", published_at="2026-08-20", updated_at="2026-08-20", metadata={"doi": "10.1/example"})
+        revised = dict(first, updated_at="2026-08-23")
+        self.assertNotEqual(report_key(first), report_key(revised))
+
+    def test_real_three_day_archives_replay_without_cross_day_duplicates(self):
+        result = audit_cross_day_dedup(
+            ROOT / "public", ["2026-08-22", "2026-08-23", "2026-08-24"]
+        )
+        counts = [
+            (item["selected_before"], item["repeated"], item["selected_after"])
+            for item in result["dates"]
+        ]
+        self.assertEqual(counts, [(58, 0, 58), (54, 39, 15), (45, 30, 15)])
+        self.assertEqual(result["remaining_cross_day_duplicates"], 0)
+        self.assertEqual(
+            audit_target_date(ROOT / "public", "2026-08-24")["remaining_cross_day_duplicates"],
+            30,
+        )
+
+    def test_target_date_audit_detects_a_published_repeat(self):
+        repeated = sample_item("arxiv:old", "Already reported", "https://arxiv.org/abs/old")
+        fresh = sample_item("arxiv:new", "Fresh", "https://arxiv.org/abs/new")
+        with tempfile.TemporaryDirectory() as directory:
+            site = Path(directory)
+            write_json(
+                site / "data" / "daily" / "archive" / "2026-08-22.json",
+                {"date": "2026-08-22", "channels": [{"id": "aixchem", "items": [repeated]}]},
+            )
+            write_json(
+                site / "data" / "daily" / "archive" / "2026-08-23.json",
+                {"date": "2026-08-23", "channels": [{"id": "aixchem", "items": [repeated, fresh]}]},
+            )
+            result = audit_target_date(site, "2026-08-23")
+            self.assertEqual(result["remaining_cross_day_duplicates"], 1)
+            self.assertEqual(result["repeated_ids"], ["arxiv:old"])
 
 
 class ApplyCurationTests(unittest.TestCase):
@@ -456,6 +537,42 @@ class ChannelCurationDedupTests(unittest.TestCase):
             self.assertTrue((site / "email" / "latest.html").exists())
             self.assertFalse((site / "data" / "daily" / "latest.json").exists())
 
+    def test_skips_item_already_reported_on_previous_day(self):
+        repeated = sample_item("arxiv:old", "Already reported", "https://arxiv.org/abs/old")
+        fresh = sample_item("arxiv:new", "Fresh", "https://arxiv.org/abs/new")
+        with tempfile.TemporaryDirectory() as directory:
+            site = Path(directory)
+            write_json(
+                site / "data" / "daily" / "archive" / "2026-08-17.json",
+                {"date": "2026-08-17", "channels": [{"id": "aixchem", "items": [repeated]}]},
+            )
+            write_json(
+                site / "data" / "channels" / "aixchem" / "latest.json",
+                channel_payload("aixchem", "2026-08-18", [repeated, fresh]),
+            )
+            write_json(
+                site / "data" / "channels" / "aixchem" / "candidates" / "latest.json",
+                {"items": [repeated, fresh]},
+            )
+            curation = site / "chem.json"
+            write_json(curation, {
+                "date": "2026-08-18",
+                "channel": "aixchem",
+                "selected": [
+                    {"id": item["id"], "category": "方法与模型", "summary_zh": item["summary_zh"], "why_it_matters_zh": item["why_it_matters_zh"], "abstract_zh": item["abstract_zh"], "quality_score": 80, "tags": []}
+                    for item in (repeated, fresh)
+                ],
+            })
+            previous = sys.argv
+            sys.argv = ["apply_channel_curation.py", "aixchem", str(curation), "--site-root", str(site)]
+            try:
+                self.assertEqual(apply_channel_curation_main(), 0)
+            finally:
+                sys.argv = previous
+            latest = json.loads((site / "data" / "channels" / "aixchem" / "latest.json").read_text(encoding="utf-8"))
+            self.assertEqual([item["id"] for item in latest["items"]], ["arxiv:new"])
+            self.assertEqual(latest["stats"]["suppressed_previous"], 1)
+
 
 class ChannelPageTests(unittest.TestCase):
     def test_rewrite_requires_home_markers_and_injects_channel(self):
@@ -660,6 +777,7 @@ class PublishTagAndPayloadTests(unittest.TestCase):
     def test_pipeline_commits_library(self):
         runner = (ROOT / "ops" / "run_local_pipeline.ps1").read_text(encoding="utf-8")
         self.assertIn("public/library", runner)
+        self.assertIn('"backend/audit_cross_day_dedup.py", "--site-root", "public", "--target-date", $RunDate', runner)
 
     def test_channel_latest_has_no_papers_duplicate(self):
         latest = json.loads((ROOT / "public" / "data" / "channels" / "engineering" / "latest.json").read_text(encoding="utf-8"))

@@ -1,53 +1,52 @@
-# AIxDaily · 2026-08-24
+# AIxDaily · 2026-08-25
 
-今日精选呈现两条主线：化学、生物与数学频道均以预印本为主，研究设计和结果仍需同行评议及独立验证；AI Voices 收录的是机构发布与研究者公开观点，所述性能多为发布方主张；工程频道则集中于官方软件正式发布，涉及生成工作流、LLM 服务和开发协作工具。
+今日精选：AI × Chem 9 项，AI × Bio 14 项，AI × Math 8 项，AI Voices 3 项，Engineering 0 项。今日研究线索以预印本为主：化学聚焦药物模型验证、聚合模拟与 RNA 基础模型；生物涉及乳腺癌转录组、单细胞药物扰动和阿尔茨海默病图谱；数学关注本地模型评测与长程推理。AI Voices 收录公开研究发布和个人观点，其中性能说法仍待论文或技术材料核验；工程频道未形成软件发布精选。
 
 ## AI × Chem
 
-采集 1227，候选 60，精选 16。来源状态：各来源已完成
+采集 1068，候选 60，精选 9。来源状态：各来源已完成
 
-- [Systematic Benchmarking of AI-Based Molecular Generation Models for Structure-Based Drug Design](https://www.biorxiv.org/content/10.64898/2026.08.14.744939) — 该研究在176个经过整理、覆盖多类治疗靶点的蛋白—配体体系上，比较了12种分子生成与优化方法，并以已获实验验证的配体界定参考化学空间。评测显示，不同架构各有优势：受体条件化方法利用结合口袋几何，流模型采样效率较高，参考条件化方法适合类似物生成，合成感知设计则改善化学可行性；没有单一方法能够同时优化全部指标。作者还构建了整合分子动力学受体构象集合、集合对接和蛋白—配体相互作用图的SAFC，用于给生成分子提供动态感知的功能活性排序。
-- [Resolution-standardized evaluation of ligand atomic coordinates in crystallographic structures using machine learning](https://www.biorxiv.org/content/10.64898/2026.08.17.745351) — 研究提出原子Box Correlation Coefficient（aBCC），在分辨率标准化框架中逐原子衡量配体坐标与电子密度的一致性；并以3D-CNN模型QAEmap从电子密度图预测aBCC。模型使用PDB高分辨率结构构建的傅里叶截断电子密度图和相应配体坐标训练，在截断图与实验PDB结构上评估，预测在约3.5 Å以内仍可靠。
-- [PandaDock: An Open-Source Molecular Docking Platform with Flexible-Ligand Search and Equivariant Neural Scoring](https://www.biorxiv.org/content/10.64898/2026.08.19.745667) — PandaDock是开源分子对接平台，结合柔性配体构象搜索、预计算亲和力网格、诱导契合/金属配位/锚定对接模块和SE(3)等变GNN评分。作者在814个复合物和多个独立数据集上报告姿势恢复、亲和力预测与运行效率；其经验评分函数在30个GABAA受体化合物系列中位列25种方法第8。
+- [Model Validation Protocols for Machine Learning in Small Molecule Drug Discovery](https://www.biorxiv.org/content/10.64898/2026.08.19.745868) — 提出小分子药物发现中机器学习模型的五项验证建议，并在 ADME 数据集与两类模型上展示现行评估方案可能高估性能、遗漏关键失效模式。
+- [First-Principles Atomistic Structure and Dynamics of Polyethylene During High-Pressure Radical Polymerization via Machine Learning Force Fields](https://arxiv.org/abs/2608.21741v1) — 将深度势机器学习力场与含 vdW 校正的杂化 DFT 结合，模拟高压自由基聚合条件下聚乙烯低聚物和长链的原子级结构与动力学。
+- [RIBOSPAN: A Long-Context RNA Foundation Model for Versatile RNA Modeling](https://arxiv.org/abs/2608.22849v1) — 发布 16.1 亿参数、原生支持 10,240 nt 上下文的双向 RNA 基础模型 RIBOSPAN，并以其骨干开展全长 mRNA 生成、重设计和保留蛋白质的 CDS 优化。
 
 [查看频道专页](https://zichenwang114514.github.io/ai-x-daily/channels/aixchem/)
 
 ## AI × Bio
 
-采集 2132，候选 60，精选 11。来源状态：各来源已完成
+采集 1740，候选 60，精选 14。来源状态：各来源已完成
 
-- [The urinary-metabolite-based lung cancer index (uLCI): an interpretable machine-learning risk model for early-stage disease](https://www.medrxiv.org/content/10.64898/2026.06.26.26356700) — uLCI 将4种尿液代谢物与年龄、种族和吸烟情况整合为可解释的肺癌检测风险指数，并在独立队列中完成无重新拟合验证。
-- [Explainable Transformer Models for Clinical Prediction Tasks on Structured Electronic Health Records](https://arxiv.org/abs/2608.20315v1) — BERT-LER 在7,500万名患者的去标识化 EHR 上预训练，以百分位分箱表示检验值，并给出事件级归因。
-- [CorSeg-CineSAX: An Open-Source Deep Learning Framework for Fully Automatic Segmentation of Short-Axis Cine Cardiac MRI Across Multiple Cardiac Diseases](https://www.medrxiv.org/content/10.64898/2026.04.01.26349955) — CorSeg-CineSAX 开源发布心脏短轴电影 MRI 自动分割模型，并在内部与三个独立公开外部数据集上评估。
+- [Population-scale integration of tumor transcriptomics into breast cancer care: a decade of the SCAN-B initiative](https://www.medrxiv.org/content/10.64898/2026.08.20.26360879) — SCAN-B 十年期前瞻性项目将人群尺度乳腺癌 RNA 测序、长期临床资料与常规分子诊断相结合。
+- [A mechanism-annotated benchmark reveals limited fidelity to drug-response signatures in single-cell perturbation models](https://www.biorxiv.org/content/10.64898/2026.08.19.745729) — scDrugPerturb-Bench 以机制注释的单细胞扰动数据评估药物反应预测模型，并发现表达重建指标与机制保真度并不稳定一致。
+- [Mapping Alzheimer's neuropathology signatures to the whole brain transcriptome using machine learning data fusion](https://www.biorxiv.org/content/10.64898/2026.08.19.745861) — 研究用机器学习融合逾 200 万个皮层细胞与全脑图谱，构建阿尔茨海默病相关转录组信号的全脑预测图。
 
 [查看频道专页](https://zichenwang114514.github.io/ai-x-daily/channels/aixbio/)
 
 ## AI × Math
 
-采集 228，候选 60，精选 2。来源状态：OpenReview: RuntimeError: 未配置 OpenReview 账号
+采集 596，候选 60，精选 8。来源状态：各来源已完成
 
-- [FormalTCS: Benchmarking End-to-End Frontier Formal Theoretical Computer Science Research of Large Language Models](https://arxiv.org/abs/2608.20153v1) — FormalTCS以2025—2026年STOC、FOCS、SODA和COLT论文为来源，构建175项端到端理论计算机科学研究任务，并保留经专家核验的Lean形式化与证明。
-- [Rule-Compliant Visual Spatial Planning for Multimodal Large Language Models](https://arxiv.org/abs/2608.20237v1) — RuleMaze以带自然语言规则的迷宫任务评测MLLM的视觉感知、规则解释与受约束行动规划，并用可执行验证器检查规则遵循。
+- [More Accurate or More Efficient? Evaluating Locally Deployed Compact Open-Weight Language Models for Mathematical Reasoning](https://arxiv.org/abs/2608.22048v1) — 对三款 50 亿参数以下本地开源权重模型进行数学推理的受控评测，同时比较正确率、能耗、运行时间与错误类型。
+- [Lexical Perturbations Disrupt LLM Reasoning: An Empirical Study of Attention Diversion](https://arxiv.org/abs/2608.22140v1) — 研究在四个推理基准上测试词汇扰动，发现字符级噪声会显著削弱多步推理，并用注意力干预分析其机制。
+- [SRPO: Self-Reflective Policy Optimization for Long-Horizon Reasoning](https://arxiv.org/abs/2608.23493v1) — SRPO 通过反思已完成轨迹生成修补信息，并把稀疏终局监督转为 token 级训练信号；摘要报告其在 AIME'24 和多项长程任务上的结果。
 
 [查看频道专页](https://zichenwang114514.github.io/ai-x-daily/channels/aixmath/)
 
 ## AI Voices
 
-采集 77，候选 60，精选 9。来源状态：各来源已完成
+采集 51，候选 51，精选 3。来源状态：各来源已完成
 
-- [@deepseek_ai：DeepSeek-V4-Flash-Vision-Exp is now live on the DeepSeek API Platform! 🚀 🔹 This experimental multimodal model matches De](https://x.com/deepseek_ai/status/2090730032574631962) — DeepSeek 宣布实验性多模态模型 DeepSeek-V4-Flash-Vision-Exp 上线，并称其文本能力与 V4-Flash 相当，多模态智能体基准表现接近 Opus-4.8；同时发布了支持该模型的 Harness 0.1.1。
-- [@chelseabfinn：One of the most important aspects of scientific discovery is deciding where to draw insights from. While LLMs are promis](https://x.com/chelseabfinn/status/2091320499498553656) — Chelsea Finn 指出，科学发现的一项关键工作是判断应从何处提取洞见；她认为 LLM 用于科学虽有潜力，但这一环节仍缺少数据集和评测，并邀请公众参与相应数据集建设。
-- [@EinsiaAI：1/ Recursive self-improvement (RSI) depends on agents improving how AI systems are trained —not just tuning hyperparamet](https://x.com/EinsiaAI/status/2090854778301771909) — Einsia 发布 AI4AI-Bench 的结果，称该基准涵盖 10 个真实研究仓库和 10 类算法；帖文报告平均得分 0.166、最高模型 Opus 5 得分 0.288，并给出探索成本数据。
+- [@AnimaAnandkumar：Tackling a 60-year-old challenge in quantum chemistry: making density functional theory scale nearly linearly with syste](https://x.com/AnimaAnandkumar/status/2092031815448248594) — Anima Anandkumar 在帖文中介绍其团队的统一 AI 模型，并称该模型可在准线性时间内进行分子与材料的量子力学模拟；帖文还称，约 8 万电子的镁位错自洽计算可在单张 GPU 上完成。编辑判断：若论文中的方法、验证范围与算力比较得到充分核验，这会是 AI 加速第一性原理计算的重要进展。
+- [@MSFTResearch：Skala 1.1, the updated deep-learning exchange-correlation functional from Microsoft Research, provides greater accuracy,](https://x.com/MSFTResearch/status/2091918455301628355) — Microsoft Research 发布 Skala 1.1，并称这一深度学习交换-相关泛函提高了准确性、扩大了在计算化学工具生态中的可用性，同时提供持续更新的计算性能基准。编辑判断：这类面向软件生态与基准维护的研究更新，比单一模型宣传更便于专业读者追踪实际可用性。
+- [@AndrewYNg：In the fight to defend openness in AI, the Marin project is a precious demonstration of openness in model training, with](https://x.com/AndrewYNg/status/2091688153048645650) — Andrew Ng 将 Marin 项目称为模型训练开放性的示范，并提到其公开了代码、数据、训练配方和实验结果；这也是他对开放研究实践的明确肯定。编辑判断：该观点把讨论从开放权重延伸到训练过程与实验记录的可检验性，具有专业讨论价值。
 
 [查看频道专页](https://zichenwang114514.github.io/ai-x-daily/channels/aivoices/)
 
 ## Engineering
 
-采集 60，候选 60，精选 7。来源状态：各来源已完成
+采集 0，候选 0，精选 0。来源状态：GitHub Releases: URLError: 
 
-- [Diffusers 0.40.0: New pipelines, tensor-parallel support, improved CLI, and more](https://github.com/huggingface/diffusers/releases/tag/v0.40.0) — huggingface/diffusers 发布 v0.40.0，新增 MiniMax-H3、MiniMax Music 3、Stable Audio 3、LTX-2.5、Wan-Animate-2 等管线；Modular Diffusers 转为稳定支持，并加入 CUDA 与 AWS Neuron 的 tensor-parallel 推理、量化后端及路径遍历修复。
-- [Ray-2.58.0](https://github.com/ray-project/ray/releases/tag/ray-2.58.0) — ray-project/ray 发布 ray-2.58.0，完成 Ray Serve LLM 的 KV cache/token 感知路由，推出 Ray Sandbox、TPU 调度与 Ray Data shuffle v2，并修复 Ray Data 任意代码执行风险和 Serve token 认证绕过。
-- [0.149.0](https://github.com/openai/codex/releases/tag/rust-v0.149.0) — openai/codex 发布 rust-v0.149.0，加入 `codex agents` 任务面板、工作目录命令、`codex queue`、更完整的 Vim 编辑与扩展的 `codex doctor` 诊断；同时修正会话权限、子 Agent 通知和实时连接恢复等问题。
+- 今日无足够高质量更新。
 
 [查看频道专页](https://zichenwang114514.github.io/ai-x-daily/channels/engineering/)
 

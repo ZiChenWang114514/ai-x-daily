@@ -1,52 +1,54 @@
-# AIxDaily · 2026-08-26
+# AIxDaily · 2026-08-27
 
-今日精选：AI × Chem 16 项，AI × Bio 15 项，AI × Math 10 项，AI Voices 8 项，Engineering 1 项。今日五个频道同为 2026-08-26。化学与生物重点均为预印本：前者涵盖本体引导分子生成、可编程 DNA 编码库与相互作用能预测，后者聚焦冠脉造影、多模态肿瘤表征和 EEG。数学频道三项也均为预印本；观点频道收录公开帖文及预发布教程，工程频道仅保留 llama.cpp v0.3.0 软件发布。相关研究结论仍有待同行评议或实际部署进一步检验。
+今日精选：AI × Chem 12 项，AI × Bio 14 项，AI × Math 8 项，AI Voices 8 项，Engineering 6 项。今日五个频道均有精选。研究侧以预印本为主：化学关注对接后筛选，生物涉及心衰风险预测与多轮诊断评测，数学聚焦可机检的优化建模验证。AI Voices 收录机构公开帖文，相关性能和事故信息仍待原始报告佐证；工程频道则是可用的软件发布，升级前应阅读兼容性说明。
 
 ## AI × Chem
 
-采集 1512，候选 60，精选 16。来源状态：各来源已完成
+采集 1250，候选 60，精选 12。来源状态：bioRxiv: RuntimeError: Unable to fetch https://api.biorxiv.org/details/biorxiv/2026-08-24/2026-08-27/0:
 
-- [Ontology-guided deep reinforcement learning for site-specific construction of lead compounds representing coal macromolecular active sites](https://doi.org/10.26434/chemrxiv.15007798/v1) — 该研究以实验表征约束六桥焦煤大分子模型，并将局部位点模型化合物的选择转化为本体知识驱动的强化学习生成任务；EF-GRL在四类官能团位点上获得了优于传统同系物的二维结构与三维静电势相似性。
-- [DNA Directed Chemistry: Scalable Programmed DNA-Encoded Library Synthesis for More Chemically Diverse and Drug-Like Libraries](https://doi.org/10.26434/chemrxiv.15007812/v1) — 该研究提出Programmed DEL Synthesis（PDS），以DNA主动指导的sort-and-pool路线构建非组合式DNA编码化合物库，并用三步、三路径的Library i01及Carbonic Anhydrase（BCA-II）筛选验证编码和建库保真度。
-- [σ-hat: A physics-informed model for accurate prediction of halogen, chalcogen, pnictogen and tetrel bond energies](https://doi.org/10.26434/chemrxiv.15007826/v1) — σ-hat以低成本几何和原子特征预测卤键、硫族键、氮族键和四价族键的高水平相互作用能；在SHEF1552和SH250×10上分别获得0.85 kcal mol−1 RMSE和0.80 kcal mol−1 MAE。
+- [Hit-Triage Pretrained Transformer (Hit-TPT), an Interaction-Agnostic Graph-Transformer for Post-docking Enrichment](https://doi.org/10.26434/chemrxiv.15007932/v1) — Hit-TPT 以蛋白–配体相互作用图为输入，结合物理信息原子特征与 3D 位置编码，用于对接后筛选的真结合物优先级排序；在 DUD-E 的 77/25 靶标严格划分中报告 EF1%=42，并通过跨靶标分析检验其是否学习到真实相互作用。
+- [A Hierarchical Synergistic Deep Learning Framework Integrating Composition, Structure, and Ionic Transport for Solid-State Electrolyte Discovery](https://arxiv.org/abs/2608.25592v1) — 该研究构建由组成、结构和离子输运模块协同的深度学习筛选流程，在 30,364,908 个 Alex/ICSD 候选中识别 97 种高性能固态电解质，并以独立实验数据核对卤化物候选的高电导结构区域。
+- [Explain and Go Beyond with Surfacia: A Surface-Descriptor based Workflow for Interpretable Molecular Machine Learning](https://doi.org/10.26434/chemrxiv.15007949/v1) — Surfacia 将波函数导出的分子表面描述符、紧凑模型、SHAP 解释和候选可视化整合为自动流程，并在 CO2RR 改性剂、有机催化剂系列及 ESOL 上考察可解释预测和有限实验预算下的候选优先级选择。
 
 [查看频道专页](https://zichenwang114514.github.io/ai-x-daily/channels/aixchem/)
 
 ## AI × Bio
 
-采集 2378，候选 60，精选 15。来源状态：各来源已完成
+采集 2061，候选 60，精选 14。来源状态：bioRxiv: RuntimeError: Unable to fetch https://api.biorxiv.org/details/biorxiv/2026-08-24/2026-08-27/0:；medRxiv: URLError: 
 
-- [A Vision-Language Model for Coronary Angiography Interpretation and Clinical Decision Support](https://www.medrxiv.org/content/10.64898/2026.08.11.26360095) — CAG-MIND 将多视角冠状动脉造影视频与手术报告语义配对预训练，并在内部及独立外部队列的 11 项下游任务中评估零样本迁移和监督微调表现。
-- [A Multimodal Foundation Model for Longitudinal Patient Representation and Scalable Insight Generation in Oncology](https://arxiv.org/abs/2608.24688v1) — oFM 在 167 万例真实世界肿瘤患者的纵向临床、DNA、RNA 和 H&E 病理资料上训练，以患者状态嵌入支持预后和比较治疗分析。
-- [Taming foundation model with invariance-oriented pre-training for broad-spectrum EEG analysis across signal-level, brain-state, and brain-health tasks](https://arxiv.org/abs/2608.24597v1) — INCEPT 以不变性导向的预训练方式，从超过 11,000 小时无标注临床 EEG 中学习可复用表征，并在覆盖信号、脑状态和脑健康的 10 个数据集上测试。
+- [Personalized Knowledge-based Graph Neural Networks and Regression Analysis for Computational Diagnosis of High-Risk Cardiovascular Disease Patients](https://europepmc.org/article/PPR/PPR1305997) — 以个体化知识图谱 GNN 预测心肌梗死后心力衰竭风险，并分析 empagliflozin 治疗反应。
+- [MTDiag: A Multi-Turn Diagnostic Dataset Towards Clinically Meaningful LLM Evaluation](https://arxiv.org/abs/2608.25085v1) — MTDiag 提供由医生验证的多轮诊断对话数据集及临床知识导向评估指标。
+- [CytoGate-Bench: an LLM benchmark for cross-panel cell gating in cytometry](https://europepmc.org/article/PPR/PPR1305902) — CytoGate-Bench 将跨抗体面板的细胞术人工门控转化为零样本 LLM 基准。
 
 [查看频道专页](https://zichenwang114514.github.io/ai-x-daily/channels/aixbio/)
 
 ## AI × Math
 
-采集 861，候选 60，精选 10。来源状态：各来源已完成
+采集 1061，候选 60，精选 8。来源状态：各来源已完成
 
-- [Autonomous Mathematical Discovery in an Open-World Multi-Agent Environment](https://arxiv.org/abs/2608.23691v1) — Station 在无中心协调者的开放式多智能体环境中进行数学探索，并公开对话、证明和验证代码。作者报告它在 12 个 AlphaEvolve 构造问题及两个案例中得到若干相对既有文献的新结果。
-- [Discovering Cross-Language Reasoning Invariance in LLMs with Geometry-Invariant Sparse Autoencoders](https://arxiv.org/abs/2608.23809v1) — 该研究以 MGSM 的六种语言推理轨迹考察跨语言数学推理表征，并用激活互换检验共享特征是否真正可替代。结果显示，几何相似度升高并不稳定地意味着功能可替代。
-- [EMRB: A Multi-Level Benchmark for Evaluating LLM Reasoning over Raw Electromagnetic Signals](https://arxiv.org/abs/2608.24086v1) — EMRB 用仅含原始 I/Q 捕获的数据测试模型能否通过编写和运行代码完成电磁信号分析；其 200 道题目具有已验证的标准答案，并比较 14 个 LLM。ReconPilot 在 15 个骨干模型组合中的 13 个带来提升。
+- [FLARE: Verifying MILP Reformulations with LLM-Based Theorem Proving](https://arxiv.org/abs/2608.25220v1) — FLARE 将 MILP 重表述的等价性验证形式化到 Lean 中，并用 LLM agent 与 Lean proof assistant 对照参考表述生成机器可检验证书。
+- [MathAdv: What Theorem Provers Know, Reason, Formalize, and Generalize](https://arxiv.org/abs/2608.25449v1) — MathAdv 以 Lean 4 定理证明为主任务，并用知识、非形式推理和等价改写任务诊断模型在不同数学领域的能力与稳健性。
+- [PhysElite: How Far Are LLMs from Solving Olympiad-Level Physics Problems?](https://arxiv.org/abs/2608.25097v1) — PhysElite 提供 11,586 道中英双语、多模态的奥赛级物理题，并以最终答案和步骤级过程评估考察 MLLM 推理。
 
 [查看频道专页](https://zichenwang114514.github.io/ai-x-daily/channels/aixmath/)
 
 ## AI Voices
 
-采集 62，候选 60，精选 8。来源状态：各来源已完成
+采集 65，候选 60，精选 8。来源状态：各来源已完成
 
-- [@ben_burtenshaw：Been working on this a while, and super happy to share the first few pre-release chapter of this book on post-training. ](https://x.com/ben_burtenshaw/status/2092258193632297315) — Ben Burtenshaw 发布了《Post-Training AI》的前两章草稿，内容包括用原生 PyTorch 实现 SFT 和 GRPO。作者将其定位为帮助初学者建立后训练直觉的实践材料；编辑认为，代码规模和免费 GPU 的设定使其具备较强的可复现教学价值，但内容仍处于未编辑的预发布阶段。
-- [@AndrewYNg：OpenWorker -- an open source agent that doesn't just chat but completes tasks on your laptop -- just released a new vers](https://x.com/AndrewYNg/status/2092315079576555806) — Andrew Ng 宣布 OpenWorker 新版本加入代码漏洞、依赖供应链注入和云配置攻击面的安全检查智能体，并称其编排软件完全开源、可在本地运行开放权重模型。上述功能与隐私收益均为作者声明；编辑认为，围绕智能体编排层可审计性的讨论具有实际工程意义。
-- [@percyliang：The fact that Simile’s first technical blog post is about confidence is notable. Confidence is paramount to simulation. ](https://x.com/percyliang/status/2092302845987225809) — Percy Liang 评价 Simile 首篇技术博客聚焦置信度这一选题很重要，并区分了总体评测与逐查询的实时置信度估计。这是研究者对模拟系统可靠性的观点；编辑认为，它把“平均表现良好”与“此刻结果可否采用”的差别说得清楚。
+- [@Alibaba_Qwen：Meet Qwen3.8-Flash, a multimodal MoE and an early preview of the Qwen4 architecture, now open-weight! The production ver](https://x.com/Alibaba_Qwen/status/2092591393424515114) — Qwen 官方发布了开放权重的 Qwen3.8-Flash，并将其描述为 Qwen4 架构的早期预览；帖文列出模型规模、上下文长度、训练成本比较和多项基准分数，这些性能与成本结论均为发布方主张。编辑认为，开放权重、较低激活参数规模与架构信息使其成为值得持续核验的重要模型发布。
+- [@OpenAI：We have conducted a thorough investigation into the Hugging Face incident. We are releasing a technical report and accom](https://x.com/OpenAI/status/2092691861773160673) — OpenAI 表示已完成对 Hugging Face 事件的调查，并将发布技术报告和配套博客，内容包括重建智能体活动、分析既有安全措施失效原因及防范措施。事件细节与整改成效尚待报告正文提供证据；编辑认为，公开事故复盘对智能体安全实践具有较高参考价值。
+- [@AnthropicAI：Three research groups—Stanford’s Social and Language Technologies lab, Oxford’s Human Information Processing Lab, and ME](https://x.com/AnthropicAI/status/2092661574523867302) — Anthropic 称，斯坦福 SALT Lab、牛津 Human Information Processing Lab 与 METR 三个研究组设计了独立研究，分析 2026 年 4 至 5 月间 25 万段 claude.ai 或 Claude Code 对话的聚合输出。该数据范围来自机构帖文；编辑认为，向外部团队开放隐私保护后的实际使用数据，有助于把 AI 社会影响研究延伸到实验室之外。
 
 [查看频道专页](https://zichenwang114514.github.io/ai-x-daily/channels/aivoices/)
 
 ## Engineering
 
-采集 44，候选 42，精选 1。来源状态：各来源已完成
+采集 58，候选 57，精选 6。来源状态：各来源已完成
 
-- [v0.3.0](https://github.com/ggml-org/llama.cpp/releases/tag/v0.3.0) — ggml-org/llama.cpp 发布 v0.3.0，新增 dots3-note 多模态模型与 DSA-ISWA KV cache，支持 GLM-4.5-Air 的 MTP、DeepSeek 4 的 `-sm tensor` 张量切分，并将 ggml 升级至 v0.22.0；同时改进多模态处理、服务器调试和聊天界面。
+- [Release: v5.16.0](https://github.com/huggingface/transformers/releases/tag/v5.16.0) — huggingface/transformers v5.16.0 新增 Qwen4-Exp、GraniteSpeech5、Step3p7、CohereCompass、ESMC 和 ESMFold2 模型支持；同时以 DTensor 原生后端替换旧 tensor-parallel 实现，并改进量化、缓存和并行推理。
+- [v0.28.0](https://github.com/vllm-project/vllm/releases/tag/v0.28.0) — vllm-project/vllm v0.28.0 集中优化 Kimi-K3 与 DeepSeek V4 服务，加入更多推测解码、KV cache 分级卸载、Model Runner V2 与多硬件支持，并修复音频解码时长校验可被绕过的 DoS 问题。
+- [v1.11.0](https://github.com/huggingface/trl/releases/tag/v1.11.0) — huggingface/trl v1.11.0 改用 vLLM 原生 server，新增实验性 `AsyncDistillationTrainer` 与多教师 MOPD，并加入多个模型支持和 VLM 强化学习训练修复。
 
 [查看频道专页](https://zichenwang114514.github.io/ai-x-daily/channels/engineering/)
 

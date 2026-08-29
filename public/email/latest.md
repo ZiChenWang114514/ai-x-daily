@@ -1,54 +1,52 @@
-# AIxDaily · 2026-08-29
+# AIxDaily · 2026-08-30
 
-今日精选：AI × Chem 14 项，AI × Bio 14 项，AI × Math 6 项，AI Voices 8 项，Engineering 10 项。今日五频道以预印本与软件更新为主。化学、生物和数学频道的重点均为预印本，未将其视作同行评议结论；内容涵盖实验反馈分子优化、临床与影像建模、证明核验和推理训练。观点频道收录的是公开帖文，包括调查参与者陈述、机构早期测试说法及开放权重消息。工程频道则包含 llama.cpp 预发布修复与 RDKit 正式软件发布。
+今日精选：AI × Chem 8 项，AI × Bio 14 项，AI × Math 6 项，AI Voices 8 项，Engineering 1 项。今日关注聚焦可验证的科研智能与工具实践：化学和生物频道均以预印本为主，分别讨论合成可及性表示、医学多模态与蛋白质组基础模型；数学频道提出实验保真审计和可验证推理；AI Voices 汇集公开发布与观点，性能主张仍待独立复现；工程频道则记录 Codex 的正式软件发布。
 
 ## AI × Chem
 
-采集 1479，候选 60，精选 14。来源状态：各来源已完成
+采集 918，候选 60，精选 8。来源状态：各来源已完成
 
-- [A closed-loop reinforcement learning framework for rapid compound directed optimization](https://www.biorxiv.org/content/10.64898/2026.08.24.745890) — RCDO 将三维结构引导生成模型与强化学习结合，并在每轮设计后用全部已合成化合物的实验结果更新多层奖励函数。作者在 ROR1、NLRP3 和 NSD3 三个前瞻性湿实验项目中报告，分别实现 ROR1 抑制剂口服暴露提高 40 倍、NLRP3 拮抗剂 CYP2C19 抑制降低 20 倍，以及 NSD3 先导物结合亲和力提高 18 倍。
-- [Packora: Systematic Design for Generative Molecular Crystal Structure Prediction](https://arxiv.org/abs/2608.26962v1) — Packora 是一个流式生成分子晶体结构预测模型，可从分子图联合预测原子坐标与晶格，并处理多组分和有机金属晶体。作者将生成与排序分开评估，报告其在六项生成基准上取得最佳同预算覆盖率，同时提高实验晶型恢复率、降低实验晶型排名并加快排序收敛。
-- [Cross-Scale Assessment of MACE Foundation Models and from Scratch Trained Potentials for Bi-Pt Systems](https://doi.org/10.26434/chemrxiv.15007985/v1) — 该研究在 Bi-Pt 纳米笼和块体 BiPt 上比较四个预训练 MACE 基础模型与两个从头训练势能模型，并以 DFT 和实验为参照。OMAT 对块体晶格参数的预测在实验值 1.15% 以内，双相共存模拟给出 1083±38 K 的熔点，接近 1038 K 的实验值。
+- [Can SMILES be fragmented into a concatenable ordered sequence of retrosynthetically interesting string block ?](https://www.biorxiv.org/content/10.64898/2026.08.25.747180) — 该研究通过枚举同一分子的 SMILES 表示，将与自动逆合成分析得到的潜在合成子相对应的字符串片段组织为可拼接、有序的区块，并在 MolGPT 与 Monte Carlo Tree Search（MCTS）生成中测试其作用。
+- [Bridging Food Chemistry and Computational Approaches with Agentic AI: Plant Protein Solubility and Bioactive-Enzyme Interactions](https://doi.org/10.26434/chemrxiv.15007938/v1) — 该工作提出可见、逐步的人机协作 Agentic AI 工作流，将食品化学假设转为可规划、实施、测试和复用的计算流程，并以植物蛋白溶解性和膳食多酚—胰脂肪酶相互作用为例验证。
+- [Four numbers, one axis: deep learning models reveal what leaf spectrum constrains about Farquhar-von Caemmerer-Berry photosynthesis](https://www.biorxiv.org/content/10.64898/2026.08.27.747677) — 研究以数据集阻断、物种阻断和留一数据集验证重新评估叶片反射光谱预测 FvCB 光合参数的能力，并利用带固定可微 FvCB 解码器的卷积编码器考察参数可辨识性。
 
 [查看频道专页](https://zichenwang114514.github.io/ai-x-daily/channels/aixchem/)
 
 ## AI × Bio
 
-采集 1931，候选 60，精选 14。来源状态：各来源已完成
+采集 972，候选 60，精选 14。来源状态：各来源已完成
 
-- [Personalized Knowledge-based Graph Neural Networks and Regression Analysis for Computational Diagnosis of High-Risk Cardiovascular Disease Patients](https://www.medrxiv.org/content/10.64898/2026.08.24.26361273) — 以个体化知识图网络整合蛋白组、临床变量和分子先验，用于心肌梗死后心力衰竭风险预测及 empagliflozin 治疗反应建模。
-- [Cross cohort oral microbiome meta-analysis identifies shared OPMD OSCC dysbiosis while machine learning exposes limits of OSCC classifier transportability](https://www.biorxiv.org/content/10.64898/2026.08.28.747776) — 对 5 项 OPMD 和 4 项 OSCC 16S rRNA 研究进行统一重处理，并以留一队列验证检验口腔微生物分类器的可迁移性。
-- [Development of an automated, reliable, and clinically meaningful artificial intelligence (AI) tool for diagnosing cardiac disease from conventional cardiovascular magnetic resonance (CMR) images](https://europepmc.org/article/PPR/PPR1305708) — 用本地运行的 LLM 从 CMR 报告提取诊断标签，并微调三种视觉基础模型处理 cine 与 LGE CMR，以诊断五类心脏状态。
+- [From Reasoning to Pixels: Grounded Medical Multimodal LLMs for VQA and Segmentation](https://arxiv.org/abs/2608.26856v1) — MedREAL 将医学多模态语言模型的诊断推理与像素级分割连接起来，并在四种影像模态的 13,824 个专家验证样本上评估。
+- [Trends in Machine Learning and Feature Selection Stability for Human Gut Microbiome (Shotgun Metagenomics) and Metabolomics Matched Datasets](https://www.biorxiv.org/content/10.1101/2025.06.21.660858) — 该研究系统比较人类肠道宏基因组—代谢组匹配数据中的多组学整合策略、机器学习算法及特征选择稳定性。
+- [OmicsFM brings proteomics into the foundation model era](https://www.biorxiv.org/content/10.64898/2026.08.25.747021) — OmicsFM 在 1,397 个重处理 PRIDE 项目的 48,837 份蛋白质组学谱上预训练，以测试蛋白质组基础模型的表征能力。
 
 [查看频道专页](https://zichenwang114514.github.io/ai-x-daily/channels/aixbio/)
 
 ## AI × Math
 
-采集 616，候选 60，精选 6。来源状态：各来源已完成
+采集 284，候选 60，精选 6。来源状态：各来源已完成
 
-- [FaithSieve: Fine-Grained Evaluation of Math Proofs with Faithful Formal Evidence](https://arxiv.org/abs/2608.26310v1) — FaithSieve 以 Lean 辅助的局部证明义务验证，评估自然语言数学证明并定位首个逻辑错误。
-- [From Atomic to Agentic: Towards Interpretable Evaluation of LLMs' Agentic Mathematical Capabilities](https://arxiv.org/abs/2608.26950v1) — 该工作提出过程级数学 agent 评测，将规划、行动和反馈任务对应到可复用的数学原子能力。
-- [Boosting LLM Exploration via Weak-Model Guidance in RLVR](https://arxiv.org/abs/2608.27420v1) — 该工作在 RLVR 训练中引入较弱模型生成的部分推理轨迹，以扩大目标模型探索到的推理路径。
+- [Beyond Execution: Auditing Experimental Fidelity in LLM-Driven Scientific Research](https://arxiv.org/abs/2608.26753v1) — ABE-Ralph 以原始参考方法为依据审计 LLM 驱动的科学实验复现，将主张、方案、必要组件、基线和指标表示为结构化实验约束，并进行定量、定性与代码级核查。
+- [GRAIN: Bridging Name and Narrative Shifts in Real-World Graph Reasoning through Invariance-Rewarded Agentic RL](https://arxiv.org/abs/2608.27142v1) — GRAIN 用结构不变性奖励训练单智能体，将文本中的图任务解析为结构并调用工具执行；其 GRIT 基准专门测量节点名称与任务表述变化带来的推理脆弱性。
+- [SymbolLKG: Towards Verifiable Logical Reasoning via Logical Knowledge Graph and Symbolic Solvers](https://arxiv.org/abs/2608.26836v1) — SymbolLKG 将 Logical Knowledge Graph、拓扑感知检索和动态符号求解器路由结合，以显式表示逻辑规则与约束，并生成可核查的逻辑推理路径。
 
 [查看频道专页](https://zichenwang114514.github.io/ai-x-daily/channels/aixmath/)
 
 ## AI Voices
 
-采集 58，候选 50，精选 8。来源状态：各来源已完成
+采集 50，候选 43，精选 8。来源状态：各来源已完成
 
-- [@RyanGreenblatt：After our investigation of the OpenAI / Hugging Face incident, many open questions remain. We spent 6 days on premises w](https://x.com/RyanGreenblatt/status/2092741434764095828) — 参与调查的 Ryan Greenblatt 说明，OpenAI／Hugging Face 事件调查虽获得现场数据访问，但完整数据集仅在最后两天可用，且调查只覆盖该单一事件与截至7月13日的时段。
-- [@AnthropicAI：In early testing, AI agents used MHS to: Run a drug-discovery experiment with real-time error handling at Genentech Comp](https://x.com/AnthropicAI/status/2093038428757918070) — Anthropic 称，早期测试中，采用 MHS 的智能体曾在药物发现、成像实验和量子计算激光稳定性任务中展示应用结果，其中一项激光稳定性指标从58%升至99.3%。
-- [@Zai_org：GLM-5.3 is now open-weight. Our most capable model for agentic coding and cyber defense is now available to download, ru](https://x.com/Zai_org/status/2093354097122455713) — Z.ai 宣布 GLM-5.3 以开放权重形式提供下载、运行和定制，并链接了权重页面与技术博客。
+- [@kwindla：Introducing PhoneLLM, an open model for voice agents. GPT 5.6 Terra performance on typical voice agent tasks at 1/3 the ](https://x.com/kwindla/status/2093014818647339026) — Pipecat 团队成员发布 PhoneLLM，帖文称其为面向语音智能体的开放模型，并称其在典型任务上以更低延迟和成本达到 GPT 5.6 Terra 的性能。
+- [@random_walker：My best rough estimate of the fraction of the scientific literature that’s wrong — flat-out wrong, you’d-be-nuts-to-rely](https://x.com/random_walker/status/2093359668806512793) — Arvind Narayanan 估计，大量科学文献存在严重错误；他认为科学自我修正依赖后续复现、计算检查和假设挑战，并主张文献智能体应主动检索后续质疑研究。
+- [@HuaxiuYaoML：Can frontier AI agents achieve Recursive Self-Improvement by turning a weak method into one that performs better on hidd](https://x.com/HuaxiuYaoML/status/2092779580004474985) — Huaxiu Yao 宣布 RSI-Exam：覆盖 6 个领域、含 88 个可执行研究任务的递归自我改进评测，并开放征集任务贡献；帖文给出 Opus 5 的隐藏集平均分。
 
 [查看频道专页](https://zichenwang114514.github.io/ai-x-daily/channels/aivoices/)
 
 ## Engineering
 
-采集 68，候选 59，精选 10。来源状态：各来源已完成
+采集 63，候选 48，精选 1。来源状态：各来源已完成
 
-- [b10677](https://github.com/ggml-org/llama.cpp/releases/tag/b10677) — ggml-org/llama.cpp b10677（预发布）修复 Vulkan 图优化中的 view-alias 依赖判断，避免 Qwen3.8 等带别名状态的模型在 AMD 与 NVIDIA Vulkan 上悄然生成错误 token。
-- [2026_03_6 (Q1 2026) Release](https://github.com/rdkit/rdkit/releases/tag/Release_2026_03_6) — rdkit/rdkit Release_2026_03_6 正式发布，新增 synthon space shape search、`RDKitFingerprintGenerators` 的 `ignoreAtoms` 支持，并集中改进解析、排序和构象生成实现。
-- [b10672](https://github.com/ggml-org/llama.cpp/releases/tag/b10672) — ggml-org/llama.cpp b10672（预发布）升级 OpenVINO 至 2026.3.1，加入 `Whisper.cpp` 与 Qwen3.5 NPU 支持，并扩展 OpenVINO 算子和编译配置。
+- [0.151.0](https://github.com/openai/codex/releases/tag/rust-v0.151.0) — openai/codex 发布 rust-v0.151.0：新增可选 MCP 服务器工具发现的可配置宽限期、扩展对 MCP 工具结果的检查或替换能力，以及按仓库合并的插件目录配置；同时修复权限配置、模型切换、远程沙箱和 MCP 错误传递等问题。
 
 [查看频道专页](https://zichenwang114514.github.io/ai-x-daily/channels/engineering/)
 

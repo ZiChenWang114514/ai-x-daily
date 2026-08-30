@@ -23,10 +23,24 @@ from aix_pipeline import (  # noqa: E402
     within_window,
 )
 from daily_digest import ARXIV_CATEGORIES, arxiv_category_query, fetch_arxiv, load_json  # noqa: E402
+from build_breaking_candidates import previous_breaking_keys  # noqa: E402
 from publish_daily import factual_overview  # noqa: E402
 
 
 class SourceWindowTests(unittest.TestCase):
+    def test_previous_breaking_news_is_excluded_by_id_and_url(self):
+        with tempfile.TemporaryDirectory() as directory:
+            site_root = Path(directory)
+            archive = site_root / "data" / "breaking" / "archive"
+            archive.mkdir(parents=True)
+            (archive / "2026-08-30.json").write_text(
+                '{"items":[{"id":"x:42","url":"https://x.com/example/status/42?ref=home"}]}',
+                encoding="utf-8",
+            )
+            keys = previous_breaking_keys(site_root, date(2026, 8, 31))
+            self.assertIn("id:x:42", keys)
+            self.assertIn("url:https://x.com/example/status/42", keys)
+
     def test_github_trending_parser_keeps_ranked_repository_metadata(self):
         parser = GitHubTrendingParser()
         parser.feed(

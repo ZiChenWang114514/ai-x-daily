@@ -24,6 +24,29 @@ MAJOR_TERMS = (
 )
 
 
+def previous_breaking_keys(site_root: Path, run_date: date) -> set[str]:
+    keys: set[str] = set()
+    archive_root = site_root / "data" / "breaking" / "archive"
+    for path in archive_root.glob("*.json"):
+        try:
+            archive_date = date.fromisoformat(path.stem)
+        except ValueError:
+            continue
+        if archive_date >= run_date:
+            continue
+        for item in load_json(path, {}).get("items") or []:
+            item_id = str(item.get("id") or "").strip()
+            key = natural_key(item)
+            url = str(item.get("url") or "").split("?", 1)[0].rstrip("/").lower()
+            if item_id:
+                keys.add(f"id:{item_id}")
+            if key:
+                keys.add(f"key:{key}")
+            if url:
+                keys.add(f"url:{url}")
+    return keys
+
+
 def read_x_cache(root: Path, run_date: date) -> list[dict[str, Any]]:
     path = root / "work" / "source-cache" / "x" / f"{run_date}.json.gz"
     if not path.exists():
@@ -70,6 +93,7 @@ def editorial_score(item: dict[str, Any], selected: bool) -> int:
 
 def build(root: Path, site_root: Path, run_date: date) -> dict[str, Any]:
     pool: list[dict[str, Any]] = []
+    reported = previous_breaking_keys(site_root, run_date)
     for channel in CHANNELS:
         payload = load_json(site_root / "data" / "channels" / channel / "latest.json", {})
         if str(payload.get("date") or "") != run_date.isoformat():
@@ -104,6 +128,10 @@ def build(root: Path, site_root: Path, run_date: date) -> dict[str, Any]:
     unique: dict[str, dict[str, Any]] = {}
     for item in pool:
         key = natural_key(item) or str(item.get("id") or "")
+        item_id = str(item.get("id") or "").strip()
+        url = str(item.get("url") or "").split("?", 1)[0].rstrip("/").lower()
+        if f"id:{item_id}" in reported or f"key:{key}" in reported or (url and f"url:{url}" in reported):
+            continue
         if key and (key not in unique or int(item.get("editorial_score") or 0) > int(unique[key].get("editorial_score") or 0)):
             unique[key] = item
     items = sorted(unique.values(), key=lambda item: (int(item.get("editorial_score") or 0), str(item.get("published_at") or "")), reverse=True)[:120]

@@ -52,8 +52,9 @@ jobs:
         run: |
           digest_date="$(python -c 'import json; print(json.load(open("public/data/daily/latest.json", encoding="utf-8"))["date"])')"
           title="AIX每日精读 · ${digest_date}"
-          if gh issue list --state all --search "${title} in:title" --json title --jq '.[].title' | grep -Fxq "$title"; then
-            echo "Notification issue already exists."
+          issue_number="$(gh issue list --state all --search "${title} in:title" --json number,title --jq ".[] | select(.title == \"${title}\") | .number" | head -n 1)"
+          if [ -n "$issue_number" ]; then
+            gh issue edit "$issue_number" --body-file public/email/latest.md
           else
             gh issue create \
               --title "$title" \

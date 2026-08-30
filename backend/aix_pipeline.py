@@ -17,6 +17,7 @@ import xml.etree.ElementTree as ET
 from dataclasses import asdict
 from datetime import date, datetime, timedelta, timezone
 from email.utils import parsedate_to_datetime
+from html.parser import HTMLParser
 from pathlib import Path
 from typing import Any, Callable
 
@@ -35,7 +36,7 @@ CHANNEL_META = {
     "aixbio": ("AI × Bio 每日精选", "计算生物学、组学、蛋白质与生物医学模型。"),
     "aixmath": ("AI × Math 每日精选", "自动推理、形式化证明、数学智能与基础模型。"),
     "aivoices": ("AI Voices 每日精选", "研究者公开观点、研究发布与重要讨论。"),
-    "engineering": ("Engineering 每日精选", "重要框架、模型与工具链的发布说明。"),
+    "engineering": ("Engineering 每日精选", "每日 GitHub Trending 中的 AI 开源项目、社区动向与重要发布。"),
 }
 
 AI_TERMS = ("artificial intelligence", "machine learning", "deep learning", "foundation model", "language model", "llm", "transformer", "neural", "diffusion", "generative", "representation learning", "reinforcement learning", "agent")
@@ -153,7 +154,7 @@ def item_id(source: str, value: str) -> str:
 
 def natural_key(item: dict[str, Any]) -> str:
     metadata = item.get("metadata") or {}
-    for name in ("doi", "arxiv_id", "forum_id", "post_id", "release_id"):
+    for name in ("doi", "arxiv_id", "forum_id", "post_id", "release_id", "trending_id"):
         if metadata.get(name):
             return f"{name}:{str(metadata[name]).lower()}"
     return re.sub(r"[?#].*$", "", str(item.get("url") or item.get("id") or "")).rstrip("/").lower()
@@ -288,6 +289,19 @@ def score_item(item: dict[str, Any], channel: str) -> float:
         if item.get("source") != "X":
             score += 8
     else:
+        if item.get("item_type") == "trending_repository":
+            metrics = item.get("metrics") or {}
+            stars_today = int(metrics.get("stars_today") or 0)
+            score = 68 + min(12, int(stars_today ** 0.5))
+            item["category"] = "GitHub Trending"
+            item["tags"] = list(dict.fromkeys([
+                "GitHub Trending",
+                str((item.get("metadata") or {}).get("language") or "").strip(),
+                *((item.get("metadata") or {}).get("topics") or []),
+            ]))[:6]
+            item["evidence_flags"] = ["daily_snapshot", "github_metadata"]
+            item["quality_score"] = min(100, round(score, 1))
+            return item["quality_score"]
         score = 55 + min(18, len(ai) * 3) + min(18, len(quality) * 3)
         release_type = (item.get("metadata") or {}).get("release_type")
         score += 5 if release_type == "release" else 0
@@ -599,6 +613,158 @@ def fetch_feeds(runtime: Runtime, watchlists: dict[str, Any]) -> list[dict[str, 
     return runtime.cache("feeds", create)
 
 
+class GitHubTrendingParser(HTMLParser):
+    """Extract the ranked repository rows exposed by github.com/trending."""
+
+    def __init__(self) -> None:
+        super().__init__(convert_charrefs=True)
+        self.items: list[dict[str, Any]] = []
+        self.current: dict[str, Any] | None = None
+        self.capture = ""
+        self.capture_depth = 0
+        self.buffer: list[str] = []
+
+    @staticmethod
+    def classes(attrs: list[tuple[str, str | None]]) -> set[str]:
+        value = dict(attrs).get("class") or ""
+        return set(value.split())
+
+    def start_capture(self, name: str) -> None:
+        self.capture = name
+        self.capture_depth = 1
+        self.buffer = []
+
+    def handle_starttag(self, tag: str, attrs: list[tuple[str, str | None]]) -> None:
+        values = dict(attrs)
+        classes = self.classes(attrs)
+        if tag == "article" and "Box-row" in classes:
+            self.current = {"description": "", "language": "", "stars_today": 0}
+            return
+        if self.current is None:
+            return
+        if self.capture:
+            self.capture_depth += 1
+        href = values.get("href") or ""
+        if tag == "a" and re.fullmatch(r"/[A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+", href):
+            if not self.current.get("repository"):
+                self.current["repository"] = href.strip("/")
+                self.current["url"] = f"https://github.com{href}"
+        elif tag == "p" and "col-9" in classes:
+            self.start_capture("description")
+        elif tag == "span" and values.get("itemprop") == "programmingLanguage":
+            self.start_capture("language")
+        elif tag == "span" and "float-sm-right" in classes:
+            self.start_capture("stars_today")
+
+    def handle_data(self, data: str) -> None:
+        if self.current is not None and self.capture:
+            self.buffer.append(data)
+
+    def handle_endtag(self, tag: str) -> None:
+        if self.current is None:
+            return
+        if self.capture:
+            self.capture_depth -= 1
+            if self.capture_depth == 0:
+                text = clean_text(" ".join(self.buffer))
+                if self.capture == "stars_today":
+                    match = re.search(r"([\d,]+)\s+stars?\s+today", text, re.I)
+                    self.current[self.capture] = int(match.group(1).replace(",", "")) if match else 0
+                else:
+                    self.current[self.capture] = text
+                self.capture = ""
+                self.buffer = []
+        if tag == "article":
+            if self.current.get("repository"):
+                self.items.append(self.current)
+            self.current = None
+
+
+def fetch_github_trending(runtime: Runtime) -> list[dict[str, Any]]:
+    """Capture the complete daily GitHub Trending page and enrich every row."""
+
+    def create() -> list[dict[str, Any]]:
+        request = urllib.request.Request(
+            "https://github.com/trending?since=daily",
+            headers={
+                "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/140.0 Safari/537.36",
+                "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
+                "Accept-Language": "en-US,en;q=0.9",
+            },
+        )
+        with urllib.request.urlopen(request, timeout=60) as response:
+            page = response.read().decode("utf-8", errors="replace")
+        parser = GitHubTrendingParser()
+        parser.feed(page)
+        snapshot = parser.items
+        runtime.record_request("github.com", "GitHub Trending", "ok", len(snapshot))
+        if not snapshot:
+            raise RuntimeError("GitHub Trending 页面未解析出仓库")
+
+        token = os.getenv("GITHUB_TOKEN", "")
+        headers = {"Authorization": f"Bearer {token}", "X-GitHub-Api-Version": "2022-11-28"} if token else {"X-GitHub-Api-Version": "2022-11-28"}
+        results: list[dict[str, Any]] = []
+        captured_at = utc_now().isoformat(timespec="seconds")
+        for rank, row in enumerate(snapshot, 1):
+            repo = str(row["repository"])
+            try:
+                details, response_headers = request_json(f"https://api.github.com/repos/{repo}", headers=headers)
+            except (urllib.error.HTTPError, urllib.error.URLError):
+                details, response_headers = {}, {}
+            description = clean_text(details.get("description") or row.get("description"))
+            language = clean_text(details.get("language") or row.get("language"))
+            topics = [clean_text(value) for value in details.get("topics") or [] if clean_text(value)]
+            stars_today = int(row.get("stars_today") or 0)
+            results.append({
+                "id": item_id("github-trending", f"{runtime.run_date}:{repo}"),
+                "channel": "engineering",
+                "related_channels": [],
+                "item_type": "trending_repository",
+                "source": "GitHub Trending",
+                "title": repo,
+                "url": clean_text(details.get("html_url") or row.get("url")),
+                "published_at": str(runtime.run_date),
+                "updated_at": clean_text(details.get("pushed_at") or captured_at),
+                "creators": [repo.split("/", 1)[0]],
+                "language": "en",
+                "abstract_or_text": " · ".join(filter(None, [description, f"Topics: {', '.join(topics)}" if topics else ""])),
+                "summary_zh": "",
+                "why_it_matters_zh": "",
+                "quality_score": 0,
+                "tags": ["GitHub Trending", language, *topics],
+                "evidence_flags": ["daily_snapshot", "github_metadata"],
+                "publication_status": "daily_trending",
+                "rank": 0,
+                "featured": False,
+                "category": "GitHub Trending",
+                "metrics": {
+                    "daily_rank": rank,
+                    "stars_today": stars_today,
+                    "stars_total": int(details.get("stargazers_count") or 0),
+                    "forks": int(details.get("forks_count") or 0),
+                    "open_issues": int(details.get("open_issues_count") or 0),
+                },
+                "metadata": {
+                    "repository": repo,
+                    "language": language,
+                    "topics": topics,
+                    "license": clean_text((details.get("license") or {}).get("spdx_id")),
+                    "created_at": clean_text(details.get("created_at")),
+                    "pushed_at": clean_text(details.get("pushed_at")),
+                    "snapshot_date": str(runtime.run_date),
+                    "trending_id": f"{runtime.run_date}:{repo.lower()}",
+                    "trending_rank": rank,
+                },
+            })
+            retry = int(response_headers.get("retry-after", "0") or 0)
+            if rank < len(snapshot):
+                time.sleep(max(3, min(20, retry or 3)))
+        runtime.mark_success("github-trending", len(results))
+        return results
+
+    return runtime.cache("github-trending", create)
+
+
 def fetch_github(runtime: Runtime, watchlists: dict[str, Any]) -> list[dict[str, Any]]:
     start, end = runtime.window("github")
 
@@ -695,6 +861,7 @@ def collect_channel(root: Path, site_root: Path, channel: str, run_date: date) -
         attempt("X", lambda: fetch_x(runtime, watchlists))
         attempt("Research blogs", lambda: fetch_feeds(runtime, watchlists))
     elif channel == "engineering":
+        attempt("GitHub Trending", lambda: fetch_github_trending(runtime))
         attempt("GitHub Releases", lambda: fetch_github(runtime, watchlists))
 
     raw = deduplicate([item for batch in sources.values() for item in batch])

@@ -1,12 +1,12 @@
 # AIxDaily · 2026-08-30
 
-今日精选：AI × Chem 10 项，AI × Bio 14 项，AI × Math 6 项，AI Voices 9 项，Engineering 1 项。今日五个频道共同更新至8月30日，科研三频道以预印本为主：化学关注细胞功能预测与虚拟筛选，生物聚焦医学多模态与蛋白质组基础模型，数学侧重科研代理实验忠实度审计。AI Voices 汇集公开帖文和研究发布，涉及语音智能体、递归自我改进评测与自动化对齐；工程频道仅精选一项软件发布。各项性能与结论均应按其原始发布类型理解。
+今日精选：AI × Chem 10 项，AI × Bio 14 项，AI × Math 6 项，AI Voices 9 项，Engineering 8 项。今日五个频道共同聚焦科研智能体与可验证方法。AI×Chem、AI×Bio、AI×Math 的前三项均为预印本，报告了模型、基准或实验数据，但尚待同行评议；AI Voices 收录公开帖文与机构观点，相关性能主张仍需独立核验；Engineering 展示 GitHub Trending 项目。本次所阅前三项中未见同行评议论文或正式软件发布。
 
 ## 今日重大进展
 
-- [Levent Alpöge 公布 S⁶ 复结构候选构造，Claude 参与生成](https://x.com/__alpoge__/status/2091639630504604060) — Levent Alpöge 公布逾百页的 S⁶ 复结构候选构造，主张通过模形式相关的复二维环面族与特殊纤维紧化，在光滑六维球面上构造复结构；Claude 参与了构造生成。
-- [Anthropic 发布科研与先进制造设备控制标准 MHS 研究预览](https://x.com/AnthropicAI/status/2093038426140651791) — Anthropic 发布 Model Hardware Standard 研究预览，试图为 AI 智能体安全操作科研和先进制造设备建立通用标准。官方称，早期测试已用于药物发现、成像实验和量子计算激光稳定。
-- [Pipecat 发布开放语音智能体模型 PhoneLLM Alpha 1](https://x.com/kwindla/status/2093014818647339026) — Pipecat 团队发布面向语音智能体的开放权重模型 PhoneLLM Alpha 1，提供基准、权重与部署材料。发布方主张，它在典型语音任务上达到 GPT 5.6 Terra 水平，同时延迟约为三分之一、成本约为十八分之一。
+- [Levent Alpöge 公布 S⁶ 复结构候选构造，Claude 参与前沿数学研究](https://x.com/__alpoge__/status/2091639630504604060) — 数学家 Levent Alpöge 公布逾百页构造，主张借助模形式相关的复二维环面族及特殊纤维紧化，在光滑六维球面 S⁶ 上赋予复结构；Claude 参与了这项工作。
+- [Anthropic 启动 Model Hardware Standard 研究预览](https://x.com/AnthropicAI/status/2093038426140651791) — Anthropic 宣布启动 Model Hardware Standard（MHS）首阶段研究预览，为 AI 智能体操控实验室硬件提供通用接口；官方称，早期试用已覆盖药物发现、成像实验和量子计算中的实时调参。
+- [Pipecat 发布开放权重语音智能体模型 PhoneLLM](https://x.com/kwindla/status/2093014818647339026) — Pipecat 团队发布开放权重模型 PhoneLLM Alpha 1，基于 NVIDIA Nemotron Nano 30B 微调，并同步提供 PhoneBench、模型权重和部署资料。发布方主张，它在典型语音智能体任务中性能可比 GPT 5.6 Terra。
 
 ## AI × Chem
 
@@ -50,9 +50,11 @@
 
 ## Engineering
 
-采集 63，候选 48，精选 1。来源状态：GitHub Trending: HTTP 404 Not Found
+采集 82，候选 60，精选 8。来源状态：各来源已完成
 
-- [0.151.0](https://github.com/openai/codex/releases/tag/rust-v0.151.0) — openai/codex 发布 rust-v0.151.0，加入可选 MCP 服务器工具发现的可配置等待时间、扩展处理 MCP 工具结果的能力和按仓库合并的插件目录配置；并修复权限状态、模型切换、远程沙箱和 MCP 错误传递问题。
+- [THU-MAIC/OpenMAIC](https://github.com/THU-MAIC/OpenMAIC) — OpenMAIC 是一套开放式多智能体互动课堂，主打以一键方式提供沉浸式的多智能体学习体验。它位列 GitHub Trending 当日第 1 名，新增 907 星。
+- [K-Dense-AI/scientific-agent-skills](https://github.com/K-Dense-AI/scientific-agent-skills) — K-Dense-AI/scientific-agent-skills 提供面向科学研究的智能体技能库和数据库连接能力，覆盖生物、化学、医学与药物发现。它位列 GitHub Trending 当日第 2 名，新增 1,113 星。
+- [tt-a1i/archify](https://github.com/tt-a1i/archify) — Archify 是供编码智能体使用的架构图技能，可生成可核验的架构、工作流、时序、数据流和生命周期图，并导出为独立 HTML。它位列 GitHub Trending 当日第 4 名，新增 3,730 星。
 
 [查看频道专页](https://zichenwang114514.github.io/ai-x-daily/channels/engineering/)
 

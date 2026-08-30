@@ -27,6 +27,14 @@ def factual_overview(channels: list[dict[str, Any]], summary_overview: str) -> s
 
 
 def render_email(payload: dict[str, Any], site_url: str) -> tuple[str, str]:
+    breaking_rows = []
+    breaking_lines = []
+    for item in payload.get("breaking_news") or []:
+        breaking_rows.append(
+            f'<li style="margin:0 0 16px"><a href="{html.escape(item["url"])}" style="color:#9b2c2c;font-weight:800;text-decoration:none">{html.escape(item["headline_zh"])}</a>'
+            f'<div style="margin-top:5px;color:#46556d;line-height:1.65">{html.escape(item.get("summary_zh") or "")}</div></li>'
+        )
+        breaking_lines.append(f'- [{item["headline_zh"]}]({item["url"]}) — {item.get("summary_zh") or ""}')
     html_sections = []
     markdown_sections = []
     for channel in payload["channels"]:
@@ -44,8 +52,10 @@ def render_email(payload: dict[str, Any], site_url: str) -> tuple[str, str]:
         html_sections.append(f'<section style="padding:22px 0;border-bottom:1px solid #e7eaf0"><h2 style="margin:0 0 8px;font-size:21px">{html.escape(channel["name"])}</h2><p style="margin:0 0 14px;color:#69768a">采集 {stats["fetched"]} · 候选 {stats["candidates"]} · 精选 {stats["selected"]} · {html.escape(status)}</p><ol style="padding-left:22px">{"".join(rows)}</ol><a href="{channel_url}" style="color:#087c78">查看频道专页</a></section>')
         markdown_sections.append(f'## {channel["name"]}\n\n采集 {stats["fetched"]}，候选 {stats["candidates"]}，精选 {stats["selected"]}。来源状态：{status}\n\n' + "\n".join(lines) + f'\n\n[查看频道专页]({channel_url})')
     overview = payload.get("overview_zh") or "五个频道已完成当日整理，以下列出各频道前三项。"
-    email_html = f'''<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"></head><body style="margin:0;background:#f4f6f9;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Microsoft YaHei',sans-serif;color:#17233b"><table role="presentation" width="100%"><tr><td align="center" style="padding:28px 12px"><table role="presentation" width="720" style="width:100%;max-width:720px;background:#fff;border-radius:18px;padding:34px"><tr><td><div style="font-size:12px;letter-spacing:2px;color:#087c78">{SITE_NAME}</div><h1 style="margin:8px 0">{SITE_NAME} · {payload["date"]}</h1><p style="color:#46556d;line-height:1.7">{html.escape(overview)}</p>{''.join(html_sections)}<p style="text-align:center;margin-top:28px"><a href="{site_url}" style="display:inline-block;padding:11px 24px;border-radius:999px;background:#087c78;color:#fff;text-decoration:none;font-weight:700">查看完整网站与历史归档</a></p></td></tr></table></td></tr></table></body></html>'''
-    markdown = f'# {SITE_NAME} · {payload["date"]}\n\n{overview}\n\n' + "\n\n".join(markdown_sections) + f'\n\n[查看完整网站与历史归档]({site_url})\n'
+    breaking_html = f'<section style="margin:24px 0;padding:20px 22px;background:#fff5f0;border-left:4px solid #c5533d;border-radius:10px"><h2 style="margin:0 0 14px;font-size:21px">今日重大进展</h2><ol style="padding-left:22px;margin:0">{"".join(breaking_rows)}</ol></section>' if breaking_rows else ""
+    breaking_markdown = "## 今日重大进展\n\n" + "\n".join(breaking_lines) + "\n\n" if breaking_lines else ""
+    email_html = f'''<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"></head><body style="margin:0;background:#f4f6f9;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Microsoft YaHei',sans-serif;color:#17233b"><table role="presentation" width="100%"><tr><td align="center" style="padding:28px 12px"><table role="presentation" width="720" style="width:100%;max-width:720px;background:#fff;border-radius:18px;padding:34px"><tr><td><div style="font-size:12px;letter-spacing:2px;color:#087c78">{SITE_NAME}</div><h1 style="margin:8px 0">{SITE_NAME} · {payload["date"]}</h1><p style="color:#46556d;line-height:1.7">{html.escape(overview)}</p>{breaking_html}{''.join(html_sections)}<p style="text-align:center;margin-top:28px"><a href="{site_url}" style="display:inline-block;padding:11px 24px;border-radius:999px;background:#087c78;color:#fff;text-decoration:none;font-weight:700">查看完整网站与历史归档</a></p></td></tr></table></td></tr></table></body></html>'''
+    markdown = f'# {SITE_NAME} · {payload["date"]}\n\n{overview}\n\n{breaking_markdown}' + "\n\n".join(markdown_sections) + f'\n\n[查看完整网站与历史归档]({site_url})\n'
     return email_html, markdown
 
 
@@ -117,6 +127,7 @@ def build(site_root: Path, summary_path: Path | None, site_url: str, *, write_pa
         channels.append({**entry, "items": home_items})
         archive_channels.append({**entry, "items": archive_items})
     existing = load_json(site_root / "data" / "daily" / "latest.json", {})
+    breaking = load_json(site_root / "data" / "breaking" / "latest.json", {})
     overview = summary.get("overview_zh") or existing.get("overview_zh") or ""
     highlights = summary.get("channel_highlights") or existing.get("channel_highlights") or {}
     payload = {
@@ -125,6 +136,7 @@ def build(site_root: Path, summary_path: Path | None, site_url: str, *, write_pa
         "title": SITE_TITLE,
         "overview_zh": factual_overview(channels, overview),
         "channel_highlights": highlights,
+        "breaking_news": (breaking.get("items") or []) if str(breaking.get("date") or "") == run_date else [],
         "channels": channels,
     }
     if write_payload:

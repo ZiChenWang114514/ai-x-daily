@@ -67,6 +67,16 @@ class FiveChannelConfigurationTests(unittest.TestCase):
         self.assertGreaterEqual(len(watchlists["github_repositories"]), 20)
         self.assertGreaterEqual(len(watchlists["openreview_domains"]), 5)
 
+    def test_breaking_news_and_github_trending_are_in_the_daily_publish(self):
+        runner = (ROOT / "ops" / "run_local_pipeline.ps1").read_text(encoding="utf-8")
+        pipeline = (ROOT / "backend" / "aix_pipeline.py").read_text(encoding="utf-8")
+        home = (ROOT / "public" / "index.html").read_text(encoding="utf-8")
+        self.assertIn("build_breaking_candidates.py", runner)
+        self.assertIn("breaking_news_prompt.md", runner)
+        self.assertIn("fetch_github_trending", pipeline)
+        self.assertIn("https://github.com/trending?since=daily", pipeline)
+        self.assertIn('id="breaking-news-list"', home)
+
     def test_private_paths_and_secrets_are_ignored(self):
         ignored = (ROOT / ".gitignore").read_text(encoding="utf-8")
         for value in ("work/", "config/local.secrets.psd1"):

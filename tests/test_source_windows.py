@@ -13,6 +13,7 @@ if str(BACKEND) not in sys.path:
     sys.path.insert(0, str(BACKEND))
 
 from aix_pipeline import (  # noqa: E402
+    GitHubTrendingParser,
     Runtime,
     build_x_queries,
     collection_window,
@@ -26,6 +27,18 @@ from publish_daily import factual_overview  # noqa: E402
 
 
 class SourceWindowTests(unittest.TestCase):
+    def test_github_trending_parser_keeps_ranked_repository_metadata(self):
+        parser = GitHubTrendingParser()
+        parser.feed(
+            '<article class="Box-row"><h2><a href="/openai/codex">Codex</a></h2>'
+            '<p class="col-9">Coding agent</p><span itemprop="programmingLanguage">Rust</span>'
+            '<span class="float-sm-right">1,234 stars today</span></article>'
+        )
+        self.assertEqual(parser.items[0]["repository"], "openai/codex")
+        self.assertEqual(parser.items[0]["description"], "Coding agent")
+        self.assertEqual(parser.items[0]["language"], "Rust")
+        self.assertEqual(parser.items[0]["stars_today"], 1234)
+
     def test_github_utc_evening_counts_as_shanghai_next_day(self):
         self.assertEqual(publication_date("2026-08-16T20:00:00Z"), date(2026, 8, 17))
         self.assertTrue(within_window("2026-08-16T20:00:00Z", date(2026, 8, 17), date(2026, 8, 17)))

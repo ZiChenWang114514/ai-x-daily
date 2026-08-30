@@ -202,6 +202,10 @@ function Get-FailedChannels {
 }
 
 function Publish-Daily {
+    Invoke-Python @("backend/build_breaking_candidates.py", "--root", $RepoRoot, "--site-root", "public", "--date", $RunDate)
+    $BreakingPath = Join-Path $RunRoot "$RunDate-breaking-news.json"
+    Invoke-CodexJson (Join-Path $RepoRoot "ops\codex\breaking_news_prompt.md") (Join-Path $RepoRoot "ops\codex\breaking_news.schema.json") $BreakingPath "breaking-news"
+    Invoke-Python @("backend/apply_breaking_news.py", $BreakingPath, "--site-root", "public")
     $SummaryPath = Join-Path $RunRoot "$RunDate-daily-summary.json"
     Invoke-CodexJson (Join-Path $RepoRoot "ops\codex\daily_summary_prompt.md") (Join-Path $RepoRoot "ops\codex\daily_summary.schema.json") $SummaryPath "daily-summary"
     Invoke-Python @("backend/publish_daily.py", "--site-root", "public", "--summary", $SummaryPath)

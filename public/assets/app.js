@@ -32,6 +32,7 @@ const HUB_SOURCES = [
   "X",
   "研究博客",
   "GitHub Releases",
+  "GitHub Trending",
   "官方更新日志",
 ];
 const COLLECTION_KEY = AixCollection.KEY;
@@ -48,7 +49,16 @@ const channelTitles = {
   aixbio: "生命科学",
   aixmath: "数学",
   aivoices: "公开观点",
-  engineering: "工程更新",
+  engineering: "AI 工程趋势",
+};
+const sourceStatusLabels = {
+  official_announcement: "官方发布",
+  researcher_announcement: "研究者发布",
+  peer_reviewed: "同行评议论文",
+  preprint: "预印本",
+  public_post: "公开帖子",
+  release: "正式发布",
+  reported_result: "研究更新",
 };
 const weekdays = ["星期日", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六"];
 const generatedFormat = new Intl.DateTimeFormat("zh-CN", {
@@ -499,6 +509,51 @@ function renderChannels() {
   });
 }
 
+function renderBreakingNews() {
+  const section = document.querySelector(".breaking-news");
+  const container = document.getElementById("breaking-news-list");
+  if (!section || !container) return;
+  const items = page === "home" ? (state.payload?.breaking_news || []) : [];
+  section.hidden = items.length === 0;
+  if (!items.length) {
+    container.replaceChildren();
+    return;
+  }
+  const fragment = document.createDocumentFragment();
+  items.slice(0, 3).forEach((item, index) => {
+    const article = document.createElement("article");
+    article.className = "breaking-card";
+    const top = document.createElement("div");
+    top.className = "breaking-card__top";
+    const rank = document.createElement("span");
+    rank.className = "breaking-card__rank";
+    rank.textContent = String(index + 1).padStart(2, "0");
+    const channel = document.createElement("span");
+    channel.className = "breaking-card__channel";
+    channel.textContent = channelNames[item.channel] || "AIxDaily";
+    const status = document.createElement("span");
+    status.className = "breaking-card__status";
+    status.textContent = sourceStatusLabels[item.source_status] || item.source || "公开来源";
+    top.append(rank, channel, status);
+    const title = document.createElement("h3");
+    const link = document.createElement("a");
+    link.href = item.url;
+    link.target = "_blank";
+    link.rel = "noopener noreferrer";
+    setRichText(link, item.headline_zh || item.title || "重大进展");
+    title.appendChild(link);
+    const summary = document.createElement("p");
+    summary.className = "breaking-card__summary";
+    setRichText(summary, item.summary_zh || "");
+    const why = document.createElement("p");
+    why.className = "breaking-card__why";
+    setRichText(why, item.why_breaking_zh || "");
+    article.append(top, title, summary, why);
+    fragment.appendChild(article);
+  });
+  container.replaceChildren(fragment);
+}
+
 function paperSearchText(item) {
   const cached = state.searchIndex.get(item);
   if (cached) return cached;
@@ -641,7 +696,14 @@ function createItemCard(item, groupName) {
   openHint.className = "sr-only";
   openHint.textContent = "（在新窗口打开）";
   title.appendChild(openHint);
-  fragment.querySelector(".paper-meta").textContent = `${formatAuthorLine(item)} · ${(item.published_at || item.published || "日期暂缺").slice(0, 10)}`;
+  const metaParts = [formatAuthorLine(item), (item.published_at || item.published || "日期暂缺").slice(0, 10)];
+  if (item.item_type === "trending_repository") {
+    const metrics = item.metrics || {};
+    if (metrics.daily_rank) metaParts.push(`Trending #${metrics.daily_rank}`);
+    if (metrics.stars_today) metaParts.push(`今日 +${Number(metrics.stars_today).toLocaleString("zh-CN")} stars`);
+    if (metrics.stars_total) metaParts.push(`累计 ${Number(metrics.stars_total).toLocaleString("zh-CN")} stars`);
+  }
+  fragment.querySelector(".paper-meta").textContent = metaParts.join(" · ");
   const summary = item.summary_zh || "中文说明暂缺，请查看原始内容。";
   setRichText(fragment.querySelector(".summary-zh"), summary);
   const why = fragment.querySelector(".why-it-matters");
@@ -847,6 +909,7 @@ function renderHero(payload) {
 function renderPayload(payload) {
   state.payload = payload;
   renderHero(payload);
+  renderBreakingNews();
   renderChannels();
   renderSourceFilters();
   renderItems();

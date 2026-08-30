@@ -2,7 +2,7 @@
   "schema_version": "2.0",
   "date": "2026-08-30",
   "channel": "aixmath",
-  "generated_at": "2026-08-29T23:09:50+00:00",
+  "generated_at": "2026-08-30T14:57:44+00:00",
   "title": "AI × Math 每日精选",
   "subtitle": "自动推理、形式化证明、数学智能与基础模型。",
   "window": {
@@ -52,14 +52,11 @@
       ],
       "language": "en",
       "abstract_or_text": "LLM agents used for scientific experimentation must do more than generate executable code: they must implement the reference method faithfully, design experiments that test the paper's claims, and provide evidence supporting those claims. We show that agents often produce methodological hallucinations: silently reducing datasets or training budgets, replacing failed learning or generative components with lookup or oracle functions, or drawing conclusions from resource-limited settings where a method's claimed advantage disappears. To detect these failures, we introduce ABE-Ralph, a reference-anchored auditing framework that represents claims, protocols, required components, baselines, and metrics as structured experimental constraints, guides implementation through an 8-step workflow, and performs quantitative, qualitative, and code-level verification. Across 30 long-horizon reproduction runs covering 12 machine learning domains, ABE-Ralph achieves a 93% robust execution rate and identifies five scientific failure modes. In 23 NatureBench discovery tasks, ABE-Ralph matches or exceeds state-of-the-art performance on 5 tasks. These results show that reliable evaluation of AI scientists must assess whether the experimental design faithfully tests the intended claim and whether the resulting evidence supports it, rather than treating code execution or plausible metrics as evidence of scientific success.",
-      "summary_zh": "ABE-Ralph 以原始参考方法为依据审计 LLM 驱动的科学实验复现，将主张、方案、必要组件、基线和指标表示为结构化实验约束，并进行定量、定性与代码级核查。",
-      "why_it_matters_zh": "它把“代码能运行”与“实验确实检验了论文主张”区分开来；摘要给出了 30 次长程复现实验及 NatureBench 任务的公开评测范围。",
+      "summary_zh": "ABE-Ralph 将论文主张、协议、必需组件、基线与指标编码为实验约束，用于审计 LLM 科研代理是否忠实复现实验。在 30 次长程复现实验中，作者报告其稳健执行率为 93%，并在 23 个 NatureBench 发现任务中的 5 项达到或超过既有最佳结果。",
+      "why_it_matters_zh": "它把“代码能运行”与“实验是否真正检验论文主张”区分开来，为评估科研代理提供了可追溯的实验一致性标准；文中结果仍限于其所述复现任务与评测设置。",
       "quality_score": 83.0,
       "tags": [
-        "方法与模型",
-        "科学智能体",
-        "实验审计",
-        "可验证评测"
+        "方法与模型"
       ],
       "evidence_flags": [
         "dataset",
@@ -77,7 +74,7 @@
         "doi": "",
         "arxiv_id": "2608.26753v1"
       },
-      "abstract_zh": "用于科学实验的 LLM agent 除了生成可执行代码之外，还必须忠实实现参考方法、设计能够检验论文主张的实验，并提供支持这些主张的证据。我们表明，agent 经常产生方法学幻觉：悄然缩减数据集或训练预算，用查表或 oracle 函数替换失败的学习或生成组件，或在方法所声称的优势消失的资源受限设定中得出结论。为检测这些失败，我们提出 ABE-Ralph，这是一个以参考方法为依据的审计框架；它将主张、方案、必要组件、基线和指标表示为结构化实验约束，通过一个 8 步工作流引导实现，并进行定量、定性和代码级验证。在覆盖 12 个机器学习领域的 30 次长程复现实验中，ABE-Ralph 达到 93% 的稳健执行率，并识别出五类科学失败模式。在 23 个 NatureBench 发现任务中，ABE-Ralph 在其中 5 个任务上达到或超过当前最佳表现。这些结果表明，对 AI 科学家的可靠评估必须考察实验设计是否忠实检验预期主张、所得证据是否支持该主张，不能仅将代码执行或看似合理的指标视为科学成功的证据。",
+      "abstract_zh": "用于科学实验的 LLM 代理不能只生成可执行代码：它们还必须忠实实现参考方法，设计能够检验论文主张的实验，并提供支持这些主张的证据。我们表明，代理常会产生方法学幻觉：悄然缩减数据集或训练预算，用查找或预言函数替代失败的学习或生成组件，或在资源受限、方法所声称优势消失的条件下得出结论。为检测这些失败，我们引入以参考为依据的审计框架 ABE-Ralph。该框架将主张、协议、必需组件、基线和指标表示为结构化实验约束，以 8 步工作流指导实现，并进行定量、定性和代码层面的核验。在覆盖 12 个机器学习领域的 30 次长程复现实验中，ABE-Ralph 的稳健执行率达到 93%，并识别出五类科学失败模式。在 23 个 NatureBench 发现任务中，ABE-Ralph 在其中 5 项达到或超过既有最佳性能。这些结果表明，对 AI 科学家的可靠评估必须考察实验设计是否忠实检验预定主张，以及所得证据是否支持该主张，而不能把代码执行或看似合理的指标当作科学成功的证据。",
       "published": "2026-08-27",
       "author_line": "Lezhi Yu, Xiaogang Xu, Yuhua Zhou, Shuibing He, Aimin Pan"
     },
@@ -108,14 +105,11 @@
       ],
       "language": "en",
       "abstract_or_text": "Despite their potential in standardized graph tasks, Large Language Models (LLMs) remain brittle to real-world shifts in node identifiers and task formulation. While deterministic graph tools are invariant to such shifts, extracting topological structures from noisy text is highly fragile for LLMs, which often overfit to surface patterns. Moreover, mitigating these parsing failures via multi-agent systems incurs prohibitive latency. To address this, we propose GRAIN, a single-agent framework optimized via reinforcement learning. GRAIN models reasoning as a semantic parsing and tool-execution pipeline, guided by a Structure Invariance Reward. By validating extracted intermediate graphs against ground-truth topologies, this reward forces the LLM to learn robust text-to-structure mappings rather than memorizing linguistic artifacts. We also introduce GRIT, a benchmark evaluating sensitivity to such linguistic shifts. GRAIN outperforms multi-agent baselines by 16.45\\% in accuracy with approximately 24\\% lower latency. Furthermore, it demonstrates superior structural generalization, halving the out-of-distribution (OOD) gap of SFT models (from 15.77\\% to 7.80\\%) and maintaining robustness on large-scale graphs beyond the training distribution.",
-      "summary_zh": "GRAIN 用结构不变性奖励训练单智能体，将文本中的图任务解析为结构并调用工具执行；其 GRIT 基准专门测量节点名称与任务表述变化带来的推理脆弱性。",
-      "why_it_matters_zh": "该工作将图推理中的表面措辞干扰转化为可测的鲁棒性问题，并报告了相对多智能体基线的准确率、延迟和分布外泛化结果。",
+      "summary_zh": "GRAIN 以结构不变性奖励训练单代理完成文本到图结构的解析与工具执行，并以 GRIT 基准检验节点命名和叙述方式改变时的鲁棒性。作者报告：相对多代理基线，准确率提高 16.45%，延迟约降低 24%，且将 SFT 模型的 OOD 差距从 15.77% 降至 7.80%。",
+      "why_it_matters_zh": "该工作将图推理的可靠性测试从固定格式题目扩展到语言表述变化，直接检验模型是否保持拓扑结构；性能结论应限于 GRIT 与文中实验的图任务。",
       "quality_score": 79.0,
       "tags": [
-        "方法与模型",
-        "图推理",
-        "强化学习",
-        "鲁棒性基准"
+        "方法与模型"
       ],
       "evidence_flags": [
         "benchmark"
@@ -129,7 +123,7 @@
         "doi": "",
         "arxiv_id": "2608.27142v1"
       },
-      "abstract_zh": "尽管大语言模型（LLM）在标准化图任务中具有潜力，但面对节点标识符和任务表述在真实世界中的变化时仍然脆弱。确定性图工具对这类变化具有不变性，但 LLM 从含噪文本中提取拓扑结构十分脆弱，常常过度拟合表面模式。此外，借助多智能体系统缓解这些解析失败会带来难以承受的延迟。为解决这一问题，我们提出通过强化学习优化的单智能体框架 GRAIN。GRAIN 将推理建模为语义解析与工具执行流水线，并由 Structure Invariance Reward 引导。该奖励通过将抽取的中间图与真实拓扑进行验证，促使 LLM 学习稳健的文本到结构映射，而非记忆语言伪迹。我们还引入 GRIT，这是一个评估对此类语言变化敏感性的基准。GRAIN 的准确率比多智能体基线高 16.45%，延迟约低 24%。此外，它表现出更强的结构泛化能力，将 SFT 模型的分布外（OOD）差距减半，从 15.77% 降至 7.80%，并在超出训练分布的大规模图上保持稳健性。",
+      "abstract_zh": "尽管大语言模型（LLM）在标准化图任务中展现出潜力，但面对真实世界中节点标识符和任务表述的变化时仍然脆弱。确定性图工具对这类变化具有不变性，而 LLM 从噪声文本中提取拓扑结构却极其脆弱，常常过拟合表面模式。此外，通过多代理系统缓解这些解析失败会带来难以承受的延迟。为此，我们提出采用强化学习优化的单代理框架 GRAIN。GRAIN 将推理建模为语义解析和工具执行流水线，并由结构不变性奖励引导。该奖励通过对照真实拓扑验证所提取的中间图，促使 LLM 学习稳健的文本到结构映射，而非记忆语言表面痕迹。我们还提出基准 GRIT，用于评估对这类语言变化的敏感性。GRAIN 的准确率比多代理基线高 16.45%，延迟约低 24%。此外，它表现出更强的结构泛化能力，将 SFT 模型的分布外（OOD）差距减半（从 15.77% 降至 7.80%），并在超出训练分布的大规模图上保持稳健性。",
       "published": "2026-08-27",
       "author_line": "Zike Yuan, Han Zhang, Jianzhi Yan, Le Liu, Cai Ke, Huozhi Zhou, Jian Xie, Jiran Yin, Yukun Cao, Yue Yu, Hui Wang, Ming Liu, Bing Qin"
     },
@@ -152,14 +146,11 @@
       ],
       "language": "en",
       "abstract_or_text": "Large Language Models (LLMs) have demonstrated remarkable proficiency in natural language understanding, yet they struggle with strict multi-step reasoning, frequently suffering from hallucinations and inconsistency. Existing solutions like Chain-of-Thought (CoT) lack rigorous verification mechanisms, while standard Retrieval-Augmented Generation (RAG) often misses the complex, structural dependencies inherent in logical tasks. To bridge this gap, we propose a Neuro-Symbolic architecture that integrates a Logical Knowledge Graph (LKG) with dynamic solver routing. Specifically, we introduce an ontology-based LKG that treats logical rules and constraints as first-class topological nodes, enabling explicit modeling of dependencies extracted from text. We further design a Logic Router to dynamically dispatch tasks to the optimal symbolic engine, which is supported by a topology-aware hybrid retrieval mechanism. Experimental results on logical reasoning benchmarks demonstrate that our framework significantly outperforms state-of-the-art prompting and RAG baselines, delivering higher accuracy and verifiable reasoning paths.",
-      "summary_zh": "SymbolLKG 将 Logical Knowledge Graph、拓扑感知检索和动态符号求解器路由结合，以显式表示逻辑规则与约束，并生成可核查的逻辑推理路径。",
-      "why_it_matters_zh": "其任务指向严格多步逻辑推理，且评估明确比较提示、RAG 与符号求解结合后的准确率和推理路径可验证性。",
+      "summary_zh": "SymbolLKG 将逻辑规则和约束显式编码进 Logical Knowledge Graph，并用 Logic Router 将任务分派给符号求解器，以生成可核验的逻辑推理路径。作者称其在逻辑推理基准上优于提示和 RAG 基线。",
+      "why_it_matters_zh": "把自然语言解析、显式约束和符号求解结合，可使逻辑结论对应可检查的中间结构；摘要未给出具体基准名称与数值，能力结论仍需结合论文正文核对。",
       "quality_score": 76.0,
       "tags": [
-        "验证与逻辑",
-        "逻辑推理",
-        "神经符号",
-        "符号求解器"
+        "验证与逻辑"
       ],
       "evidence_flags": [
         "benchmark",
@@ -175,7 +166,7 @@
         "doi": "",
         "arxiv_id": "2608.26836v1"
       },
-      "abstract_zh": "大语言模型（LLM）在自然语言理解方面展现出显著能力，但在严格的多步推理中仍表现欠佳，经常出现幻觉和不一致。现有方案如 Chain-of-Thought（CoT）缺乏严格的验证机制，而标准的 Retrieval-Augmented Generation（RAG）常会遗漏逻辑任务固有的复杂结构依赖。为弥合这一差距，我们提出一种神经符号架构，将 Logical Knowledge Graph（LKG）与动态求解器路由结合。具体而言，我们引入基于本体的 LKG，将逻辑规则和约束视为一等拓扑节点，从而显式建模由文本抽取的依赖关系。我们还设计了 Logic Router，通过拓扑感知的混合检索机制支持其将任务动态分派给最优符号引擎。逻辑推理基准上的实验结果表明，我们的框架显著优于当前最佳提示和 RAG 基线，提供更高准确率和可验证的推理路径。",
+      "abstract_zh": "大语言模型（LLM）在自然语言理解方面已展现出显著能力，但在严格的多步推理中仍有困难，常出现幻觉和不一致。现有解决方案如思维链（CoT）缺少严格的核验机制，而标准检索增强生成（RAG）常常遗漏逻辑任务固有的复杂结构依赖。为弥合这一差距，我们提出一种神经符号架构，将 Logical Knowledge Graph（LKG）与动态求解器路由结合起来。具体而言，我们引入基于本体的 LKG，将逻辑规则和约束视为一等拓扑节点，从而能够显式建模从文本中提取的依赖关系。我们进一步设计 Logic Router，通过具有拓扑感知能力的混合检索机制支持其将任务动态分派给最优符号引擎。逻辑推理基准上的实验结果表明，我们的框架显著优于最先进的提示和 RAG 基线，提供了更高的准确率和可核验的推理路径。",
       "published": "2026-08-27",
       "author_line": "Haizhao Fan, Yuchi Xiong, Jize Wang, Xinping Guan, Xinyi Le"
     },
@@ -197,14 +188,11 @@
       ],
       "language": "en",
       "abstract_or_text": "Reinforcement learning-based knowledge distillation has the potential to transfer complex reasoning from teacher to student models, yet it currently faces a critical dilemma: researchers must choose between sparse outcome-based rewards, which provide insufficient logical guidance, or expensive neural Process Reward Models (PRMs) for dense signals. We resolve this by introducing SPEAR (Symbolic Process Evaluation and Alignment Reward), a training-free and plug-and-play process reward method for sequence-level on-policy distillation. SPEAR projects natural-language reasoning traces into domain-adaptive symbolic milestones, providing an efficient proxy for process-level reasoning alignment. By utilizing the longest common subsequence (LCS) to align student explorations with teacher milestones, SPEAR provides a dense, order-aware reward signal that enforces logical consistency without the need for an external neural verifier. Our experiments across math, science, and commonsense reasoning tasks demonstrate that SPEAR effectively bridges the reasoning gap between student and teacher models via sequence-level distillation with efficient dense process rewards. Our code and data are available at: https://github.com/zhuochunli/SPEAR.",
-      "summary_zh": "SPEAR 是用于序列级在线蒸馏的免训练过程奖励方法：它把自然语言推理轨迹投射为领域自适应的符号里程碑，再以最长公共子序列对齐教师与学生推理。",
-      "why_it_matters_zh": "它针对数学、科学和常识推理中的过程监督成本问题，给出无需额外神经验证器的稠密、顺序敏感奖励，并公开代码和数据。",
+      "summary_zh": "SPEAR 用最长公共子序列将学生模型的推理轨迹与教师模型的符号化里程碑对齐，为序列级蒸馏提供稠密、保序的过程奖励，无需额外神经验证器。作者在数学、科学和常识推理任务上进行评测，并公开代码与数据。",
+      "why_it_matters_zh": "该方法试图以可显式比对的推理结构替代昂贵的过程奖励模型，适合考察蒸馏中的中间步骤监督；符号里程碑与真实证明有效性并不等同。",
       "quality_score": 75.0,
       "tags": [
-        "验证与逻辑",
-        "过程奖励",
-        "知识蒸馏",
-        "数学推理"
+        "验证与逻辑"
       ],
       "evidence_flags": [
         "github",
@@ -219,7 +207,7 @@
         "doi": "",
         "arxiv_id": "2608.26550v1"
       },
-      "abstract_zh": "基于强化学习的知识蒸馏有望将复杂推理从教师模型转移至学生模型，但目前面临关键两难：研究者必须在只能提供不足逻辑引导的稀疏结果奖励，与提供稠密信号但成本高昂的神经 Process Reward Models（PRM）之间选择。我们通过引入 SPEAR（Symbolic Process Evaluation and Alignment Reward）解决这一问题；它是一种免训练、即插即用的过程奖励方法，用于序列级在线蒸馏。SPEAR 将自然语言推理轨迹投射为领域自适应的符号里程碑，为过程级推理对齐提供高效代理。通过利用最长公共子序列（LCS）将学生探索与教师里程碑对齐，SPEAR 提供稠密且具有顺序感知能力的奖励信号，在无需外部神经验证器的情况下强化逻辑一致性。我们在数学、科学和常识推理任务上的实验表明，SPEAR 能够通过采用高效稠密过程奖励的序列级蒸馏，有效缩小学生与教师模型之间的推理差距。我们的代码和数据可见：https://github.com/zhuochunli/SPEAR。",
+      "abstract_zh": "基于强化学习的知识蒸馏有望将复杂推理从教师模型迁移到学生模型，但目前面临一个关键困境：研究者必须在提供逻辑指导不足的稀疏结果奖励，和提供稠密信号却成本高昂的神经过程奖励模型（PRM）之间选择。我们通过提出 SPEAR（Symbolic Process Evaluation and Alignment Reward）解决这一问题；它是一种免训练、即插即用的过程奖励方法，用于序列级在线蒸馏。SPEAR 将自然语言推理轨迹投影为领域自适应的符号里程碑，为过程级推理对齐提供高效代理。通过使用最长公共子序列（LCS）将学生探索与教师里程碑对齐，SPEAR 提供稠密、保序的奖励信号，在无需外部神经验证器的情况下约束逻辑一致性。我们在数学、科学和常识推理任务上的实验表明，SPEAR 能够通过具有高效稠密过程奖励的序列级蒸馏，有效弥合学生与教师模型之间的推理差距。我们的代码和数据见：https://github.com/zhuochunli/SPEAR。",
       "published": "2026-08-27",
       "author_line": "Zhuochun Li, Yuelyu Ji, Yiming Zeng, Daqing He"
     },
@@ -251,14 +239,11 @@
       ],
       "language": "en",
       "abstract_or_text": "Large language model agents are increasingly deployed as autonomous loops. Starting from one human goal, such a system repeatedly discovers work, plans, executes tool calls, verifies outcomes and persists state across many unattended iterations. The agent safeguards in wide use, however, are defined over a single trajectory, and their safety state is re-initialized when the next trajectory begins. We show that this is a failure of composition rather than an implementation detail. Our central result is a separation: against an attack whose evidence is fragmented across several iterations, every trajectory-scoped monitor has a true-positive rate equal to its false-positive rate, however expressive it is, because the evidence it would need never appears in the window it sees, whereas a monitor retaining cross-iteration state separates the two perfectly. We further show that the obvious repair of carrying a geometrically decaying risk score is insufficient, because the cooling-off period a patient adversary must wait is a constant that does not grow with the horizon N. We then present LoopHarness, which restores a persistent, non-decaying safety state at the loop level. Under mediated commits and an arbiter detection floor δ_M, it bounds the expected number of unauthorized irreversible actions by B+m-1+m/δ_M, a constant in N, of which the B+m-1 term is decided by a model-free rule and therefore survives a fully colluding verifier. We give a complete evaluation protocol on native Agent-SafetyBench tasks with paired clean and attacked episodes, an outer-state attack suite whose decisive evidence exists only across iterations, per-module ablations, and an adaptive white-box red team.",
-      "summary_zh": "该研究证明，若攻击证据分散在多次智能体迭代中，仅查看单条轨迹的监控器无法有效区分攻击；LoopHarness 因此保留跨迭代、非衰减的安全状态，并给出未授权不可逆操作数的理论上界。",
-      "why_it_matters_zh": "工作提供了可检验的分离结论、以 N 为常数的风险上界，以及包含 Agent-SafetyBench、消融和白盒红队测试的公开评估方案。",
+      "summary_zh": "该文分析自主 LLM 代理跨多轮迭代时安全监测状态被重置的问题，给出轨迹级监测器的理论分离结果，并提出保留非衰减状态的 LoopHarness。作者同时给出 Agent-SafetyBench 上配对洁净/攻击情节、跨迭代攻击集、消融和白盒红队组成的评测协议。",
+      "why_it_matters_zh": "其理论论证说明，若决定性攻击证据被分散在多轮中，单轮监测难以识别；这为长期运行代理的可验证安全评测提出了明确对象，但仍是预印本中的理论与实验方案。",
       "quality_score": 71.0,
       "tags": [
-        "方法与模型",
-        "智能体安全",
-        "理论分析",
-        "长期状态"
+        "方法与模型"
       ],
       "evidence_flags": [
         "ablation",
@@ -273,7 +258,7 @@
         "doi": "",
         "arxiv_id": "2608.27141v1"
       },
-      "abstract_zh": "大语言模型智能体正日益被部署为自主循环。从一个人类目标出发，这类系统会在许多无人值守的迭代中反复发现工作、规划、执行工具调用、验证结果并持久化状态。然而，广泛使用的智能体防护措施是针对单条轨迹定义的，当下一条轨迹开始时，其安全状态会重新初始化。我们表明，这是组合性失效，而非实现细节。我们的核心结果是一个分离结论：面对证据分散于多个迭代的攻击，每个轨迹范围监控器的真阳性率都等于其假阳性率，无论其表达能力多强，因为它所需的证据从未出现在其可见窗口中；保留跨迭代状态的监控器则能完美区分二者。我们进一步表明，携带几何衰减风险分数这一直接修复方案并不充分，因为耐心攻击者必须等待的冷却期是一个不随时域 N 增长的常数。随后我们提出 LoopHarness，它在循环层面恢复持久、非衰减的安全状态。在经中介的提交和仲裁器检测下限 δ_M 条件下，它将未授权不可逆操作的期望数量限制为 B+m-1+m/δ_M；该量关于 N 为常数，其中 B+m-1 项由模型无关规则决定，因而即使验证器完全串通仍然有效。我们给出完整评估方案，包括在原生 Agent-SafetyBench 任务上配对的干净与受攻击回合、决定性证据只存在于跨迭代状态中的攻击集、逐模块消融，以及自适应白盒红队。",
+      "abstract_zh": "大语言模型代理日益被部署为自主循环。从一个人类目标开始，这样的系统会在许多无人值守的迭代中反复发现工作、规划、执行工具调用、核验结果并持久化状态。然而，被广泛使用的代理安全措施是针对单条轨迹定义的，当下一条轨迹开始时，其安全状态会重新初始化。我们表明，这是一种组合失败，而非实现细节。我们的核心结果是一个分离结论：面对证据分散在多次迭代中的攻击，每个以轨迹为范围的监测器，无论表达能力多强，其真阳性率都等于假阳性率，因为它所需的证据从未出现在它能看到的窗口中；而保留跨迭代状态的监测器能够将两者完全分离。我们进一步表明，显而易见的修复方案——携带几何衰减的风险分数——并不充分，因为耐心的对手需要等待的冷却期是一个不随时域 N 增长的常数。随后，我们提出 LoopHarness，在循环层面恢复持久、非衰减的安全状态。在经中介的提交和仲裁器检测下限 δ_M 的条件下，它将未经授权的不可逆操作的期望次数限制为 B+m-1+m/δ_M；该量关于 N 为常数，其中 B+m-1 项由模型无关规则决定，因此即使验证器完全串通也仍然有效。我们给出一套完整评测协议，包括原生 Agent-SafetyBench 任务上的配对洁净与受攻击情节、决定性证据只跨迭代存在的外部状态攻击集、逐模块消融，以及自适应白盒红队测试。",
       "published": "2026-08-27",
       "author_line": "Chenhao Wu, Haoxuan Jia, Yang Liu, Yingguang Yang, Yuhan Lin, Chongyang Zhang, Hao Zheng, Yulin Huang, Jianshen Zhang, Yongzhi Qi, Shang Luo, Kefu Xu, Jifeng Zhu, Bin Chong"
     },
@@ -296,14 +281,11 @@
       ],
       "language": "en",
       "abstract_or_text": "In this paper, we explore multi-expert Conformal Risk Control (CRC) algorithms for pairwise LLM-as-a-Judge evaluation in open-ended dialogue. Our core insight is that multi-expert aggregation offers a complementary remedy to CRC: whereas CRC controls risk at the decision threshold through abstention, aggregation sanitizes the scoring function at its source. Guided by this, we first design two multi-expert CRC methods: Score Averaging and Decision Voting, which aggregate at the score and decision levels, respectively. While both strategies outperform single-expert methods on homogeneous expert panels, on heterogeneous LLM judges they remain risk-valid but recover only limited coverage, because a uniform threshold cannot match the experts' distinct scoring scales. To resolve this issue, we further propose Marginal-Calibrated Conformal Consensus (MC3): it captures distinct per-expert scales via initial threshold ratios, while jointly tuning a unified decision function C_t(x) applied identically in both calibration and test, thereby preserving exchangeability. To evaluate our framework, we construct Panel, a 1,800-pair human pairwise-preference benchmark for open-ended dialogue. It is built on responses generated by four open-weight LLMs over dialogue contexts from three domains (ESConv, MSC, DREAM), with full logit access. In experiments, we find that both Score Averaging and Decision Voting substantially improve accuracy and acceptance rate on homogeneous panels. Notably, MC3 extends these gains to heterogeneous panels by accommodating distinct per-expert scoring scales across all three datasets.",
-      "summary_zh": "该研究为开放式对话中的成对 LLM-as-a-Judge 提出多专家 Conformal Risk Control 方法，并以 MC3 在保持交换性的同时校准异构评审模型的不同评分尺度。",
-      "why_it_matters_zh": "它把风险控制条件、校准设计与 1,800 对人工偏好样本的 Panel 基准结合，提供可复核的评审聚合任务和实证比较。",
+      "summary_zh": "该文研究开放式对话中 LLM-as-a-Judge 的成对比较，提出 Score Averaging、Decision Voting 和 Marginal-Calibrated Conformal Consensus（MC3）等多专家保形风险控制方法，并构建含 1,800 对人工偏好的 Panel 基准。",
+      "why_it_matters_zh": "保形风险控制为 LLM 评审的弃权阈值提供统计风险约束；Panel 的异质评审设置可检验多专家校准是否同时保持风险有效性与可接受覆盖率。",
       "quality_score": 71.0,
       "tags": [
-        "形式化证明",
-        "保形风险控制",
-        "LLM评审",
-        "统计校准"
+        "形式化证明"
       ],
       "evidence_flags": [
         "benchmark",
@@ -319,7 +301,7 @@
         "doi": "",
         "arxiv_id": "2608.26529v1"
       },
-      "abstract_zh": "本文探讨用于开放式对话中成对 LLM-as-a-Judge 评估的多专家 Conformal Risk Control（CRC）算法。我们的核心见解是，多专家聚合为 CRC 提供互补补救：CRC 通过弃权在决策阈值处控制风险，聚合则从评分函数产生时改善其质量。在这一思路指引下，我们首先设计两种多专家 CRC 方法：Score Averaging 和 Decision Voting，分别在分数和决策层面进行聚合。尽管两种策略在同质专家组上都优于单专家方法，但在异构 LLM 评审模型上，它们仍满足风险有效性，却只能恢复有限覆盖率，因为统一阈值无法匹配专家各异的评分尺度。为解决这一问题，我们进一步提出 Marginal-Calibrated Conformal Consensus（MC3）：它通过初始阈值比率捕捉各专家不同的尺度，同时联合调节一个在校准和测试中以相同方式应用的统一决策函数 C_t(x)，从而保持交换性。为评估该框架，我们构建了 Panel——一个面向开放式对话、包含 1,800 对人工成对偏好的基准。它由四个开放权重 LLM 在来自三个领域（ESConv、MSC、DREAM）的对话上下文中生成的回答构成，并提供完整 logit 访问。在实验中，我们发现 Score Averaging 和 Decision Voting 都显著提升了同质专家组的准确率和接受率。值得注意的是，MC3 通过适配三个数据集上不同专家的评分尺度，将这些收益扩展至异构专家组。",
+      "abstract_zh": "本文研究用于开放式对话中成对 LLM-as-a-Judge 评估的多专家保形风险控制（CRC）算法。我们的核心见解是，多专家聚合可为 CRC 提供互补性补救：CRC 通过弃权在决策阈值处控制风险，聚合则从源头净化评分函数。在此指导下，我们首先设计两种多专家 CRC 方法：Score Averaging 和 Decision Voting，分别在评分和决策层面进行聚合。尽管两种策略在同质专家组上都优于单专家方法，但在异质 LLM 评审器上，它们仍然具有风险有效性，却只能恢复有限的覆盖率，因为统一阈值无法匹配专家不同的评分尺度。为解决这一问题，我们进一步提出 Marginal-Calibrated Conformal Consensus（MC3）：它通过初始阈值比率捕捉每位专家不同的尺度，同时联合调节统一的决策函数 C_t(x)，并在校准和测试中以相同方式应用该函数，从而保持可交换性。为评估我们的框架，我们构建了 Panel：一个包含 1,800 对人工成对偏好的开放式对话基准。它建立在四个开放权重大语言模型针对三个领域（ESConv、MSC、DREAM）对话语境所生成的回答之上，并具有完整 logit 访问权限。在实验中，我们发现 Score Averaging 和 Decision Voting 都能在同质专家组上显著提高准确率和接受率。值得注意的是，MC3 通过适应所有三个数据集上专家不同的评分尺度，将这些收益扩展到异质专家组。",
       "published": "2026-08-27",
       "author_line": "Ming Cheng, Yusheng Dai, Qiuhong Ke, Zhaolin Chen, Lizhen Qu"
     }
@@ -327,6 +309,6 @@
   "review": {
     "model": "gpt-5.6-terra",
     "reasoning_effort": "high",
-    "note": "完整候选集共 60 项；以下 6 项质量分不低于 70，均为公开 preprint，并具有与推理、可检验评测或理论分析直接相关的任务与证据。"
+    "note": "从完整候选集保留 6 项：均为公开 arXiv 预印本，且具备较清晰的任务定义、可检验评测或明确的理论陈述。"
   }
 }

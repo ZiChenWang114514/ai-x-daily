@@ -2,9 +2,9 @@
   "schema_version": "2.0",
   "date": "2026-08-30",
   "channel": "engineering",
-  "generated_at": "2026-08-29T23:13:08+00:00",
+  "generated_at": "2026-08-30T14:57:57+00:00",
   "title": "Engineering 每日精选",
-  "subtitle": "重要框架、模型与工具链的发布说明。",
+  "subtitle": "每日 GitHub Trending 中的 AI 开源项目、社区动向与重要发布。",
   "window": {
     "start": "2026-08-27",
     "end": "2026-08-30"
@@ -17,16 +17,23 @@
     "candidates": 48,
     "selected": 1,
     "sources": {
+      "GitHub Trending": 0,
       "GitHub Releases": 63
     }
   },
   "source_status": {
+    "GitHub Trending": {
+      "state": "failed",
+      "count": 0
+    },
     "GitHub Releases": {
       "state": "ok",
       "count": 63
     }
   },
-  "source_errors": [],
+  "source_errors": [
+    "GitHub Trending: HTTP 404 Not Found"
+  ],
   "items": [
     {
       "id": "github:378941035",
@@ -43,19 +50,26 @@
       ],
       "language": "en",
       "abstract_or_text": "## New Features - Added a configurable grace period for discovering tools from optional MCP servers. (#41199) - Extensions can now inspect or replace MCP tool results before they reach the model. (#41202) - Plugin catalogs now combine per-repository configuration and report invalid project marketplaces without hiding valid plugins. (#41208) ## Bug Fixes - Preserved restored permission profiles across TUI turns and prevented `/cd` from weakening sandbox restrictions. (#41192) - Kept tool availabi…",
-      "summary_zh": "openai/codex 发布 rust-v0.151.0：新增可选 MCP 服务器工具发现的可配置宽限期、扩展对 MCP 工具结果的检查或替换能力，以及按仓库合并的插件目录配置；同时修复权限配置、模型切换、远程沙箱和 MCP 错误传递等问题。",
-      "why_it_matters_zh": "使用 Codex、MCP 服务器或插件目录的开发者将获得更稳定的工具发现与扩展工作流；权限、沙箱和授权状态相关修复也会影响受限执行环境中的可靠性与安全性。",
+      "summary_zh": "openai/codex 发布 rust-v0.151.0，加入可选 MCP 服务器工具发现的可配置等待时间、扩展处理 MCP 工具结果的能力和按仓库合并的插件目录配置；并修复权限状态、模型切换、远程沙箱和 MCP 错误传递问题。",
+      "why_it_matters_zh": "这体现了智能体开发工具从“能调用工具”转向可控扩展、受限执行与多环境兼容。使用 Codex、MCP 服务和插件目录的开发者可获得更稳定的工具发现与权限行为；需注意该版本涉及多个执行环境和插件配置组合，团队升级前仍应在自身工作流中验证。",
       "quality_score": 66.0,
       "tags": [
-        "工具链更新"
+        "开发者工具",
+        "智能体开发工具",
+        "MCP",
+        "插件系统",
+        "安全沙箱"
       ],
       "evidence_flags": [
-        "github"
+        "github",
+        "release-notes",
+        "security-fix",
+        "compatibility-update"
       ],
       "publication_status": "release",
       "rank": 1,
       "featured": true,
-      "category": "工具链更新",
+      "category": "开发者工具",
       "metrics": {},
       "metadata": {
         "repository": "openai/codex",
@@ -63,7 +77,7 @@
         "release_id": "378941035",
         "release_type": "release"
       },
-      "abstract_zh": "新功能：为发现来自可选 MCP 服务器的工具加入可配置的宽限期（#41199）；扩展现在可以在 MCP 工具结果交给模型前检查或替换结果（#41202）；插件目录现在会合并各仓库配置，并在项目 marketplace 无效时报告问题而不隐藏其他有效 marketplace（#41208）。 错误修复：在 TUI 多轮交互中保留恢复的权限配置，并防止 `/cd` 削弱沙箱限制（#41192）；切换模型或降级到其他模型时保持工具可用性和推理强度正确（#41195、#41206）；远程沙箱执行采用执行器实际的主目录、操作系统和路径规则（#41196、#41204、#41207、#41209）；在 app-server 响应中保留结构化 MCP 工具与资源错误（#41196）；将嵌套子 agent 的 token 用量计入根目标预算（#41183）；权限状态变化后，不再由过期的 Guardian 分类继续授权操作（#41196）。 其他改进：为升级的 stdin 审查和远程执行器 MCP 发现加入遥测（#41189、#41205）；在缓慢或高度并发的 CI 中稳定 Guardian WebSo…",
+      "abstract_zh": "openai/codex 的 rust-v0.151.0 新增：可为可选 MCP 服务器的工具发现设置等待时间；扩展可在结果交给模型前检查或替换 MCP 工具结果；插件目录会合并各仓库配置，并在某个项目 marketplace 无效时保留其他有效 marketplace。修复包括：恢复的权限配置在 TUI 多轮交互中保持有效，/cd 不再削弱沙箱限制；模型切换或降级时工具可用性与推理强度保持正确；远程沙箱采用执行器实际的主目录、操作系统和路径规则；app-server 保留结构化 MCP 工具与资源错误；嵌套子智能体的 token 用量计入根目标预算；权限状态变化后过期的 Guardian 分类不再继续授权操作。",
       "published": "2026-08-29",
       "author_line": "openai/codex"
     }
@@ -71,6 +85,6 @@
   "review": {
     "model": "gpt-5.6-terra",
     "reasoning_effort": "high",
-    "note": "已完整审阅 48 项候选；仅 2 项评分达到 65，其中 huggingface/trl v1.12.0 为与 v1.11.0 代码完全相同的误发版本，未入选。"
+    "note": "完整候选集共 48 项，均为 GitHub Release，未见 GitHub Trending 条目。仅 openai/codex rust-v0.151.0 同时满足评分阈值和重要安全、兼容性更新条件；huggingface/trl v1.12.0 为无代码差异的误发版本，未选。"
   }
 }

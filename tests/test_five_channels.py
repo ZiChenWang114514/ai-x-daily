@@ -108,6 +108,18 @@ class FiveChannelConfigurationTests(unittest.TestCase):
 
 
 class UnifiedOutputTests(unittest.TestCase):
+    def test_august_engineering_is_rebuilt_from_daily_trending(self):
+        root = ROOT / "public" / "data" / "channels" / "engineering" / "archive"
+        dates = [f"2026-08-{day:02d}" for day in range(1, 31)]
+        for day in dates:
+            payload = json.loads((root / f"{day}.json").read_text(encoding="utf-8"))
+            self.assertEqual(payload["date"], day)
+            self.assertGreaterEqual(payload["stats"]["selected"], 1)
+            self.assertLessEqual(payload["stats"]["selected"], 10)
+            self.assertEqual(set(payload["stats"]["sources"]), {"GitHub Trending"})
+            self.assertTrue(all(item["source"] == "GitHub Trending" for item in payload["items"]))
+            self.assertTrue(all((item.get("metadata") or {}).get("snapshot_date") == day for item in payload["items"]))
+
     def test_generated_outputs_when_present(self):
         required = {
             "id", "channel", "related_channels", "item_type", "source", "title", "url",

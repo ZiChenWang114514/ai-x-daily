@@ -699,7 +699,9 @@ function createItemCard(item, groupName) {
   const metaParts = [formatAuthorLine(item), (item.published_at || item.published || "日期暂缺").slice(0, 10)];
   if (item.item_type === "trending_repository") {
     const metrics = item.metrics || {};
+    const metadata = item.metadata || {};
     if (metrics.daily_rank) metaParts.push(`Trending #${metrics.daily_rank}`);
+    else if (metrics.language_rank && metadata.language) metaParts.push(`${metadata.language} 榜 #${metrics.language_rank}`);
     if (metrics.stars_today) metaParts.push(`今日 +${Number(metrics.stars_today).toLocaleString("zh-CN")} stars`);
     if (metrics.stars_total) metaParts.push(`累计 ${Number(metrics.stars_total).toLocaleString("zh-CN")} stars`);
   }

@@ -24,10 +24,22 @@ from aix_pipeline import (  # noqa: E402
 )
 from daily_digest import ARXIV_CATEGORIES, arxiv_category_query, fetch_arxiv, load_json  # noqa: E402
 from build_breaking_candidates import previous_breaking_keys  # noqa: E402
+from backfill_engineering_trending import parse_snapshot  # noqa: E402
 from publish_daily import factual_overview  # noqa: E402
 
 
 class SourceWindowTests(unittest.TestCase):
+    def test_historical_trending_parser_preserves_language_rank_and_date_identity(self):
+        markdown = """## 2026-08-01
+#### python
+* [openai / codex](https://github.com/openai/codex):Coding agent
+* [deepchem / deepchem](https://github.com/deepchem/deepchem):Scientific machine learning
+"""
+        items = parse_snapshot(markdown, date(2026, 8, 1))
+        self.assertEqual([item["metadata"]["language_rank"] for item in items], [1, 2])
+        self.assertEqual(items[0]["metadata"]["trending_id"], "2026-08-01:openai/codex")
+        self.assertEqual(items[0]["source"], "GitHub Trending")
+
     def test_previous_breaking_news_is_excluded_by_id_and_url(self):
         with tempfile.TemporaryDirectory() as directory:
             site_root = Path(directory)

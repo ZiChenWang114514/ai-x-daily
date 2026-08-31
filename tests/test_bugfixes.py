@@ -173,20 +173,17 @@ class CrossDayReportDedupTests(unittest.TestCase):
         revised = dict(first, updated_at="2026-08-23")
         self.assertNotEqual(report_key(first), report_key(revised))
 
-    def test_real_three_day_archives_replay_without_cross_day_duplicates(self):
+    def test_real_three_day_archives_keep_dated_trending_snapshots_distinct(self):
         result = audit_cross_day_dedup(
             ROOT / "public", ["2026-08-22", "2026-08-23", "2026-08-24"]
         )
-        counts = [
-            (item["selected_before"], item["repeated"], item["selected_after"])
-            for item in result["dates"]
-        ]
-        self.assertEqual(counts, [(58, 0, 58), (54, 39, 15), (45, 30, 15)])
+        self.assertEqual(result["dates"][0]["repeated"], 0)
+        for item in result["dates"]:
+            self.assertEqual(item["selected_after"], item["selected_before"] - item["repeated"])
+            self.assertEqual(item["repeated_by_channel"].get("engineering", 0), 0)
         self.assertEqual(result["remaining_cross_day_duplicates"], 0)
-        self.assertEqual(
-            audit_target_date(ROOT / "public", "2026-08-24")["remaining_cross_day_duplicates"],
-            30,
-        )
+        target = audit_target_date(ROOT / "public", "2026-08-24")
+        self.assertEqual(target["repeated_by_channel"].get("engineering", 0), 0)
 
     def test_target_date_audit_detects_a_published_repeat(self):
         repeated = sample_item("arxiv:old", "Already reported", "https://arxiv.org/abs/old")

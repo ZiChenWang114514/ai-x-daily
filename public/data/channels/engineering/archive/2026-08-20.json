@@ -2,319 +2,581 @@
   "schema_version": "2.0",
   "date": "2026-08-20",
   "channel": "engineering",
-  "generated_at": "2026-08-20T06:18:21+00:00",
-  "title": "Engineering 每日精选",
-  "subtitle": "重要框架、模型与工具链的发布说明。",
+  "generated_at": "2026-08-31T11:32:25+00:00",
+  "title": "Engineering 每日趋势",
+  "subtitle": "GitHub Trending 中与 AI、科学计算及生化环材研究相关的每日项目。",
   "window": {
-    "start": "2026-08-17",
+    "start": "2026-08-20",
     "end": "2026-08-20"
   },
-  "method": "公开来源采集、规则筛选与模型审阅",
-  "method_note": "系统保存当日公开元数据，依据频道主题与证据信号筛选候选，随后由指定模型阅读全文摘要并完成精选。",
+  "method": "GitHub Trending 历史日快照与 gpt-5.6-terra / high 人工编辑审阅",
+  "method_note": "完整读取当天保存的多语言 Trending 快照，再从中选择与 AI 和科研工程直接相关的项目。",
+  "editor_note": "基于当天完整 GitHub Trending 候选集的人工筛选；保留 10 个与智能体、推理、科学软件和 AI 数据基础设施直接相关的项目。",
   "stats": {
-    "fetched": 45,
-    "candidates": 45,
-    "selected": 7,
+    "fetched": 99,
+    "suppressed_previous": 0,
+    "candidates": 99,
+    "selected": 10,
     "sources": {
-      "GitHub Releases": 45
+      "GitHub Trending": 99
     }
   },
   "source_status": {
-    "GitHub Releases": {
+    "GitHub Trending": {
       "state": "ok",
-      "count": 45
+      "count": 99
     }
   },
   "source_errors": [],
   "items": [
     {
-      "id": "github:372686337",
+      "id": "github-trending:2026-08-20:volcengine/openviking",
       "channel": "engineering",
       "related_channels": [
+        "aixchem",
         "aixbio"
       ],
-      "item_type": "software_release",
-      "source": "GitHub Releases",
-      "title": "0.148.0",
-      "url": "https://github.com/openai/codex/releases/tag/rust-v0.148.0",
-      "published_at": "2026-08-18T22:26:03Z",
-      "updated_at": "2026-08-18T21:38:17Z",
+      "item_type": "trending_repository",
+      "source": "GitHub Trending",
+      "title": "volcengine/OpenViking",
+      "url": "https://github.com/volcengine/OpenViking",
+      "published_at": "2026-08-20",
+      "updated_at": "2026-08-20",
       "creators": [
-        "openai/codex"
+        "volcengine"
       ],
       "language": "en",
-      "abstract_or_text": "## New Features - Export complete TUI conversations to Markdown with `/export`, either to the clipboard or a new file. (#37358) - Fork sessions with `codex exec fork`, and archive or restore sessions from the TUI resume picker. (#37367, #37369, #37371) - Draft prompts while the TUI initializes, with resume and fork progress shown during startup. (#38642, #38788) - View estimated thread credits or cost in `/status`, status lines, and terminal titles for eligible workspaces. (#38281, #38282) - Use…",
-      "summary_zh": "openai/codex 发布 rust-v0.148.0，加入会话导出、fork、归档与恢复、Amazon Bedrock Runtime 内置提供商，以及异步 Hook 和 MCP 工具调用；同时改进会话恢复、网络重连与 Windows/Linux 沙箱限制。",
-      "why_it_matters_zh": "Codex CLI 与 TUI 用户可更方便地保存、分支和恢复工作，同时将 Bedrock 接入、Hook 自动化和 MCP 工作流程整合到日常开发中；升级也会影响受管环境的文件访问与权限行为。",
-      "quality_score": 72.0,
+      "abstract_or_text": "Self-evolving Context Database for AI Agents. Unify Agent Memory, Knowledge RAG and Skills.",
+      "summary_zh": "OpenViking 是面向 AI 智能体的上下文数据库，整合记忆、知识型 RAG 与 Skills；当天位列 Python 榜第 2 名。",
+      "why_it_matters_zh": "长期任务中的记忆、检索知识与可复用能力常彼此割裂。它为构建持续学习型智能体提供了统一的数据组织思路，适合开发智能体平台、研究 RAG 与上下文工程的团队参考。",
+      "quality_score": 89.0,
       "tags": [
-        "兼容与安全"
+        "GitHub Trending",
+        "Python",
+        "智能体记忆",
+        "RAG",
+        "Skills"
       ],
       "evidence_flags": [
-        "github",
-        "experimental",
-        "security"
+        "daily_snapshot",
+        "historical_archive",
+        "source_description_only"
       ],
-      "publication_status": "release",
+      "publication_status": "daily_trending_archive",
       "rank": 1,
       "featured": true,
-      "category": "兼容与安全",
-      "metrics": {},
-      "metadata": {
-        "repository": "openai/codex",
-        "version": "rust-v0.148.0",
-        "release_id": "372686337",
-        "release_type": "release"
+      "category": "智能体与 Skills",
+      "metrics": {
+        "archive_order": 2,
+        "language_rank": 2
       },
-      "abstract_zh": "新功能包括：用 `/export` 将完整 TUI 对话导出为 Markdown；使用 `codex exec fork` 创建会话分支，并在 TUI 恢复选择器中归档或恢复会话；TUI 初始化期间可起草提示词并显示恢复和 fork 进度；符合条件的工作区可在 `/status`、状态行和终端标题中查看线程额度或费用估算；Amazon Bedrock Runtime 成为内置提供商，支持 AWS profile、region 和 GPT-5.6 路由；Hook 可异步运行命令并调用 MCP 工具。修复包括：模型切换或设置更新不再遗留过期指令或改变进行中的回合；恢复的会话会还原工作目录和审批策略；临时提供商故障后可重连，OAuth 重新认证后 MCP server 可恢复；Linux 和 Windows 上被拒绝或不可读的路径会以拒绝访问的方式处理。",
-      "published": "2026-08-18",
-      "author_line": "openai/codex"
+      "metadata": {
+        "repository": "volcengine/OpenViking",
+        "language": "python",
+        "snapshot_date": "2026-08-20",
+        "trending_id": "2026-08-20:volcengine/openviking",
+        "archive_order": 2,
+        "language_rank": 2,
+        "archive_source": "hanishrao/trending-collection"
+      },
+      "abstract_zh": "面向 AI 智能体的自我演化上下文数据库，统一智能体记忆、知识型 RAG 与 Skills。",
+      "authors": [
+        "volcengine"
+      ],
+      "published": "2026-08-20",
+      "author_line": "volcengine"
     },
     {
-      "id": "github:371942335",
+      "id": "github-trending:2026-08-20:jundot/omlx",
       "channel": "engineering",
       "related_channels": [],
-      "item_type": "software_release",
-      "source": "GitHub Releases",
-      "title": "JAX v0.11.1",
-      "url": "https://github.com/jax-ml/jax/releases/tag/jax-v0.11.1",
-      "published_at": "2026-08-17T20:45:31Z",
-      "updated_at": "2026-08-17T17:32:23Z",
+      "item_type": "trending_repository",
+      "source": "GitHub Trending",
+      "title": "jundot/omlx",
+      "url": "https://github.com/jundot/omlx",
+      "published_at": "2026-08-20",
+      "updated_at": "2026-08-20",
       "creators": [
-        "jax-ml/jax"
+        "jundot"
       ],
       "language": "en",
-      "abstract_or_text": "* New features * Added an error check for trying to deserialize JAX exports that are older than the backwards compatibility window. Without this check the deserialization of expired artifacts may succeed and then result in obscure downstream errors. Added a configuration flag `--jax_export_deserialize_expired_versions` to temporarily bypass the error check. See https://docs.jax.dev/en/latest/export/export.html#compatibility-guarantees. * Added `jax.numpy.top_k`, which implements `numpy.top_k`, a…",
-      "summary_zh": "jax-ml/jax 发布 jax-v0.11.1，加入 `jax.numpy.top_k`，并调整 Exported 模块反序列化、`EffortLevel` 配置、数组 API 返回类型和负索引默认行为。",
-      "why_it_matters_zh": "维护 JAX 导出模型、训练代码或 cuDNN attention 路径的团队需要检查旧产物和配置参数；这次版本包含多项 API 兼容性变化，也修复了 fp8 与 `vmap` 场景的 attention 失败。",
-      "quality_score": 69.0,
+      "abstract_or_text": "LLM inference server with continuous batching & SSD caching for Apple Silicon — managed from the macOS menu bar",
+      "summary_zh": "OMLX 是为 Apple Silicon 设计的大语言模型推理服务器，提供连续批处理与 SSD 缓存，并可从 macOS 菜单栏管理；当天位列 Python 榜第 4 名。",
+      "why_it_matters_zh": "它聚焦本地推理常见的吞吐与显存外缓存问题，为 Mac 上部署多人或多任务 LLM 服务提供了实用实现方向，适合 Apple Silicon 开发者和本地 AI 基础设施维护者。",
+      "quality_score": 85.0,
       "tags": [
-        "兼容与安全"
+        "GitHub Trending",
+        "Python",
+        "LLM 推理",
+        "Apple Silicon",
+        "连续批处理"
       ],
       "evidence_flags": [
-        "experimental",
-        "evaluation",
-        "breaking"
+        "daily_snapshot",
+        "historical_archive",
+        "source_description_only"
       ],
-      "publication_status": "release",
+      "publication_status": "daily_trending_archive",
       "rank": 2,
       "featured": true,
-      "category": "兼容与安全",
-      "metrics": {},
-      "metadata": {
-        "repository": "jax-ml/jax",
-        "version": "jax-v0.11.1",
-        "release_id": "371942335",
-        "release_type": "release"
+      "category": "推理与数据基础设施",
+      "metrics": {
+        "archive_order": 4,
+        "language_rank": 4
       },
-      "abstract_zh": "新增对超出向后兼容期限的 JAX export 反序列化的错误检查，并提供 `--jax_export_deserialize_expired_versions` 临时绕过开关；新增 `jax.numpy.top_k`。`exec_time_optimization_effort` 与 `memory_fitting_effort` 已由 `EffortLevel` 取代；2026-01-15 之前的 Exported 模块不再支持反序列化；`jnp.take_along_axis` 现在默认 `wrap_negative_indices=True`；`jax.numpy.meshgrid`、`jax.numpy.ogrid` 和 `jax.numpy.broadcast_arrays` 现在返回 tuple。该版本还修复小矩阵行列式的数值不稳定、cuDNN fused attention 在 `vmap` 和 fp8 路径中的问题，以及若干切分、sharding 和 PyTree 问题。",
-      "published": "2026-08-17",
-      "author_line": "jax-ml/jax"
+      "metadata": {
+        "repository": "jundot/omlx",
+        "language": "python",
+        "snapshot_date": "2026-08-20",
+        "trending_id": "2026-08-20:jundot/omlx",
+        "archive_order": 4,
+        "language_rank": 4,
+        "archive_source": "hanishrao/trending-collection"
+      },
+      "abstract_zh": "面向 Apple Silicon 的大语言模型推理服务器，具备连续批处理与 SSD 缓存功能，并可通过 macOS 菜单栏管理。",
+      "authors": [
+        "jundot"
+      ],
+      "published": "2026-08-20",
+      "author_line": "jundot"
     },
     {
-      "id": "github:373275597",
+      "id": "github-trending:2026-08-20:youssofal/mtplx",
       "channel": "engineering",
       "related_channels": [],
-      "item_type": "software_release",
-      "source": "GitHub Releases",
-      "title": "v0.14.24",
-      "url": "https://github.com/run-llama/llama_index/releases/tag/v0.14.24",
-      "published_at": "2026-08-19T18:48:01Z",
-      "updated_at": "2026-08-19T18:46:08Z",
+      "item_type": "trending_repository",
+      "source": "GitHub Trending",
+      "title": "youssofal/MTPLX",
+      "url": "https://github.com/youssofal/MTPLX",
+      "published_at": "2026-08-20",
+      "updated_at": "2026-08-20",
       "creators": [
-        "run-llama/llama_index"
+        "youssofal"
       ],
       "language": "en",
-      "abstract_or_text": "# Release Notes ## [2026-08-19] ### llama-index-core [0.14.24] - fix: close HotpotQA evaluator file handles ([#22113](https://github.com/run-llama/llama_index/pull/22113)) - fix(core): preserve oversized leaf nodes in CodeSplitter ([#22119](https://github.com/run-llama/llama_index/pull/22119)) - fix: preserve multiblock chat history writes ([#22124](https://github.com/run-llama/llama_index/pull/22124)) - fix(core): skip empty nodes in HTMLNodeParser ([#22125](https://github.com/run-llama/llama_i…",
-      "summary_zh": "run-llama/llama_index 发布 v0.14.24，修复文档摄取、聊天记忆、检索、工具参数和多家向量库兼容性问题，并新增 Claude Sonnet 5、Claude Opus 5、GPT-5.6、Gemini 3.7 Flash 等模型支持。",
-      "why_it_matters_zh": "使用 LlamaIndex 搭建检索、Agent 和多模型应用的开发者会受到索引完整性、流式聊天记忆、工具调用和供应商模型选择的直接影响；涉及 HWP 解压和 TLS 的修复也值得纳入升级评估。",
-      "quality_score": 72.0,
+      "abstract_or_text": "3x faster speeds on MLX | Qwen 3.8 27B | Native MTP Speculative Decoding On Apple Silicon With No External Drafter.",
+      "summary_zh": "MTPLX 在 Apple Silicon 上为 Qwen 3.8 27B 实现原生多令牌预测投机解码，无需外部草稿模型；当天位列 Python 榜第 6 名。",
+      "why_it_matters_zh": "投机解码是提升生成速度的重要路径。该项目把多令牌预测用于本地 MLX 推理，值得关注端侧大模型性能、Qwen 部署与推理解码算法的工程读者研究。",
+      "quality_score": 81.0,
       "tags": [
-        "工具链更新"
+        "GitHub Trending",
+        "Python",
+        "MLX",
+        "投机解码",
+        "Qwen"
       ],
       "evidence_flags": [
-        "github",
-        "release"
+        "daily_snapshot",
+        "historical_archive",
+        "source_description_only"
       ],
-      "publication_status": "release",
+      "publication_status": "daily_trending_archive",
       "rank": 3,
       "featured": true,
-      "category": "工具链更新",
-      "metrics": {},
-      "metadata": {
-        "repository": "run-llama/llama_index",
-        "version": "v0.14.24",
-        "release_id": "373275597",
-        "release_type": "release"
+      "category": "推理与数据基础设施",
+      "metrics": {
+        "archive_order": 6,
+        "language_rank": 6
       },
-      "abstract_zh": "`llama-index-core 0.14.24` 修复 CodeSplitter、HTMLNodeParser、MMR embedding search、IngestionPipeline upsert、工具参数、AgentWorkflow structured output、流式聊天记忆、CitationQueryEngine 与 ChatStore 持久化等问题，并为 Memory 支持任意 AsyncDBChatStore、为 LLMRerank 增加异步执行。发布说明还包括：为 Claude Sonnet 5、Claude Opus 5、GPT-5.6 和 Gemini 3.7 Flash 增加或更新模型支持；AG-UI 支持图像、音频、视频和文档输入；HWP reader 对解压进行大小限制；BotoMinioReader 不再为 S3 TLS 硬编码 `verify=False`；Pinecone 支持 client v8/v9，Qdrant 恢复与 qdrant-client 1.19.0 的兼容性。",
-      "published": "2026-08-19",
-      "author_line": "run-llama/llama_index"
+      "metadata": {
+        "repository": "youssofal/MTPLX",
+        "language": "python",
+        "snapshot_date": "2026-08-20",
+        "trending_id": "2026-08-20:youssofal/mtplx",
+        "archive_order": 6,
+        "language_rank": 6,
+        "archive_source": "hanishrao/trending-collection"
+      },
+      "abstract_zh": "在 MLX 上实现更快速度：针对 Qwen 3.8 27B，在 Apple Silicon 上采用原生 MTP 投机解码，无需外部草稿模型。",
+      "authors": [
+        "youssofal"
+      ],
+      "published": "2026-08-20",
+      "author_line": "youssofal"
     },
     {
-      "id": "github:371154159",
+      "id": "github-trending:2026-08-20:k-dense-ai/scientific-agent-skills",
       "channel": "engineering",
-      "related_channels": [],
-      "item_type": "software_release",
-      "source": "GitHub Releases",
-      "title": "b10448",
-      "url": "https://github.com/ggml-org/llama.cpp/releases/tag/b10448",
-      "published_at": "2026-08-15T20:48:35Z",
-      "updated_at": "2026-08-15T15:11:05Z",
+      "related_channels": [
+        "aixchem",
+        "aixbio"
+      ],
+      "item_type": "trending_repository",
+      "source": "GitHub Trending",
+      "title": "K-Dense-AI/scientific-agent-skills",
+      "url": "https://github.com/K-Dense-AI/scientific-agent-skills",
+      "published_at": "2026-08-20",
+      "updated_at": "2026-08-20",
       "creators": [
-        "ggml-org/llama.cpp"
+        "K-Dense-AI"
       ],
       "language": "en",
-      "abstract_or_text": "model: add Kimi-K3 text model (#26185) * model: add Kimi-K3 text model Hybrid KDA (linear) + MLA (full) attention as in Kimi-Linear-48B, plus five things that architecture does not have: 1. cross-layer residual attention (attn_res_block_size) 2. latent MoE (routed experts run at n_expert_latent) 3. situ activation (replaces SwiGLU everywhere) 4. MLA output gate (sigmoid gate before o_proj) 5. full-rank KDA gate (single ssm_g instead of ssm_g_a/ssm_g_b) K3's text_config reports KimiLinearForCausa…",
-      "summary_zh": "ggml-org/llama.cpp 发布 b10448，为 Kimi K3 增加转换、架构测试、聊天模板、推理内容提取和类型化工具调用支持，并修正模型保存时遗漏的 `kda_gate_lower_bound`。",
-      "why_it_matters_zh": "本地部署 Kimi K3 GGUF 的用户可获得更完整的聊天、推理与工具调用行为；模型转换或保存再加载流程中的参数修复可避免输出发生静默变化。",
-      "quality_score": 72.0,
+      "abstract_or_text": "Turn any AI agent into an AI Scientist. The #1 Agent Skills library for science, used by 175,000+ scientists worldwide. 163 ready-to-use validated skills plus 100+ scientific databases covering biology, chemistry, medicine, and drug discovery. Compatible with Cursor, Claude Code, Codex, Pi, Antigravity, and the open Agent Skills standard.",
+      "summary_zh": "scientific-agent-skills 提供面向科学研究的智能体 Skills 与数据库连接能力，覆盖生物、化学、医学和药物发现；当天位列 Python 榜第 14 名。",
+      "why_it_matters_zh": "科研智能体的价值取决于能否连接真实数据库和规范工作流。该项目为科学软件团队配置可复用研究能力提供了较完整的素材库，尤其适合生命科学、化学信息学与药物研发场景。",
+      "quality_score": 92.0,
       "tags": [
-        "工具链更新"
+        "GitHub Trending",
+        "Python",
+        "科研智能体",
+        "化学信息学",
+        "生物医药"
       ],
       "evidence_flags": [
-        "github",
-        "release"
+        "daily_snapshot",
+        "historical_archive",
+        "source_description_only"
       ],
-      "publication_status": "release",
+      "publication_status": "daily_trending_archive",
       "rank": 4,
       "featured": false,
-      "category": "工具链更新",
-      "metrics": {},
-      "metadata": {
-        "repository": "ggml-org/llama.cpp",
-        "version": "b10448",
-        "release_id": "371154159",
-        "release_type": "release"
+      "category": "智能体与 Skills",
+      "metrics": {
+        "archive_order": 14,
+        "language_rank": 14
       },
-      "abstract_zh": "发布说明增加 Kimi K3 转换支持，将 `LLAMA_MAX_EXPERTS` 从 512 提升至 1024，并为 Kimi K3 增加架构测试和聊天格式。该聊天格式可处理 reasoning、content 与类型化 tool calls，并为其标签化输出提取推理内容、解包响应和解析工具调用参数。模型保存器现在写入 `kda_gate_lower_bound`：此前保存后再加载会把该值恢复为默认值，导致模型输出改变；真实 Kimi K3 配置使用 `gate_lower_bound = -5.0`。",
-      "published": "2026-08-15",
-      "author_line": "ggml-org/llama.cpp"
+      "metadata": {
+        "repository": "K-Dense-AI/scientific-agent-skills",
+        "language": "python",
+        "snapshot_date": "2026-08-20",
+        "trending_id": "2026-08-20:k-dense-ai/scientific-agent-skills",
+        "archive_order": 14,
+        "language_rank": 14,
+        "archive_source": "hanishrao/trending-collection"
+      },
+      "abstract_zh": "让任何 AI 智能体成为 AI 科学家。该科学智能体 Skills 库包含 163 个可直接使用、经验证的 Skills，以及覆盖生物学、化学、医学和药物发现的 100 多个科学数据库；兼容 Cursor、Claude Code、Codex、Pi、Antigravity 和开放 Agent Skills 标准。",
+      "authors": [
+        "K-Dense-AI"
+      ],
+      "published": "2026-08-20",
+      "author_line": "K-Dense-AI"
     },
     {
-      "id": "github:371561378",
+      "id": "github-trending:2026-08-20:aaif-goose/goose",
       "channel": "engineering",
       "related_channels": [],
-      "item_type": "software_release",
-      "source": "GitHub Releases",
-      "title": "b10456",
-      "url": "https://github.com/ggml-org/llama.cpp/releases/tag/b10456",
-      "published_at": "2026-08-17T06:29:29Z",
-      "updated_at": "2026-08-17T04:32:16Z",
+      "item_type": "trending_repository",
+      "source": "GitHub Trending",
+      "title": "aaif-goose/goose",
+      "url": "https://github.com/aaif-goose/goose",
+      "published_at": "2026-08-20",
+      "updated_at": "2026-08-20",
       "creators": [
-        "ggml-org/llama.cpp"
+        "aaif-goose"
       ],
       "language": "en",
-      "abstract_or_text": "sycl: fix thread/block count in quantized cpy kernel launches (#27160) Adjusts the thread/block count to be proportional to the size of the quant, reducing under/over subscription. Largest perf improvement is the q4_0 -> f32 path, with, on a Arc 70, throughput goes from 20.21 GB/s to 158.19 GB/s The rest of the quants are flat in performance uplift. **Website:** - **macOS/iOS:** - [macOS Apple Silicon (arm64)](https://github.com/ggml-org/llama.cpp/releases/download/b10456/llama-b10456-bin-macos-…",
-      "summary_zh": "ggml-org/llama.cpp 发布 b10456，修复 SYCL 量化 `cpy` kernel 的线程与 block 数量计算，并显著提高部分 Intel Arc 推理路径的吞吐量。",
-      "why_it_matters_zh": "在 SYCL 后端运行量化模型的本地推理用户可能获得明显更快的数据传输与推理准备速度，尤其应关注 q4_0 到 f32 的转换路径。",
-      "quality_score": 69.0,
+      "abstract_or_text": "an open source, extensible AI agent that goes beyond code suggestions - install, execute, edit, and test with any LLM",
+      "summary_zh": "goose 是可扩展的开源 AI 智能体，可使用不同大语言模型完成安装、执行、编辑与测试等任务；当天位列 Rust 榜第 12 名。",
+      "why_it_matters_zh": "从代码建议走向可执行的开发工作流，需要模型、工具调用与验证步骤协同。它为希望自托管或扩展编码智能体的工程团队提供了一个可考察的开源实现。",
+      "quality_score": 86.0,
       "tags": [
-        "性能与部署"
+        "GitHub Trending",
+        "Rust",
+        "编码智能体",
+        "工具调用",
+        "LLM"
       ],
       "evidence_flags": [
-        "github",
-        "release",
-        "performance"
+        "daily_snapshot",
+        "historical_archive",
+        "source_description_only"
       ],
-      "publication_status": "release",
+      "publication_status": "daily_trending_archive",
       "rank": 5,
       "featured": false,
-      "category": "性能与部署",
-      "metrics": {},
-      "metadata": {
-        "repository": "ggml-org/llama.cpp",
-        "version": "b10456",
-        "release_id": "371561378",
-        "release_type": "release"
+      "category": "开发者工具",
+      "metrics": {
+        "archive_order": 28,
+        "language_rank": 12
       },
-      "abstract_zh": "SYCL 更新修复量化 `cpy` kernel 启动时的线程和 block 数量，使其与量化块大小相匹配，减少资源不足或过度占用。官方说明称，在 Arc 70 上，q4_0 到 f32 路径的吞吐量从 20.21 GB/s 提高到 158.19 GB/s；其他量化格式的性能提升基本持平。",
-      "published": "2026-08-17",
-      "author_line": "ggml-org/llama.cpp"
+      "metadata": {
+        "repository": "aaif-goose/goose",
+        "language": "rust",
+        "snapshot_date": "2026-08-20",
+        "trending_id": "2026-08-20:aaif-goose/goose",
+        "archive_order": 28,
+        "language_rank": 12,
+        "archive_source": "hanishrao/trending-collection"
+      },
+      "abstract_zh": "一个开源、可扩展的 AI 智能体，能力不止代码建议：可使用任意大语言模型进行安装、执行、编辑和测试。",
+      "authors": [
+        "aaif-goose"
+      ],
+      "published": "2026-08-20",
+      "author_line": "aaif-goose"
     },
     {
-      "id": "github:372652429",
+      "id": "github-trending:2026-08-20:quantumnous/new-api",
       "channel": "engineering",
       "related_channels": [],
-      "item_type": "software_release",
-      "source": "GitHub Releases",
-      "title": "v3.3.0",
-      "url": "https://github.com/openai/openai-python/releases/tag/v3.3.0",
-      "published_at": "2026-08-18T21:17:03Z",
-      "updated_at": "2026-08-18T21:13:31Z",
+      "item_type": "trending_repository",
+      "source": "GitHub Trending",
+      "title": "QuantumNous/new-api",
+      "url": "https://github.com/QuantumNous/new-api",
+      "published_at": "2026-08-20",
+      "updated_at": "2026-08-20",
       "creators": [
-        "openai/openai-python"
+        "QuantumNous"
       ],
       "language": "en",
-      "abstract_or_text": "## [3.3.0](https://github.com/openai/openai-python/compare/v3.2.0...v3.3.0) (2026-08-18) ### Features * support named data-residency endpoints ([#3646](https://github.com/openai/openai-python/issues/3646)) ([11ee914](https://github.com/openai/openai-python/commit/11ee91475694d9cd77813763707fbadf68806d4f)) ### Bug Fixes * require patched optional networking dependencies ([#3651](https://github.com/openai/openai-python/issues/3651)) ([40e56de](https://github.com/openai/openai-python/commit/40e56de…",
-      "summary_zh": "openai/openai-python 发布 v3.3.0，Python SDK 新增具名数据驻留端点支持，并要求使用已修复的可选网络依赖。",
-      "why_it_matters_zh": "受数据驻留要求约束的 OpenAI Python SDK 用户可将请求定向到具名端点；依赖要求变更也与使用可选网络组件的应用安全更新有关。",
-      "quality_score": 66.0,
+      "abstract_or_text": "A unified AI model hub for aggregation & distribution. It supports cross-converting various LLMs into OpenAI-compatible, Claude-compatible, or Gemini-compatible formats. A centralized gateway for personal and enterprise model management. 🍥",
+      "summary_zh": "new-api 是统一的 AI 模型聚合与分发中心，可在 OpenAI、Claude、Gemini 兼容格式之间转换；当天位列 Go 榜第 1 名。",
+      "why_it_matters_zh": "多模型应用往往受制于接口差异、路由和统一管理。该项目展示了兼容层与集中式模型网关的实现思路，适合维护多供应商模型服务的研发平台团队。",
+      "quality_score": 87.0,
       "tags": [
-        "工具链更新"
+        "GitHub Trending",
+        "Go",
+        "模型网关",
+        "API 兼容",
+        "LLM 服务"
       ],
       "evidence_flags": [
-        "github",
-        "security"
+        "daily_snapshot",
+        "historical_archive",
+        "source_description_only"
       ],
-      "publication_status": "release",
+      "publication_status": "daily_trending_archive",
       "rank": 6,
       "featured": false,
-      "category": "工具链更新",
-      "metrics": {},
-      "metadata": {
-        "repository": "openai/openai-python",
-        "version": "v3.3.0",
-        "release_id": "372652429",
-        "release_type": "release"
+      "category": "推理与数据基础设施",
+      "metrics": {
+        "archive_order": 46,
+        "language_rank": 1
       },
-      "abstract_zh": "v3.3.0 新增具名数据驻留端点支持；修复项要求使用包含已发布安全修复的可选网络依赖；同时移除未使用的依赖并固定构建工具，且加强了 Python SDK 的安全贡献指南。",
-      "published": "2026-08-18",
-      "author_line": "openai/openai-python"
+      "metadata": {
+        "repository": "QuantumNous/new-api",
+        "language": "go",
+        "snapshot_date": "2026-08-20",
+        "trending_id": "2026-08-20:quantumnous/new-api",
+        "archive_order": 46,
+        "language_rank": 1,
+        "archive_source": "hanishrao/trending-collection"
+      },
+      "abstract_zh": "统一的 AI 模型聚合与分发中心，支持将多种大语言模型转换为 OpenAI、Claude 或 Gemini 兼容格式，并提供个人与企业模型管理的集中式网关。",
+      "authors": [
+        "QuantumNous"
+      ],
+      "published": "2026-08-20",
+      "author_line": "QuantumNous"
     },
     {
-      "id": "github:373176892",
+      "id": "github-trending:2026-08-20:tencentcloud/cubesandbox",
       "channel": "engineering",
       "related_channels": [],
-      "item_type": "software_release",
-      "source": "GitHub Releases",
-      "title": "langchain-core==1.6.0",
-      "url": "https://github.com/langchain-ai/langchain/releases/tag/langchain-core%3D%3D1.6.0",
-      "published_at": "2026-08-19T15:55:57Z",
-      "updated_at": "2026-08-19T15:51:29Z",
+      "item_type": "trending_repository",
+      "source": "GitHub Trending",
+      "title": "TencentCloud/CubeSandbox",
+      "url": "https://github.com/TencentCloud/CubeSandbox",
+      "published_at": "2026-08-20",
+      "updated_at": "2026-08-20",
       "creators": [
-        "langchain-ai/langchain"
+        "TencentCloud"
       ],
       "language": "en",
-      "abstract_or_text": "Changes since langchain-core==1.5.6 release(core): 1.6.0 (#39760) fix(core): resolve postponed annotations in `StructuredTool._injected_args_keys` (#39602) feat(core): add standard model exception types (#39538) fix(core): allow deserializing `RunnablePick` (#39753) fix(core): make `convert_to_openai_function` handle callables and non-dict mappings (#39750) fix(core): make subprocess and temporary file tests portable on Windows (#39664) fix(core): fail fast when tool schemas can't resolve forwar…",
-      "summary_zh": "langchain-ai/langchain 发布 langchain-core==1.6.0，新增标准模型异常类型，强化严格工具 schema 校验，并延迟导入 transformers 以改善启动开销。",
-      "why_it_matters_zh": "构建 LangChain Agent、结构化工具调用或 Windows 开发环境的团队需要关注嵌套 schema 的更严格要求；延迟导入也可减少未使用 transformers 时的初始化负担。",
-      "quality_score": 66.0,
+      "abstract_or_text": "Instant, Concurrent, Secure & Lightweight Sandbox for AI Agents.",
+      "summary_zh": "CubeSandbox 为 AI 智能体提供即时、并发、安全且轻量的沙箱环境；当天位列 Go 榜第 4 名。",
+      "why_it_matters_zh": "当智能体需要运行代码、使用命令行或调用不可信工具时，隔离执行环境十分关键。该项目与智能体执行安全和高并发任务调度直接相关，适合构建 Agent 平台的工程读者。",
+      "quality_score": 84.0,
       "tags": [
-        "工具链更新"
+        "GitHub Trending",
+        "Go",
+        "智能体执行",
+        "沙箱",
+        "并发"
       ],
       "evidence_flags": [
-        "release"
+        "daily_snapshot",
+        "historical_archive",
+        "source_description_only"
       ],
-      "publication_status": "release",
+      "publication_status": "daily_trending_archive",
       "rank": 7,
       "featured": false,
-      "category": "工具链更新",
-      "metrics": {},
-      "metadata": {
-        "repository": "langchain-ai/langchain",
-        "version": "langchain-core==1.6.0",
-        "release_id": "373176892",
-        "release_type": "release"
+      "category": "推理与数据基础设施",
+      "metrics": {
+        "archive_order": 49,
+        "language_rank": 4
       },
-      "abstract_zh": "相较 langchain-core==1.5.6，langchain-core==1.6.0 新增标准模型异常类型；修复 `StructuredTool._injected_args_keys` 的延后注解解析、`RunnablePick` 反序列化、`convert_to_openai_function` 对 callable 和非 dict mapping 的处理；工具 schema 序列化遇到无法解析的 forward reference 时会快速报错，严格工具 schema 现在要求所有嵌套属性；该版本还延迟导入 transformers，并修复 Windows 上的 subprocess 和临时文件测试可移植性。",
-      "published": "2026-08-19",
-      "author_line": "langchain-ai/langchain"
+      "metadata": {
+        "repository": "TencentCloud/CubeSandbox",
+        "language": "go",
+        "snapshot_date": "2026-08-20",
+        "trending_id": "2026-08-20:tencentcloud/cubesandbox",
+        "archive_order": 49,
+        "language_rank": 4,
+        "archive_source": "hanishrao/trending-collection"
+      },
+      "abstract_zh": "面向 AI 智能体的即时、并发、安全且轻量级沙箱。",
+      "authors": [
+        "TencentCloud"
+      ],
+      "published": "2026-08-20",
+      "author_line": "TencentCloud"
+    },
+    {
+      "id": "github-trending:2026-08-20:milvus-io/milvus",
+      "channel": "engineering",
+      "related_channels": [
+        "aixchem",
+        "aixbio"
+      ],
+      "item_type": "trending_repository",
+      "source": "GitHub Trending",
+      "title": "milvus-io/milvus",
+      "url": "https://github.com/milvus-io/milvus",
+      "published_at": "2026-08-20",
+      "updated_at": "2026-08-20",
+      "creators": [
+        "milvus-io"
+      ],
+      "language": "en",
+      "abstract_or_text": "Milvus is a high-performance, cloud-native vector database built for scalable vector ANN search",
+      "summary_zh": "Milvus 是面向可扩展向量近邻搜索的高性能云原生向量数据库；当天位列 Go 榜第 10 名。",
+      "why_it_matters_zh": "向量检索仍是 RAG、语义搜索和科学文献知识库的常用组件。Milvus 的工程成熟度和可扩展性使其适合需要大规模 ANN 检索的 AI 平台与科研数据服务团队评估。",
+      "quality_score": 88.0,
+      "tags": [
+        "GitHub Trending",
+        "Go",
+        "向量数据库",
+        "RAG",
+        "ANN 检索"
+      ],
+      "evidence_flags": [
+        "daily_snapshot",
+        "historical_archive",
+        "source_description_only"
+      ],
+      "publication_status": "daily_trending_archive",
+      "rank": 8,
+      "featured": false,
+      "category": "推理与数据基础设施",
+      "metrics": {
+        "archive_order": 55,
+        "language_rank": 10
+      },
+      "metadata": {
+        "repository": "milvus-io/milvus",
+        "language": "go",
+        "snapshot_date": "2026-08-20",
+        "trending_id": "2026-08-20:milvus-io/milvus",
+        "archive_order": 55,
+        "language_rank": 10,
+        "archive_source": "hanishrao/trending-collection"
+      },
+      "abstract_zh": "Milvus 是一个高性能、云原生向量数据库，面向可扩展的向量近似最近邻搜索。",
+      "authors": [
+        "milvus-io"
+      ],
+      "published": "2026-08-20",
+      "author_line": "milvus-io"
+    },
+    {
+      "id": "github-trending:2026-08-20:apple/coreai-models",
+      "channel": "engineering",
+      "related_channels": [],
+      "item_type": "trending_repository",
+      "source": "GitHub Trending",
+      "title": "apple/coreai-models",
+      "url": "https://github.com/apple/coreai-models",
+      "published_at": "2026-08-20",
+      "updated_at": "2026-08-20",
+      "creators": [
+        "apple"
+      ],
+      "language": "en",
+      "abstract_or_text": "Model export recipes, Python primitives, and Swift runtime utilities for on-device AI",
+      "summary_zh": "Apple coreai-models 提供端侧 AI 的模型导出方案、Python 基础组件与 Swift 运行时工具；当天位列 Swift 榜第 3 名。",
+      "why_it_matters_zh": "端侧部署把模型转换、运行时适配和平台性能放到同一工程链条中。该项目对研究模型在 Apple 设备上实际运行，以及开发本地化 AI 应用的读者具有直接参考价值。",
+      "quality_score": 83.0,
+      "tags": [
+        "GitHub Trending",
+        "Swift",
+        "端侧 AI",
+        "模型导出",
+        "Apple Silicon"
+      ],
+      "evidence_flags": [
+        "daily_snapshot",
+        "historical_archive",
+        "source_description_only"
+      ],
+      "publication_status": "daily_trending_archive",
+      "rank": 9,
+      "featured": false,
+      "category": "模型与训练",
+      "metrics": {
+        "archive_order": 68,
+        "language_rank": 3
+      },
+      "metadata": {
+        "repository": "apple/coreai-models",
+        "language": "swift",
+        "snapshot_date": "2026-08-20",
+        "trending_id": "2026-08-20:apple/coreai-models",
+        "archive_order": 68,
+        "language_rank": 3,
+        "archive_source": "hanishrao/trending-collection"
+      },
+      "abstract_zh": "用于端侧 AI 的模型导出方案、Python 基础组件和 Swift 运行时工具。",
+      "authors": [
+        "apple"
+      ],
+      "published": "2026-08-20",
+      "author_line": "apple"
+    },
+    {
+      "id": "github-trending:2026-08-20:chromedevtools/chrome-devtools-mcp",
+      "channel": "engineering",
+      "related_channels": [],
+      "item_type": "trending_repository",
+      "source": "GitHub Trending",
+      "title": "ChromeDevTools/chrome-devtools-mcp",
+      "url": "https://github.com/ChromeDevTools/chrome-devtools-mcp",
+      "published_at": "2026-08-20",
+      "updated_at": "2026-08-20",
+      "creators": [
+        "ChromeDevTools"
+      ],
+      "language": "en",
+      "abstract_or_text": "Chrome DevTools for coding agents",
+      "summary_zh": "chrome-devtools-mcp 将 Chrome DevTools 提供给编码智能体使用；当天位列 TypeScript 榜第 11 名。",
+      "why_it_matters_zh": "网页调试、性能观察与交互验证是编码智能体完成前端任务的重要能力。该 MCP 工具把浏览器开发者工具纳入智能体工具链，适合开发或评估 Web 编码智能体的团队。",
+      "quality_score": 82.0,
+      "tags": [
+        "GitHub Trending",
+        "TypeScript",
+        "MCP",
+        "编码智能体",
+        "浏览器调试"
+      ],
+      "evidence_flags": [
+        "daily_snapshot",
+        "historical_archive",
+        "source_description_only"
+      ],
+      "publication_status": "daily_trending_archive",
+      "rank": 10,
+      "featured": false,
+      "category": "开发者工具",
+      "metrics": {
+        "archive_order": 93,
+        "language_rank": 11
+      },
+      "metadata": {
+        "repository": "ChromeDevTools/chrome-devtools-mcp",
+        "language": "typescript",
+        "snapshot_date": "2026-08-20",
+        "trending_id": "2026-08-20:chromedevtools/chrome-devtools-mcp",
+        "archive_order": 93,
+        "language_rank": 11,
+        "archive_source": "hanishrao/trending-collection"
+      },
+      "abstract_zh": "供编码智能体使用的 Chrome DevTools。",
+      "authors": [
+        "ChromeDevTools"
+      ],
+      "published": "2026-08-20",
+      "author_line": "ChromeDevTools"
     }
-  ],
-  "review": {
-    "model": "gpt-5.6-terra",
-    "reasoning_effort": "high",
-    "note": "共选出 7 项：均为质量分不低于 65 的正式 GitHub Release，涵盖 Codex 工作流、安全限制、JAX 兼容性变化、框架模型支持与本地推理性能。"
-  }
+  ]
 }

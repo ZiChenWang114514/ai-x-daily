@@ -2,482 +2,563 @@
   "schema_version": "2.0",
   "date": "2026-08-29",
   "channel": "engineering",
-  "generated_at": "2026-08-28T23:16:58+00:00",
-  "title": "Engineering 每日精选",
-  "subtitle": "重要框架、模型与工具链的发布说明。",
+  "generated_at": "2026-08-31T11:32:25+00:00",
+  "title": "Engineering 每日趋势",
+  "subtitle": "GitHub Trending 中与 AI、科学计算及生化环材研究相关的每日项目。",
   "window": {
-    "start": "2026-08-26",
+    "start": "2026-08-29",
     "end": "2026-08-29"
   },
-  "method": "公开来源采集、历史去重、规则筛选与模型审阅",
-  "method_note": "系统保存当日公开元数据，与历史日报核验后排除已报道事件；论文新版本、新修订及不同软件发布等可核实更新仍可入选，随后由指定模型阅读全文摘要并完成精选。",
+  "method": "GitHub Trending 历史日快照与 gpt-5.6-terra / high 人工编辑审阅",
+  "method_note": "完整读取当天保存的多语言 Trending 快照，再从中选择与 AI 和科研工程直接相关的项目。",
+  "editor_note": "已完整审阅当天 109 个候选项目说明，选出 10 个直接服务于 AI、科研软件与工程实践的项目。",
   "stats": {
-    "fetched": 68,
-    "suppressed_previous": 9,
-    "candidates": 59,
+    "fetched": 109,
+    "suppressed_previous": 0,
+    "candidates": 109,
     "selected": 10,
     "sources": {
-      "GitHub Releases": 68
+      "GitHub Trending": 109
     }
   },
   "source_status": {
-    "GitHub Releases": {
+    "GitHub Trending": {
       "state": "ok",
-      "count": 68
+      "count": 109
     }
   },
   "source_errors": [],
   "items": [
     {
-      "id": "github:378687221",
+      "id": "github-trending:2026-08-29:k-dense-ai/scientific-agent-skills",
       "channel": "engineering",
       "related_channels": [
-        "aivoices"
+        "aixchem",
+        "aixbio"
       ],
-      "item_type": "software_release",
-      "source": "GitHub Releases",
-      "title": "b10677",
-      "url": "https://github.com/ggml-org/llama.cpp/releases/tag/b10677",
-      "published_at": "2026-08-28T18:27:33Z",
-      "updated_at": "2026-08-28T17:12:33Z",
+      "item_type": "trending_repository",
+      "source": "GitHub Trending",
+      "title": "K-Dense-AI/scientific-agent-skills",
+      "url": "https://github.com/K-Dense-AI/scientific-agent-skills",
+      "published_at": "2026-08-29",
+      "updated_at": "2026-08-29",
       "creators": [
-        "ggml-org/llama.cpp"
+        "K-Dense-AI"
       ],
       "language": "en",
-      "abstract_or_text": "vulkan: fix missing view-alias dependencies in ggml_vk_graph_optimize (#27812) * vulkan: fix missing view-alias dependencies in ggml_vk_graph_optimize is_src_of doesn't treat two views of one tensor as dependent, so the optimizer reorders nodes across aliased reads and writes. Result: silently wrong tokens under greedy decoding, different output on every server start, and invalid speculative-decoding acceptance, with nothing logged. Hits Qwen3.8's recurrent state (and any model with view-aliased…",
-      "summary_zh": "ggml-org/llama.cpp b10677（预发布）修复 Vulkan 图优化中的 view-alias 依赖判断，避免 Qwen3.8 等带别名状态的模型在 AMD 与 NVIDIA Vulkan 上悄然生成错误 token。",
-      "why_it_matters_zh": "使用 Vulkan 后端部署本地推理服务的团队应优先更新并复测推测解码；该缺陷没有日志提示，可能直接污染生成结果。",
-      "quality_score": 89.0,
+      "abstract_or_text": "Turn any AI agent into an AI Scientist. The #1 Agent Skills library for science, used by 175,000+ scientists worldwide. 163 ready-to-use validated skills plus 100+ scientific databases covering biology, chemistry, medicine, and drug discovery. Compatible with Cursor, Claude Code, Codex, Pi, Antigravity, and the open Agent Skills standard.",
+      "summary_zh": "面向科学研究的 Agent Skills 库，提供已验证技能与科学数据库；当日位列 Python 榜第 1 名。",
+      "why_it_matters_zh": "可将生物、化学、医学和药物发现中的数据检索与研究步骤组织为可复用能力，适合希望把通用编码智能体用于科研任务的研究人员和研发团队。",
+      "quality_score": 94.0,
       "tags": [
-        "模型与框架",
-        "Vulkan",
-        "推理正确性"
+        "GitHub Trending",
+        "Python",
+        "Agent Skills",
+        "科学智能体",
+        "药物发现"
       ],
       "evidence_flags": [
-        "github",
-        "release",
-        "prerelease"
+        "daily_snapshot",
+        "historical_archive"
       ],
-      "publication_status": "prerelease",
+      "publication_status": "daily_trending_archive",
       "rank": 1,
       "featured": true,
-      "category": "模型与框架",
-      "metrics": {},
-      "metadata": {
-        "repository": "ggml-org/llama.cpp",
-        "version": "b10677",
-        "release_id": "378687221",
-        "release_type": "prerelease"
+      "category": "智能体与 Skills",
+      "metrics": {
+        "archive_order": 1,
+        "language_rank": 1
       },
-      "abstract_zh": "发布说明修复 `ggml_vk_graph_optimize` 对同一 tensor 两个 view 之间依赖关系的遗漏。此前优化器可能重排别名读写，导致贪婪解码 token 错误、每次服务器启动输出不同，且推测解码接受结果无效；受影响的是 AMD 与 NVIDIA Vulkan 上的 Qwen3.8 recurrent state 等使用 view-aliased state 的模型，CUDA 不受影响。说明还排除了不执行计算的 `NONE`、`RESHAPE`、`TRANSPOSE`、`VIEW` 与 `PERMUTE` 节点被误判为别名依赖的情形，并修复相关编译问题。",
-      "published": "2026-08-28",
-      "author_line": "ggml-org/llama.cpp"
+      "metadata": {
+        "repository": "K-Dense-AI/scientific-agent-skills",
+        "language": "python",
+        "snapshot_date": "2026-08-29",
+        "trending_id": "2026-08-29:k-dense-ai/scientific-agent-skills",
+        "archive_order": 1,
+        "language_rank": 1,
+        "archive_source": "hanishrao/trending-collection"
+      },
+      "abstract_zh": "让任意 AI 智能体成为 AI 科学家。该科学 Agent Skills 库已被全球超过 17.5 万名科学家使用，提供 163 个开箱即用、经过验证的技能及 100 多个科学数据库，覆盖生物、化学、医学和药物发现；兼容 Cursor、Claude Code、Codex、Pi、Antigravity 和开放的 Agent Skills 标准。",
+      "authors": [
+        "K-Dense-AI"
+      ],
+      "published": "2026-08-29",
+      "author_line": "K-Dense-AI"
     },
     {
-      "id": "github:378318432",
+      "id": "github-trending:2026-08-29:marin-community/marin",
       "channel": "engineering",
-      "related_channels": [
-        "aixchem"
-      ],
-      "item_type": "software_release",
-      "source": "GitHub Releases",
-      "title": "2026_03_6 (Q1 2026) Release",
-      "url": "https://github.com/rdkit/rdkit/releases/tag/Release_2026_03_6",
-      "published_at": "2026-08-28T07:20:53Z",
-      "updated_at": "2026-08-28T02:56:41Z",
+      "related_channels": [],
+      "item_type": "trending_repository",
+      "source": "GitHub Trending",
+      "title": "marin-community/marin",
+      "url": "https://github.com/marin-community/marin",
+      "published_at": "2026-08-29",
+      "updated_at": "2026-08-29",
       "creators": [
-        "rdkit/rdkit"
+        "marin-community"
       ],
       "language": "en",
-      "abstract_or_text": "# Release_2026.03.6 (Changes relative to Release_2026.03.5) ## Acknowledgements (Note: I'm no longer attempting to manually curate names. If you would like to see your contribution acknowledged with your name, please set your name in GitHub) Kevin Boyd, Michael Cho, David Cosgrove, Mike DePaulo, Paul Emsley, Guillaume Godin, Niels Maeder, Vedran Miletić, younes ouzza, Ricardo Rodriguez, Wonseok Shin, Chris Von Bargen, Rachel Walker, Shin, ## New Features and Enhancements: - Synthon space shape s…",
-      "summary_zh": "rdkit/rdkit Release_2026_03_6 正式发布，新增 synthon space shape search、`RDKitFingerprintGenerators` 的 `ignoreAtoms` 支持，并集中改进解析、排序和构象生成实现。",
-      "why_it_matters_zh": "药物化学与分子信息学工作流可使用新的形状检索和指纹控制；多项 C++、Python 与构建修复也降低了生产计算和升级的风险。",
+      "abstract_or_text": "Open-source framework for the research and development of foundation models.",
+      "summary_zh": "用于基础模型研究与开发的开源框架；当日位列 Python 榜第 5 名。",
+      "why_it_matters_zh": "为从模型研究到工程开发提供统一的开源工作基础，适合研究基础模型训练方法、复现实验或搭建训练研发流程的团队。",
       "quality_score": 86.0,
       "tags": [
-        "工具链更新",
-        "化学信息学",
-        "安全修复"
+        "GitHub Trending",
+        "Python",
+        "基础模型",
+        "模型训练"
       ],
       "evidence_flags": [
-        "github",
-        "release"
+        "daily_snapshot",
+        "historical_archive",
+        "brief_repository_description"
       ],
-      "publication_status": "release",
+      "publication_status": "daily_trending_archive",
       "rank": 2,
       "featured": true,
-      "category": "工具链更新",
-      "metrics": {},
-      "metadata": {
-        "repository": "rdkit/rdkit",
-        "version": "Release_2026_03_6",
-        "release_id": "378318432",
-        "release_type": "release"
+      "category": "模型与训练",
+      "metrics": {
+        "archive_order": 5,
+        "language_rank": 5
       },
-      "abstract_zh": "相对 Release_2026.03.5，发布说明新增 `Synthon space shape search`，加速 `BertzCT`（数值不变），安装 `SGroup` data label API 的头文件，并让 `RDKitFingerprintGenerators` 支持 `ignoreAtoms`。`ConfGen` 改进无 UFF 原子参数时的 1–2 距离估计，SMILES parser、canonical ranking 与 bondholder compare 也有优化；checked iterator 检查更严格，以避免 heap-use-after-free。修复包括 `InfoTheory` wrapper 的 numpy dtype、`RandomizeActivities`、CML Writer atom parity、MMFF 对 cyclophosphazene 的参数化、`ROMol` move constructor 泄漏、TBB debug 构建，以及 AI 发现的 critical、high impact 和 medium impact C+…",
-      "published": "2026-08-28",
-      "author_line": "rdkit/rdkit"
+      "metadata": {
+        "repository": "marin-community/marin",
+        "language": "python",
+        "snapshot_date": "2026-08-29",
+        "trending_id": "2026-08-29:marin-community/marin",
+        "archive_order": 5,
+        "language_rank": 5,
+        "archive_source": "hanishrao/trending-collection"
+      },
+      "abstract_zh": "用于基础模型研究和开发的开源框架。",
+      "authors": [
+        "marin-community"
+      ],
+      "published": "2026-08-29",
+      "author_line": "marin-community"
     },
     {
-      "id": "github:378518160",
+      "id": "github-trending:2026-08-29:makazhanalpamys/soup",
       "channel": "engineering",
-      "related_channels": [
-        "aivoices"
-      ],
-      "item_type": "software_release",
-      "source": "GitHub Releases",
-      "title": "b10672",
-      "url": "https://github.com/ggml-org/llama.cpp/releases/tag/b10672",
-      "published_at": "2026-08-28T13:51:56Z",
-      "updated_at": "2026-08-28T11:42:07Z",
+      "related_channels": [],
+      "item_type": "trending_repository",
+      "source": "GitHub Trending",
+      "title": "MakazhanAlpamys/Soup",
+      "url": "https://github.com/MakazhanAlpamys/Soup",
+      "published_at": "2026-08-29",
+      "updated_at": "2026-08-29",
       "creators": [
-        "ggml-org/llama.cpp"
+        "MakazhanAlpamys"
       ],
       "language": "en",
-      "abstract_or_text": "OpenVINO: Update OV to 2026.3.1, whisper.cpp support, Qwen3.5 on NPU, and new ops (#27843) * OpenVINO Backend: Fuse IM2COL + MatMul convolution into OpenVINO convolution * ci:ggml-ov: Skip recurrent state rollback tests * ci:ggml-ov: Skip recurrent state rollback tests * Update OPENVINO.md * ggml-openvino : add env-var gated op support debugging * Fix ggml_rope_set_offset case * OpenVINO backend: Support Whisper.cpp * Fix code style * openvino : enable qwen35 on NPU Static shapes: - get_graph_in…",
-      "summary_zh": "ggml-org/llama.cpp b10672（预发布）升级 OpenVINO 至 2026.3.1，加入 `Whisper.cpp` 与 Qwen3.5 NPU 支持，并扩展 OpenVINO 算子和编译配置。",
-      "why_it_matters_zh": "采用 Intel OpenVINO/NPU 部署语音或 Qwen3.5 模型的用户可获得新的执行路径和静态图修复；现有自动化部署应重新验证编译参数与分块预填充行为。",
-      "quality_score": 83.0,
+      "abstract_or_text": "Fine-tune LLMs from one YAML. Layer streaming trains an 8B model on a 4 GB laptop GPU.",
+      "summary_zh": "通过单个 YAML 配置微调大语言模型，并主打低显存训练；当日位列 Python 榜第 13 名。",
+      "why_it_matters_zh": "其低资源训练思路有助于研究者在普通笔记本 GPU 上开展参数高效的模型实验，适合教学、原型验证及算力有限的研发场景。",
+      "quality_score": 84.0,
       "tags": [
-        "模型与框架",
-        "OpenVINO",
-        "NPU"
+        "GitHub Trending",
+        "Python",
+        "LLM 微调",
+        "低资源训练"
       ],
       "evidence_flags": [
-        "github",
-        "release",
-        "prerelease"
+        "daily_snapshot",
+        "historical_archive"
       ],
-      "publication_status": "prerelease",
+      "publication_status": "daily_trending_archive",
       "rank": 3,
       "featured": true,
-      "category": "模型与框架",
-      "metrics": {},
-      "metadata": {
-        "repository": "ggml-org/llama.cpp",
-        "version": "b10672",
-        "release_id": "378518160",
-        "release_type": "prerelease"
+      "category": "模型与训练",
+      "metrics": {
+        "archive_order": 13,
+        "language_rank": 13
       },
-      "abstract_zh": "发布说明将 OpenVINO 更新至 2026.3.1，把 IM2COL + MatMul 卷积融合为 OpenVINO 卷积，支持 `Whisper.cpp` 与 NPU 上的 Qwen3.5，并增加 `RELU`、`POOL_2D`、`QUICK_GEGLU` 和 `ROLL`。静态形状路径修复了 state slice、token count、chunked prefill 填充 token、recurrent cache 与位置平面处理；加入 `GGML_OPENVINO_FORCE_STATIC` 以测试 CPU 静态路径，并以 `GGML_OPENVINO_NPU_COMPILE_CONFIG` 转发 NPU 编译模式参数。说明还提到静态模型并行构建与 OpenVINO 文档、GPU driver 更新。",
-      "published": "2026-08-28",
-      "author_line": "ggml-org/llama.cpp"
+      "metadata": {
+        "repository": "MakazhanAlpamys/Soup",
+        "language": "python",
+        "snapshot_date": "2026-08-29",
+        "trending_id": "2026-08-29:makazhanalpamys/soup",
+        "archive_order": 13,
+        "language_rank": 13,
+        "archive_source": "hanishrao/trending-collection"
+      },
+      "abstract_zh": "用一个 YAML 文件微调大语言模型；分层流式训练可在配备 4 GB GPU 的笔记本电脑上训练 8B 模型。",
+      "authors": [
+        "MakazhanAlpamys"
+      ],
+      "published": "2026-08-29",
+      "author_line": "MakazhanAlpamys"
     },
     {
-      "id": "github:378668992",
+      "id": "github-trending:2026-08-29:fla-org/flash-linear-attention",
       "channel": "engineering",
-      "related_channels": [
-        "aivoices"
-      ],
-      "item_type": "software_release",
-      "source": "GitHub Releases",
-      "title": "b10676",
-      "url": "https://github.com/ggml-org/llama.cpp/releases/tag/b10676",
-      "published_at": "2026-08-28T18:01:41Z",
-      "updated_at": "2026-08-28T17:09:08Z",
+      "related_channels": [],
+      "item_type": "trending_repository",
+      "source": "GitHub Trending",
+      "title": "fla-org/flash-linear-attention",
+      "url": "https://github.com/fla-org/flash-linear-attention",
+      "published_at": "2026-08-29",
+      "updated_at": "2026-08-29",
       "creators": [
-        "ggml-org/llama.cpp"
+        "fla-org"
       ],
       "language": "en",
-      "abstract_or_text": "ggml : fix conv_transpose_2d for multiple batches (#26132) * ggml : fix conv_transpose_2d for multiple batches ggml_compute_forward_conv_transpose_2d_impl only computed the first batch (ne[3] of the destination); every batch after the first was left as zero. Both the src1 permutation and the main compute loop now iterate over the batch dimension, and the work buffer size in ggml_graph_plan is scaled by the src1 batch count so the extra permuted batches fit. A multi-batch test case is added to te…",
-      "summary_zh": "ggml-org/llama.cpp b10676（预发布）修复 `conv_transpose_2d` 的多批次计算：此前 CPU 与 Metal 都只计算第一个 batch，其余输出为零。",
-      "why_it_matters_zh": "使用相关算子的模型推理或评测在 batch 大于 1 时可能得到错误结果；修复覆盖 CPU 参考实现和 Apple Metal，适合纳入回归测试。",
-      "quality_score": 81.0,
-      "tags": [
-        "模型与框架",
-        "Metal",
-        "推理正确性"
-      ],
-      "evidence_flags": [
-        "github",
-        "release",
-        "prerelease"
-      ],
-      "publication_status": "prerelease",
-      "rank": 4,
-      "featured": false,
-      "category": "模型与框架",
-      "metrics": {},
-      "metadata": {
-        "repository": "ggml-org/llama.cpp",
-        "version": "b10676",
-        "release_id": "378668992",
-        "release_type": "prerelease"
-      },
-      "abstract_zh": "发布说明指出 `ggml_compute_forward_conv_transpose_2d_impl` 过去只计算目标的第一个 batch，之后的 batch 留为零。修复使 `src1` permutation 和主计算循环遍历 batch 维度，并按 `src1` batch 数量扩展 `ggml_graph_plan` 工作缓冲区，同时加入多批次 `test-backend-ops` 用例。Metal kernel 同样改为覆盖所有 batch，在 grid z 解码 batch，并正确偏移输入和目标索引，因此多批次结果不再与 CPU 参考实现分歧。",
-      "published": "2026-08-28",
-      "author_line": "ggml-org/llama.cpp"
-    },
-    {
-      "id": "github:378795694",
-      "channel": "engineering",
-      "related_channels": [
-        "aivoices"
-      ],
-      "item_type": "software_release",
-      "source": "GitHub Releases",
-      "title": "v3.6.0",
-      "url": "https://github.com/openai/openai-python/releases/tag/v3.6.0",
-      "published_at": "2026-08-28T22:28:31Z",
-      "updated_at": "2026-08-28T22:20:03Z",
-      "creators": [
-        "openai/openai-python"
-      ],
-      "language": "en",
-      "abstract_or_text": "## [3.6.0](https://github.com/openai/openai-python/compare/v3.5.0...v3.6.0) (2026-08-27) ### Features * **api:** add compute_units to Responses and Chat Completions usage ([#3749](https://github.com/openai/openai-python/issues/3749)) ([52421d1](https://github.com/openai/openai-python/commit/52421d197e96b4480fcc16e78345578996452c79)) ### Bug Fixes * **auth:** harden X.509 workload identity integration ([#3740](https://github.com/openai/openai-python/issues/3740)) ([fc3ad6c](https://github.com/ope…",
-      "summary_zh": "openai/openai-python v3.6.0 正式发布，在 Responses 和 Chat Completions 的 usage 中加入 `compute_units`，并加固 X.509 workload identity 集成。",
-      "why_it_matters_zh": "依赖 OpenAI Python SDK 做用量计量、成本分析或工作负载身份认证的应用可获得新的计量字段与更稳健的认证实现。",
-      "quality_score": 78.0,
-      "tags": [
-        "模型与框架",
-        "SDK",
-        "认证"
-      ],
-      "evidence_flags": [
-        "github",
-        "release"
-      ],
-      "publication_status": "release",
-      "rank": 5,
-      "featured": false,
-      "category": "模型与框架",
-      "metrics": {},
-      "metadata": {
-        "repository": "openai/openai-python",
-        "version": "v3.6.0",
-        "release_id": "378795694",
-        "release_type": "release"
-      },
-      "abstract_zh": "v3.6.0 的发布说明为 Responses 和 Chat Completions usage 加入 `compute_units`，并加固 X.509 workload identity 集成。其余变更包括更新 `@stdy/cli`、mypy、pandas-stubs、pyright、rich、GitHub Actions、CodeQL、setup-python 与 PyPI 发布动作等开发和构建依赖。",
-      "published": "2026-08-28",
-      "author_line": "openai/openai-python"
-    },
-    {
-      "id": "github:377321070",
-      "channel": "engineering",
-      "related_channels": [
-        "aivoices"
-      ],
-      "item_type": "software_release",
-      "source": "GitHub Releases",
-      "title": "v0.33.1",
-      "url": "https://github.com/ollama/ollama/releases/tag/v0.33.1",
-      "published_at": "2026-08-26T18:09:57Z",
-      "updated_at": "2026-08-26T22:55:01Z",
-      "creators": [
-        "ollama/ollama"
-      ],
-      "language": "en",
-      "abstract_or_text": "## What's Changed * MLX: Qwen3.8 Flash Next support * cmake: make external compat patches idempotent * MLX and llama.cpp update * mlxrunner: add structured output support * mlxrunner: avoid Metal GPU timeouts when loading models from slow storage ## New Contributors * @pd95 made their first contribution in https://github.com/ollama/ollama/pull/17948 **Full Changelog**: https://github.com/ollama/ollama/compare/v0.33.0...v0.33.1",
-      "summary_zh": "ollama/ollama v0.33.1 正式发布，MLX 增加 Qwen3.8 Flash Next 支持与 structured output，并缓解慢速存储加载模型时的 Metal GPU 超时。",
-      "why_it_matters_zh": "在 Apple Silicon 上通过 Ollama 运行 Qwen3.8 Flash Next 或结构化生成的用户可直接受益；慢盘加载场景的超时修复可提升本地服务稳定性。",
+      "abstract_or_text": "🚀 Efficient implementations for emerging model architectures",
+      "summary_zh": "为新兴模型架构提供高效实现；当日位列 Python 榜第 17 名。",
+      "why_it_matters_zh": "注意力与替代序列建模架构的高效实现是开展长上下文、吞吐与显存研究的重要基础，适合模型研究者和训练系统开发者。",
       "quality_score": 76.0,
       "tags": [
-        "模型与框架",
-        "Ollama",
-        "Apple Silicon"
+        "GitHub Trending",
+        "Python",
+        "高效模型",
+        "注意力机制"
       ],
       "evidence_flags": [
-        "github",
-        "release"
+        "daily_snapshot",
+        "historical_archive",
+        "brief_repository_description"
       ],
-      "publication_status": "release",
+      "publication_status": "daily_trending_archive",
+      "rank": 4,
+      "featured": false,
+      "category": "模型与训练",
+      "metrics": {
+        "archive_order": 17,
+        "language_rank": 17
+      },
+      "metadata": {
+        "repository": "fla-org/flash-linear-attention",
+        "language": "python",
+        "snapshot_date": "2026-08-29",
+        "trending_id": "2026-08-29:fla-org/flash-linear-attention",
+        "archive_order": 17,
+        "language_rank": 17,
+        "archive_source": "hanishrao/trending-collection"
+      },
+      "abstract_zh": "面向新兴模型架构的高效实现。",
+      "authors": [
+        "fla-org"
+      ],
+      "published": "2026-08-29",
+      "author_line": "fla-org"
+    },
+    {
+      "id": "github-trending:2026-08-29:lance-format/lance",
+      "channel": "engineering",
+      "related_channels": [],
+      "item_type": "trending_repository",
+      "source": "GitHub Trending",
+      "title": "lance-format/lance",
+      "url": "https://github.com/lance-format/lance",
+      "published_at": "2026-08-29",
+      "updated_at": "2026-08-29",
+      "creators": [
+        "lance-format"
+      ],
+      "language": "en",
+      "abstract_or_text": "Open Lakehouse Format for Multimodal AI. Convert from Parquet in 2 lines of code for 100x faster random access, vector index, and data versioning. Compatible with Pandas, DuckDB, Polars, Pyarrow, and PyTorch with more integrations coming..",
+      "summary_zh": "面向多模态 AI 的开放 Lakehouse 数据格式，支持随机访问、向量索引与数据版本控制；当日位列 Rust 榜第 5 名。",
+      "why_it_matters_zh": "多模态训练、检索和评测常受制于大规模数据访问效率；该格式可连接常见数据分析与深度学习工具，适合构建可复现的 AI 数据管线。",
+      "quality_score": 90.0,
+      "tags": [
+        "GitHub Trending",
+        "Rust",
+        "多模态数据",
+        "向量索引",
+        "数据版本"
+      ],
+      "evidence_flags": [
+        "daily_snapshot",
+        "historical_archive"
+      ],
+      "publication_status": "daily_trending_archive",
+      "rank": 5,
+      "featured": false,
+      "category": "推理与数据基础设施",
+      "metrics": {
+        "archive_order": 23,
+        "language_rank": 5
+      },
+      "metadata": {
+        "repository": "lance-format/lance",
+        "language": "rust",
+        "snapshot_date": "2026-08-29",
+        "trending_id": "2026-08-29:lance-format/lance",
+        "archive_order": 23,
+        "language_rank": 5,
+        "archive_source": "hanishrao/trending-collection"
+      },
+      "abstract_zh": "面向多模态 AI 的开放 Lakehouse 格式。可用两行代码从 Parquet 转换，提供快 100 倍的随机访问、向量索引和数据版本控制；兼容 Pandas、DuckDB、Polars、PyArrow 与 PyTorch，更多集成仍在开发中。",
+      "authors": [
+        "lance-format"
+      ],
+      "published": "2026-08-29",
+      "author_line": "lance-format"
+    },
+    {
+      "id": "github-trending:2026-08-29:ai-dynamo/dynamo",
+      "channel": "engineering",
+      "related_channels": [],
+      "item_type": "trending_repository",
+      "source": "GitHub Trending",
+      "title": "ai-dynamo/dynamo",
+      "url": "https://github.com/ai-dynamo/dynamo",
+      "published_at": "2026-08-29",
+      "updated_at": "2026-08-29",
+      "creators": [
+        "ai-dynamo"
+      ],
+      "language": "en",
+      "abstract_or_text": "A Datacenter Scale Distributed Inference Serving Framework",
+      "summary_zh": "数据中心规模的分布式推理服务框架；当日位列 Rust 榜第 11 名。",
+      "why_it_matters_zh": "大模型在生产环境中的并发服务与资源调度需要分布式推理系统支撑，适合部署高吞吐模型服务、研究推理效率的基础设施团队。",
+      "quality_score": 87.0,
+      "tags": [
+        "GitHub Trending",
+        "Rust",
+        "分布式推理",
+        "模型服务"
+      ],
+      "evidence_flags": [
+        "daily_snapshot",
+        "historical_archive",
+        "brief_repository_description"
+      ],
+      "publication_status": "daily_trending_archive",
       "rank": 6,
       "featured": false,
-      "category": "模型与框架",
-      "metrics": {},
-      "metadata": {
-        "repository": "ollama/ollama",
-        "version": "v0.33.1",
-        "release_id": "377321070",
-        "release_type": "release"
+      "category": "推理与数据基础设施",
+      "metrics": {
+        "archive_order": 29,
+        "language_rank": 11
       },
-      "abstract_zh": "发布说明列出 MLX 对 Qwen3.8 Flash Next 的支持、外部兼容补丁的幂等化、MLX 与 llama.cpp 更新，以及 `mlxrunner` 的 structured output 支持。`mlxrunner` 还避免在从慢速存储加载模型时触发 Metal GPU timeout。",
-      "published": "2026-08-26",
-      "author_line": "ollama/ollama"
+      "metadata": {
+        "repository": "ai-dynamo/dynamo",
+        "language": "rust",
+        "snapshot_date": "2026-08-29",
+        "trending_id": "2026-08-29:ai-dynamo/dynamo",
+        "archive_order": 29,
+        "language_rank": 11,
+        "archive_source": "hanishrao/trending-collection"
+      },
+      "abstract_zh": "数据中心规模的分布式推理服务框架。",
+      "authors": [
+        "ai-dynamo"
+      ],
+      "published": "2026-08-29",
+      "author_line": "ai-dynamo"
     },
     {
-      "id": "github:378040117",
+      "id": "github-trending:2026-08-29:qdrant/qdrant",
       "channel": "engineering",
-      "related_channels": [
-        "aivoices"
-      ],
-      "item_type": "software_release",
-      "source": "GitHub Releases",
-      "title": "b10658",
-      "url": "https://github.com/ggml-org/llama.cpp/releases/tag/b10658",
-      "published_at": "2026-08-27T18:32:48Z",
-      "updated_at": "2026-08-27T17:17:07Z",
+      "related_channels": [],
+      "item_type": "trending_repository",
+      "source": "GitHub Trending",
+      "title": "qdrant/qdrant",
+      "url": "https://github.com/qdrant/qdrant",
+      "published_at": "2026-08-29",
+      "updated_at": "2026-08-29",
       "creators": [
-        "ggml-org/llama.cpp"
+        "qdrant"
       ],
       "language": "en",
-      "abstract_or_text": "spec : add DFlash2 support (local convolution + candidate selector) (#27342) (#27816) * spec : add DFlash2 support (local convolution + candidate selector) (#27342) * support DFlash2 * Add p_min in DFlash2 Assisted-by: Claude Opus 5 * Revert unnecessary changes Assisted-by: Claude Opus 5 * Revert draft sampling in rejection sampling Assisted-by: Claude Opus 5 * Refactor code structure Assisted-by: Claude Opus 5 * Delete embedding scaling Assisted-by: Claude Opus 5 * Gate output transforms on DFl…",
-      "summary_zh": "ggml-org/llama.cpp b10658（预发布）为 DFlash2 加入本地卷积和 candidate selector 支持，并完善其推测解码执行路径。",
-      "why_it_matters_zh": "计划在本地推理栈中尝试 DFlash2 的团队获得模型执行支持；说明列出的 mrope、图计数与成本优化改动会影响该路径的可用性和资源表现。",
-      "quality_score": 74.0,
+      "abstract_or_text": "Qdrant - High-performance, massive-scale Vector Database and Vector Search Engine for the next generation of AI. Also available in the cloud https://cloud.qdrant.io/",
+      "summary_zh": "面向 AI 应用的大规模高性能向量数据库与向量搜索引擎；当日位列 Rust 榜第 19 名。",
+      "why_it_matters_zh": "向量检索是 RAG、语义搜索和多模态检索系统的关键组件，适合需要自建可扩展检索服务的算法工程师与平台团队。",
+      "quality_score": 90.0,
       "tags": [
-        "模型与框架",
-        "模型支持",
-        "推测解码"
+        "GitHub Trending",
+        "Rust",
+        "向量数据库",
+        "RAG",
+        "语义检索"
       ],
       "evidence_flags": [
-        "github",
-        "release",
-        "prerelease"
+        "daily_snapshot",
+        "historical_archive"
       ],
-      "publication_status": "prerelease",
+      "publication_status": "daily_trending_archive",
       "rank": 7,
       "featured": false,
-      "category": "模型与框架",
-      "metrics": {},
-      "metadata": {
-        "repository": "ggml-org/llama.cpp",
-        "version": "b10658",
-        "release_id": "378040117",
-        "release_type": "prerelease"
+      "category": "推理与数据基础设施",
+      "metrics": {
+        "archive_order": 37,
+        "language_rank": 19
       },
-      "abstract_zh": "发布说明为 DFlash2 增加 local convolution 和 candidate selector 支持，并加入 `p_min`。该版本还对 DFlash2 进行结构整理，撤销 rejection sampling 中的 draft sampling 与不必要改动，按 DFlash2 条件启用 output transforms，优化 Dflash 2 cost，修复 mrope bug、CI 与 graph number calculation，并调整 `llama_model_dflash_selector_top_k` 的声明位置。",
-      "published": "2026-08-27",
-      "author_line": "ggml-org/llama.cpp"
+      "metadata": {
+        "repository": "qdrant/qdrant",
+        "language": "rust",
+        "snapshot_date": "2026-08-29",
+        "trending_id": "2026-08-29:qdrant/qdrant",
+        "archive_order": 37,
+        "language_rank": 19,
+        "archive_source": "hanishrao/trending-collection"
+      },
+      "abstract_zh": "Qdrant：面向下一代 AI 的高性能、大规模向量数据库和向量搜索引擎，也提供云服务。",
+      "authors": [
+        "qdrant"
+      ],
+      "published": "2026-08-29",
+      "author_line": "qdrant"
     },
     {
-      "id": "github:377880826",
+      "id": "github-trending:2026-08-29:flyteorg/flyte",
       "channel": "engineering",
-      "related_channels": [
-        "aivoices"
-      ],
-      "item_type": "software_release",
-      "source": "GitHub Releases",
-      "title": "b10655",
-      "url": "https://github.com/ggml-org/llama.cpp/releases/tag/b10655",
-      "published_at": "2026-08-27T14:18:13Z",
-      "updated_at": "2026-08-27T13:34:42Z",
+      "related_channels": [],
+      "item_type": "trending_repository",
+      "source": "GitHub Trending",
+      "title": "flyteorg/flyte",
+      "url": "https://github.com/flyteorg/flyte",
+      "published_at": "2026-08-29",
+      "updated_at": "2026-08-29",
       "creators": [
-        "ggml-org/llama.cpp"
+        "flyteorg"
       ],
       "language": "en",
-      "abstract_or_text": "Feature: Added LIGHTNING_INDEXER support for Deepseek V4 ops on Vulkan Backend (#27453) * vulkan: add LIGHTNING_INDEXER op * vulkan: updated lightning_indexer.comp and ggml-vulkan.cpp with 128-lane dot-product reduction moved from a shared-memory tree to subgroupAdd. * vulkan: cleanup; Skip bounds checks * vulkan: cleanup FA_K_ONLY * Revert \"vulkan: cleanup FA_K_ONLY\" This reverts commit fdcbdd91511945d6878d9070b5447e4a34dce010. * vulkan: restore interleaved K/V buffer ordering * vulkan: Remove…",
-      "summary_zh": "ggml-org/llama.cpp b10655（预发布）在 Vulkan 后端实现 Deepseek V4 所需的 `LIGHTNING_INDEXER` op。",
-      "why_it_matters_zh": "使用 Vulkan 在本地部署 Deepseek V4 相关模型的用户获得新的后端能力；该更新涉及索引器核与 K/V 缓冲布局，适合在目标硬件上验证性能与输出。",
-      "quality_score": 73.0,
+      "abstract_or_text": "Dynamic, resilient AI orchestration. Coordinate data, models, and compute as you build AI workflows.",
+      "summary_zh": "用于协调数据、模型与计算资源的动态 AI 工作流编排系统；当日位列 Go 榜第 15 名。",
+      "why_it_matters_zh": "科研机器学习常涉及数据预处理、训练、评测与部署等多步计算，适合需要提升工作流可靠性与可重复性的 ML 平台和科学计算团队。",
+      "quality_score": 88.0,
       "tags": [
-        "模型与框架",
-        "Vulkan",
-        "Deepseek V4"
+        "GitHub Trending",
+        "Go",
+        "AI 工作流",
+        "ML 编排"
       ],
       "evidence_flags": [
-        "github",
-        "release",
-        "prerelease"
+        "daily_snapshot",
+        "historical_archive"
       ],
-      "publication_status": "prerelease",
+      "publication_status": "daily_trending_archive",
       "rank": 8,
       "featured": false,
-      "category": "模型与框架",
-      "metrics": {},
-      "metadata": {
-        "repository": "ggml-org/llama.cpp",
-        "version": "b10655",
-        "release_id": "377880826",
-        "release_type": "prerelease"
+      "category": "推理与数据基础设施",
+      "metrics": {
+        "archive_order": 69,
+        "language_rank": 15
       },
-      "abstract_zh": "发布说明新增 Vulkan `LIGHTNING_INDEXER` op，并将 `lightning_indexer.comp` 与 `ggml-vulkan.cpp` 的 128-lane dot-product reduction 从 shared-memory tree 改为 `subgroupAdd`。后续调整包括跳过 bounds checks、清理和恢复 `FA_K_ONLY` 相关变更、恢复 interleaved K/V buffer ordering，以及移除 `FA_K_ONLY` 与回退部分 `flash_attn_dequant`、`backend-ops.cpp` 测试改动。",
-      "published": "2026-08-27",
-      "author_line": "ggml-org/llama.cpp"
+      "metadata": {
+        "repository": "flyteorg/flyte",
+        "language": "go",
+        "snapshot_date": "2026-08-29",
+        "trending_id": "2026-08-29:flyteorg/flyte",
+        "archive_order": 69,
+        "language_rank": 15,
+        "archive_source": "hanishrao/trending-collection"
+      },
+      "abstract_zh": "动态且具韧性的 AI 编排工具。在构建 AI 工作流时协调数据、模型和计算资源。",
+      "authors": [
+        "flyteorg"
+      ],
+      "published": "2026-08-29",
+      "author_line": "flyteorg"
     },
     {
-      "id": "github:377930263",
+      "id": "github-trending:2026-08-29:tencent/weknora",
       "channel": "engineering",
-      "related_channels": [
-        "aivoices"
-      ],
-      "item_type": "software_release",
-      "source": "GitHub Releases",
-      "title": "langchain-anthropic==1.7.0",
-      "url": "https://github.com/langchain-ai/langchain/releases/tag/langchain-anthropic%3D%3D1.7.0",
-      "published_at": "2026-08-27T15:24:16Z",
-      "updated_at": "2026-08-27T15:20:13Z",
+      "related_channels": [],
+      "item_type": "trending_repository",
+      "source": "GitHub Trending",
+      "title": "Tencent/WeKnora",
+      "url": "https://github.com/Tencent/WeKnora",
+      "published_at": "2026-08-29",
+      "updated_at": "2026-08-29",
       "creators": [
-        "langchain-ai/langchain"
+        "Tencent"
       ],
       "language": "en",
-      "abstract_or_text": "Changes since langchain-anthropic==1.6.1 release(anthropic): 1.7.0 (#39963) feat(anthropic): support top-level param for skills via `container`; `updates` thinking display mode (#39962) feat(anthropic): support 1.0 sdk (#39938) fix(anthropic): auto-append `advisor-tool-2026-03-01` beta header for `advisor_20260301` tool (#39917) feat(anthropic): surface gateway response metadata (#39809)",
-      "summary_zh": "langchain-ai/langchain 的 langchain-anthropic==1.7.0 正式发布，扩展 `skills`、thinking display、SDK 1.0 与 gateway metadata 支持。",
-      "why_it_matters_zh": "使用 Anthropic 工具调用、容器化 skills 或网关的 LangChain 应用需要评估参数和响应元数据变化，以保持 agent 编排与可观测性一致。",
-      "quality_score": 72.0,
+      "abstract_or_text": "Open-source LLM knowledge platform: turn raw documents into a queryable RAG, an autonomous reasoning agent, and a self-maintaining Wiki.",
+      "summary_zh": "将原始文档转化为可查询 RAG、推理智能体和可维护知识库的开源 LLM 平台；当日位列 Go 榜第 18 名。",
+      "why_it_matters_zh": "可把分散文档接入检索与智能体流程，适合需要建设内部知识助手、科研文献问答或持续维护知识库的研发团队。",
+      "quality_score": 84.0,
       "tags": [
-        "模型与框架",
-        "LangChain",
-        "Anthropic"
+        "GitHub Trending",
+        "Go",
+        "RAG",
+        "知识库",
+        "智能体"
       ],
       "evidence_flags": [
-        "github",
-        "release"
+        "daily_snapshot",
+        "historical_archive"
       ],
-      "publication_status": "release",
+      "publication_status": "daily_trending_archive",
       "rank": 9,
       "featured": false,
-      "category": "模型与框架",
-      "metrics": {},
-      "metadata": {
-        "repository": "langchain-ai/langchain",
-        "version": "langchain-anthropic==1.7.0",
-        "release_id": "377930263",
-        "release_type": "release"
+      "category": "推理与数据基础设施",
+      "metrics": {
+        "archive_order": 72,
+        "language_rank": 18
       },
-      "abstract_zh": "相对 langchain-anthropic==1.6.1，发布说明支持通过 `container` 提供 `skills` 的 top-level 参数和 `updates` thinking display mode，支持 1.0 SDK，自动为 `advisor_20260301` tool 添加 `advisor-tool-2026-03-01` beta header，并暴露 gateway response metadata。",
-      "published": "2026-08-27",
-      "author_line": "langchain-ai/langchain"
+      "metadata": {
+        "repository": "Tencent/WeKnora",
+        "language": "go",
+        "snapshot_date": "2026-08-29",
+        "trending_id": "2026-08-29:tencent/weknora",
+        "archive_order": 72,
+        "language_rank": 18,
+        "archive_source": "hanishrao/trending-collection"
+      },
+      "abstract_zh": "开源 LLM 知识平台：将原始文档转化为可查询的 RAG、自主推理智能体和可自维护的 Wiki。",
+      "authors": [
+        "Tencent"
+      ],
+      "published": "2026-08-29",
+      "author_line": "Tencent"
     },
     {
-      "id": "github:378059163",
+      "id": "github-trending:2026-08-29:openhands/openhands",
       "channel": "engineering",
-      "related_channels": [
-        "aivoices"
-      ],
-      "item_type": "software_release",
-      "source": "GitHub Releases",
-      "title": "b10659",
-      "url": "https://github.com/ggml-org/llama.cpp/releases/tag/b10659",
-      "published_at": "2026-08-27T19:07:21Z",
-      "updated_at": "2026-08-27T17:27:57Z",
+      "related_channels": [],
+      "item_type": "trending_repository",
+      "source": "GitHub Trending",
+      "title": "OpenHands/OpenHands",
+      "url": "https://github.com/OpenHands/OpenHands",
+      "published_at": "2026-08-29",
+      "updated_at": "2026-08-29",
       "creators": [
-        "ggml-org/llama.cpp"
+        "OpenHands"
       ],
       "language": "en",
-      "abstract_or_text": "ci : bundle HIP runtime DLLs with Windows ROCm release (#26973) Copy amdhip64_7, amd_comgr and rocm_kpack next to the binaries so the correct HIP runtime loads over the driver's copy in System32. Fixes #26929. **Website:** - **Attestations:** - **macOS/iOS:** - [macOS Apple Silicon (arm64)](https://github.com/ggml-org/llama.cpp/releases/download/b10659/llama-b10659-bin-macos-arm64.tar.gz) - macOS Apple Silicon (arm64, KleidiAI enabled) [DISABLED](https://github.com/ggml-org/llama.cpp/pull/23780)…",
-      "summary_zh": "ggml-org/llama.cpp b10659（预发布）将 HIP runtime DLL 随 Windows ROCm 发布包提供，确保加载随包版本而非 System32 中的驱动副本。",
-      "why_it_matters_zh": "Windows ROCm 用户可减少运行时 DLL 版本错配导致的启动或推理失败；升级二进制包后应验证既有部署脚本未替换随包 DLL。",
-      "quality_score": 68.0,
+      "abstract_or_text": "🙌 OpenHands: AI-Driven Development",
+      "summary_zh": "面向软件开发的 AI 驱动开发项目；当日位列 TypeScript 榜第 11 名。",
+      "why_it_matters_zh": "编码智能体可承担代码理解、实现与迭代中的部分重复性工作，适合评估智能体辅助研发流程、探索人机协作式软件工程的开发者。",
+      "quality_score": 78.0,
       "tags": [
-        "模型与框架",
-        "Windows",
-        "ROCm"
+        "GitHub Trending",
+        "TypeScript",
+        "编码智能体",
+        "AI 开发"
       ],
       "evidence_flags": [
-        "github",
-        "release",
-        "prerelease"
+        "daily_snapshot",
+        "historical_archive",
+        "brief_repository_description"
       ],
-      "publication_status": "prerelease",
+      "publication_status": "daily_trending_archive",
       "rank": 10,
       "featured": false,
-      "category": "模型与框架",
-      "metrics": {},
-      "metadata": {
-        "repository": "ggml-org/llama.cpp",
-        "version": "b10659",
-        "release_id": "378059163",
-        "release_type": "prerelease"
+      "category": "开发者工具",
+      "metrics": {
+        "archive_order": 102,
+        "language_rank": 11
       },
-      "abstract_zh": "发布说明将 `amdhip64_7`、`amd_comgr` 与 `rocm_kpack` 复制到 Windows ROCm 发布二进制文件旁，使正确的 HIP runtime 优先于 System32 中随驱动提供的副本加载；该变更修复 #26929。",
-      "published": "2026-08-27",
-      "author_line": "ggml-org/llama.cpp"
+      "metadata": {
+        "repository": "OpenHands/OpenHands",
+        "language": "typescript",
+        "snapshot_date": "2026-08-29",
+        "trending_id": "2026-08-29:openhands/openhands",
+        "archive_order": 102,
+        "language_rank": 11,
+        "archive_source": "hanishrao/trending-collection"
+      },
+      "abstract_zh": "OpenHands：AI 驱动开发。",
+      "authors": [
+        "OpenHands"
+      ],
+      "published": "2026-08-29",
+      "author_line": "OpenHands"
     }
-  ],
-  "review": {
-    "model": "gpt-5.6-terra",
-    "reasoning_effort": "high",
-    "note": "已逐项审阅 59 条候选所附的官方 GitHub 发布说明；历史综合日报未发现拟入选 release ID。排除了 huggingface/trl v1.12.0：官方说明确认其与 v1.11.0 代码完全相同。"
-  }
+  ]
 }

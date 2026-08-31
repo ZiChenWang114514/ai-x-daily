@@ -1,6 +1,6 @@
 # AIxDaily · 2026-08-30
 
-今日精选：AI × Chem 10 项，AI × Bio 14 项，AI × Math 6 项，AI Voices 9 项，Engineering 8 项。今日五个频道共同聚焦科研智能体与可验证方法。AI×Chem、AI×Bio、AI×Math 的前三项均为预印本，报告了模型、基准或实验数据，但尚待同行评议；AI Voices 收录公开帖文与机构观点，相关性能主张仍需独立核验；Engineering 展示 GitHub Trending 项目。本次所阅前三项中未见同行评议论文或正式软件发布。
+今日精选：AI × Chem 10 项，AI × Bio 14 项，AI × Math 6 项，AI Voices 9 项，Engineering 10 项。今日五个频道共同聚焦科研智能体与可验证方法。AI×Chem、AI×Bio、AI×Math 的前三项均为预印本，报告了模型、基准或实验数据，但尚待同行评议；AI Voices 收录公开帖文与机构观点，相关性能主张仍需独立核验；Engineering 展示 GitHub Trending 项目。本次所阅前三项中未见同行评议论文或正式软件发布。
 
 ## 今日重大进展
 
@@ -50,11 +50,11 @@
 
 ## Engineering
 
-采集 82，候选 60，精选 8。来源状态：各来源已完成
+采集 108，候选 108，精选 10。来源状态：各来源已完成
 
-- [THU-MAIC/OpenMAIC](https://github.com/THU-MAIC/OpenMAIC) — OpenMAIC 是一套开放式多智能体互动课堂，主打以一键方式提供沉浸式的多智能体学习体验。它位列 GitHub Trending 当日第 1 名，新增 907 星。
-- [K-Dense-AI/scientific-agent-skills](https://github.com/K-Dense-AI/scientific-agent-skills) — K-Dense-AI/scientific-agent-skills 提供面向科学研究的智能体技能库和数据库连接能力，覆盖生物、化学、医学与药物发现。它位列 GitHub Trending 当日第 2 名，新增 1,113 星。
-- [tt-a1i/archify](https://github.com/tt-a1i/archify) — Archify 是供编码智能体使用的架构图技能，可生成可核验的架构、工作流、时序、数据流和生命周期图，并导出为独立 HTML。它位列 GitHub Trending 当日第 4 名，新增 3,730 星。
+- [K-Dense-AI/scientific-agent-skills](https://github.com/K-Dense-AI/scientific-agent-skills) — K-Dense-AI/scientific-agent-skills 是面向科学研究的智能体 Skills 库，提供可直接使用的技能与科学数据库连接；当天位列 GitHub Trending Python 语言榜第 1 名。
+- [Osmantic/ODS](https://github.com/Osmantic/ODS) — Osmantic/ODS 可将 PC、Mac 或 Linux 主机整合为 AI 服务器，涵盖 LLM 推理、RAG、智能体和图像生成；当天位列 GitHub Trending Python 语言榜第 5 名。
+- [anthropics/claude-plugins-official](https://github.com/anthropics/claude-plugins-official) — anthropics/claude-plugins-official 是由 Anthropic 维护的 Claude Code 高质量插件目录；当天位列 GitHub Trending Python 语言榜第 7 名。
 
 [查看频道专页](https://zichenwang114514.github.io/ai-x-daily/channels/engineering/)
 

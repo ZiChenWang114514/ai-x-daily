@@ -1,7 +1,7 @@
 {
   "schema_version": "2.0",
   "date": "2026-08-24",
-  "generated_at": "2026-08-23T23:26:29+00:00",
+  "generated_at": "2026-08-31T11:32:25+00:00",
   "title": "AIxDaily",
   "overview_zh": "今日精选呈现两条主线：化学、生物与数学频道均以预印本为主，研究设计和结果仍需同行评议及独立验证；AI Voices 收录的是机构发布与研究者公开观点，所述性能多为发布方主张；工程频道则集中于官方软件正式发布，涉及生成工作流、LLM 服务和开发协作工具。",
   "channel_highlights": {
@@ -9,7 +9,7 @@
     "aixbio": "三篇均为预印本：尿液代谢物肺癌风险模型、结构化EHR预测与心脏MRI分割均给出独立测试信息，但尚无临床实施结论。",
     "aixmath": "今日两篇精选均为预印本：FormalTCS提供可机检Lean证明任务；RuleMaze以可执行验证器考查多模态模型的规则规划。",
     "aivoices": "本频道为公开帖文：DeepSeek宣布实验性多模态模型上线，Chelsea Finn征集科学洞见评测数据；上述性能与判断仍属发布者或研究者观点。",
-    "engineering": "三项均为官方软件正式发布：Diffusers扩展多模态生成与并行推理，Ray加强LLM服务并修复安全问题，Codex更新协作与诊断工具。"
+    "engineering": "已从当天 106 个 GitHub Trending 候选中人工选出 10 项，均保留其当日语言榜名次。"
   },
   "channels": [
     {
@@ -1878,326 +1878,556 @@
       "id": "engineering",
       "name": "Engineering",
       "stats": {
-        "fetched": 60,
-        "candidates": 60,
-        "selected": 7,
+        "fetched": 106,
+        "suppressed_previous": 0,
+        "candidates": 106,
+        "selected": 10,
         "sources": {
-          "GitHub Releases": 60
+          "GitHub Trending": 106
         }
       },
       "source_errors": [],
       "items": [
         {
-          "id": "github:373818176",
+          "id": "github-trending:2026-08-24:nvidia-nemo/speech",
           "channel": "engineering",
           "related_channels": [
-            "aixmath",
-            "aixbio",
-            "aixchem"
+            "aivoices"
           ],
-          "item_type": "software_release",
-          "source": "GitHub Releases",
-          "title": "Diffusers 0.40.0: New pipelines, tensor-parallel support, improved CLI, and more",
-          "url": "https://github.com/huggingface/diffusers/releases/tag/v0.40.0",
-          "published_at": "2026-08-20T14:53:43Z",
-          "updated_at": "2026-08-20T14:27:24Z",
+          "item_type": "trending_repository",
+          "source": "GitHub Trending",
+          "title": "NVIDIA-NeMo/Speech",
+          "url": "https://github.com/NVIDIA-NeMo/Speech",
+          "published_at": "2026-08-24",
+          "updated_at": "2026-08-24",
           "creators": [
-            "huggingface/diffusers"
+            "NVIDIA-NeMo"
           ],
           "language": "en",
-          "abstract_or_text": "> [!TIP] > This release features several new pipelines, including LTX2.5, MiniMax H3, and Wan Animate 2. We're also graduating Modular Diffusers out of the experimental phase and announcing its stable support. Additionally, this release includes minimal support for tensor-parallel. There's a lot more that went down in this release. So, please consult the notes for details. ## New Pipelines ### MiniMax-H3 [**MiniMax-H3**](https://huggingface.co/docs/diffusers/main/api/pipelines/minimax_h3) genera…",
-          "summary_zh": "huggingface/diffusers 发布 v0.40.0，新增 MiniMax-H3、MiniMax Music 3、Stable Audio 3、LTX-2.5、Wan-Animate-2 等管线；Modular Diffusers 转为稳定支持，并加入 CUDA 与 AWS Neuron 的 tensor-parallel 推理、量化后端及路径遍历修复。",
-          "why_it_matters_zh": "视频、音频与图像生成工作流可直接接入更多模型，分布式推理和量化选择也更丰富。现有 JAX/Flax 用户须迁移，使用 mixed-rank LoRA、`torch_dtype` 或 DDUF 的项目需要检查兼容性。",
-          "quality_score": 95.0,
-          "tags": [
-            "模型与框架",
-            "性能",
-            "兼容性",
-            "安全"
-          ],
-          "evidence_flags": [
-            "benchmark",
-            "github",
-            "experimental",
-            "release",
-            "breaking",
-            "security"
-          ],
-          "publication_status": "release",
-          "rank": 1,
-          "featured": true,
-          "category": "模型与框架",
-          "metrics": {},
-          "metadata": {
-            "repository": "huggingface/diffusers",
-            "version": "v0.40.0",
-            "release_id": "373818176",
-            "release_type": "release"
-          },
-          "abstract_zh": "发布说明称，本版加入 LTX-2.5、MiniMax-H3 和 Wan Animate 2 等新管线；Modular Diffusers 已脱离 experimental 状态并提供稳定支持，同时提供初步 tensor-parallel 支持。MiniMax-H3 可同时生成视频与声轨；MiniMax Music 3 可依据歌词与音乐描述生成最长五分钟的歌曲；Stable Audio 3 提供文生音频、音频到音频和局部修补管线。LTX-2.5 支持自动预测视频帧数与可选提示词增强，Wan-Animate-2 可利用驱动视频为参考人物图像制作动画。核心库加入适用于 CUDA 与 AWS Neuron 的 tensor-parallel inference，以及 SDNQ、Nunchaku Lite 等量化后端；CLI 改进了 Modular pipeline、技能安装和多模态输出保存。JAX/Flax 支持已移除；`torch_dtype` 改为弃用并推荐 `dtype`，DDUF 也进入弃用期。此版修复了可通过分片 checkpoint 索引读取目录外文件的路径遍历问题，并包含 LoR…",
-          "published": "2026-08-20",
-          "author_line": "huggingface/diffusers"
-        },
-        {
-          "id": "github:375125447",
-          "channel": "engineering",
-          "related_channels": [
-            "aixmath",
-            "aixbio",
-            "aixchem"
-          ],
-          "item_type": "software_release",
-          "source": "GitHub Releases",
-          "title": "Ray-2.58.0",
-          "url": "https://github.com/ray-project/ray/releases/tag/ray-2.58.0",
-          "published_at": "2026-08-23T05:42:08Z",
-          "updated_at": "2026-08-22T01:39:46Z",
-          "creators": [
-            "ray-project/ray"
-          ],
-          "language": "en",
-          "abstract_or_text": "# Highlights * **Ray Serve LLM:** In this release we've completed KV cache and token aware request routing, which was previewed in 2.57. Tokenization now happens in-process on the `LLMRouter` ingress replica, the routing decision is made there, tokens are transmitted out-of-band so the engine does not re-tokenize, KV lifecycle events are broadcast to every ingress replica (\\#64642, \\#64920, \\#64949, \\#65010, \\#65095). KV cache and token aware routing is also aware of CPU KV caches, so offloaded…",
-          "summary_zh": "ray-project/ray 发布 ray-2.58.0，完成 Ray Serve LLM 的 KV cache/token 感知路由，推出 Ray Sandbox、TPU 调度与 Ray Data shuffle v2，并修复 Ray Data 任意代码执行风险和 Serve token 认证绕过。",
-          "why_it_matters_zh": "部署多副本 LLM 服务的团队可借助缓存感知路由减少重复预填充；数据处理、TPU 训练和隔离执行也获得新能力。使用 `read_lance`、嵌套 pickle 或 Ray Serve token 认证的生产环境应优先评估升级。",
+          "abstract_or_text": "A scalable generative AI framework built for researchers and developers working on Large Language Models, Multimodal, and Speech AI (Automatic Speech Recognition and Text-to-Speech)",
+          "summary_zh": "NVIDIA NeMo Speech 是面向大语言模型、多模态与语音 AI 的可扩展生成式 AI 框架；当日位列 Python 榜第 9 名。",
+          "why_it_matters_zh": "它为语音识别、文本转语音和多模态模型研发提供了统一的研究与工程框架，适合需要训练、微调或部署语音与生成式模型的科研人员和开发团队。",
           "quality_score": 92.0,
           "tags": [
-            "性能与部署",
-            "LLM 服务",
-            "安全"
+            "模型与训练",
+            "GitHub Trending",
+            "Python",
+            "生成式AI",
+            "语音AI",
+            "模型训练"
           ],
           "evidence_flags": [
-            "dataset",
-            "experimental",
-            "release",
-            "performance"
+            "daily_snapshot",
+            "historical_archive"
           ],
-          "publication_status": "release",
-          "rank": 2,
+          "publication_status": "daily_trending_archive",
+          "rank": 1,
           "featured": true,
-          "category": "性能与部署",
-          "metrics": {},
-          "metadata": {
-            "repository": "ray-project/ray",
-            "version": "ray-2.58.0",
-            "release_id": "375125447",
-            "release_type": "release"
+          "category": "模型与训练",
+          "metrics": {
+            "archive_order": 9,
+            "language_rank": 9
           },
-          "abstract_zh": "发布说明指出，Ray Serve LLM 完成了在 2.57 中预览的 KV cache 与 token 感知请求路由：`LLMRouter` 在进站副本内完成分词和路由决策，token 通过带外方式传递，KV 生命周期事件会广播给各进站副本，CPU KV cache 也计入命中率。Ray Core 可将任务事件从 GCS 热路径移出；启用 `RAY_enable_task_events_to_dashboard_head` 后，事件记录器、聚合器和内存存储将为状态 API 与 `ray.timeline` 提供数据。Ray Data 新增 Databricks DeltaLake/Catalog 写入与 shuffle v2，改进 join 和 aggregation；Ray Sandbox 为实验性功能，可在 gVisor 下运行 task/actor 并直接运行 Docker 镜像。Ray Train 和 Ray Core 补充 TorchTPU、TPU slice/subslice 调度和资源核算。此版还修复 `read_lance` 或嵌套 pickle 可能执行任意代码的问…",
-          "published": "2026-08-23",
-          "author_line": "ray-project/ray"
+          "metadata": {
+            "repository": "NVIDIA-NeMo/Speech",
+            "language": "python",
+            "snapshot_date": "2026-08-24",
+            "trending_id": "2026-08-24:nvidia-nemo/speech",
+            "archive_order": 9,
+            "language_rank": 9,
+            "archive_source": "hanishrao/trending-collection"
+          },
+          "abstract_zh": "一个可扩展的生成式 AI 框架，面向从事大语言模型、多模态和语音 AI（自动语音识别与文本转语音）的研究者与开发者。",
+          "authors": [
+            "NVIDIA-NeMo"
+          ],
+          "published": "2026-08-24",
+          "author_line": "NVIDIA-NeMo"
         },
         {
-          "id": "github:374028976",
+          "id": "github-trending:2026-08-24:comfy-org/comfyui",
           "channel": "engineering",
           "related_channels": [],
-          "item_type": "software_release",
-          "source": "GitHub Releases",
-          "title": "0.149.0",
-          "url": "https://github.com/openai/codex/releases/tag/rust-v0.149.0",
-          "published_at": "2026-08-20T21:04:55Z",
-          "updated_at": "2026-08-20T20:09:39Z",
+          "item_type": "trending_repository",
+          "source": "GitHub Trending",
+          "title": "Comfy-Org/ComfyUI",
+          "url": "https://github.com/Comfy-Org/ComfyUI",
+          "published_at": "2026-08-24",
+          "updated_at": "2026-08-24",
           "creators": [
-            "openai/codex"
+            "Comfy-Org"
           ],
           "language": "en",
-          "abstract_or_text": "## New Features - Added an interactive `codex agents` dashboard for searching, starting, opening, renaming, and stopping tasks, with configurable shortcuts. (#39094, #39112, #39114, #39142) - Added `/cd`, `/pwd`, and `/cwd` commands for managing the working directory in TUI sessions. (#38894) - Added `codex queue` for sending messages to existing local or remote sessions. (#39092) - Expanded Vim editing with character replacement and more change motions such as `cw`, `c`, and `cc`. (#39661) - `c…",
-          "summary_zh": "openai/codex 发布 rust-v0.149.0，加入 `codex agents` 任务面板、工作目录命令、`codex queue`、更完整的 Vim 编辑与扩展的 `codex doctor` 诊断；同时修正会话权限、子 Agent 通知和实时连接恢复等问题。",
-          "why_it_matters_zh": "多任务协作、远程会话和终端操作更易管理；SDK 调用方可指定精确 CLI 配置并使用 `max` 或 `ultra` 推理强度。依赖恢复/分叉会话权限的团队可减少配置意外变化。",
+          "abstract_or_text": "The most powerful and modular diffusion model GUI, api and backend with a graph/nodes interface.",
+          "summary_zh": "ComfyUI 提供基于图和节点界面的模块化扩散模型 GUI、API 与后端；当日位列 Python 榜第 4 名。",
+          "why_it_matters_zh": "图式工作流便于组合、比较和复用生成模型管线，可服务于视觉模型实验、原型开发及图像生成应用的工程化部署。",
           "quality_score": 88.0,
           "tags": [
-            "工具链更新",
-            "开发体验",
-            "安全"
+            "模型与训练",
+            "GitHub Trending",
+            "Python",
+            "扩散模型",
+            "生成式视觉",
+            "工作流"
           ],
           "evidence_flags": [
-            "github",
-            "experimental",
-            "release",
-            "security"
+            "daily_snapshot",
+            "historical_archive"
           ],
-          "publication_status": "release",
+          "publication_status": "daily_trending_archive",
+          "rank": 2,
+          "featured": true,
+          "category": "模型与训练",
+          "metrics": {
+            "archive_order": 4,
+            "language_rank": 4
+          },
+          "metadata": {
+            "repository": "Comfy-Org/ComfyUI",
+            "language": "python",
+            "snapshot_date": "2026-08-24",
+            "trending_id": "2026-08-24:comfy-org/comfyui",
+            "archive_order": 4,
+            "language_rank": 4,
+            "archive_source": "hanishrao/trending-collection"
+          },
+          "abstract_zh": "功能强大且模块化的扩散模型图形界面、API 与后端，采用图和节点式界面。",
+          "authors": [
+            "Comfy-Org"
+          ],
+          "published": "2026-08-24",
+          "author_line": "Comfy-Org"
+        },
+        {
+          "id": "github-trending:2026-08-24:unclecode/crawl4ai",
+          "channel": "engineering",
+          "related_channels": [],
+          "item_type": "trending_repository",
+          "source": "GitHub Trending",
+          "title": "unclecode/crawl4ai",
+          "url": "https://github.com/unclecode/crawl4ai",
+          "published_at": "2026-08-24",
+          "updated_at": "2026-08-24",
+          "creators": [
+            "unclecode"
+          ],
+          "language": "en",
+          "abstract_or_text": "🚀🤖 Crawl4AI: Open-source LLM Friendly Web Crawler & Scraper. Don't be shy, join here: https://discord.gg/jP8KfhDhyN",
+          "summary_zh": "Crawl4AI 是面向大语言模型使用场景的开源网页爬虫与抓取器；当日位列 Python 榜第 15 名。",
+          "why_it_matters_zh": "高质量网页采集是 RAG、研究型智能体和知识库构建的基础环节，适合需要将公开网页资料转化为可检索模型上下文的 AI 工程人员。",
+          "quality_score": 87.0,
+          "tags": [
+            "推理与数据基础设施",
+            "GitHub Trending",
+            "Python",
+            "RAG",
+            "网页采集",
+            "智能体数据"
+          ],
+          "evidence_flags": [
+            "daily_snapshot",
+            "historical_archive"
+          ],
+          "publication_status": "daily_trending_archive",
           "rank": 3,
           "featured": true,
-          "category": "工具链更新",
-          "metrics": {},
-          "metadata": {
-            "repository": "openai/codex",
-            "version": "rust-v0.149.0",
-            "release_id": "374028976",
-            "release_type": "release"
+          "category": "推理与数据基础设施",
+          "metrics": {
+            "archive_order": 15,
+            "language_rank": 15
           },
-          "abstract_zh": "发布说明新增交互式 `codex agents` 面板，可搜索、启动、打开、重命名和停止任务，并支持快捷键配置；TUI 新增 `/cd`、`/pwd`、`/cwd` 工作目录命令，以及向本地或远程既有会话发送消息的 `codex queue`。Vim 编辑加入字符替换和 `cw`、`c`、`cc` 等改动动作；`codex doctor` 可诊断 endpoint protection、网络或代理故障、桌面应用状态和更新连接。SDK 现在可传入精确 CLI 配置覆盖，并可选择 `max` 或 `ultra` 推理强度。修复包括：队列消息唤醒空闲会话、恢复或分叉线程保留原有权限配置、去除重复 sub-agent 活动、WebRTC sideband 意外中断后的重连、Windows Terminal 滚动缓冲中的 TUI 历史，以及限制闲置线程的重放缓冲。文档补充了安全 devcontainer 的 DNS 外传风险与信任限制。",
-          "published": "2026-08-20",
-          "author_line": "openai/codex"
+          "metadata": {
+            "repository": "unclecode/crawl4ai",
+            "language": "python",
+            "snapshot_date": "2026-08-24",
+            "trending_id": "2026-08-24:unclecode/crawl4ai",
+            "archive_order": 15,
+            "language_rank": 15,
+            "archive_source": "hanishrao/trending-collection"
+          },
+          "abstract_zh": "Crawl4AI：面向大语言模型的开源网页爬虫与抓取器。",
+          "authors": [
+            "unclecode"
+          ],
+          "published": "2026-08-24",
+          "author_line": "unclecode"
         },
         {
-          "id": "github:374599443",
+          "id": "github-trending:2026-08-24:bytedance/deer-flow",
           "channel": "engineering",
           "related_channels": [],
-          "item_type": "software_release",
-          "source": "GitHub Releases",
-          "title": "v0.2.0",
-          "url": "https://github.com/ggml-org/llama.cpp/releases/tag/v0.2.0",
-          "published_at": "2026-08-21T18:32:48Z",
-          "updated_at": "2026-08-21T18:32:43Z",
+          "item_type": "trending_repository",
+          "source": "GitHub Trending",
+          "title": "bytedance/deer-flow",
+          "url": "https://github.com/bytedance/deer-flow",
+          "published_at": "2026-08-24",
+          "updated_at": "2026-08-24",
           "creators": [
-            "ggml-org/llama.cpp"
+            "bytedance"
           ],
           "language": "en",
-          "abstract_or_text": "## Overview This version marks the beginning of consistent semantic versioning for `llama.cpp`. The main goal is to make the job of downstream projects and users simpler when deciding which version of `llama.cpp`/`ggml` to distribute and use. The new version tags of the format `vX.Y.Z` will mark \"stable\" versions of `llama.cpp`. The usual `b[NUM]` tags remain as before - created on almost every commit to the `master` branch. The `b` tags can be considered as \"nightly\" or \"dev\" versions with the…",
-          "summary_zh": "ggml-org/llama.cpp 发布 v0.2.0，开始采用稳定语义化版本：`vX.Y.Z` 面向下游发行与一般用户，`b[NUM]` 继续作为高频 nightly/dev 版本；同步带来多后端、模型、服务端与发布产物改进。",
-          "why_it_matters_zh": "嵌入 llama.cpp 的应用和发行维护者终于可据稳定标签制定升级与打包策略，避免将高频开发构建直接用于常规部署。该版本也改善了多平台推理、模型加载和认证服务的可用性。",
-          "quality_score": 82.0,
+          "abstract_or_text": "An open-source long-horizon SuperAgent harness that researches, codes, and creates. With the help of sandboxes, memories, tools, skill, subagents and message gateway, it handles different levels of tasks that could take minutes to hours.",
+          "summary_zh": "DeerFlow 是开源的长程 SuperAgent 执行框架，可支持研究、编程和内容创作任务；当日位列 Python 榜第 16 名。",
+          "why_it_matters_zh": "项目把沙箱、记忆、工具、Skills、子智能体和消息通信组合到长时任务执行中，适合研究多智能体协作与构建复杂自动化流程的团队。",
+          "quality_score": 90.0,
           "tags": [
-            "工具链更新",
-            "本地推理",
-            "发布管理"
+            "智能体与 Skills",
+            "GitHub Trending",
+            "Python",
+            "智能体",
+            "多智能体",
+            "Skills"
           ],
           "evidence_flags": [
-            "github",
-            "release"
+            "daily_snapshot",
+            "historical_archive"
           ],
-          "publication_status": "release",
+          "publication_status": "daily_trending_archive",
           "rank": 4,
           "featured": false,
-          "category": "工具链更新",
-          "metrics": {},
-          "metadata": {
-            "repository": "ggml-org/llama.cpp",
-            "version": "v0.2.0",
-            "release_id": "374599443",
-            "release_type": "release"
+          "category": "智能体与 Skills",
+          "metrics": {
+            "archive_order": 16,
+            "language_rank": 16
           },
-          "abstract_zh": "发布说明表示，v0.2.0 开始为 `llama.cpp` 建立持续的语义化版本体系。`vX.Y.Z` 标签表示发布节奏较慢、推荐下游分发者和一般用户使用的稳定版本；`b[NUM]` 标签仍会几乎随 `master` 的每次提交生成，提供最新功能，面向开发者和技术用户，但稳定性可能较低。发布资产中的 `nightly-tag.txt` 用于标示对应 nightly。自 v0.1.2 以来的变更包括：扩展 Metal、Vulkan、OpenCL、SYCL、WebGPU、CUDA 等后端支持与修复；增加多种模型和多模态能力；优化量化、KV cache、Flash Attention 与内存使用；为 server 增加路由、延迟加载、睡眠期间 metrics 访问等能力；认证启用时将 models endpoints 设为私有；并为签名发布产物增加 attestation。",
-          "published": "2026-08-21",
-          "author_line": "ggml-org/llama.cpp"
+          "metadata": {
+            "repository": "bytedance/deer-flow",
+            "language": "python",
+            "snapshot_date": "2026-08-24",
+            "trending_id": "2026-08-24:bytedance/deer-flow",
+            "archive_order": 16,
+            "language_rank": 16,
+            "archive_source": "hanishrao/trending-collection"
+          },
+          "abstract_zh": "一个开源的长程 SuperAgent 执行框架，可开展研究、编程与内容创作。借助沙箱、记忆、工具、技能、子智能体和消息网关，它可处理耗时数分钟到数小时的不同任务。",
+          "authors": [
+            "bytedance"
+          ],
+          "published": "2026-08-24",
+          "author_line": "bytedance"
         },
         {
-          "id": "github:374711587",
+          "id": "github-trending:2026-08-24:openai/codex",
           "channel": "engineering",
           "related_channels": [],
-          "item_type": "software_release",
-          "source": "GitHub Releases",
-          "title": "v0.33.0",
-          "url": "https://github.com/ollama/ollama/releases/tag/v0.33.0-rc2",
-          "published_at": "2026-08-21T22:52:46Z",
-          "updated_at": "2026-08-22T01:48:22Z",
+          "item_type": "trending_repository",
+          "source": "GitHub Trending",
+          "title": "openai/codex",
+          "url": "https://github.com/openai/codex",
+          "published_at": "2026-08-24",
+          "updated_at": "2026-08-24",
           "creators": [
-            "ollama/ollama"
+            "openai"
           ],
           "language": "en",
-          "abstract_or_text": "## What's Changed ### Claude Desktop * Turn individual Ollama models on or off for use in Claude, directly from the menu bar * Choose from your available Ollama models from within Claude; cloud models appear only when you're signed in * A new **Apps** view manages app integrations with copyable commands ### Improved caching * Fixed a hang where agent clients that cancel long prefills * Prefill restore points are now trustworthy by construction: a cancelled prefill keeps every restore point it cr…",
-          "summary_zh": "ollama/ollama 发布重要预览版 v0.33.0-rc2，加入 Claude Desktop 中的本地模型选择与 Apps 管理，修复 agent 取消长预填充后的挂起和缓存恢复问题，并改善 Windows/Linux 打包与 DeepSeek Harness 启动。",
-          "why_it_matters_zh": "使用 Ollama 驱动 Claude Desktop 或长上下文 agent 的用户，可测试更稳定的预填充重试和 KV cache 行为；跨平台桌面用户也应验证新版打包修复。该版本仍为 prerelease，适合先在测试环境验证。",
-          "quality_score": 79.0,
+          "abstract_or_text": "Lightweight coding agent that runs in your terminal",
+          "summary_zh": "OpenAI Codex 是可在终端运行的轻量级编码智能体；当日位列 Rust 榜第 1 名。",
+          "why_it_matters_zh": "终端型编码智能体可直接参与代码理解、修改与开发流程，适合希望将自然语言协作融入日常软件研发和科研代码维护的开发者。",
+          "quality_score": 93.0,
           "tags": [
-            "模型与框架",
-            "本地模型",
-            "prerelease"
+            "开发者工具",
+            "GitHub Trending",
+            "Rust",
+            "编码智能体",
+            "终端",
+            "软件研发"
           ],
           "evidence_flags": [
-            "github",
-            "prerelease"
+            "daily_snapshot",
+            "historical_archive"
           ],
-          "publication_status": "prerelease",
+          "publication_status": "daily_trending_archive",
           "rank": 5,
           "featured": false,
-          "category": "模型与框架",
-          "metrics": {},
-          "metadata": {
-            "repository": "ollama/ollama",
-            "version": "v0.33.0-rc2",
-            "release_id": "374711587",
-            "release_type": "prerelease"
+          "category": "开发者工具",
+          "metrics": {
+            "archive_order": 19,
+            "language_rank": 1
           },
-          "abstract_zh": "发布说明称，Claude Desktop 现可从菜单栏逐个启用或停用供 Claude 使用的 Ollama 模型，也可在 Claude 内选择可用的 Ollama 模型；只有登录后才显示 cloud models。新增 **Apps** 视图，用于管理应用集成并提供可复制命令。缓存方面，修复了 agent 客户端取消长 prefill 后可能挂起的问题；取消的 prefill 会保留其经过的全部 restore point，因此重试可从中断位置继续。恢复的 prefill 不再记录覆盖范围不正确的 restore point；此前带 recurrent layers 的模型可能让一个匹配 47k token 中 46k token 的请求从零重新处理。还禁用了 Claude Code 的 “tokens left” system message，避免它被移到提示词前部而破坏 KV cache。其他改进包括 DeepSeek Harness 在全局 npm 安装失败时改用 `npx` 并支持 Windows command shim，修复 macOS 特定假设造成的 Linux/Wind…",
-          "published": "2026-08-21",
-          "author_line": "ollama/ollama"
+          "metadata": {
+            "repository": "openai/codex",
+            "language": "rust",
+            "snapshot_date": "2026-08-24",
+            "trending_id": "2026-08-24:openai/codex",
+            "archive_order": 19,
+            "language_rank": 1,
+            "archive_source": "hanishrao/trending-collection"
+          },
+          "abstract_zh": "可在终端运行的轻量级编码智能体。",
+          "authors": [
+            "openai"
+          ],
+          "published": "2026-08-24",
+          "author_line": "openai"
         },
         {
-          "id": "github:373240442",
+          "id": "github-trending:2026-08-24:github/github-mcp-server",
           "channel": "engineering",
           "related_channels": [],
-          "item_type": "software_release",
-          "source": "GitHub Releases",
-          "title": "OpenMM 8.6.0",
-          "url": "https://github.com/openmm/openmm/releases/tag/8.6.0",
-          "published_at": "2026-08-19T17:44:53Z",
-          "updated_at": "2026-08-10T23:21:36Z",
+          "item_type": "trending_repository",
+          "source": "GitHub Trending",
+          "title": "github/github-mcp-server",
+          "url": "https://github.com/github/github-mcp-server",
+          "published_at": "2026-08-24",
+          "updated_at": "2026-08-24",
           "creators": [
-            "openmm/openmm"
+            "github"
           ],
           "language": "en",
-          "abstract_or_text": "The most important new feature in this release is multistate sampling. ReplicaExchangeSampler and ExpandedEnsembleSampler implement algorithms for sampling a collection of thermodynamic states that differ in temperature, pressure, or Hamiltonian. They are useful for a variety of purposes, such as using high temperature to accelerate transitions or computing free energy differences along an alchemical transition. There are several other enhancements in this release that are also significant. - Cu…",
-          "summary_zh": "openmm/openmm 发布 8.6.0，引入 `ReplicaExchangeSampler` 与 `ExpandedEnsembleSampler` 多状态采样；同时为长程修正缓存、ML/MM 的 `PythonForce` 子集执行和多种 barostat 增加性能与建模能力。",
-          "why_it_matters_zh": "分子模拟与自由能计算工作流可直接实施温度、压力或 Hamiltonian 的多状态采样。频繁改变全局参数的模拟，以及只对部分粒子调用 `PythonForce` 的 ML/MM 项目，可能获得显著加速。",
-          "quality_score": 78.0,
+          "abstract_or_text": "GitHub's official MCP Server",
+          "summary_zh": "GitHub MCP Server 是 GitHub 官方提供的 MCP 服务器；当日位列 Go 榜第 5 名。",
+          "why_it_matters_zh": "它为智能体连接代码仓库、议题和协作流程提供标准化接口，适合构建具备代码协作能力的开发智能体与内部工程自动化系统。",
+          "quality_score": 86.0,
           "tags": [
-            "工具链更新",
-            "分子模拟",
-            "性能"
+            "智能体与 Skills",
+            "GitHub Trending",
+            "Go",
+            "MCP",
+            "智能体工具"
           ],
           "evidence_flags": [
-            "release",
-            "performance"
+            "daily_snapshot",
+            "historical_archive"
           ],
-          "publication_status": "release",
+          "publication_status": "daily_trending_archive",
           "rank": 6,
           "featured": false,
-          "category": "工具链更新",
-          "metrics": {},
-          "metadata": {
-            "repository": "openmm/openmm",
-            "version": "8.6.0",
-            "release_id": "373240442",
-            "release_type": "release"
+          "category": "智能体与 Skills",
+          "metrics": {
+            "archive_order": 54,
+            "language_rank": 5
           },
-          "abstract_zh": "发布说明称，8.6.0 最重要的新功能是多状态采样。`ReplicaExchangeSampler` 和 `ExpandedEnsembleSampler` 实现对一组热力学状态进行采样，这些状态可在温度、压力或 Hamiltonian 上不同；其用途包括通过高温加速状态转变，以及沿炼金转变计算自由能差。`CustomNonbondedForce` 可缓存长程修正系数，在频繁修改全局参数的模拟中，例如使用新的多状态采样器时，可能大幅提升速度。`PythonForce` 可限制为仅作用于系统中部分粒子，主要用于 ML/MM 模拟并可显著加速。`MonteCarloBarostat`、`MonteCarloAnisotropicBarostat` 与 `MonteCarloMembraneBarostat` 现在可逐粒子缩放，而非将分子作为刚体缩放；`MonteCarloFlexibleBarostat` 已具备该选项，并新增计算应力张量的函数。",
-          "published": "2026-08-19",
-          "author_line": "openmm/openmm"
+          "metadata": {
+            "repository": "github/github-mcp-server",
+            "language": "go",
+            "snapshot_date": "2026-08-24",
+            "trending_id": "2026-08-24:github/github-mcp-server",
+            "archive_order": 54,
+            "language_rank": 5,
+            "archive_source": "hanishrao/trending-collection"
+          },
+          "abstract_zh": "GitHub 官方 MCP 服务器。",
+          "authors": [
+            "github"
+          ],
+          "published": "2026-08-24",
+          "author_line": "github"
         },
         {
-          "id": "github:373198010",
+          "id": "github-trending:2026-08-24:alibaba/open-code-review",
           "channel": "engineering",
           "related_channels": [],
-          "item_type": "software_release",
-          "source": "GitHub Releases",
-          "title": "v3.3.1",
-          "url": "https://github.com/openai/openai-python/releases/tag/v3.3.1",
-          "published_at": "2026-08-19T16:30:47Z",
-          "updated_at": "2026-08-19T16:27:51Z",
+          "item_type": "trending_repository",
+          "source": "GitHub Trending",
+          "title": "alibaba/open-code-review",
+          "url": "https://github.com/alibaba/open-code-review",
+          "published_at": "2026-08-24",
+          "updated_at": "2026-08-24",
           "creators": [
-            "openai/openai-python"
+            "alibaba"
           ],
           "language": "en",
-          "abstract_or_text": "## [3.3.1](https://github.com/openai/openai-python/compare/v3.3.0...v3.3.1) (2026-08-19) ### Bug Fixes * **deps:** update dependencies with published security fixes ([#3680](https://github.com/openai/openai-python/issues/3680)) ([53aa4fc](https://github.com/openai/openai-python/commit/53aa4fc68b65f42456cafaaa5ff4b0d317184752)) ### Chores * **build:** migrate to uv ([#3653](https://github.com/openai/openai-python/issues/3653)) ([b37e85d](https://github.com/openai/openai-python/commit/b37e85d8fe9c…",
-          "summary_zh": "openai/openai-python 发布 v3.3.1，更新包含已发布安全修复的依赖；发布流程迁移至 `uv`，并精简 `jsonschema` 等未使用依赖。",
-          "why_it_matters_zh": "使用 OpenAI Python SDK 的应用可通过升级获得上游依赖安全修复。维护 SDK 打包、类型检查或测试基础设施的团队也会受到 `uv` 和本地锁定工具链调整的影响。",
-          "quality_score": 72.0,
+          "abstract_or_text": "Fast, efficient, battle-tested at Alibaba's scale. Hybrid architecture code review tool: deterministic pipelines + LLM Agent, precise line-level comments, built-in multi-language ruleset (NPE, thread-safety, XSS, SQL injection), OpenAI & Anthropic compatible.",
+          "summary_zh": "Alibaba Open Code Review 是结合确定性流程与 LLM 智能体的混合式代码审查工具；当日位列 Go 榜第 15 名。",
+          "why_it_matters_zh": "该工具同时覆盖空指针、线程安全、XSS 与 SQL 注入等多语言规则，适合希望把自动化静态检查与模型辅助审查结合到研发流程的工程团队。",
+          "quality_score": 89.0,
           "tags": [
-            "兼容与安全",
-            "Python SDK",
-            "依赖安全"
+            "开发者工具",
+            "GitHub Trending",
+            "Go",
+            "代码审查",
+            "LLM智能体",
+            "软件质量"
           ],
           "evidence_flags": [
-            "github",
-            "security",
-            "release"
+            "daily_snapshot",
+            "historical_archive"
           ],
-          "publication_status": "release",
+          "publication_status": "daily_trending_archive",
           "rank": 7,
           "featured": false,
-          "category": "兼容与安全",
-          "metrics": {},
-          "metadata": {
-            "repository": "openai/openai-python",
-            "version": "v3.3.1",
-            "release_id": "373198010",
-            "release_type": "release"
+          "category": "开发者工具",
+          "metrics": {
+            "archive_order": 64,
+            "language_rank": 15
           },
-          "abstract_zh": "发布说明：3.3.1 更新了带有已发布安全修复的依赖。构建工作迁移到 `uv`；移除了 `jsonschema` 和未使用的 fixture-validation 依赖；锁定仓库的 Pyright 工具链；mock server 改由锁定的本地工具启动。重构部分以标准库完成平台检测，并以新的实现替换外部 README metadata hook。",
-          "published": "2026-08-19",
-          "author_line": "openai/openai-python"
+          "metadata": {
+            "repository": "alibaba/open-code-review",
+            "language": "go",
+            "snapshot_date": "2026-08-24",
+            "trending_id": "2026-08-24:alibaba/open-code-review",
+            "archive_order": 64,
+            "language_rank": 15,
+            "archive_source": "hanishrao/trending-collection"
+          },
+          "abstract_zh": "快速、高效，并经过阿里巴巴规模验证的混合式代码审查工具：确定性流程结合 LLM 智能体，提供精确的行级评论、内置多语言规则集（空指针、线程安全、XSS、SQL 注入），兼容 OpenAI 与 Anthropic。",
+          "authors": [
+            "alibaba"
+          ],
+          "published": "2026-08-24",
+          "author_line": "alibaba"
+        },
+        {
+          "id": "github-trending:2026-08-24:apple/coreai-models",
+          "channel": "engineering",
+          "related_channels": [],
+          "item_type": "trending_repository",
+          "source": "GitHub Trending",
+          "title": "apple/coreai-models",
+          "url": "https://github.com/apple/coreai-models",
+          "published_at": "2026-08-24",
+          "updated_at": "2026-08-24",
+          "creators": [
+            "apple"
+          ],
+          "language": "en",
+          "abstract_or_text": "Model export recipes, Python primitives, and Swift runtime utilities for on-device AI",
+          "summary_zh": "Apple CoreAI Models 提供端侧 AI 的模型导出配方、Python 基础组件与 Swift 运行时工具；当日位列 Swift 榜第 2 名。",
+          "why_it_matters_zh": "端侧模型的导出与运行时适配关系到隐私、延迟和设备资源利用，适合研究移动端与本地生成式 AI 部署的模型工程师。",
+          "quality_score": 88.0,
+          "tags": [
+            "模型与训练",
+            "GitHub Trending",
+            "Swift",
+            "端侧AI",
+            "模型导出",
+            "运行时"
+          ],
+          "evidence_flags": [
+            "daily_snapshot",
+            "historical_archive"
+          ],
+          "publication_status": "daily_trending_archive",
+          "rank": 8,
+          "featured": false,
+          "category": "模型与训练",
+          "metrics": {
+            "archive_order": 71,
+            "language_rank": 2
+          },
+          "metadata": {
+            "repository": "apple/coreai-models",
+            "language": "swift",
+            "snapshot_date": "2026-08-24",
+            "trending_id": "2026-08-24:apple/coreai-models",
+            "archive_order": 71,
+            "language_rank": 2,
+            "archive_source": "hanishrao/trending-collection"
+          },
+          "abstract_zh": "用于端侧 AI 的模型导出配方、Python 基础组件和 Swift 运行时工具。",
+          "authors": [
+            "apple"
+          ],
+          "published": "2026-08-24",
+          "author_line": "apple"
+        },
+        {
+          "id": "github-trending:2026-08-24:posthog/posthog",
+          "channel": "engineering",
+          "related_channels": [],
+          "item_type": "trending_repository",
+          "source": "GitHub Trending",
+          "title": "PostHog/posthog",
+          "url": "https://github.com/PostHog/posthog",
+          "published_at": "2026-08-24",
+          "updated_at": "2026-08-24",
+          "creators": [
+            "PostHog"
+          ],
+          "language": "en",
+          "abstract_or_text": "🦔 PostHog is the leading platform for building self-driving products. Our developer tools – AI observability, analytics, session replay, flags, experiments, error tracking, logs, and more – capture all the context agents need to diagnose problems, uncover opportunities, and ship fixes. Steer it all from Slack, web, desktop, or the MCP.",
+          "summary_zh": "PostHog 是面向自驱动产品的开发者平台，涵盖 AI 可观测性、分析、会话回放、实验、日志与 MCP 控制；当日位列 Python 榜第 7 名。",
+          "why_it_matters_zh": "智能体和 AI 产品需要可观察的运行数据来诊断失效、比较实验并改进服务，适合负责模型产品分析、评测和可靠性的工程团队。",
+          "quality_score": 85.0,
+          "tags": [
+            "推理与数据基础设施",
+            "GitHub Trending",
+            "Python",
+            "AI可观测性",
+            "分析",
+            "评测"
+          ],
+          "evidence_flags": [
+            "daily_snapshot",
+            "historical_archive"
+          ],
+          "publication_status": "daily_trending_archive",
+          "rank": 9,
+          "featured": false,
+          "category": "推理与数据基础设施",
+          "metrics": {
+            "archive_order": 7,
+            "language_rank": 7
+          },
+          "metadata": {
+            "repository": "PostHog/posthog",
+            "language": "python",
+            "snapshot_date": "2026-08-24",
+            "trending_id": "2026-08-24:posthog/posthog",
+            "archive_order": 7,
+            "language_rank": 7,
+            "archive_source": "hanishrao/trending-collection"
+          },
+          "abstract_zh": "PostHog 是构建自驱动产品的平台。其开发者工具包括 AI 可观测性、分析、会话回放、功能开关、实验、错误追踪、日志等，可捕获智能体诊断问题、发现机会并交付修复所需的上下文；可通过 Slack、网页、桌面端或 MCP 进行控制。",
+          "authors": [
+            "PostHog"
+          ],
+          "published": "2026-08-24",
+          "author_line": "PostHog"
+        },
+        {
+          "id": "github-trending:2026-08-24:apache/maka",
+          "channel": "engineering",
+          "related_channels": [],
+          "item_type": "trending_repository",
+          "source": "GitHub Trending",
+          "title": "apache/maka",
+          "url": "https://github.com/apache/maka",
+          "published_at": "2026-08-24",
+          "updated_at": "2026-08-24",
+          "creators": [
+            "apache"
+          ],
+          "language": "en",
+          "abstract_or_text": "Apache Maka (Incubating) is a local-first AI agent workspace. Model messages, tool calls, tool results, permission decisions, and termination events are recorded as an append-only log.",
+          "summary_zh": "Apache Maka（孵化中）是本地优先的 AI 智能体工作区，并记录模型消息、工具调用、权限决策和终止事件；当日位列 TypeScript 榜第 1 名。",
+          "why_it_matters_zh": "完整的智能体执行记录有助于复现、审阅和分析复杂任务过程，适合开发需要可追溯工作历史的智能体应用、科研自动化和编码协作系统的团队。",
+          "quality_score": 88.0,
+          "tags": [
+            "智能体与 Skills",
+            "GitHub Trending",
+            "TypeScript",
+            "智能体工作区",
+            "可追溯性",
+            "本地优先"
+          ],
+          "evidence_flags": [
+            "daily_snapshot",
+            "historical_archive"
+          ],
+          "publication_status": "daily_trending_archive",
+          "rank": 10,
+          "featured": false,
+          "category": "智能体与 Skills",
+          "metrics": {
+            "archive_order": 86,
+            "language_rank": 1
+          },
+          "metadata": {
+            "repository": "apache/maka",
+            "language": "typescript",
+            "snapshot_date": "2026-08-24",
+            "trending_id": "2026-08-24:apache/maka",
+            "archive_order": 86,
+            "language_rank": 1,
+            "archive_source": "hanishrao/trending-collection"
+          },
+          "abstract_zh": "Apache Maka（孵化中）是一个本地优先的 AI 智能体工作区。模型消息、工具调用、工具结果、权限决策和终止事件均记录为仅追加日志。",
+          "authors": [
+            "apache"
+          ],
+          "published": "2026-08-24",
+          "author_line": "apache"
         }
       ]
     }

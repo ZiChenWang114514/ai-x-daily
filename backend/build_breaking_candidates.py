@@ -91,13 +91,19 @@ def editorial_score(item: dict[str, Any], selected: bool) -> int:
     return min(100, max(score, priority))
 
 
-def build(root: Path, site_root: Path, run_date: date) -> dict[str, Any]:
+def channel_payload(site_root: Path, channel: str, run_date: date) -> dict[str, Any]:
+    archive = site_root / "data" / "channels" / channel / "archive" / f"{run_date}.json"
+    if archive.exists():
+        return load_json(archive, {})
+    latest = load_json(site_root / "data" / "channels" / channel / "latest.json", {})
+    return latest if str(latest.get("date") or "") == run_date.isoformat() else {}
+
+
+def build(root: Path, site_root: Path, run_date: date, *, write_latest: bool = True) -> dict[str, Any]:
     pool: list[dict[str, Any]] = []
     reported = previous_breaking_keys(site_root, run_date)
     for channel in CHANNELS:
-        payload = load_json(site_root / "data" / "channels" / channel / "latest.json", {})
-        if str(payload.get("date") or "") != run_date.isoformat():
-            continue
+        payload = channel_payload(site_root, channel, run_date)
         for item in payload.get("items") or []:
             value = dict(item)
             value["channel"] = channel
@@ -142,7 +148,8 @@ def build(root: Path, site_root: Path, run_date: date) -> dict[str, Any]:
         "count": len(items),
         "items": items,
     }
-    write_json(site_root / "data" / "breaking" / "candidates" / "latest.json", payload)
+    if write_latest:
+        write_json(site_root / "data" / "breaking" / "candidates" / "latest.json", payload)
     return payload
 
 

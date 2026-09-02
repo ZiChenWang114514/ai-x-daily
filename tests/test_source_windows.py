@@ -23,12 +23,49 @@ from aix_pipeline import (  # noqa: E402
     within_window,
 )
 from daily_digest import ARXIV_CATEGORIES, arxiv_category_query, fetch_arxiv, load_json  # noqa: E402
-from build_breaking_candidates import previous_breaking_keys  # noqa: E402
+from build_breaking_candidates import channel_payload, previous_breaking_keys  # noqa: E402
+from backfill_breaking_news import apply as apply_breaking_backfill  # noqa: E402
 from backfill_engineering_trending import parse_snapshot  # noqa: E402
 from publish_daily import factual_overview  # noqa: E402
 
 
 class SourceWindowTests(unittest.TestCase):
+    def test_historical_breaking_builder_reads_dated_channel_archive(self):
+        with tempfile.TemporaryDirectory() as directory:
+            site_root = Path(directory)
+            archive = site_root / "data" / "channels" / "aixchem" / "archive" / "2026-08-01.json"
+            archive.parent.mkdir(parents=True)
+            archive.write_text('{"date":"2026-08-01","items":[{"id":"paper:1"}]}', encoding="utf-8")
+            value = channel_payload(site_root, "aixchem", date(2026, 8, 1))
+            self.assertEqual(value["items"][0]["id"], "paper:1")
+
+    def test_breaking_backfill_updates_dated_archives_without_changing_latest(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            site_root = root / "public"
+            candidates_root = root / "candidates"
+            candidates_root.mkdir(parents=True)
+            (candidates_root / "2026-08-01.json").write_text(
+                '{"items":[{"id":"x:1","channel":"aivoices","source":"X","url":"https://x.com/a/status/1"}]}',
+                encoding="utf-8",
+            )
+            for relative in ("data/daily/archive/2026-08-01.json", "data/archive/2026-08-01.json"):
+                path = site_root / relative
+                path.parent.mkdir(parents=True, exist_ok=True)
+                path.write_text('{"date":"2026-08-01","breaking_news":[]}', encoding="utf-8")
+            curation = root / "curation.json"
+            curation.write_text(
+                '{"days":[{"date":"2026-08-01","editor_note":"每日精选",'
+                '"selected":[{"id":"x:1","headline_zh":"标题","summary_zh":"摘要",'
+                '"why_breaking_zh":"意义"}]}]}',
+                encoding="utf-8",
+            )
+            days, items = apply_breaking_backfill(site_root, candidates_root, curation)
+            self.assertEqual((days, items), (1, 1))
+            self.assertFalse((site_root / "data" / "breaking" / "latest.json").exists())
+            daily = load_json(site_root / "data" / "daily" / "archive" / "2026-08-01.json", {})
+            self.assertEqual(daily["breaking_news"][0]["id"], "x:1")
+
     def test_historical_trending_parser_preserves_language_rank_and_date_identity(self):
         markdown = """## 2026-08-01
 #### python

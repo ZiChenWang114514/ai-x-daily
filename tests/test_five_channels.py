@@ -76,6 +76,7 @@ class FiveChannelConfigurationTests(unittest.TestCase):
         self.assertIn("fetch_github_trending", pipeline)
         self.assertIn("https://github.com/trending?since=daily", pipeline)
         self.assertIn('id="breaking-news-list"', home)
+        self.assertNotIn("从五个频道与公开社媒中选出的 1–3 项高影响更新。", home)
 
     def test_private_paths_and_secrets_are_ignored(self):
         ignored = (ROOT / ".gitignore").read_text(encoding="utf-8")

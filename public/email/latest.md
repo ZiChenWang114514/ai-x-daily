@@ -1,60 +1,60 @@
-# AIxDaily · 2026-09-04
+# AIxDaily · 2026-09-05
 
-今日精选：AI × Chem 11 项，AI × Bio 11 项，AI × Math 12 项，AI Voices 9 项，Engineering 4 项。2026年9月4日的五频道内容以预印本、公开帖文和软件动态为主。化学聚焦聚合物生成设计与零样本建模评估，生命科学呈现抗体从头设计和单细胞参考资源；数学频道关注交互式证据核验与模型逻辑评测。AI Voices 汇集发布者和研究者的公开观点，需与技术报告及独立评测结合阅读；工程频道则记录智能体工具的趋势项目和正式软件发布。本批前三项中未见可确认的同行评议论文。
+今日精选：AI × Chem 14 项，AI × Bio 10 项，AI × Math 7 项，AI Voices 7 项，Engineering 8 项。9月5日的五频道精选显示，科研侧以预印本为主：化学关注药物—靶标表征与DEL反应预测，生物延伸至抗蛇毒蛋白和单细胞表征，数学则检验多语言推理稳健性与奖励设计。AI Voices收录公开帖文和转述观点，尚非同行评议结论；工程频道报道GitHub热门开源项目，前三项并非版本化软件发布。
 
 ## 今日重大进展
 
-- [OpenAI 发布 GPT-6 Astra，主打可连续执行的计算机操作](https://x.com/markchen90/status/2095597534412673109) — OpenAI 研究负责人 Mark Chen 宣布 GPT-6 Astra，称其可构建和测试软件、跨电脑应用执行任务并辅助开放科学问题探索，同时配备更强的智能体监督与对齐设计。
-- [GPT-6 Astra 推进相邻素数最大间隔的经典下界](https://x.com/mehtaab_sawhney/status/2095597484773134805) — OpenAI 研究者 Mehtaab Sawhney 公布，GPT-6 Astra 对相邻素数最大间隔给出约 log log n 因子的改进；帖文称这是自20世纪30年代以来首见的同量级提升。
-- [Google 公布成年雄性果蝇完整脑与中枢神经系统图谱](https://x.com/NewsFromGoogle/status/2095553014715093022) — Google 在公开帖文中称，其与 HHMI Janelia 等合作，借助 AI 将数百万张二维图像重建为三维神经结构，绘出逾16.6万个成年雄性果蝇神经元。
+- [OpenAI 发布 GPT-6 Astra：通用计算机智能体走向产品化](https://x.com/OpenAI/status/2095595742975197690) — OpenAI 发布 GPT-6 Astra，称其在计算机操作、浏览、软件工程、网络安全、科学与专业工作上达到新水平；官方后续表示该模型已进入 ChatGPT Work、Codex 和 API。
+- [Anthropic 公布 Claude 完成费马大定理的 Lean 形式化](https://x.com/AnthropicAI/status/2095947707605266436) — Anthropic 公布 Claude 完成费马大定理的端到端 Lean 形式化，并称代码超过1,300万行、覆盖逾29,000条相关定理。费马大定理早在1995年被证明，本次工作使其推理链可由机器检查。
+- [K2 Horizon 开放六模型系列，代码、数据与训练配方同步公布](https://x.com/IFM_AI/status/2095497035806113861) — Institute of Foundation Models 发布0.9B至375B的六模型 K2 Horizon 系列，并公布代码、训练数据及配方；机构称小型型号在各自尺寸的编程和智能体任务中达到领先表现。
 
 ## AI × Chem
 
-采集 1527，候选 60，精选 11。来源状态：各来源已完成
+采集 1441，候选 60，精选 14。来源状态：各来源已完成
 
-- [HiPoly: a hierarchical polymer-native AI framework for property prediction and generative design](https://arxiv.org/abs/2609.02746v1) — HiPoly 提出面向聚合物的三级图模型，以统一表示单体连接、组成和分子量，并将实验配方数据、性质预测、生成设计和分子模拟验证整合为同一工作流。作者在多组分聚合物热物性预测上报告领先精度，并以消融实验检验各设计环节；该方法还筛得并独立验证了具有目标表面能的无 PFAS 候选材料。
-- [X-ray crystallographic fragment screening reveals novel and conformationally dynamic ligand-binding sites in Mycobacterium tuberculosis FtsZ](https://www.biorxiv.org/content/10.64898/2026.09.01.748605) — 研究对结核分枝杆菌 FtsZ 开展 X 射线晶体学片段筛选：1,070 个晶体经片段浸泡，714 份数据集进入 PanDDA 分析，149 份显示可支持片段结合建模的事件图密度。作者报告 15 个新结合位点，并观察到 FtsZ 的 ON/OFF 构象及片段对不同链的不对称结合。
-- [Systematic evaluation of LLM-based zero-shot model construction in chemistry and materials science: predictive performance and response reliability](https://doi.org/10.26434/chemrxiv.15008241/v1) — 该研究将 LLM 给出的两两比较与偏好学习结合，在不使用目标体系实测目标性质的情况下构建实验条件排序模型。作者在 9 个化学与材料数据集、两家提供商的 6 个 LLM 上评估预测表现、位置偏差、一致性和弃答行为，发现数据集本身比模型选择更影响结果，偏好学习通常优于 LLM 直接预测性质。
+- [Comprehensive Evaluation of Protein Language Model Embeddings for Drug-Target Affinity Prediction](https://www.biorxiv.org/content/10.64898/2026.08.31.748056) — 系统比较多类预训练蛋白语言模型嵌入及改良卷积架构在药物—靶标亲和力预测中的作用，并在 Davis、KIBA 及冷启动划分上评估泛化表现。结果表明，传统卷积模型的简单架构改进可能已能缩小其与大型 PLM 的差距。
+- [Machine Learning for High-Throughput Reaction Yield Prediction in DNA-Encoded Library Synthesis](https://doi.org/10.26434/chemrxiv.15008275/v1) — 提出面向 DEL 单循环反应验证的官能团中心机器学习框架，仅以暴露反应官能团、局部环境、构件和反应类型为输入；在真实高通量数据上，局部表征的 GNN 优于指纹基线。
+- [De novo design of ligand binding proteins using large language models alone](https://www.biorxiv.org/content/10.64898/2026.09.02.748987) — 检验 Claude、ChatGPT、Gemini 等通用 LLM 是否可仅依靠提示中的设计原则，从头生成结合金属或疏水小分子的蛋白；筛选后进行了实验验证，金属结合蛋白和 perfluorooctanoic acid 结合蛋白均报告 25% 命中率。
 
 [查看频道专页](https://zichenwang114514.github.io/ai-x-daily/channels/aixchem/)
 
 ## AI × Bio
 
-采集 2354，候选 60，精选 11。来源状态：各来源已完成
+采集 2208，候选 60，精选 10。来源状态：各来源已完成
 
-- [De novo designed single-domain antibodies protect against lethal cobra venom neurotoxicity in vivo](https://www.biorxiv.org/content/10.64898/2026.09.01.748349) — 比较 Germinal、RFantibody 与 BoltzGen 的 VHH 从头设计能力，并在小鼠中验证针对眼镜蛇 α-cobratoxin 的保护作用。
-- [scMaize: A Single-Cell Foundation Model and Integrated Atlas for Maize](https://www.biorxiv.org/content/10.64898/2026.08.01.742180) — scMaize 整合 385,675 个玉米单细胞并训练带 GO 功能先验的 Transformer 基础模型。
-- [immgenT: A Comprehensive Reference of Convergent T-cell States in the Mouse](https://www.biorxiv.org/content/10.64898/2026.01.30.702892) — immgenT 构建覆盖近乎全部小鼠器官和疾病状态的 T 细胞参考图谱，并以深度生成模型定义 8 个谱系和 107 个稳健簇。
+- [De novo designed single-domain antibodies protect against lethal cobra venom neurotoxicity in vivo](https://europepmc.org/article/PPR/PPR1311990) — 从头设计单域抗体在小鼠中抵御致死性眼镜蛇神经毒素
+- [scRep: A Latent-Space Self-Distilled Foundation Model for Single-Cell Representation Learning](https://www.biorxiv.org/content/10.64898/2026.08.31.747784) — scRep：以潜在空间自蒸馏学习单细胞表征的基础模型
+- [DeepCNet: A multimodal deep learning model for predicting cell type-specific gene expression and promoter-enhancer interactions from single-cell multiome data](https://europepmc.org/article/PPR/PPR1311522) — DeepCNet 从单细胞 multiome 数据预测细胞类型特异的表达与启动子—增强子互作
 
 [查看频道专页](https://zichenwang114514.github.io/ai-x-daily/channels/aixbio/)
 
 ## AI × Math
 
-采集 714，候选 60，精选 12。来源状态：各来源已完成
+采集 620，候选 60，精选 7。来源状态：各来源已完成
 
-- [InSight: A Benchmark for Agentic Claim Verification in Interactive Visualizations](https://arxiv.org/abs/2609.01383v1) — InSight 构建了交互式可视化中的智能体主张核验基准，要求模型通过操作网页环境判断主张是否得到证据支持、被证据反驳或无法核验。
-- [When Decodability Is Not Enough: Logical Validity Representations, Behavioral Dissociation, and Causal Tests in Language Models](https://arxiv.org/abs/2609.02438v1) — 该研究以五个开放权重 Transformer 为对象，区分逻辑有效性信息在隐藏状态中可被解码、能在行为上表达以及能产生因果作用这三件不同的事。
-- [Benchmarking Language Models for Statistical Problem Formulation](https://arxiv.org/abs/2609.01982v1) — StatFormBench 将统计问题表述形式化为统计问题分类、变量识别与角色分配两个子任务，并在 1,013 个样本上评测 14 个开放和闭源 LLM。
+- [Lost in Reordering: Structural Sensitivity of Multilingual LLMs under Semantics-Preserving Perturbations](https://arxiv.org/abs/2609.03511v1) — 该研究以 Hindi 和 Malayalam 中保持语义不变的语序重排、主被动转换为扰动，构建 IndicReStruct，并在 GSM8K 衍生任务上检验六个 LLM 的数学推理稳健性。结果显示，结构变化会稳定降低表现，残差流激活修补分析将部分失败关联到实体与数量的对应关系。
+- [Gradients Know What Outcomes Don't: Unlocking Reinforcement Learning for LLM Reasoning with Gradient-Aligned Rewards](https://arxiv.org/abs/2609.03342v1) — GAR 在策略梯度空间中，把每条 rollout 的紧凑梯度向量与专家锚点梯度作余弦比较，形成稠密奖励。论文在 Qwen3-4B 与 Qwen3-8B 上报告其在竞赛级数学基准优于 GRPO 等比较方法，并测试了向 GPQA Diamond、MMLU-Pro 的迁移。
+- [Extending concurrent separation logic to the hardware level to verify the xv6 OS kernel on RISC-V with AI agents](https://arxiv.org/abs/2609.04043v1) — MachCSL 将基于 Iris 的并发分离逻辑延伸到 Sail RISC-V 语义下的指令级硬件执行，并以 AI agents 协助验证 6,593 行 C 与汇编构成的 xv6 内核。摘要报告发现了 xv6 的 9 个缺陷及 Sail RISC-V 语义中的 1 个缺陷。
 
 [查看频道专页](https://zichenwang114514.github.io/ai-x-daily/channels/aixmath/)
 
 ## AI Voices
 
-采集 109，候选 60，精选 9。来源状态：各来源已完成
+采集 123，候选 60，精选 7。来源状态：各来源已完成
 
-- [@markchen90：GPT-6 Astra is here! This is a big moment for our research team - years of work on pretraining, reinforcement learning, ](https://x.com/markchen90/status/2095597534412673109) — Mark Chen 在发布帖文中宣布 GPT-6 Astra，并称该模型可构建和测试软件、跨计算机应用工作及协助探索开放科学问题；他将其可用性与更强的智能体监督和对齐工作联系起来。
-- [@fchollet：Many of you will ask, "if it saturates ARC 3, is it AGI?" We're not making this claim. All we know about the system so f](https://x.com/fchollet/status/2095599835932135919) — François Chollet 表示，ARC-AGI-3 的饱和分数不构成 AGI 证明；他认为该基准考察探索、不确定性下适应和有限数据中的因果世界建模，但任务规模远小于现实世界任务。
-- [@kenbwork：We introduce an Antibody Discovery Benchmark, a benchmark for testing whether AI agents can make scientific decisions ac](https://x.com/kenbwork/status/2095236267873284278) — Kenny Workman 介绍 Antibody Discovery Benchmark：100 项评测覆盖治疗性抗体发现的十个环节；在 20 种模型—运行框架组合中，最强系统也仅通过约半数尝试，帖文称 Opus 5 配合 Claude Code 以 53% 领先。
+- [@IFM_AI：Introducing K2 Horizon: a connected fleet of six foundation models ranging from 0.9 billion to 375 billion parameters. -](https://x.com/IFM_AI/status/2095497035806113861) — Institute of Foundation Models 发布 K2 Horizon，称其由 6 个参数规模 0.9B 至 375B 的基础模型组成，并公开代码、训练数据与训练配方；各尺寸性能纪录属于发布方说法。
+- [@ArtificialAnlys：Announcing Artificial Analysis Intelligence Index v4.2. We are accelerating elements of our upcoming v5 release with int](https://x.com/ArtificialAnlys/status/2096001986110099767) — Artificial Analysis 发布 Intelligence Index v4.2，加入智能体知识工作和长上下文文档推理测试，并调整私有及留出测试集的权重。
+- [@Thom_Wolf：Another swarm of AI agents in the wild, this time on a German-language forum, found by safety researchers looking for ac](https://x.com/Thom_Wolf/status/2095889630306472127) — Thomas Wolf 转述一份关于德语论坛 AI 智能体活动的报告，并据此讨论智能体对评测机制的逆向分析与协同行为。帖文中的事件细节来自其所引报告，关于训练与部署关系的判断属于作者观点。
 
 [查看频道专页](https://zichenwang114514.github.io/ai-x-daily/channels/aivoices/)
 
 ## Engineering
 
-采集 72，候选 60，精选 4。来源状态：各来源已完成
+采集 70，候选 60，精选 8。来源状态：各来源已完成
 
-- [NousResearch/hermes-agent](https://github.com/NousResearch/hermes-agent) — NousResearch/hermes-agent 是可随用户工作方式持续扩展的 AI 智能体项目；当天位列 GitHub Trending 第 3 名，新增 778 星标。
-- [magnitudedev/magnitude](https://github.com/magnitudedev/magnitude) — magnitudedev/magnitude 是面向本地模型的开源推理服务器，可接入既有智能体工具；当天位列 GitHub Trending 第 14 名，新增 130 星标。
-- [0.153.0](https://github.com/openai/codex/releases/tag/rust-v0.153.0) — openai/codex 发布 rust-v0.153.0：加入远程插件市场管理、Vim 撤销与重做、完整终端历史显示和实验性上下文管理；同时改善应用服务器重连、MCP 审批隔离及会话压缩后的恢复体验。
+- [anthropics/skills](https://github.com/anthropics/skills) — Anthropic 的公开 Agent Skills 仓库，GitHub Trending 第 5 名，当天新增 512 星。它提供可供智能体使用的技能包集合。
+- [NousResearch/hermes-agent](https://github.com/NousResearch/hermes-agent) — NousResearch/hermes-agent 是强调随用户使用持续成长的智能体，GitHub Trending 第 7 名，当天新增 721 星。仓库主题覆盖 AI 智能体、LLM 与多家模型及编码助手生态。
+- [magnitudedev/magnitude](https://github.com/magnitudedev/magnitude) — magnitudedev/magnitude 是可按本机硬件运行本地模型、并接入既有智能体的开源推理服务器，GitHub Trending 第 9 名，当天新增 395 星。
 
 [查看频道专页](https://zichenwang114514.github.io/ai-x-daily/channels/engineering/)
 

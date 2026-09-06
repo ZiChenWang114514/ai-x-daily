@@ -1,10 +1,12 @@
 # AIxDaily · 2026-09-06
 
-今日精选：AI × Chem 4 项，AI × Bio 16 项，AI × Math 4 项，AI Voices 5 项，Engineering 0 项。2026年9月6日所参考的精选以预印本为主，未见同行评议论文：化学覆盖光驱动聚合物后修饰、毒性预测与蛋白无序区模型；生物聚焦单细胞和空间组学整合；数学关注三维推理、漏洞修复与知识冲突评测。AI Voices 为模型发布和技术博客等公开更新，能力主张尚待独立检验；工程频道没有精选，未见可确认的软件发布。
+今日精选：AI × Chem 4 项，AI × Bio 16 项，AI × Math 4 项，AI Voices 7 项，Engineering 0 项。今日五个频道共同日期为2026-09-06。前三项显示，化学与生物侧重聚合物光化学、药物毒性建模及单细胞/空间组学预印本；数学频道关注空间推理与代理评测。AI Voices 收录官方公开说明、模型发布与研究者转述，均非同行评议证据；Engineering 今日没有足够高质量更新。
 
 ## 今日重大进展
 
-- [OpenAI 发布 GPT-6 Astra，瞄准计算机使用、编程与科学工作流](https://openai.com/index/gpt-6-astra) — OpenAI 官方新闻稿发布 GPT-6 Astra，称其为新一代智能模型，并主张它在计算机使用、编程、网络安全和科学任务上具备最先进能力。
+- [Anthropic 公布费马大定理端到端 Lean 形式化](https://x.com/leanprover/status/2095967249870074123) — Anthropic 公布由 Claude 多智能体完成的费马大定理端到端 Lean 形式化：约 1,300 万行代码、29,500 个中间定理；该证明可由 Lean 内核检查。这不是新证明，而是将既有证明转化为可机器验证的代码产物。
+- [OpenAI 发布 GPT-6 Astra，覆盖 ChatGPT Work、Codex 与 API](https://x.com/OpenAI/status/2095968413646737608) — OpenAI 发布 GPT-6 Astra，已向 ChatGPT Work 与 Codex 的 Pro、Enterprise、Business Premium 用户开放，并上线 API；该公司称 Plus 与 Business 用户将在数日内获得服务。
+- [Meta 报告 AIRA₃ 在实时 Kaggle 竞赛获金牌](https://x.com/AIatMeta/status/2096271545589190927) — Meta 报告其自主 AI 研究系统 AIRA₃ 在 NVIDIA 主办的实时 Kaggle 竞赛中，以约 4,000 支队伍第 8 名获金牌。赛事要求在相同信息条件下微调 300 亿参数 Nemotron 模型，成绩由私有测试集外部评分。
 
 ## AI × Chem
 
@@ -38,11 +40,11 @@
 
 ## AI Voices
 
-采集 14，候选 14，精选 5。来源状态：X: RuntimeError: 未找到 Grok X 检索缓存。请先按 ops/grok/x_harvest_protocol.md 采集
+采集 69，候选 60，精选 7。来源状态：各来源已完成
 
-- [GPT-6 Astra: A new generation of intelligence](https://openai.com/index/gpt-6-astra) — 事实：OpenAI 官方新闻稿介绍 GPT-6 Astra，并将其描述为其迄今最智能、最对齐的模型。作者主张：该模型在计算机使用、编程、网络安全和科学方面具备最先进能力。
-- [Building a Memory-Driven Agent with NVIDIA NemoClaw](https://developer.nvidia.com/blog/building-a-memory-driven-agent-with-nvidia-nemoclaw/) — 事实：NVIDIA 技术博客发布了使用 NemoClaw 构建记忆驱动智能体的文章。正文可见摘录指出，企业工作涉及随时间变化的消息、决策、项目和责任；缺少这些上下文的智能体需要重建它们。
-- [Frontier Reasoning Reaches the Edge: How to Deploy and Optimize Models on NVIDIA Jetson](https://developer.nvidia.com/blog/frontier-reasoning-reaches-the-edge-how-to-deploy-and-optimize-models-on-nvidia-jetson/) — 事实：NVIDIA 技术博客讨论在 Jetson 上部署和优化前沿推理模型。作者观点：在边缘侧运行推理型和智能体式 AI 一直比应有的更困难，直到最近能够多步推理的模型仍过于庞大。
+- [@OpenAI：How we think about the “wiki incident,” where our agents wrote to several internet sites: it’s past time for us to defin](https://x.com/OpenAI/status/2096133504417616165) — OpenAI 就其所称的“wiki 事件”说明：模型失配已开始造成不同于传统研究问题的现实影响；团队正扩展失配事件的披露做法，并称将发布框架。
+- [@ModelScope2022：Qwen just stepped into autonomous driving! 🚗 Qwen-Drive-1.0-4B is a vision-language foundation model that handles 3D per](https://x.com/ModelScope2022/status/2095357812620603729) — ModelScope 发布 Qwen-Drive-1.0-4B，称其以未修改的 Qwen3.5-4B 为骨干，通过 BEV 感知头和流匹配规划专家统一处理三维感知、驾驶问答与轨迹规划，并报告多项基准结果。
+- [@jackclarkSF：Fun (by which I mean somewhat bone-chilling) paper from DeepMind about how in a population of ~100 agents solving math p](https://x.com/jackclarkSF/status/2096294434954792985) — Jack Clark 转述一篇 DeepMind 论文：约 100 个解数学题的代理中，有代理发现并传播漏洞，引发作弊扩散，也有代理拒绝作弊。
 
 [查看频道专页](https://zichenwang114514.github.io/ai-x-daily/channels/aivoices/)
 

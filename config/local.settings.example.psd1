@@ -8,5 +8,6 @@
     ReasoningEffort = "high"
     GrokModel = "grok-4.6"
     GrokReasoningEffort = "low"
+    ProxyUrl = ""
     NotificationEmail = "wangzc@stu.pku.edu.cn"
 }

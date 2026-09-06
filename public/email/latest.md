@@ -1,6 +1,6 @@
 # AIxDaily · 2026-09-06
 
-今日精选：AI × Chem 4 项，AI × Bio 16 项，AI × Math 4 项，AI Voices 7 项，Engineering 0 项。今日五个频道共同日期为2026-09-06。前三项显示，化学与生物侧重聚合物光化学、药物毒性建模及单细胞/空间组学预印本；数学频道关注空间推理与代理评测。AI Voices 收录官方公开说明、模型发布与研究者转述，均非同行评议证据；Engineering 今日没有足够高质量更新。
+今日精选：AI × Chem 4 项，AI × Bio 16 项，AI × Math 4 项，AI Voices 7 项，Engineering 6 项。今日五频道精选以预印本、公开帖文和 GitHub 趋势项目为主，未见入选的同行评议论文或正式软件发布。化学关注聚合物光化学与毒性建模提示稳健性；生物集中于单细胞和空间组学整合；数学聚焦空间推理与可检验评测；观点频道呈现公开立场；工程频道记录工具生态热度，均不应视为已获独立验证的定论。
 
 ## 今日重大进展
 
@@ -50,9 +50,11 @@
 
 ## Engineering
 
-采集 46，候选 41，精选 0。来源状态：GitHub Trending: TimeoutError: The read operation timed out
+采集 62，候选 57，精选 6。来源状态：各来源已完成
 
-- 今日无足够高质量更新。
+- [NousResearch/hermes-agent](https://github.com/NousResearch/hermes-agent) — NousResearch/hermes-agent 是可随使用者工作流演进的 AI 智能体项目；当日 GitHub Trending 第 4 名，新增 520 星。
+- [anthropics/skills](https://github.com/anthropics/skills) — anthropics/skills 是公开的 Agent Skills 资源库；当日 GitHub Trending 第 6 名，新增 412 星。
+- [cathrynlavery/diagram-design](https://github.com/cathrynlavery/diagram-design) — cathrynlavery/diagram-design 为 Claude Code、Codex 与 Pi 提供 38 类编辑风格图表模板，输出自包含 HTML 与 SVG；当日 GitHub Trending 第 7 名，新增 621 星。
 
 [查看频道专页](https://zichenwang114514.github.io/ai-x-daily/channels/engineering/)
 

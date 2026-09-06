@@ -17,6 +17,7 @@ $Settings = @{
     GrokReasoningEffort = "low"
     ScheduleTime = "07:00"
     GrokVisitTimeoutMinutes = 20
+    ProxyUrl = ""
 }
 if (Test-Path -LiteralPath $SettingsPath) {
     $LocalSettings = Import-PowerShellDataFile -LiteralPath $SettingsPath
@@ -26,6 +27,18 @@ $Secrets = @{ OpenReviewUsername = ""; OpenReviewPassword = "" }
 if (Test-Path -LiteralPath $SecretsPath) {
     $LocalSecrets = Import-PowerShellDataFile -LiteralPath $SecretsPath
     foreach ($Key in $LocalSecrets.Keys) { $Secrets[$Key] = $LocalSecrets[$Key] }
+}
+$HttpProxyInjected = $false
+$HttpsProxyInjected = $false
+if ($Settings.ProxyUrl) {
+    if (-not $env:HTTP_PROXY) {
+        $env:HTTP_PROXY = [string]$Settings.ProxyUrl
+        $HttpProxyInjected = $true
+    }
+    if (-not $env:HTTPS_PROXY) {
+        $env:HTTPS_PROXY = [string]$Settings.ProxyUrl
+        $HttpsProxyInjected = $true
+    }
 }
 $OpenReviewUserInjected = $false
 $OpenReviewPassInjected = $false
@@ -266,6 +279,12 @@ finally {
     }
     if ($GitHubTokenInjected) {
         Remove-Item Env:GITHUB_TOKEN -ErrorAction SilentlyContinue
+    }
+    if ($HttpProxyInjected) {
+        Remove-Item Env:HTTP_PROXY -ErrorAction SilentlyContinue
+    }
+    if ($HttpsProxyInjected) {
+        Remove-Item Env:HTTPS_PROXY -ErrorAction SilentlyContinue
     }
     Pop-Location
 }

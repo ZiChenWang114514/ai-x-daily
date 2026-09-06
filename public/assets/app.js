@@ -540,7 +540,7 @@ function renderBreakingNews() {
     link.href = item.url;
     link.target = "_blank";
     link.rel = "noopener noreferrer";
-    setRichText(link, item.headline_zh || item.title || "重大进展");
+    setRichText(link, item.headline_zh || item.title || "核弹级进展");
     title.appendChild(link);
     const summary = document.createElement("p");
     summary.className = "breaking-card__summary";

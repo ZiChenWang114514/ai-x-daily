@@ -1,1077 +1,46 @@
 {
   "schema_version": "2.0",
-  "date": "2026-09-05",
+  "date": "2026-09-06",
   "channel": "engineering",
-  "generated_at": "2026-09-04T23:14:41+00:00",
-  "count": 60,
+  "generated_at": "2026-09-06T11:35:46+00:00",
+  "count": 41,
   "items": [
     {
-      "id": "github:382578727",
-      "channel": "engineering",
-      "related_channels": [
-        "aixmath",
-        "aixbio",
-        "aixchem"
-      ],
-      "item_type": "software_release",
-      "source": "GitHub Releases",
-      "title": "MLflow 3.16.0",
-      "url": "https://github.com/mlflow/mlflow/releases/tag/v3.16.0",
-      "published_at": "2026-09-04T08:30:54Z",
-      "updated_at": "2026-09-04T01:37:44Z",
-      "creators": [
-        "mlflow/mlflow"
-      ],
-      "language": "en",
-      "abstract_or_text": "MLflow 3.16.0 includes several major features and improvements ### Major New Features - **🎨 Custom Trace Views**: Design your own trace UI in plain English — describe the view you want and the **MLflow Assistant** builds it for you, laying out exactly the fields you care about with no config files or custom code. Save, name, and reuse views per experiment so your whole team shares the same lens on your traces. - **🔭 Redesigned Trace Experience (now default)**: The trace explorer has been rebuilt from the ground up and is now the default — tighter row density, cleaner navigation, and a redesigned span-tree view. **Reorder columns**, add **configurable custom columns** from any trace tag or metadata field, and find multi-turn conversations inline via **session grouping**. - **🔗 Span Links**: Spans rarely stand alone. MLflow 3.16.0 adds first-class **span links** so relationships between spans — a retrieval step, a tool call, a downstream trace — are captured and navigable. Record links in your SDK and the trace explorer surfaces them in a dedicated Links tab to jump straight to the destination span. Breaking changes: - [Server-infra / Tracking] basic-auth: enable fail-closed authorization by default (#25308, @PattaraS) - [Build / Models] Drop cross version testing for pyspark < 3.4.4 (#25098, @harupy) - [Gateway / Tracing] fix: Serve FastAPI-native routers under `--static-prefix` (#24511, @SeiichiroYoshioka) Features: - [Evaluation / Tracing / Tracking] Add mlflow skills agent hints for GenAI anti-patterns (#25496, @james-fletcher-db) - [Tracing] Add shell-based MLflow Tracing setup wizard (#25441, @B-Step62) - [Gateway] Support per-user budget policies in the AI Gateway (USER scope + principal) (#24371, @joelrobin18) - [Tracing / UI] Add trace-table column reordering to V4 traces tab (#25428, @joshuawong-db) - [Tracing / UI] Add `Expectation` field to the traces table filter UI (#25460, @creater29) - [Tracing / UI] Add saved views to MLflow demo (#25392, @joshuawong-db) - [Tracing / UI] Add configurable custom trace columns (tags + metadata) to Traces V4 (#25427, @joshuawong-db) - [Tracing / Tracking / UI] Refresh the Traces V4 table: row density, header, and navigation (#25354, @joshuawong-db) - [Tracing / UI] Mount Traces V4 as the default traces experience (#25424, @joshuawong-db) - [Tracing / UI] Port redesigned trace explorer (v2) to OSS (#25355, @joshuawong-db) - [UI] Deprecate the experiment Sessions tab in favor of Traces session grouping (#25350, @joshuawong-db) - [Evaluation / Tracing] feat(typescript): add `logFeedback` and typed trace assessments (#25169, @rajudandigam) - [Tracing] Point coding agents at the MLflow tracing skill on `import mlflow` (#25247, @harupy) - [Evaluation / Gateway] Support UC model services in built-in judges (#25246, @TomeHirata) - [Tracing / UI] Enable `shouldEnableModelTraceExplorerCustomTraceView` in OSS (#25245, @aaronteo-db) - [Tracking] jobs: add configurable Huey storage URL for Redis (#22653, @jeevan6996) - [Tracking] [chart] Add optional External Secrets Operator support (#24523, @habibaikram1) - [Evaluation] Enrich `mlflow scorers list --builtin` with the full scorer catalog (#25003, @joshuawong-db) - [Tracing / UI] feat(ui): display scorer description in tooltip for custom judges (#22043, @adamgurary) - [UI] Add Image Grid toggle for run parameters (#23705, @jdoughty04) - [Tracing / Tracking / UI] [Custom View] Enforce saved view limit per experiment (#25064, @tanghaoji) - [Tracking] [1/6] basic-auth: fail-closed authorization net + coverage guard (#25065, @PattaraS) - [Build / Scoring] Bump model serving image to Ubuntu 24.04 and Python 3.11 (#25089, @harupy) - [] Add SpanLink support to TypeScript SDK (#23480, @robinnarsinghranabhat) - [Docs / Tracking] [Custom View] Increase experiment tag value limit to 20000 (#25062, @aaronteo-db) - [Tracing / Tracking] feat(ts-sdk): add `MLFLOW_TRACKING_AUTH=kubernetes`/`kubernetes-namespaced` support (#24243, @robinnarsinghranabhat) - [Tracing / UI] [Custom View] Add custom view deletion (#25057, @tanghaoji) - [Tracing / UI] [Custom View] Support local Assistant providers with structured responses (#25034, @tanghaoji) - [Tracing / UI] [Custom View] Submit custom view build prompts directly to Assistant (#25026, @aaronteo-db) - [] Support optimizing chat-type prompts in `optimize_prompts` (#23488, @gaurav0107) - [Docs / Tracking] Add `--artifact-policy retarget` to `mlflow db move-resources` for repointing experiment artifact roots (#24635, @gauthierpiarrette) - [] [5 / N] Add custom view tab UI, save/rename, and experiment tag persistence (#24798, @aaronteo-db) - [Evaluation] Expose `generate_rationale_first` through `make_judge` (#25002, @aaronteo-db) - [Tracing / UI] [4/N] Add client-tool pause/resume for `render_custom_view` in Assistant (#24796, @aaronteo-db) - [Tracing] Enable OpenCode tracing plugin to include reasoning/thinking content in the Span (#22997, @robinnarsinghranabhat) - [UI] feat: enable parent-child run view in GenAI mode (#24790, @pasainatan) - [Tracing] Add workspace support to Claude Code plugin (#23773, @Gkrumbach07) - [Evaluation] Add Databricks scorer versioning support (#24940, @nihalmenon) - [Tracking] Add artifact_path support for logged model artifacts (#23147, @Sanskar121543) - [Tracing / UI] [3/N] Add custom view persistence model and prompt context builder (#24794, @aaronteo-db) - [Tracing / UI] [2/N] Add data-source binding and A2UI message/template validator (#24792, @aaronteo-db) - [Gateway] Add 13 new models to Databricks AI Gateway model catalog (#24893, @TomeHirata) - [Evaluation / Tracking / UI] Add Assistant analyze action to evaluation runs (#24865, @joshuawong-db) - [UI] [1/N] Updated A2UI catalog schema and added typed primitives for custom trace views (#24788, @aaronteo-db) Bug fixes: - [Tracing] Fix host-only Databricks CLI commands in tracing setup (#25529, @B-Step62) - [Model Registry] [BUGFIX] Preserve empty webhook fields in partial `update_webhook` calls (#25509, @CoralGarden52) - [UI] Wrap the traces toolbar so custom-date controls don't overflow off-screen (#25512, @joshuawong-db) - [Tracing / UI] Fix V4 trace drawer review action (#25510, @joshuawong-db) - [Tracing / UI] Fix Custom Views in Traces V4 (#25488, @joshuawong-db) - [Evaluation / Tracking] Fix proto conversion of `DatasetRecordSourceType.UNSPECIFIED` dataset record sources (#25230, @2sumtech) - [Tracing / UI] Fix Traces V4 \"1 of 0\" footer count on exact trace-id search (#25483, @joshuawong-db) - [Tracing] fix: prevent async trace queue deadlock during flush (#25264, @mukeshbhandarkar) - [Evaluation] Fix `IndexError` in `merge_records` after `to_dict`/`to_df` on empty `EvaluationDataset` (#25498, @TomeHirata) - [Tracking] Fix integer/varchar type mismatch in WorkspaceAwareSqlAlchemyStore experiment_id filters (#25232, @mayuriphad) - [Model Registry] [BUGFIX] Preserve status in partial `update_webhook` calls (#24842, @abligail) - [Tracking] Fix `search_logged_models` quoted-value parsing and invalid-operator message (#25398, @VenishPaneliya) - [Tracing] Keep `@mlflow/openai` Chat Completion spans open during streaming (#25416, @copilot-swe-agent) - [Build] Fix the Helm chart ServiceMonitor rendering a null metrics path (#25365, @aqeelat) - [Scoring] Return 400 instead of 500 for a non-UTF-8 scoring request body (#25173, @tushardev-365) - [UI] Fix: show assistant floating button on remote servers with `MLFLOW_ENABLE_REMOTE_ASSISTANT=true` (#25394, @TomeHirata) - [UI] Include `traceId` query param in trace navigation links (#25375, @NJAHNAVI2907) - [Models] Fix pyfunc load crash on ONNX `(name, options)` provider entries (#25310, @rrioh) - [Tracking] fix: use chunked I/O in HdfsArtifactRepository to prevent OOM (#21941, @OneSizeFitsQuorum) - [Build / Tracking] Fix Windows CI failures: drive-letter paths and OS error messages (#25382, @TomeHirata) - [Models] Fix empty Responses Agent output streams (#25388, @copilot-swe-agent) - [Prompts] Remove redundant text from GEPA reflective datasets (#25387, @copilot-swe-agent) - [Evaluation] Fix stale expectations and record counts on dataset export (#25265, @mprahl) - [Docs] fix: correct max_output_tokens for 10 Databricks-hosted models (#25360, @TomeHirata) - [Tracing / UI] Normalize span links from OTLP endpoints in the trace explorer (#25319, @khaledsulayman) - [Tracing] Flush the `SpanBatcher` from the trace flush paths so UC-table spans are exported (#25260, @alekseevpavel04) - [UI] Fix autoscale layout state in metric charts (#25314, @PrithviBadiga) - [UI] Preserve chart section when switching chart type in `RunsChartsConfigureModal` (#25283, @DaoDaoNoCode) - [Scoring / Tracking] Fix scorer experiment_id VARCHAR binds on PostgreSQL + psycopg v3 (#25315, @rexminnis) - [Gateway] Fix streaming passthrough skipping fallback (#25268, @TomeHirata) - [Evaluation] Propagate eval_retry_context flags into the scorer thread pool (#25318, @joshuawong-db) - [] feat: add rate limiting and retry support to automatic evaluation path (#24702, @rahul-oss-sap) - [UI] fix: Ensure consistent ordering of runs for charts (#25019, @pasainatan) - [Tracing] Fix basic auth overriding Kubernetes auth in Python SDK (#25131, @karimitanii) - [Tracking] Ignore S3 directory markers in artifact listing (#23250, @Vinno97) - [Tracking] [8/8] basic-auth: gate native FastAPI job routes on per-job ownership (#25102, @PattaraS) - [Gateway / Tracking] [7/8] basic-auth: fail-closed enforcement for native FastAPI routes (#25101, @PattaraS) - [Evaluation / Tracking] [6/6] basic-auth: gate presigned/invoke/demo/metric-twin; empty the debt list (#25071, @PattaraS) - [Gateway] basic-auth: redact gateway secrets-config passphrase signal from non-admins (#25298, @PattaraS) - [UI] Fix stale deps and example in the Optimize Prompt modal (#25143, @PattaraS) - [Gateway / Tracking] [5/6] basic-auth: gate gateway guardrail/budget/config/discovery + filter list endpoints (#25070, @PattaraS) - [Tracing / Tracking] Fix 0.00 cost panel for bare Databricks serving-endpoint model names (#24620, @adamgurary) - [Tracing / Tracking] Read top-level cache_read/creation token counts in `openai` autolog (#24618, @adamgurary) - [UI] [MLflow Assistant] Fix trace drawer closing when opening the Assistant provider picker (#25255, @aaronteo-db) - [] [Security] Deny Assistant Read tool file access when no project directory is configured (#24513, @LiteshGhute) - [Tracking] Skip `entry_point.getLogger()` when unavailable in dynamic token config provider (#25207, @serena-ruan) - [UI] Fix visibility control bug for Evaluation Runs in Gen AI mode (#25094, @pasainatan) - [Tracking] [4/6] basic-auth: gate job routes on per-job ownership (#25069, @PattaraS) - [Tracing / Tracking] Offload `log_spans()` from the async event loop (#25185, @HumairAK) - [Evaluation / Tracing / Tracking] Fix late-binding closure in `configure_autologging_for_evaluation` configuring the wrong flavor (#25135, @Koustav-github) - [Evaluation / Tracking] [3/6] basic-auth: gate issue routes on experiment permission (#25067, @PattaraS) - [Models] Parse schema datetimes as nanoseconds under pandas 3 (#25119, @harupy) - [Models] Bound pandas in logged requirements for prophet <1.2.2 (#25118, @harupy) - [Evaluation / Tracking] [2/6] basic-auth: gate evaluation dataset routes on experiment permission (#25066, @PattaraS) - [Tracking] [1/6] basic-auth: fail-closed authorization net + coverage guard (#25065, @PattaraS) - [Tracing / UI] Add copy button for markdown-rendered span values in trace explorer (#24619, @adamgurary) - [UI] Link evaluation datasets from the run overview dataset drawer (#25061, @PattaraS) - [Tracing] Map OpenInference prompt-cache token counts in `OpenInferenceTranslator` (#25039, @felix-xsenda) - [Tracking] Prevent object-store artifact deletion from removing sibling paths (#25024, @yangbaechu) - [Docs / Tracing] Honor explicit set_outputs() inside the @mlflow.trace decorator (#24624, @adamgurary) - [Tracking] [tracking] Fix system metrics resume step without metric history mate… (#23401, @iis-MarkKuang) - [] fix(gateway): handle missing finish_reason in openai_compatible streaming (#24111, @lavkeshdwivedi) - [Tracking] fix: Stop `SearchUtils._get_value` from silently dropping dataset IN clause values (#25045, @kaikaila) - [Tracing] Surface trace-export auth failures at ERROR instead of silently dropping traces (#24847, @adamgurary) - [Models] Fix PyFunc artifact path collisions (#24681, @yangbaechu) - [Build] Bump Docker base image from `python:3.10-slim-bullseye` to `python:3.11-slim-trixie` (#24961, @mille-printemps) - [Models] Fix remaining `torch_dtype` deprecation warnings on load and save paths (#25017, @rrioh) - [Tracking] Bound `log_batch` duplicate-metric recovery in `SqlAlchemyStore` by batch size (#24683, @jayceguo) - [] Fix `pydantic-ai-slim` version detection in autologging (#24959, @jiahao6635) - [Gateway] fix(gateway): preserve provider usage extras (#25010, @uuzzrm) - [Tracking] fix(langchain): elevate secondary autolog exception handlers to `logger.warning` (#22040, @adamgurary) - [UI] fix(ui): Batch run fetching in `CompareRunPage` to avoid one request per run (#24894, @daniellok-db) - [Tracing / Tracking] perf(tracing): index trace archival candidate ordering (#24976, @medisean) - [Gateway] Preserve provider usage extras in OpenAI-compatible gateway (#25000, @uuzzrm) - [Models] Fix Windows separators in pyfunc artifact paths (#24432, @evanwrm) - [Tracking] Fix cross-batch deadlock in concurrent log_batch latest_metrics writes (#24941, @Michael97-li) - [Tracking] Avoid re-enabling externally-disabled loggers in `_configure_mlflow_loggers` (#24957, @aaronteo-db) - [Evaluation] Preserve schema maps when enforcing strict JSON schemas (#24193, @sairavuri-sudo) - [Tracing] Fix flaky `test_search_traces_yields_expected_dataframe_contents` by flushing before snapshotting (#24996, @harupy) - [Gateway] Handle zstd-compressed request bodies on the AI Gateway (#24784, @midhunsomu) - [Tracing / Tracking] Surface Anthropic prompt-cache token counts in `mlflow.pydantic_ai.autolog` (#23052, @JasonPan) - [Tracing] Resolve UC path from active experiment when using `get_trace` with a plain ID (#24700, @aishdbx) - [Tracing] Validate trace exists in link_prompts_to_trace (fixes #24067) (#24303, @zibranxo) - [UI] Hide redundant metric names in chart cards (#23212, @xianjianlf2) - [Gateway] Fix Bedrock gateway grouping of parallel tool results (#24309, @shivamAmrutia) - [Tracing / Tracking] fix: use response model name for openai chat (#22325, @hansen-young) - [Gateway] Reject unspecified `linkage_type` in gateway model configs instead of returning 500 (#24664, @KunalBharadwaj) - [Docs / Evaluation / Tracing] Fix: Add trace completion buffer to prevent online evaluator from skipping long-running traces (#22006, @amitmodi) - [Models] Fix `torch_dtype` deprecation warning on transformers model load (#24929, @serena-ruan) - [Tracing] Fix basic-auth after-request handler registration (#24322, @sun-andsky) - [Gateway] Support Vertex AI `eu`/`us` multi-region endpoints in gateway provider (#24932, @aaronteo-db) - [UI] Allow valid Kubernetes workspace names with consecutive hyphens (#24229, @divya0709) - [Models / Tracking] Fix model-metric-dataset association broken by stale cached `ActiveRun` outputs (#21855, @daniellok-db) - [Tracing] Capture Bedrock prompt caching token fields and normalize input tokens to include them (#24899, @gauthierpiarrette) - [Tracking] Pre-import `databricks.sdk` in Databricks to avoid telemetry deadlock (#24841, @aaronteo-db) - [Tracing] Support haystack 3.x in haystack autologging (#24744, @harupy) - [Tracing] Honor UC-backed trace storage in Databricks model serving (#24806, @james-fletcher-db) - [Tracking] Do not hard-fail `is_flavor_supported_for_associated_package_versions` when flavor module is not installed (#24846, @adamgurary) - [UI] fix(ui): Fix Chart view unresponsiveness via virtualization in `RunsChartsDraggableCardsGridSection` (#24012) (#24424, @Alwaysgaurav1) - [] Fix `claude_code` provider exceeding Windows `cmd.exe` command-line limit (#24440, @joshuawong-db) - [UI] Fix RestoreRunModal to show actual error instead of hardcoded message (#24731, @mihir2921) - [UI] Fix DeleteRunModal to show actual error instead of hardcoded message (#24730, @mihir2921) - [UI] [UI] Show error notification when permission-denied for USER role actions (#24722, @mihir2921) - [Build / Models] Add support for pandas 3.x (#23719, @twanahc) - [Model Registry] Fix model version string to int cast in registry stores (#24565, @qubeena07) Documentation updates: - [Docs] Fix environment variable expansion in `docker/README.md` (#25474, @CoralGarden52) - [Build] Use `Chart.appVersion` for the Helm example image (#25458, @CoralGarden52) - [Docs / Tracing] docs: add TypeScript examples to Kubernetes auth page (#25083, @robinnarsinghranabhat) - [Docs] Clarify trace-data scope in `detect-issues.mdx` (#25386, @copilot-swe-agent) - [Docs] Add Red Hat OpenShift AI to hosting options (#25151, @B-Step62) - [Docs / Tracing] Honor explicit set_outputs() inside the @mlflow.trace decorator (#24624, @adamgurary) - [Docs / Tracing] docs: clarify Databricks profile, LangGraph autolog, runs-vs-traces, span attributes (#24954, @adamgurary) - [Docs / Tracing] docs: warn that delete_traces() does not support Databricks Unity Catalog traces (#24647, @adamgurary) - [Docs / Gateway] Clarify LiteLLM is an optional extension in AI Gateway docs (#24787, @TomeHirata) Small bug fixes and documentation updates: #25558, #25553, #25392, #25421, #25407, #24828, #25295, #25249, #25055, #24827, @joshuawong-db; #25547, #25127, #24884, #25501, #24714, #24913, #24879, @B-Step62; #25544, #25542, #25540, #25538, #25537, #25534, #25531, #25530, #25506, #25466, #25436, #25408, #25405, #25390, #25320, #25256, #25023, #25014, #24993, #24992, #24988, #24986, #24955, #24872, #24855, #24856, @copilot-swe-agent; #25545, #25502, #25486, #25485, #25482, #25481, #25478, #25475, #25468, #25467, #25464, #25462, #25461, #25465, #25457, #25456, #25452, #25450, #25447, #25446, #25443, #25437, #25430, #25432, #25423, #25429, #25409, #25420, #25417, #25419, #25401, #25404, #25402, #25396, #25393, #25368, #25358, #25346, #25344, #25343, #25342, #25341, #25339, #25338, #25337, #25335, #25334, #25325, #25316, #25312, #25277, #25276, #25252, #25165, #25163, #25162, #25161, #25160, #25159, #25158, #25156, #25154, #25153, #25152, #25144, #25142, #25124, #25122, #25117, #25109, #25110, #25106, #25103, #25100, #25099, #25096, #25090, #25092, #25091, #25088, #25048, #25047, #25042, #25041, #25037, #25030, #25032, #25031, #25029, #25022, #24996, #24991, #24990, #24987, #24982, #24980, #24977, #24978, #24975, #24974, #24973, #24972, #24971, #24970, #24968, #24966, #24965, #24910, #24908, #24922, #24911, #24909, #24901, #24866, #24874, #24853, #24840, #24839, #24834, #24791, #24751, #24770, @harupy; #25533, #25528, #25305, #25304, #25302, #25296, #25222, @kriscon-db; #25412, #25309, @IgorShishkin12; #25520, #25519, #25015, #24945, #24943, #24944, #24902, #24904, #24905, #24903, @dependabot; #25081, #24880, #24802, @mprahl; #25505, #25500, #25480, #25379, #25360, #25351, #24754, @TomeHirata; #25477, #25459, @CoralGarden52; #25180, @miyakido; #25369, @d0w; #25400, @ArrayPD; #25391, #25329, #25104, @tanghaoji; #25374, @brandonhawi; #24276, #24222, @khaledsulayman; #25272, @kaikaila; #25300, #25097, #25046, #24838, @PattaraS; #24998, @juliafmorgado; #25251, #25212, #25211, #25186, #25060, #25059, #25028, #25025, @aaronteo-db; #25202, @aravgarg28; #22653, @jeevan6996; #25164, @jaceklaskowski; #24925, @darkdi; #25040, @rrioh; #24914, @smoorjani; #24892, @codechrl; #24927, @serena-ruan; #24323, #24678, @NeriCarcasci; #24516, @gauthierpiarrette; #24732, @mihir2921; #24779, @daniellok-db",
-      "summary_zh": "",
-      "why_it_matters_zh": "",
-      "quality_score": 84,
-      "tags": [
-        "兼容与安全"
-      ],
-      "evidence_flags": [
-        "dataset",
-        "github",
-        "evaluation",
-        "breaking",
-        "security"
-      ],
-      "publication_status": "release",
-      "rank": 0,
-      "featured": false,
-      "category": "兼容与安全",
-      "metrics": {},
-      "metadata": {
-        "repository": "mlflow/mlflow",
-        "version": "v3.16.0",
-        "release_id": "382578727",
-        "release_type": "release"
-      }
-    },
-    {
-      "id": "github-trending:2026-09-05:sponsors/mattpocock",
-      "channel": "engineering",
-      "related_channels": [],
-      "item_type": "trending_repository",
-      "source": "GitHub Trending",
-      "title": "sponsors/mattpocock",
-      "url": "https://github.com/sponsors/mattpocock",
-      "published_at": "2026-09-05",
-      "updated_at": "2026-09-04T23:11:46+00:00",
-      "creators": [
-        "sponsors"
-      ],
-      "language": "en",
-      "abstract_or_text": "Skills for Real Engineers. Straight from my .agents directory.",
-      "summary_zh": "",
-      "why_it_matters_zh": "",
-      "quality_score": 80,
-      "tags": [
-        "GitHub Trending",
-        "Shell"
-      ],
-      "evidence_flags": [
-        "daily_snapshot",
-        "github_metadata"
-      ],
-      "publication_status": "daily_trending",
-      "rank": 0,
-      "featured": false,
-      "category": "GitHub Trending",
-      "metrics": {
-        "daily_rank": 1,
-        "stars_today": 2757,
-        "stars_total": 0,
-        "forks": 0,
-        "open_issues": 0
-      },
-      "metadata": {
-        "repository": "sponsors/mattpocock",
-        "language": "Shell",
-        "topics": [],
-        "license": "",
-        "created_at": "",
-        "pushed_at": "",
-        "snapshot_date": "2026-09-05",
-        "trending_id": "2026-09-05:sponsors/mattpocock",
-        "trending_rank": 1
-      }
-    },
-    {
-      "id": "github-trending:2026-09-05:sponsors/dietrichgebert",
-      "channel": "engineering",
-      "related_channels": [],
-      "item_type": "trending_repository",
-      "source": "GitHub Trending",
-      "title": "sponsors/DietrichGebert",
-      "url": "https://github.com/sponsors/DietrichGebert",
-      "published_at": "2026-09-05",
-      "updated_at": "2026-09-04T23:11:46+00:00",
-      "creators": [
-        "sponsors"
-      ],
-      "language": "en",
-      "abstract_or_text": "Makes your AI agent think like the laziest senior dev in the room. The best code is the code you never wrote.",
-      "summary_zh": "",
-      "why_it_matters_zh": "",
-      "quality_score": 80,
-      "tags": [
-        "GitHub Trending",
-        "JavaScript"
-      ],
-      "evidence_flags": [
-        "daily_snapshot",
-        "github_metadata"
-      ],
-      "publication_status": "daily_trending",
-      "rank": 0,
-      "featured": false,
-      "category": "GitHub Trending",
-      "metrics": {
-        "daily_rank": 2,
-        "stars_today": 1683,
-        "stars_total": 0,
-        "forks": 0,
-        "open_issues": 0
-      },
-      "metadata": {
-        "repository": "sponsors/DietrichGebert",
-        "language": "JavaScript",
-        "topics": [],
-        "license": "",
-        "created_at": "",
-        "pushed_at": "",
-        "snapshot_date": "2026-09-05",
-        "trending_id": "2026-09-05:sponsors/dietrichgebert",
-        "trending_rank": 2
-      }
-    },
-    {
-      "id": "github-trending:2026-09-05:fmtlib/fmt",
-      "channel": "engineering",
-      "related_channels": [],
-      "item_type": "trending_repository",
-      "source": "GitHub Trending",
-      "title": "fmtlib/fmt",
-      "url": "https://github.com/fmtlib/fmt",
-      "published_at": "2026-09-05",
-      "updated_at": "2026-09-04T23:07:30Z",
-      "creators": [
-        "fmtlib"
-      ],
-      "language": "en",
-      "abstract_or_text": "A modern formatting library · Topics: c-plus-plus, chrono, cpp, cross-platform, floating-point, formatting, multiplatform, output, performance, printf, ranges, unicode",
-      "summary_zh": "",
-      "why_it_matters_zh": "",
-      "quality_score": 80,
-      "tags": [
-        "GitHub Trending",
-        "C++",
-        "c-plus-plus",
-        "chrono",
-        "cpp",
-        "cross-platform"
-      ],
-      "evidence_flags": [
-        "daily_snapshot",
-        "github_metadata"
-      ],
-      "publication_status": "daily_trending",
-      "rank": 0,
-      "featured": false,
-      "category": "GitHub Trending",
-      "metrics": {
-        "daily_rank": 3,
-        "stars_today": 681,
-        "stars_total": 25456,
-        "forks": 3035,
-        "open_issues": 12
-      },
-      "metadata": {
-        "repository": "fmtlib/fmt",
-        "language": "C++",
-        "topics": [
-          "c-plus-plus",
-          "chrono",
-          "cpp",
-          "cross-platform",
-          "floating-point",
-          "formatting",
-          "multiplatform",
-          "output",
-          "performance",
-          "printf",
-          "ranges",
-          "unicode"
-        ],
-        "license": "MIT",
-        "created_at": "2012-12-07T16:26:46Z",
-        "pushed_at": "2026-09-04T23:07:30Z",
-        "snapshot_date": "2026-09-05",
-        "trending_id": "2026-09-05:fmtlib/fmt",
-        "trending_rank": 3
-      }
-    },
-    {
-      "id": "github-trending:2026-09-05:sponsors/affaan-m",
-      "channel": "engineering",
-      "related_channels": [],
-      "item_type": "trending_repository",
-      "source": "GitHub Trending",
-      "title": "sponsors/affaan-m",
-      "url": "https://github.com/sponsors/affaan-m",
-      "published_at": "2026-09-05",
-      "updated_at": "2026-09-04T23:11:46+00:00",
-      "creators": [
-        "sponsors"
-      ],
-      "language": "en",
-      "abstract_or_text": "The agent harness performance optimization system. Skills, instincts, memory, security, and research-first development for Claude Code, Codex, Opencode, Cursor and beyond.",
-      "summary_zh": "",
-      "why_it_matters_zh": "",
-      "quality_score": 80,
-      "tags": [
-        "GitHub Trending",
-        "JavaScript"
-      ],
-      "evidence_flags": [
-        "daily_snapshot",
-        "github_metadata"
-      ],
-      "publication_status": "daily_trending",
-      "rank": 0,
-      "featured": false,
-      "category": "GitHub Trending",
-      "metrics": {
-        "daily_rank": 4,
-        "stars_today": 1139,
-        "stars_total": 0,
-        "forks": 0,
-        "open_issues": 0
-      },
-      "metadata": {
-        "repository": "sponsors/affaan-m",
-        "language": "JavaScript",
-        "topics": [],
-        "license": "",
-        "created_at": "",
-        "pushed_at": "",
-        "snapshot_date": "2026-09-05",
-        "trending_id": "2026-09-05:sponsors/affaan-m",
-        "trending_rank": 4
-      }
-    },
-    {
-      "id": "github-trending:2026-09-05:anthropics/skills",
-      "channel": "engineering",
-      "related_channels": [],
-      "item_type": "trending_repository",
-      "source": "GitHub Trending",
-      "title": "anthropics/skills",
-      "url": "https://github.com/anthropics/skills",
-      "published_at": "2026-09-05",
-      "updated_at": "2026-09-03T16:37:14Z",
-      "creators": [
-        "anthropics"
-      ],
-      "language": "en",
-      "abstract_or_text": "Public repository for Agent Skills · Topics: agent-skills",
-      "summary_zh": "",
-      "why_it_matters_zh": "",
-      "quality_score": 80,
-      "tags": [
-        "GitHub Trending",
-        "Python",
-        "agent-skills"
-      ],
-      "evidence_flags": [
-        "daily_snapshot",
-        "github_metadata"
-      ],
-      "publication_status": "daily_trending",
-      "rank": 0,
-      "featured": false,
-      "category": "GitHub Trending",
-      "metrics": {
-        "daily_rank": 5,
-        "stars_today": 512,
-        "stars_total": 174112,
-        "forks": 20639,
-        "open_issues": 1208
-      },
-      "metadata": {
-        "repository": "anthropics/skills",
-        "language": "Python",
-        "topics": [
-          "agent-skills"
-        ],
-        "license": "",
-        "created_at": "2025-09-22T15:53:31Z",
-        "pushed_at": "2026-09-03T16:37:14Z",
-        "snapshot_date": "2026-09-05",
-        "trending_id": "2026-09-05:anthropics/skills",
-        "trending_rank": 5
-      }
-    },
-    {
-      "id": "github-trending:2026-09-05:blader/humanizer",
-      "channel": "engineering",
-      "related_channels": [],
-      "item_type": "trending_repository",
-      "source": "GitHub Trending",
-      "title": "blader/humanizer",
-      "url": "https://github.com/blader/humanizer",
-      "published_at": "2026-09-05",
-      "updated_at": "2026-08-19T05:58:53Z",
-      "creators": [
-        "blader"
-      ],
-      "language": "en",
-      "abstract_or_text": "Agent skill that removes signs of AI-generated writing from text · Topics: agent-skills, ai-writing, claude-code, codex, cursor, prompt-engineering, writing-tools",
-      "summary_zh": "",
-      "why_it_matters_zh": "",
-      "quality_score": 80,
-      "tags": [
-        "GitHub Trending",
-        "Python",
-        "agent-skills",
-        "ai-writing",
-        "claude-code",
-        "codex"
-      ],
-      "evidence_flags": [
-        "daily_snapshot",
-        "github_metadata"
-      ],
-      "publication_status": "daily_trending",
-      "rank": 0,
-      "featured": false,
-      "category": "GitHub Trending",
-      "metrics": {
-        "daily_rank": 6,
-        "stars_today": 1132,
-        "stars_total": 42665,
-        "forks": 3606,
-        "open_issues": 33
-      },
-      "metadata": {
-        "repository": "blader/humanizer",
-        "language": "Python",
-        "topics": [
-          "agent-skills",
-          "ai-writing",
-          "claude-code",
-          "codex",
-          "cursor",
-          "prompt-engineering",
-          "writing-tools"
-        ],
-        "license": "MIT",
-        "created_at": "2026-01-18T05:30:15Z",
-        "pushed_at": "2026-08-19T05:58:53Z",
-        "snapshot_date": "2026-09-05",
-        "trending_id": "2026-09-05:blader/humanizer",
-        "trending_rank": 6
-      }
-    },
-    {
-      "id": "github-trending:2026-09-05:nousresearch/hermes-agent",
-      "channel": "engineering",
-      "related_channels": [],
-      "item_type": "trending_repository",
-      "source": "GitHub Trending",
-      "title": "NousResearch/hermes-agent",
-      "url": "https://github.com/NousResearch/hermes-agent",
-      "published_at": "2026-09-05",
-      "updated_at": "2026-09-04T22:59:01Z",
-      "creators": [
-        "NousResearch"
-      ],
-      "language": "en",
-      "abstract_or_text": "The agent that grows with you · Topics: ai, ai-agent, ai-agents, anthropic, chatgpt, claude, claude-code, codex, hermes, hermes-agent, llm, nous-research, openai",
-      "summary_zh": "",
-      "why_it_matters_zh": "",
-      "quality_score": 80,
-      "tags": [
-        "GitHub Trending",
-        "Python",
-        "ai",
-        "ai-agent",
-        "ai-agents",
-        "anthropic"
-      ],
-      "evidence_flags": [
-        "daily_snapshot",
-        "github_metadata"
-      ],
-      "publication_status": "daily_trending",
-      "rank": 0,
-      "featured": false,
-      "category": "GitHub Trending",
-      "metrics": {
-        "daily_rank": 7,
-        "stars_today": 721,
-        "stars_total": 241462,
-        "forks": 49548,
-        "open_issues": 39682
-      },
-      "metadata": {
-        "repository": "NousResearch/hermes-agent",
-        "language": "Python",
-        "topics": [
-          "ai",
-          "ai-agent",
-          "ai-agents",
-          "anthropic",
-          "chatgpt",
-          "claude",
-          "claude-code",
-          "codex",
-          "hermes",
-          "hermes-agent",
-          "llm",
-          "nous-research",
-          "openai"
-        ],
-        "license": "MIT",
-        "created_at": "2025-07-22T22:22:28Z",
-        "pushed_at": "2026-09-04T22:59:01Z",
-        "snapshot_date": "2026-09-05",
-        "trending_id": "2026-09-05:nousresearch/hermes-agent",
-        "trending_rank": 7
-      }
-    },
-    {
-      "id": "github-trending:2026-09-05:sponsors/juliusbrussee",
-      "channel": "engineering",
-      "related_channels": [],
-      "item_type": "trending_repository",
-      "source": "GitHub Trending",
-      "title": "sponsors/JuliusBrussee",
-      "url": "https://github.com/sponsors/JuliusBrussee",
-      "published_at": "2026-09-05",
-      "updated_at": "2026-09-04T23:11:46+00:00",
-      "creators": [
-        "sponsors"
-      ],
-      "language": "en",
-      "abstract_or_text": "🪨 why use many token when few token do trick — Claude Code skill that cuts 65% of tokens by talking like caveman",
-      "summary_zh": "",
-      "why_it_matters_zh": "",
-      "quality_score": 80,
-      "tags": [
-        "GitHub Trending",
-        "Go"
-      ],
-      "evidence_flags": [
-        "daily_snapshot",
-        "github_metadata"
-      ],
-      "publication_status": "daily_trending",
-      "rank": 0,
-      "featured": false,
-      "category": "GitHub Trending",
-      "metrics": {
-        "daily_rank": 8,
-        "stars_today": 503,
-        "stars_total": 0,
-        "forks": 0,
-        "open_issues": 0
-      },
-      "metadata": {
-        "repository": "sponsors/JuliusBrussee",
-        "language": "Go",
-        "topics": [],
-        "license": "",
-        "created_at": "",
-        "pushed_at": "",
-        "snapshot_date": "2026-09-05",
-        "trending_id": "2026-09-05:sponsors/juliusbrussee",
-        "trending_rank": 8
-      }
-    },
-    {
-      "id": "github-trending:2026-09-05:magnitudedev/magnitude",
-      "channel": "engineering",
-      "related_channels": [],
-      "item_type": "trending_repository",
-      "source": "GitHub Trending",
-      "title": "magnitudedev/magnitude",
-      "url": "https://github.com/magnitudedev/magnitude",
-      "published_at": "2026-09-05",
-      "updated_at": "2026-09-04T21:36:23Z",
-      "creators": [
-        "magnitudedev"
-      ],
-      "language": "en",
-      "abstract_or_text": "Open source inference server that runs the best local models for your hardware, plugged into the agent you already use. Works with Pi, OpenCode, Hermes, OpenClaw, Codex, Claude Code, Oh My Pi, and Cline.",
-      "summary_zh": "",
-      "why_it_matters_zh": "",
-      "quality_score": 80,
-      "tags": [
-        "GitHub Trending",
-        "TypeScript"
-      ],
-      "evidence_flags": [
-        "daily_snapshot",
-        "github_metadata"
-      ],
-      "publication_status": "daily_trending",
-      "rank": 0,
-      "featured": false,
-      "category": "GitHub Trending",
-      "metrics": {
-        "daily_rank": 9,
-        "stars_today": 395,
-        "stars_total": 2440,
-        "forks": 172,
-        "open_issues": 19
-      },
-      "metadata": {
-        "repository": "magnitudedev/magnitude",
-        "language": "TypeScript",
-        "topics": [],
-        "license": "Apache-2.0",
-        "created_at": "2026-06-12T09:06:26Z",
-        "pushed_at": "2026-09-04T21:36:23Z",
-        "snapshot_date": "2026-09-05",
-        "trending_id": "2026-09-05:magnitudedev/magnitude",
-        "trending_rank": 9
-      }
-    },
-    {
-      "id": "github-trending:2026-09-05:bannedbook/fanqiang",
-      "channel": "engineering",
-      "related_channels": [],
-      "item_type": "trending_repository",
-      "source": "GitHub Trending",
-      "title": "bannedbook/fanqiang",
-      "url": "https://github.com/bannedbook/fanqiang",
-      "published_at": "2026-09-05",
-      "updated_at": "2026-08-30T01:09:00Z",
-      "creators": [
-        "bannedbook"
-      ],
-      "language": "en",
-      "abstract_or_text": "翻墙-科学上网 · Topics: brook, daze, fanqiang, goflyway, lightsocks, proxy, psiphon, shadowsocks, ssr, trojan, v2ray",
-      "summary_zh": "",
-      "why_it_matters_zh": "",
-      "quality_score": 80,
-      "tags": [
-        "GitHub Trending",
-        "Kotlin",
-        "brook",
-        "daze",
-        "fanqiang",
-        "goflyway"
-      ],
-      "evidence_flags": [
-        "daily_snapshot",
-        "github_metadata"
-      ],
-      "publication_status": "daily_trending",
-      "rank": 0,
-      "featured": false,
-      "category": "GitHub Trending",
-      "metrics": {
-        "daily_rank": 11,
-        "stars_today": 735,
-        "stars_total": 52754,
-        "forks": 8522,
-        "open_issues": 335
-      },
-      "metadata": {
-        "repository": "bannedbook/fanqiang",
-        "language": "Kotlin",
-        "topics": [
-          "brook",
-          "daze",
-          "fanqiang",
-          "goflyway",
-          "lightsocks",
-          "proxy",
-          "psiphon",
-          "shadowsocks",
-          "ssr",
-          "trojan",
-          "v2ray"
-        ],
-        "license": "",
-        "created_at": "2015-01-14T00:34:25Z",
-        "pushed_at": "2026-08-30T01:09:00Z",
-        "snapshot_date": "2026-09-05",
-        "trending_id": "2026-09-05:bannedbook/fanqiang",
-        "trending_rank": 11
-      }
-    },
-    {
-      "id": "github-trending:2026-09-05:debpalash/voicestudio",
-      "channel": "engineering",
-      "related_channels": [],
-      "item_type": "trending_repository",
-      "source": "GitHub Trending",
-      "title": "debpalash/VoiceStudio",
-      "url": "https://github.com/debpalash/VoiceStudio",
-      "published_at": "2026-09-05",
-      "updated_at": "2026-09-04T12:45:34Z",
-      "creators": [
-        "debpalash"
-      ],
-      "language": "en",
-      "abstract_or_text": "VoiceStudio is the open-source, fully-local ElevenLabs alternative — voice cloning, voice design, video dubbing, dictation, transcription & audiobook creation in 646 languages. · Topics: ai, audiobook, cuda, dubbing, elevenlabs-alternative, huggingface, local-first, mlx, omnivoice-studio, speech-to-text, tauri, text-to-speech, transcription, translate, tts, voice-ai, voice-cloning, voice-generation, voicestudio, workflow",
-      "summary_zh": "",
-      "why_it_matters_zh": "",
-      "quality_score": 80,
-      "tags": [
-        "GitHub Trending",
-        "Python",
-        "ai",
-        "audiobook",
-        "cuda",
-        "dubbing"
-      ],
-      "evidence_flags": [
-        "daily_snapshot",
-        "github_metadata"
-      ],
-      "publication_status": "daily_trending",
-      "rank": 0,
-      "featured": false,
-      "category": "GitHub Trending",
-      "metrics": {
-        "daily_rank": 12,
-        "stars_today": 1345,
-        "stars_total": 17893,
-        "forks": 2350,
-        "open_issues": 24
-      },
-      "metadata": {
-        "repository": "debpalash/VoiceStudio",
-        "language": "Python",
-        "topics": [
-          "ai",
-          "audiobook",
-          "cuda",
-          "dubbing",
-          "elevenlabs-alternative",
-          "huggingface",
-          "local-first",
-          "mlx",
-          "omnivoice-studio",
-          "speech-to-text",
-          "tauri",
-          "text-to-speech",
-          "transcription",
-          "translate",
-          "tts",
-          "voice-ai",
-          "voice-cloning",
-          "voice-generation",
-          "voicestudio",
-          "workflow"
-        ],
-        "license": "AGPL-3.0",
-        "created_at": "2026-04-09T21:40:26Z",
-        "pushed_at": "2026-09-04T12:45:34Z",
-        "snapshot_date": "2026-09-05",
-        "trending_id": "2026-09-05:debpalash/voicestudio",
-        "trending_rank": 12
-      }
-    },
-    {
-      "id": "github-trending:2026-09-05:google-research/timesfm",
-      "channel": "engineering",
-      "related_channels": [],
-      "item_type": "trending_repository",
-      "source": "GitHub Trending",
-      "title": "google-research/timesfm",
-      "url": "https://github.com/google-research/timesfm",
-      "published_at": "2026-09-05",
-      "updated_at": "2026-09-04T19:50:14Z",
-      "creators": [
-        "google-research"
-      ],
-      "language": "en",
-      "abstract_or_text": "TimesFM (Time Series Foundation Model) is a pretrained time-series foundation model developed by Google Research for time-series forecasting.",
-      "summary_zh": "",
-      "why_it_matters_zh": "",
-      "quality_score": 80,
-      "tags": [
-        "GitHub Trending",
-        "Python"
-      ],
-      "evidence_flags": [
-        "daily_snapshot",
-        "github_metadata"
-      ],
-      "publication_status": "daily_trending",
-      "rank": 0,
-      "featured": false,
-      "category": "GitHub Trending",
-      "metrics": {
-        "daily_rank": 13,
-        "stars_today": 340,
-        "stars_total": 31033,
-        "forks": 2956,
-        "open_issues": 237
-      },
-      "metadata": {
-        "repository": "google-research/timesfm",
-        "language": "Python",
-        "topics": [],
-        "license": "Apache-2.0",
-        "created_at": "2024-04-29T21:26:26Z",
-        "pushed_at": "2026-09-04T19:50:14Z",
-        "snapshot_date": "2026-09-05",
-        "trending_id": "2026-09-05:google-research/timesfm",
-        "trending_rank": 13
-      }
-    },
-    {
-      "id": "github-trending:2026-09-05:sponsors/anomalyco",
-      "channel": "engineering",
-      "related_channels": [],
-      "item_type": "trending_repository",
-      "source": "GitHub Trending",
-      "title": "sponsors/anomalyco",
-      "url": "https://github.com/sponsors/anomalyco",
-      "published_at": "2026-09-05",
-      "updated_at": "2026-09-04T23:11:46+00:00",
-      "creators": [
-        "sponsors"
-      ],
-      "language": "en",
-      "abstract_or_text": "The open source coding agent.",
-      "summary_zh": "",
-      "why_it_matters_zh": "",
-      "quality_score": 80,
-      "tags": [
-        "GitHub Trending",
-        "TypeScript"
-      ],
-      "evidence_flags": [
-        "daily_snapshot",
-        "github_metadata"
-      ],
-      "publication_status": "daily_trending",
-      "rank": 0,
-      "featured": false,
-      "category": "GitHub Trending",
-      "metrics": {
-        "daily_rank": 15,
-        "stars_today": 314,
-        "stars_total": 0,
-        "forks": 0,
-        "open_issues": 0
-      },
-      "metadata": {
-        "repository": "sponsors/anomalyco",
-        "language": "TypeScript",
-        "topics": [],
-        "license": "",
-        "created_at": "",
-        "pushed_at": "",
-        "snapshot_date": "2026-09-05",
-        "trending_id": "2026-09-05:sponsors/anomalyco",
-        "trending_rank": 15
-      }
-    },
-    {
-      "id": "github-trending:2026-09-05:clshortfuse/renodx",
-      "channel": "engineering",
-      "related_channels": [],
-      "item_type": "trending_repository",
-      "source": "GitHub Trending",
-      "title": "clshortfuse/renodx",
-      "url": "https://github.com/clshortfuse/renodx",
-      "published_at": "2026-09-05",
-      "updated_at": "2026-09-04T01:42:49Z",
-      "creators": [
-        "clshortfuse"
-      ],
-      "language": "en",
-      "abstract_or_text": "Renovation Engine for DirectX Games · Topics: directx, games, hdr, mod",
-      "summary_zh": "",
-      "why_it_matters_zh": "",
-      "quality_score": 80,
-      "tags": [
-        "GitHub Trending",
-        "HLSL",
-        "directx",
-        "games",
-        "hdr",
-        "mod"
-      ],
-      "evidence_flags": [
-        "daily_snapshot",
-        "github_metadata"
-      ],
-      "publication_status": "daily_trending",
-      "rank": 0,
-      "featured": false,
-      "category": "GitHub Trending",
-      "metrics": {
-        "daily_rank": 16,
-        "stars_today": 759,
-        "stars_total": 3517,
-        "forks": 137,
-        "open_issues": 84
-      },
-      "metadata": {
-        "repository": "clshortfuse/renodx",
-        "language": "HLSL",
-        "topics": [
-          "directx",
-          "games",
-          "hdr",
-          "mod"
-        ],
-        "license": "MIT",
-        "created_at": "2024-02-05T15:39:11Z",
-        "pushed_at": "2026-09-04T01:42:49Z",
-        "snapshot_date": "2026-09-05",
-        "trending_id": "2026-09-05:clshortfuse/renodx",
-        "trending_rank": 16
-      }
-    },
-    {
-      "id": "github-trending:2026-09-05:cathrynlavery/diagram-design",
-      "channel": "engineering",
-      "related_channels": [],
-      "item_type": "trending_repository",
-      "source": "GitHub Trending",
-      "title": "cathrynlavery/diagram-design",
-      "url": "https://github.com/cathrynlavery/diagram-design",
-      "published_at": "2026-09-05",
-      "updated_at": "2026-09-03T02:53:29Z",
-      "creators": [
-        "cathrynlavery"
-      ],
-      "language": "en",
-      "abstract_or_text": "38 editorial diagram types for Claude Code, Codex, and Pi. Self-contained HTML + SVG. No shadows. No Mermaid slop. · Topics: agent-skills, claude-code, codex, data-visualization, diagrams, drawio, mermaid, svg",
-      "summary_zh": "",
-      "why_it_matters_zh": "",
-      "quality_score": 80,
-      "tags": [
-        "GitHub Trending",
-        "HTML",
-        "agent-skills",
-        "claude-code",
-        "codex",
-        "data-visualization"
-      ],
-      "evidence_flags": [
-        "daily_snapshot",
-        "github_metadata"
-      ],
-      "publication_status": "daily_trending",
-      "rank": 0,
-      "featured": false,
-      "category": "GitHub Trending",
-      "metrics": {
-        "daily_rank": 17,
-        "stars_today": 426,
-        "stars_total": 30886,
-        "forks": 1982,
-        "open_issues": 40
-      },
-      "metadata": {
-        "repository": "cathrynlavery/diagram-design",
-        "language": "HTML",
-        "topics": [
-          "agent-skills",
-          "claude-code",
-          "codex",
-          "data-visualization",
-          "diagrams",
-          "drawio",
-          "mermaid",
-          "svg"
-        ],
-        "license": "MIT",
-        "created_at": "2026-04-16T18:01:16Z",
-        "pushed_at": "2026-09-03T02:53:29Z",
-        "snapshot_date": "2026-09-05",
-        "trending_id": "2026-09-05:cathrynlavery/diagram-design",
-        "trending_rank": 17
-      }
-    },
-    {
-      "id": "github-trending:2026-09-05:bikini/exploitarium",
-      "channel": "engineering",
-      "related_channels": [],
-      "item_type": "trending_repository",
-      "source": "GitHub Trending",
-      "title": "bikini/exploitarium",
-      "url": "https://github.com/bikini/exploitarium",
-      "published_at": "2026-09-05",
-      "updated_at": "2026-07-15T23:21:55Z",
-      "creators": [
-        "bikini"
-      ],
-      "language": "en",
-      "abstract_or_text": "A single archive of public exploit PoCs and vulnerability research writeups. At the time I post these, none have been reported. Feel free to report them yourself and take credit for the CVE if handed out lulz. Please do not abuse these. I do this so to allure people into the field, and I've always found this is the most efficient way.",
-      "summary_zh": "",
-      "why_it_matters_zh": "",
-      "quality_score": 76,
-      "tags": [
-        "GitHub Trending",
-        "Python"
-      ],
-      "evidence_flags": [
-        "daily_snapshot",
-        "github_metadata"
-      ],
-      "publication_status": "daily_trending",
-      "rank": 0,
-      "featured": false,
-      "category": "GitHub Trending",
-      "metrics": {
-        "daily_rank": 10,
-        "stars_today": 68,
-        "stars_total": 4499,
-        "forks": 1240,
-        "open_issues": 7
-      },
-      "metadata": {
-        "repository": "bikini/exploitarium",
-        "language": "Python",
-        "topics": [],
-        "license": "",
-        "created_at": "2026-06-23T05:14:11Z",
-        "pushed_at": "2026-07-15T23:21:55Z",
-        "snapshot_date": "2026-09-05",
-        "trending_id": "2026-09-05:bikini/exploitarium",
-        "trending_rank": 10
-      }
-    },
-    {
-      "id": "github-trending:2026-09-05:radixark/miles",
-      "channel": "engineering",
-      "related_channels": [],
-      "item_type": "trending_repository",
-      "source": "GitHub Trending",
-      "title": "radixark/miles",
-      "url": "https://github.com/radixark/miles",
-      "published_at": "2026-09-05",
-      "updated_at": "2026-09-04T22:55:43Z",
-      "creators": [
-        "radixark"
-      ],
-      "language": "en",
-      "abstract_or_text": "Miles is an enterprise-facing reinforcement learning framework for LLM and VLM post-training, forked from and co-evolving with slime.",
-      "summary_zh": "",
-      "why_it_matters_zh": "",
-      "quality_score": 75,
-      "tags": [
-        "GitHub Trending",
-        "Python"
-      ],
-      "evidence_flags": [
-        "daily_snapshot",
-        "github_metadata"
-      ],
-      "publication_status": "daily_trending",
-      "rank": 0,
-      "featured": false,
-      "category": "GitHub Trending",
-      "metrics": {
-        "daily_rank": 14,
-        "stars_today": 55,
-        "stars_total": 2545,
-        "forks": 442,
-        "open_issues": 955
-      },
-      "metadata": {
-        "repository": "radixark/miles",
-        "language": "Python",
-        "topics": [],
-        "license": "Apache-2.0",
-        "created_at": "2025-10-09T06:04:57Z",
-        "pushed_at": "2026-09-04T22:55:43Z",
-        "snapshot_date": "2026-09-05",
-        "trending_id": "2026-09-05:radixark/miles",
-        "trending_rank": 14
-      }
-    },
-    {
-      "id": "github:382983051",
+      "id": "github:383028723",
       "channel": "engineering",
       "related_channels": [],
       "item_type": "software_release",
       "source": "GitHub Releases",
-      "title": "v0.4.0",
-      "url": "https://github.com/ggml-org/llama.cpp/releases/tag/v0.4.0",
-      "published_at": "2026-09-04T19:56:47Z",
-      "updated_at": "2026-09-04T19:56:41Z",
+      "title": "v0.34.0",
+      "url": "https://github.com/ollama/ollama/releases/tag/v0.34.0-rc1",
+      "published_at": "2026-09-05T23:49:00Z",
+      "updated_at": "2026-09-05T00:48:55Z",
       "creators": [
-        "ggml-org/llama.cpp"
+        "ollama/ollama"
       ],
       "language": "en",
-      "abstract_or_text": "## Overview llama.cpp 0.4.0 adds initial Qwen3.8-Flash-Next and Nemotron-3-Puzzle support, on-demand tensor reading, per-slot server context limits, video input options, and a ggml update to 0.23.0 with major sparse flash attention and RDMA work. ### API changes - Added `llama_lazy_mode` and `lazy_mode` ([#27794](https://github.com/ggml-org/llama.cpp/pull/27794)). - Added `max_buf_size` to quantize params ([#27795](https://github.com/ggml-org/llama.cpp/pull/27795)). - Bumped session/state versions for KV-cell token tracking ([#27762](https://github.com/ggml-org/llama.cpp/pull/27762)). - Added `mtmd_input_part` and `mtmd_tokenize_from_parts()` ([#28250](https://github.com/ggml-org/llama.cpp/pull/28250)). - Made `mtmd_tokenize` const-correct ([#28310](https://github.com/ggml-org/llama.cpp/pull/28310)). - Made `mtmd_bitmap_init_lazy` const-correct ([#28307](https://github.com/ggml-org/llama.cpp/pull/28307)). - Added mtmd helper video/init options ([#24318](https://github.com/ggml-org/llama.cpp/pull/24318)). - Server multimodal helpers accept `mtmd_helper_init_opt` ([#24318](https://github.com/ggml-org/llama.cpp/pull/24318)). ### New models - Added initial Qwen3.8-Flash-Next (`qwen4exp`) architecture support; optimization improvements are still pending ([#27742](https://github.com/ggml-org/llama.cpp/pull/27742)). - Added NVIDIA Nemotron-3-Puzzle-75B-A9B support ([#25444](https://github.com/ggml-org/llama.cpp/pull/25444)). - Added DSpark support for Nemotron 3.5 ([#27804](https://github.com/ggml-org/llama.cpp/pull/27804)). - Added support for nanbeige4.2-3B ([#27730](https://github.com/ggml-org/llama.cpp/pull/27730)). ### Core changes - Added lazy tensor reading ([#27794](https://github.com/ggml-org/llama.cpp/pull/27794)). - Renamed option to `--lazy-mode` ([#27969](https://github.com/ggml-org/llama.cpp/pull/27969)). - Added `--n-cpu-ffn` ([#26622](https://github.com/ggml-org/llama.cpp/pull/26622)). - Added per-layer expert routing/FFN ([#28323](https://github.com/ggml-org/llama.cpp/pull/28323)). - Added KV-cell token tracking ([#27762](https://github.com/ggml-org/llama.cpp/pull/27762)). - Added n-gram history lookup ([#28040](https://github.com/ggml-org/llama.cpp/pull/28040)). - Optimized KV cache restore ([#27991](https://github.com/ggml-org/llama.cpp/pull/27991)). - Stopped early sequence scans ([#28011](https://github.com/ggml-org/llama.cpp/pull/28011)). - Added quantizer RAM cap ([#27795](https://github.com/ggml-org/llama.cpp/pull/27795)). - Added quantizer row-slab streaming ([#27830](https://github.com/ggml-org/llama.cpp/pull/27830)). - Prevented RAM peaking during load ([#27483](https://github.com/ggml-org/llama.cpp/pull/27483)). - Autoscaled YaRN training context ([#28030](https://github.com/ggml-org/llama.cpp/pull/28030)). - Disabled non-fused GDN/LID ([#27877](https://github.com/ggml-org/llama.cpp/pull/27877)). - Simplified MiniMax-01 graph ([#27790](https://github.com/ggml-org/llama.cpp/pull/27790)). - Added DFlash2 support ([#27816](https://github.com/ggml-org/llama.cpp/pull/27816)). - Fused DFlash encoder into KV injection ([#27310](https://github.com/ggml-org/llama.cpp/pull/27310)). - Added sparse flash attention for DeepSeek-V4/GLM and Qwen4exp ([#27970](https://github.com/ggml-org/llama.cpp/pull/27970)). - Added Apple RDMA as an RPC transport ([#26421](https://github.com/ggml-org/llama.cpp/pull/26421)). - Added RPC event/async backend APIs ([#18626](https://github.com/ggml-org/llama.cpp/pull/18626)). - Fixed Qwen4exp graph issues ([#27941](https://github.com/ggml-org/llama.cpp/pull/27941)). - Added Qwen4exp recurrent rollback ([#28123](https://github.com/ggml-org/llama.cpp/pull/28123)). - Summed Qwen4exp indexer heads ([#28023](https://github.com/ggml-org/llama.cpp/pull/28023)). - Reduced Qwen4exp graph splits ([#27880](https://github.com/ggml-org/llama.cpp/pull/27880)). - Fixed DeepSeek-V4 input vision ([#28154](https://github.com/ggml-org/llama.cpp/pull/28154)). - Fixed Gemma-4 vision handling ([#28335](https://github.com/ggml-org/llama.cpp/pull/28335)). - Fixed Gemma-4 assistant ([#28183](https://github.com/ggml-org/llama.cpp/pull/28183)). - Added synthetic spec acceptance options ([#27711](https://github.com/ggml-org/llama.cpp/pull/27711)). - Made build info stream configurable ([#28322](https://github.com/ggml-org/llama.cpp/pull/28322)). - Fixed JSON-schema empty object grammar ([#28279](https://github.com/ggml-org/llama.cpp/pull/28279)). ### Multi-modality changes - Added `mtmd_tokenize_from_parts()` ([#28250](https://github.com/ggml-org/llama.cpp/pull/28250)). - Added DeepSeek-V4-Flash-Vision-Exp ([#28133](https://github.com/ggml-org/llama.cpp/pull/28133)). - Added DeepSeek-V4 input vision handling ([#28154](https://github.com/ggml-org/llama.cpp/pull/28154)). - Fixed Gemma-4 vision handling ([#28335](https://github.com/ggml-org/llama.cpp/pull/28335)). - Fixed Idefics3 preprocessing ([#28273](https://github.com/ggml-org/llama.cpp/pull/28273)). - Fixed Qwen3-TTS ([#28231](https://github.com/ggml-org/llama.cpp/pull/28231)). - Added video parameters/`--video-*` ([#24318](https://github.com/ggml-org/llama.cpp/pull/24318)). - Made image preprocessors const-correct ([#28310](https://github.com/ggml-org/llama.cpp/pull/28310)). - Made audio preprocessors const-correct ([#28307](https://github.com/ggml-org/llama.cpp/pull/28307)). ### Server changes - Added per-slot context limit ([#24124](https://github.com/ggml-org/llama.cpp/pull/24124)). - Accept `data:` URLs for media ([#27735](https://github.com/ggml-org/llama.cpp/pull/27735)). - Enabled `preserve_reasoning` by default ([#28174](https://github.com/ggml-org/llama.cpp/pull/28174)). - Reject prefilled assistant tool calls ([#27626](https://github.com/ggml-org/llama.cpp/pull/27626)). - Added synthetic spec acceptance options ([#27711](https://github.com/ggml-org/llama.cpp/pull/27711)). - Added pytest-xdist server tests ([#28298](https://github.com/ggml-org/llama.cpp/pull/28298)). ### UI changes - Improved Chat Form Actions UI/UX ([#27746](https://github.com/ggml-org/llama.cpp/pull/27746)). - Replaced MCP overrides with tool policy ([#27745](https://github.com/ggml-org/llama.cpp/pull/27745)). - Moved Settings/MCP routes to dialogs ([#27744](https://github.com/ggml-org/llama.cpp/pull/27744)). - Updated dialog styling ([#27743](https://github.com/ggml-org/llama.cpp/pull/27743)). - Copy grouped agentic response text ([#27832](https://github.com/ggml-org/llama.cpp/pull/27832)). - Updated ESLint config ([#27700](https://github.com/ggml-org/llama.cpp/pull/27700)). - Updated package scripts ([#28270](https://github.com/ggml-org/llama.cpp/pull/28270)). ### ggml changes - Bumped ggml from v0.22.0 to v0.23.0 ([release](https://github.com/ggml-org/ggml/releases/tag/v0.23.0)). Version 0.23.0 adds new operators and backend scheduling APIs for sparse attention, asynchronous execution, and allocation-dependency tracking. The most notable additions are sparse flash attention (`ggml_flash_attn_ext_set_n_kv_max`), RPC event/async APIs, and Apple RDMA transport support. It also includes broad correctness and performance work across CPU, GPU, and accelerator backends. ## Assets **Nightly build:** [b10809](https://github.com/ggml-org/llama.cpp/releases/tag/b10809) ## More info - [Releases and versioning of `ggml-org` projects](https://github.com/ggml-org/ggml/discussions/1579) ## Changelog since v0.3.0 5266f24da llama.cpp : bump version to 0.4.0 (#28386) 64a155d24 sync : ggml (#28379) 163a40796 model, mtmd: fix gemma4 vision handling (#28335) 8f83678fd metal : add remaining fa-vec tunings for M3 Max (#28373) 86b351fd6 ggml : replace compile definitions with version.h.in (#28364) d509cb1e8 Don't use npx inside a package.json script (#28270) 4cbe8b070 ggml : don't crash when backend search path can't be read (#28271) 24f5bf8a4 ggml : remove GGML_CUDA_PEER_MAX_BATCH_SIZE (#28177) a529af96e docs : update maintainer PRs link and regenerate AUTHORS (#28365) 38521ec33 vendor: update BoringSSL to 0.20260903.0 (#28354) 0ef4d560e ci : disable failing openvino tests (#28347) c390d0abb common : make build info output stream configurable (#28322) 832fd6f17 ggml-cpu(s390x) : fix q5_1 uninitialized v_acc (#28332) 9a4843cf2 src : add n_expert_used_max function (#28323) 6703d7894 sycl: fuse rms_norm+mul+add and add+add residual chains (#27610) f9f09f02c SYCL: Refactor GGML_SYCL_ENABLE_MKL_FA to global var (#26863) d230ddd76 llama: fix whole source code rebuilt on each new commit (#28278) c5a5535e6 common/json-schema : fix GBNF grammar generation for empty object schemas (#28279) 95ef7fc16 opencl: quant lm_head / decode GEMV and medium-batch GEMM optimizations (speculative decoding/MTP) (#26477) 8c1a25166 tune MMVQ to MMQ crossover for SM87 (#28285) d30500b83 snapdragon: ci updates to use new run script (#28293) e107984bc ops: add Hexagon to ops.md and update main README.md (#28263) 42f0225fe server : use pytest-xdist for server tests (#28298) de8656bd9 mtmd: propagate const to preproc class (#28310) 7bb0fc18f metal : add sparse FA (#28098) 0df017d6d metal : fix glu dispatch with ne00 = 1 (#28306) f45576aa8 mtmd : add `const` in various places (#28307) 0ba6499c3 CUDA: Allow concurrent streams per split for multi-GPU (#28198) c7bda030e vulkan: fix FA dequant path engagement (#28190) 0df974d77 sycl : enhance the api to support peer-to-peer copy (#27550) d646c9d15 convert : skip bias_vl tensor in DeepSeek-V4 DSpark conversion (#28294) 5ec4eab69 misc : prevent RAM peaking at model loading stage (#27483) 4aa6ffba2 sycl: reduce redundant work in Q4_K multi-column MMVQ (#27062) c61b98b87 model: add NVIDIA Nemotron-3-Puzzle-75B-A9B (NemotronHPuzzle) support (#25444) 67a17c17c mtmd: fix idefics3 preproc (#28273) 159b74142 finetune: fix no KV cache (#27199) 9cffdcc80 server : accept data: URLs for input_video and input_audio (#27735) f027c4f1b ggml-hexagon: add F16 support for unary ops (#28228) 733905474 mtmd: add mtmd_tokenize_from_parts() (#28250) 9cc33944f metal : add fa-vec tunings for M3 (#28236) 8c0b9cd04 metal : fix memory query under low-memory conditions (#27701) 03dbcc53e ci : check for missing autoreleasepools (#27884) cff184438 Update ROCm to 10.0.0 release (#27803) 9400c8946 model: correctly support input vision for deepseek4 (#28154) d5fec32a8 ci : enable hf-jobs on server-cuda (#28258) 3d3d7c818 ggml-cuda : remove unused vars (#28235) e750b887a common, server : enable preserve_reasoning kwarg by default, log its effective state (#28174) 7798007a2 mtmd: support DeepSeek-V4-Flash-Vision-Exp (#28133) 8e93a9773 CUDA + ggml: add sparse-fa for DSV4/GLM (#27970) 0f3a71be1 mtmd: Fix Qwen3-tts-0.6b (#28231) b81c99b47 ggml: avoid KleidiAI buffer type init on dispatch (#27891) 960dffab0 hexagon: MUL_MAT and MUL_MAT_ID fusion and fixes (#28202) ba8818cbf vulkan: handle larger batch sizes (>4) efficiently for IQ3_S mat-vec (#27449) 56dd8150c vulkan : only request VK_KHR_shader_bfloat16 extension if supported (#28155) 2637dfe37 ggml-cpu : conditionally add SpacemiT IME kernel sources (#27961) 43d87ff2d opencl: fix out‐of‐bound reads in the Adreno image kernels (#27632) 69320fef1 hexagon: add missing FARF logs for cpy/get_rows/set_rows/gdn ops (#28217) b96806d96 metal : add metallib build support for xcframework (#28163) 3466812d1 cuda: fuse MoE weighted expert reduction (#25952) b356fa262 kv-cells: look up the n-gram history in the sequence position index (#28040) dfc29b64e context : autoscale n_ctx_train when yarn scaling specified (#28030) f28493c78 models : appropriately flag noscan ssm_a tensors (#28121) 73159c303 model : fix gemma4-assistant (#28183) d11b3cc7e model : load relevant arrays with n_layer_all (#28173) c845263f8 Revert \"sycl : add Kronecker product FWHT support for sizes 384, 640, 768, 12…\" (#28184) 1f3d31873 sycl : add Kronecker product FWHT support for sizes 384, 640, 768, 1280 (#28016) 8887a48f0 metal : add fa-vec tuning for M2 Pro (#28122) be789c344 metal : add fa-vec tunings for A18 Pro (MacBook Neo) (#28152) 9d817213a model : load hparams.n_layer_nextn before n_layer() calls (#28159) fe2120bc9 metal : fix more leaks due to missing autoreleasepools (#27883) d08c7872d metal : add fa-vec tuning for M2 Max (#28015) 5eec3ad01 sycl : support limit max alloc memory within 2GB for host-pinned memory (#27559) 36b101543 qwen4exp: fix seq_cp, block position keying, mtmd input, cuda abort, add tests (#27941) d086dbb34 tests : fix log verbosity for test-llama-archs (#28147) 1b89a43e3 quantize: row-slab stream to avoid thread starvation (#27830) d5d993a09 metal: enable Metal 4.0 tensor API on M5+/A19+ (#27461) 234a6ebaa ci: Bump ggml-org/ccache-action to v1.2.24 (#28083) 518b76236 kleidiai : Update KleidiAI Documentation (#26078) 0eadefebd qwen4exp: support recurrent state rollback (#28123) 09412af38 qwen4exp: sum the indexer heads by slices (#28023) 458681e1d metal : add fa-vec tunings for M1 Ultra (#28088) e4b9af007 CUDA: XOR swizzle flash attn K,V smem fp16 tiles (#25635) ab0b3bd3c metal : add concat support for quantized types (#28116) 85c55223c AVX2: Speed up large batch size prompt processing of IQ models (#27402) 2a74817f9 metal : add top-k radix implementation (#28073) 2d8d612e4 kv-cache : optimize restoring non-contiguous cells (#27991) 010be9683 opencl: tune the quant paths for Intel Xe-LP GPUs to improve its TG and PP performance (#26438) 774ee0e20 ui: copy the displayed text of grouped agentic responses (#27832) 8e53fcefd webgpu : avoid crash when offset is not multiple of 4 in WebGPU ggml_backend_tensor_get() implementation (#28045) f8dbcd618 ROCm: add radix TOP_K for long rows (#27466) 5d4a3be26 metal : add fa-vec tunings for M1 (#28078) 41ef91f7c CUDA: extend MOE fusion to specdec, earlier MOE glu fusion and topk-router fusion were restricted to 1 token (#27621) a32af33de sycl : Enhance to get the free memory of Intel GPU (#27968) 580e88d8b ci : add check for unzip (#28082) 662a0b012 spec : fuse the DFlash encoder into the KV cache injection (#27310) 2cdae802e vulkan: tune mat-vec rows for batched inference on Strix Halo (#27909) 557614e02 ggml : add MUL_MAT to the list of ops that may need additional memory (for WebGPU) (#28071) daef7b687 vulkan: top_k radix select for k >= 1024 for Qwen 3.8 Flash Next (#28032) 9723942ad hexagon: fix CPY fence bug (#28033) bd55e6aae metal : add remaining Q4_1/Q5_0/Q5_1 fa-vec tunings for M2 (#28017) a7cc83bba rpc: avoid serializing buffers from other servers (#26500) 6d1479c14 ggml : fix ggml_backend_buft_get_alloc_size() guard (#28038) 62acc89c2 kv-cells: stop the sequence scan once all sequences are seen (#28011) 0190529ec ggml: add SWIGLU_CLAMP (#27930) 257813839 llama: improve TENSOR_READ_LAZY handling (#27837) f1793c1c4 CUDA: use the fast mm_ids_helper path for any n_expert_used (#27978) 0b5be7e4a hip: tune rdna 3 mmq config (#26284) e42214804 hip : optimize Q2_0 dot-product path for gfx1201 (#26753) cc231cb0d dflash: pass missing NVFP4 scales to attention operations (#28000) bebc9350e common: rename --tensor-read-lazy to --lazy-mode, add -lzm shorthand (#27969) 73f56d105 ggml : add ggml_backend_op_alloc_size_may_expand, use it in RPC (#27960) 742347b2e rpc: fix apple rdma error spew on teardown (#27908) 093adb242 metal: add fa-vec tunings for M3 Ultra (#27999) b8b743c3c metal : Add fa-vec tuning for M3 Pro (#27963) dc7aecf70 vendor : update cpp-httplib to 0.54.0 (#27919) 2bf041515 rpc : fix pre-rdma macOS versions (#27815) 9e54e687c hexagon: support for device discovery and create sessions on demand (#27785) 370cb12e8 sycl: split long rows in TOP_K instead of one work-group per row (#27847) d882575cc metal : fix null-pipeline crash for F16 src1 mul_mat/mul_mat_id (#25648) bdf395515 memory : copy Hadamard matrix to k_rot tensor only if it has buffer assigned to prevent crashes during context shift of unquantized K cache (#27967) 57291f264 ggml: allow passing alloc dependencies in graph_optimize (#27301) c589f0ed1 metal : add fa-vec tunings for M2 (#27940) c841aeeb8 opencl: use a better matmul path on two Adreno GPU generations (#27640) 3173a5647 metal : assert shared memory padding (#27951) 17252c769 metal : add remaining fa-vec tunings for M4 Pro (#27915) cc83d7b48 sycl: make --fit respect --fit-target better (#27629) c9ca51c1f vulkan: combine duplicated fastdiv functions, rename the one optimizing small divs (#27526) 5ea1b124e metal : add fa-vec tunings for M1 Max (#27932) 77f132cb1 vulkan: Change mul_mat_id to pad K rather than N (#27925) d7bd3bfca snapdragon: python SDK setup (Windows) (#27903) 50f068fff bench: add --tensor-read-lazy (#27881) 6fe749801 model: qwen4exp: reduce number of graph splits (#27880) b387ddfd8 vulkan: fix missing view-alias dependencies in ggml_vk_graph_optimize (#27812) a43c3986b ggml : fix conv_transpose_2d for multiple batches (#26132) 90c26fcd4 Vulkan: add hoisting support for row IDs and expert count in shaders (#26686) 866322481 context : disable non-fused GDN and LID ops (#27877) f5e85d43a metal : add fa-vec tunings for M4 (#27875) 511f9c137 OpenVINO: Update OV to 2026.3.1, whisper.cpp support, Qwen3.5 on NPU, and new ops (#27843) b19cbe925 convert: prevent ndarray conversion in LazyChunkedTensor (#27869) d077b4c21 sycl: use TILE for quantized KV decode on BMG (#26689) be876204a sycl: bind the f16 KV cache in place for the oneDNN SDPA path (#27468) 8963a9bdc metal : add fa-vec tunings for M3 Max, M5 and M5 Pro (#27863) 6d6b697cd metal : add fa-vec tunings for M4 Pro (#27824) 4e97ac86e tests : run test-save-load-state across all architectures (#27755) ca3d5a3e1 model: add DSpark support for Nemotron3.5 (#27804) e70802a01 ggml-hexagon: add HTP unary ops for ABS and LOG (#27786) 83d855c5a hex-unary: fix RMS_NORM_MUL weight-offset bugs for grouped/broadcast norms (#27798) 18443257a server: add ctx-per-slot (--kv-unified-per-slot) (#24124) 32176338a ci : build only the ggml-hip backend for windows-rocm release (#27753) 6c84c7d5d model: add Qwen3.8-Flash-Next (qwen4exp) (#27742) 6fdd0ac89 ci : bundle HIP runtime DLLs with Windows ROCm release (#26973) b10f9ca58 spec : add DFlash2 support (local convolution + candidate selector) (#27342) (#27816) 58546250c opencl: add bin kernels `kernel_gemm_moe_q4_0_q8_1_dp4a_bin`, `kernel_gemm_moe_mxfp4_q8_1_dp4a_bin` (#27768) 732707dff quantize: cap working memory size to avoid loading big tensors onto RAM (#27795) cb300598d Feature: Added LIGHTNING_INDEXER support for Deepseek V4 ops on Vulkan Backend (#27453) 1a946ec74 pr2wt : use ssh/https remote in worktree depending on base (#27800) fac889fb3 llama: model_loader: add TENSOR_READ_LAZY (#27794) cae63579b ui: Improve Chat Form Actions UI/UX (models selector, add panel) (#27746) bcb6084a4 convert : fix Nemotron-H LoRA GGUF conversion (#27356) fe235f434 ui: Replace per-conversation MCP overrides with per-conversation tool policy (#27745) 2bb9bddaf spec: Add benchmark-only synthetic speculative acceptance options (#27711) deae5ee13 model : simplify MiniMax-01 graph (#27790) f29551215 args: add --video-* CLI arguments (#24318) 915dc6d38 metal : fix memory leaks due to missing autoreleasepools (#27758) c5fc7e348 llama : add --n-cpu-ffn option (#26622) d7a207411 models : support nanbeige4.2-3B (#27730) 192067b72 hexagon: support for multi-NPU devices (IQ9, IQ10) and fully asynchronous backend (#26501) 925e11799 llama: add token ID tracking to KV cell (#27762) 539f24529 ui: Move Settings and MCP Servers routes to dialog-based views (#27744) 0379a19f0 ui: Update Dialog component styling (#27743) 5e6a37cb1 vulkan: warptiles currently assume warp sizes <= 64, clamp to work around larger warps (#27726) bf9421646 Implemented vulkan cross_entropy_loss and cross_entropy_loss_back (#27216) d0132a680 rpc : implement event and async backend APIs (#18626) 4d19b2876 ci: Clean up UI builds from releases (#27706) fc35562ba cuda: unblock mmq for MoE on sm_60 (#26264) da9b5d68c ci : make cache bucket public (#27728) dac869b0a conversion : fix Nemotron 3.5 Lightning layers (#27729) 11cd98842 ggml-metal: add chunked SSD MMA for Mamba-2 prefill optimization (#26647) 5d5cb4c3a ggml-meta: propagate buffer usage and call init on the new tensors (#27586) d222767c7 kleidiai: Rework KleidiAI Build System/Integration (#26077) eab8ee41f ci : update OS used for ROCM to Ubuntu 24.04 (#27681) b114b4739 rpc: support apple RDMA as an RPC transport (#26421) 0a5ac49bc devops: use GGML_NATIVE=OFF for OpenVINO (#27338) 1729ed537 server : reject prefilled assistant messages with tool calls (#27626) 0cc5b1495 chat : scope qwen3-coder workarounds (#27679) 790b5713c ci : store ccache on HF buckets (test with cuda-ubuntu for now) (#27699) f1357e499 ui: ESLint config updates (#27700) 3737e4137 metal : null-check buffer alloc to fix OOM crash (#25371)",
+      "abstract_or_text": "## Use Ollama models in ChatGPT Desktop Ollama models can now be used directly in ChatGPT Desktop, so you can keep your existing workflow while running open models. Setup is available from the Ollama app on MacOS. This release also improves structured output performance on Apple Silicon, adds support for OpenAI-compatible client tool search and response compaction, and makes images work correctly through compacted responses. **Full Changelog**: https://github.com/ollama/ollama/compare/v0.33.3...v0.34.0-rc1",
       "summary_zh": "",
       "why_it_matters_zh": "",
-      "quality_score": 75,
+      "quality_score": 64,
       "tags": [
         "模型与框架"
       ],
       "evidence_flags": [
-        "benchmark",
         "github",
         "release",
         "performance"
       ],
-      "publication_status": "release",
+      "publication_status": "prerelease",
       "rank": 0,
       "featured": false,
       "category": "模型与框架",
       "metrics": {},
       "metadata": {
-        "repository": "ggml-org/llama.cpp",
-        "version": "v0.4.0",
-        "release_id": "382983051",
-        "release_type": "release"
-      }
-    },
-    {
-      "id": "github:380999156",
-      "channel": "engineering",
-      "related_channels": [
-        "aixmath",
-        "aixbio"
-      ],
-      "item_type": "software_release",
-      "source": "GitHub Releases",
-      "title": "langchain==1.4.0a4",
-      "url": "https://github.com/langchain-ai/langchain/releases/tag/langchain%3D%3D1.4.0a4",
-      "published_at": "2026-09-02T05:35:20Z",
-      "updated_at": "2026-09-02T05:31:18Z",
-      "creators": [
-        "langchain-ai/langchain"
-      ],
-      "language": "en",
-      "abstract_or_text": "Initial release release(langchain): 1.4.0a4 test(langchain): cover mixed-era ClientGroup and group elicitation Update libs/langchain_v1/langchain/mcp/adapter.py fix(langchain): drive MCP elicitation via member session for fastmcp 4.0.1 fix(sdk): use latest fastmcp and rm reentrant impl cr cr refactor(langchain): inline MCP client arming into `__init__` refactor(langchain): stamp an arm marker instead of introspecting the handler closure fix(langchain): gate MCP interrupt routing on the negotiated protocol era refactor(langchain): drop MCP `elicitation` flag, derive interrupt routing from the client fix(sdk): add _ReentrantClientGroup fix(langchain): narrow `MCPAdapter.client` union in mcp tests for mypy chore(langchain): format `mcp/adapter.py` release(langchain): 1.4.0a3 feat(langchain): group MCP tool metadata under an `mcp` namespace refactor(langchain): stop exporting `MCPAdapterTarget` from `langchain.mcp` refactor(langchain): rename `convert_mcp_tool_to_langchain_tool` to `as_langchain_tool` refactor(langchain): rename `MCPAdapter.get_tools` to `list_tools` feat(langchain): expose `cache_mode` on `MCPAdapter.get_tools` chore(langchain): require `fastmcp` 4.0.0 feat(langchain): accept a `ClientGroup` as an `MCPAdapter` target feat(langchain): mark the `langchain.mcp` namespace as beta Revert \"feat(langchain): accept a `ClientGroup` as an `MCPAdapter` target\" feat(langchain): accept a `ClientGroup` as an `MCPAdapter` target chore(langchain): require `fastmcp` 4.0.0b5 fix(langchain): require a `str` MCP target to be an http(s) URL release(langchain): 1.4.0a2 fix(langchain): require full `fastmcp` for the `mcp` extra fix(langchain): name the content type MCP conversion could not handle release(langchain): 1.4.0a1 test(langchain): skip MCP tests on a pydantic older than `mcp` supports test(langchain): drive MCP tests through FastMCP's own utilities fix(langchain/mcp): review edits (#39974) Merge remote-tracking branch 'origin/master' into sydney-runkle/langchain/simplify-mcp-adapter fix(langchain): import `assert_never` from `typing_extensions` test(langchain): fix type errors in the MCP test suite test(langchain): cover protocol eras across a multi-server fleet test(langchain): cover both MCP protocol eras through one adapter refactor(langchain): one elicitation request type per mode refactor(langchain): keep the elicitation types out of `langchain.mcp` fix(langchain): make the two FastMCP-private dependencies fail loudly refactor(langchain): one elicitation response type per action refactor(langchain): refuse MCP continuation rounds instead of polling release(langchain): 1.3.18 (#39966) refactor(langchain): tighten the elicitation answer types refactor(langchain): move `_declare_elicitation_capability` to `elicitation` docs(langchain): trim the `langchain.mcp` docstrings fix(langchain): bound the MCP input-required retry loop refactor(langchain): trim the `MCPAdapterTarget` docs refactor(langchain): use `ELICITATION_INTERRUPT_TYPE` as the discriminator refactor(langchain): drop `MCPAdapter.aclose` fix(langchain): preserve content-block shape in PIIMiddleware redaction (#39894) fix(core): shore up indexing in genai v1 streaming content (#39964) fix(langchain): guard MCP elicitation calls against a dying session feat(langchain): answer MCP elicitation with a LangGraph interrupt feat(langchain): port MCP tool conversion from `langchain-mcp-adapters` feat(langchain): drop elicitation from `MCPAdapter` chore(langchain): require FastMCP 4.0.0b4 for the `mcp` extra feat(langchain): simplify `MCPAdapter` construction feat(langchain): langchain.mcp namespace, `MCPAdapter` release(langchain): 1.3.17 (#39893) fix(langchain): frame custom HITL rejection reasons (#39773) chore(deps): bump minor and patch dependencies (#39869) release(langchain): 1.3.16 (#39806) feat(core): add standard model exception types (#39538) feat(langchain): support custom token_counter in ContextEditingMiddleware (#39754) fix(langchain): re-raise non-retryable exceptions in ModelRetryMiddleware (#38960) chore(langchain): update docs on error handling for json schema (#39632) fix(langchain): preserve final repeated schema ordering (#39284) release(langchain): 1.3.15 (#39595) feat(langchain): expose `trace_policy` on `AgentMiddleware` (#38910) chore(langchain): fix type errors in tests (#39589) chore: bump h2 from 4.3.0 to 4.4.1 in /libs/langchain_v1 (#39324) fix(langchain): preserve history on `SummarizationMiddleware` summary failure (#39268) fix(langchain): handle import error in `LLMToolEmulator` by `model` (#39290) refactor(langchain): update doc strings (#39305) feat(langchain): add `state_schema` param to `wrap_tool_call` (#39292) fix(langchain): re-export `PIIMatch` from `middleware` package (#39291) fix(langchain): restrict narrowed `ToolStrategy` in bound tools (#39259) feat(langchain): filter internal middleware model calls from `messages` projection (#39252) chore: bump aiohttp from 3.14.1 to 3.14.3 in /libs/langchain_v1 (#39242) chore: bump cryptography from 48.0.1 to 50.0.0 in /libs/langchain_v1 (#39240) test(langchain): regression test for shell tool + checkpointer msgpack error (#39267) fix(langchain): handle malformed structured-output responses (#39245) fix(langchain): prevent orphaned `tool_calls` in `ToolCallLimitMiddleware` end behavior (#39258) fix(langchain): add aliases for bedrock mantle chat models (#39260) feat(langchain): add LangSmith provider to `init_chat_model` (#39224) fix(langchain): clear stale `structured_response` between checkpointed turns (#39248) fix(langchain): stop HITL approval gates from silently failing open (#39247) chore: bump the minor-and-patch group across 3 directories with 7 updates (#39187) fix(langchain): propagate model middleware control flow (#39199) fix(langchain): update Anthropic config test (#39172) chore: bump pyasn1 from 0.6.3 to 0.6.4 in /libs/langchain_v1 (#39026) chore: bump pillow from 12.2.0 to 12.3.0 in /libs/langchain_v1 (#38994) feat(core): add `reasoning_effort` as a standard chat model parameter (#38887) docs(langchain): clarify `ToolRetryMiddleware` exception handling (#38884) release(langchain): 1.3.14 (#38883) fix(langchain): only retry retryable exceptions in `ToolRetryMiddleware` (#38845) feat(langchain): `ToolErrorMiddleware` (#38781) release(langchain): 1.3.13 (#38787) feat(langchain): add `meta` extra and support langchain-meta in init_chat_model (#38786) feat(openai): support explicit prompt caching (#38762) chore(deps): refresh lockfiles (#38746) release(langchain): 1.3.12 (#38730) fix(langchain): propagate interrupts through ToolRetryMiddleware (#38722) fix(langchain): avoid shared process-group kill in shell middleware (#36359) fix(langchain): sanitize anthropic cache markers on fallback retries (#37867) style: fix some ruff preview rules in `langchain_v1` and `standard-tests` (#38657) chore(langchain): add types in agent middleware tests (#38188) release(langchain): 1.3.11 (#38377) fix(langchain,openai): only set `strict=True` on tools for OpenAI-compatible models in `ProviderStrategy` (#38370) chore: bump pydantic-settings from 2.12.0 to 2.14.2 in /libs/langchain_v1 (#38279) chore: bump vcrpy from 8.1.1 to 8.2.1 in /libs/langchain_v1 (#38280) chore: bump langsmith from 0.8.9 to 0.8.18 in /libs/langchain_v1 (#38281) docs(langchain): document summarization prompt contract (#38256) release(langchain): 1.3.10 (#38255) chore: bump cryptography from 46.0.7 to 48.0.1 in /libs/langchain_v1 (#38176) chore: bump aiohttp from 3.14.0 to 3.14.1 in /libs/langchain_v1 (#38179) fix(langchain): switch summary format (#38171) fix(langchain): detect provider strategy for dated `gpt-5.2`/`gpt-5.4` snapshots (#38222) chore(langchain): improve typing in tests (#38163) chore: bump pyjwt from 2.12.0 to 2.13.0 in /libs/langchain_v1 (#38168) release(openai): 1.3.2 (#38130) hotfix(openai): switch version (#38123) release(openai): 1.4.0 (#38120) docs: refresh `README` installation and resources (#38119) test(core,langchain): update tests for explicit deserialization allowlists (#38118) release(core): 1.4.7 (#38111) release(anthropic): 1.4.6 (#38105) release(langchain): 1.3.9 (#38104) fix(langchain,anthropic): confine file-search results and tighten anthropic `allowed_prefixes` (#38106) release(langchain): 1.3.8 (#38096) style(core,langchain,langchain-classic,partners): replace double backticks in docstrings (#38095) release(core): 1.4.6 (#38061) chore(langchain): add overloads to `create_agent` (#34309) chore(infra): bump mypy to 2.1 and unify type-check config across the monorepo (#36470) fix(langchain): support async middleware decorator typing (#34584) fix(langchain): tighten structured output model fallbacks (#38042) release(anthropic): 1.4.5 (#38036) hotfix(core): bump lockfile(s) (#38032) refactor(langchain): refactor `test_create_agent_tool_validation` (#34443) release(langchain): 1.3.7 (#38024) style(langchain): add ruff rules ARG (#34435) feat(langchain): add `ProviderToolSearchMiddleware` (#37969) chore(langchain): activate mypy `warn_return_any` (#34249) test(langchain): mark legacy trigger view for 2.0 removal (#38002) release(langchain): 1.3.6 (#38001) fix(langchain): preserve summarization trigger compatibility (#38000) release(langchain): 1.3.5 (#37998) feat(langchain): port AND-capable trigger conditions to `SummarizationMiddleware` (#34576) hotfix(openai): min core dep (#37990) feat(openai): support `apply_patch` built-in tool (#37157) chore: bump pyarrow from 21.0.0 to 23.0.1 in /libs/langchain_v1 (#37930) chore: bump dependencies (#37892) chore: bump aiohttp from 3.13.4 to 3.14.0 in /libs/langchain_v1 (#37888) release(langchain): 1.3.4 (#37861) fix(langchain): improve HITL rejection guidance (#37859) release(langchain): 1.3.3 (#37843) chore(langchain): bump `langgraph` to 1.2.4 (#37857) chore(langchain): loosen `langgraph` dep range (#37855) feat(langchain): project subagent runs onto typed run.subagents channel (#37739) feat(langchain): add `interrupt_mode` and `when` predicate to `HumanInTheLoopMiddleware` (#37579) chore(langchain): bump to 1.3.2, require langgraph>=1.2.2 (#37703) fix(langchain): land final answer in last AIMessage for `TodoListMiddleware` (#37643) feat(langchain): redact streamed PII in flight on `PIIMiddleware` (#37616) chore(infra): bump `langchain-tests` floor to 1.1.9 (#37610) release(standard-tests): 1.1.9 (#37609) feat(langchain): register stream transformers on middleware (#37591) chore: bump idna from 3.11 to 3.15 in /libs/langchain_v1 (#37534) ci(infra): harden Dependabot version-bound preservation (#37510) refactor(langchain): clean redundancy ifelse. (#37448) hotfix: bump lockfiles (#37508) chore(core,langchain,openai): refresh stale OpenAI model references (#37487) fix(langchain): sort glob_search results by mtime (newest first) (#37462) chore: bump langsmith from 0.7.31 to 0.8.0 in /libs/langchain_v1 (#37391) release(langchain): 1.3.1 (#37454) fix(langchain): alias Bedrock providers in summarization token check (#37453) release(langchain): 1.3.0 (#37361) chore(infra): merge v1.4 into master (#37350) chore: bump urllib3 from 2.6.3 to 2.7.0 in /libs/langchain_v1 (#37328) release(langchain): 1.2.18 (#37250) revert: feat(langchain): ls_agent_type tag on create_agent calls (#37249) chore(langchain-classic): deprecate hub, limit loads/dumps (#37234) refactor(langchain-classic): retarget deprecations to `create_agent`, other chores (#37164) chore(langchain,langchain-classic): uncomment optional deps (#37163) release(fireworks): 1.2.1 (#37113) release(langchain): 1.2.17 (#37110) feat(langchain): add `respond` decision to HITL middleware (#37095) release(langchain): 1.2.16 (#37085) chore(docs): update x handle references (#37081) release(anthropic): 1.4.2 (#37061) perf(langchain): stop inlining agent state into tool-dispatch `Send`s (#36960) docs(langchain): correct import paths in agent middleware docstrings (#36987) hotfix: bump min core versions (#36996) release(openai): 1.2.1 (#36995) feat(core): add content-block-centric streaming (v2) (#36834) fix(fireworks): honor `max_retries` (#36973) release(openai): 1.2.0 (#36961) docs(langchain): correct import path in `ModelCallLimitMiddleware` docstring (#36895) feat(langchain): `ls_agent_type` tag on `create_agent` calls (#36774) release(core): release 1.3.0 (#36851) chore: bump langsmith from 0.6.3 to 0.7.31 in /libs/langchain_v1 (#36800) chore(deps): bump pytest to `9.0.3` (#36801) chore: bump pytest from 9.0.2 to 9.0.3 in /libs/langchain_v1 (#36717) chore: bump pillow from 12.1.1 to 12.2.0 in /libs/langchain_v1 (#36710) test(langchain): test cache hit/miss on lru (#36659) perf(langchain): add lru cache when resolving types (#36649) perf(langchain): add another init test with middleware (#36644) chore(core): reduce streaming metadata / perf (#36588) perf(langchain): add benchmark command (#36641) chore: bump cryptography from 46.0.6 to 46.0.7 in /libs/langchain_v1 (#36619) docs(langchain): add missing baseten and litellm to `init_chat_model` (#36562) release(core): 1.2.26 (#36511) release: langchain v1.2.15 (#36496) chore: bump aiohttp from 3.13.3 to 3.13.4 in /libs/langchain_v1 (#36438) release(langchain): 1.2.14 (#36396) chore: pygments>=2.20.0 across all packages (CVE-2026-4539) (#36385) test(langchain): cover runtime recursion limit override in create_agent (#36376) perf(langchain): reduce init speed by 15% (#36375) fix(langchain): update recursion limit for create_agent (#36351) fix(infra): correct lint_diff relative paths in package makefiles (#36333) chore: bump cryptography from 46.0.5 to 46.0.6 in /libs/langchain_v1 (#36324) fix(langchain): recognize ChatAnthropicVertex in _get_approximate_token_counter (#36320) chore(langchain): remove unnecessary description for toods list as a group (#36315) chore(langchain): add async implementation to todolist and test (#36313) chore(langchain): speed up todo list middleware init (#36311) chore: bump requests from 2.32.5 to 2.33.0 in /libs/langchain_v1 (#36241) chore(partners): bump `langchain-core` min to `1.2.21` (#36183) fix(core,model-profiles): add missing `ModelProfile` fields, warn on schema drift (#36129) fix(langchain,langchain-classic): update model provider classes for Azure AI Foundry (#35812) release(langchain): 1.2.13 (#36111) ci: suppress pytest streaming output in CI (#36092) feat: Add LangSmith integration metadata to create_agent and init_chat_model (#35810) ci: avoid unnecessary dep installs in lint targets (#36046) chore: bump pyasn1 from 0.6.2 to 0.6.3 in /libs/langchain_v1 (#36029) chore: bump pyjwt from 2.10.1 to 2.12.0 in /libs/langchain_v1 (#36024) fix(langchain): export Runtime from agents.middleware (#35975) chore: bump locks, lint (#35985) fix(openai): add type: message to Responses API input items (#35693) chore: bump black from 25.11.0 to 26.3.1 in /libs/langchain_v1 (#35802) chore: bump orjson from 3.11.5 to 3.11.6 in /libs/langchain_v1 (#35807) chore(langchain): add baseten to `_BUILTIN_PROVIDERS` (#35777) release(langchain_v1): 1.2.12 (#35770) feat: tracing for wrap model + tool call (#35765) release(langchain_v1): 1.2.11 (#35723) fix(langchain): normalize custom detector output to prevent KeyError in hash/mask strategies (#35651) chore: bump the minor-and-patch group across 3 directories with 7 updates (#35605) chore(langchain): switch refs from gemini-3 to gemini-3.1 (#35535) chore: bump the langchain-deps group across 3 directories with 7 updates (#35513) chore: bump langgraph-checkpoint from 3.0.1 to 4.0.0 in /libs/langchain_v1 (#35445) chore: bump the langchain-deps group across 3 directories with 14 updates (#35441) chore: bump google-cloud-aiplatform from 1.127.0 to 1.133.0 in /libs/langchain_v1 (#35397) revert: add ChatAnthropicBedrockWrapper (#35371) fix(langchain): support anthropic-bedrock in init_chat_model (#35366) style: fix some ruff noqa (#35321) fix(langchain): allow Gemini 3 models to use `ProviderStrategy` with tools (#34464) docs: fix docstring inaccuracies and update outdated LangSmith URLs (#35283) feat(openai): support automatic server-side compaction (#35212) chore: bump the langchain-deps group across 3 directories with 8 updates (#35257) feat(openrouter): add `langchain-openrouter` provider package (#35211) style: bump ruff version to 0.15 (#35042) chore(deps): bump pillow from 12.0.0 to 12.1.1 in /libs/langchain_v1 (#35174) chore(core): raise more descriptive model error in `init_chat_model` (#35167) chore(deps): bump langsmith from 0.4.42 to 0.6.3 in /libs/langchain_v1 (#35149) chore(deps): bump cryptography from 46.0.3 to 46.0.5 in /libs/langchain_v1 (#35148) release(langchain): 1.2.10 (#35137) chore(deps): bump the langchain-deps group across 3 directories with 40 updates (#35129) chore(deps): bump the langchain-deps group across 3 directories with 11 updates (#35121) fix(langchain): fix token counting on partial message sequences (#35101) refactor(langchain): rename `_SUPPORTED_PROVIDERS` -> `_BUILTIN_PROVIDERS` (#35100) fix(langchain): normalize raw schemas in middleware response_format override (#35019) feat: support state updates from `wrap_model_call` with command(s) (#35033) test(langchain): types in `test_tool_call_limit` and `test_model_retry` (#34629) fix(langchain): bump min core version and improve approximate token counting (#35026) release: langchain 1.2.9 (#35023) feat: threading context through `create_agent` flows + middleware (#34978) chore: add `make type` target (#35015) revert: \"chore: add typing target in `Makefile`\" (#35013) chore: add typing target in `Makefile` (#35012) revert: use usage metadata scaling in SummarizationMiddleware default token counter (#35002) fix(langchain): use usage metadata scaling in SummarizationMiddleware default token counter (#35001) fix(langchain): avoid UnboundLocalError when no AIMessage exists (#34816) chore: enrich `pyproject.toml` files (#34980) release(langchain): 1.2.8 (#34976) chore(deps): bump the uv group across 20 directories with 3 updates (#34941) fix: reuse ToolStrategy in agent factory to prevent name mismatch (#34871) chore: upgrade urllib3 to 2.6.3 (#34940) feat(langchain): add `ToolCallRequest` to middleware exports (#34894) style(langchain): lint (#34863) fix(langchain): blocking unit test (#34866) test(langchain): use blockbuster to detect blocking calls in the async event loop (#34777) release: langchain 1.2.7 (#34854) feat: dynamic tool registration via middleware (#34842) fix(langchain): strip trailing whitespace from the summarization prompt (#34835) fix(langchain): improve grammar in `SummarizationMiddleware` system prompt (#34834) docs(langchain): nit (#34788) chore(deps): bump the uv group across 5 directories with 5 updates (#34785) chore(deps): bump the uv group across 8 directories with 6 updates (#34773) chore(core, langchain): add version consistency check pre-commit hooks (#34782) release(langchain): 1.2.6 (#34781) fix(langchain): `SummarizationMiddleware` signature mismatch & config invocation (#34775) release(langchain): 1.2.5 (#34772) fix(langchain): add metadata configuration to summarization model invocation (#34763) feat(langchain): update summarization prompt (#34754) chore: add tests for agent name metadata when streaming (#34764) Revert \"metadata\" metadata release: langchain 1.2.4 (#34755) chore(langchain): add agent name metadata (#34743) chore: update twitter URLs (#34736) chore: add tests for private state attr use (really, lack thereof) (#34725) docs(langchain): clarify model ID usage for reliable behavior (#34718) fix(langchain): tag messages generated from summarization (#34693) fix(langchain): activate `test_return_direct_spec` tests, fix types (#34565) chore(langchain): fix types in `test_todo`, `test_tool_retry` (#34503) chore(langchain): fix types in `test_shell_tool` (#34502) chore(langchain): activate `mypy warn_return_any` rule (#34549) chore(langchain): fix types in `test_tool_selection` and `test_tool_emulator` (#34499) chore(langchain): fix types in `test_shell_execution_policies` (#34498) chore(langchain): improve `ignore_missing_imports` config (#34551) test(langchain): complete and activate `test_responses` tests (#34560) fix(langchain): activate mypy warn-unreachable (#34553) chore(langchain): fix types in `test_injected_runtime_create_agent`, `test_create_agent_tool_validation` (#34568) chore(langchain): fix types in `test_response_format` and `test_state_schema` (#34571) chore(langchain): remove generic from `FakeToolCallingModel` (#34572) chore(langchain): fix types in `test_context_editing`, `test_agent_name`, `test_response_format_integration` (#34574) chore(langchain): fix types in `test_overrides` (#34635) feat(langchain): add `state` to `_ModelRequestOverrides` (#34692) chore(langchain): fix types in `test_tools` (#34592) chore(langchain): fix types in `test_summarization` (#34656) test(langchain): activate `test_responses_spec` tests (#34564) style(langchain): fix some ruff preview rules (#34663) chore(langchain): fix types in `test_framework` (#34567) chore(langchain): fix types in `memory_assert`, `conftest`, `conftest_checkpointer` and `conftest_store` (#34636) chore(langchain): fix types in `test_system_message` (#34634) style: bump ruff version to 0.14.11 (#34674) fix: remove relative imports (#34680) fix(langchain,langchain-classic): more descriptive error msg when dep is not installed (#34679) fix(langchain): infer provider from mixed-case prefixes (#34672) fix: add test confirming we don't inject args based on `args_schema` alone (#34677) release(langchain): 1.2.3 (#34668) refactor(langchain): engage summarization based on reported `usage_metadata` (#34632) fix(langchain): keep tool call / `AIMessage` pairings when summarizing (#34609) test(langchain): cover chat model provider inference (#34657) fix(langchain): fix copy-paste error on azure_openai embedding provider map (#34655) fix(langchain): add test to verify version (#34644) release(langchain): release 1.2.2 (#34643) fix(langchain): handle parallel usage of the todo tool in planning middleware (#34637) chore(langchain): fix types in test_wrap_model_call (#34573) release(langchain): 1.2.1 (#34622) fix(core,langchain): use `get_buffer_string` for message summarization (#34607) chore(langchain): fix types in test_model_fallback (#34615) chore(langchain): fix types in test_pii (#34617) chore(langchain): add admonition around redaction_rules (#34618) chore(langchain): fix types in test_composition (#34580) chore(langchain): fix types in test_decorators (#34583) chore(langchain): fix types in test_wrap_tool_call (#34600) chore(langchain): fix types in test_model_call_limit_types (#34601) chore(langchain): fix types in test_file_search and test_human_in_the_loop (#34602) fix(core): exclude injected args from tool schema (#34582) chore(langchain): fix types in test_diagram and test_sync_async_wrappers (#34591) style(langchain): add ruff rule PLC0415 (#34559) fix(langchain): resolve race condition in `ShellSession.execute()` (#34535) fix(infra): use `langchain_v1` for dev container deps (#34534) chore(deps): bump mypy to v1.19 and ruff to v1.14 (#34521) fix(langchain-classic): pass default to `config.getoption` (#34034) style(langchain): add ruff rule RUF012 (#34497) refactor(langchain): refactor optional imports logic (#32813) style: add ruff ISC001 rule (#34493) style(langchain): add TC ruff rules (#34496) style(langchain): fix some ruff preview rules (#34504) style(langchain): fix some PLC0415 rules (#34475) style(langchain): add ruff rules PT (#34434) feat(langchain): enhance `init_chat_model` with improved validation (#34226) docs(langchain): Docstring improved to show `Streaming custom events` (#34353) feat(langchain): Add support to `google_genai` provider in `init_embeddings` (#34388) release(core): 1.2.3 (#34421) release(openai): 1.1.6: update max input tokens for gpt-5 series (#34419) release(openai): 1.1.5 (#34409) feat(infra): add CI check for out of date lockfiles (#34397) release(langchain): 1.2 (#34373) fix(langchain): shell output multithreading race condition (#34333) refactor(standard-tests): improve VCR config (#33968) fix(huggingface): Helper logic for init_chat_model with HuggingFace backend (#34259) chore(langchain): cleanup ruff config (#32810) fix: little lint thing (#34310) chore(langchain): check agents integration tests with mypy (#34308) fix(langchain): add sentinel value to ProviderStrategy / strict (#34290) chore(langchain): add end to end test for strict mode in provider strategy (#34289) feat(langchain,openai): add strict flag to ProviderStrategy structured output (#34149) feat(core,anthropic): `extras` on `BaseTool` (#34120) release(langchain): 1.1.3 (#34255) feat: add agent name to `AIMessage` (#34254) chore(core): improve typing of messages utils functions (#34225) feat(anthropic): add `effort` support (#34116) feat(langchain): add support for Upstage (Solar) in `init_chat_model` (#34220) release: langchain 1.1.2 (#34210) fix: simplify summarization cutoff logic (#34195) release: langchain 1.1.1 (#34206) feat: Use uuid7 for run ids (#34172) fix(langchain): (SummarizationMiddleware) adjust token counts based on model (#34161) docs(langchain): docstrings for summariziation middleware types (#34158) fix(langchain): add types to human_in_the_loop middleware (#34137) docs(anthropic,core,langchain): updates (#34106) release(langchain): 1.1 (#34090) feat(langchain): support `SystemMessage` in `create_agent`'s `system_prompt` (#34055) fix: don't reorder tool calls in HITL middleware (#34023) chore(docs): fix a few refs syntax errors (#34044) feat(model-profiles): distribute data across packages (#34024) chore: add more robust test for runtime injection w/ explicit `args_schema` (#34051) feat: `ModelRetryMiddleware` (#34027) fix: deprecate `setattr` on `ModelCallRequest` (#34022) style(langchain): fix some middleware ref syntax (#33988) fix: resumable shell, works w/ interrupts (#33978) feat(langchain): reference model profiles for provider strategy (#33974) chore: increase coverage for shell, filesystem, and summarization middleware (#33928) fix(anthropic): execute bash + file tools via tool node (#33960) fix: adding missing async hooks (#33957) docs: Fix doc links (#33964) fix: add filesystem middleware in init (#33955) chore(langchain): update deps (#33951) fix(langchain, openai): backward compat for response_format (#33945) fix(langchain, openai): fix create_agent / response_format for Responses API (#33939) feat: refactor tests coverage (#33927) chore: update `README.md` files (#33919) feat(langchain): support async summarization in SummarizationMiddleware (#33918) feat(langchain): (SummarizationMiddleware) support use of model context windows when triggering summarization (#33825) chore(langchain): pass on reference docstrings (middleware) (#33904) release(langchain): 1.0.5 (#33893) revert: Support for SystemMessage in create_agent (#33889) fix: bump up default recursion limit (#33881) chore(langchain): Support for SystemMessage in create_agent (#33640) fix(langchain): Update langchain-core dependency version (#33775) style: some cleanup (#33857) chore: attribute package change versions (#33854) fix: don't trace conditional edges and no todos in input state (#33842) release: langchain v1.0.4 (#33839) fix: only increment thread count on successful executions (#33837) fix: more robust tool call limit middleware (#33817) feat(langchain): add `model-profiles` as optional dependency (#33794) chore: use model IDs, latest anthropic models (#33747) fix(langchain): use `system_prompt` in integration tests (#33748) chore: remove mentions of sonnet 3.5 (#33737) fix(langchain_v1): remove `thread_model_call_count` and `run_model_call_count` from tool node test (#33725) release: core 1.0.2 and langchain 1.0.3 (#33736) fix(langchain_v1): removed unsed functions in tool_call_limit middleware (#33735) style: more refs fixes (#33730) chore: move `ToolNode` improvements back to langgraph (#33634) feat: support structured output retry middleware (#33663) fix(langchain_v1): correct ref url (#33715) style: more refs work (#33707) feat(langchain): export `UsageMetadata` (#33692) release(core): 1.0.1 (#33639) chore(langchain_v1): bump version from 1.0.1 to 1.0.2 (#33629) fix(langchain_v1): remove non llm controllable params from tool message on invocation failure (#33625) release(langchain_v1): 1.0.1 (#33610) fix(langchain_v1): `ToolRuntime` default for args (#33606) style: more refs polishing (#33601) docs(langchain): update reference documentation to note moved embeddings modules (#33600) style(anthropic): use aliases for model names (#33590) chore: update `pyproject.toml` url entries (#33587) release(langchain_v1): v1.0.0 (#33588) fix: shell tool middleware (#33589) feat(langchain_v1): Python 3.14 support (#33560) fix(langchain,langchain_v1): enable huggingface optional dep (#33586) fix(langchain): conditional tools -> end edge when all client side calls return direct (#33550) chore(langchain_v1): relax typing on input state (#33552) feat(langchain_v1): Add ShellToolMiddleware and ClaudeBashToolMiddleware (#33527) feat(langchain): file-search middleware (#33551) release: joint rcs for core + langchain (#33549) chore(langchain): allow injection of `ToolRuntime` and generic `ToolRuntime[ContextT, StateT]` (#33546) fix(langchain): revert conditional edge from tools to end (#33520) (#33539) release(langchain): cut rc (#33534) release(core): 1.0.0rc2 (#33530) docs(langchain_v1): remove absent arg descriptions (#33529) fix(langchain): conditional edge from tools to end (#33520) fix(langchain_v1): relax tool node validation to allow claude text editing tools (#33512) chore(langchain): update state schema doc (#33524) chore(langchain_v1): adding back `state_schema` to `create_agent` (#33519) chore(langchain): use `runtime` not `tool_runtime` for injected tool arg (#33522) feat(langchain_v1): tool retry middleware (#33503) chore(langchain_v1): switch order of params in `ToolRuntime` (#33518) feat(langchain_v1): injected runtime (#33500) style: more sweeping refs work (#33513) style: more work for refs (#33508) release(langchain_v1): 1.0.0a15 (#33505) fix(langchain_v1): keep state to relevant middlewares for tool/model call limits (#33493) release(core): 1.0.0rc1 (#33497) docs: update package READMEs (#33488) chore(langchain_v1): remove invocation request (#33482) feat(langchain_v1): add async implementations to wrap_model_call (#33467) fix(langchain_v1): can not import \"wrap_tool_call\" from agents.… (#33472) feat(langchain_v1): add override to model request and tool call request (#33465) docs: `create_agent` style and clarify `system_prompt` (#33470) fix(langchain): rename `PlanningMiddleware` to `TodoListMiddleware` (#33476) fix(langchain_v1): export ModelResponse from agents.middleware (#33453) (#33454) chore(langchain_v1,anthropic): migrate anthropic middleware to langchain_anthropic (#33463) chore(langchain_v1): use args for HITL (#33442) chore(langchain_v1): bump release version (#33440) chore(langchain_v1): improve error message (#33433) chore(langchain_v1): remove langchain_text_splitters from test group (#33425) chore(langchain_v1): stricter handling of sync vs. async for wrap_model_call and wrap_tool_call (#33429) chore(langchain_v1): further namespace clean up (#33428) feat(langchain_v1): add async implementation for wrap_tool_call (#33420) chore(langchain_v1): tool error exceptions (#33424) feat(langchain_v1): expand message exports (#33419) style: fix tables, capitalization (#33417) chore(langchain_v1): add `RemoveMessage` (#33416) release(langchain_v1): v1.0.0a13 (#33415) fix(langchain_v1): out of date docstring (#33414) chore(langchain_v1): update on_tool_call to wrap_tool (#33410) chore(langchain_v1): update wrap_on_model return (#33408) feat(langchain_v1): tool emulator (#33357) feat(langchain_v1): refactoring HITL API (#33397) style: `.. code-block::` admonition translations (#33400) style: address Sphinx double-backtick snippet syntax (#33389) chore: update Sphinx links to markdown (#33386) style: remove more `Optional` syntax (#33371) chore(langchain_v1): rename on_model_call to wrap_model_call (#33370) chore(langchain_v1): update the uv lock file (#33369) chore(langchain_v1): replace modify model request with on model call (#33368) chore(langchain): add unit tests for wrap_tool_call decorator (#33367) chore(langchain_v1): rename on_tool_call to wrap_tool_call (#33366) chore(langchain_v1): add runtime and context to model request (#33365) chore(langchain_v1): update on_tool_call to regular callbacks (#33364) style: monorepo pass for refs (#33359) chore(langchain_v1): simplify on model call logic (#33358) chore: fix dropdown default open admonition in refs (#33354) chore(langchain_v1): remove unused internal namespace (#33352) feat(langchain_v1): add on_tool_call middleware hook (#33329) feat(langchain_v1): on_model_call middleware (#33328) remove runtime where not needed fix(langchain_v1): injection logic in tool node (#33344) chore: enrich `pyproject.toml` files with links to new references, others (#33343) chore: clean up `pyproject.toml` files, use core a7 (#33334) chore(langchain): clean `Makefile` (#33335) fix(langchain_v1): fix edges when there's no middleware (#33321) release(langchain_v1): 1.0.0a12 (#33314) chore(langchain_v1): rename `model_request` node -> `model` (#33310) release(langchain_v1): 1.0.0a11 (#33307) chore(langchain_v1): remove support for `ToolNode` in `create_agent` (#33306) feat(langchain_v1): simplify to use ONE agent (#33302) chore(langchain_v1): remove text splitters from langchain v1 namespace (#33297) chore(langchain_v1): expose rate_limiters from langchain_core (#33305) fix(langchain_v1): tool selector should use last human message (#33294) feat(langchain_v1): `before_agent` and `after_agent` hooks (#33279) feat(langchain_v1): Implement Context Editing Middleware (#33267) feat(openai): enable stream_usage when using default base URL and client (#33205) chore(infra): pdm -> hatchling (#33289) feat(langchain_v1): Add retry_model_request middleware hook, add ModelFallbackMiddleware (#33275) fix(langchain_v1): linting fixes for llm tool selector (#33278) feat(langchain_v1): add llm selection middleware (#33272) feat(langchain_v1): represent server side tools in modifyModelRequest and update tool handling (#33274) feat(langchain_v1): Implement PIIMiddleware (#33271) fix(langchain_v1): dynamic response format (#33273) chore(langchain_v1): remove union return type in init_embeddings (#33062) feat(langchain_v1): Add ToolCallLimitMiddleware (#33269) chore(langchain_v1): change modifyModelRequest back to tools (#33270) fix(langchain_v1): handle switching resposne format strategy based on model identity (#33259) feat(langchain_v1): implement nicer devx for dynamic prompt (#33264) feat(langchain_v1): description generator for HITL middleware (#33195) chore(core,langchain,langchain_v1)!: remove globals from langchain-v1, update globals in langchain-classic, langchain-core (#33251) chore(langchain_v1)!: Remove ToolNode from agents (#33250) feat(langchain): model call limits (#33178) chore: delete deprecated items (#33192) chore(langchain_v1): uncomment some optional deps (#33244) docs: v1 docs updates (#33173) release: v1.0.0 (#32567) feat(langchain_v1): update messages namespace (#33207) feat(langchain): use decorators for jumps instead (#33179) feat(langchain_v1): add `async` support for `create_agent` (#33175) chore(langchain_v1): use list[str] for modifyModelRequest (#33166) feat(langchain): Using Structured Response as Key in Output Schema for Middleware Agent (#33159) chore(langchain_v1): expose middleware decorators and selected messages (#33163) feat(langchain): todo middleware (#33152) fix(langchain): handle `gpt-5` model name in `init_chat_model` (#33148) fix(langchain): add `context_management` to Anthropic chat model init (#33150) fix(langchain): fix response action for HITL (#33131) chore(langchain_v1): move tool node to tools namespace (#33132) docs: more standardization (#33124) docs: standardize `.. code-block` directive usage (#33122) docs: correct ported over directives (#33121) chore: bump ruff version to 0.13 (#33043) chore: bump locks (#33114) release(langchain): v1.0.0a9 (#33098) fix(langchain): extra arg for anthropic caching, `__end__` -> `end` for `jump_to` (#33097) fix(langchain_v1): version equality check (#33095) release(langchain): 1.0.0a8 (#33090) feat(langchain): improvements to anthropic prompt caching (#33058) style: repo linting pass (#33089) fix(langchain): need to inject all state for tools registered by middleware (#33087) chore(langchain): renaming for HITL (#33067) chore(langchain): simplifying HITL condition (#33065) fix(langchain_v1): only interrupt if at least one ToolConfig value is True (#33064) feat(langchain): new decorator pattern for dynamically generated middleware (#33053) fix(langchain): HITL bug causing dupe interrupt (#33052) chore: update `pyproject.toml` files, remove codespell (#33028) release(langchain): 1.0.0a6 (#33024) fix(langchain): use state schema as input schema to middleware nodes (#33023) feat(langchain): dynamic system prompt middleware (#33006) feat(langchain): improved HITL patterns (#32996) chore: restore commented out optional deps (#32971) chore: bump mypy version to 1.18 (#32914) release(langchain): v1.0.0a5 (#32917) fix(langchain): use messages from model request (#32908) fix(core): resolve mermaid node id collisions when special chars are used (#32857) revert: \"chore: remove ruff target-version\" (#32895) chore: remove ruff target-version (#32880) chore(docs): update package `README`s (#32869) feat(langchain): support PEP604 ( `|` union) in tool node error handlers (#32861) chore(langchain): add ruff rule E501 in `langchain_v1` (#32812) chore(langchain): add ruff rule UP007 in `langchain_v1` (#32811) chore(langchain): enable ruff docstring-code-format in langchain_v1 (#32855) chore(core): enable ruff docstring-code-format (#32834) feat(langchain): middleware support in `create_agent` (#32828) fix(langchain): fix mypy versions in `langchain_v1` (#32816) chore(langchain): cleanup `langchain_v1` mypy config (#32809) chore(langchain): add ruff rules D for `langchain_v1` (#32808) fix(langchain): update __init__ version (#32793) release(langchain): v1.0.0a3 (#32791) chore(langchain): rename `create_react_agent` -> `create_agent` (#32789) chore(langchain): remove upper bound at v1 for core (#32737) chore(langchain): also bump text splitters (#32722) chore(langchain): use latest core (#32720) chore(langchain): revert back to static versioning for now (#32719) release(langchain): v1.0.0a1 (#32718) feat(langchain): revamped `create_react_agent` (#32705) chore(langchain): remove untested chains for first alpha (#32710) chore(langchain): drop Python 3.9 to prep for v1 (#32704) chore: adress pytest-asyncio deprecation warnings + other nits (#32696) chore: update references to use the latest version of Claude-3.5 Sonnet (#32594) docs: update outdated `README.md` content (#32540) fix(tests): add `anthropic_proxy` to configurable test parameters (for v1) chore: formatting across codebase (#32466) feat(openai): `minimal` and `verbosity` (#32455) feat(langchain): add stuff and map reduce chains (#32333) fix: use new Google model names in examples (#32288) fix: update `bar_model` to use the correct model version `claude-3-7-sonnet-20250219` (#32284) refactor: remove references to unsupported model `claude-3-sonnet-20240229` (#32281) fix: formatting issues in docstrings (#32265) feat(docs): improve devx, fix `Makefile` targets (#32237) chore(langchain_v1): clean anything uncertain (#32228) feat(langchain): v1 scaffolding (#32166)",
-      "summary_zh": "",
-      "why_it_matters_zh": "",
-      "quality_score": 75,
-      "tags": [
-        "模型与框架"
-      ],
-      "evidence_flags": [
-        "benchmark",
-        "release"
-      ],
-      "publication_status": "release",
-      "rank": 0,
-      "featured": false,
-      "category": "模型与框架",
-      "metrics": {},
-      "metadata": {
-        "repository": "langchain-ai/langchain",
-        "version": "langchain==1.4.0a4",
-        "release_id": "380999156",
-        "release_type": "release"
+        "repository": "ollama/ollama",
+        "version": "v0.34.0-rc1",
+        "release_id": "383028723",
+        "release_type": "prerelease"
       }
     },
     {
@@ -1109,6 +78,42 @@
         "version": "b10776",
         "release_id": "381838007",
         "release_type": "prerelease"
+      }
+    },
+    {
+      "id": "github:383061770",
+      "channel": "engineering",
+      "related_channels": [],
+      "item_type": "software_release",
+      "source": "GitHub Releases",
+      "title": "0.153.4",
+      "url": "https://github.com/openai/codex/releases/tag/rust-v0.153.4",
+      "published_at": "2026-09-04T23:25:48Z",
+      "updated_at": "2026-09-04T22:41:05Z",
+      "creators": [
+        "openai/codex"
+      ],
+      "language": "en",
+      "abstract_or_text": "## Bug Fixes - Fixed Astra’s visibility in the bundled model picker and made it the bundled default when no model is explicitly configured. (#42874) - Updated Astra’s guidance to use asynchronous questions only when the tool is available in the session. (#42878) ## Changelog Full Changelog: https://github.com/openai/codex/compare/rust-v0.153.3...rust-v0.153.4 - #42874 [0.153 hotfix] Show Astra in bundled model picker @rhan-oai - #42878 [0.153 hotfix] Qualify Astra async-question guidance by tool availability @rhan-oai",
+      "summary_zh": "",
+      "why_it_matters_zh": "",
+      "quality_score": 63,
+      "tags": [
+        "模型与框架"
+      ],
+      "evidence_flags": [
+        "github"
+      ],
+      "publication_status": "release",
+      "rank": 0,
+      "featured": false,
+      "category": "模型与框架",
+      "metrics": {},
+      "metadata": {
+        "repository": "openai/codex",
+        "version": "rust-v0.153.4",
+        "release_id": "383061770",
+        "release_type": "release"
       }
     },
     {
@@ -1326,111 +331,188 @@
       }
     },
     {
-      "id": "github:380862087",
+      "id": "github:383560211",
       "channel": "engineering",
       "related_channels": [],
       "item_type": "software_release",
       "source": "GitHub Releases",
-      "title": "0.152.1",
-      "url": "https://github.com/openai/codex/releases/tag/rust-v0.152.1",
-      "published_at": "2026-09-01T22:33:02Z",
-      "updated_at": "2026-09-01T21:48:04Z",
+      "title": "b10822",
+      "url": "https://github.com/ggml-org/llama.cpp/releases/tag/b10822",
+      "published_at": "2026-09-06T11:30:39Z",
+      "updated_at": "2026-09-06T05:49:39Z",
       "creators": [
-        "openai/codex"
+        "ggml-org/llama.cpp"
       ],
       "language": "en",
-      "abstract_or_text": "## Bug Fixes - Guardian approval review now honors Node REPL policies provided through model metadata. **Full Changelog**: https://github.com/openai/codex/compare/rust-v0.152.0...rust-v0.152.1",
+      "abstract_or_text": "ui : embed assets directly with CMake (#28445) Remove the build-time C++ helper and external gzip dependency, simplifying cross-compilation. Keep the generated C++ in templates for readability and preserve fully embedded UI assets. Signed-off-by: Adrien Gallouët **Website:** - **Attestations:** - **macOS/iOS:** - [macOS Apple Silicon (arm64)](https://github.com/ggml-org/llama.cpp/releases/download/b10822/llama-b10822-bin-macos-arm64.tar.gz) - macOS Apple Silicon (arm64, KleidiAI enabled) [DISABLED](https://github.com/ggml-org/llama.cpp/pull/23780) - [macOS Intel (x64)](https://github.com/ggml-org/llama.cpp/releases/download/b10822/llama-b10822-bin-macos-x64.tar.gz) - [iOS XCFramework](https://github.com/ggml-org/llama.cpp/releases/download/b10822/llama-b10822-xcframework.zip) **Linux:** - [Ubuntu x64 (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b10822/llama-b10822-bin-ubuntu-x64.tar.gz) - [Ubuntu arm64 (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b10822/llama-b10822-bin-ubuntu-arm64.tar.gz) - [Ubuntu s390x (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b10822/llama-b10822-bin-ubuntu-s390x.tar.gz) - [Ubuntu x64 (Vulkan)](https://github.com/ggml-org/llama.cpp/releases/download/b10822/llama-b10822-bin-ubuntu-vulkan-x64.tar.gz) - [Ubuntu arm64 (Vulkan)](https://github.com/ggml-org/llama.cpp/releases/download/b10822/llama-b10822-bin-ubuntu-vulkan-arm64.tar.gz) - [Ubuntu x64 (ROCm 10.0)](https://github.com/ggml-org/llama.cpp/releases/download/b10822/llama-b10822-bin-ubuntu-rocm-10.0-x64.tar.gz) - [Ubuntu x64 (OpenVINO)](https://github.com/ggml-org/llama.cpp/releases/download/b10822/llama-b10822-bin-ubuntu-openvino-2026.3.1-x64.tar.gz) - [Ubuntu x64 (SYCL FP32)](https://github.com/ggml-org/llama.cpp/releases/download/b10822/llama-b10822-bin-ubuntu-sycl-fp32-x64.tar.gz) - [Ubuntu x64 (SYCL FP16)](https://github.com/ggml-org/llama.cpp/releases/download/b10822/llama-b10822-bin-ubuntu-sycl-fp16-x64.tar.gz) **Android:** - [Android arm64 (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b10822/llama-b10822-bin-android-arm64.tar.gz) **Windows:** - [Windows x64 (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b10822/llama-b10822-bin-win-cpu-x64.zip) - [Windows arm64 (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b10822/llama-b10822-bin-win-cpu-arm64.zip) - [Windows arm64 (OpenCL Adreno)](https://github.com/ggml-org/llama.cpp/releases/download/b10822/llama-b10822-bin-win-opencl-adreno-arm64.zip) - [Windows x64 (CUDA 12)](https://github.com/ggml-org/llama.cpp/releases/download/b10822/llama-b10822-bin-win-cuda-12.4-x64.zip) - [CUDA 12.4 DLLs](https://github.com/ggml-org/llama.cpp/releases/download/b10822/cudart-llama-bin-win-cuda-12.4-x64.zip) - [Windows x64 (CUDA 13)](https://github.com/ggml-org/llama.cpp/releases/download/b10822/llama-b10822-bin-win-cuda-13.3-x64.zip) - [CUDA 13.3 DLLs](https://github.com/ggml-org/llama.cpp/releases/download/b10822/cudart-llama-bin-win-cuda-13.3-x64.zip) - [Windows arm64 (CUDA 13) (preview)](https://github.com/ggml-org/llama.cpp/releases/download/b10822/llama-b10822-bin-win-cuda-13.4-arm64.zip) - [CUDA 13.4 DLLs](https://github.com/ggml-org/llama.cpp/releases/download/b10822/cudart-llama-bin-win-cuda-13.4-arm64.zip) - [Windows x64 (Vulkan)](https://github.com/ggml-org/llama.cpp/releases/download/b10822/llama-b10822-bin-win-vulkan-x64.zip) - [Windows x64 (OpenVINO)](https://github.com/ggml-org/llama.cpp/releases/download/b10822/llama-b10822-bin-win-openvino-2026.3.1-x64.zip) - [Windows x64 (SYCL)](https://github.com/ggml-org/llama.cpp/releases/download/b10822/llama-b10822-bin-win-sycl-x64.zip) - [Windows x64 (ROCm 10.0)](https://github.com/ggml-org/llama.cpp/releases/download/b10822/llama-b10822-bin-win-rocm-10.0-x64.zip) **openEuler:** - [DISABLED](https://github.com/ggml-org/llama.cpp/pull/23705) - openEuler x86 (310p) - openEuler x86 (910b, ACL Graph) - openEuler aarch64 (310p) - openEuler aarch64 (910b, ACL Graph) **UI:** - [UI](https://github.com/ggml-org/llama.cpp/releases/download/b10822/llama-b10822-ui.tar.gz)",
       "summary_zh": "",
       "why_it_matters_zh": "",
-      "quality_score": 63,
+      "quality_score": 61,
       "tags": [
         "模型与框架"
       ],
       "evidence_flags": [
-        "github"
+        "github",
+        "release"
       ],
-      "publication_status": "release",
+      "publication_status": "prerelease",
       "rank": 0,
       "featured": false,
       "category": "模型与框架",
       "metrics": {},
       "metadata": {
-        "repository": "openai/codex",
-        "version": "rust-v0.152.1",
-        "release_id": "380862087",
-        "release_type": "release"
+        "repository": "ggml-org/llama.cpp",
+        "version": "b10822",
+        "release_id": "383560211",
+        "release_type": "prerelease"
       }
     },
     {
-      "id": "github:380922829",
+      "id": "github:383536569",
       "channel": "engineering",
       "related_channels": [],
       "item_type": "software_release",
       "source": "GitHub Releases",
-      "title": "v3.7.0",
-      "url": "https://github.com/openai/openai-python/releases/tag/v3.7.0",
-      "published_at": "2026-09-02T01:30:12Z",
-      "updated_at": "2026-09-02T01:22:29Z",
+      "title": "b10821",
+      "url": "https://github.com/ggml-org/llama.cpp/releases/tag/b10821",
+      "published_at": "2026-09-06T09:58:54Z",
+      "updated_at": "2026-09-06T05:37:01Z",
       "creators": [
-        "openai/openai-python"
+        "ggml-org/llama.cpp"
       ],
       "language": "en",
-      "abstract_or_text": "## [3.7.0](https://github.com/openai/openai-python/compare/v3.6.0...v3.7.0) (2026-09-02) ### Features * **api:** update usage APIs and documentation ([#3779](https://github.com/openai/openai-python/issues/3779)) ([6f0da16](https://github.com/openai/openai-python/commit/6f0da16573086401a7b171f4bd14a78f22c9d0e9)) ### Bug Fixes * avoid repeated numpy checks for embeddings ([#3757](https://github.com/openai/openai-python/issues/3757)) ([b19c216](https://github.com/openai/openai-python/commit/b19c2161b1eac80fbf1f6f67a64a50af99c53356))",
+      "abstract_or_text": "metal : add remaining fa-vec tunings for M2 Max (#28458) **Website:** - **Attestations:** - **macOS/iOS:** - [macOS Apple Silicon (arm64)](https://github.com/ggml-org/llama.cpp/releases/download/b10821/llama-b10821-bin-macos-arm64.tar.gz) - macOS Apple Silicon (arm64, KleidiAI enabled) [DISABLED](https://github.com/ggml-org/llama.cpp/pull/23780) - [macOS Intel (x64)](https://github.com/ggml-org/llama.cpp/releases/download/b10821/llama-b10821-bin-macos-x64.tar.gz) - [iOS XCFramework](https://github.com/ggml-org/llama.cpp/releases/download/b10821/llama-b10821-xcframework.zip) **Linux:** - [Ubuntu x64 (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b10821/llama-b10821-bin-ubuntu-x64.tar.gz) - [Ubuntu arm64 (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b10821/llama-b10821-bin-ubuntu-arm64.tar.gz) - [Ubuntu s390x (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b10821/llama-b10821-bin-ubuntu-s390x.tar.gz) - [Ubuntu x64 (Vulkan)](https://github.com/ggml-org/llama.cpp/releases/download/b10821/llama-b10821-bin-ubuntu-vulkan-x64.tar.gz) - [Ubuntu arm64 (Vulkan)](https://github.com/ggml-org/llama.cpp/releases/download/b10821/llama-b10821-bin-ubuntu-vulkan-arm64.tar.gz) - [Ubuntu x64 (ROCm 10.0)](https://github.com/ggml-org/llama.cpp/releases/download/b10821/llama-b10821-bin-ubuntu-rocm-10.0-x64.tar.gz) - [Ubuntu x64 (OpenVINO)](https://github.com/ggml-org/llama.cpp/releases/download/b10821/llama-b10821-bin-ubuntu-openvino-2026.3.1-x64.tar.gz) - [Ubuntu x64 (SYCL FP32)](https://github.com/ggml-org/llama.cpp/releases/download/b10821/llama-b10821-bin-ubuntu-sycl-fp32-x64.tar.gz) - [Ubuntu x64 (SYCL FP16)](https://github.com/ggml-org/llama.cpp/releases/download/b10821/llama-b10821-bin-ubuntu-sycl-fp16-x64.tar.gz) **Android:** - [Android arm64 (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b10821/llama-b10821-bin-android-arm64.tar.gz) **Windows:** - [Windows x64 (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b10821/llama-b10821-bin-win-cpu-x64.zip) - [Windows arm64 (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b10821/llama-b10821-bin-win-cpu-arm64.zip) - [Windows arm64 (OpenCL Adreno)](https://github.com/ggml-org/llama.cpp/releases/download/b10821/llama-b10821-bin-win-opencl-adreno-arm64.zip) - [Windows x64 (CUDA 12)](https://github.com/ggml-org/llama.cpp/releases/download/b10821/llama-b10821-bin-win-cuda-12.4-x64.zip) - [CUDA 12.4 DLLs](https://github.com/ggml-org/llama.cpp/releases/download/b10821/cudart-llama-bin-win-cuda-12.4-x64.zip) - [Windows x64 (CUDA 13)](https://github.com/ggml-org/llama.cpp/releases/download/b10821/llama-b10821-bin-win-cuda-13.3-x64.zip) - [CUDA 13.3 DLLs](https://github.com/ggml-org/llama.cpp/releases/download/b10821/cudart-llama-bin-win-cuda-13.3-x64.zip) - [Windows arm64 (CUDA 13) (preview)](https://github.com/ggml-org/llama.cpp/releases/download/b10821/llama-b10821-bin-win-cuda-13.4-arm64.zip) - [CUDA 13.4 DLLs](https://github.com/ggml-org/llama.cpp/releases/download/b10821/cudart-llama-bin-win-cuda-13.4-arm64.zip) - [Windows x64 (Vulkan)](https://github.com/ggml-org/llama.cpp/releases/download/b10821/llama-b10821-bin-win-vulkan-x64.zip) - [Windows x64 (OpenVINO)](https://github.com/ggml-org/llama.cpp/releases/download/b10821/llama-b10821-bin-win-openvino-2026.3.1-x64.zip) - [Windows x64 (SYCL)](https://github.com/ggml-org/llama.cpp/releases/download/b10821/llama-b10821-bin-win-sycl-x64.zip) - [Windows x64 (ROCm 10.0)](https://github.com/ggml-org/llama.cpp/releases/download/b10821/llama-b10821-bin-win-rocm-10.0-x64.zip) **openEuler:** - [DISABLED](https://github.com/ggml-org/llama.cpp/pull/23705) - openEuler x86 (310p) - openEuler x86 (910b, ACL Graph) - openEuler aarch64 (310p) - openEuler aarch64 (910b, ACL Graph) **UI:** - [UI](https://github.com/ggml-org/llama.cpp/releases/download/b10821/llama-b10821-ui.tar.gz)",
       "summary_zh": "",
       "why_it_matters_zh": "",
-      "quality_score": 63,
+      "quality_score": 61,
+      "tags": [
+        "模型与框架"
+      ],
+      "evidence_flags": [
+        "github",
+        "release"
+      ],
+      "publication_status": "prerelease",
+      "rank": 0,
+      "featured": false,
+      "category": "模型与框架",
+      "metrics": {},
+      "metadata": {
+        "repository": "ggml-org/llama.cpp",
+        "version": "b10821",
+        "release_id": "383536569",
+        "release_type": "prerelease"
+      }
+    },
+    {
+      "id": "github:383214786",
+      "channel": "engineering",
+      "related_channels": [],
+      "item_type": "software_release",
+      "source": "GitHub Releases",
+      "title": "b10819",
+      "url": "https://github.com/ggml-org/llama.cpp/releases/tag/b10819",
+      "published_at": "2026-09-05T10:36:39Z",
+      "updated_at": "2026-09-05T10:19:47Z",
+      "creators": [
+        "ggml-org/llama.cpp"
+      ],
+      "language": "en",
+      "abstract_or_text": "metal : fix memory leak in early return (#28399) **Website:** - **Attestations:** - **macOS/iOS:** - [macOS Apple Silicon (arm64)](https://github.com/ggml-org/llama.cpp/releases/download/b10819/llama-b10819-bin-macos-arm64.tar.gz) - macOS Apple Silicon (arm64, KleidiAI enabled) [DISABLED](https://github.com/ggml-org/llama.cpp/pull/23780) - [macOS Intel (x64)](https://github.com/ggml-org/llama.cpp/releases/download/b10819/llama-b10819-bin-macos-x64.tar.gz) - [iOS XCFramework](https://github.com/ggml-org/llama.cpp/releases/download/b10819/llama-b10819-xcframework.zip) **Linux:** - [Ubuntu x64 (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b10819/llama-b10819-bin-ubuntu-x64.tar.gz) - [Ubuntu arm64 (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b10819/llama-b10819-bin-ubuntu-arm64.tar.gz) - [Ubuntu s390x (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b10819/llama-b10819-bin-ubuntu-s390x.tar.gz) - [Ubuntu x64 (Vulkan)](https://github.com/ggml-org/llama.cpp/releases/download/b10819/llama-b10819-bin-ubuntu-vulkan-x64.tar.gz) - [Ubuntu arm64 (Vulkan)](https://github.com/ggml-org/llama.cpp/releases/download/b10819/llama-b10819-bin-ubuntu-vulkan-arm64.tar.gz) - [Ubuntu x64 (ROCm 10.0)](https://github.com/ggml-org/llama.cpp/releases/download/b10819/llama-b10819-bin-ubuntu-rocm-10.0-x64.tar.gz) - [Ubuntu x64 (OpenVINO)](https://github.com/ggml-org/llama.cpp/releases/download/b10819/llama-b10819-bin-ubuntu-openvino-2026.3.1-x64.tar.gz) - [Ubuntu x64 (SYCL FP32)](https://github.com/ggml-org/llama.cpp/releases/download/b10819/llama-b10819-bin-ubuntu-sycl-fp32-x64.tar.gz) - [Ubuntu x64 (SYCL FP16)](https://github.com/ggml-org/llama.cpp/releases/download/b10819/llama-b10819-bin-ubuntu-sycl-fp16-x64.tar.gz) **Android:** - [Android arm64 (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b10819/llama-b10819-bin-android-arm64.tar.gz) **Windows:** - [Windows x64 (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b10819/llama-b10819-bin-win-cpu-x64.zip) - [Windows arm64 (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b10819/llama-b10819-bin-win-cpu-arm64.zip) - [Windows arm64 (OpenCL Adreno)](https://github.com/ggml-org/llama.cpp/releases/download/b10819/llama-b10819-bin-win-opencl-adreno-arm64.zip) - [Windows x64 (CUDA 12)](https://github.com/ggml-org/llama.cpp/releases/download/b10819/llama-b10819-bin-win-cuda-12.4-x64.zip) - [CUDA 12.4 DLLs](https://github.com/ggml-org/llama.cpp/releases/download/b10819/cudart-llama-bin-win-cuda-12.4-x64.zip) - [Windows x64 (CUDA 13)](https://github.com/ggml-org/llama.cpp/releases/download/b10819/llama-b10819-bin-win-cuda-13.3-x64.zip) - [CUDA 13.3 DLLs](https://github.com/ggml-org/llama.cpp/releases/download/b10819/cudart-llama-bin-win-cuda-13.3-x64.zip) - [Windows arm64 (CUDA 13) (preview)](https://github.com/ggml-org/llama.cpp/releases/download/b10819/llama-b10819-bin-win-cuda-13.4-arm64.zip) - [CUDA 13.4 DLLs](https://github.com/ggml-org/llama.cpp/releases/download/b10819/cudart-llama-bin-win-cuda-13.4-arm64.zip) - [Windows x64 (Vulkan)](https://github.com/ggml-org/llama.cpp/releases/download/b10819/llama-b10819-bin-win-vulkan-x64.zip) - [Windows x64 (OpenVINO)](https://github.com/ggml-org/llama.cpp/releases/download/b10819/llama-b10819-bin-win-openvino-2026.3.1-x64.zip) - [Windows x64 (SYCL)](https://github.com/ggml-org/llama.cpp/releases/download/b10819/llama-b10819-bin-win-sycl-x64.zip) - [Windows x64 (ROCm 10.0)](https://github.com/ggml-org/llama.cpp/releases/download/b10819/llama-b10819-bin-win-rocm-10.0-x64.zip) **openEuler:** - [DISABLED](https://github.com/ggml-org/llama.cpp/pull/23705) - openEuler x86 (310p) - openEuler x86 (910b, ACL Graph) - openEuler aarch64 (310p) - openEuler aarch64 (910b, ACL Graph) **UI:** - [UI](https://github.com/ggml-org/llama.cpp/releases/download/b10819/llama-b10819-ui.tar.gz)",
+      "summary_zh": "",
+      "why_it_matters_zh": "",
+      "quality_score": 61,
       "tags": [
         "工具链更新"
       ],
       "evidence_flags": [
-        "github"
+        "github",
+        "release"
       ],
-      "publication_status": "release",
+      "publication_status": "prerelease",
       "rank": 0,
       "featured": false,
       "category": "工具链更新",
       "metrics": {},
       "metadata": {
-        "repository": "openai/openai-python",
-        "version": "v3.7.0",
-        "release_id": "380922829",
-        "release_type": "release"
+        "repository": "ggml-org/llama.cpp",
+        "version": "b10819",
+        "release_id": "383214786",
+        "release_type": "prerelease"
       }
     },
     {
-      "id": "github:380898665",
+      "id": "github:383205611",
       "channel": "engineering",
       "related_channels": [],
       "item_type": "software_release",
       "source": "GitHub Releases",
-      "title": "v0.33.3",
-      "url": "https://github.com/ollama/ollama/releases/tag/v0.33.3",
-      "published_at": "2026-09-02T00:11:33Z",
-      "updated_at": "2026-09-02T22:07:28Z",
+      "title": "b10818",
+      "url": "https://github.com/ggml-org/llama.cpp/releases/tag/b10818",
+      "published_at": "2026-09-05T09:56:20Z",
+      "updated_at": "2026-09-05T02:37:12Z",
       "creators": [
-        "ollama/ollama"
+        "ggml-org/llama.cpp"
       ],
       "language": "en",
-      "abstract_or_text": "## What's Changed * gemma4 now supports images and audio on MLX engine * Report cached prompt tokens * Honor GGUF model defined default parameters * MLX, MLX-C, llama.cpp update ## New Contributors * @marcelpetrick made their first contribution in https://github.com/ollama/ollama/pull/17579 **Full Changelog**: https://github.com/ollama/ollama/compare/v0.33.2...v0.33.3",
+      "abstract_or_text": "sycl : fix test-backend-ops CI break && restore Kronecker product FWHT support (#28016) (#28254) * Reapply \"sycl : add Kronecker product FWHT support for sizes 384, 640, 768, 12…\" (#28184) This reverts commit c845263f8b7d60113e213a3bd2d5cc6472ccf204. * tests : fix unused variable M in test-backend-ops * tests: fix trailing space error and isolate kronecker tests for sycl backend only **Website:** - **Attestations:** - **macOS/iOS:** - [macOS Apple Silicon (arm64)](https://github.com/ggml-org/llama.cpp/releases/download/b10818/llama-b10818-bin-macos-arm64.tar.gz) - macOS Apple Silicon (arm64, KleidiAI enabled) [DISABLED](https://github.com/ggml-org/llama.cpp/pull/23780) - [macOS Intel (x64)](https://github.com/ggml-org/llama.cpp/releases/download/b10818/llama-b10818-bin-macos-x64.tar.gz) - [iOS XCFramework](https://github.com/ggml-org/llama.cpp/releases/download/b10818/llama-b10818-xcframework.zip) **Linux:** - [Ubuntu x64 (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b10818/llama-b10818-bin-ubuntu-x64.tar.gz) - [Ubuntu arm64 (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b10818/llama-b10818-bin-ubuntu-arm64.tar.gz) - [Ubuntu s390x (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b10818/llama-b10818-bin-ubuntu-s390x.tar.gz) - [Ubuntu x64 (Vulkan)](https://github.com/ggml-org/llama.cpp/releases/download/b10818/llama-b10818-bin-ubuntu-vulkan-x64.tar.gz) - [Ubuntu arm64 (Vulkan)](https://github.com/ggml-org/llama.cpp/releases/download/b10818/llama-b10818-bin-ubuntu-vulkan-arm64.tar.gz) - [Ubuntu x64 (ROCm 10.0)](https://github.com/ggml-org/llama.cpp/releases/download/b10818/llama-b10818-bin-ubuntu-rocm-10.0-x64.tar.gz) - [Ubuntu x64 (OpenVINO)](https://github.com/ggml-org/llama.cpp/releases/download/b10818/llama-b10818-bin-ubuntu-openvino-2026.3.1-x64.tar.gz) - [Ubuntu x64 (SYCL FP32)](https://github.com/ggml-org/llama.cpp/releases/download/b10818/llama-b10818-bin-ubuntu-sycl-fp32-x64.tar.gz) - [Ubuntu x64 (SYCL FP16)](https://github.com/ggml-org/llama.cpp/releases/download/b10818/llama-b10818-bin-ubuntu-sycl-fp16-x64.tar.gz) **Android:** - [Android arm64 (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b10818/llama-b10818-bin-android-arm64.tar.gz) **Windows:** - [Windows x64 (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b10818/llama-b10818-bin-win-cpu-x64.zip) - [Windows arm64 (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b10818/llama-b10818-bin-win-cpu-arm64.zip) - [Windows arm64 (OpenCL Adreno)](https://github.com/ggml-org/llama.cpp/releases/download/b10818/llama-b10818-bin-win-opencl-adreno-arm64.zip) - [Windows x64 (CUDA 12)](https://github.com/ggml-org/llama.cpp/releases/download/b10818/llama-b10818-bin-win-cuda-12.4-x64.zip) - [CUDA 12.4 DLLs](https://github.com/ggml-org/llama.cpp/releases/download/b10818/cudart-llama-bin-win-cuda-12.4-x64.zip) - [Windows x64 (CUDA 13)](https://github.com/ggml-org/llama.cpp/releases/download/b10818/llama-b10818-bin-win-cuda-13.3-x64.zip) - [CUDA 13.3 DLLs](https://github.com/ggml-org/llama.cpp/releases/download/b10818/cudart-llama-bin-win-cuda-13.3-x64.zip) - [Windows arm64 (CUDA 13) (preview)](https://github.com/ggml-org/llama.cpp/releases/download/b10818/llama-b10818-bin-win-cuda-13.4-arm64.zip) - [CUDA 13.4 DLLs](https://github.com/ggml-org/llama.cpp/releases/download/b10818/cudart-llama-bin-win-cuda-13.4-arm64.zip) - [Windows x64 (Vulkan)](https://github.com/ggml-org/llama.cpp/releases/download/b10818/llama-b10818-bin-win-vulkan-x64.zip) - [Windows x64 (OpenVINO)](https://github.com/ggml-org/llama.cpp/releases/download/b10818/llama-b10818-bin-win-openvino-2026.3.1-x64.zip) - [Windows x64 (SYCL)](https://github.com/ggml-org/llama.cpp/releases/download/b10818/llama-b10818-bin-win-sycl-x64.zip) - [Windows x64 (ROCm 10.0)](https://github.com/ggml-org/llama.cpp/releases/download/b10818/llama-b10818-bin-win-rocm-10.0-x64.zip) **openEuler:** - [DISABLED](https://github.com/ggml-org/llama.cpp/pull/23705) - openEuler x86 (310p) - openEuler x86 (910b, ACL Graph) - openEuler aarch64 (310p) - openEuler aarch64 (910b, ACL Graph) **UI:** - [UI](https://github.com/ggml-org/llama.cpp/releases/download/b10818/llama-b10818-ui.tar.gz)",
       "summary_zh": "",
       "why_it_matters_zh": "",
-      "quality_score": 63,
+      "quality_score": 61,
+      "tags": [
+        "工具链更新"
+      ],
+      "evidence_flags": [
+        "github",
+        "release"
+      ],
+      "publication_status": "prerelease",
+      "rank": 0,
+      "featured": false,
+      "category": "工具链更新",
+      "metrics": {},
+      "metadata": {
+        "repository": "ggml-org/llama.cpp",
+        "version": "b10818",
+        "release_id": "383205611",
+        "release_type": "prerelease"
+      }
+    },
+    {
+      "id": "github:383198990",
+      "channel": "engineering",
+      "related_channels": [],
+      "item_type": "software_release",
+      "source": "GitHub Releases",
+      "title": "b10817",
+      "url": "https://github.com/ggml-org/llama.cpp/releases/tag/b10817",
+      "published_at": "2026-09-05T09:27:03Z",
+      "updated_at": "2026-09-05T02:36:02Z",
+      "creators": [
+        "ggml-org/llama.cpp"
+      ],
+      "language": "en",
+      "abstract_or_text": "sycl: attribute device allocations by site (GGML_SYCL_MEMTRACE) (#27631) define two new environment variables to better understand how much memory is being allocated, and when. This has been invaluable in inproving the --fit algorithm, and is likely to be useful when debugging other memory-related issues. `-lv 4` will be required to enable the following: GGML_SYCL_MEMTRACE=1 will show per-site memory usage, updated whenever it increases by more than 64MiB. GGML_SYCL_MEMTRACE=2 will show every allocation and deallocation. To change the default 64MiB threshold for reporting memory usage increases, use GGML_SYCL_MEMTRACE_STEP. A sample log line: [SYCL-MEMTRACE] device memory query (dev): total 59493 MiB, free 4494, in use 54998; allocated 0 (buffers 0 + scratch 0), peak 0 MiB **Website:** - **Attestations:** - **macOS/iOS:** - [macOS Apple Silicon (arm64)](https://github.com/ggml-org/llama.cpp/releases/download/b10817/llama-b10817-bin-macos-arm64.tar.gz) - macOS Apple Silicon (arm64, KleidiAI enabled) [DISABLED](https://github.com/ggml-org/llama.cpp/pull/23780) - [macOS Intel (x64)](https://github.com/ggml-org/llama.cpp/releases/download/b10817/llama-b10817-bin-macos-x64.tar.gz) - [iOS XCFramework](https://github.com/ggml-org/llama.cpp/releases/download/b10817/llama-b10817-xcframework.zip) **Linux:** - [Ubuntu x64 (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b10817/llama-b10817-bin-ubuntu-x64.tar.gz) - [Ubuntu arm64 (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b10817/llama-b10817-bin-ubuntu-arm64.tar.gz) - [Ubuntu s390x (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b10817/llama-b10817-bin-ubuntu-s390x.tar.gz) - [Ubuntu x64 (Vulkan)](https://github.com/ggml-org/llama.cpp/releases/download/b10817/llama-b10817-bin-ubuntu-vulkan-x64.tar.gz) - [Ubuntu arm64 (Vulkan)](https://github.com/ggml-org/llama.cpp/releases/download/b10817/llama-b10817-bin-ubuntu-vulkan-arm64.tar.gz) - [Ubuntu x64 (ROCm 10.0)](https://github.com/ggml-org/llama.cpp/releases/download/b10817/llama-b10817-bin-ubuntu-rocm-10.0-x64.tar.gz) - [Ubuntu x64 (OpenVINO)](https://github.com/ggml-org/llama.cpp/releases/download/b10817/llama-b10817-bin-ubuntu-openvino-2026.3.1-x64.tar.gz) - [Ubuntu x64 (SYCL FP32)](https://github.com/ggml-org/llama.cpp/releases/download/b10817/llama-b10817-bin-ubuntu-sycl-fp32-x64.tar.gz) - [Ubuntu x64 (SYCL FP16)](https://github.com/ggml-org/llama.cpp/releases/download/b10817/llama-b10817-bin-ubuntu-sycl-fp16-x64.tar.gz) **Android:** - [Android arm64 (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b10817/llama-b10817-bin-android-arm64.tar.gz) **Windows:** - [Windows x64 (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b10817/llama-b10817-bin-win-cpu-x64.zip) - [Windows arm64 (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b10817/llama-b10817-bin-win-cpu-arm64.zip) - [Windows arm64 (OpenCL Adreno)](https://github.com/ggml-org/llama.cpp/releases/download/b10817/llama-b10817-bin-win-opencl-adreno-arm64.zip) - [Windows x64 (CUDA 12)](https://github.com/ggml-org/llama.cpp/releases/download/b10817/llama-b10817-bin-win-cuda-12.4-x64.zip) - [CUDA 12.4 DLLs](https://github.com/ggml-org/llama.cpp/releases/download/b10817/cudart-llama-bin-win-cuda-12.4-x64.zip) - [Windows x64 (CUDA 13)](https://github.com/ggml-org/llama.cpp/releases/download/b10817/llama-b10817-bin-win-cuda-13.3-x64.zip) - [CUDA 13.3 DLLs](https://github.com/ggml-org/llama.cpp/releases/download/b10817/cudart-llama-bin-win-cuda-13.3-x64.zip) - [Windows arm64 (CUDA 13) (preview)](https://github.com/ggml-org/llama.cpp/releases/download/b10817/llama-b10817-bin-win-cuda-13.4-arm64.zip) - [CUDA 13.4 DLLs](https://github.com/ggml-org/llama.cpp/releases/download/b10817/cudart-llama-bin-win-cuda-13.4-arm64.zip) - [Windows x64 (Vulkan)](https://github.com/ggml-org/llama.cpp/releases/download/b10817/llama-b10817-bin-win-vulkan-x64.zip) - [Windows x64 (OpenVINO)](https://github.com/ggml-org/llama.cpp/releases/download/b10817/llama-b10817-bin-win-openvino-2026.3.1-x64.zip) - [Windows x64 (SYCL)](https://github.com/ggml-org/llama.cpp/releases/download/b10817/llama-b10817-bin-win-sycl-x64.zip) - [Windows x64 (ROCm 10.0)](https://github.com/ggml-org/llama.cpp/releases/download/b10817/llama-b10817-bin-win-rocm-10.0-x64.zip) **openEuler:** - [DISABLED](https://github.com/ggml-org/llama.cpp/pull/23705) - openEuler x86 (310p) - openEuler x86 (910b, ACL Graph) - openEuler aarch64 (310p) - openEuler aarch64 (910b, ACL Graph) **UI:** - [UI](https://github.com/ggml-org/llama.cpp/releases/download/b10817/llama-b10817-ui.tar.gz)",
+      "summary_zh": "",
+      "why_it_matters_zh": "",
+      "quality_score": 61,
       "tags": [
         "模型与框架"
       ],
       "evidence_flags": [
-        "github"
+        "github",
+        "release"
       ],
-      "publication_status": "release",
+      "publication_status": "prerelease",
       "rank": 0,
       "featured": false,
       "category": "模型与框架",
       "metrics": {},
       "metadata": {
-        "repository": "ollama/ollama",
-        "version": "v0.33.3",
-        "release_id": "380898665",
-        "release_type": "release"
+        "repository": "ggml-org/llama.cpp",
+        "version": "b10817",
+        "release_id": "383198990",
+        "release_type": "prerelease"
       }
     },
     {
@@ -2285,191 +1367,6 @@
       }
     },
     {
-      "id": "github:381675099",
-      "channel": "engineering",
-      "related_channels": [],
-      "item_type": "software_release",
-      "source": "GitHub Releases",
-      "title": "b10774",
-      "url": "https://github.com/ggml-org/llama.cpp/releases/tag/b10774",
-      "published_at": "2026-09-03T01:52:31Z",
-      "updated_at": "2026-09-02T21:53:32Z",
-      "creators": [
-        "ggml-org/llama.cpp"
-      ],
-      "language": "en",
-      "abstract_or_text": "finetune: fix no KV cache (#27199) * training: fix no KV cache * apply @ ggerganov suggestion **Website:** - **Attestations:** - **macOS/iOS:** - [macOS Apple Silicon (arm64)](https://github.com/ggml-org/llama.cpp/releases/download/b10774/llama-b10774-bin-macos-arm64.tar.gz) - macOS Apple Silicon (arm64, KleidiAI enabled) [DISABLED](https://github.com/ggml-org/llama.cpp/pull/23780) - [macOS Intel (x64)](https://github.com/ggml-org/llama.cpp/releases/download/b10774/llama-b10774-bin-macos-x64.tar.gz) - [iOS XCFramework](https://github.com/ggml-org/llama.cpp/releases/download/b10774/llama-b10774-xcframework.zip) **Linux:** - [Ubuntu x64 (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b10774/llama-b10774-bin-ubuntu-x64.tar.gz) - [Ubuntu arm64 (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b10774/llama-b10774-bin-ubuntu-arm64.tar.gz) - [Ubuntu s390x (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b10774/llama-b10774-bin-ubuntu-s390x.tar.gz) - [Ubuntu x64 (Vulkan)](https://github.com/ggml-org/llama.cpp/releases/download/b10774/llama-b10774-bin-ubuntu-vulkan-x64.tar.gz) - [Ubuntu arm64 (Vulkan)](https://github.com/ggml-org/llama.cpp/releases/download/b10774/llama-b10774-bin-ubuntu-vulkan-arm64.tar.gz) - [Ubuntu x64 (ROCm 10.0)](https://github.com/ggml-org/llama.cpp/releases/download/b10774/llama-b10774-bin-ubuntu-rocm-10.0-x64.tar.gz) - [Ubuntu x64 (OpenVINO)](https://github.com/ggml-org/llama.cpp/releases/download/b10774/llama-b10774-bin-ubuntu-openvino-2026.3.1-x64.tar.gz) - [Ubuntu x64 (SYCL FP32)](https://github.com/ggml-org/llama.cpp/releases/download/b10774/llama-b10774-bin-ubuntu-sycl-fp32-x64.tar.gz) - [Ubuntu x64 (SYCL FP16)](https://github.com/ggml-org/llama.cpp/releases/download/b10774/llama-b10774-bin-ubuntu-sycl-fp16-x64.tar.gz) **Android:** - [Android arm64 (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b10774/llama-b10774-bin-android-arm64.tar.gz) **Windows:** - [Windows x64 (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b10774/llama-b10774-bin-win-cpu-x64.zip) - [Windows arm64 (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b10774/llama-b10774-bin-win-cpu-arm64.zip) - [Windows arm64 (OpenCL Adreno)](https://github.com/ggml-org/llama.cpp/releases/download/b10774/llama-b10774-bin-win-opencl-adreno-arm64.zip) - [Windows x64 (CUDA 12)](https://github.com/ggml-org/llama.cpp/releases/download/b10774/llama-b10774-bin-win-cuda-12.4-x64.zip) - [CUDA 12.4 DLLs](https://github.com/ggml-org/llama.cpp/releases/download/b10774/cudart-llama-bin-win-cuda-12.4-x64.zip) - [Windows x64 (CUDA 13)](https://github.com/ggml-org/llama.cpp/releases/download/b10774/llama-b10774-bin-win-cuda-13.3-x64.zip) - [CUDA 13.3 DLLs](https://github.com/ggml-org/llama.cpp/releases/download/b10774/cudart-llama-bin-win-cuda-13.3-x64.zip) - [Windows arm64 (CUDA 13) (preview)](https://github.com/ggml-org/llama.cpp/releases/download/b10774/llama-b10774-bin-win-cuda-13.4-arm64.zip) - [CUDA 13.4 DLLs](https://github.com/ggml-org/llama.cpp/releases/download/b10774/cudart-llama-bin-win-cuda-13.4-arm64.zip) - [Windows x64 (Vulkan)](https://github.com/ggml-org/llama.cpp/releases/download/b10774/llama-b10774-bin-win-vulkan-x64.zip) - [Windows x64 (OpenVINO)](https://github.com/ggml-org/llama.cpp/releases/download/b10774/llama-b10774-bin-win-openvino-2026.3.1-x64.zip) - [Windows x64 (SYCL)](https://github.com/ggml-org/llama.cpp/releases/download/b10774/llama-b10774-bin-win-sycl-x64.zip) - [Windows x64 (ROCm 10.0)](https://github.com/ggml-org/llama.cpp/releases/download/b10774/llama-b10774-bin-win-rocm-10.0-x64.zip) **openEuler:** - [DISABLED](https://github.com/ggml-org/llama.cpp/pull/23705) - openEuler x86 (310p) - openEuler x86 (910b, ACL Graph) - openEuler aarch64 (310p) - openEuler aarch64 (910b, ACL Graph) **UI:** - [UI](https://github.com/ggml-org/llama.cpp/releases/download/b10774/llama-b10774-ui.tar.gz)",
-      "summary_zh": "",
-      "why_it_matters_zh": "",
-      "quality_score": 61,
-      "tags": [
-        "模型与框架"
-      ],
-      "evidence_flags": [
-        "github",
-        "release"
-      ],
-      "publication_status": "prerelease",
-      "rank": 0,
-      "featured": false,
-      "category": "模型与框架",
-      "metrics": {},
-      "metadata": {
-        "repository": "ggml-org/llama.cpp",
-        "version": "b10774",
-        "release_id": "381675099",
-        "release_type": "prerelease"
-      }
-    },
-    {
-      "id": "github:381666428",
-      "channel": "engineering",
-      "related_channels": [],
-      "item_type": "software_release",
-      "source": "GitHub Releases",
-      "title": "b10773",
-      "url": "https://github.com/ggml-org/llama.cpp/releases/tag/b10773",
-      "published_at": "2026-09-03T01:25:03Z",
-      "updated_at": "2026-09-02T20:24:31Z",
-      "creators": [
-        "ggml-org/llama.cpp"
-      ],
-      "language": "en",
-      "abstract_or_text": "server : accept data: URLs for input_video and input_audio (#27735) * server : accept data: URLs for input_video and input_audio input_video and input_audio passed accept_base64_uri=false to handle_media(), so data: URLs got treated as raw base64 strings and failed later with a confusing media probe error (#27724). pass true for these two content types the same way image_url already does, and allow video/audio mime types in the data: url check instead of image only. data URL validation now throws std::invalid_argument so malformed input comes back as 400 instead of 500, matching the other input validation in this file. * server : simplify handle_media and drop unused accept_base64_uri flag * server : update comment and add unit test for invalid data URI MIME **Website:** - **Attestations:** - **macOS/iOS:** - [macOS Apple Silicon (arm64)](https://github.com/ggml-org/llama.cpp/releases/download/b10773/llama-b10773-bin-macos-arm64.tar.gz) - macOS Apple Silicon (arm64, KleidiAI enabled) [DISABLED](https://github.com/ggml-org/llama.cpp/pull/23780) - [macOS Intel (x64)](https://github.com/ggml-org/llama.cpp/releases/download/b10773/llama-b10773-bin-macos-x64.tar.gz) - [iOS XCFramework](https://github.com/ggml-org/llama.cpp/releases/download/b10773/llama-b10773-xcframework.zip) **Linux:** - [Ubuntu x64 (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b10773/llama-b10773-bin-ubuntu-x64.tar.gz) - [Ubuntu arm64 (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b10773/llama-b10773-bin-ubuntu-arm64.tar.gz) - [Ubuntu s390x (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b10773/llama-b10773-bin-ubuntu-s390x.tar.gz) - [Ubuntu x64 (Vulkan)](https://github.com/ggml-org/llama.cpp/releases/download/b10773/llama-b10773-bin-ubuntu-vulkan-x64.tar.gz) - [Ubuntu arm64 (Vulkan)](https://github.com/ggml-org/llama.cpp/releases/download/b10773/llama-b10773-bin-ubuntu-vulkan-arm64.tar.gz) - [Ubuntu x64 (ROCm 10.0)](https://github.com/ggml-org/llama.cpp/releases/download/b10773/llama-b10773-bin-ubuntu-rocm-10.0-x64.tar.gz) - [Ubuntu x64 (OpenVINO)](https://github.com/ggml-org/llama.cpp/releases/download/b10773/llama-b10773-bin-ubuntu-openvino-2026.3.1-x64.tar.gz) - [Ubuntu x64 (SYCL FP32)](https://github.com/ggml-org/llama.cpp/releases/download/b10773/llama-b10773-bin-ubuntu-sycl-fp32-x64.tar.gz) - [Ubuntu x64 (SYCL FP16)](https://github.com/ggml-org/llama.cpp/releases/download/b10773/llama-b10773-bin-ubuntu-sycl-fp16-x64.tar.gz) **Android:** - [Android arm64 (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b10773/llama-b10773-bin-android-arm64.tar.gz) **Windows:** - [Windows x64 (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b10773/llama-b10773-bin-win-cpu-x64.zip) - [Windows arm64 (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b10773/llama-b10773-bin-win-cpu-arm64.zip) - [Windows arm64 (OpenCL Adreno)](https://github.com/ggml-org/llama.cpp/releases/download/b10773/llama-b10773-bin-win-opencl-adreno-arm64.zip) - [Windows x64 (CUDA 12)](https://github.com/ggml-org/llama.cpp/releases/download/b10773/llama-b10773-bin-win-cuda-12.4-x64.zip) - [CUDA 12.4 DLLs](https://github.com/ggml-org/llama.cpp/releases/download/b10773/cudart-llama-bin-win-cuda-12.4-x64.zip) - [Windows x64 (CUDA 13)](https://github.com/ggml-org/llama.cpp/releases/download/b10773/llama-b10773-bin-win-cuda-13.3-x64.zip) - [CUDA 13.3 DLLs](https://github.com/ggml-org/llama.cpp/releases/download/b10773/cudart-llama-bin-win-cuda-13.3-x64.zip) - [Windows arm64 (CUDA 13) (preview)](https://github.com/ggml-org/llama.cpp/releases/download/b10773/llama-b10773-bin-win-cuda-13.4-arm64.zip) - [CUDA 13.4 DLLs](https://github.com/ggml-org/llama.cpp/releases/download/b10773/cudart-llama-bin-win-cuda-13.4-arm64.zip) - [Windows x64 (Vulkan)](https://github.com/ggml-org/llama.cpp/releases/download/b10773/llama-b10773-bin-win-vulkan-x64.zip) - [Windows x64 (OpenVINO)](https://github.com/ggml-org/llama.cpp/releases/download/b10773/llama-b10773-bin-win-openvino-2026.3.1-x64.zip) - [Windows x64 (SYCL)](https://github.com/ggml-org/llama.cpp/releases/download/b10773/llama-b10773-bin-win-sycl-x64.zip) - [Windows x64 (ROCm 10.0)](https://github.com/ggml-org/llama.cpp/releases/download/b10773/llama-b10773-bin-win-rocm-10.0-x64.zip) **openEuler:** - [DISABLED](https://github.com/ggml-org/llama.cpp/pull/23705) - openEuler x86 (310p) - openEuler x86 (910b, ACL Graph) - openEuler aarch64 (310p) - openEuler aarch64 (910b, ACL Graph) **UI:** - [UI](https://github.com/ggml-org/llama.cpp/releases/download/b10773/llama-b10773-ui.tar.gz)",
-      "summary_zh": "",
-      "why_it_matters_zh": "",
-      "quality_score": 61,
-      "tags": [
-        "模型与框架"
-      ],
-      "evidence_flags": [
-        "github",
-        "release"
-      ],
-      "publication_status": "prerelease",
-      "rank": 0,
-      "featured": false,
-      "category": "模型与框架",
-      "metrics": {},
-      "metadata": {
-        "repository": "ggml-org/llama.cpp",
-        "version": "b10773",
-        "release_id": "381666428",
-        "release_type": "prerelease"
-      }
-    },
-    {
-      "id": "github:381655994",
-      "channel": "engineering",
-      "related_channels": [],
-      "item_type": "software_release",
-      "source": "GitHub Releases",
-      "title": "b10772",
-      "url": "https://github.com/ggml-org/llama.cpp/releases/tag/b10772",
-      "published_at": "2026-09-03T00:48:22Z",
-      "updated_at": "2026-09-02T19:59:36Z",
-      "creators": [
-        "ggml-org/llama.cpp"
-      ],
-      "language": "en",
-      "abstract_or_text": "ggml-hexagon: add F16 support for unary ops (#28228) Extend the HTP backend's F16 unary op coverage to include ABS on top of the existing NORM/RMS_NORM/L2_NORM/SCALE/CLAMP/SQR/SQRT set. - Add hvx_abs_f16_{aa,au,ua,uu} + dispatcher in hvx-arith.h, mirroring the sqr_f16 kernel structure and using the existing hvx_vec_abs_f16() sign-bit-clear helper - Add abs_f16() row-wise dispatch and DEFINE_UNARY_TASK_F16(unary_abs, ...) in unary-ops.c, wired into execute_op_unary()'s op_type/task_func switches - Register HTP_OP_UNARY_ABS in htp_op_is_unary() (unary-ops.h) so that ggml_hexagon_precompute_unary_params() fills kernel_params (n_threads, VTCM layout) for ABS nodes -- required for the F16 path to function - Narrow the F16 GGML_OP_UNARY gate in ggml_hexagon_supported_unary() (ggml-hexagon.cpp) to allow GGML_UNARY_OP_ABS specifically, instead of rejecting all GGML_OP_UNARY ops for F16 - Merge the separate execute_op_unary_f32()/execute_op_unary_f16() functions into a single execute_op_unary(), branching on an is_f16 flag for the parts that actually differ by type (elem_size, the early F16 op-support check, and which task_func table to use) while keeping the F32-only tiled/RMS_NORM_MUL paths intact -- per review feedback to avoid duplicating the shared VTCM/DMA plumbing Verified on-device (QRD8850, Hexagon v81) via test-backend-ops -o ABS: 8/8 passing (F16 + F32, HTP0, no CPU fallback). Regression-checked SQR/CLAMP/SQRT (F16+F32) and NORM/RMS_NORM/L2_NORM/SCALE (F32; their F16 paths have no CPU reference kernel in test-backend-ops and cannot be correctness-tested there independent of this change). **Website:** - **Attestations:** - **macOS/iOS:** - [macOS Apple Silicon (arm64)](https://github.com/ggml-org/llama.cpp/releases/download/b10772/llama-b10772-bin-macos-arm64.tar.gz) - macOS Apple Silicon (arm64, KleidiAI enabled) [DISABLED](https://github.com/ggml-org/llama.cpp/pull/23780) - [macOS Intel (x64)](https://github.com/ggml-org/llama.cpp/releases/download/b10772/llama-b10772-bin-macos-x64.tar.gz) - [iOS XCFramework](https://github.com/ggml-org/llama.cpp/releases/download/b10772/llama-b10772-xcframework.zip) **Linux:** - [Ubuntu x64 (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b10772/llama-b10772-bin-ubuntu-x64.tar.gz) - [Ubuntu arm64 (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b10772/llama-b10772-bin-ubuntu-arm64.tar.gz) - [Ubuntu s390x (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b10772/llama-b10772-bin-ubuntu-s390x.tar.gz) - [Ubuntu x64 (Vulkan)](https://github.com/ggml-org/llama.cpp/releases/download/b10772/llama-b10772-bin-ubuntu-vulkan-x64.tar.gz) - [Ubuntu arm64 (Vulkan)](https://github.com/ggml-org/llama.cpp/releases/download/b10772/llama-b10772-bin-ubuntu-vulkan-arm64.tar.gz) - [Ubuntu x64 (ROCm 10.0)](https://github.com/ggml-org/llama.cpp/releases/download/b10772/llama-b10772-bin-ubuntu-rocm-10.0-x64.tar.gz) - [Ubuntu x64 (OpenVINO)](https://github.com/ggml-org/llama.cpp/releases/download/b10772/llama-b10772-bin-ubuntu-openvino-2026.3.1-x64.tar.gz) - [Ubuntu x64 (SYCL FP32)](https://github.com/ggml-org/llama.cpp/releases/download/b10772/llama-b10772-bin-ubuntu-sycl-fp32-x64.tar.gz) - [Ubuntu x64 (SYCL FP16)](https://github.com/ggml-org/llama.cpp/releases/download/b10772/llama-b10772-bin-ubuntu-sycl-fp16-x64.tar.gz) **Android:** - [Android arm64 (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b10772/llama-b10772-bin-android-arm64.tar.gz) **Windows:** - [Windows x64 (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b10772/llama-b10772-bin-win-cpu-x64.zip) - [Windows arm64 (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b10772/llama-b10772-bin-win-cpu-arm64.zip) - [Windows arm64 (OpenCL Adreno)](https://github.com/ggml-org/llama.cpp/releases/download/b10772/llama-b10772-bin-win-opencl-adreno-arm64.zip) - [Windows x64 (CUDA 12)](https://github.com/ggml-org/llama.cpp/releases/download/b10772/llama-b10772-bin-win-cuda-12.4-x64.zip) - [CUDA 12.4 DLLs](https://github.com/ggml-org/llama.cpp/releases/download/b10772/cudart-llama-bin-win-cuda-12.4-x64.zip) - [Windows x64 (CUDA 13)](https://github.com/ggml-org/llama.cpp/releases/download/b10772/llama-b10772-bin-win-cuda-13.3-x64.zip) - [CUDA 13.3 DLLs](https://github.com/ggml-org/llama.cpp/releases/download/b10772/cudart-llama-bin-win-cuda-13.3-x64.zip) - [Windows arm64 (CUDA 13) (preview)](https://github.com/ggml-org/llama.cpp/releases/download/b10772/llama-b10772-bin-win-cuda-13.4-arm64.zip) - [CUDA 13.4 DLLs](https://github.com/ggml-org/llama.cpp/releases/download/b10772/cudart-llama-bin-win-cuda-13.4-arm64.zip) - [Windows x64 (Vulkan)](https://github.com/ggml-org/llama.cpp/releases/download/b10772/llama-b10772-bin-win-vulkan-x64.zip) - [Windows x64 (OpenVINO)](https://github.com/ggml-org/llama.cpp/releases/download/b10772/llama-b10772-bin-win-openvino-2026.3.1-x64.zip) - [Windows x64 (SYCL)](https://github.com/ggml-org/llama.cpp/releases/download/b10772/llama-b10772-bin-win-sycl-x64.zip) - [Windows x64 (ROCm 10.0)](https://github.com/ggml-org/llama.cpp/releases/download/b10772/llama-b10772-bin-win-rocm-10.0-x64.zip) **openEuler:** - [DISABLED](https://github.com/ggml-org/llama.cpp/pull/23705) - openEuler x86 (310p) - openEuler x86 (910b, ACL Graph) - openEuler aarch64 (310p) - openEuler aarch64 (910b, ACL Graph) **UI:** - [UI](https://github.com/ggml-org/llama.cpp/releases/download/b10772/llama-b10772-ui.tar.gz)",
-      "summary_zh": "",
-      "why_it_matters_zh": "",
-      "quality_score": 61,
-      "tags": [
-        "模型与框架"
-      ],
-      "evidence_flags": [
-        "github",
-        "release"
-      ],
-      "publication_status": "prerelease",
-      "rank": 0,
-      "featured": false,
-      "category": "模型与框架",
-      "metrics": {},
-      "metadata": {
-        "repository": "ggml-org/llama.cpp",
-        "version": "b10772",
-        "release_id": "381655994",
-        "release_type": "prerelease"
-      }
-    },
-    {
-      "id": "github:381649076",
-      "channel": "engineering",
-      "related_channels": [],
-      "item_type": "software_release",
-      "source": "GitHub Releases",
-      "title": "b10771",
-      "url": "https://github.com/ggml-org/llama.cpp/releases/tag/b10771",
-      "published_at": "2026-09-03T00:24:45Z",
-      "updated_at": "2026-09-02T19:20:10Z",
-      "creators": [
-        "ggml-org/llama.cpp"
-      ],
-      "language": "en",
-      "abstract_or_text": "mtmd: add mtmd_tokenize_from_parts() (#28250) * add mtmd_tokenize_from_parts * use it in mtmd-cli * move add_special to call level **Website:** - **Attestations:** - **macOS/iOS:** - [macOS Apple Silicon (arm64)](https://github.com/ggml-org/llama.cpp/releases/download/b10771/llama-b10771-bin-macos-arm64.tar.gz) - macOS Apple Silicon (arm64, KleidiAI enabled) [DISABLED](https://github.com/ggml-org/llama.cpp/pull/23780) - [macOS Intel (x64)](https://github.com/ggml-org/llama.cpp/releases/download/b10771/llama-b10771-bin-macos-x64.tar.gz) - [iOS XCFramework](https://github.com/ggml-org/llama.cpp/releases/download/b10771/llama-b10771-xcframework.zip) **Linux:** - [Ubuntu x64 (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b10771/llama-b10771-bin-ubuntu-x64.tar.gz) - [Ubuntu arm64 (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b10771/llama-b10771-bin-ubuntu-arm64.tar.gz) - [Ubuntu s390x (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b10771/llama-b10771-bin-ubuntu-s390x.tar.gz) - [Ubuntu x64 (Vulkan)](https://github.com/ggml-org/llama.cpp/releases/download/b10771/llama-b10771-bin-ubuntu-vulkan-x64.tar.gz) - [Ubuntu arm64 (Vulkan)](https://github.com/ggml-org/llama.cpp/releases/download/b10771/llama-b10771-bin-ubuntu-vulkan-arm64.tar.gz) - [Ubuntu x64 (ROCm 10.0)](https://github.com/ggml-org/llama.cpp/releases/download/b10771/llama-b10771-bin-ubuntu-rocm-10.0-x64.tar.gz) - [Ubuntu x64 (OpenVINO)](https://github.com/ggml-org/llama.cpp/releases/download/b10771/llama-b10771-bin-ubuntu-openvino-2026.3.1-x64.tar.gz) - [Ubuntu x64 (SYCL FP32)](https://github.com/ggml-org/llama.cpp/releases/download/b10771/llama-b10771-bin-ubuntu-sycl-fp32-x64.tar.gz) - [Ubuntu x64 (SYCL FP16)](https://github.com/ggml-org/llama.cpp/releases/download/b10771/llama-b10771-bin-ubuntu-sycl-fp16-x64.tar.gz) **Android:** - [Android arm64 (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b10771/llama-b10771-bin-android-arm64.tar.gz) **Windows:** - [Windows x64 (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b10771/llama-b10771-bin-win-cpu-x64.zip) - [Windows arm64 (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b10771/llama-b10771-bin-win-cpu-arm64.zip) - [Windows arm64 (OpenCL Adreno)](https://github.com/ggml-org/llama.cpp/releases/download/b10771/llama-b10771-bin-win-opencl-adreno-arm64.zip) - [Windows x64 (CUDA 12)](https://github.com/ggml-org/llama.cpp/releases/download/b10771/llama-b10771-bin-win-cuda-12.4-x64.zip) - [CUDA 12.4 DLLs](https://github.com/ggml-org/llama.cpp/releases/download/b10771/cudart-llama-bin-win-cuda-12.4-x64.zip) - [Windows x64 (CUDA 13)](https://github.com/ggml-org/llama.cpp/releases/download/b10771/llama-b10771-bin-win-cuda-13.3-x64.zip) - [CUDA 13.3 DLLs](https://github.com/ggml-org/llama.cpp/releases/download/b10771/cudart-llama-bin-win-cuda-13.3-x64.zip) - [Windows arm64 (CUDA 13) (preview)](https://github.com/ggml-org/llama.cpp/releases/download/b10771/llama-b10771-bin-win-cuda-13.4-arm64.zip) - [CUDA 13.4 DLLs](https://github.com/ggml-org/llama.cpp/releases/download/b10771/cudart-llama-bin-win-cuda-13.4-arm64.zip) - [Windows x64 (Vulkan)](https://github.com/ggml-org/llama.cpp/releases/download/b10771/llama-b10771-bin-win-vulkan-x64.zip) - [Windows x64 (OpenVINO)](https://github.com/ggml-org/llama.cpp/releases/download/b10771/llama-b10771-bin-win-openvino-2026.3.1-x64.zip) - [Windows x64 (SYCL)](https://github.com/ggml-org/llama.cpp/releases/download/b10771/llama-b10771-bin-win-sycl-x64.zip) - [Windows x64 (ROCm 10.0)](https://github.com/ggml-org/llama.cpp/releases/download/b10771/llama-b10771-bin-win-rocm-10.0-x64.zip) **openEuler:** - [DISABLED](https://github.com/ggml-org/llama.cpp/pull/23705) - openEuler x86 (310p) - openEuler x86 (910b, ACL Graph) - openEuler aarch64 (310p) - openEuler aarch64 (910b, ACL Graph) **UI:** - [UI](https://github.com/ggml-org/llama.cpp/releases/download/b10771/llama-b10771-ui.tar.gz)",
-      "summary_zh": "",
-      "why_it_matters_zh": "",
-      "quality_score": 61,
-      "tags": [
-        "模型与框架"
-      ],
-      "evidence_flags": [
-        "github",
-        "release"
-      ],
-      "publication_status": "prerelease",
-      "rank": 0,
-      "featured": false,
-      "category": "模型与框架",
-      "metrics": {},
-      "metadata": {
-        "repository": "ggml-org/llama.cpp",
-        "version": "b10771",
-        "release_id": "381649076",
-        "release_type": "prerelease"
-      }
-    },
-    {
-      "id": "github:381641948",
-      "channel": "engineering",
-      "related_channels": [],
-      "item_type": "software_release",
-      "source": "GitHub Releases",
-      "title": "b10770",
-      "url": "https://github.com/ggml-org/llama.cpp/releases/tag/b10770",
-      "published_at": "2026-09-03T00:00:36Z",
-      "updated_at": "2026-09-02T18:13:12Z",
-      "creators": [
-        "ggml-org/llama.cpp"
-      ],
-      "language": "en",
-      "abstract_or_text": "metal : add fa-vec tunings for M3 (#28236) **Website:** - **Attestations:** - **macOS/iOS:** - [macOS Apple Silicon (arm64)](https://github.com/ggml-org/llama.cpp/releases/download/b10770/llama-b10770-bin-macos-arm64.tar.gz) - macOS Apple Silicon (arm64, KleidiAI enabled) [DISABLED](https://github.com/ggml-org/llama.cpp/pull/23780) - [macOS Intel (x64)](https://github.com/ggml-org/llama.cpp/releases/download/b10770/llama-b10770-bin-macos-x64.tar.gz) - [iOS XCFramework](https://github.com/ggml-org/llama.cpp/releases/download/b10770/llama-b10770-xcframework.zip) **Linux:** - [Ubuntu x64 (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b10770/llama-b10770-bin-ubuntu-x64.tar.gz) - [Ubuntu arm64 (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b10770/llama-b10770-bin-ubuntu-arm64.tar.gz) - [Ubuntu s390x (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b10770/llama-b10770-bin-ubuntu-s390x.tar.gz) - [Ubuntu x64 (Vulkan)](https://github.com/ggml-org/llama.cpp/releases/download/b10770/llama-b10770-bin-ubuntu-vulkan-x64.tar.gz) - [Ubuntu arm64 (Vulkan)](https://github.com/ggml-org/llama.cpp/releases/download/b10770/llama-b10770-bin-ubuntu-vulkan-arm64.tar.gz) - [Ubuntu x64 (ROCm 10.0)](https://github.com/ggml-org/llama.cpp/releases/download/b10770/llama-b10770-bin-ubuntu-rocm-10.0-x64.tar.gz) - [Ubuntu x64 (OpenVINO)](https://github.com/ggml-org/llama.cpp/releases/download/b10770/llama-b10770-bin-ubuntu-openvino-2026.3.1-x64.tar.gz) - [Ubuntu x64 (SYCL FP32)](https://github.com/ggml-org/llama.cpp/releases/download/b10770/llama-b10770-bin-ubuntu-sycl-fp32-x64.tar.gz) - [Ubuntu x64 (SYCL FP16)](https://github.com/ggml-org/llama.cpp/releases/download/b10770/llama-b10770-bin-ubuntu-sycl-fp16-x64.tar.gz) **Android:** - [Android arm64 (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b10770/llama-b10770-bin-android-arm64.tar.gz) **Windows:** - [Windows x64 (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b10770/llama-b10770-bin-win-cpu-x64.zip) - [Windows arm64 (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b10770/llama-b10770-bin-win-cpu-arm64.zip) - [Windows arm64 (OpenCL Adreno)](https://github.com/ggml-org/llama.cpp/releases/download/b10770/llama-b10770-bin-win-opencl-adreno-arm64.zip) - [Windows x64 (CUDA 12)](https://github.com/ggml-org/llama.cpp/releases/download/b10770/llama-b10770-bin-win-cuda-12.4-x64.zip) - [CUDA 12.4 DLLs](https://github.com/ggml-org/llama.cpp/releases/download/b10770/cudart-llama-bin-win-cuda-12.4-x64.zip) - [Windows x64 (CUDA 13)](https://github.com/ggml-org/llama.cpp/releases/download/b10770/llama-b10770-bin-win-cuda-13.3-x64.zip) - [CUDA 13.3 DLLs](https://github.com/ggml-org/llama.cpp/releases/download/b10770/cudart-llama-bin-win-cuda-13.3-x64.zip) - [Windows arm64 (CUDA 13) (preview)](https://github.com/ggml-org/llama.cpp/releases/download/b10770/llama-b10770-bin-win-cuda-13.4-arm64.zip) - [CUDA 13.4 DLLs](https://github.com/ggml-org/llama.cpp/releases/download/b10770/cudart-llama-bin-win-cuda-13.4-arm64.zip) - [Windows x64 (Vulkan)](https://github.com/ggml-org/llama.cpp/releases/download/b10770/llama-b10770-bin-win-vulkan-x64.zip) - [Windows x64 (OpenVINO)](https://github.com/ggml-org/llama.cpp/releases/download/b10770/llama-b10770-bin-win-openvino-2026.3.1-x64.zip) - [Windows x64 (SYCL)](https://github.com/ggml-org/llama.cpp/releases/download/b10770/llama-b10770-bin-win-sycl-x64.zip) - [Windows x64 (ROCm 10.0)](https://github.com/ggml-org/llama.cpp/releases/download/b10770/llama-b10770-bin-win-rocm-10.0-x64.zip) **openEuler:** - [DISABLED](https://github.com/ggml-org/llama.cpp/pull/23705) - openEuler x86 (310p) - openEuler x86 (910b, ACL Graph) - openEuler aarch64 (310p) - openEuler aarch64 (910b, ACL Graph) **UI:** - [UI](https://github.com/ggml-org/llama.cpp/releases/download/b10770/llama-b10770-ui.tar.gz)",
-      "summary_zh": "",
-      "why_it_matters_zh": "",
-      "quality_score": 61,
-      "tags": [
-        "模型与框架"
-      ],
-      "evidence_flags": [
-        "github",
-        "release"
-      ],
-      "publication_status": "prerelease",
-      "rank": 0,
-      "featured": false,
-      "category": "模型与框架",
-      "metrics": {},
-      "metadata": {
-        "repository": "ggml-org/llama.cpp",
-        "version": "b10770",
-        "release_id": "381641948",
-        "release_type": "prerelease"
-      }
-    },
-    {
       "id": "github:382414242",
       "channel": "engineering",
       "related_channels": [],
@@ -2538,6 +1435,78 @@
         "repository": "openai/codex",
         "version": "rust-v0.154.0-alpha.2",
         "release_id": "382356402",
+        "release_type": "prerelease"
+      }
+    },
+    {
+      "id": "github:381893119",
+      "channel": "engineering",
+      "related_channels": [],
+      "item_type": "software_release",
+      "source": "GitHub Releases",
+      "title": "0.154.0-alpha.1",
+      "url": "https://github.com/openai/codex/releases/tag/rust-v0.154.0-alpha.1",
+      "published_at": "2026-09-03T09:29:52Z",
+      "updated_at": "2026-09-03T08:41:23Z",
+      "creators": [
+        "openai/codex"
+      ],
+      "language": "en",
+      "abstract_or_text": "Release 0.154.0-alpha.1",
+      "summary_zh": "",
+      "why_it_matters_zh": "",
+      "quality_score": 58,
+      "tags": [
+        "工具链更新"
+      ],
+      "evidence_flags": [
+        "release"
+      ],
+      "publication_status": "prerelease",
+      "rank": 0,
+      "featured": false,
+      "category": "工具链更新",
+      "metrics": {},
+      "metadata": {
+        "repository": "openai/codex",
+        "version": "rust-v0.154.0-alpha.1",
+        "release_id": "381893119",
+        "release_type": "prerelease"
+      }
+    },
+    {
+      "id": "github:381654115",
+      "channel": "engineering",
+      "related_channels": [],
+      "item_type": "software_release",
+      "source": "GitHub Releases",
+      "title": "0.153.0-alpha.5.1",
+      "url": "https://github.com/openai/codex/releases/tag/rust-v0.153.0-alpha.5.1",
+      "published_at": "2026-09-03T00:41:36Z",
+      "updated_at": "2026-09-02T23:51:46Z",
+      "creators": [
+        "openai/codex"
+      ],
+      "language": "en",
+      "abstract_or_text": "Release 0.153.0-alpha.5.1",
+      "summary_zh": "",
+      "why_it_matters_zh": "",
+      "quality_score": 58,
+      "tags": [
+        "工具链更新"
+      ],
+      "evidence_flags": [
+        "release"
+      ],
+      "publication_status": "prerelease",
+      "rank": 0,
+      "featured": false,
+      "category": "工具链更新",
+      "metrics": {},
+      "metadata": {
+        "repository": "openai/codex",
+        "version": "rust-v0.153.0-alpha.5.1",
+        "release_id": "381654115",
         "release_type": "prerelease"
       }
     }

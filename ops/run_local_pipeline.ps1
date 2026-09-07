@@ -63,10 +63,7 @@ if (-not $env:GITHUB_TOKEN) {
 }
 
 $Python = (Get-Command python -ErrorAction Stop).Source
-$CodexCommand = (Get-Command codex.cmd -ErrorAction Stop).Source
-$CodexRoot = Split-Path $CodexCommand -Parent
-$CodexJavaScript = Join-Path $CodexRoot "node_modules\@openai\codex\bin\codex.js"
-$Node = (Get-Command node.exe -ErrorAction Stop).Source
+$CodexExecutable = (Get-Command codex.exe -ErrorAction Stop).Source
 $Git = (Get-Command git -ErrorAction Stop).Source
 $Channels = @("aixchem", "aixbio", "aixmath", "aivoices", "engineering")
 $RunDate = if ($Date) { $Date } else { (Get-Date).ToString("yyyy-MM-dd") }
@@ -92,7 +89,7 @@ function Invoke-CodexJson([string]$PromptPath, [string]$SchemaPath, [string]$Out
         "-C", $RepoRoot, "--output-schema", $SchemaPath,
         "--output-last-message", $OutputPath, "-"
     )
-    $Process = Start-Process -FilePath $Node -ArgumentList (@($CodexJavaScript) + $CodexArgs) -WorkingDirectory $RepoRoot -RedirectStandardInput $PromptPath -RedirectStandardOutput $StdoutPath -RedirectStandardError $StderrPath -WindowStyle Hidden -Wait -PassThru
+    $Process = Start-Process -FilePath $CodexExecutable -ArgumentList $CodexArgs -WorkingDirectory $RepoRoot -RedirectStandardInput $PromptPath -RedirectStandardOutput $StdoutPath -RedirectStandardError $StderrPath -WindowStyle Hidden -Wait -PassThru
     if (Test-Path -LiteralPath $StderrPath) { Get-Content -LiteralPath $StderrPath -Encoding UTF8 | Write-Host }
     if (Test-Path -LiteralPath $StdoutPath) { Get-Content -LiteralPath $StdoutPath -Encoding UTF8 | Write-Host }
     if ($Process.ExitCode -ne 0) { throw "Codex review failed with exit code $($Process.ExitCode)" }

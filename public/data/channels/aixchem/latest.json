@@ -1,78 +1,88 @@
 {
   "schema_version": "2.0",
-  "date": "2026-09-07",
+  "date": "2026-09-08",
   "channel": "aixchem",
-  "generated_at": "2026-09-07T12:14:28+00:00",
+  "generated_at": "2026-09-07T23:07:53+00:00",
   "title": "AI × Chem 每日精选",
   "subtitle": "预印本、方法、数据集与实验验证的每日精选。",
   "window": {
-    "start": "2026-09-03",
-    "end": "2026-09-07"
+    "start": "2026-09-05",
+    "end": "2026-09-08"
   },
   "method": "公开来源采集、历史去重、规则筛选与模型审阅",
   "method_note": "系统保存当日公开元数据，与历史日报核验后排除已报道事件；论文新版本、新修订及不同软件发布等可核实更新仍可入选，随后由指定模型阅读全文摘要并完成精选。",
   "stats": {
-    "fetched": 1172,
-    "suppressed_previous": 51,
-    "candidates": 60,
-    "selected": 2,
+    "fetched": 371,
+    "suppressed_previous": 5,
+    "candidates": 50,
+    "selected": 12,
     "sources": {
-      "arXiv": 289,
-      "bioRxiv": 761,
-      "ChemRxiv": 131
+      "arXiv": 0,
+      "bioRxiv": 280,
+      "ChemRxiv": 92
     }
   },
   "source_status": {
     "arXiv": {
-      "state": "ok",
-      "count": 289
+      "state": "empty",
+      "count": 0
     },
     "bioRxiv": {
       "state": "ok",
-      "count": 761
+      "count": 280
     },
     "ChemRxiv": {
       "state": "ok",
-      "count": 131
+      "count": 92
     }
   },
   "source_errors": [],
   "items": [
     {
-      "id": "biorxiv:10.1101/2025.01.04.631301",
+      "id": "biorxiv:10.64898/2026.09.02.748775",
       "channel": "aixchem",
       "related_channels": [
-        "aixbio",
-        "aixmath"
+        "aixbio"
       ],
       "item_type": "paper",
       "source": "bioRxiv",
-      "title": "DeepPROTECTNeo: A Context-aware Personalized and Reverse Vaccinology-guided Deep Learning Framework for Immunogenicity Prediction",
-      "url": "https://www.biorxiv.org/content/10.1101/2025.01.04.631301",
+      "title": "OmniSyn unifies target-aware molecular generation and optimization within a synthesis-native LLM framework across the human proteome",
+      "url": "https://www.biorxiv.org/content/10.64898/2026.09.02.748775",
       "published_at": "2026-09-06",
       "updated_at": "2026-09-06",
       "creators": [
-        "Das, D.",
-        "Bhaduri, S.",
-        "Mitra, P."
+        "QIN, Z.",
+        "Li, Y.",
+        "Zhang, Y.",
+        "Zhao, Y.",
+        "Koh, H. Y.",
+        "Wan, Z.",
+        "Ren, H.",
+        "Huang, C.",
+        "Shi, Y.",
+        "Wu, Z.",
+        "Min, Y.",
+        "Yang, J.",
+        "He, X.",
+        "Cao, D."
       ],
       "language": "en",
-      "abstract_or_text": "Background: The development of personalized cancer vaccines relies on accurately identifying neoepitopes capable of eliciting strong immune responses. T cell receptor (TCR)-epitope interactions are fundamental to cancer immunotherapy. Traditional computational approaches focus primarily on epitope-major histocompatibility complex (MHC) binding, often overlooking the critical contribution of TCR binding. Furthermore, the clinical applicability of existing methods is constrained by fragmented pipelines that require separate workflows for variant calling, HLA typing, and independent peptide-MHC (pMHC) or peptide-TCR (pTCR) evaluation stages. Results: We present DeepPROTECTNeo, a unified deep learning framework that integrates genomic variant detection, HLA typing, high-affinity pMHC binding prediction, variant-driven TCR repertoire mining, followed by a hybrid transformer-Convolutional Neural Network dual-branch feature extractor with an explicit cross-attention-based deep learning model for TCR-epitope binding prediction. Our reverse vaccinology-inspired biologically informed architecture integrates Bidirectional Long short-term memory (Bi-LSTM) sequence features, convolutional-attention physicochemical/evolutionary descriptors via gated fusion, and TCR numbered contextual embeddings to enable residue-level interpretable modelling. Under a strict TCR-split strategy, it achieved a mean AUROC of 0.7856 and AUPRC of 0.7932 outperforming six state-of-the-art predictors by 4-5% with tight inter-fold stability. The architecture maintains high robustness against structural hard negatives and imbalanced datasets, successfully recovering 18 of 34 validated high-affinity neoepitopes from a patient-specific cancer cohort. Conclusions: Experiments results demonstrate that DeepPROTECTNeo is a powerful, reliable end-to-end neoantigen prioritization framework that effectively models complex TCR-epitope interfaces directly from clinical sequencing data, providing a robust interpretable foundation to accelerate personalized cancer immunotherapy.",
-      "summary_zh": "DeepPROTECTNeo 将变异检测、HLA 分型、pMHC 亲和力预测、TCR 谱挖掘和 TCR–表位结合预测串为端到端个体化新抗原优选流程；在严格 TCR 划分下报告 AUROC 0.7856、AUPRC 0.7932，并在患者队列中找回34个已验证高亲和力新表位中的18个。",
-      "why_it_matters_zh": "把 TCR 结合而非仅 pMHC 结合纳入新抗原排序，契合个体化癌症疫苗的关键生物学约束，并提供了患者队列层面的验证信号。该工作仍为预印本；临床获益、不同队列与 HLA 背景中的泛化能力，以及各上游预测环节误差的累积影响，尚需独立验证。",
-      "quality_score": 78.0,
+      "abstract_or_text": "Designing target-specific bioactive molecules with actionable synthesis routes for the human proteome holds enormous potential for expanding therapeutic discovery, but remains a challenge. Existing target-aware generative models often depend on protein structures and generate molecules before assessing synthetic feasibility. Here we present OmniSyn, a protein-sequence-conditioned Mixture-of-Experts (MoE) language model that couples a task-conditioned interaction module with a synthesis-action decoder to generate molecules with explicit synthesis traces, thereby unifying de novo ligand generation, synthesizability projection and hit-to-lead (H2L) optimization within synthesis-traceable chemical space. OmniSyn is pre-trained with self-distillation and post-trained with task-specific reinforcement learning (RL) to adapt expert routing and optimize molecular properties across design modes. On unseen protein targets from MolGenBench, a real-world drug-discovery benchmark, OmniSyn achieves state-of-the-art performance across de novo design and H2L optimization, including target-awareness and hit-rediscovery metrics, despite relying only on protein sequences rather than three-dimensional (3D) pocket structures. By embedding synthesis planning into the design process, OmniSyn shifts molecular generation from a generate-then-filter paradigm toward design-with-synthesis paradigm, transforming virtual predictions into experimentally actionable candidates. Independent AiZynthFinder evaluation yielded retrosynthetic success rates of 68.47% for de novo generation and 71.92% for H2L optimization, improving over the strongest baselines by 61.3% and 184.2%, respectively, and supporting the synthetic feasibility of OmniSyn-generated molecules. In synthesizability projection, OmniSyn further converts outputs from external generative models into close analogues with improved retrosynthetic feasibility while preserving molecular similarity. Having established strong benchmark performance and external retrosynthetic feasibility, we next applied OmniSyn at human-proteome scale, spanning more than 21,000 targets. Rapid sequence-conditioned sampling enabled the construction of, to our knowledge, the largest human-proteome-scale generative virtual library, comprising 2.7 billion target-specific molecules, each accompanied by model-derived synthesis traces and target-specific prioritization scores. By enabling scalable target-specific molecular design with synthesis-aware generation across the human proteome, OmniSyn opens new opportunities for exploring previously inaccessible therapeutic targets, including those lacking experimentally resolved structures.",
+      "summary_zh": "OmniSyn 将蛋白序列条件分子生成、合成轨迹生成、可合成性投影与 hit-to-lead 优化整合到 MoE 语言模型中，并在 MolGenBench 未见靶点和全人类蛋白组尺度进行评估。",
+      "why_it_matters_zh": "把合成规划前置到靶向设计有望缩短“生成后筛选”链路；但结果仍主要来自基准和 AiZynthFinder 外部回合成评估，2.7 billion 分子库及其药理价值尚未逐一实验验证。",
+      "quality_score": 99.0,
       "tags": [
         "分子与药物发现",
-        "新抗原",
-        "癌症疫苗",
-        "TCR"
+        "生成式模型",
+        "合成规划"
       ],
       "evidence_flags": [
-        "dataset",
-        "clinical",
+        "预印本",
+        "benchmark",
+        "experimental",
         "state-of-the-art",
         "evaluation",
-        "preprint"
+        "performance"
       ],
       "publication_status": "preprint",
       "rank": 1,
@@ -80,50 +90,53 @@
       "category": "分子与药物发现",
       "metrics": {},
       "metadata": {
-        "doi": "10.1101/2025.01.04.631301",
+        "doi": "10.64898/2026.09.02.748775",
         "arxiv_id": ""
       },
-      "abstract_zh": "背景：个体化癌症疫苗的开发依赖于准确识别能够诱发强免疫应答的新表位。T 细胞受体（TCR）–表位相互作用是癌症免疫治疗的基础。传统计算方法主要聚焦于表位–主要组织相容性复合体（MHC）结合，往往忽视 TCR 结合的关键贡献。此外，现有方法的临床适用性受制于碎片化流程：变异检测、HLA 分型以及独立的肽–MHC（pMHC）或肽–TCR（pTCR）评估阶段需要分别开展。结果：我们提出 DeepPROTECTNeo，这是一种统一的深度学习框架，整合基因组变异检测、HLA 分型、高亲和力 pMHC 结合预测、由变异驱动的 TCR 库挖掘，随后使用混合 Transformer–Convolutional Neural Network 双分支特征提取器，以及用于 TCR–表位结合预测的显式基于交叉注意力的深度学习模型。我们受逆向疫苗学启发、具有生物学信息的架构整合了 Bidirectional Long short-term memory（Bi-LSTM）序列特征、经门控融合的卷积–注意力物理化学/进化描述符，以及 TCR 编号上下文嵌入，以实现残基层面的可解释建模。在严格 TCR 划分策略下，该模型获得平均 AUROC 0.7856 和 AUPRC 0.7932，以4–5%的幅度优于六个最先进预测器，且跨折稳定性很高。该架构对结构性困难负例和类别不平衡数据集保持较高鲁棒性，并成功从患者特异性癌症队列中找回34个已验证高亲和力新表位中的18个。结论：实验结果表明，DeepPROTECTNeo 是一种强大、可靠的端到端新抗原优选框架，可直接从临床测序数据中有效建模复杂的 TCR–表位界面，为加速个体化癌症免疫治疗提供了稳健且可解释的基础。",
+      "abstract_zh": "为人类蛋白组设计具有可执行合成路线的靶点特异性生物活性分子，具有扩大治疗发现的巨大潜力，但仍是一项挑战。现有靶点感知生成模型通常依赖蛋白质结构，并在评估合成可行性之前生成分子。这里我们提出 OmniSyn：一种以蛋白序列为条件的 Mixture-of-Experts (MoE) 语言模型。它将任务条件化相互作用模块与合成动作解码器耦合，以生成带有明确合成轨迹的分子，从而在可追溯合成的化学空间中统一从头配体生成、可合成性投影和 hit-to-lead (H2L) 优化。OmniSyn 通过自蒸馏进行预训练，并通过任务特异性强化学习 (RL) 进行后训练，以适应专家路由并在不同设计模式下优化分子性质。在真实世界药物发现基准 MolGenBench 的未见蛋白靶点上，OmniSyn 在从头设计和 H2L 优化中均实现了最先进的性能，包括靶点感知和命中物再发现指标，尽管它仅依赖蛋白序列而非三维 (3D) 口袋结构。通过将合成规划嵌入设计过程，OmniSyn 将分子生成从“先生成后筛选”范式转向“连同合成一起设计”范式，把虚拟预测转化为可实验操作的候选物。独立的 AiZynthFinder 评估显示，从头生成和 H2L 优化的逆合成成功率分别为 68.47% 和 71.92%，相对于最强基线分别提高 61.3% 和 184.2%，支持了 OmniSyn 所生成分子的合成可行性。在可合成性投影中，OmniSyn 还可将外部生成模型的输出转化为具有更好逆合成可行性、同时保持分子相似性的近似类似物。在确立强大的基准性能和外部逆合成可行性之后，我们将 OmniSyn 应用于全人类蛋白组尺度，覆盖超过 21,000 个靶点。快速的序列条件采样使我们构建了据我们所知最大的人类蛋白组尺度生成虚拟库，包含 2.7 billion 个靶点特异性分子，每个分子均附带模型生成的合成轨迹和靶点特异性优先级评分。通过在整个人类蛋白组中实现带有合成感知生成的可扩展靶点特异性分子设计，OmniSyn 为探索此前难以触及的治疗靶点开辟了新机会，其中包括缺少实验解析结构的靶点。",
       "published": "2026-09-06",
-      "author_line": "Das, D., Bhaduri, S., Mitra, P."
+      "author_line": "QIN, Z., Li, Y., Zhang, Y., Zhao, Y., Koh, H. Y., Wan, Z., Ren, H., Huang, C., Shi, Y., Wu, Z., Min, Y., Yang, J., He, X., Cao, D."
     },
     {
-      "id": "biorxiv:10.64898/2026.08.27.747591",
+      "id": "chemrxiv:10.26434/chemrxiv.15008409/v1",
       "channel": "aixchem",
       "related_channels": [
         "aixbio"
       ],
       "item_type": "paper",
-      "source": "bioRxiv",
-      "title": "Coarse composition suffices: tabular in-context learning for multi-activity antimicrobial peptide profiling",
-      "url": "https://www.biorxiv.org/content/10.64898/2026.08.27.747591",
-      "published_at": "2026-09-06",
-      "updated_at": "2026-09-06",
+      "source": "ChemRxiv",
+      "title": "A retrieval-augmented agent bridges virtual screening and automated synthesis",
+      "url": "https://doi.org/10.26434/chemrxiv.15008409/v1",
+      "published_at": "2026-09-07",
+      "updated_at": "2026-09-07",
       "creators": [
-        "Pal, A.",
-        "Kumar, R.",
-        "Solanki, D.",
-        "Pareek, P.",
-        "Singh, J.",
-        "Singla, J."
+        "Shan Zhu",
+        "Xin Chen",
+        "Pinqi Wang",
+        "Quan Jiang",
+        "Mengzhu Li",
+        "Qimeng Wang",
+        "Guoyun Zhao",
+        "Yuan Qi",
+        "Fenglei Cao",
+        "Li-Cheng Xu"
       ],
       "language": "en",
-      "abstract_or_text": "Antimicrobial peptides (AMPs) often act against multiple pathogen classes, making multi-label activity prediction a more realistic screening target than binary antimicrobial classification. The ESCAPE benchmark formalizes this setting, but leading approaches typically rely on multimodal, structure-conditioned deep models that are costly to train and tune. We show that a simple, sequence-only pipeline can match and surpass these methods by combining 330 interpretable sequence descriptors with TabPFN, a tabular foundation model that performs in-context prediction in a single forward pass without gradient-based training or hyperparameter search. On ESCAPE (82,359 peptides; five labels), a label-powerset TabPFN model achieves mAP-5=77.8%, improving on the previously best reported 72.1%. A probabilistic classifier chain is the first method to match or exceed the best published average precision on each of the five labels simultaneously. The gains persist under the prior state-of-the-art single-fold training protocol, indicating they are not a training-set-size artefact, and are largest for remote homologues (+11.2 points below 30% sequence identity). Ablations further show that predicted structure is unnecessary at inference and that performance is not driven by any single descriptor family: ten global physicochemical scalars recover 91% of full-feature performance. Finally, explicitly modelling label dependence yields targeted benefits for scarce activities and supports ranking which activity to assay next from partial positive evidence.",
-      "summary_zh": "该研究以330个可解释的序列描述符和 TabPFN 构建无需梯度训练的多标签抗菌肽活性预测流程。在 ESCAPE 的82,359条肽、5个标签上，模型达到 mAP-5=77.8%，并通过消融显示少量全局理化特征已可恢复大部分性能，尤其改善远缘同源肽的预测。",
-      "why_it_matters_zh": "结果提示抗菌肽多活性筛选未必依赖昂贵的结构条件深度模型，为低成本、可解释的候选排序与后续测定规划提供了基线。证据目前来自单一基准及既有单折协议，尚不等同于对新肽的前瞻性实验验证或药代、安全性与成药性评估。",
-      "quality_score": 72.0,
+      "abstract_or_text": "Translating virtually designed drug molecules into executable synthesis protocols is essential for connecting computational discovery with automated synthesis. However, most retrosynthesis methods focus on precursor generation, offer limited route diversity, and lack the detailed reaction conditions required for executable protocols. Here, we present Syn-RRAG, a retrieval-augmented LLM-driven synthesis agent connecting virtual screening with automated synthesis and validation. Syn-RRAG integrates initial retrosynthetic prediction, reaction-precedent retrieval and hierarchical refinement to generate structured protocols with complete experimental parameters. Its local generative model searches over complete reaction hypotheses rather than relying solely on token-level beam search, enabling exploration of feasible routes with distinct reaction classes and bond disconnections. It achieved strong retrosynthesis performance on two patent-derived reaction datasets. Syn-RRAG further generated executable plans for three virtually screened drug candidates, all of which were synthesized and validated on an automated platform. These results establish a workflow connecting virtual molecular design, synthesis planning and experimental validation.",
+      "summary_zh": "Syn-RRAG 是检索增强的 LLM 合成智能体：以初始逆合成、反应先例检索和分层细化生成包含完整实验参数的方案，并在自动化平台合成验证了 3 个虚拟筛选候选物。",
+      "why_it_matters_zh": "该工作把虚拟筛选、路线设计与自动化实证连成闭环，且不只给出前体；但自动化验证样本仅 3 个，跨反应类型、底物空间和实验室的泛化性仍待检验。",
+      "quality_score": 86.0,
       "tags": [
         "分子与药物发现",
-        "抗菌肽",
-        "TabPFN",
-        "多标签预测"
+        "逆合成",
+        "自动化合成",
+        "智能体"
       ],
       "evidence_flags": [
-        "benchmark",
-        "state-of-the-art",
-        "ablation",
-        "performance",
-        "preprint"
+        "预印本",
+        "dataset",
+        "experimental",
+        "performance"
       ],
       "publication_status": "preprint",
       "rank": 2,
@@ -131,17 +144,514 @@
       "category": "分子与药物发现",
       "metrics": {},
       "metadata": {
-        "doi": "10.64898/2026.08.27.747591",
+        "doi": "10.26434/chemrxiv.15008409/v1",
         "arxiv_id": ""
       },
-      "abstract_zh": "抗菌肽（AMP）通常可作用于多类病原体，因此多标签活性预测比二元抗菌分类更符合实际筛选目标。ESCAPE 基准将这一任务形式化，但领先方法通常依赖多模态、结构条件化的深度模型，其训练和调参成本很高。我们表明，一个简单的仅序列流程可通过结合330个可解释的序列描述符与 TabPFN——一种无需基于梯度的训练或超参数搜索、可在单次前向传播中进行上下文内预测的表格基础模型——匹配并超越这些方法。在 ESCAPE（82,359条肽；五个标签）上，标签幂集 TabPFN 模型取得 mAP-5=77.8%，优于此前报道的最佳结果72.1%。概率分类器链是首个能同时达到或超过五个标签中每一个标签已发表最佳平均精确率的方法。增益在此前最先进的单折训练协议下仍然存在，说明这并非训练集规模造成的假象；对于远缘同源序列，增益最大（序列同一性低于30%时提高11.2个点）。消融实验进一步表明，推理时不需要预测结构，且性能并非由任何单一描述符家族驱动：十个全局物理化学标量即可恢复完整特征性能的91%。最后，显式建模标签依赖性可为稀缺活性带来有针对性的收益，并支持根据部分阳性证据对下一项应检测的活性进行排序。",
+      "abstract_zh": "将虚拟设计的药物分子转化为可执行的合成方案，对于连接计算发现与自动化合成至关重要。然而，大多数逆合成方法聚焦于前体生成，提供的路线多样性有限，并且缺少可执行方案所需的详细反应条件。这里，我们提出 Syn-RRAG：一种由检索增强 LLM 驱动的合成智能体，用于连接虚拟筛选、自动化合成和验证。Syn-RRAG 整合初始逆合成预测、反应先例检索和分层细化，以生成具有完整实验参数的结构化方案。其本地生成模型在完整反应假设上进行搜索，而非仅依赖 token 级束搜索，从而能够探索具有不同反应类别和成键断裂方式的可行路线。它在两个源自专利的反应数据集上获得了强劲的逆合成性能。Syn-RRAG 还为 3 个经虚拟筛选的药物候选物生成了可执行方案，且全部在自动化平台上完成合成和验证。这些结果建立了一条连接虚拟分子设计、合成规划和实验验证的工作流。",
+      "published": "2026-09-07",
+      "author_line": "Shan Zhu, Xin Chen, Pinqi Wang, Quan Jiang, Mengzhu Li, Qimeng Wang, Guoyun Zhao, Yuan Qi, Fenglei Cao, Li-Cheng Xu"
+    },
+    {
+      "id": "chemrxiv:10.26434/chemrxiv.15008275/v2",
+      "channel": "aixchem",
+      "related_channels": [
+        "aixmath",
+        "aixbio"
+      ],
+      "item_type": "paper",
+      "source": "ChemRxiv",
+      "title": "Machine Learning for High-Throughput Reaction Yield Prediction in DNA-Encoded Library Synthesis",
+      "url": "https://doi.org/10.26434/chemrxiv.15008275/v2",
+      "published_at": "2026-09-07",
+      "updated_at": "2026-09-07",
+      "creators": [
+        "Tao Tang",
+        "Li Gao",
+        "Sen Gao",
+        "Hongyao Zhu",
+        "Guansai Liu",
+        "Jin Li",
+        "Xuemin Cheng"
+      ],
+      "language": "en",
+      "abstract_or_text": "DNA-encoded library (DEL) synthesis relies on efficient DNA-compatible reactions to ensure library fidelity and the reliability of downstream affinity selection. However, most existing reaction yield prediction models were developed for general organic synthesis and typically use full-atom representations of complete reactants and products. In DEL single-cycle synthesis validation, an appropriate model reaction is to focus on the exposed reactive handle, its local chemical environment, the incoming building block (BB), and the reaction type, rather than large constant backgrounds such as the DNA tag, linker, and pre-existing scaffold. Here, we propose a functional-group-centric machine learning framework for DEL single-cycle reaction yield prediction. The model uses only the exposed substrate functional group (FG) and its coarse-grained local environment, the incoming BB, and the reaction type as inputs. Benchmarking on a real-world high-throughput DEL single-cycle validation dataset shows that graph neural network (GNN) models based on this localized representation outperform traditional fingerprint-based baselines, with a graph attention network (GAT) achieving the best overall performance and showing strong robustness on highly imbalanced industrial data. These results indicate that foregrounding the local reaction center is not merely a simplification of molecular representation, but a task-aligned strategy that better reflects the chemistry and decision logic of DEL single-cycle transformations. This lightweight framework is readily compatible with practical DEL workflows and provides valuable supports on reagent quality control (QC), building block selection, high-fidelity library design, and retrospective analysis of anomalous results.",
+      "summary_zh": "该研究为 DNA-encoded library (DEL) 单循环反应收率预测提出以暴露官能团、局部环境、building block (BB) 和反应类型为输入的局部表征；GAT 在真实高通量数据上优于指纹基线。",
+      "why_it_matters_zh": "它把表征与 DEL 单循环反应的实际决策单元对齐，可服务于 BB 选择和库质量控制；但结论限于给定工业数据集与单循环设定，不能直接外推至完整 DEL 合成路线。",
+      "quality_score": 86.0,
+      "tags": [
+        "方法与模型",
+        "DNA-encoded library",
+        "反应收率预测",
+        "图神经网络"
+      ],
+      "evidence_flags": [
+        "预印本",
+        "benchmark",
+        "dataset",
+        "performance"
+      ],
+      "publication_status": "preprint",
+      "rank": 3,
+      "featured": true,
+      "category": "方法与模型",
+      "metrics": {},
+      "metadata": {
+        "doi": "10.26434/chemrxiv.15008275/v2",
+        "arxiv_id": ""
+      },
+      "abstract_zh": "DNA-encoded library (DEL) 合成依赖高效的 DNA 兼容反应，以确保文库保真度和后续亲和筛选的可靠性。然而，大多数现有反应收率预测模型是为一般有机合成开发的，通常使用完整反应物和产物的全原子表示。在 DEL 单循环合成验证中，合适的模型反应应聚焦于暴露的反应把手、其局部化学环境、进入的 building block (BB) 和反应类型，而不是 DNA 标签、连接体和既有骨架等大型恒定背景。这里，我们提出一种以官能团为中心的机器学习框架，用于 DEL 单循环反应收率预测。该模型仅使用暴露的底物官能团 (FG) 及其粗粒化局部环境、进入的 BB 和反应类型作为输入。在一个真实世界高通量 DEL 单循环验证数据集上的基准测试表明，基于这种局部化表示的图神经网络 (GNN) 模型优于传统指纹基线，其中图注意力网络 (GAT) 实现了最佳总体性能，并在高度不平衡的工业数据上显示出强鲁棒性。这些结果表明，突出局部反应中心不只是对分子表示的简化，而是一种与任务相匹配的策略，能更好反映 DEL 单循环转化的化学和决策逻辑。这个轻量级框架可方便地兼容实际 DEL 工作流，并为试剂质量控制 (QC)、building block 选择、高保真文库设计和异常结果的回顾性分析提供有价值的支持。",
+      "published": "2026-09-07",
+      "author_line": "Tao Tang, Li Gao, Sen Gao, Hongyao Zhu, Guansai Liu, Jin Li, Xuemin Cheng"
+    },
+    {
+      "id": "chemrxiv:10.26434/chemrxiv.15002479/v3",
+      "channel": "aixchem",
+      "related_channels": [],
+      "item_type": "paper",
+      "source": "ChemRxiv",
+      "title": "Zinc Redox Catalysis in the Photochemical Borylation of Fluorocarbons",
+      "url": "https://doi.org/10.26434/chemrxiv.15002479/v3",
+      "published_at": "2026-09-06",
+      "updated_at": "2026-09-07",
+      "creators": [
+        "Wenbang Yang",
+        "Aaranjah Vickneswaran",
+        "Alick Birmingham-Conner",
+        "Mark Richard Crimmin"
+      ],
+      "language": "en",
+      "abstract_or_text": "Zinc compounds are ubiquitous in synthesis and materials. They find applications as reagents, catalysts, porous materials and as metalloenzymes — all of which rely on the properties of redox stable and electrophilic zinc(II) centres. In this paper we report the first clear example of redox catalysis involving reversible changes between zinc(I) and zinc(II) oxidation states. Under photochemical conditions a zinc(I) compound was shown to react with aryl fluorides. Turnover was achieved through addition of a diborane reagent, resulting in a catalytic borylation of the C(sp 2 )–F bonds of aryl fluorides. The reaction has a large scope including both electron-deficient and electron-rich aryl fluorides and tolerates a range of functional groups including ethers, amines, heteroaromatics, substituted alkenes and a strained ring-system. These findings were further exploited in the late-stage functionalisation of fluorinated molecules relevant to drug discovery and materials technologies, along the selective, stepwise, borylation of poly(fluorinated) arenes. Experiments and DFT calculations support a catalytic cycle involving changes between the zinc(I) and zinc(II) oxidation state. A zinc(II) boryl intermediate was isolated and shown to play a key role in reformation of the low-oxidation state zinc(I) species. The findings advance our fundamental understanding of redox catalysis with non-transition metal elements and set the foundation for further applications of zinc redox catalysts in challenging chemical transformations.",
+      "summary_zh": "研究报告 Zn(I)/Zn(II) 可逆氧化态变化参与的光化学氧化还原催化，以 diborane 实现芳基氟化物 C(sp2)–F 键催化硼化，并以实验和 DFT 支持催化循环。",
+      "why_it_matters_zh": "为通常被视为氧化还原稳定的 zinc 引入了可利用的低价态催化机制，并可用于含氟分子的后期修饰；但该结果为预印本，底物范围和机理证据仍需同行评议与独立复现。",
+      "quality_score": 76.0,
+      "tags": [
+        "材料与催化",
+        "光化学",
+        "硼化",
+        "锌催化"
+      ],
+      "evidence_flags": [
+        "预印本",
+        "experimental",
+        "DFT"
+      ],
+      "publication_status": "preprint",
+      "rank": 4,
+      "featured": false,
+      "category": "材料与催化",
+      "metrics": {},
+      "metadata": {
+        "doi": "10.26434/chemrxiv.15002479/v3",
+        "arxiv_id": ""
+      },
+      "abstract_zh": "锌化合物在合成和材料中无处不在。它们作为试剂、催化剂、多孔材料和金属酶得到应用——所有这些都依赖于氧化还原稳定且具亲电性的 zinc(II) 中心的性质。本文报道了第一个明确的氧化还原催化实例，涉及 zinc(I) 与 zinc(II) 氧化态之间的可逆变化。在光化学条件下，显示 zinc(I) 化合物可与芳基氟化物反应。通过加入 diborane 试剂实现催化周转，从而对芳基氟化物的 C(sp 2 )–F 键进行催化硼化。该反应具有广泛底物范围，包括缺电子和富电子芳基氟化物，并耐受包括醚、胺、杂芳烃、取代烯烃和张力环系在内的一系列官能团。这些发现还被用于与药物发现和材料技术相关的含氟分子的后期官能化，以及多(氟化)芳烃的选择性逐步硼化。实验和 DFT 计算支持一个涉及 zinc(I) 与 zinc(II) 氧化态变化的催化循环。一个 zinc(II) boryl 中间体被分离，并被证明在低氧化态 zinc(I) 物种的再生成中起关键作用。这些发现推进了我们对非过渡金属元素氧化还原催化的基础理解，并为 zinc 氧化还原催化剂在具挑战性化学转化中的进一步应用奠定基础。",
       "published": "2026-09-06",
-      "author_line": "Pal, A., Kumar, R., Solanki, D., Pareek, P., Singh, J., Singla, J."
+      "author_line": "Wenbang Yang, Aaranjah Vickneswaran, Alick Birmingham-Conner, Mark Richard Crimmin"
+    },
+    {
+      "id": "chemrxiv:10.26434/chemrxiv.15008394/v1",
+      "channel": "aixchem",
+      "related_channels": [
+        "aixbio"
+      ],
+      "item_type": "paper",
+      "source": "ChemRxiv",
+      "title": "Heme-catalyzed Endogenous Activation of N-oxide Prodrugs",
+      "url": "https://doi.org/10.26434/chemrxiv.15008394/v1",
+      "published_at": "2026-09-07",
+      "updated_at": "2026-09-07",
+      "creators": [
+        "Si Ha",
+        "Tingyu Guo",
+        "Feng Wang",
+        "Ke Li",
+        "Chong-Jing Zhang"
+      ],
+      "language": "en",
+      "abstract_or_text": "N-oxides are prominent functionalities in bioorthogonal prodrugs activated by exogenous stimuli such as boron reagents, X-ray, and ultrasound. However, N-oxide optical probes that are activated by endogenous heme and hemoproteins are recently reported, which has caused the existence of endogenous activation mechanism of N-oxide prodrugs to be overlooked or remain disputed. Here, we report a systemic study to examine the endogenous activation of N-oxide prodrugs in vitro, in liver microsomes, and in mice. We prepared four N-oxide prodrugs based on the synthetic molecule IOX5 and natural product derivative SN-38 with stable N-oxide moieties. We found that all the prodrugs could be catalytically reduced by heme and hemoproteins in vitro. The pharmacokinetics results indicated that all prodrugs could release the parent drugs in liver microsomes and animals. Notably, N-oxide prodrugs of SN-38, 7-1 and 8-40, exhibited dramatically improved oral bioavailability (23.3% and 18.7% for released SN-38) compared to SN-38 itself (0.07%). In the acute myeloid leukemia mice, oral administration of 7‑1 markedly reduced the leukemia burden and the percentage of leukemia stem cells, significantly prolonging the survival rate of leukemia mice. Overall, this study not only discloses that N-oxide prodrugs could be activated by endogenous heme, without any exogenous reagent or specific physiological condition, but also provides a modular and promising prodrug strategy to improve the oral bioavailability of poorly water-soluble drugs.",
+      "summary_zh": "该研究系统考察 heme/hemoproteins 对 N-oxide 前药的内源性还原激活，在肝微粒体和小鼠中验证 IOX5、SN-38 衍生物；SN-38 N-oxide 前药还在急性髓系白血病小鼠中显示疗效。",
+      "why_it_matters_zh": "它提出无需外源触发剂的 N-oxide 前药激活路线，并报告显著提高 SN-38 口服生物利用度；但候选物的安全性、选择性和向人体转化尚无证据，不能据此推断临床效用。",
+      "quality_score": 75.0,
+      "tags": [
+        "分子与药物发现",
+        "前药",
+        "药代动力学",
+        "heme"
+      ],
+      "evidence_flags": [
+        "预印本",
+        "in vitro",
+        "肝微粒体",
+        "小鼠",
+        "release"
+      ],
+      "publication_status": "preprint",
+      "rank": 5,
+      "featured": false,
+      "category": "分子与药物发现",
+      "metrics": {},
+      "metadata": {
+        "doi": "10.26434/chemrxiv.15008394/v1",
+        "arxiv_id": ""
+      },
+      "abstract_zh": "N-oxides 是生物正交前药中的重要官能团，可由 boron 试剂、X-ray 和 ultrasound 等外源刺激激活。然而，最近报道了可由内源性 heme 和 hemoproteins 激活的 N-oxide 光学探针，这使得 N-oxide 前药内源性激活机制的存在被忽视或仍存争议。这里，我们报告一项系统研究，考察 N-oxide 前药在体外、肝微粒体和小鼠中的内源性激活。我们制备了 4 种基于合成分子 IOX5 和天然产物衍生物 SN-38、带有稳定 N-oxide 基团的前药。我们发现，所有前药均可在体外被 heme 和 hemoproteins 催化还原。药代动力学结果表明，所有前药均可在肝微粒体和动物中释放母体药物。值得注意的是，SN-38 的 N-oxide 前药 7-1 和 8-40 的口服生物利用度显著提高（释放的 SN-38 分别为 23.3% 和 18.7%），相比之下 SN-38 本身为 0.07%。在急性髓系白血病小鼠中，口服给予 7‑1 显著降低了白血病负荷和白血病干细胞比例，并显著延长白血病小鼠的存活率。总体而言，本研究不仅揭示 N-oxide 前药可由内源性 heme 激活，而无需任何外源试剂或特定生理条件，还提供了一种模块化且有前景的前药策略，用于改善难溶于水药物的口服生物利用度。",
+      "published": "2026-09-07",
+      "author_line": "Si Ha, Tingyu Guo, Feng Wang, Ke Li, Chong-Jing Zhang"
+    },
+    {
+      "id": "chemrxiv:10.26434/chemrxiv.15008396/v1",
+      "channel": "aixchem",
+      "related_channels": [
+        "aixbio"
+      ],
+      "item_type": "paper",
+      "source": "ChemRxiv",
+      "title": "Interpretable Machine Learning for Predicting Cytochrome P450 Mechanism-Based Inhibition",
+      "url": "https://doi.org/10.26434/chemrxiv.15008396/v1",
+      "published_at": "2026-09-07",
+      "updated_at": "2026-09-07",
+      "creators": [
+        "Khushashish Bhasin",
+        "Sudham Engle",
+        "Devendra Kumar Dhaked"
+      ],
+      "language": "en",
+      "abstract_or_text": "Cytochrome P450 (CYP450) enzymes play a crucial role in the metabolism of endogenous and exogenous compounds, and their inhibition can lead to clinically significant drug–drug interactions and adverse effects. Mechanism-based inhibition (MBI) is a time-dependent form of CYP450 inhibition in which enzyme-mediated bioactivation of an inhibitor can result in persistent or irreversible enzyme inactivation. Early identification of compounds with MBI liability is therefore important for reducing metabolic and drug–drug interaction risks during drug discovery. In this study, a curated dataset of 569 unique MBI compounds was compiled from the literature, while non-mechanism-based inhibitors (NMBIs) were obtained from PubChem. To construct a chemically diverse negative dataset, Butina clustering-based sampling was employed. Molecular representations based on RDKit and Mordred descriptors, MACCS keys, and ECFP fingerprints were evaluated using five machine learning algorithms, with feature selection and model optimization applied systematically. CYP-aware stratified splitting was employed to ensure appropriate representation of CYP isoform–class combinations across the training and test sets, and its performance was compared with random stratified splitting. Among the evaluated molecular representations, RDKit descriptors generally provided the strongest predictive performance, with optimized models achieving test-set ROC-AUC values of up to 0.92 in the CYP-aware evaluation. Applicability-domain analysis further demonstrated higher prediction accuracy for compounds within the defined chemical space, supporting the reliability of predictions for structurally represented compounds. In addition, structural-alert analysis identified class-associated structural motifs, including statistically significant alerts preferentially associated with MBI compounds, providing chemically interpretable information complementary to the machine learning models. Evaluation using the expanded MBI569 dataset further assessed the robustness of the predictive models across different dataset sizes and splitting strategies. Overall, this study demonstrates a systematic and interpretable approach for predicting CYP450 mechanism-based inhibition, with potential utility for the early identification of MBI liabilities during drug discovery.",
+      "summary_zh": "研究以 569 个文献整理的 mechanism-based inhibition (MBI) 化合物构建 CYP450 风险预测框架，比较描述符、指纹与五种机器学习算法，并通过 CYP-aware 划分和结构警报增强可解释性。",
+      "why_it_matters_zh": "CYP450 MBI 是重要的药物代谢和药物相互作用风险；其 ROC-AUC 最高为 0.92，且考虑了适用域。限制在于负例来自 PubChem、标签和划分策略仍可能影响外推，模型不能替代实验性代谢评估。",
+      "quality_score": 75.0,
+      "tags": [
+        "分子与药物发现",
+        "ADMET",
+        "CYP450",
+        "可解释机器学习"
+      ],
+      "evidence_flags": [
+        "预印本",
+        "dataset",
+        "evaluation",
+        "performance",
+        "clinical"
+      ],
+      "publication_status": "preprint",
+      "rank": 6,
+      "featured": false,
+      "category": "分子与药物发现",
+      "metrics": {},
+      "metadata": {
+        "doi": "10.26434/chemrxiv.15008396/v1",
+        "arxiv_id": ""
+      },
+      "abstract_zh": "Cytochrome P450 (CYP450) 酶在内源性和外源性化合物的代谢中发挥关键作用，而其抑制可导致具有临床意义的药物–药物相互作用和不良反应。Mechanism-based inhibition (MBI) 是 CYP450 抑制的一种时间依赖性形式，其中抑制剂经酶介导的生物活化可导致酶持续性或不可逆失活。因此，在药物发现早期识别具有 MBI 风险的化合物，对于降低代谢和药物–药物相互作用风险很重要。在本研究中，从文献汇编了包含 569 个独特 MBI 化合物的整理数据集，而非机制型抑制剂 (NMBIs) 来自 PubChem。为构建化学多样的负数据集，采用基于 Butina 聚类的采样。评估了基于 RDKit 和 Mordred 描述符、MACCS keys 及 ECFP fingerprints 的分子表示，并系统应用特征选择和模型优化。采用 CYP-aware 分层划分，以确保 CYP isoform–class 组合在训练集和测试集间得到适当表示，并将其性能与随机分层划分比较。在所评估的分子表示中，RDKit 描述符通常提供最强预测性能；在 CYP-aware 评估中，优化模型的测试集 ROC-AUC 最高达 0.92。适用域分析进一步表明，在定义的化学空间内，化合物具有更高预测准确性，支持了对结构被代表的化合物进行预测的可靠性。此外，结构警报分析识别出与类别相关的结构基序，包括优先与 MBI 化合物相关的统计学显著警报，为机器学习模型提供化学上可解释的补充信息。使用扩展的 MBI569 数据集的评估进一步评估了预测模型在不同数据集规模和划分策略下的鲁棒性。总体而言，本研究展示了一种系统且可解释的方法来预测 CYP450 mechanism-based inhibition，可能有助于在药物发现早期识别 MBI 风险。",
+      "published": "2026-09-07",
+      "author_line": "Khushashish Bhasin, Sudham Engle, Devendra Kumar Dhaked"
+    },
+    {
+      "id": "chemrxiv:10.26434/chemrxiv.15008270/v2",
+      "channel": "aixchem",
+      "related_channels": [],
+      "item_type": "paper",
+      "source": "ChemRxiv",
+      "title": "TAME: Element-wise Mixture-of-Experts Fusion for Reliable and Interpretable Molecular Property Prediction",
+      "url": "https://doi.org/10.26434/chemrxiv.15008270/v2",
+      "published_at": "2026-09-07",
+      "updated_at": "2026-09-07",
+      "creators": [
+        "Robert P. Schiller",
+        "Christoph Weisser",
+        "Klaus-Robert Müller",
+        "Christian Ochsenfeld",
+        "Parastoo Semnani"
+      ],
+      "language": "en",
+      "abstract_or_text": "Property prediction for molecules and materials is bottlenecked by label scarcity, and in this regime the operative failure mode is not a low mean but an unpredictable tail: individual training runs collapse. The three dominant molecular representations fail in complementary ways—physicochemical descriptors are exact but fixed, graph neural networks learn topology but degenerate under sparse supervision, and language models supply semantic context but cannot compute exact quantities— yet combining them is itself the learning problem, because modality-level scalar gating commits the whole model to one trust weight per source. We introduce TAME , a tri-modal encoder whose element-wise Mixture-of-Experts router assigns an independent modality mixture to every hidden coordinate, stabilized by a balance–entropy regularizer, a closed-form gate initialization (β = log τ ) that is intended to remove router burn-in, and two-stage self-supervised graph pretraining. On scaffold-split BACE (≈ 1.5k molecules, 100 seeds) we evaluate two fusion topologies, each against its own graph-only control. In both, adding the text and descriptor experts contracts the seed-to-seed distribution of the threshold-free metrics—ROC-AUC σ falls five-fold in the flat topology and 1.6-fold in the hierarchical one, whose control was already the tighter of the two—and the collapse tail reaching ROC-AUC ≈ 0.45 that the weaker single-modality configurations carry is absent from the fused models while accuracy is retained. Each comparison is matched on everything but the fusion stage, isolating its effect. The router allocates a distinct mixture to each coordinate, which no scalar gate can represent, and the entropy weight moves that allocation continuously between graded mixing and a near-binary regime in which each coordinate is claimed outright by one modality. Fused-representation alignment tracks encoder quality without supervision, shifting from text to topology once pretraining lifts the graph embedding out of rank-1 collapse. The same three experts map onto crystal graphs, composition–structure descriptors and literature-mined text. These three modalities recur unchanged across molecular and inorganic chemistry, so TAME is a single interpretable recipe for turning volatile low-data predictors into reliable, self-explaining ones, wherever data are scarce and every failed prediction costs a real experiment.",
+      "summary_zh": "TAME 以逐隐藏坐标的 Mixture-of-Experts 路由融合描述符、图和文本三种分子/材料表示，并在 scaffold-split BACE 的 100 个随机种子实验中降低性能波动和训练崩溃尾部。",
+      "why_it_matters_zh": "工作把低数据学习的可靠性而非仅平均指标作为目标，且提出可解释的细粒度模态融合；不过主要实证集中于 BACE，向晶体和无机体系的迁移仍是作者提出的映射而非已展示的结果。",
+      "quality_score": 73.0,
+      "tags": [
+        "材料与催化",
+        "分子性质预测",
+        "Mixture-of-Experts",
+        "低数据学习"
+      ],
+      "evidence_flags": [
+        "预印本",
+        "benchmark",
+        "100个随机种子",
+        "性能稳定性"
+      ],
+      "publication_status": "preprint",
+      "rank": 7,
+      "featured": false,
+      "category": "材料与催化",
+      "metrics": {},
+      "metadata": {
+        "doi": "10.26434/chemrxiv.15008270/v2",
+        "arxiv_id": ""
+      },
+      "abstract_zh": "分子和材料的性质预测受标签稀缺制约；在这种情形下，实际的失败模式不是均值偏低，而是不可预测的尾部：个别训练运行会崩溃。三种主要分子表示以互补方式失败——物理化学描述符精确但固定，图神经网络学习拓扑但在稀疏监督下退化，语言模型提供语义上下文但无法计算精确量——然而，将它们组合本身就是学习问题，因为模态级标量门控会让整个模型对每个来源只承诺一个信任权重。我们引入 TAME：一种三模态编码器，其逐元素 Mixture-of-Experts 路由器为每个隐藏坐标分配独立的模态混合，并通过平衡–熵正则化、旨在消除路由器预热期的闭式门初始化（β = log τ）以及两阶段自监督图预训练来稳定。在 scaffold-split BACE（约 1.5k 个分子，100 个随机种子）上，我们评估两种融合拓扑，各自与其仅图模型对照比较。在两种拓扑中，加入文本和描述符专家都会收缩无阈值指标的种子间分布——平面拓扑中 ROC-AUC σ 下降五倍，分层拓扑中下降 1.6 倍，而后者的对照本已是较紧的一种——并且在较弱单模态配置中达到 ROC-AUC ≈ 0.45 的崩溃尾部在融合模型中消失，同时保持准确率。每项比较除融合阶段外均完全匹配，从而隔离其效应。路由器为每个坐标分配不同混合，这是任何标量门都无法表示的；熵权重使该分配在分级混合与近似二元状态之间连续变化，在后二元状态中每个坐标被某一模态完全占有。融合表示对齐在无监督条件下追踪编码器质量；一旦预训练使图嵌入摆脱 rank-1 崩溃，它便从文本转向拓扑。这三类专家可同样映射到晶体图、组成–结构描述符和文献挖掘文本。这三种模态在分子和无机化学中不变地重复出现，因此 TAME 是一种单一、可解释的方案，用于在数据稀缺、且每次失败预测都会付出真实实验代价的场景下，将不稳定的低数据预测器转变为可靠且可自解释的预测器。",
+      "published": "2026-09-07",
+      "author_line": "Robert P. Schiller, Christoph Weisser, Klaus-Robert Müller, Christian Ochsenfeld, Parastoo Semnani"
+    },
+    {
+      "id": "biorxiv:10.1101/2025.04.02.646906",
+      "channel": "aixchem",
+      "related_channels": [],
+      "item_type": "paper",
+      "source": "bioRxiv",
+      "title": "Learning Universal Representations of Intermolecular Interactions with ATOMICA",
+      "url": "https://www.biorxiv.org/content/10.1101/2025.04.02.646906",
+      "published_at": "2026-09-07",
+      "updated_at": "2026-09-07",
+      "creators": [
+        "Fang, A.",
+        "Desgagne, M.",
+        "Zhang, Z.",
+        "Zhou, A.",
+        "Loscalzo, J.",
+        "Pentelute, B. L.",
+        "Zitnik, M."
+      ],
+      "language": "en",
+      "abstract_or_text": "Molecular interactions underlie nearly all biological processes, yet most representation models describe isolated entities or specialize in a single molecular setting. Here, we introduce ATOMICA, an interaction-centered geometric deep learning model designed to learn transferable representations of intermolecular interfaces across proteins, small molecules, metal ions, and nucleic acids. Self-supervised pretraining on 2,037,972 interaction complexes yields representations spanning atoms, molecular building blocks, and complete interfaces. The latent space captures molecular identity and interaction context, supporting sequence recovery and zero-shot prioritization of residues involved in non-covalent interactions. ATOMICA provides structural information complementary to sequence representations on RNA and protein-pocket ligand classification. Across protein-pocket analyses, ATOMICA distinguishes ATP- and ADP-associated pocket states and retrieves ligand-matched pockets across proteins without detectable structural alignment. The latent space also enables cross-modal comparison, with orthosteric inhibitor embeddings retrieving regions proximal to native peptide and protein interfaces. Applied to the dark proteome, ATOMICA-Ligand predicts candidate ions or cofactors for 2,646 pockets, and five heme candidates show Soret-band shifts consistent with heme association. Together, these results show how interaction-centered molecular representations can transfer structural information across molecular interaction types and generate experimentally testable hypotheses.",
+      "summary_zh": "ATOMICA 是以分子间界面为中心的几何深度学习模型，在 2,037,972 个相互作用复合物上自监督预训练，并在暗蛋白组提出 2,646 个口袋的离子或辅因子候选；其中 5 个 heme 候选获光谱支持。",
+      "why_it_matters_zh": "它尝试用统一表征跨越蛋白、小分子、金属离子和核酸相互作用，并将计算假设连接到 heme 结合实验；但多数下游结论仍为表示学习评估或预测，生物功能和其他预测需进一步验证。",
+      "quality_score": 72.0,
+      "tags": [
+        "结构与生物",
+        "几何深度学习",
+        "分子相互作用",
+        "蛋白功能注释"
+      ],
+      "evidence_flags": [
+        "预印本",
+        "dataset",
+        "实验性光谱支持",
+        "experimental"
+      ],
+      "publication_status": "preprint",
+      "rank": 8,
+      "featured": false,
+      "category": "结构与生物",
+      "metrics": {},
+      "metadata": {
+        "doi": "10.1101/2025.04.02.646906",
+        "arxiv_id": ""
+      },
+      "abstract_zh": "分子相互作用支撑几乎所有生物过程，但大多数表征模型描述孤立实体，或专门针对单一分子环境。这里，我们引入 ATOMICA：一种以相互作用为中心的几何深度学习模型，旨在学习跨蛋白质、小分子、金属离子和核酸的可迁移分子间界面表征。在 2,037,972 个相互作用复合物上进行自监督预训练，得到涵盖原子、分子构件和完整界面的表征。该潜在空间捕捉分子身份和相互作用上下文，支持序列恢复以及对参与非共价相互作用的残基进行零样本优先排序。ATOMICA 在 RNA 和蛋白口袋–配体分类上提供了与序列表征互补的结构信息。在蛋白口袋分析中，ATOMICA 区分 ATP- 和 ADP- 相关的口袋状态，并在无需可检测结构比对的情况下跨蛋白检索配体匹配的口袋。该潜在空间还支持跨模态比较，正构抑制剂嵌入可检索接近天然肽和蛋白界面的区域。应用于暗蛋白组时，ATOMICA-Ligand 为 2,646 个口袋预测候选离子或辅因子，5 个 heme 候选显示出与 heme 结合一致的 Soret-band 位移。综上，这些结果表明，以相互作用为中心的分子表征可以在不同分子相互作用类型间迁移结构信息，并产生可实验检验的假设。",
+      "published": "2026-09-07",
+      "author_line": "Fang, A., Desgagne, M., Zhang, Z., Zhou, A., Loscalzo, J., Pentelute, B. L., Zitnik, M."
+    },
+    {
+      "id": "biorxiv:10.64898/2026.09.03.747733",
+      "channel": "aixchem",
+      "related_channels": [
+        "aixmath",
+        "aixbio"
+      ],
+      "item_type": "paper",
+      "source": "bioRxiv",
+      "title": "Learning from tandem mass spectra at scale with a self-supervised foundation model for proteomics",
+      "url": "https://www.biorxiv.org/content/10.64898/2026.09.03.747733",
+      "published_at": "2026-09-07",
+      "updated_at": "2026-09-07",
+      "creators": [
+        "Nieuwoudt, M.",
+        "Reverenna, M.",
+        "Patel, D.",
+        "Catzel, R.",
+        "Houngue, I. H. J.",
+        "Daniel, J.",
+        "Eloff, K.",
+        "Santos, A.",
+        "Lopez Carranza, N.",
+        "Jenkins, T. P.",
+        "Van Goey, J.",
+        "Kalogeropoulos, K."
+      ],
+      "language": "en",
+      "abstract_or_text": "Mass spectrometry-based proteomics increasingly relies on machine learning, yet existing models are trained for defined supervised tasks such as peptide identification, de novo sequencing or fragment intensity prediction, limiting transfer across datasets, instruments and acquisition methods. Here we present InstaNovo-FM, a self-supervised foundation model for bottom-up proteomics trained to reconstruct masked regions of tandem mass spectra. We assemble a diverse training corpus spanning 1.47 billion MS/MS spectra and 184.6 million high-confidence annotations. We train an encoder-only transformer on the annotated tier using a physics-aware masked reconstruction objective. We demonstrate that the InstaNovo-FM embeddings encode fundamental experimental and biological properties, including fragmentation method, sequence properties and post-translational modifications, without requiring peptide labels. Furthermore, this foundation model directly enables diverse downstream applications, including de novo peptide sequencing, database-free identification and analytical run classification. InstaNovo-FM establishes a unified representation space for peptide fragmentation spectra, enabling robust transferability across the proteomics ecosystem.",
+      "summary_zh": "InstaNovo-FM 是面向 bottom-up proteomics 的自监督 foundation model，在 1.47 billion MS/MS 光谱和 184.6 million 高置信度注释上以物理感知掩码重建训练，可迁移至测序、无数据库鉴定和运行分类。",
+      "why_it_matters_zh": "大规模且跨实验条件的预训练有望减轻蛋白质组模型对特定仪器和监督任务的依赖；但摘要没有给出与专用模型的定量比较或外部前瞻验证，实际增益仍须核查。",
+      "quality_score": 71.0,
+      "tags": [
+        "方法与模型",
+        "蛋白质组学",
+        "质谱",
+        "foundation model"
+      ],
+      "evidence_flags": [
+        "预印本",
+        "dataset",
+        "1.47 billion MS/MS 光谱",
+        "184.6 million 注释",
+        "experimental"
+      ],
+      "publication_status": "preprint",
+      "rank": 9,
+      "featured": false,
+      "category": "方法与模型",
+      "metrics": {},
+      "metadata": {
+        "doi": "10.64898/2026.09.03.747733",
+        "arxiv_id": ""
+      },
+      "abstract_zh": "基于质谱的蛋白质组学日益依赖机器学习，但现有模型是为肽段鉴定、从头测序或碎片离子强度预测等确定的监督任务训练的，这限制了其跨数据集、仪器和采集方法的迁移。这里，我们提出 InstaNovo-FM：一种面向 bottom-up proteomics 的自监督 foundation model，其训练目标是重建串联质谱中被掩蔽的区域。我们汇集了一个多样化训练语料库，涵盖 1.47 billion 个 MS/MS 光谱和 184.6 million 个高置信度注释。我们在注释层级上使用物理感知的掩码重建目标训练了一个仅编码器 transformer。我们证明，InstaNovo-FM 嵌入无需肽段标签即可编码基础实验和生物学性质，包括碎裂方法、序列性质和翻译后修饰。此外，这一 foundation model 可直接支持多种下游应用，包括从头肽段测序、无数据库鉴定和分析运行分类。InstaNovo-FM 为肽段碎裂光谱建立了统一的表征空间，使其可在整个蛋白质组学生态系统中实现稳健迁移。",
+      "published": "2026-09-07",
+      "author_line": "Nieuwoudt, M., Reverenna, M., Patel, D., Catzel, R., Houngue, I. H. J., Daniel, J., Eloff, K., Santos, A., Lopez Carranza, N., Jenkins, T. P., Van Goey, J., Kalogeropoulos, K."
+    },
+    {
+      "id": "chemrxiv:10.26434/chemrxiv.15008424/v1",
+      "channel": "aixchem",
+      "related_channels": [
+        "aixbio"
+      ],
+      "item_type": "paper",
+      "source": "ChemRxiv",
+      "title": "Electrostatic Encoding Enables Simultaneous Dual Labeling of Proteins by a Single Sortase A Enzyme",
+      "url": "https://doi.org/10.26434/chemrxiv.15008424/v1",
+      "published_at": "2026-09-07",
+      "updated_at": "2026-09-07",
+      "creators": [
+        "Chen Wang",
+        "Magalie Sénéchal",
+        "Benoît Snella",
+        "Oleg Melnyk",
+        "Vangelis Agouridas"
+      ],
+      "language": "en",
+      "abstract_or_text": "Site-specific dual labeling of proteins provides access to multifunctional biomolecular constructs for applications ranging from imaging to the development of next-generation therapeutics. Currently, enzymatic dual labeling strategies rely on workflows involving multiple (semi-)orthogonal enzymes or temporary protection/deprotection schemes. Here, we present a one-pot strategy for protein dual labeling that relies on the single sortase A pentamutant (SrtA-5M) enzyme. By rationally designing complementary charged modules on the protein substrate and labeling reagent, we exploit electrostatic interactions to selectively guide the simultaneous installation of two distinct labels at the N- and C-termini of recombinant proteins without the need for multiple ligases, protecting groups, intermediate purification steps, or large reagent excesses. The efficiency of the approach is demonstrated on protein substrates and affords dually labeled products with high selectivity under mild reaction conditions. Beyond its practical utility, this study provides new insights into the influence of the P2 residue x within the sortase recognition motif (LPxTG) relative to glycyl nucleophiles, revealing an important role in governing sortase-mediated transpeptidation outcomes.",
+      "summary_zh": "该研究通过在蛋白底物和标记试剂上设计互补电荷模块，用单一 sortase A pentamutant (SrtA-5M) 在温和的一锅条件下同时完成重组蛋白 N、C 端双标记。",
+      "why_it_matters_zh": "它以电静力编码减少多酶、保护/脱保护和中间纯化步骤，可简化多功能蛋白构建；但摘要所述验证限于蛋白底物，复杂蛋白、不同标签与规模化制备中的通用性仍未知。",
+      "quality_score": 70.0,
+      "tags": [
+        "结构与生物",
+        "蛋白标记",
+        "Sortase A",
+        "化学生物学"
+      ],
+      "evidence_flags": [
+        "预印本",
+        "experimental"
+      ],
+      "publication_status": "preprint",
+      "rank": 10,
+      "featured": false,
+      "category": "结构与生物",
+      "metrics": {},
+      "metadata": {
+        "doi": "10.26434/chemrxiv.15008424/v1",
+        "arxiv_id": ""
+      },
+      "abstract_zh": "蛋白质的位点特异性双标记可获得多功能生物分子构建体，应用范围从成像到开发下一代治疗药物。目前，酶促双标记策略依赖于涉及多个（半）正交酶的工作流，或临时保护/脱保护方案。这里，我们提出一种一锅式蛋白双标记策略，依赖于单一 sortase A pentamutant (SrtA-5M) 酶。通过在蛋白底物和标记试剂上理性设计互补带电模块，我们利用静电相互作用来选择性引导两种不同标签同时安装至重组蛋白的 N-端和 C-端，无需多个 ligases、保护基、中间纯化步骤或大量试剂过量。该方法的效率在蛋白底物上得到展示，并在温和反应条件下以高选择性获得双标记产物。除其实用价值外，本研究还为 sortase 识别基序 (LPxTG) 中 P2 残基 x 相对于 glycyl nucleophiles 的影响提供了新见解，揭示其在决定 sortase 介导转肽结果中具有重要作用。",
+      "published": "2026-09-07",
+      "author_line": "Chen Wang, Magalie Sénéchal, Benoît Snella, Oleg Melnyk, Vangelis Agouridas"
+    },
+    {
+      "id": "chemrxiv:10.26434/chemrxiv.15008417/v1",
+      "channel": "aixchem",
+      "related_channels": [],
+      "item_type": "paper",
+      "source": "ChemRxiv",
+      "title": "Near-Complete Synthon Library via Retrosynthetic Analysis for Automated Organic Synthesis",
+      "url": "https://doi.org/10.26434/chemrxiv.15008417/v1",
+      "published_at": "2026-09-07",
+      "updated_at": "2026-09-07",
+      "creators": [
+        "Baicheng Zhang",
+        "Jing Chen",
+        "Xiaolong Zhang",
+        "Pieter E. S. Smith",
+        "Aoyuan Cheng",
+        "Runyang Miao",
+        "Hongping Liu",
+        "Linjiang Chen",
+        "Bin Jiang",
+        "Guoqing Zhang",
+        "Yi Luo",
+        "Jun Jiang"
+      ],
+      "language": "en",
+      "abstract_or_text": "As idealized structural fragments for guiding bond disconnections, synthons are considered the conceptual backbone of retrosynthetic analysis. Yet retrosynthesis can be difficult because the choice of synthons requires extensive experience in organic synthesis, which prevents non-experts from accessing desired products. Here we address this knowledge gap by constructing a curated, machine interpretable database of commercially available synthon equivalents (hereafter valid synthons) distilled from large-scale retrosynthetic analysis. Mining over 40 million molecules from PubChem, we identify 1,617 essential valid synthons. These synthons, organized into (i) molecular backbones, (ii) functional groups, and (iii) linker motifs, were obtained via iterative retrosynthetic decomposition and stringent frequency based filtering tied to documented reaction precedents. The resulting set enables the in silico reconstruction of over 94% of these 40 million molecules. We demonstrate that such synthons reduce dependence on expansive reagent inventories, even though the routes themselves are non-conventional and algorithm-generated: using only seven representative valid synthons, we accessed three structurally and functionally divergent targets (melatonin, a natural sleep hormone; an azo dye; and a photoactive melatonin derivative), illustrating the breadth and practicality of a synthons to products methodology in the context of automated synthesis for non-experts in organic synthesis.",
+      "summary_zh": "研究从 PubChem 的 40 million 分子进行大规模逆合成挖掘，整理出 1,617 个可机器解释的 commercial valid synthons；该集合可在计算中重建超过 94% 的分子，并用 7 个 synthon 展示 3 个目标的可达性。",
+      "why_it_matters_zh": "若能用紧凑且有反应先例约束的 synthon 集指导自动合成，可降低非专家对庞大试剂库和经验的依赖；但“重建”是计算路线层面的证据，尚未证明该库对广泛真实底物的自动化成功率。",
+      "quality_score": 70.0,
+      "tags": [
+        "方法与模型",
+        "逆合成",
+        "自动化有机合成",
+        "synthon"
+      ],
+      "evidence_flags": [
+        "预印本",
+        "40 million 分子",
+        "1,617 synthons"
+      ],
+      "publication_status": "preprint",
+      "rank": 11,
+      "featured": false,
+      "category": "方法与模型",
+      "metrics": {},
+      "metadata": {
+        "doi": "10.26434/chemrxiv.15008417/v1",
+        "arxiv_id": ""
+      },
+      "abstract_zh": "作为指导键断裂的理想化结构片段，synthons 被视为逆合成分析的概念骨架。然而，逆合成可能很困难，因为 synthon 的选择需要丰富的有机合成经验，这使非专家难以获得期望产物。这里，我们通过构建一个经整理、机器可解释的商业可得 synthon 等价物数据库（下称 valid synthons）来解决这一知识缺口；该数据库源自大规模逆合成分析。通过挖掘 PubChem 中超过 40 million 个分子，我们识别出 1,617 个关键 valid synthons。这些 synthons 被组织为 (i) 分子骨架、(ii) 官能团和 (iii) 连接体基序，通过迭代逆合成分解和与已记录反应先例相关联的严格频率过滤得到。所得集合能够在计算中重建这 40 million 个分子中的超过 94%。我们证明，这些 synthons 可减少对庞大试剂库存的依赖，尽管路线本身是非传统且由算法生成的：仅使用 7 个代表性 valid synthons，我们就获得了 3 个在结构和功能上差异很大的目标物（褪黑素，一种天然睡眠激素；一种偶氮染料；以及一种光活性褪黑素衍生物），说明了面向有机合成非专家、在自动化合成背景下 synthons-to-products 方法学的广度和实用性。",
+      "published": "2026-09-07",
+      "author_line": "Baicheng Zhang, Jing Chen, Xiaolong Zhang, Pieter E. S. Smith, Aoyuan Cheng, Runyang Miao, Hongping Liu, Linjiang Chen, Bin Jiang, Guoqing Zhang, Yi Luo, Jun Jiang"
+    },
+    {
+      "id": "biorxiv:10.64898/2026.09.04.749196",
+      "channel": "aixchem",
+      "related_channels": [
+        "aixbio"
+      ],
+      "item_type": "paper",
+      "source": "bioRxiv",
+      "title": "De Novo Design and AlphaFold3 Evaluation of Protein Binders Targeting Specific Sites of MAP4K4",
+      "url": "https://www.biorxiv.org/content/10.64898/2026.09.04.749196",
+      "published_at": "2026-09-07",
+      "updated_at": "2026-09-07",
+      "creators": [
+        "Jain, A.",
+        "Tobias, A. V."
+      ],
+      "language": "en",
+      "abstract_or_text": "MAP4K4 is a serine/threonine kinase member of the mitogen activated protein kinase family. It acts through the JNK, p38 MAPK, and ERK1/2 pathways and is implicated in cancer proliferation and invasion, TNF--driven insulin resistance, macrophage-mediated inflammation, and cardiomyocyte apoptosis in heart failure. No selective small-molecule inhibitor of MAP4K4 has reached clinical use, and knowledge of the specific epitopes on MAP4K4 is lacking for some existing antibodies, leaving a role for small protein binders directed at specific surface sites. We used a computational pipeline that combines RFdiffusion, ProteinMPNN, and AlphaFold2, as well as BindCraft, an integrated \"one-shot\" tool, for de novo design of small protein binders (~50-130 residues) to specific MAP4K4 surface hotspots. We also created an automated hotspot determination algorithm that weighs geometry, chemistry, rigidity, and AlphaFold pLDDT. From thousands of candidate sequences, we evaluated 20 of the most promising binders with AlphaFold3 (AF3). The interface predicted template modeling (ipTM) scores ranged from 0.16 to 0.90, with nine candidates having ipTM [≥] 0.80, and five scoring [≥] 0.87. Two binders engage non-overlapping hotspots on opposite faces of MAP4K4, making them a candidate pair for a sandwich assay. BLASTp searches of all designed protein sequences returned only low-significance matches to half of them, indicating that they represent truly novel binding solutions and previously unexplored regions of protein sequence space rather than rediscovered natural motifs. We subjected five complexes spanning the observed AF3 confidence range to 100-ns explicit-solvent molecular dynamics simulation. Interchain contacts were retained throughout, with stability varying substantially between systems. Confidence in the binding specificity of the nine highest-confidence candidates was bolstered by juxtaposition with AF3 evaluations of their interaction with CDK2, a negative-control kinase. This comparison yielded a significant, consistent reduction in ipTM (p = 0.0039) for the control binding partner. ToxinPred2 and AlgPred 2.0 screening suggested that one candidate was a potential allergen and two were potential toxins. These results support that de novo design of small, site-specific protein probes for an underserved disease target is achievable using free, publicly available computational tools and minimal resources, pointing to a greater role for the public and amateur scientists to contribute to biotechnological advancement.",
+      "summary_zh": "研究以 RFdiffusion、ProteinMPNN、AlphaFold2、BindCraft 和自动热点筛选设计 MAP4K4 特定位点的小型蛋白 binder；AF3、100-ns MD 和 CDK2 负对照支持部分候选的计算结合特异性。",
+      "why_it_matters_zh": "该工作展示了低资源、开放工具链对疾病相关激酶表位设计的可行性，并提出可用于 sandwich assay 的成对候选物；但所有结合、选择性和安全性结论仍为计算预测，尚无体外或体内实验证实。",
+      "quality_score": 71.0,
+      "tags": [
+        "分子与药物发现",
+        "蛋白设计",
+        "MAP4K4",
+        "AlphaFold3"
+      ],
+      "evidence_flags": [
+        "预印本",
+        "计算验证",
+        "100-ns MD",
+        "负对照",
+        "clinical",
+        "evaluation"
+      ],
+      "publication_status": "preprint",
+      "rank": 12,
+      "featured": false,
+      "category": "分子与药物发现",
+      "metrics": {},
+      "metadata": {
+        "doi": "10.64898/2026.09.04.749196",
+        "arxiv_id": ""
+      },
+      "abstract_zh": "MAP4K4 是 mitogen activated protein kinase 家族中的一种 serine/threonine kinase 成员。它通过 JNK、p38 MAPK 和 ERK1/2 通路发挥作用，并涉及癌症增殖和侵袭、TNF--驱动的胰岛素抵抗、巨噬细胞介导的炎症以及心力衰竭中的心肌细胞凋亡。尚无选择性 MAP4K4 小分子抑制剂进入临床使用，而一些现有抗体针对 MAP4K4 的特异表位尚不清楚，因此存在开发针对特定表面位点的小型蛋白 binder 的需求。我们使用一条计算流程，结合 RFdiffusion、ProteinMPNN 和 AlphaFold2，以及集成式“one-shot”工具 BindCraft，为 MAP4K4 特异表面热点从头设计小型蛋白 binder（约 50-130 个残基）。我们还创建了一种自动热点确定算法，综合权衡几何、化学、刚性和 AlphaFold pLDDT。在数千条候选序列中，我们用 AlphaFold3 (AF3) 评估了 20 个最有希望的 binders。界面预测模板建模 (ipTM) 分数范围为 0.16 至 0.90，其中 9 个候选物的 ipTM [≥] 0.80，5 个达到 [≥] 0.87。两个 binders 结合 MAP4K4 相对两面的不重叠热点，使它们成为 sandwich assay 的候选配对。对所有设计蛋白序列进行的 BLASTp 搜索仅在其中一半序列中返回低显著性匹配，表明它们代表真正新颖的结合方案和此前未探索的蛋白序列空间区域，而非重新发现的天然基序。我们对覆盖所观察 AF3 置信度范围的 5 个复合物进行了 100-ns 显式溶剂分子动力学模拟。链间接触在整个过程中得到保留，但不同体系间稳定性差异很大。通过将这 9 个最高置信度候选物与其同 CDK2（负对照 kinase）的 AF3 相互作用评估并置，进一步增强了对其结合特异性的信心。该比较显示，对照结合伙伴的 ipTM 显著且一致降低（p = 0.0039）。ToxinPred2 和 AlgPred 2.0 筛查表明，1 个候选物可能是 allergen，2 个可能是 toxins。这些结果支持：使用免费、公开可得的计算工具和最少资源，实现针对一个未被充分服务的疾病靶点、从头设计小型位点特异性蛋白 probes 是可行的；这也指向公众和业余科学家在生物技术进步中做出更多贡献的更大作用。",
+      "published": "2026-09-07",
+      "author_line": "Jain, A., Tobias, A. V."
     }
   ],
   "review": {
     "model": "gpt-5.6-terra",
     "reasoning_effort": "high",
-    "note": "本轮仅选出2项：候选集中达到70分且与AI×Chem直接相关的工作有限；其余达到阈值者主要属于通用软件、语言或交通AI，未纳入。"
+    "note": "50 项候选中保留 12 项；优先选择具备基准、实证或明确数据规模的工作，未纳入主要为综述、仅理论推演或验证不足的边缘条目。"
   }
 }

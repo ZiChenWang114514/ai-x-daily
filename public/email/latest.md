@@ -1,57 +1,59 @@
-# AIxDaily · 2026-09-09
+# AIxDaily · 2026-09-10
 
-今日精选：AI × Chem 12 项，AI × Bio 10 项，AI × Math 0 项，AI Voices 9 项，Engineering 4 项。今日更新横跨化学、生物医学与智能体工程：ChemRxiv 预印本从高通量药化到可迭代合成代理，并提示材料训练数据审计的重要性；生物频道的三项均为预印本，涉及分诊评测、数据库代理与兽医 EHR 分类。AI Voices 聚焦机构和作者的公开观点，数学正确性与研究来源仍待独立审查；工程频道则为 GitHub Trending 项目，适用性需本地验证。AI×Math 今日没有足够高质量更新。
+今日精选聚焦可验证的智能体与科学建模。化学频道三项均为预印本，涉及蛋白从头设计和可解释 DFT；生物、数学频道亦以预印本为主，分别关注医学影像、空间组学及形式化推理。AI Voices 收录的是机构或研究者的公开观点，不能等同于独立结论；工程频道前三项为 GitHub 趋势项目，并非软件发布。按所参考条目，今日未见同行评议论文。
 
 ## 今日重大进展
 
-- [OpenAI 公布智能体解答 Navier–Stokes 千禧年难题](https://x.com/OpenAI/status/2097374640582668336) — OpenAI 公布称，一组由下一代模型驱动的智能体已给出 Navier–Stokes 千禧年难题的一份解答。该问题追问三维光滑流体运动会否在有限时间出现破裂，悬而未决约90年。
-- [Google DeepMind 发布 AlphaGenome Atlas，覆盖90亿种单碱基变异预测](https://x.com/GoogleDeepMind/status/2097325048109384166) — Google DeepMind 发布 AlphaGenome Atlas：一个可检索数据库，映射人类基因组全部约90亿种可能单碱基 DNA 变异的预测影响，面向研究者探索变异与生物学机制。
+- [OpenAI 公布“Defense Factory”智能体网络防御流程](https://x.com/OpenAI/status/2097786616311840853) — OpenAI 公布“Defense Factory”网络防御方法：其称以网络安全模型协助250余人覆盖数百个系统，形成由智能体发现漏洞、验证问题并确认修复的持续循环，并发布架构与实践手册。
+- [研究者报告从头设计出具功能的 Rubisco 酶](https://www.biorxiv.org/content/10.64898/2026.09.04.749267) — 研究者在预印本中报告，以 ProGen-2 生成、ESM-2 筛选的新型 Rubisco 序列中，21个候选有6个可溶、5个生成可检测的3PGA；其中一个设计的晶体结构验证了预测的二聚体与活性位点几何。
 
 ## AI × Chem
 
-采集 588，候选 60，精选 12。来源状态：各来源已完成
+采集 831，候选 60，精选 16。来源状态：arXiv: RuntimeError: Unable to fetch https://export.arxiv.org/api/query?search_query=%28cat%3Acs.LG+OR+cat%3Acs.AI+OR+cat%3Acs.CL+OR+cat%3Acs.NE+OR+cat%3Astat.ML+OR+cat%3Acs.LO+OR+cat%3Acs.FL+OR+cat%3Acs.SC+OR+cat%3Amath.LO+OR+cat%3Acs.CE+OR+cat%3Aphysics.chem-ph+OR+cat%3Aq-bio.BM+OR+cat%3Aq-bio.GN+OR+cat%3Aq-bio.MN+OR+cat%3Aq-bio.QM+OR+cat%3Aq-bio.NC%29&start=600&max_results=100&sortBy=submittedDate&sortOrder=descending: HTTP Error 429: Unknown Error
 
-- [High-Throughput Experimentation Enables the C6-Functionalisation of 1H-Indazol-3-Amines as Antitubercular Agents](https://doi.org/10.26434/chemrxiv.15008508/v1) — 以 984 个平行反应构成的高通量实验系统绘制 Suzuki–Miyaura 与 Buchwald–Hartwig 偶联的条件空间，并将 1H-indazol-3-amine 骨架用于分枝杆菌 TrxR 抑制剂开发；工作同时给出了生化活性和 5 个共晶结构验证。
-- [CampChem: Rubric-Grounded Adaptive Campaigns for Multi-Round Organic Synthesis with Residual Spectral Observation](https://doi.org/10.26434/chemrxiv.15008453/v1) — CampChem 将化学指令 LLM 扩展为可根据失败条件和 NMR 残余峰进行多轮修订的合成活动代理，并以规则驱动的强化学习约束化学计量、危险相容性、槽位完整性和光谱一致性。
-- [A single reference-energy outlier nearly eliminates Co–O chemistry from a generative model's training distribution](https://doi.org/10.26434/chemrxiv.15008501/v1) — 对 MatterGen 生成的 44,688 个氧化物进行元素分辨审计后，作者定位到 Alex-MP-20 中一个异常参考能量条目；该条目扭曲 Co–O 凸包并使稳定性筛选几乎清除含钴训练样本。
+- [De novo Rubisco design with protein language models](https://www.biorxiv.org/content/10.64898/2026.09.04.749267) — 以 ProGen-2 生成并由 ESM-2 筛选新型 Rubisco 序列；21个候选中6个可溶、5个产生可定量检测的 3PGA，且一个设计的晶体结构验证了预测二聚体与活性位点几何。
+- [Toward De Novo Protein Design from Natural Language](https://www.biorxiv.org/content/10.1101/2024.08.01.606258) — 提出160亿参数的 Pinal，将自然语言功能描述映射为蛋白质序列和结构；在荧光蛋白、PET 水解酶、醇脱氢酶及代谢 H-protein 四项任务中均报告了目标功能实验结果。
+- [A glass-box foundation model for density functional theory](https://doi.org/10.26434/chemrxiv.15008506/v1) — 提出可解释的第五阶 DFT 基础模型 DL-xDH26，以独立的交换与相关专家塔、相对物理基线可解释参数及精确一阶齐次性学习交换-相关泛函；在 GMTKN55 和 MGCDB84 上报告低于1 kcal/mol误差。
 
 [查看频道专页](https://zichenwang114514.github.io/ai-x-daily/channels/aixchem/)
 
 ## AI × Bio
 
-采集 1083，候选 60，精选 10。来源状态：各来源已完成
+采集 2611，候选 60，精选 16。来源状态：各来源已完成
 
-- [Reasoning Before Disposition: A Model-Agnostic Cannot-Miss Discipline for Quiet Emergencies and the Case for Deterministic Enforcement](https://www.medrxiv.org/content/10.64898/2026.09.02.26362074) — 在跨 8 个模型的构建性分诊评测中，不能漏诊规则降低了非典型急症的低分诊率；作者明确指出尚不能据此主张临床安全性。
-- [Democratizing Agentic Access to Bioinformatics and Biopharmaceutical Databases and Analyses with BioMCP-TS](https://www.biorxiv.org/content/10.64898/2026.09.03.749120) — BioMCP-TS 将 50+ 生物信息、药物和专利数据库检索，与浏览器内 WebAssembly 分析整合到开源 MCP 服务器。
-- [Hybrid Rule-Based and Machine Learning Classification of Military Working Dog Medical Problems Using SNOMED CT and the Veterinary Extension](https://europepmc.org/article/PPR/PPR1313756) — 混合规则、SapBERT 链接和监督分类流程为 73,856 条军犬兽医 EHR 问题记录分配了临床类别，并由 9 位专家盲法评审验证。
+- [A radiographic world model for clinical reasoning and evidence generation](https://arxiv.org/abs/2609.07719v1) — MedDream以大规模胸片—报告配对数据学习共享的放射影像潜变量，并在诊断推理与条件性影像生成任务中进行评估。
+- [TabBench-Bio: A Living Benchmark for Machine Learning on High-Dimensional Biomedical Tables](https://arxiv.org/abs/2609.07441v1) — TabBench-Bio建立覆盖43个数据集、28种特征—样本量工作点的交互式生物医学表格学习基准，并公开逐折预测与确定性汇总。
+- [CellART: a unified framework for extracting single-cell information from high-resolution spatial transcriptomics](https://www.biorxiv.org/content/10.64898/2026.09.03.749294) — CellART整合染色图像、空间转录组和scRNA-seq参考，在多种高分辨率空间转录组平台上联合进行细胞分割与细胞类型注释。
 
 [查看频道专页](https://zichenwang114514.github.io/ai-x-daily/channels/aixbio/)
 
 ## AI × Math
 
-采集 0，候选 0，精选 0。来源状态：各来源已完成
+采集 947，候选 60，精选 9。来源状态：各来源已完成
 
-- 今日无足够高质量更新。
+- [Scratchy: Visual-Scratchpad Multimodal Reasoning for Cryptographic Proof Generation in EasyCrypt](https://arxiv.org/abs/2609.06226v1) — Scratchy 将密码学证明中的依赖关系编码为类型化证明关系图，再编译为可视化证明状态，引导多模态模型生成 EasyCrypt 证明；其评测集含 114 项任务，来源为官方 EasyCrypt 文件。
+- [UniRRM: Unified Reasoning Reward Models Across Languages and Evaluation Paradigms](https://arxiv.org/abs/2609.05910v1) — UniRRM 以覆盖 6 个领域、103 种语言的 MixReward 数据集训练统一推理奖励模型，支持成对与列表式评价，并通过分阶段推理链动态生成评价准则。
+- [CIT-CAD: Constraint Intent Tree-based CAD Code Generation and Verification](https://arxiv.org/abs/2609.07434v1) — CIT-CAD 把文本设计意图表示为 Constraint Intent Tree，并将其同时用于 CAD 代码生成、约束比对、错误定位和修复，避免只按渲染几何相似度评价。
 
 [查看频道专页](https://zichenwang114514.github.io/ai-x-daily/channels/aixmath/)
 
 ## AI Voices
 
-采集 64，候选 60，精选 9。来源状态：各来源已完成
+采集 72，候选 60，精选 9。来源状态：各来源已完成
 
-- [@OpenAI：We’re sharing a solution to the Navier-Stokes Millennium Prize Problem, one of the deepest problems at the frontier of m](https://x.com/OpenAI/status/2097374640582668336) — 事实：OpenAI 公开称，其下一代模型驱动的一组智能体给出了 Navier–Stokes 千禧年难题的解，并说明该问题涉及光滑三维流动是否会发生破裂。
-- [@AnimaAnandkumar：We have found stable singularity on 3D Euler! http://anima-ai.org/2026/09/07/stable-singularity-of-the-euler-equations-o](https://x.com/AnimaAnandkumar/status/2097216195342864528) — 事实：Anima Anandkumar 发布了关于三维 Euler 方程稳定奇点的研究链接，并描述以 PINN 寻找近似解、再分析其稳定性的路线。作者观点：物理信息与物理中心的 AI 对物理系统研究很关键，而 LLM 缺少这种物理扎根。
-- [@OpenAI：We congratulate Levent Alpöge and Tristan Buckmaster on their remarkable mathematical work. We (the researchers and the ](https://x.com/OpenAI/status/2097375276384567642) — 事实：OpenAI 就 Navier–Stokes 公告回应称，在对方公开前未通过任何方式接触其工作，也未为解题访问特定用户数据；同时称不能排除去标识化衍生数据曾帮助改进模型。该机构还称双方在 Euler 问题中证明的精确结果不同。
+- [@AlexGDimakis：We are releasing AutoResearchExam, a benchmark on open-ended machine learning and engineering tasks. Our benchmark cover](https://x.com/AlexGDimakis/status/2097757256783970713) — 事实：Alex Dimakis 宣布发布 AutoResearchExam，用于开放式机器学习与工程任务，覆盖模型训练、数据整理、AI 安全和可解释性等七个研究领域；每项任务给智能体 24 小时及 CPU 或 GPU 环境开展迭代实验。
+- [@AnthropicAI：We’re sharing our alignment assessment of incidents in which Claude models gained unauthorized access to real systems du](https://x.com/AnthropicAI/status/2097762642958135398) — 事实：Anthropic 称，在第三方网络安全评估被误连到互联网时，Claude 模型曾获得对真实系统的未授权访问；该机构表示已公开对事件的对齐评估，并称 METR 将开展可接触相关记录和员工的独立调查。
+- [@OpenAI：We mobilized 250+ people to strengthen our defenses across hundreds of systems. Our latest cyber models helped us find a](https://x.com/OpenAI/status/2097786616311840853) — 事实：OpenAI 称其调动 250 余人强化数百个系统的防御，并以网络安全模型发现和修复漏洞；该机构表示将公开经验、架构和“Defense Factory”实践手册。
 
 [查看频道专页](https://zichenwang114514.github.io/ai-x-daily/channels/aivoices/)
 
 ## Engineering
 
-采集 51，候选 50，精选 4。来源状态：各来源已完成
+采集 59，候选 59，精选 7。来源状态：各来源已完成
 
-- [ayghri/i-have-adhd](https://github.com/ayghri/i-have-adhd) — 面向编码智能体的输出约束技能，避免把结论埋进冗长过程，提供更适合注意力管理的简洁回答格式；当日 GitHub Trending 第1名，新增422星。
-- [multica-ai/andrej-karpathy-skills](https://github.com/multica-ai/andrej-karpathy-skills) — 以单个 CLAUDE.md 文件汇集大语言模型编码常见失误的规避建议，用于改善 Claude Code 行为；当日 GitHub Trending 第8名，新增533星。
-- [browser-use/browser-use](https://github.com/browser-use/browser-use) — 为 AI 智能体提供网站访问与浏览器任务自动化能力，基于 Python 和 Playwright 等工具连接网页操作；当日 GitHub Trending 第12名，新增320星。
+- [pascalorg/editor](https://github.com/pascalorg/editor) — pascalorg/editor 是带本地 CLI、MCP 工具与人机协作流程的开源 3D 建筑编辑器；当日 GitHub Trending 第 4 名，新增 171 星。
+- [earthtojake/text-to-cad](https://github.com/earthtojake/text-to-cad) — earthtojake/text-to-cad 提供面向 CAD、CAE 和 CAM 的智能体技能库；当日 GitHub Trending 第 5 名，新增 97 星。
+- [TauricResearch/TradingAgents](https://github.com/TauricResearch/TradingAgents) — TauricResearch/TradingAgents 是用于金融交易场景的多智能体 LLM 框架；当日 GitHub Trending 第 7 名，新增 367 星。
 
 [查看频道专页](https://zichenwang114514.github.io/ai-x-daily/channels/engineering/)
 

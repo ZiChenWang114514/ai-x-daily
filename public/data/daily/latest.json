@@ -1,101 +1,92 @@
 {
   "schema_version": "2.0",
-  "date": "2026-09-11",
-  "generated_at": "2026-09-10T23:52:58+00:00",
+  "date": "2026-09-12",
+  "generated_at": "2026-09-11T23:42:12+00:00",
   "title": "AIxDaily",
-  "overview_zh": "今日精选：AI × Chem 14 项，AI × Bio 12 项，AI × Math 3 项，AI Voices 7 项，Engineering 8 项。9月11日的精选以预印本为主：化学侧聚焦聚合物文献结构化提取、反应机理评测与晶体生成；生物侧覆盖蛋白组尺度虚拟细胞和质谱基础模型；数学侧关注可验证推理。今日未见精选的同行评议论文。公开观点仅作为发布方陈述呈现；工程侧则有推理与训练工具的软件发布。",
+  "overview_zh": "今日精选以预印本和工程更新为主：化学方向出现把语言表征接入反应优化闭环的前瞻性实验报告；生物方向集中于阿尔茨海默病遗传与多组学关联；数学方向评估拓扑推理与 Lean 验证。声音频道兼有公开观点和厂商技术更新，工程频道则聚焦开源研究智能体与规格驱动开发工具。上述预印本及厂商表述尚待独立复核。",
   "channel_highlights": {
-    "aixchem": "三篇预印本分别以可追溯代理抽取聚合物数据、物理流程评估反应机理理解，并尝试以 MeanFlow 加速晶体结构预测。",
-    "aixbio": "三项均为生物预印本：ProtiCelli 生成蛋白质组尺度虚拟图像，InstaNovo-FM 学习质谱表征，pNODE 则建模临床微生物组扰动。",
-    "aixmath": "三项均为 arXiv 预印本：从符号化几何推导、随机过程 Lean 基准，到以现实结算约束验证器优化的推理评测。",
-    "aivoices": "三则公开帖文分别涉及 OpenAI 对多智能体数学研究的未独立核验陈述、Hugging Face 的开放对齐团队，以及 DeepSeek API 型号更新。",
-    "engineering": "工程侧含 TensorRT-LLM 的 rc 预发布与 TRL 正式发布；另有交易智能体趋势仓库，均应按各自发布说明或项目自述理解。"
+    "aixchem": "化学频道首推一篇 arXiv 预印本：以语言模型表征条件并用于多目标反应优化，报告了前瞻性高通量与克级验证，但跨体系稳健性仍待检验。",
+    "aixbio": "生物频道首项为预印本，提出性别感知 Transformer 解析阿尔茨海默病风险位点；结果整合多队列与脑供体数据，但欧洲祖源限制及因果性仍须验证。",
+    "aixmath": "数学频道关注三篇 arXiv 预印本：从拓扑空间推理基准到自然语言—Lean 机器核验闭环，强调模型评测与证明核验，而非已获同行评议结论。",
+    "aivoices": "声音频道同时收录公开观点与官方技术更新：一则无论文链接的长时程智能体记忆讨论，以及 NVIDIA 对 CUDA 13.4 和 NIM 优化的发布方说明，性能不宜外推。",
+    "engineering": "工程频道精选为 GitHub Trending 快照，而非性能评测：OpenResearch、spec-kit 与 DeskcommCRM 分别涉及研究智能体、规格驱动开发和自托管 AI CRM，采用前需自行验证。"
   },
   "breaking_news": [
     {
-      "id": "x:2097374643518640382",
+      "id": "x:2097547276755619988",
       "rank": 1,
-      "channel": "aivoices",
-      "source": "X",
-      "source_status": "official_announcement",
-      "item_type": "social_post",
-      "headline_zh": "OpenAI 称万智能体在 88 小时提出 Navier–Stokes 奇性证明",
-      "summary_zh": "OpenAI 在官方帖文中称，一款仍在训练的内部模型协调约 1 万个 AI 智能体，在 88 小时内提出受迫 Navier–Stokes 方程有限时间奇性的解析证明，并完成 Lean 形式化。",
-      "why_breaking_zh": "它触及克雷千禧难题之一的核心存在与光滑性问题；若证明经数学界审查成立，将改变 AI 参与深层数学研究的能力边界与协作范式。",
-      "url": "https://x.com/OpenAI/status/2097374643518640382",
-      "published_at": "2026-09-08T17:20:57Z",
-      "creators": [
-        "OpenAI"
-      ],
-      "metrics": {
-        "like_count": 11057,
-        "repost_count": 605,
-        "reply_count": 219,
-        "quote_count": 594
-      },
-      "metadata": {
-        "post_id": "2097374643518640382",
-        "username": "OpenAI",
-        "query_kind": "accounts",
-        "harvest": "grok.x.search"
-      }
-    },
-    {
-      "id": "biorxiv:10.64898/2026.03.31.715748",
-      "rank": 2,
-      "channel": "aixbio",
-      "source": "bioRxiv",
-      "source_status": "preprint",
-      "item_type": "paper",
-      "headline_zh": "ProtiCelli 公布蛋白组尺度人类细胞虚拟显微图像资源",
-      "summary_zh": "研究团队在预印本中提出 ProtiCelli：仅以三种细胞地标染色为条件，从 Human Protein Atlas 图像生成 12,800 种人类蛋白的虚拟显微图像，并发布含 3,070 万张图像的 Proteome2Cell 资源。",
-      "why_breaking_zh": "实验成像一次只能覆盖有限蛋白；若其泛化和空间关系保真度得到复现，虚拟细胞将把蛋白定位、扰动分析和单细胞建模带到蛋白组尺度。",
-      "url": "https://www.biorxiv.org/content/10.64898/2026.03.31.715748",
-      "published_at": "2026-09-10",
-      "creators": [
-        "Sun, H.",
-        "Kahnert, K.",
-        "Hansen, J. N.",
-        "Leineweber, W. D.",
-        "Li, M.",
-        "Feng, W.",
-        "Ballllosera Navarro, F.",
-        "Axelsson, U.",
-        "Ouyang, W.",
-        "Lundberg, E."
-      ],
-      "metrics": {},
-      "metadata": {
-        "doi": "10.64898/2026.03.31.715748",
-        "arxiv_id": ""
-      }
-    },
-    {
-      "id": "x:2097930620680941732",
-      "rank": 3,
-      "channel": "aivoices",
+      "channel": "aixmath",
       "source": "X",
       "source_status": "public_post",
       "item_type": "social_post",
-      "headline_zh": "DeepSeek 发布原生多模态 V4.1-Flash API",
-      "summary_zh": "DeepSeek 在官方帖文中发布 V4.1-Flash：该 API 支持原生多模态，并取代 V4-Flash 与 V4-Flash-Vision-Exp。发布方称，多方测试显示其在性能、成本、速度和总运行时间上优于 V4-Pro。",
-      "why_breaking_zh": "把视觉能力并入面向高吞吐、低成本部署的 Flash 产品线，可能直接改变开发者在多模态推理、延迟和预算之间的选型，并推动开放模型生态的价格与能力竞争。",
-      "url": "https://x.com/deepseek_ai/status/2097930620680941732",
-      "published_at": "2026-09-10T06:10:12Z",
+      "headline_zh": "OpenAI/Navier–Stokes 研究引发数学界集中讨论",
+      "summary_zh": "数学研究者 Jasper 在 X 上称，OpenAI 围绕 Navier–Stokes 千禧年难题的工作“具有历史性”；帖文称相关研究路线已积累多年，并讨论大规模智能体沿既有方向并行探索的可能。",
+      "why_breaking_zh": "它触及纳维–斯托克斯方程光滑性与存在性这一千禧年难题，并把大规模智能体能否放大数学研究路径判断的问题推到前台。",
+      "url": "https://x.com/zjasper/status/2097547276755619988",
+      "published_at": "2026-09-09T04:46:55Z",
       "creators": [
-        "DeepSeek"
+        "Jasper"
       ],
       "metrics": {
-        "like_count": 1768,
-        "repost_count": 47,
-        "reply_count": 18,
-        "quote_count": 24
+        "like_count": 862,
+        "repost_count": 171,
+        "reply_count": 57,
+        "quote_count": 21
       },
       "metadata": {
-        "post_id": "2097930620680941732",
-        "username": "deepseek_ai",
+        "post_id": "2097547276755619988",
+        "username": "zjasper",
         "query_kind": "topics",
         "harvest": "grok.x.search"
+      }
+    },
+    {
+      "id": "arxiv:2609.11319v1",
+      "rank": 2,
+      "channel": "aixmath",
+      "source": "arXiv",
+      "source_status": "preprint",
+      "item_type": "paper",
+      "headline_zh": "Magenta 把数学推理接入 Lean 机器验证闭环",
+      "summary_zh": "预印本提出 Magenta：将自然语言解题转为 Lean 4 陈述和机器检查证明，并用陈述核验与错误归因反馈修正失败尝试；作者报告其在多项奥赛基准达到 100% 准确率，并解出 IMO 2026 全部六题。",
+      "why_breaking_zh": "它针对“形式证明通过却偏离原题”的核心漏洞，把非形式推理与机器验证闭环；若结果可复现，将改变数学智能体的可信评测和工作流。",
+      "url": "https://arxiv.org/abs/2609.11319v1",
+      "published_at": "2026-09-10",
+      "creators": [
+        "Joshua Ong Jun Leang",
+        "Haonan Li",
+        "Zheng Zhao",
+        "Xinyi Shang",
+        "Wenda Li",
+        "Zhengzhong Liu",
+        "Erix Xing",
+        "Shay Cohen",
+        "Eleonora Giunchiglia"
+      ],
+      "metrics": {},
+      "metadata": {
+        "doi": "",
+        "arxiv_id": "2609.11319v1"
+      }
+    },
+    {
+      "id": "feed:https://openai.com/index/introducing-the-agents-api",
+      "rank": 3,
+      "channel": "aivoices",
+      "source": "OpenAI News",
+      "source_status": "official_announcement",
+      "item_type": "research_blog",
+      "headline_zh": "OpenAI 发布面向长时运行的 Agents API",
+      "summary_zh": "OpenAI 发布 Agents API，提供由 Codex harness 驱动的托管云端智能体服务，覆盖编排、长时运行会话和工具使用，面向构建并上线持续运行的智能体应用。",
+      "why_breaking_zh": "这把原本需自行拼装的会话、工具和编排层产品化为统一接口，可能重塑智能体应用的部署方式与基础设施生态。",
+      "url": "https://openai.com/index/introducing-the-agents-api",
+      "published_at": "Thu, 10 Sep 2026 00:00:00 GMT",
+      "creators": [
+        "OpenAI News"
+      ],
+      "metrics": {},
+      "metadata": {
+        "feed_url": "https://openai.com/news/rss.xml"
       }
     }
   ],
@@ -104,271 +95,287 @@
       "id": "aixchem",
       "name": "AI × Chem",
       "stats": {
-        "fetched": 832,
-        "suppressed_previous": 26,
+        "fetched": 1453,
+        "suppressed_previous": 29,
         "candidates": 60,
-        "selected": 14,
+        "selected": 15,
         "sources": {
-          "arXiv": 624,
-          "bioRxiv": 0,
-          "ChemRxiv": 208
+          "arXiv": 613,
+          "bioRxiv": 712,
+          "ChemRxiv": 141
         }
       },
-      "source_errors": [
-        "bioRxiv: RuntimeError: Unable to fetch https://api.biorxiv.org/details/biorxiv/2026-09-08/2026-09-11/270: The read operation timed out"
-      ],
+      "source_errors": [],
       "items": [
         {
-          "id": "chemrxiv:10.26434/chemrxiv.15008614/v1",
-          "channel": "aixchem",
-          "item_type": "paper",
-          "source": "ChemRxiv",
-          "title": "PolyReader: an agentic LLM pipeline for extracting structured data from unstructured polymer scientific literature",
-          "url": "https://doi.org/10.26434/chemrxiv.15008614/v1",
-          "published_at": "2026-09-10",
-          "summary_zh": "提出 PolyReader：以论文及补充信息的层级结构为导航、带来源页码追溯的 LLM 代理，用于提取聚合物样本级数据；在42篇论文人工标注基准上显著优于单轮提示。",
-          "why_it_matters_zh": "可审计的样本级文献数据是聚合物机器学习的关键瓶颈。该工作同时给出基准、消融式比较和可复用资源；但其摘要报告的验证范围仅为42篇论文，跨文献格式和更复杂化学体系的泛化仍需检验。",
-          "tags": [
-            "方法与模型"
-          ],
-          "rank": 1,
-          "category": "方法与模型",
-          "published": "2026-09-10",
-          "author_line": "Yuwei Shi, Xinyan Zhong, Yuqi Wei, Heechae Choi, Tianhang Zhou, Zhenghao Wu"
-        },
-        {
-          "id": "arxiv:2609.08503v1",
+          "id": "arxiv:2609.11790v1",
           "channel": "aixchem",
           "item_type": "paper",
           "source": "arXiv",
-          "title": "TSBench: A physics-grounded benchmark for evaluating LLM understanding of chemical reaction mechanisms",
-          "url": "https://arxiv.org/abs/2609.08503v1",
-          "published_at": "2026-09-08",
-          "summary_zh": "TSBench 让 LLM 代理借助结构编辑工具构造过渡态猜测，并用自动量子化学流程按反应路径作物理判定，从而测量其对反应机理的理解。",
-          "why_it_matters_zh": "它把化学机制能力从文本问答推进到可验证的三维反应路径任务，并报告了546次、覆盖78个基元反应的评测。需注意，任务集中于基元反应，复杂机制上的显著性能下降提示不能直接外推至真实合成规划。",
+          "title": "Dynamic language model representations for multi-objective reaction optimisation",
+          "url": "https://arxiv.org/abs/2609.11790v1",
+          "published_at": "2026-09-10",
+          "summary_zh": "该研究将反应条件的文本描述经微调语言模型编码，并与高斯过程代理模型联合训练，用于多目标贝叶斯反应优化。在镍、钯交叉偶联及前瞻性钯催化氰化和不对称氢化中，模型以更少实验收敛；两轮高通量实验后，条件可直接放大至克级，并分别得到 94% 和 84% 收率，后者 ee 为 99.6%。",
+          "why_it_matters_zh": "工作把可随任务调整的语言表征直接接入实验闭环，并给出前瞻性高通量实验和克级验证，是反应优化中较强的实证证据。其跨反应类别、跨实验室以及面对不完整或歧义条件文本时的稳健性仍需进一步检验。",
+          "tags": [
+            "分子与药物发现"
+          ],
+          "rank": 1,
+          "category": "分子与药物发现",
+          "published": "2026-09-10",
+          "author_line": "Joshua W. Sin, David Ming Segura, Bojana Ranković, Siu Lun Chau, Marius D. R. Lutz, Andrea Anelli, Ryan P. Burwood, Kurt Püntener, Maximilian J. Notheis, Raphael Bigler, Philippe Schwaller"
+        },
+        {
+          "id": "biorxiv:10.64898/2026.09.09.750355",
+          "channel": "aixchem",
+          "item_type": "paper",
+          "source": "bioRxiv",
+          "title": "Reframing enzyme function prediction as conditional generation",
+          "url": "https://www.biorxiv.org/content/10.64898/2026.09.09.750355",
+          "published_at": "2026-09-11",
+          "summary_zh": "Fluxion 将酶功能预测重构为条件生成任务：结合蛋白语言模型表征、合成化学和生化数据，生成催化残基间的多步电子流轨迹。模型在 P450 区域选择性、两个实验特异性数据集及非天然定向进化筛选产物上进行了评估。",
+          "why_it_matters_zh": "以机理式电子流作为生成对象，有望突破封闭类别分类和数据库检索对未知酶化学的限制。现有结果仍是概念验证；非天然生物催化剂的真实前瞻性发现及湿实验验证尚待展示。",
           "tags": [
             "方法与模型"
           ],
           "rank": 2,
           "category": "方法与模型",
-          "published": "2026-09-08",
-          "author_line": "Xiaohu Xu, Tong Zhu"
+          "published": "2026-09-11",
+          "author_line": "Rieger, W. J., Haeussermann, S., Herrmann, L., Li, Z., Frohn, B. P., Maluenda, M., Lobinska, G., Loomba, S., Reisenbauer, J. C., Boden, M., Tong, A., Mora, A."
         },
         {
-          "id": "arxiv:2609.09799v1",
-          "channel": "aixchem",
-          "item_type": "paper",
-          "source": "arXiv",
-          "title": "uFlowCSP: Crystal Structure Prediction using Mean flow generative models",
-          "url": "https://arxiv.org/abs/2609.09799v1",
-          "published_at": "2026-09-09",
-          "summary_zh": "uFlowCSP 以 MeanFlow 生成模型进行晶体结构预测，通过学习平均概率流速度，将一次生成所需的网络评估降至1–5次，并在 MP-20 与 CSPBench 上比较性能。",
-          "why_it_matters_zh": "晶体结构生成的推理成本是材料发现中的实际制约；摘要报告该方法以较少评估取得有竞争力或更高的匹配率。结论目前主要来自标准基准，尚未提供面向新材料的实验合成验证。",
-          "tags": [
-            "方法与模型"
-          ],
-          "rank": 3,
-          "category": "方法与模型",
-          "published": "2026-09-09",
-          "author_line": "Sourin Dey, Dipannoy Das Gupta, Lai Wei, Sadman Sadeed Omee, Jianjun Hu"
-        },
-        {
-          "id": "chemrxiv:10.26434/chemrxiv.15008601/v1",
+          "id": "chemrxiv:10.26434/chemrxiv.15008693/v1",
           "channel": "aixchem",
           "item_type": "paper",
           "source": "ChemRxiv",
-          "title": "Machine Learning Optimization of Polymeric Complex Coacervate Micelles Reveals Cell-Type-Specific Formulations for Enhanced mRNA Delivery",
-          "url": "https://doi.org/10.26434/chemrxiv.15008601/v1",
-          "published_at": "2026-09-09",
-          "summary_zh": "利用闭环多目标贝叶斯优化，研究构建并筛选三组分聚合物复合凝聚层胶束，使 mRNA 递送配方可随细胞类型调节；35个配方在六种额外细胞类型中直接筛选。",
-          "why_it_matters_zh": "这是少数将机器学习优化与跨细胞类型湿实验递送结果直接连接的候选，显示“可调性”可优于单一最优载体。限制是最优配方随细胞系改变，摘要未给出体内递送或长期安全性证据。",
+          "title": "IntelliPore: A Foundation Model for Gas Adsorption in Porous Materials",
+          "url": "https://doi.org/10.26434/chemrxiv.15008693/v1",
+          "published_at": "2026-09-11",
+          "summary_zh": "IntelliPore 是面向多孔材料气体吸附的基础模型，在 1,250 万条公开 MOF 和 COF 吸附数据上预训练，并报告可迁移到沸石和多孔聚合物网络等未见材料类别。作者称其以 0.86 million 参数实现较强的小样本性能和吸附性质预测表现。",
+          "why_it_matters_zh": "该工作尝试将大规模预训练从单一材料族或性质推广至多孔材料吸附任务，并提供公开模型和网页入口。性能结论主要依赖公开数据与预测基准；不同材料的标签质量、分布偏移和实验可合成性仍是实际筛选中的关键限制。",
+          "tags": [
+            "材料与催化"
+          ],
+          "rank": 3,
+          "category": "材料与催化",
+          "published": "2026-09-11",
+          "author_line": "Antonios P. Sarikas, George E. Froudakis"
+        },
+        {
+          "id": "chemrxiv:10.26434/chemrxiv.15008692/v1",
+          "channel": "aixchem",
+          "item_type": "paper",
+          "source": "ChemRxiv",
+          "title": "Descriptor-Based Pre-Training Improves Reaction Property Prediction",
+          "url": "https://doi.org/10.26434/chemrxiv.15008692/v1",
+          "published_at": "2026-09-11",
+          "summary_zh": "CheMeleon-Rxn 在约 200 万个反应上以稠合反应图（CGR）和描述符回归预训练 D-MPNN，随后微调低数据量反应性质任务。在活化能、反应焓、实验收率和速率系数等八项回归任务中，模型在七项上最佳或与最佳无统计学差异。",
+          "why_it_matters_zh": "研究为反应图网络预训练提供了可复现、可跨骨干网络检验的方案，并覆盖热力学、动力学和产率任务。模型权重仍待论文发表后发布，且其在真正新颖反应空间中的外推能力不能仅由现有基准确定。",
           "tags": [
             "方法与模型"
           ],
           "rank": 4,
           "category": "方法与模型",
-          "published": "2026-09-09",
-          "author_line": "Sidharth Panda, Theresa M. Reineke"
+          "published": "2026-09-11",
+          "author_line": "Akshat Shirish Zalte, Cheng Fang, Yiting Zheng, Essam Metwally, Alan Cheng, Alec Glisman, Hao-Wei Pang"
         },
         {
-          "id": "chemrxiv:10.26434/chemrxiv.15008626/v1",
+          "id": "arxiv:2609.11147v1",
           "channel": "aixchem",
           "item_type": "paper",
-          "source": "ChemRxiv",
-          "title": "DEEP LEARNING HELMHOLTZ ENERGIES FOR THERMODYNAMIC PROPERTY PREDICTION",
-          "url": "https://doi.org/10.26434/chemrxiv.15008626/v1",
+          "source": "arXiv",
+          "title": "Autonomous Chemical Mechanistic Discovery through Agentic Reasoning and Validation",
+          "url": "https://arxiv.org/abs/2609.11147v1",
           "published_at": "2026-09-10",
-          "summary_zh": "构建以 SAFT 状态方程为约束的物理信息神经网络，学习残余 Helmholtz 自由能，并由自动微分统一预测热力学、相平衡及部分输运性质。",
-          "why_it_matters_zh": "该方法尝试避免为每一种性质单独建立模型，并以水的温压密度、黏度和自扩散实验数据进行微调。摘要所述的实证重点仍是单一高难流体，对未知分子的普适性需要进一步独立验证。",
+          "summary_zh": "ARCHE 将通用推理模型、领域计算化学模型和工具注册表组合为自主机理研究系统，可提出、排序并基于计算证据迭代修正机理假设。其在不对称催化立体控制过渡态、α-iodoboronate C-I 断裂自由基路径和镍催化迁移性交叉偶联选择性描述符三类案例中验证。",
+          "why_it_matters_zh": "工作把机理推理、计算编排和证据驱动修正连成闭环，并公开了代码，为可审计的自主计算化学研究提供了具体系统原型。结论主要来自计算验证，实验复核、工具调用失败情形和跨反应体系泛化仍需独立评估。",
           "tags": [
-            "方法与模型"
+            "材料与催化"
           ],
           "rank": 5,
-          "category": "方法与模型",
+          "category": "材料与催化",
           "published": "2026-09-10",
-          "author_line": "Maximilian Fleck, Marcelle B M Spera"
+          "author_line": "Dong Li, Sixuan Mi, Zihao Ye, Huan Xiong, Tao XU, Tong Zhu, Aijia Zhang, Junqi Gao, Kaiyan Zhang, Shijie Wang, Bowen Zhou, Yuqiang Li, Biqing Qi"
         },
         {
-          "id": "arxiv:2609.10099v1",
+          "id": "chemrxiv:10.26434/chemrxiv.15002556/v2",
           "channel": "aixchem",
           "item_type": "paper",
-          "source": "arXiv",
-          "title": "A Systematic Evaluation of Molecule Generation Models for De Novo Drug Design: From Benchmarks to Practical Insights",
-          "url": "https://arxiv.org/abs/2609.10099v1",
-          "published_at": "2026-09-09",
-          "summary_zh": "综述82种从头药物分子生成方法，覆盖五类深度生成框架、通用与口袋条件生成、基准、表示及实验验证案例，并公开汇总资源。",
-          "why_it_matters_zh": "其价值在于横向梳理模型、评测和实验相关案例，便于识别生成模型从基准走向药物发现的缺口。它是综述而非新的盲法头对头实验；综合结论受原始研究的基准与报告标准不一致限制。",
+          "source": "ChemRxiv",
+          "title": "Accelerating Proton Affinity Prediction with Multi-Fidelity Machine Learning",
+          "url": "https://doi.org/10.26434/chemrxiv.15002556/v2",
+          "published_at": "2026-09-10",
+          "summary_zh": "研究提出多保真 Δ-learning，用 PM7 电子性质和化学信息学描述符校正质子亲和力预测。在 1,155 个分子的 NIST WebBook 基准上，MAE 由 8.21 降至 2.87 ± 0.26 kcal/mol；随后从 821,435 个 ZINC 分子中筛选候选物，并对其中 30 个进行 DFT 验证。",
+          "why_it_matters_zh": "该工作将廉价半经验计算、机器学习校正和前瞻性 DFT 筛选结合，可降低大规模质子载体初筛成本。作者明确指出单分子计算不能证明凝聚相质子电导；候选物仍需合成、稳定性和器件层面的实验验证。",
           "tags": [
-            "方法与模型"
+            "分子与药物发现"
           ],
           "rank": 6,
-          "category": "方法与模型",
-          "published": "2026-09-09",
-          "author_line": "Xinrui Xu, Xueer Wang, Dan Luo, Sisi Yuan, Xuan Lin"
-        },
-        {
-          "id": "chemrxiv:10.26434/chemrxiv-2025-l9gnz/v4",
-          "channel": "aixchem",
-          "item_type": "paper",
-          "source": "ChemRxiv",
-          "title": "Machine learning-accelerated evolutionary Monte Carlo for rapid phase exploration of compositionally complex materials in reactive environments",
-          "url": "https://doi.org/10.26434/chemrxiv-2025-l9gnz/v4",
-          "published_at": "2026-09-09",
-          "summary_zh": "提出机器学习势加速的进化 Monte Carlo，用于在反应环境中快速探索高熵合金/氧化物等组成复杂催化材料的稳定相及表面混合—偏析行为。",
-          "why_it_matters_zh": "它直面复杂催化剂在反应条件下的组合空间和活性位动态问题，并声称可推广到不同催化材料和反应条件。摘要未提供定量基准、实验验证或适用边界，且为v4预印本，相关主张需结合全文审查。",
-          "tags": [
-            "材料与催化"
-          ],
-          "rank": 7,
-          "category": "材料与催化",
-          "published": "2026-09-09",
-          "author_line": "Shuang Han, Sandip De"
-        },
-        {
-          "id": "chemrxiv:10.26434/chemrxiv.15008549/v1",
-          "channel": "aixchem",
-          "item_type": "paper",
-          "source": "ChemRxiv",
-          "title": "Reliable Machine Learning for DPPH Antioxidant QSAR: Scaffold- and Study-Aware Validation with an Out-of-Domain Sulfonamide-Tyr-Gly Case Study",
-          "url": "https://doi.org/10.26434/chemrxiv.15008549/v1",
-          "published_at": "2026-09-09",
-          "summary_zh": "以1,891个经整理的 DPPH 分子建立随机森林 QSAR，并通过骨架、DOI 分组和适用域分析量化验证切分造成的性能落差，再以两种 sulfonamide-Tyr-Gly 衍生物作域外案例。",
-          "why_it_matters_zh": "工作直接展示随机切分的高分会掩盖化学外推失败，是药物性质 QSAR 验证的实用反例。其结果限定于30 min DPPH 数据、所用描述符和随机森林模型，不能据此推广至其他抗氧化测定或新骨架。",
-          "tags": [
-            "分子与药物发现"
-          ],
-          "rank": 8,
           "category": "分子与药物发现",
-          "published": "2026-09-09",
-          "author_line": "Dennis Obinna Orji, Ike Ozoemena Christian"
+          "published": "2026-09-10",
+          "author_line": "Debjyoti Bhattacharya, Yifan Liu, Valentino R. Cooper, Wesley F. Reinhart"
         },
         {
-          "id": "arxiv:2609.08101v1",
-          "channel": "aixchem",
-          "item_type": "paper",
-          "source": "arXiv",
-          "title": "PocketVE: Stable and Property-Guided Structure-Based Drug Design with Variance-Exploding Diffusion",
-          "url": "https://arxiv.org/abs/2609.08101v1",
-          "published_at": "2026-09-08",
-          "summary_zh": "PocketVE 是蛋白口袋条件的 VE 扩散分子生成框架，结合稳定坐标去噪、无分类器多性质引导及蛋白扰动正则化，并在 CrossDocked2020/GenBench3D 上评估。",
-          "why_it_matters_zh": "工作将口袋适配、性质控制和三维几何质量作为耦合目标，摘要给出相对 TAGMol 的明确几何指标改善及诊断。证据仍局限于计算基准和对接/构象代理指标，未报告合成或生物活性验证。",
-          "tags": [
-            "分子与药物发现"
-          ],
-          "rank": 9,
-          "category": "分子与药物发现",
-          "published": "2026-09-08",
-          "author_line": "Peining Zhang, Jinbo Bi"
-        },
-        {
-          "id": "arxiv:2609.08780v1",
-          "channel": "aixchem",
-          "item_type": "paper",
-          "source": "arXiv",
-          "title": "Structure-Informed Bayesian Inference of Anomalous Transport and Hidden Molecular Trapping in Amorphous Media",
-          "url": "https://arxiv.org/abs/2609.08780v1",
-          "published_at": "2026-09-08",
-          "summary_zh": "以离散 Morse 理论提取波动无定形宿主的拓扑骨架，并用结构信息贝叶斯正则化分割单粒子轨迹，推断隐蔽分子俘获与异常输运机制。",
-          "why_it_matters_zh": "方法把轨迹局部几何复现转化为带物理先验的概率推断，面向电池聚合物、软物质与膜输运具有潜在通用性。其宏观偏差结论主要来自合成粒子基准；对 kerogen 中 H2/CH4 的应用仍需更广泛实验核验。",
-          "tags": [
-            "材料与催化"
-          ],
-          "rank": 10,
-          "category": "材料与催化",
-          "published": "2026-09-08",
-          "author_line": "Andrey Ananev, Maria Potapova, Nikolay Kondratyuk, Timur Vostroknutov, Aleksey Khlyupin"
-        },
-        {
-          "id": "chemrxiv:10.26434/chemrxiv.15008630/v1",
+          "id": "chemrxiv:10.26434/chemrxiv.15008684/v1",
           "channel": "aixchem",
           "item_type": "paper",
           "source": "ChemRxiv",
-          "title": "The Graph Fourier Transform Recasts Rouse Modes to Encode Polymer Sequence",
-          "url": "https://doi.org/10.26434/chemrxiv.15008630/v1",
-          "published_at": "2026-09-10",
-          "summary_zh": "将 Graph Fourier Transform 用于聚合物链上化学序列信号，把 Rouse modes 推广为可解释、架构自适应的描述符，并测试共聚物回转半径与无序蛋白液液相分离倾向。",
-          "why_it_matters_zh": "用同一图谱基底连接聚合物序列化学与链构象，且可延伸至 intrinsically disordered proteins，具有方法统一性。摘要也明确对称架构引入的简并会削弱预测，适用范围不应被高估。",
+          "title": "Assessing the performance of implicit ensembling of neural networks for proteochemometric modeling with RandomNets",
+          "url": "https://doi.org/10.26434/chemrxiv.15008684/v1",
+          "published_at": "2026-09-11",
+          "summary_zh": "该研究在两个蛋白化学计量学（PCM）基准上评估 RandomNets：原始 BtH 数据集及由 ChEMBL 35 制备的新数据集，后者含 571,197 个相互作用、382,493 个化合物和 2,023 个靶点。两层 RandomNets 在时间划分下优于 DNN_PCM 的 MCC，并维持较低或相同训练时间。",
+          "why_it_matters_zh": "时间划分和大规模 ChEMBL 衍生基准使该比较比仅用随机划分更具说服力，也为 PCM 的隐式集成提供了候选架构。证据仍局限于两个基准及既定指纹、描述符和训练框架，跨靶标家族和真实前瞻性活性预测尚未证明。",
           "tags": [
             "结构与生物"
           ],
-          "rank": 11,
+          "rank": 7,
           "category": "结构与生物",
-          "published": "2026-09-10",
-          "author_line": "Viviana Palacio-Betancur, Nicholas E. Jackson"
+          "published": "2026-09-11",
+          "author_line": "Chiel Jespers, Olivier J. M. Béquignon, Mike Preuss, Gerard J. P. van Westen"
         },
         {
-          "id": "arxiv:2609.08474v1",
+          "id": "biorxiv:10.64898/2026.04.28.720402",
           "channel": "aixchem",
           "item_type": "paper",
-          "source": "arXiv",
-          "title": "Predicting directional flexibility in proteins",
-          "url": "https://arxiv.org/abs/2609.08474v1",
+          "source": "bioRxiv",
+          "title": "Predicting Supramolecular Self-Assembly of Peptide Structures with AlphaFold3",
+          "url": "https://www.biorxiv.org/content/10.64898/2026.04.28.720402",
+          "published_at": "2026-09-10",
+          "summary_zh": "作者用 AlphaFold3（AF3）的 multimer 模式模拟由疏水残基和 glutamic acid 交替构成的两亲性肽，并在 10 至 1000 个拷贝数下分析胶束和纳米管等组装形态。AF3 捕捉到若干与生物物理原则一致的趋势，但与文献的比较也揭示其二级结构和电荷处理偏差。",
+          "why_it_matters_zh": "该研究明确检验 AF3 能否作为肽自组装设计的初筛工具，并同时报告了失败模式，而非只呈现正向案例。结果为定性趋势和文献比较，且模型不能自然表示多胶束或纤维等高阶组装；后续仍需粗粒化或全原子模拟及实验验证。",
+          "tags": [
+            "结构与生物"
+          ],
+          "rank": 8,
+          "category": "结构与生物",
+          "published": "2026-09-10",
+          "author_line": "Sklar, C., Huh, S., Chen, S., Gray, J. J."
+        },
+        {
+          "id": "biorxiv:10.64898/2026.09.08.749156",
+          "channel": "aixchem",
+          "item_type": "paper",
+          "source": "bioRxiv",
+          "title": "Discovery of a molecular glue inhibitor that stabilises a non-productive Kalirin-Rac1 complex",
+          "url": "https://www.biorxiv.org/content/10.64898/2026.09.08.749156",
+          "published_at": "2026-09-11",
+          "summary_zh": "研究通过 XChem、in silico 筛选和片段合并得到共价分子胶 RS-009 与 MC-278，使 Kalirin-Rac1 GEF-GTPase 复合物稳定于非生产性状态。生化选择性筛选和细胞活性基蛋白质谱（ABPP）支持其可在不同 GEF-GTPase 复合物间取得选择性。",
+          "why_it_matters_zh": "以稳定 GEF-GTPase 复合物而非仅竞争靶向 GTPase，为难成药 Rho GTPase 信号提出了新的共价分子胶策略，并有多层生化和细胞证据。其治疗价值目前仍是前临床推断，体内药效、安全性和更广泛选择性尚待验证。",
+          "tags": [
+            "结构与生物"
+          ],
+          "rank": 9,
+          "category": "结构与生物",
+          "published": "2026-09-11",
+          "author_line": "Gray, J. L., Callens, M. C., Henley, A., Zaidman, D., Jimenez Antunez, C., Thompson, A. P., Lei, Z., Skyner, R., Miller, M., Williams, E. P., Robinson, A., Seupal, R., Fry, M. T., Filep, M., von Delft, F., Willis, M. P., von Delft, A. R., London, N., Brennan, P. E."
+        },
+        {
+          "id": "chemrxiv:10.26434/chemrxiv.15008687/v1",
+          "channel": "aixchem",
+          "item_type": "paper",
+          "source": "ChemRxiv",
+          "title": "Automatic Text-fishing, Unification, and Normalization Application in Python (aTUNApy): a tool to build molecular databases",
+          "url": "https://doi.org/10.26434/chemrxiv.15008687/v1",
+          "published_at": "2026-09-11",
+          "summary_zh": "aTUNApy 以 LLM 从 PubMed 摘要中抽取化合物和指定属性，再用 PubChem 与 RDKit 完成命名统一及 SMILES 标准化。在 507 篇文章的人工参照集上，Claude 的 F1 为 0.97；作者还据此从 8,273 篇文章中构建了 NutriEpiDB。",
+          "why_it_matters_zh": "该工具将文献抽取、同义名归并和结构标准化串为可用的分子数据库构建流程，并报告了包含阴性对照的人工基准。其证据限于摘要文本和特定参照集；全文信息缺失、实体消歧及不同 LLM 的可复现性仍需关注。",
+          "tags": [
+            "方法与模型"
+          ],
+          "rank": 10,
+          "category": "方法与模型",
+          "published": "2026-09-11",
+          "author_line": "Aylin Del Moral Morales, José L. Medina-Franco"
+        },
+        {
+          "id": "chemrxiv:10.26434/chemrxiv.15008605/v1",
+          "channel": "aixchem",
+          "item_type": "paper",
+          "source": "ChemRxiv",
+          "title": "Data-driven strategies for enzyme engineering: From machine learning to protein language models",
+          "url": "https://doi.org/10.26434/chemrxiv.15008605/v1",
+          "published_at": "2026-09-09",
+          "summary_zh": "这是一篇酶工程计算方法综述，系统梳理酶数据资源、功能酶发现、动力学与最适温度等性质预测、de novo 酶设计和计算引导优化，并讨论基础模型、生成式 AI、多模态学习和闭环 DBTL 平台。",
+          "why_it_matters_zh": "综述为酶工程中的数据、预测与实验闭环提供了较完整的技术地图，有助于比较不同计算策略的适用场景。它不报告新的统一基准或实验结果，具体方法优劣仍应回到所引原始研究及其数据划分和实验设计判断。",
+          "tags": [
+            "方法与模型"
+          ],
+          "rank": 11,
+          "category": "方法与模型",
+          "published": "2026-09-09",
+          "author_line": "Shaozhen Ding, Peng Wu, Shubo Li, Yuxuan Yang, Han Zhu, Heng Yu, Yu Tian, Dachuan Zhang, Qian-Nan Hu"
+        },
+        {
+          "id": "chemrxiv:10.26434/chemrxiv.15008528/v1",
+          "channel": "aixchem",
+          "item_type": "paper",
+          "source": "ChemRxiv",
+          "title": "Molarium: Agent-Generated Adaptive Software for Molecular Design",
+          "url": "https://doi.org/10.26434/chemrxiv.15008528/v1",
           "published_at": "2026-09-08",
-          "summary_zh": "BackFlip-2 是由平衡结构直接预测主链方向柔性及残基对动态相关性的 SE(3)-等变图神经网络，旨在替代昂贵的构象集合生成与 MD。",
-          "why_it_matters_zh": "方向性柔性对应铰链、催化环和结构域重排等功能运动；摘要称其以更低成本达到大型集合模型的准确度，并公开代码和权重。该比较针对计算动力学描述符，尚不能替代针对具体体系的实验动态学验证。",
+          "summary_zh": "Molarium 以开源浏览器端分子工作台为案例，讨论由 LLM、编码智能体和工具调用智能体生成的自适应药物发现软件。系统整合分子编辑、构象生成、能量最小化、分子动力学、机器学习势和蛋白结构预测，并保存带版本的分子状态、方法和验证证据。",
+          "why_it_matters_zh": "其核心价值在于提出将快速变化的智能体生成界面与可追溯的科学内核解耦，为分子设计软件的可审计性提供架构方向。论文主要是案例与立场性论述，未给出系统性准确度、可重复性或与成熟软件的对照评估。",
           "tags": [
             "方法与模型"
           ],
           "rank": 12,
           "category": "方法与模型",
           "published": "2026-09-08",
-          "author_line": "Vsevolod Viliuga, Leif Seute, Matteo Tadiello, Nicolas Wolf, Frauke Gräter, Arne Elofsson"
+          "author_line": "Rafal Wiewiora, Woody Sherman"
         },
         {
-          "id": "chemrxiv:10.26434/chemrxiv.15008530/v1",
+          "id": "biorxiv:10.64898/2026.09.09.750410",
           "channel": "aixchem",
           "item_type": "paper",
-          "source": "ChemRxiv",
-          "title": "Plasma Protein Binding Prediction under Scaffold Split: Tree Models, ChemBERTa, Graph Networks, and Late Fusion",
-          "url": "https://doi.org/10.26434/chemrxiv.15008530/v1",
-          "published_at": "2026-09-09",
-          "summary_zh": "在 DeepChem MoleculeNet 的 Plasma Protein Binding 数据上，比较树模型、ChemBERTa、图神经网络及后期融合，并采用 Bemis–Murcko scaffold split 衡量对未见核心的外推。",
-          "why_it_matters_zh": "PPB 是 ADMET 决策的重要性质；该工作强调随机切分会高估泛化能力，并显示融合模型的平均表现更佳。证据来自单一公共数据集，摘要未给出外部测试集、置信区间或实验前瞻验证。",
+          "source": "bioRxiv",
+          "title": "Self-Architecting Protein Transformers: An Empirical Study",
+          "url": "https://www.biorxiv.org/content/10.64898/2026.09.09.750410",
+          "published_at": "2026-09-10",
+          "summary_zh": "INCRT-geo 是可根据注意力矩阵定量信号自行扩展宽度和深度的 protein transformer。它仅在约两万条人类 Ensembl 蛋白序列上预训练，却在 Pfam-50 线性探针分类上超过 ESM-2 small 和 ProtBERT；消融实验解析了 tokenization、深度增长和正则项的作用。",
+          "why_it_matters_zh": "研究探索了以较低预训练数据与算力成本获得蛋白表征的架构自适应路线，并透明报告扩展至八种脊椎动物蛋白组未改善准确率的结果。评估主要集中于单一分类基准和有限计算预算，不能据此推断对结构、功能或设计任务的普遍优势。",
           "tags": [
             "方法与模型"
           ],
           "rank": 13,
           "category": "方法与模型",
-          "published": "2026-09-09",
-          "author_line": "Pradyumna Kumar Pradhan"
+          "published": "2026-09-10",
+          "author_line": "Cirrincione, G., Ficarra, E., Lovino, M."
         },
         {
-          "id": "chemrxiv:10.26434/chemrxiv.15008627/v1",
+          "id": "biorxiv:10.64898/2026.04.10.717862",
+          "channel": "aixchem",
+          "item_type": "paper",
+          "source": "bioRxiv",
+          "title": "Single-particle light scattering reveals structural heterogeneity of biomolecular condensates",
+          "url": "https://www.biorxiv.org/content/10.64898/2026.04.10.717862",
+          "published_at": "2026-09-10",
+          "summary_zh": "研究把离轴全息成像、定量光散射和粒子追踪结合起来，以每分钟数百个颗粒的通量同时测量生物分子凝聚体的尺寸、光学性质、界面结构和流体动力学迁移率。对 Ddx4N1 凝聚体的测量显示紧凑颗粒与非紧凑异质组装体两种群体，且比例随离子强度变化。",
+          "why_it_matters_zh": "单颗粒多模态测量揭示了集合平均方法容易掩盖的介观结构异质性，并以聚合物对照和 Brownian aggregation 模拟支持机制解释。该工作不是 AI 模型研究，且结论目前集中于 Ddx4N1 和所用模型体系，其对其他凝聚体的普适性需验证。",
+          "tags": [
+            "材料与催化"
+          ],
+          "rank": 14,
+          "category": "材料与催化",
+          "published": "2026-09-10",
+          "author_line": "Rodriguez, B. G., Makasewicz, K., Tesei, G., Eklund, F., Johansson, E., Arosio, P., Volpe, G., Midtvedt, D. S."
+        },
+        {
+          "id": "chemrxiv:10.26434/chemrxiv.15008612/v1",
           "channel": "aixchem",
           "item_type": "paper",
           "source": "ChemRxiv",
-          "title": "Comparative Evaluation of Graph Neural Networks for Molecular Lipophilicity Prediction",
-          "url": "https://doi.org/10.26434/chemrxiv.15008627/v1",
-          "published_at": "2026-09-10",
-          "summary_zh": "在统一预处理、优化和训练条件下，对 GCN、GIN、GraphSAGE 与 Attentive FP 的分子脂溶性回归和分类性能进行比较，报告 Attentive FP 持续最佳。",
-          "why_it_matters_zh": "脂溶性是药物暴露和材料性质的基础变量，统一条件下的架构比较具有基线参考价值。摘要未说明外部或骨架切分验证，且移除离群值带来的提升需要警惕潜在的数据筛选偏差。",
+          "title": "Digestion and Orthogonal Click Conjugation Enables Nanopore Reading of Proteins",
+          "url": "https://doi.org/10.26434/chemrxiv.15008612/v1",
+          "published_at": "2026-09-09",
+          "summary_zh": "该研究提出消化—连接流程，将肽和蛋白转化为可经纳米孔分析的 DNA-peptide-DNA 偶联物。Chymotrypsin 消化得到 C 端 tyrosine 肽片段，再经氧化诱导 click chemistry 和 N 端 azide 的选择性安装连接模板 DNA。",
+          "why_it_matters_zh": "方法使用常见试剂和台式设备，为单分子纳米孔蛋白读出提供了较易实施的样品制备路径。摘要尚未给出跨蛋白的读出准确度、序列覆盖度或复杂样品表现，实际通用性仍需系统验证。",
           "tags": [
-            "分子与药物发现"
+            "结构与生物"
           ],
-          "rank": 14,
-          "category": "分子与药物发现",
-          "published": "2026-09-10",
-          "author_line": "Annika Bande, Sandeep Kumar"
+          "rank": 15,
+          "category": "结构与生物",
+          "published": "2026-09-09",
+          "author_line": "Jasper W. van de Sande, Xiuqi Chen, Cees Dekker, Bauke Albada"
         }
       ]
     },
@@ -376,270 +383,270 @@
       "id": "aixbio",
       "name": "AI × Bio",
       "stats": {
-        "fetched": 2321,
-        "suppressed_previous": 18,
+        "fetched": 2307,
+        "suppressed_previous": 17,
         "candidates": 60,
         "selected": 12,
         "sources": {
-          "arXiv": 624,
-          "bioRxiv": 683,
-          "medRxiv": 214,
+          "arXiv": 613,
+          "bioRxiv": 712,
+          "medRxiv": 154,
           "Europe PMC": 1000
         }
       },
       "source_errors": [],
       "items": [
         {
-          "id": "biorxiv:10.64898/2026.03.31.715748",
-          "channel": "aixbio",
-          "item_type": "paper",
-          "source": "bioRxiv",
-          "title": "Generative machine learning unlocks the first proteome-wide image of human cells",
-          "url": "https://www.biorxiv.org/content/10.64898/2026.03.31.715748",
-          "published_at": "2026-09-10",
-          "summary_zh": "ProtiCelli 以三个细胞地标染色为条件，从 Human Protein Atlas 图像学习生成 12,800 种人类蛋白的虚拟显微图像，并发布 Proteome2Cell 虚拟细胞资源。",
-          "why_it_matters_zh": "该工作将空间蛋白组图像生成扩展到蛋白质组尺度，并报告了跨细胞类型和药物扰动的泛化；其功能性推断仍属于预印本中的计算结果。",
-          "tags": [
-            "组学与细胞",
-            "空间蛋白组",
-            "生成模型",
-            "虚拟细胞"
-          ],
-          "rank": 1,
-          "category": "组学与细胞",
-          "published": "2026-09-10",
-          "author_line": "Sun, H., Kahnert, K., Hansen, J. N., Leineweber, W. D., Li, M., Feng, W., Ballllosera Navarro, F., Axelsson, U., Ouyang, W., Lundberg, E."
-        },
-        {
-          "id": "biorxiv:10.64898/2026.09.03.747733",
-          "channel": "aixbio",
-          "item_type": "paper",
-          "source": "bioRxiv",
-          "title": "Learning from tandem mass spectra at scale with a self-supervised foundation model for proteomics",
-          "url": "https://www.biorxiv.org/content/10.64898/2026.09.03.747733",
-          "published_at": "2026-09-08",
-          "summary_zh": "InstaNovo-FM 在 16.3 亿条 MS/MS 谱图和 1.846 亿条高置信度注释上预训练，为蛋白质组学谱图提供可迁移的自监督表征。",
-          "why_it_matters_zh": "训练语料规模突出，且任务针对质谱实验数据而非仅序列；预印本报告的下游能力仍需独立复现和跨平台验证。",
-          "tags": [
-            "方法与模型",
-            "蛋白质组学",
-            "质谱",
-            "基础模型"
-          ],
-          "rank": 2,
-          "category": "方法与模型",
-          "published": "2026-09-08",
-          "author_line": "Nieuwoudt, M., Reverenna, M., Patel, D., Catzel, R., Houngue, I. H. J., Daniel, J., Eloff, K., Santos, A., Lopez Carranza, N., Jenkins, T. P., Van Goey, J., Kalogeropoulos, K."
-        },
-        {
-          "id": "biorxiv:10.1101/2025.11.26.690798",
-          "channel": "aixbio",
-          "item_type": "paper",
-          "source": "bioRxiv",
-          "title": "Perturbation-Aware Neural ODE (pNODE) Learns Microbiome Dynamics from Clinical Data and Predicts Gut-Borne Bloodstream Infections in Patients Receiving Cancer Treatment",
-          "url": "https://www.biorxiv.org/content/10.1101/2025.11.26.690798",
-          "published_at": "2026-09-10",
-          "summary_zh": "pNODE 将微生物丰度与时间分辨的抗生素扰动纳入 Neural ODE，在超过 1,000 名 allo-HCT 患者的临床数据中预测肠源性血流感染风险相关轨迹。",
-          "why_it_matters_zh": "该研究把动态微生物组建模与独立留出队列的感染预测相连接，但其结果是预印本中的预测性能，尚非可直接指导治疗的临床验证。",
-          "tags": [
-            "生物医学与临床",
-            "微生物组",
-            "Neural ODE",
-            "感染预测"
-          ],
-          "rank": 3,
-          "category": "生物医学与临床",
-          "published": "2026-09-10",
-          "author_line": "Stamper, I. C., Aeria, B., Xavier, J."
-        },
-        {
-          "id": "medrxiv:10.64898/2026.09.08.26362488",
-          "channel": "aixbio",
-          "item_type": "paper",
-          "source": "medRxiv",
-          "title": "Sex-aware Cross-tissue Regulatory Transformer Identified Sexually Dimorphic Alzheimer's Disease Risk Loci and Causal Cellular Circuit",
-          "url": "https://www.medrxiv.org/content/10.64898/2026.09.08.26362488",
-          "published_at": "2026-09-09",
-          "summary_zh": "STAGE-AD 整合性别分层遗传分析、molecular QTL、表观组和单细胞注释，提出 AD 的性别差异风险位点及候选变异—基因—细胞链路。",
-          "why_it_matters_zh": "449,335 名参与者、独立 HUNT/MVP 队列和 579 例 NPAD 脑供体提供了较大规模支撑；候选链路仍是统计遗传与多组学支持的关联，不能视为已证实因果回路。",
-          "tags": [
-            "组学与细胞",
-            "阿尔茨海默病",
-            "统计遗传学",
-            "多组学"
-          ],
-          "rank": 4,
-          "category": "组学与细胞",
-          "published": "2026-09-09",
-          "author_line": "Cheng, Z., Judaprawira, S., Perez, J., Goldstein, A."
-        },
-        {
-          "id": "biorxiv:10.64898/2026.09.04.749355",
-          "channel": "aixbio",
-          "item_type": "paper",
-          "source": "bioRxiv",
-          "title": "BOTANIC-1: a series of long-context plant genomic foundation models in the agentic era",
-          "url": "https://www.biorxiv.org/content/10.64898/2026.09.04.749355",
-          "published_at": "2026-09-09",
-          "summary_zh": "BOTANIC-1 发布可处理数百 bp 至 128 kbp 植物序列的长上下文基因组基础模型、预训练语料和稀疏自编码器。",
-          "why_it_matters_zh": "开放模型与预训练资源提升可复现性，并以机制可解释性分析连接序列建模和调控元件；其性能结论目前来自预印本基准。",
-          "tags": [
-            "方法与模型",
-            "植物基因组学",
-            "长上下文",
-            "开放模型"
-          ],
-          "rank": 5,
-          "category": "方法与模型",
-          "published": "2026-09-09",
-          "author_line": "Barozet, A., Cabeli, V., Ogier du Terrail, J., Rukhovich, A., Janssoone, T., Klajer, G., Sheikhitarghi, Z., Andrews, G., Veran, C., Strouk, L."
-        },
-        {
-          "id": "biorxiv:10.64898/2026.05.02.722381",
-          "channel": "aixbio",
-          "item_type": "paper",
-          "source": "bioRxiv",
-          "title": "Learning the Language of the Microbiome with Transformers",
-          "url": "https://www.biorxiv.org/content/10.64898/2026.05.02.722381",
-          "published_at": "2026-09-10",
-          "summary_zh": "Atlas、Waypoint 与 Compass 分别提供 539,308 条微生物组数据、6M–170M 参数基础模型和八项任务基准，用于系统评估微生物组预训练。",
-          "why_it_matters_zh": "数据集、模型与任务基准形成完整资源组合，并明确报告数据规模阈值；“state-of-the-art”仍是预印本作者在其基准上的比较结论。",
-          "tags": [
-            "方法与模型",
-            "微生物组",
-            "基础模型",
-            "基准"
-          ],
-          "rank": 6,
-          "category": "方法与模型",
-          "published": "2026-09-10",
-          "author_line": "Treloar, N. J., Ur-Rehman, S., Yang, J."
-        },
-        {
-          "id": "biorxiv:10.1101/2025.10.31.685892",
-          "channel": "aixbio",
-          "item_type": "paper",
-          "source": "bioRxiv",
-          "title": "Empirical Evaluation of Single-Cell Foundation Models for Predicting Cancer Outcomes",
-          "url": "https://www.biorxiv.org/content/10.1101/2025.10.31.685892",
-          "published_at": "2026-09-09",
-          "summary_zh": "该研究以 1,530 次监督拟合和 200 次无监督子采样，比较 12 个单细胞基础模型及三类基线在七项癌症任务上的表现。",
-          "why_it_matters_zh": "其主要价值是显示单细胞基础模型在患者层面临床结局预测中未必优于简单基线，为转化场景中的评测设计提供了反证性证据。",
-          "tags": [
-            "组学与细胞",
-            "单细胞",
-            "癌症",
-            "模型评测"
-          ],
-          "rank": 7,
-          "category": "组学与细胞",
-          "published": "2026-09-09",
-          "author_line": "Roman, A., Johri, S., Conci, R., Van Allen, E., Elmarakeby, H."
-        },
-        {
-          "id": "biorxiv:10.64898/2026.05.29.727918",
-          "channel": "aixbio",
-          "item_type": "paper",
-          "source": "bioRxiv",
-          "title": "A deep generative decoder predicts microRNA expression from bulk and single-cell mRNA profiles",
-          "url": "https://www.biorxiv.org/content/10.64898/2026.05.29.727918",
-          "published_at": "2026-09-10",
-          "summary_zh": "miDGD 从配对 mRNA/miRNA 数据学习共享潜变量，可由 bulk 或单细胞 mRNA 预测 miRNA 表达并跨数据集迁移。",
-          "why_it_matters_zh": "方法有望让既有 mRNA-only 数据获得 miRNA 层面的计算读出，但预测表达不能替代直接 miRNA 测量或证明调控因果关系。",
-          "tags": [
-            "组学与细胞",
-            "miRNA",
-            "转录组",
-            "生成模型"
-          ],
-          "rank": 8,
-          "category": "组学与细胞",
-          "published": "2026-09-10",
-          "author_line": "Zamani, F., Rasmussen, A. M., Schuster, V., Diekema, M. H., Krogh, A., Pedersen, J. S."
-        },
-        {
-          "id": "biorxiv:10.64898/2025.11.28.691099",
-          "channel": "aixbio",
-          "item_type": "paper",
-          "source": "bioRxiv",
-          "title": "Tensor-based representation learning for multi-omics integrative clustering and feature discovery",
-          "url": "https://www.biorxiv.org/content/10.64898/2025.11.28.691099",
-          "published_at": "2026-09-10",
-          "summary_zh": "MIA 以三维张量保留多组学维度关系，结合张量分解、模糊 c-means 与增强随机森林完成聚类和特征发现。",
-          "why_it_matters_zh": "该方法在模拟、经验数据和多个 TCGA 癌种上进行了比较；其与预后、治疗反应和细胞状态的联系主要是关联性结果。",
-          "tags": [
-            "组学与细胞",
-            "多组学",
-            "张量学习",
-            "TCGA"
-          ],
-          "rank": 9,
-          "category": "组学与细胞",
-          "published": "2026-09-10",
-          "author_line": "Zhang, Y., Liu, L., Liu, Z., Liu, Q., Ma, L., Zhang, Z."
-        },
-        {
-          "id": "europepmc:ppr1315701",
+          "id": "europepmc:ppr1316932",
           "channel": "aixbio",
           "item_type": "paper",
           "source": "Europe PMC",
-          "title": "BioForm-LM: Generative Design of Biologics Formulations via In-Context Learning and Physics-Informed Decoding",
-          "url": "https://europepmc.org/article/PPR/PPR1315701",
+          "title": "Sex-aware Cross-tissue Regulatory Transformer Identified Sexually Dimorphic Alzheimer's Disease Risk Loci and Causal Cellular Circuit",
+          "url": "https://europepmc.org/article/PPR/PPR1316932",
           "published_at": "2026-09-09",
-          "summary_zh": "BioForm-LM 将 DLVO 与 Lumry–Eyring 模拟、上下文学习和物理重排序结合，用于从少量稳定性测量生成生物制剂处方。",
-          "why_it_matters_zh": "代码、权重和 BioFormBench 已公开，且包含消融；但关键训练语料以合成处方为主，真实蛋白配方泛化仍需更广泛实验验证。",
+          "summary_zh": "阿尔茨海默病（AD）遗传效应和调控背景中的性别差异仍未完全阐明。我们采用按性别分层及基因型×性别模型分析了 449,335 名欧洲祖源参与者，并开发了 STAGE-AD——一个整合分子 QTL、表观基因组及单细胞注释的 Transformer。按性别分层的分析识别出 8 个女性和 3 个男性全基因组显著信号，暂定为新信号。主测试集的精确率-召回率曲线下面积为 0.895（95% 置信区间，0.877–0.912）；在位点留出和 APOE 区域留出条件下，分别降至 0.751 和 0.681。独立的 HUNT 和 MVP 队列中的统计遗传学整合支持 106 个位点的 236 个基因。预先设定的终生风险假设得到女性和男性的责任度量表 SNP 遗传力分别为 11.42% 和 9.23%。消融分析表明，女性偏向预测依赖于胶质细胞注释，男性偏向预测依赖于内皮细胞和少突胶质细胞注释。利用来自 579 名 NPAD 脑供体的多组学和神经病理学数据，评估了 11 条候选的变异—基因—组织—细胞—病理链条。这些发现强调，在包括阿尔茨海默病在内的健康状况研究中应考虑性别特异性遗传结构，并为更具针对性的治疗策略铺路。",
+          "why_it_matters_zh": "大规模遗传队列、独立队列与脑供体多组学使其具有较强的生物学解释价值；但样本限于欧洲祖源，且候选链条是被评估而非经干预证实的因果回路。",
+          "tags": [
+            "组学与细胞",
+            "阿尔茨海默病",
+            "多组学",
+            "遗传学"
+          ],
+          "rank": 1,
+          "category": "组学与细胞",
+          "published": "2026-09-09",
+          "author_line": "Cheng Z, Judaprawira S, Perez J, Goldstein A"
+        },
+        {
+          "id": "biorxiv:10.1101/2025.03.16.643481",
+          "channel": "aixbio",
+          "item_type": "paper",
+          "source": "bioRxiv",
+          "title": "Genetic risk implicating endolysosomal network genes correlates with endolysosomal dysfunction across neural cell types in Alzheimer's disease",
+          "url": "https://www.biorxiv.org/content/10.1101/2025.03.16.643481",
+          "published_at": "2026-09-11",
+          "summary_zh": "迟发性阿尔茨海默病（LOAD）具有复杂的基因组结构。LOAD 风险变异提示，包括内溶酶体网络（ELN）在内的多条通路参与阿尔茨海默病（AD）的病理生物学。特定通路中的遗传风险是否与相应的生物学功能障碍相关，仍基本未知。我们使用 14 个涉及 ELN 基因、已充分确立的 AD 风险等位基因，开发了内溶酶体通路特异性多基因风险评分（ePRS）。我们研究 ePRS 与 AD 神经病理之间的关联，随后在按 ePRS 负担分层的死后背外侧前额叶皮层供体样本中，考察细胞特异性的内溶酶体形态和转录组特征。我们发现，尽管 ePRS 代表的位点少得多，但其与 AD 诊断和神经病理学指标显著相关，表现可与非通路特异性 PRS 相当。高 ePRS 与神经元内体体积、数量和核周聚集增加相关，且独立于 AD 病理。单核 RNA 测序显示，与 ePRS 状态相关的细胞类型特异性转录组变化影响谷氨酸能信号、蛋白质稳态、DNA 损伤反应和免疫功能。神经元、星形胶质细胞、少突胶质细胞和小胶质细胞均显示与 ePRS 负担相关的不同基因表达模式。总体而言，这些结果提供证据表明，含有 ELN 基因的 AD 遗传风险变异与人脑组织中的内溶酶体功能障碍相关。这些发现提示，通路特异性遗传风险有助于 AD 中相应的细胞病理，并提出 ELN AD 变异参与发病机制的候选机制。",
+          "why_it_matters_zh": "该研究将通路特异性 AD 风险与人脑细胞形态和单核转录组相联系；其证据为相关性，不能据此断定 ELN 风险变异导致所见细胞病理。",
+          "tags": [
+            "组学与细胞",
+            "阿尔茨海默病",
+            "单核RNA测序",
+            "内溶酶体"
+          ],
+          "rank": 2,
+          "category": "组学与细胞",
+          "published": "2026-09-11",
+          "author_line": "Mamde, S., Rose, S., Prater, K. E., Cochoit, A., Lin, Y. F., Smith, I., Johnson, C. S. C., Reid, A., Qiu, W., Strohbehn, S., Keene, C. D., Rolf, B., Lin, K., Lee, S.-I., Garden, G., Blue, E., Young, J. E., Jayadev, S."
+        },
+        {
+          "id": "biorxiv:10.64898/2026.08.07.743628",
+          "channel": "aixbio",
+          "item_type": "paper",
+          "source": "bioRxiv",
+          "title": "LiverDCP: A Disease-Cell-Protein Framework for Multi-scale Modeling of Disease Biology",
+          "url": "https://www.biorxiv.org/content/10.64898/2026.08.07.743628",
+          "published_at": "2026-09-11",
+          "summary_zh": "理解分子相互作用如何在细胞环境中产生疾病表型，是生物医学研究的核心挑战。本文提出疾病—细胞—蛋白质（DCP）范式，用于多尺度疾病生物学建模；该范式在统一图架构中共同表示疾病状态、细胞组成和蛋白质相互作用网络。我们在肝脏中以 LiverDCP 实现该范式：整合肝病的协调化单细胞图谱 LiverHomo 与蛋白质组范围预测的蛋白质—蛋白质相互作用，构建了跨多种肝病和细胞条件的 280 多个环境特异性互作组。LiverDCP 采用多环境表征学习策略，可跨数百个疾病—细胞环境联合训练，在保留环境特异性变化的同时捕捉共享相互作用原理。LiverDCP 通过几何感知的两阶段训练方案整合预训练的蛋白质序列衍生特征，该方案在提升预测性能的同时保留嵌入结构。所得 DCP 蛋白质嵌入揭示了跨疾病的蛋白质功能状态广泛重连，并为下游生物医学应用提供可迁移表征。在表征学习过程中不使用 GWAS 监督的条件下，LiverDCP 可进行疾病风险基因分类，并识别遗传风险可能发挥作用的细胞类型。对于治疗靶点发现，LiverDCP 回收了已确立的 II 期及以上 MASH 靶点，并从未注释蛋白质组中优先筛选出此前未被识别的候选者；前 50 个预测中有 26 个显示与 MASH 生物学相关的独立 PubMed 证据。环境特异性相互作用分析还为表征较少的候选者提供机制假设。总体而言，DCP 构建了一个可泛化框架，用于跨复杂疾病连接分子相互作用、细胞环境、遗传风险和治疗机会。",
+          "why_it_matters_zh": "该模型将肝病单细胞图谱和预测蛋白互作网络扩展为 280 多个环境特异性图；靶点结果主要由已知靶点回收与文献支持构成，仍需功能和前瞻性验证。",
+          "tags": [
+            "蛋白质与结构",
+            "肝病",
+            "单细胞",
+            "靶点发现"
+          ],
+          "rank": 3,
+          "category": "蛋白质与结构",
+          "published": "2026-09-11",
+          "author_line": "Shi, Z., Song, Z., Stevenson-Lerner, H., Dong, B., Zhao, H."
+        },
+        {
+          "id": "biorxiv:10.64898/2026.09.06.749004",
+          "channel": "aixbio",
+          "item_type": "paper",
+          "source": "bioRxiv",
+          "title": "Preclinical trial supports dual inhibition of BCL2 and Aurora kinase A for MYCN-amplified high-risk neuroblastoma",
+          "url": "https://www.biorxiv.org/content/10.64898/2026.09.06.749004",
+          "published_at": "2026-09-10",
+          "summary_zh": "目的：高危神经母细胞瘤患儿的治疗依赖常规化疗和抗 GD2 免疫治疗。然而，其 5 年生存率仅为 50%，且远期不良反应发生率高。靶向治疗组合是这些患者的重大优先事项。BCL2 抑制剂 venetoclax 联合 cyclophosphamide/topotecan 在复发难治性神经母细胞瘤中具有临床活性。我们旨在通过系统性临床前测试寻找更有效且更安全的 venetoclax 联合方案。实验设计：利用患者来源异种移植（PDX）模型的高通量筛选识别协同组合，并在体内确认。在采用 22 个 PDX 模型的类临床试验研究中，将领先组合 venetoclax-alisertib 与联合化疗比较；还在旨在降低短期毒性的给药方案实验中，以及与抗 GD2 免疫治疗联合时进行研究。评估 BCL2 和 Bim-BCL2 复合物蛋白水平作为敏感性预测因子。结果：venetoclax 与标准治疗化疗药物和靶向药物之间观察到体外协同，包括 DNA 拓扑异构酶、微管、HDAC 和 Aurora kinase A（AURKA）抑制剂。venetoclax-alisertib 在体内尤其有效。在一项 n=1 研究中，venetoclax-alisertib 在所有模型中均诱导客观反应。在 MYCN 扩增疾病模型（n=12）中，活性最为显著：与 cyclophosphamide/topotecan 相比，中位生存时间加倍，且优于 venetoclax-cyclophosphamide-topotecan。疗效在间歇给药方案下得以维持，在不显著损害活性的情况下最小化血液学毒性。接受 venetoclax-alisertib 和抗 GD2 免疫治疗的 PDX 移植动物长期无瘤存活。BCL2 表达和 BCL2-Bim 复合物水平对预测反应的价值有限。结论：结果支持在神经母细胞瘤中推进 BCL2-AURKA 抑制进入临床试验，无论是否联合抗 GD2 免疫治疗，尤其适用于 MYCN 扩增疾病患者。",
+          "why_it_matters_zh": "22 个 PDX 模型和体内联合免疫治疗结果使其成为较扎实的临床前组合治疗证据；但尚未有人体疗效或安全性结果。",
+          "tags": [
+            "生物医学与临床",
+            "神经母细胞瘤",
+            "PDX",
+            "联合治疗"
+          ],
+          "rank": 4,
+          "category": "生物医学与临床",
+          "published": "2026-09-10",
+          "author_line": "Kamili, A., Hearn, B. A., Temelkoska, I., Solomon, J., Wheatley, M. S., Bui, C. H. T., Atkinson, C. J., Elhassadi, L.-J., Qureshi, S., Murray, J., Cadiz, R., Gifford, A. J., Cui, L., Crowley, L., Lin, A., Mayoh, C., Wong-Erasmus, M., Failes, T. W., Arndt, G. M., Haber, M., Norris, M. D., Dolman, M. E. M., Trahair, T. N., Fletcher, J. I."
+        },
+        {
+          "id": "medrxiv:10.1101/2025.10.07.25337348",
+          "channel": "aixbio",
+          "item_type": "paper",
+          "source": "medRxiv",
+          "title": "Consistent DNA methylation patterns enable accurate and interpretable cross-platform classification of central nervous system tumors",
+          "url": "https://www.medrxiv.org/content/10.1101/2025.10.07.25337348",
+          "published_at": "2026-09-09",
+          "summary_zh": "背景：基于 DNA 甲基化的分类已成为神经肿瘤学中中枢神经系统（CNS）肿瘤诊断不可或缺的组成部分。然而，现有分类器可在可解释性、跨平台泛化能力和常规临床实践的可扩展性方面进一步改进。方法：我们开发了一个混合特征选择和机器学习框架，以获得紧凑且具有生物学相关性的 CNS 肿瘤分类 DNA 甲基化特征集。结合基于方差的过滤、类内和类间一致性评估及弹性网络逻辑回归，识别信息丰富的 CpG 区域。以微阵列数据训练线性支持向量机（SVM）分类器，并在插补缺失值后应用于测序数据。仅用少数信息丰富的分类特征即可区分所选肿瘤类别。结果：该框架识别出 1,003 个信息丰富的基因组区域，富集于增强子元件和神经发育通路。在采用 DNA 甲基化芯片检测的大型外部验证队列（n=1,993）中，分类器准确率为 0.96。低维特征集支持研究诊断困难病例，并改善组织学相似肿瘤实体的区分，例如胚胎性肿瘤；仅用两个判别性 CpG 特征即可完成区分。在重亚硫酸盐等效靶向甲基化测序和非靶向 Nanopore 测序数据上，仍保持稳健分类。MGMT 启动子甲基化状态和由脱靶读段推导的全基因组 DNA 拷贝数谱提供了支持性信息。结论：一致的 DNA 甲基化模式结合 SVM，可实现跨测序平台准确且可解释的 CNS 肿瘤分类，并提供可临床扩展的下一代神经肿瘤学诊断框架。要点：使用 163–1,003 个 CpG 甲基化位点实现稳健的跨平台 CNS 肿瘤分类；从靶向测序的脱靶读段获得全基因组 DNA 拷贝数谱；仅用两个 CpG 特征即可准确区分特定肿瘤类型；本研究的重要性：本研究报告一组用于 CNS 肿瘤分类的信息丰富 DNA 甲基化特征及其 DNA 甲基化模式。它引入了一种准确的 CNS 肿瘤机器学习分类方法。通过混合特征选择筛选 1,003 个信息丰富特征，模型使用支持向量机达到 0.96 的分类准确率。即使使用 163 个特征，仍保持强性能。该方法在测序平台和样本类型之间表现稳健，并可获得 DNA 拷贝数谱及其他支持性信息。测序所需的灵活性、较低复杂度、成本效益和低输入要求，使其成为常规临床神经肿瘤学中有前景且可扩展的选择。通过聚焦于特定基因组区域，模型增强可解释性、提高诊断把握度，并允许仅用少数特征区分类别。简言之，共享特征和模型提高了可解释性，为支持和补充现有神经肿瘤学诊断提供了途径。",
+          "why_it_matters_zh": "1,003 个 CpG 特征在 n=1,993 外部芯片队列及多种测序平台上得到验证，兼顾压缩特征与可解释性；临床常规实施价值仍需前瞻性评估。",
+          "tags": [
+            "组学与细胞",
+            "DNA甲基化",
+            "CNS肿瘤",
+            "临床机器学习"
+          ],
+          "rank": 5,
+          "category": "组学与细胞",
+          "published": "2026-09-09",
+          "author_line": "Moradi, E., Vuorinen, J., Hoikka, T., Hartewig, A., Helin, L., Rodriguez-Martinez, A., Pekkarinen, M., Vulli, M., Lehtipuro, S., Ampuja, S., Makinen, A., Fey, V., Tabaro, F., De Koker, A., Paemel, R. V., De Wilde, B., Callewaert, N., Kuusisto, M. E. L., Teppo, H. R., Kuittinen, O., Haapasalo, H., Nordfors, K., Nykter, M., Haapasalo, J., Kesseli, J., Rautajoki, K. J."
+        },
+        {
+          "id": "europepmc:ppr1315856",
+          "channel": "aixbio",
+          "item_type": "paper",
+          "source": "Europe PMC",
+          "title": "Novel Target Combinations in Lung Squamous Cell Carcinoma proposed by the Emet AI Research Environment and supported by discovery stage experimentation",
+          "url": "https://europepmc.org/article/PPR/PPR1315856",
+          "published_at": "2026-09-09",
+          "summary_zh": "早期药物发现常受靶点识别限制；在由相互重叠、冗余通路而非单一主导驱动因素驱动的复杂疾病中，这一挑战尤其突出。肺鳞状细胞癌（LUSC）正是此类疾病：突变复杂，缺少主导性的可操作靶点，并且单药靶向试验长期失败。我们假设，一个能够跨相互关联数据集进行推理的研究环境，适合为 LUSC 生成新颖且具有机制基础的治疗假设。Emet 是一个 AI 研究环境，使用含超过 15 亿个三元组、连接 100 多个专业生物数据库的生物医学知识图谱；其配套的 Agentic Research Director 通过图式思维搜索推进每个假设，调用范围限定的链路预测和检索工具，并将每轮发现提交到持久记忆。排名最高的假设是双靶点组合而非单一靶点。将排名前四的组合推进至 NCI-H520 和 SK-MES-1 细胞的剂量矩阵测试，其中两个产生了超过任一单药的组合效应；据我们所知，这两个配对此前均未在 LUSC 中评估。CDC7（TAK-931）与 PKMYT1（RP-6306）的双重抑制在两种细胞系中均产生统计学显著协同作用，且从第 5 天至第 7 天增强（NCI-H520 中 HSA 19.24 至 24.19；SK-MES-1 中 11.07 至 13.73）。USP13（spautin-1）与 PI3Kα（alpelisib）的双重抑制产生加性且依赖细胞系的效应；免疫印迹确认了预测机制：由 USP13 支路驱动的 MCL-1、c-Myc 和 SOX-2 随时间耗竭。因此，针对多领域生物医学证据的智能体推理能够提出可检验、具机制信息、并经受实验审查的组合假设。",
+          "why_it_matters_zh": "该工作将大规模知识图谱推理与两种 LUSC 细胞系的剂量矩阵和免疫印迹相连；结果仅处于发现阶段，细胞系协同不能推断为患者获益。",
+          "tags": [
+            "生物医学与临床",
+            "肺鳞状细胞癌",
+            "智能体",
+            "组合治疗"
+          ],
+          "rank": 6,
+          "category": "生物医学与临床",
+          "published": "2026-09-09",
+          "author_line": "Soman J, Kundu A, Newington J, Wong S, Desai N, Leung S, Cudini J, Suarez F, Grandsard P"
+        },
+        {
+          "id": "arxiv:2609.10939v1",
+          "channel": "aixbio",
+          "item_type": "paper",
+          "source": "arXiv",
+          "title": "Evaluating Scaffolding-Oriented Multi-Agent Large Language Model System for Clinical Interview Training",
+          "url": "https://arxiv.org/abs/2609.10939v1",
+          "published_at": "2026-09-10",
+          "summary_zh": "临床教育必须使医学生准备好在不确定条件下进行安全、连贯的患者访谈。传统标准化患者（SP）培训资源密集且难以扩展。我们开发了一个面向支架式学习的多智能体大语言模型（LLM）AI 标准化患者（AI-SP）培训平台。该系统包括用于模拟对话的患者智能体、在不透露诊断信息的情况下提供苏格拉底式提示的导师智能体，以及在不透露总结性分数的情况下监测临床进展的逐轮评估智能体。在一项随机对照研究（N = 100 名医学生）中，参与者被分配至多智能体（MA）支架式学习条件或对照条件。所有学生均在分配条件下完成两次学习，然后在仅有患者的环境中进行考试。使用基于标准化客观结构化临床考试（OSCE）的量表评估表现。尽管两组最终诊断准确率没有显著差异，但采用结构化渐进信息披露的多智能体 AI 标准化患者系统，相较对照组提高了最终考试分数；最显著且最一致的改善出现在沟通、共情表达和特定病史采集行为。结果提示，专门化 LLM 智能体能改善模拟临床访谈的过程质量，而不会人为抬高考试结果。为支持未来研究，我们发布了一个多专家注释数据集，其中包括转录记录、清单注释、逐轮评估和与 OSCE 对齐的评分结果。该资源旨在促进具有教学基础的 AI-SP 系统开发，并推进 AI 支持的临床推理培训研究。",
+          "why_it_matters_zh": "随机对照设计和 N=100 的医学生样本提供了教学场景证据，并配套发布多专家注释数据；其结论限于模拟访谈训练，未显示诊断准确率提高，也不涉及患者临床结局。",
+          "tags": [
+            "生物医学与临床",
+            "医学教育",
+            "多智能体",
+            "随机对照试验"
+          ],
+          "rank": 7,
+          "category": "生物医学与临床",
+          "published": "2026-09-10",
+          "author_line": "Luming Yang, Haoxian Liu, Siqing Li, Rong Jia, Yue Xiao, Guanhua Chen, Li Lu"
+        },
+        {
+          "id": "arxiv:2609.10055v1",
+          "channel": "aixbio",
+          "item_type": "paper",
+          "source": "arXiv",
+          "title": "OntologyAligner: Ontology-Aligned Retrieval and Hierarchy-Guided Large Language Model Reranking for Biomedical Ontology Normalization",
+          "url": "https://arxiv.org/abs/2609.10055v1",
+          "published_at": "2026-09-09",
+          "summary_zh": "生物医学本体归一化将自由文本表达映射至标准化概念，从而实现生物医学数据的一致整合和分析。由于词汇变异以及层级相关概念之间的细微差异可能模糊概念边界，这项任务仍具挑战。我们提出 OntologyAligner，一个三阶段框架，结合本体对齐检索、大语言模型候选重排序，以及选择性的层级引导细化。我们还构建了 PhenoNormBench，这是一个统一基准，包含来自 7 个 Human Phenotype Ontology 数据集的 13,390 个样本。OntologyAligner 在 HPO 归一化上取得当前最优表现：Macro Top-1 Accuracy 为 88.78%，Micro Top-1 Accuracy 为 86.75%，分别超过最强基线 4.85 和 5.07 个百分点。消融分析表明三个阶段均有互补贡献，敏感性分析显示其在候选集大小和模型骨干网络之间保持稳定。应用于 MONDO、MEDIC 和 NCBITaxon 进一步证实了对其他本体的可迁移性。OntologyAligner 为将生物医学文本准确映射至结构化本体概念提供了一个可泛化框架。PhenoNormBench 和代码已公开发布于 https://github.com/zhelishisongjie/OntologyAligner。",
+          "why_it_matters_zh": "公开基准、代码、消融和跨本体测试增强了其可复现性与适用性；报告的最优性能来自预印本中的 HPO 归一化评测。",
+          "tags": [
+            "蛋白质与结构",
+            "生物医学本体",
+            "大语言模型",
+            "基准"
+          ],
+          "rank": 8,
+          "category": "蛋白质与结构",
+          "published": "2026-09-09",
+          "author_line": "Jie Song, Zhichuan Xu, Ziyu Lu, Meng Xiao, Cheng Bi, Yuxin Zhang, Xin Zheng, Xiaoran Li, Qiongfang Cao, Hao Yang, Bairong Shen"
+        },
+        {
+          "id": "biorxiv:10.64898/2026.09.08.749228",
+          "channel": "aixbio",
+          "item_type": "paper",
+          "source": "bioRxiv",
+          "title": "Agent-driven Model Development for RNA 3D Structure Prediction",
+          "url": "https://www.biorxiv.org/content/10.64898/2026.09.08.749228",
+          "published_at": "2026-09-10",
+          "summary_zh": "大语言模型（LLM）智能体在推动科学发现方面显示出潜力，但其在复杂的真实世界生物学问题中的有效性仍缺乏研究。我们考察一个通用 LLM 智能体能否推动对真正困难生物学问题——RNA 三维结构预测——的半自主模型开发。我们设计了一个开发循环：在固定预算和人工监督下，智能体迭代提出、实施、训练和评估模型改动。经过 297 次迭代，模型从随机初始化的基线演化为 QuickFold；这是一个参数量为 8.9M 的折叠主干网络，在留出测试集上以较低得多的推理成本，在 lDDT 和 TM-score 上与最强开源基线 RhoFold+、NuFold 的表现相当，差异处于噪声范围内。我们将此定位为反馈驱动、智能体主导的模型开发案例研究，而不是新的预测器。",
+          "why_it_matters_zh": "该研究完整记录了固定预算、人工监督下的 297 次智能体迭代，并明确将结果定位为开发流程案例；QuickFold 与开源基线相当不等同于建立了新的结构预测性能标杆。",
           "tags": [
             "方法与模型",
-            "抗体处方",
-            "物理信息模型",
-            "开放资源"
+            "RNA三维结构",
+            "智能体",
+            "模型开发"
+          ],
+          "rank": 9,
+          "category": "方法与模型",
+          "published": "2026-09-10",
+          "author_line": "Majewski, M., Malo, L., Montero-Blay, A., Marengo, M., Nascimento Dos Santos, R., Gkeka, P., Minoux, H."
+        },
+        {
+          "id": "biorxiv:10.64898/2026.09.02.748811",
+          "channel": "aixbio",
+          "item_type": "paper",
+          "source": "bioRxiv",
+          "title": "A comparative single-cell transcriptomic atlas for diverse populations of vertebrate hair cells",
+          "url": "https://www.biorxiv.org/content/10.64898/2026.09.02.748811",
+          "published_at": "2026-09-10",
+          "summary_zh": "机械敏感毛细胞在不同脊椎动物器官和物种间的形态及再生能力差异很大。为研究其潜在转录组多样性，我们整合了人、小鼠、鸡和斑马鱼的单细胞及单核 RNA 测序数据集，构建了一个跨物种毛细胞图谱，覆盖器官、发育阶段和物种。对 29 个毛细胞群体的分析涵盖主要耳蜗、前庭和侧线毛细胞类型；与同一器官的支持细胞相比，识别出约 5,000 个在至少一个毛细胞群体中富集的基因。对这些毛细胞富集（HCE）基因进行无监督聚类，定义了与物种、器官和毛细胞状态相关的基因队列，以及广泛保守的毛细胞富集程序。使用基于 AUC 的评分框架，我们进一步定义了 884 个泛毛细胞富集（pan-HCE）基因：它们在大多数发育中和/或成熟毛细胞群体中表达升高，其中包括与耳聋、机械转导和突触传递相关的基因，以及此前未与毛细胞功能关联的基因。使用相同指标独立分析发育中毛细胞，根据泛 HCE 基因首次富集的时间对其分层，并识别出额外 97 个短暂富集的基因。我们使用泛 HCE 和发育中 HCE 基因集，评估基线毛细胞状态与鸟类毛细胞再生、小鼠耳蜗类器官中产生的毛细胞，以及由成纤维细胞重编程产生的类毛细胞群体之间的转录相似性。具有不同发育动力学的 HCE 基因集投射至来自发育中斑马鱼、小鼠和人类的独立单细胞 RNA 测序数据集时，可识别年轻与更成熟的毛细胞。我们提供所有 HCE 指标和表达谱的网络资源，以便未来探索跨器官、物种和实验环境的脊椎动物毛细胞基因表达。",
+          "why_it_matters_zh": "跨四个物种、29 个毛细胞群体的整合图谱及公开网络资源，为听觉、再生和类器官研究提供可比较的转录组参照；该工作是图谱资源，未直接证明候选基因的功能。",
+          "tags": [
+            "组学与细胞",
+            "单细胞图谱",
+            "毛细胞",
+            "跨物种"
           ],
           "rank": 10,
-          "category": "方法与模型",
-          "published": "2026-09-09",
-          "author_line": "Bonthada SK"
+          "category": "组学与细胞",
+          "published": "2026-09-10",
+          "author_line": "Basu, M., Benkafadar, N., Milon, B., Colantuoni, C., Herb, B. R., Ciani Berlinger, A., Cruz, I. A., Orvis, J., Luca, E., Sato, M. P., Abdul-Aziz, D., Dewan, M., Gwilliam, K., Manilla, G., Shults, C., Adkins, R. S., Song, Y., Markuhar, A., Brigande, J. V., Dabdoub, A., Edge, A., Groves, A. K., Gnedeva, K., Heller, S., Hertzano, R., Piotrowski, T., Raible, D. W., Raphael, Y., Stone, J. S., Tao, L., Warchol, M. E., Ament, S., Goodrich, L. V."
         },
         {
-          "id": "biorxiv:10.64898/2026.09.06.749721",
+          "id": "medrxiv:10.64898/2026.09.04.26361573",
           "channel": "aixbio",
           "item_type": "paper",
-          "source": "bioRxiv",
-          "title": "Generative Language Modeling for Antibody CDR Grafting and Alignment-driven De Novo Design",
-          "url": "https://www.biorxiv.org/content/10.64898/2026.09.06.749721",
+          "source": "medRxiv",
+          "title": "Expanded Access use of Intravenous Gene Transfer with AAV9-GLB1 in a Juvenile GM1 Gangliosidosis Participant",
+          "url": "https://www.medrxiv.org/content/10.64898/2026.09.04.26361573",
           "published_at": "2026-09-10",
-          "summary_zh": "GenCDR 以全框架为提示、联合生成可变长度 CDR，并通过对齐奖励整合亲和力、表达和可开发性目标。",
-          "why_it_matters_zh": "该提示—响应界面为抗体序列生成提供可组合优化路径；摘要所述界面指标仍为 in silico 结果，尚不等同于实验结合或可开发性验证。",
+          "summary_zh": "GM1 神经节苷脂贮积症是一种遗传性、进行性神经退行性溶酶体贮积病，目前没有获批治疗。我们报告了在扩展使用条件下，对一名青少年起病 GM1 神经节苷脂贮积症女性参与者 GT01 进行静脉 AAV9-GLB1 基因治疗后的 5 年安全性以及 3 年临床、生化和神经影像疗效结局；该参与者在报告所述期间为 6–10 岁。在基因转移前参加自然史研究期间，GT01 出现癫痫发作、构音障碍、丧失行走能力和进行性神经退行。她接受单次静脉给药 AAV9-GLB1，剂量为每千克体重 1.5x1013 个载体基因组。早期改善包括吞咽困难消退、与他人互动增加、辅助行走以及适应功能特定领域的进步。给药后 18 个月，她在未使用抗癫痫药物的情况下无癫痫发作，且直至研究完成仍保持无发作状态。脑脊液中 GM1 神经节苷脂和 H3N2b（一种提示该病生化改善的五糖生物标志物）浓度下降 50%，且 {beta}-半乳糖苷酶达到正常活性。经差异纤维束成像评估的脑、丘脑和净纤维束体积增加，且给药后三年脑室扩大改善。这些结果表明，即使在晚期神经系统疾病中也可能获得有意义的获益。",
+          "why_it_matters_zh": "该报告提供扩展使用情境下长达 5 年安全性及多维随访资料；但仅为 1 名参与者、无对照的 preprint，不能估计疗效或推广至其他患者。",
           "tags": [
-            "蛋白质与结构",
-            "抗体设计",
-            "CDR",
-            "语言模型"
+            "生物医学与临床",
+            "基因治疗",
+            "GM1神经节苷脂贮积症",
+            "扩展使用"
           ],
           "rank": 11,
-          "category": "蛋白质与结构",
+          "category": "生物医学与临床",
           "published": "2026-09-10",
-          "author_line": "Gonzalez Hernandez, F., Turnbull, O. M., Sultana, M., Roldan-Martin, L., Kumar, R. J., Diethe, T., Croasdale-Wood, R., Deane, C., Oglic, D."
+          "author_line": "Lewis, C. J., Akmal, H., D'Souza, P., Johnston, J. M., Ashraf, S., Vezina, G., Chipman, S. I., Blackwood, M., Yousef, M. H., Quezado, Z., Gahl, W. A., Byrne, B. J., Flotte, T. R., Jiang, X. R., Thurm, A., Gross, A. L., Keeler, A., Martin, D. R., Sena-Esteves, M., Gray-Edwards, H. L., Wang, R. Y., Tifft, C. J."
         },
         {
-          "id": "biorxiv:10.64898/2026.09.05.749647",
+          "id": "biorxiv:10.64898/2026.09.04.749442",
           "channel": "aixbio",
           "item_type": "paper",
           "source": "bioRxiv",
-          "title": "SUMOylation is a Therapeutic Vulnerability in High-risk Neuroblastoma",
-          "url": "https://www.biorxiv.org/content/10.64898/2026.09.05.749647",
-          "published_at": "2026-09-10",
-          "summary_zh": "该研究在高危神经母细胞瘤中将 SUMOylation 通路与预后、CRISPR 脆弱性和 TAK-981 的体内外抑瘤效应相联系。",
-          "why_it_matters_zh": "CRISPR、细胞和体内模型共同支持 SUMOylation 的候选治疗脆弱性；TAK-981 在成人癌症临床试验中不等于其已在神经母细胞瘤患者中获证实。",
+          "title": "Quantifying Uncertainty in Brain Age Predictions via Conformal Prediction",
+          "url": "https://www.biorxiv.org/content/10.64898/2026.09.04.749442",
+          "published_at": "2026-09-11",
+          "summary_zh": "青少年可表现出延迟或加速的神经发育迹象，这可通过脑磁共振成像（MRI）测量。脑龄预测旨在利用在健康个体上拟合的机器学习模型，估计个体层面的脑龄。脑龄差（BAG）即预测脑龄与实际年龄之差，已被研究为潜在生物标志物。然而，BAG 存在已知局限性，包括对实际年龄的依赖、向均值回归和可解释性挑战。作为替代框架，我们引入脑龄区间（BAI）：基于 MRI 测量得到的个体实际年龄规范性区间。BAI 可由一种称为保形预测的近期统计框架导出，该框架可产生具有保证覆盖率的预测区间。我们在 Reproducible Brain Charts 数据集（年龄 6–22 岁）的结构和功能 MRI 扫描上训练多个脑龄预测模型，并估计 BAI。BAI 显示出接近名义 90% 水平的稳定经验覆盖率（100 次重复训练—测试划分中的中位覆盖率=91%、宽度=7.36 年、均方根误差（RMSE）=2.20 年）。区间覆盖率与临床指标（p-factor、父母教育程度）之间的关联较弱；父母教育程度仅显示温和的方向性信号。总体而言，这些结果证明了在青少年群体中开展不确定性感知脑龄建模的可行性，同时强调需要更大且更多样的样本，以检测有意义的临床和环境关联。",
+          "why_it_matters_zh": "保形预测为个体脑龄输出提供覆盖率目标，并在 100 次重复划分中报告稳定性；临床指标关联较弱，故不能把 BAI 视为已验证的临床生物标志物。",
           "tags": [
-            "蛋白质与结构",
-            "神经母细胞瘤",
-            "SUMOylation",
-            "CRISPR"
+            "生物医学与临床",
+            "脑龄",
+            "MRI",
+            "不确定性量化"
           ],
           "rank": 12,
-          "category": "蛋白质与结构",
-          "published": "2026-09-10",
-          "author_line": "Kukkula, A., Sriraman, S., Virtanen, V., Kuusela, S. L., Bubnic, L. K., Paatero, I., Bexell, D., Sundvall, M."
+          "category": "生物医学与临床",
+          "published": "2026-09-11",
+          "author_line": "Samanta, U., Shafiei, G., Karim, H. T., Satterthwaite, T. D., Chen, A."
         }
       ]
     },
@@ -647,70 +654,156 @@
       "id": "aixmath",
       "name": "AI × Math",
       "stats": {
-        "fetched": 633,
+        "fetched": 618,
         "suppressed_previous": 4,
         "candidates": 60,
-        "selected": 3,
+        "selected": 7,
         "sources": {
-          "arXiv": 624,
-          "OpenReview": 9
+          "arXiv": 613,
+          "OpenReview": 5
         }
       },
       "source_errors": [],
       "items": [
         {
-          "id": "arxiv:2609.10335v1",
+          "id": "arxiv:2609.11900v1",
           "channel": "aixmath",
           "item_type": "paper",
           "source": "arXiv",
-          "title": "From Symbolic Perception to Logical Deduction: A Framework for Guiding Language Models in Geometric Reasoning",
-          "url": "https://arxiv.org/abs/2609.10335v1",
-          "published_at": "2026-09-09",
-          "summary_zh": "提出将几何图解析为符号表示、再由 Symbolic Solver 进行形式演绎的框架，并以 2025 年中国中考几何难题评测其表现。",
-          "why_it_matters_zh": "把视觉几何题转为可检查的符号推导，提供了比端到端生成更明确的验证接口；但与 Gemini 2.5 Pro 的可比性是作者报告，摘要未提供具体分数。",
+          "title": "MindTopo: Can Foundation Models Reason in Topological Space?",
+          "url": "https://arxiv.org/abs/2609.11900v1",
+          "published_at": "2026-09-10",
+          "summary_zh": "MindTopo以拓扑不变量为核心，评估多模态模型在拓扑关系识别、变化推断及闭环规划中的表现。",
+          "why_it_matters_zh": "它将连续性、分离、次序、包围和纽结等关系拆为可控难度任务，并报告模型在规划阶段明显更弱；这为检验模型是否保持拓扑约束提供了较具体的基准。",
           "tags": [
-            "数学推理"
+            "方法与模型",
+            "拓扑推理",
+            "基准评测"
           ],
           "rank": 1,
-          "category": "数学推理",
-          "published": "2026-09-09",
-          "author_line": "Weichen Dai, Rafael Medeiros Cabral, Ziyi Shou, Yan Cao, Xin Shen, Dongcai Lu, Yi Zhou"
+          "category": "方法与模型",
+          "published": "2026-09-10",
+          "author_line": "Yunfei Ge, Anbang Liu, Qineng Wang, Johnalbert Garnica, Jianwen Lyu, Zihan Wang, Reuben Tan, Jianfeng Gao, Ruohan Zhang, Yining Hong, Jiajun Wu, Manling Li"
         },
         {
-          "id": "arxiv:2609.09264v1",
+          "id": "arxiv:2609.11319v1",
           "channel": "aixmath",
           "item_type": "paper",
           "source": "arXiv",
-          "title": "StochBench: A Domain-Specific Benchmark for Stochastic Processes in Lean",
-          "url": "https://arxiv.org/abs/2609.09264v1",
-          "published_at": "2026-09-08",
-          "summary_zh": "发布 StochBench：覆盖随机过程的 450 题 Lean 4 形式化证明基准；基于 Opus 4.8 的智能体在每题 15 分钟限制下证明了 157 题。",
-          "why_it_matters_zh": "该基准将形式化证明评测从竞赛题扩展到研究生层级随机过程，并报告了明确题数、时限与证明率，便于后续系统复核比较。",
+          "title": "Magenta: Closing the Loop Between Mathematical Reasoning and Lean Verification",
+          "url": "https://arxiv.org/abs/2609.11319v1",
+          "published_at": "2026-09-10",
+          "summary_zh": "Magenta将自然语言解题、Lean 4 陈述生成和机器检查证明串联，并以陈述核验和错误归因反馈处理失败尝试。",
+          "why_it_matters_zh": "其目标是避免“形式证明通过但陈述偏离原题”的假证书；摘要报告了明确的奥赛评测和 Lean 机器检查，但100%准确率及 IMO 结果仍是预印本作者报告。",
           "tags": [
-            "形式化证明"
+            "形式化证明",
+            "Lean 4",
+            "数学推理"
           ],
           "rank": 2,
           "category": "形式化证明",
-          "published": "2026-09-08",
-          "author_line": "Idan Davidovich, Debargha Ganguly, Vikash Singh, Vipin Chaudhary"
+          "published": "2026-09-10",
+          "author_line": "Joshua Ong Jun Leang, Haonan Li, Zheng Zhao, Xinyi Shang, Wenda Li, Zhengzhong Liu, Erix Xing, Shay Cohen, Eleonora Giunchiglia"
         },
         {
-          "id": "arxiv:2609.09776v1",
+          "id": "arxiv:2609.11185v1",
           "channel": "aixmath",
           "item_type": "paper",
           "source": "arXiv",
-          "title": "Proof-Carrying Cognition: Closing the Verification Gap with Reality-Settled Reward",
-          "url": "https://arxiv.org/abs/2609.09776v1",
-          "published_at": "2026-09-09",
-          "summary_zh": "从理论与程序合成实验分析不可靠验证器在优化压力下的失效，并提出以现实结算标签约束奖励的 proof-carrying cognition 及 Soundness-under-Pressure 指标。",
-          "why_it_matters_zh": "工作将“答案得分高”与“经执行验证后仍可靠”区分开来，并在可执行真值、预注册扩展复现和 GRPO 训练中报告了可检验的失真现象；其结论主要来自程序合成测试环境，不能直接外推至所有推理任务。",
+          "title": "Can LLMs Follow Medical Expert Logic? A Benchmark for Hierarchical Logical Consistency in Risk-of-Bias Assessment",
+          "url": "https://arxiv.org/abs/2609.11185v1",
+          "published_at": "2026-09-10",
+          "summary_zh": "LogiMed-RoB以 Cochrane RoB 2.0 专家逻辑为基础，分层测量模型在偏倚风险评估中的逻辑一致性与证据忠实性。",
+          "why_it_matters_zh": "它显示原子层面的高分未必能传递到端到端逻辑结论，因而为评估可审计推理链提供了具体的分层指标；应用领域是医学证据评估，而非数学定理证明。",
           "tags": [
-            "形式化证明"
+            "验证与逻辑",
+            "逻辑一致性",
+            "基准评测"
           ],
           "rank": 3,
+          "category": "验证与逻辑",
+          "published": "2026-09-10",
+          "author_line": "Jiayu Huang, Zichen Tang, Qianhui Ling, Zemin Kuang, Haihong E"
+        },
+        {
+          "id": "arxiv:2609.11085v1",
+          "channel": "aixmath",
+          "item_type": "paper",
+          "source": "arXiv",
+          "title": "Beyond Solver Verdicts: Generative Reward Models for Autoformalization",
+          "url": "https://arxiv.org/abs/2609.11085v1",
+          "published_at": "2026-09-10",
+          "summary_zh": "该工作讨论自动形式化中“求解器判定正确但形式翻译不等价”的漏洞，并以 Z3 等价性预言机蒸馏训练 GenV 验证器。",
+          "why_it_matters_zh": "它将形式化正确性从求解器返回的 verdict 扩展到与参考形式化的等价性，并报告跨翻译器的零样本验证结果；所述理论界限和性能均来自预印本摘要。",
+          "tags": [
+            "方法与模型",
+            "自动形式化",
+            "等价性验证"
+          ],
+          "rank": 4,
+          "category": "方法与模型",
+          "published": "2026-09-10",
+          "author_line": "Vikash Singh, Debargha Ganguly, Aman Goel, Ali Torkamani, Xiaoxue Han, Joseph Lilien, Ferhat Erata, Vipin Chaudhary"
+        },
+        {
+          "id": "arxiv:2609.10712v1",
+          "channel": "aixmath",
+          "item_type": "paper",
+          "source": "arXiv",
+          "title": "An Open Recipe for IMO Gold: Training Nemotron for Olympiad Mathematics",
+          "url": "https://arxiv.org/abs/2609.10712v1",
+          "published_at": "2026-09-09",
+          "summary_zh": "该工作研究 Nemotron 的后训练和测试时推理设计，用迭代生成、核验、改写与高算力筛选来生成奥赛数学的自然语言证明。",
+          "why_it_matters_zh": "它给出了模型、训练数据、代码、提交解答和新基准的公开承诺，并报告 IMO 2026 的30/42分；该系统不使用形式证明器，因此自然语言证明的正确性边界仍应与机器检查证明区分。",
+          "tags": [
+            "形式化证明",
+            "奥赛数学",
+            "自然语言证明"
+          ],
+          "rank": 5,
           "category": "形式化证明",
           "published": "2026-09-09",
-          "author_line": "Eshwar Reddy M, Sourav Karmakar"
+          "author_line": "Ivan Moshkov, Stephen Ge, George Armstrong, Wei Du, Sadegh Mahdavi, Igor Gitman"
+        },
+        {
+          "id": "arxiv:2609.11028v1",
+          "channel": "aixmath",
+          "item_type": "paper",
+          "source": "arXiv",
+          "title": "BenchShield: Formal Model-Backed Instrumentation for Reward Integrity in LLM-Agent Evaluation Infrastructure",
+          "url": "https://arxiv.org/abs/2609.11028v1",
+          "published_at": "2026-09-10",
+          "summary_zh": "BenchShield以评测生命周期的有限状态模型为基础，结合阶段感知污点分析和运行时基础设施证据，检测智能体评测中的奖励操纵。",
+          "why_it_matters_zh": "它关注评测本身是否可被奖励黑客攻击，并给出人工裁定轨迹及与基线的同任务比较；虽非数学解题基准，但与可验证智能体评测的形式化边界直接相关。",
+          "tags": [
+            "方法与模型",
+            "形式模型",
+            "评测完整性"
+          ],
+          "rank": 6,
+          "category": "方法与模型",
+          "published": "2026-09-10",
+          "author_line": "Shenghan Zheng, Zonglin Di, Yimin Liu, Kyoung Whan Choe, Jiankai Sun, Heguang Lin, Penghao Jiang, Yifeng He, Xiao Cheng, Jicheng Wang, Wenbo Chen, Alex Yates, Yinzhe Zhao, Bingran You, Yuan Gao, Ayush Munot, Shubham Gaur, Zhe Ye, Hao Wang, Xiangyi Li, Dawn Song, Christophe Hauser"
+        },
+        {
+          "id": "arxiv:2609.11227v1",
+          "channel": "aixmath",
+          "item_type": "paper",
+          "source": "arXiv",
+          "title": "Polyhedral Geometry of Time-to-First-Spike Neural Networks",
+          "url": "https://arxiv.org/abs/2609.11227v1",
+          "published_at": "2026-09-10",
+          "summary_zh": "该工作将 time-to-first-spike 脉冲神经网络的因果区域表述为多面体区域，给出浅层和多层网络中因果区域数目的上下界。",
+          "why_it_matters_zh": "它提供了关于特定脉冲网络模型表达性的明确理论对象和可检验界限，但并非对语言模型数学能力或证明助手的评测。",
+          "tags": [
+            "形式化证明",
+            "多面体几何",
+            "理论分析"
+          ],
+          "rank": 7,
+          "category": "形式化证明",
+          "published": "2026-09-10",
+          "author_line": "Manjot Singh, Guido Montúfar, Gitta Kutyniok"
         }
       ]
     },
@@ -718,156 +811,121 @@
       "id": "aivoices",
       "name": "AI Voices",
       "stats": {
-        "fetched": 75,
+        "fetched": 66,
         "suppressed_previous": 4,
         "candidates": 60,
-        "selected": 7,
+        "selected": 5,
         "sources": {
-          "X": 48,
-          "Research blogs": 27
+          "X": 47,
+          "Research blogs": 19
         }
       },
       "source_errors": [],
       "items": [
         {
-          "id": "x:2097374643518640382",
+          "id": "x:2097755424007373270",
           "channel": "aivoices",
           "item_type": "social_post",
           "source": "X",
-          "title": "@OpenAI：This model represents a step-function improvement on many benchmarks, and its training is ongoing. Our internal model gr",
-          "url": "https://x.com/OpenAI/status/2097374643518640382",
-          "published_at": "2026-09-08T17:20:57Z",
-          "summary_zh": "OpenAI 在帖文中称，其仍在训练的模型在多项基准上有“阶跃式”提升；其内部团队以约 1 万个协同 AI 智能体在 88 小时内得到 Navier–Stokes 问题的解。这是发布方陈述，帖文本身未提供完整证明、基准细节或独立核验。",
-          "why_it_matters_zh": "该帖给出了大规模多智能体用于数学研究的规模与耗时信息；编辑判断其值得关注，但数学结论仍应以公开证明和独立审查为准。",
+          "title": "@omarsar0：Another banger paper from Google. If you build memory for long-horizon agents, this one is worth your time. Agents usual",
+          "url": "https://x.com/omarsar0/status/2097755424007373270",
+          "published_at": "2026-09-09T18:34:02Z",
+          "summary_zh": "原帖介绍一篇关于长时程智能体记忆的 Google 论文：其将程序性知识表示为“程序—关系—程序”三元组，以区别于存储事实的知识图谱。帖文未附论文链接，具体方法与实验仍无法由候选文本核查。",
+          "why_it_matters_zh": "将行动过程显式表示为可连接的程序结构，可能有助于讨论长任务智能体如何积累和复用经验；这是编辑判断，而非原帖已验证的性能结论。",
           "tags": [
             "研究发布",
-            "智能体",
-            "数学"
+            "智能体记忆",
+            "程序表示",
+            "研究讨论"
           ],
           "rank": 1,
           "category": "研究发布",
-          "published": "2026-09-08",
-          "author_line": "OpenAI"
+          "published": "2026-09-09",
+          "author_line": "elvis"
         },
         {
-          "id": "x:2098080470235762702",
+          "id": "feed:https://developer.nvidia.com/blog/cuda-toolkit-13-4-adds-windows-on-arm-support-and-greater-control-over-shared-gpus/",
           "channel": "aivoices",
-          "item_type": "social_post",
-          "source": "X",
-          "title": "@Thom_Wolf：Two big updates. 1. I published an FT op-ed on the OpenAI/HF incident and follow-ups. 2. We're starting an Open Alignmen",
-          "url": "https://x.com/Thom_Wolf/status/2098080470235762702",
-          "published_at": "2026-09-10T16:05:39Z",
-          "summary_zh": "Hugging Face 联合创始人 Thomas Wolf 表示，他已在《金融时报》发表关于 OpenAI/HF 事件及后续进展的评论，并称 Hugging Face 正在组建面向开源模型安全、对齐和网络安全的开放对齐团队。团队范围与后续产出尚未在帖文中展开。",
-          "why_it_matters_zh": "这是来自开源模型生态核心组织者的公开组织动向，也把开放模型的对齐与网络安全带入更具体的专业讨论。",
+          "item_type": "research_blog",
+          "source": "NVIDIA Technical Blog",
+          "title": "CUDA Toolkit 13.4 Adds Windows on Arm Support and Greater Control over Shared GPUs",
+          "url": "https://developer.nvidia.com/blog/cuda-toolkit-13-4-adds-windows-on-arm-support-and-greater-control-over-shared-gpus/",
+          "published_at": "2026-09-09T20:24:12Z",
+          "summary_zh": "NVIDIA 官方技术博客发布 CUDA Toolkit 13.4，标题明确列出新增 Windows on Arm 支持及更强的共享 GPU 控制。",
+          "why_it_matters_zh": "这涉及 CUDA 开发环境的硬件与操作系统覆盖，以及共享 GPU 的资源管理；对需要在异构终端或共享算力环境部署 GPU 工作负载的团队具有直接工程参考价值。",
           "tags": [
-            "观点与讨论",
-            "开源对齐",
-            "网络安全"
+            "工具与实践",
+            "CUDA",
+            "GPU",
+            "开发工具链"
           ],
           "rank": 2,
-          "category": "观点与讨论",
-          "published": "2026-09-10",
-          "author_line": "Thomas Wolf"
+          "category": "工具与实践",
+          "published": "2026-09-09",
+          "author_line": "NVIDIA Technical Blog"
         },
         {
-          "id": "x:2097930620680941732",
+          "id": "feed:https://developer.nvidia.com/blog/how-full-stack-nim-optimizations-deliver-2-5x-more-users-on-nemotron-3-ultra/",
           "channel": "aivoices",
-          "item_type": "social_post",
-          "source": "X",
-          "title": "@deepseek_ai：V4.1-Flash is now live on the DeepSeek API with native multimodal support. Set your model to deepseek-flash. V4-Flash an",
-          "url": "https://x.com/deepseek_ai/status/2097930620680941732",
-          "published_at": "2026-09-10T06:10:12Z",
-          "summary_zh": "DeepSeek 在官方帖文中宣布 V4.1-Flash 已上线 API、支持原生多模态，并说明旧的 V4-Flash 与 V4-Flash-Vision-Exp 已退役；关于其优于 V4-Pro 的性能、成本、速度和总运行时间，则是帖文归纳的“多方测试”结论。",
-          "why_it_matters_zh": "模型标识变更与旧型号退役会直接影响既有 API 集成；编辑判断，性能比较仍需结合所指测试的任务、成本口径和复现实验阅读。",
+          "item_type": "research_blog",
+          "source": "NVIDIA Technical Blog",
+          "title": "How Full-Stack NIM Optimizations Deliver 2.5x More Users on Nemotron 3 Ultra",
+          "url": "https://developer.nvidia.com/blog/how-full-stack-nim-optimizations-deliver-2-5x-more-users-on-nemotron-3-ultra/",
+          "published_at": "2026-09-10T16:55:32Z",
+          "summary_zh": "NVIDIA 官方技术博客介绍面向 Nemotron 3 Ultra 的全栈 NIM 优化；标题称这些优化可承载 2.5 倍更多用户。该倍数是发布方在其工程配置下的陈述。",
+          "why_it_matters_zh": "生产服务的瓶颈不仅在模型本身，也在并发、系统配置与部署栈的协同。该文为评估推理吞吐优化提供具体工程案例，但结论不应直接外推至其他模型或负载。",
           "tags": [
-            "研究发布",
-            "模型服务",
-            "多模态"
+            "工具与实践",
+            "推理服务",
+            "NIM",
+            "性能优化"
           ],
           "rank": 3,
-          "category": "研究发布",
+          "category": "工具与实践",
           "published": "2026-09-10",
-          "author_line": "DeepSeek"
+          "author_line": "NVIDIA Technical Blog"
         },
         {
-          "id": "x:2098097512544444447",
+          "id": "feed:https://openai.com/index/introducing-the-agents-api",
           "channel": "aivoices",
-          "item_type": "social_post",
-          "source": "X",
-          "title": "@AnthropicAI：We're publishing our most detailed threat intelligence report to date. It covers how people tried to misuse Claude for c",
-          "url": "https://x.com/AnthropicAI/status/2098097512544444447",
-          "published_at": "2026-09-10T17:13:22Z",
-          "summary_zh": "Anthropic 称其发布了迄今最详细的威胁情报报告，描述了 Claude 被尝试用于网络攻击、影响行动、监控、生物学和武器制造的情形，以及其发现和阻止这些行动的过程；“中断了报告中的每一项行动”是发布方的自述。",
-          "why_it_matters_zh": "该报告把模型滥用、检测和处置置于同一公开讨论框架中；编辑判断，报告的案例证据和方法边界应与其结论一并审阅。",
+          "item_type": "research_blog",
+          "source": "OpenAI News",
+          "title": "Introducing the Agents API",
+          "url": "https://openai.com/index/introducing-the-agents-api",
+          "published_at": "Thu, 10 Sep 2026 00:00:00 GMT",
+          "summary_zh": "OpenAI 官方博客发布 Agents API，将其描述为由 Codex harness 支持的托管式云端智能体服务，覆盖编排、长时运行会话和工具使用。",
+          "why_it_matters_zh": "该发布把长会话、工具调用与编排能力作为托管接口提供，可能降低构建云端智能体的系统集成成本；实际适用性仍取决于接口限制、可靠性和部署要求。",
           "tags": [
-            "研究发布",
-            "安全",
-            "威胁情报"
+            "工具与实践",
+            "智能体",
+            "API",
+            "长时会话"
           ],
           "rank": 4,
-          "category": "研究发布",
-          "published": "2026-09-10",
-          "author_line": "Anthropic"
+          "category": "工具与实践",
+          "published": "Thu, 10 Se",
+          "author_line": "OpenAI News"
         },
         {
-          "id": "x:2098167118806372669",
+          "id": "x:2098460821693341885",
           "channel": "aivoices",
           "item_type": "social_post",
           "source": "X",
-          "title": "@NVIDIAAI：Another leaderboard win for Nemotron. Nemotron 3 Embed 8B ranks #1 for combined nDCG@10 on the Q2D-Web benchmark, tested",
-          "url": "https://x.com/NVIDIAAI/status/2098167118806372669",
-          "published_at": "2026-09-10T21:49:57Z",
-          "summary_zh": "NVIDIA 在官方帖文中称，Nemotron 3 Embed 8B 在 Q2D-Web 基准的综合 nDCG@10 位列第一，并给出该测试覆盖约 1.9 亿网页文档、近 7 万条智能体改写查询及 10 种语言的范围。排名是发布方对该基准结果的陈述。",
-          "why_it_matters_zh": "相较于仅报出“领先”的产品帖文，这条记录明确了检索评测的指标和数据规模；编辑判断，模型比较仍取决于基准构造、运行设置和其他任务指标。",
+          "title": "@dair_ai：Great paper on self-evolving agent harnesses. Ecdysis analyzes failures across a batch of tasks and repairs only pattern",
+          "url": "https://x.com/dair_ai/status/2098460821693341885",
+          "published_at": "2026-09-11T17:17:02Z",
+          "summary_zh": "DAIR.AI 转述 Ecdysis 的论文结果：该方法分析一批任务中的失败，只修复重复出现的模式；帖文称训练最高快 1.84 倍，所得 harness 的推理准确率提高 18.56%。候选文本未给出评测设置。",
+          "why_it_matters_zh": "按跨任务重复模式修复智能体 harness，是比逐例补丁更可审计的自改进思路。编辑判断，这些性能数字需要结合论文中的任务分布、基线与统计设计复核。",
           "tags": [
             "研究发布",
-            "检索",
-            "基准"
+            "智能体",
+            "自我改进",
+            "评测"
           ],
           "rank": 5,
           "category": "研究发布",
-          "published": "2026-09-10",
-          "author_line": "NVIDIA AI"
-        },
-        {
-          "id": "x:2097695216807354372",
-          "channel": "aivoices",
-          "item_type": "social_post",
-          "source": "X",
-          "title": "@kenneth0stanley：What we're witnessing right now in AI for math is a dramatic improvement in objective-driven problem-solving, but it doe",
-          "url": "https://x.com/kenneth0stanley/status/2097695216807354372",
-          "published_at": "2026-09-09T14:34:47Z",
-          "summary_zh": "研究者 Kenneth Stanley 认为，当前 AI for Math 的跃升主要体现为目标驱动的问题求解更强，不能据此推断非目标驱动的发现能力也同步提升；这是作者对能力边界的观点，而非实证结论。",
-          "why_it_matters_zh": "这一区分为“解已有明确目标的问题”与“产生新的研究方向”提供了清晰讨论框架，有助于避免把单类数学成果直接外推为普遍科学发现能力。",
-          "tags": [
-            "观点与讨论",
-            "AI for Math",
-            "科学发现"
-          ],
-          "rank": 6,
-          "category": "观点与讨论",
-          "published": "2026-09-09",
-          "author_line": "Kenneth Stanley"
-        },
-        {
-          "id": "x:2098133709652160939",
-          "channel": "aivoices",
-          "item_type": "social_post",
-          "source": "X",
-          "title": "@NVIDIAAI：Most diffusion-based video models are trained on short clips. When they are used to relight longer videos in chunks, the",
-          "url": "https://x.com/NVIDIAAI/status/2098133709652160939",
-          "published_at": "2026-09-10T19:37:12Z",
-          "summary_zh": "NVIDIA 研究团队与 USC 在官方帖文中介绍 HorizonRelight：针对长视频分块重光照时片段间光照跳变的问题，将目标域上下文从一个滑动窗口传播到下一个；帖文称配有 ECCV 2026 论文和演示。",
-          "why_it_matters_zh": "该工作聚焦生成视频从短片段训练走向长序列编辑时的连续性问题；编辑判断，帖文描述的是方法与应用动机，实际改善幅度仍需查看论文和演示评测。",
-          "tags": [
-            "研究发布",
-            "视频生成",
-            "计算机视觉"
-          ],
-          "rank": 7,
-          "category": "研究发布",
-          "published": "2026-09-10",
-          "author_line": "NVIDIA AI"
+          "published": "2026-09-11",
+          "author_line": "DAIR.AI"
         }
       ]
     },
@@ -875,199 +933,170 @@
       "id": "engineering",
       "name": "Engineering",
       "stats": {
-        "fetched": 70,
-        "suppressed_previous": 3,
+        "fetched": 77,
+        "suppressed_previous": 6,
         "candidates": 60,
-        "selected": 8,
+        "selected": 7,
         "sources": {
           "GitHub Trending": 16,
-          "GitHub Releases": 54
+          "GitHub Releases": 61
         }
       },
       "source_errors": [],
       "items": [
         {
-          "id": "github:385388909",
+          "id": "github-trending:2026-09-12:alphaxiv/openresearch",
           "channel": "engineering",
-          "item_type": "software_release",
-          "source": "GitHub Releases",
-          "title": "v1.3.0rc26",
-          "url": "https://github.com/NVIDIA/TensorRT-LLM/releases/tag/v1.3.0rc26",
-          "published_at": "2026-09-09T09:37:50Z",
-          "summary_zh": "NVIDIA/TensorRT-LLM 发布 v1.3.0rc26：增加 DeepSeek-V4、Qwen3.8 Flash Next、Kimi K3 等模型与硬件支持，补齐 Responses API，并带来 MoE、KV cache 和多节点推理优化；同时包含破坏性 API 调整与 RL 控制端点认证。",
-          "why_it_matters_zh": "大模型部署栈正在同时处理新模型适配、低精度 MoE 和分离式推理。适合已在 NVIDIA GPU 集群上部署推理服务的团队评估；该版本仍是 rc 预发布，且发布说明列出 KV cache、FlashInfer、SM120 与部分多模态路径的已知问题，升级前应做工作负载回归测试。",
+          "item_type": "trending_repository",
+          "source": "GitHub Trending",
+          "title": "alphaXiv/OpenResearch",
+          "url": "https://github.com/alphaXiv/OpenResearch",
+          "published_at": "2026-09-12",
+          "summary_zh": "alphaXiv/OpenResearch 位列当日 GitHub Trending 第 14 名，新增 156 星；它让用户使用任意模型并行运行研究智能体。",
+          "why_it_matters_zh": "它反映了研究型工作流从单一对话转向并行分工智能体的工程趋势，适合需要协调检索、分析与汇总任务的研究和开发团队。项目仍较新，需在实际任务中核验模型成本、来源可追溯性和协作结果质量。",
           "tags": [
-            "推理服务与加速",
-            "LLM 推理服务",
-            "GPU 加速",
-            "MoE",
-            "KV cache",
-            "模型兼容性"
+            "智能体研究工作流",
+            "研究智能体",
+            "多智能体",
+            "模型编排",
+            "研究工作流"
           ],
           "rank": 1,
-          "category": "推理服务与加速",
-          "published": "2026-09-09",
-          "author_line": "NVIDIA/TensorRT-LLM"
+          "category": "智能体研究工作流",
+          "published": "2026-09-12",
+          "author_line": "alphaXiv"
         },
         {
-          "id": "github:385934210",
+          "id": "github-trending:2026-09-12:github/spec-kit",
           "channel": "engineering",
-          "item_type": "software_release",
-          "source": "GitHub Releases",
-          "title": "v1.13.0",
-          "url": "https://github.com/huggingface/trl/releases/tag/v1.13.0",
-          "published_at": "2026-09-10T00:50:26Z",
-          "summary_zh": "Hugging Face TRL v1.13.0 新增长上下文训练指南与可运行示例：发布说明给出在单个 8×H100 节点上，以 Qwen3-8B 训练 1,048,576-token 序列的测量配置；同时继续扩展训练工具链。",
-          "why_it_matters_zh": "百万 token 训练从概念展示转向可复现实验配方，训练团队可据此估算长上下文微调的显存与吞吐成本。适合使用 TRL 做 SFT、偏好优化或强化学习训练的开发者；公开测量只对应特定模型和硬件，不能直接外推到其他规模、序列长度或集群。",
+          "item_type": "trending_repository",
+          "source": "GitHub Trending",
+          "title": "github/spec-kit",
+          "url": "https://github.com/github/spec-kit",
+          "published_at": "2026-09-12",
+          "summary_zh": "github/spec-kit 位列当日 GitHub Trending 第 15 名，新增 985 星；它提供规格驱动开发的起步工具包，面向结合 AI/Copilot 的需求与工程流程。",
+          "why_it_matters_zh": "当编码智能体参与实现时，结构化规格可成为需求、实现和评审之间的共同约束，适合希望规范 AI 辅助开发流程的团队。它是方法与工具包而非质量保证机制，仍需配合测试、评审和项目级治理。",
           "tags": [
-            "模型训练",
-            "长上下文训练",
-            "强化学习训练",
-            "微调",
-            "Hugging Face",
-            "训练优化"
+            "AI 辅助开发",
+            "规格驱动开发",
+            "AI 编程",
+            "Copilot",
+            "开发者工具"
           ],
           "rank": 2,
-          "category": "模型训练",
-          "published": "2026-09-10",
-          "author_line": "huggingface/trl"
+          "category": "AI 辅助开发",
+          "published": "2026-09-12",
+          "author_line": "github"
         },
         {
-          "id": "github-trending:2026-09-11:alsk1992/cloddsbot",
+          "id": "github-trending:2026-09-12:melgarafael/deskcommcrm",
           "channel": "engineering",
           "item_type": "trending_repository",
           "source": "GitHub Trending",
-          "title": "alsk1992/CloddsBot",
-          "url": "https://github.com/alsk1992/CloddsBot",
-          "published_at": "2026-09-11",
-          "summary_zh": "CloddsBot 位列当日 GitHub Trending 第 4 名，新增 299 星。它是一个可自托管的 AI 交易智能体，仓库称其可在预测市场、交易所、链上 DEX 与多条 EVM 链上扫描机会、执行交易和管理风险。",
-          "why_it_matters_zh": "它把模型调用、跨市场数据接入、执行接口与风控流程打包为端到端智能体，代表智能体从辅助分析走向有状态执行。适合研究自主交易系统或 agent commerce 的工程团队参考；项目虽采用 MIT 许可，但仍较新，且涉及资金、密钥、合规和策略失效风险，不能把仓库描述等同于经验证的收益或安全性。",
+          "title": "melgarafael/DeskcommCRM",
+          "url": "https://github.com/melgarafael/DeskcommCRM",
+          "published_at": "2026-09-12",
+          "summary_zh": "melgarafael/DeskcommCRM 位列当日 GitHub Trending 第 4 名，新增 126 星；这是带原生 AI 智能体和 WhatsApp 接入的自托管 CRM，并支持 MCP、多租户与 RAG。",
+          "why_it_matters_zh": "它把客户数据、对话渠道和智能体能力整合为可自托管的业务系统，适合开发面向聊天销售或客服自动化产品的团队参考。项目规模仍有限，接入真实客户数据前应审查权限隔离、隐私合规、消息平台规则及智能体误操作风险。",
           "tags": [
-            "智能体工程",
+            "智能体应用",
             "AI 智能体",
-            "交易自动化",
-            "多工具执行",
-            "DeFi",
-            "风险控制"
+            "CRM",
+            "RAG",
+            "MCP",
+            "自托管"
           ],
           "rank": 3,
-          "category": "智能体工程",
-          "published": "2026-09-11",
-          "author_line": "alsk1992"
+          "category": "智能体应用",
+          "published": "2026-09-12",
+          "author_line": "melgarafael"
         },
         {
-          "id": "github-trending:2026-09-11:freestylefly/awesome-gpt-image-2",
+          "id": "github-trending:2026-09-12:jihe520/mathmodelagent",
           "channel": "engineering",
           "item_type": "trending_repository",
           "source": "GitHub Trending",
-          "title": "freestylefly/awesome-gpt-image-2",
-          "url": "https://github.com/freestylefly/awesome-gpt-image-2",
-          "published_at": "2026-09-11",
-          "summary_zh": "awesome-gpt-image-2 位列当日 GitHub Trending 第 9 名，新增 957 星。该仓库整理 GPT Image 2/2.5 的“Prompt as Code”案例、模板、复用技能和生成记录，供图像生成工作流直接参考。",
-          "why_it_matters_zh": "图像模型的工程重点正从单次提示转向可版本化、可复用的提示资产与工作流。适合搭建品牌视觉、产品原型或图像生成评测流程的团队；其价值主要是经验与案例汇编，效果仍需在自身模型版本、权限与业务素材上复测。",
+          "title": "jihe520/MathModelAgent",
+          "url": "https://github.com/jihe520/MathModelAgent",
+          "published_at": "2026-09-12",
+          "summary_zh": "jihe520/MathModelAgent 位列当日 GitHub Trending 第 11 名，新增 132 星；它为数学建模设计智能体与技能，仓库称可自动完成建模并生成完整论文草稿。",
+          "why_it_matters_zh": "它代表将领域任务拆解、工具调用和文档生成封装进专用智能体的趋势，适合研究数学建模自动化流程的开发者。输出不能替代问题建模、计算验证和作者责任，尤其不应未经核验直接用于正式提交。",
           "tags": [
-            "生成式图像开发",
-            "AI 图像生成",
-            "提示词工程",
-            "Prompt as Code",
-            "工作流自动化",
-            "可复用技能"
+            "数学建模智能体",
+            "数学建模",
+            "LLM 智能体",
+            "领域工作流",
+            "技能系统"
           ],
           "rank": 4,
-          "category": "生成式图像开发",
-          "published": "2026-09-11",
-          "author_line": "freestylefly"
+          "category": "数学建模智能体",
+          "published": "2026-09-12",
+          "author_line": "jihe520"
         },
         {
-          "id": "github-trending:2026-09-11:vercel-labs/skills",
+          "id": "github-trending:2026-09-12:jordan-gibbs/hyperresearch",
           "channel": "engineering",
           "item_type": "trending_repository",
           "source": "GitHub Trending",
-          "title": "vercel-labs/skills",
-          "url": "https://github.com/vercel-labs/skills",
-          "published_at": "2026-09-11",
-          "summary_zh": "vercel-labs/skills 位列当日 GitHub Trending 第 15 名，新增 175 星。它提供以 `npx skills` 使用的开放式 agent skills 工具，用于发现和安装可复用的智能体能力包。",
-          "why_it_matters_zh": "把智能体能力封装为可安装单元，正在成为连接不同编码助手与本地工作流的轻量分发层。适合希望共享或标准化开发智能体操作的团队；仓库已有较大社区，但开放技能的来源、权限与版本兼容性仍需纳入供应链审查。",
+          "title": "jordan-gibbs/hyperresearch",
+          "url": "https://github.com/jordan-gibbs/hyperresearch",
+          "published_at": "2026-09-12",
+          "summary_zh": "jordan-gibbs/hyperresearch 位列当日 GitHub Trending 第 13 名，新增 118 星；它让智能体收集、搜索并综合网页研究，沉淀为可检索的持久知识库。",
+          "why_it_matters_zh": "它将深度研究的中间产物从一次性回答转为可积累的知识资产，适合构建研究情报或团队知识系统的开发者。网页来源质量、引用留存、更新策略及智能体综合错误仍是生产部署的关键成熟度问题。",
           "tags": [
-            "智能体工具链",
-            "开发者工具",
-            "技能分发",
-            "CLI",
-            "软件供应链"
+            "研究智能体与知识库",
+            "研究智能体",
+            "知识库",
+            "网页检索",
+            "深度研究"
           ],
           "rank": 5,
-          "category": "智能体工具链",
-          "published": "2026-09-11",
-          "author_line": "vercel-labs"
+          "category": "研究智能体与知识库",
+          "published": "2026-09-12",
+          "author_line": "jordan-gibbs"
         },
         {
-          "id": "github-trending:2026-09-11:justvugg/colibri",
-          "channel": "engineering",
-          "item_type": "trending_repository",
-          "source": "GitHub Trending",
-          "title": "JustVugg/colibri",
-          "url": "https://github.com/JustVugg/colibri",
-          "published_at": "2026-09-11",
-          "summary_zh": "JustVugg/colibri 位列当日 GitHub Trending 第 12 名，新增 130 星。它以纯 C、零依赖的方式运行前沿 MoE 模型，并将专家参数从磁盘流式读取，以降低大模型对本地硬件内存的要求。",
-          "why_it_matters_zh": "MoE 的按需专家加载是把超大模型推向本地和边缘设备的一条工程路线。适合研究低资源推理、磁盘流式权重或轻量部署的开发者；其性能、模型覆盖和稳定性高度依赖存储与硬件配置，应在目标模型和真实并发下验证。",
-          "tags": [
-            "本地模型推理",
-            "本地推理",
-            "MoE",
-            "模型流式加载",
-            "C 语言",
-            "边缘部署"
-          ],
-          "rank": 6,
-          "category": "本地模型推理",
-          "published": "2026-09-11",
-          "author_line": "JustVugg"
-        },
-        {
-          "id": "github-trending:2026-09-11:nashsu/llm_wiki",
-          "channel": "engineering",
-          "item_type": "trending_repository",
-          "source": "GitHub Trending",
-          "title": "nashsu/llm_wiki",
-          "url": "https://github.com/nashsu/llm_wiki",
-          "published_at": "2026-09-11",
-          "summary_zh": "nashsu/llm_wiki 位列当日 GitHub Trending 第 14 名，新增 94 星。该跨平台桌面应用把文档自动组织为相互链接的持久知识库，而不是每次查询都从头执行传统 RAG。",
-          "why_it_matters_zh": "面向个人和小团队的知识系统正尝试把检索增强生成变为持续维护的结构化资产。适合希望本地沉淀文档关系的研究者与开发者；仓库未声明许可证，且公开问题较多，生产采用前应核查数据存储、导出路径和维护状态。",
-          "tags": [
-            "知识库与检索",
-            "RAG",
-            "知识库",
-            "文档智能",
-            "本地优先",
-            "LLM 应用"
-          ],
-          "rank": 7,
-          "category": "知识库与检索",
-          "published": "2026-09-11",
-          "author_line": "nashsu"
-        },
-        {
-          "id": "github:386577294",
+          "id": "github:387286987",
           "channel": "engineering",
           "item_type": "software_release",
           "source": "GitHub Releases",
-          "title": "Python SDK 0.154.0",
-          "url": "https://github.com/openai/codex/releases/tag/python-v0.154.0",
-          "published_at": "2026-09-10T19:51:43Z",
-          "summary_zh": "openai/codex 发布 Python SDK 0.154.0，新增 `max` 与 `ultra` 推理强度、ExternalMessage、会话恢复/分叉时的历史选择和单回合服务层级等接口，并给出若干升级迁移要求。",
-          "why_it_matters_zh": "智能体 SDK 正把外部事件接入、会话历史控制与计算预算显式化，便于构建更可控的多回合应用。适合基于 Codex Python SDK 集成工作流的开发者；ExternalMessage 不赋予用户授权，且 HookMetadata、事件消费和自定义 CLI 版本均有兼容性迁移要求。",
+          "title": "OpenMM 8.6.1",
+          "url": "https://github.com/openmm/openmm/releases/tag/8.6.1",
+          "published_at": "2026-09-11T19:31:55Z",
+          "summary_zh": "openmm/openmm 发布 OpenMM 8.6.1 补丁版，修复 PythonForce 潜在段错误、DPDIntegrator 粒子类型处理、CustomNonbondedForce 表函数更新与 QTBIntegrator 原子排序等问题。",
+          "why_it_matters_zh": "这些修复直接影响分子模拟任务的稳定性与结果正确性，适合使用 OpenMM 进行分子动力学和自定义力场计算的研究团队评估升级。该版本为补丁发布，仍应以既有体系和可复现基准完成回归验证。",
           "tags": [
-            "智能体开发 SDK",
-            "智能体 SDK",
-            "Python",
-            "会话管理",
-            "推理预算",
-            "事件流"
+            "科学计算",
+            "分子动力学",
+            "OpenMM",
+            "稳定性修复"
           ],
-          "rank": 8,
-          "category": "智能体开发 SDK",
+          "rank": 6,
+          "category": "科学计算",
+          "published": "2026-09-11",
+          "author_line": "openmm/openmm"
+        },
+        {
+          "id": "github:386569042",
+          "channel": "engineering",
+          "item_type": "software_release",
+          "source": "GitHub Releases",
+          "title": "v3.13.0",
+          "url": "https://github.com/openai/openai-python/releases/tag/v3.13.0",
+          "published_at": "2026-09-10T19:37:39Z",
+          "summary_zh": "openai/openai-python 发布 v3.13.0，为 Python SDK 新增 Agents API。",
+          "why_it_matters_zh": "官方 SDK 纳入 Agents API 会影响 Python 应用接入智能体能力的接口选型，适合维护 OpenAI Python 集成的开发者关注。候选发布说明仅披露该新增接口，迁移范围、行为细节与生产兼容性仍应以版本文档和本地测试确认。",
+          "tags": [
+            "AI 开发 SDK",
+            "Python SDK",
+            "Agents API",
+            "智能体开发",
+            "API 集成"
+          ],
+          "rank": 7,
+          "category": "AI 开发 SDK",
           "published": "2026-09-10",
-          "author_line": "openai/codex"
+          "author_line": "openai/openai-python"
         }
       ]
     }

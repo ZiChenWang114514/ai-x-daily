@@ -1,58 +1,60 @@
-# AIxDaily · 2026-09-15
+# AIxDaily · 2026-09-16
 
-今日精选：AI × Chem 6 项，AI × Bio 8 项，AI × Math 0 项，AI Voices 7 项，Engineering 9 项。9月15日的精选以预印本与公开工程动向为主：化学聚焦三维相互作用条件下的分子生成，生物涵盖超声触发的非病毒基因递送；数学频道因数据源获取失败没有可审阅内容。观点频道收录公开帖文，反思智能体评测与真实部署；工程频道呈现当日热门开源项目，不将其热度等同于经验证的软件能力。
+今日精选：AI × Chem 16 项，AI × Bio 12 项，AI × Math 13 项，AI Voices 10 项，Engineering 10 项。9月16日的精选以预印本和公开发布为主：化学、生命科学与数学频道均聚焦尚未同行评议的研究，分别讨论亲和力评测、临床预测数据与形式化验证；AI Voices 收录发布方公告和研究者风险声明，应视为公开观点或发布说法。工程频道则反映 GitHub 趋势项目，非正式软件发布。前列条目中未见可据此确认的同行评议论文，相关性能和应用结论仍需原始研究、独立复现或实测支持。
 
 ## 今日重大进展
 
-- [2004 年强 Papadimitriou–Ratajczak 猜想被宣布解决](https://x.com/LechMazur/status/2098915169799733339) — Lech Mazur 公布，强 Papadimitriou–Ratajczak 猜想已获证明：每个 3-连通平面图都存在凸贪心绘制。其称证明由 ProofAtlas 与 GPT-6 Pro 找到，并已用 Lean 形式化为约 5.2 万行。
-- [Reward AI 公布可跨机器人零样本泛化的 OM-1](https://x.com/RewardAI_/status/2099553899804053992) — Reward AI 在公开帖中发布首个机器人基础模型 OM-1，称其直接从人类操作数据学习，无需遥操作或机器人数据，即可零样本适配桌面机械臂、工业臂与人形机器人，并支持多机器人协作。
-- [社媒称 Atria Dawn Preview 以 MIT 许可开放 744B MoE 智能体模型](https://x.com/Smlay_ero/status/2099699408900342255) — 公开帖称，上海 AI 实验室于 9 月 14 日开源 Atria Dawn Preview：它基于 744B 参数 GLM-5.2 MoE，提供权重与代码、256K 上下文，并面向长程智能体任务；帖文同时列出多项基准成绩。
+- [Google DeepMind 发布 Gemini 3.8 Live，主打实时对话与后台任务](https://x.com/GoogleDeepMind/status/2099907440422830269) — Google DeepMind 在 X 发布 Gemini 3.8 Live 与 Extended Thinking，称其为最新对话式 AI；其定位是让模型在用户保持对话时同步思考，并在后台持续处理任务。
+- [Diogo Almeida 公布 Jev，称以 RLCD 重排前沿模型的速度与成本](https://x.com/CompleteSkeptic/status/2099925682726002904) — Diogo Almeida 在 X 公布前沿模型 Jev，并称其基于新的 RLCD 训练方式，面向决策型“可组合智能”；发布方给出的指标为速度提升20至200倍、成本降低40至400倍，且输出 token 免费。
+- [Omega Institute 公布 AI 智能体形式化证明：解出 Ralf Stephan 2003 猜想](https://x.com/OmegaDesci/status/2099849280433664475) — Omega Institute 称其开源 trureturing 中的 AI 智能体已完成 Lean 形式化证明：对 OEIS A005590 的递推序列，r(3n)=0 当且仅当 n 的二进制展开不含相邻的1。
 
 ## AI × Chem
 
-采集 317，候选 39，精选 6。来源状态：arXiv: RuntimeError: Unable to fetch https://export.arxiv.org/api/query?search_query=%28cat%3Acs.LG+OR+cat%3Acs.AI+OR+cat%3Acs.CL+OR+cat%3Acs.NE+OR+cat%3Astat.ML+OR+cat%3Acs.LO+OR+cat%3Acs.FL+OR+cat%3Acs.SC+OR+cat%3Amath.LO+OR+cat%3Acs.CE+OR+cat%3Aphysics.chem-ph+OR+cat%3Aq-bio.BM+OR+cat%3Aq-bio.GN+OR+cat%3Aq-bio.MN+OR+cat%3Aq-bio.QM+OR+cat%3Aq-bio.NC%29&start=0&max_results=100&sortBy=submittedDate&sortOrder=descending: HTTP Error 429: Unknown Error
+采集 1437，候选 60，精选 16。来源状态：bioRxiv: RuntimeError: Unable to fetch https://api.biorxiv.org/details/biorxiv/2026-09-13/2026-09-16/30: The read operation timed out
 
-- [Interaction Profiles as a Universal Language for Generative Molecular Design with ShEPhERD-2](https://www.biorxiv.org/content/10.64898/2026.09.10.750648) — ShEPhERD-2 以形状、静电和定向药效团构成的三维相互作用谱为条件，生成低应变、类药小分子；同一模型可用于生物电子等排体片段合并、双靶点设计、选择性工程和模态转换，无需任务特异性再训练。
-- [Machine Learning-Guided Classification of Druggable Pockets and Phylogenetic Druggability Transfer Across the Human Kinome](https://www.biorxiv.org/content/10.64898/2026.09.06.749698) — 研究汇集 11,945 个激酶抑制剂复合物，以 Extra Trees 分类器根据口袋残基—配体相互作用标注七类经典结合模式及变构亚类，并将结果与 Manning 激酶组系统发育整合，以推断未充分研究激酶的变构可成药性。
-- [Heterogeneous graph neural networks with biological prior knowledge for interpretable drug repurposing in triple-negative breast cancer](https://www.biorxiv.org/content/10.64898/2026.09.08.750045) — PRECISION 将转录因子调控网络、蛋白—蛋白相互作用和药物—靶点边整合为异质 GNN，用于三阴性乳腺癌药物再定位；作者以细胞系留出、多队列生存关联及 39 例配对样本评估，提出 7 个候选药物并指向 EGFR 信号轴。
+- [MIRAGE: Measuring Interpolation and Redundancy in Affinity GEneralization](https://arxiv.org/abs/2609.14491v1) — MIRAGE 提出以蛋白家族历史数据支持度为显式变量的亲和力与构象预测评测框架，显示部分共折叠模型在新蛋白家族上的优势可被家族冗余显著夸大，并发布了相应基准与数据集。
+- [Multimodal deep learning from spectra for small-molecule structure identification: enhancing robustness with mixed-condition training](https://arxiv.org/abs/2609.14360v1) — 该研究以混合条件训练和 mixture-of-experts 融合提升 MS、IR、1H NMR 与13C NMR 多模态谱图驱动的小分子候选结构重排序，在缺失、低质量或不一致谱图下保持较强鲁棒性。
+- [Can Autonomous LLM Agents Execute Multireference Quantum Chemistry Calculations?](https://arxiv.org/abs/2609.13357v1) — 研究评估自主 LLM 智能体能否完成多参考量子化学工作流，并以结构化决策阶梯改善活性空间选择、收敛恢复与态识别，在 QUESTDB 垂直跃迁能上提高覆盖率并降低误差。
 
 [查看频道专页](https://zichenwang114514.github.io/ai-x-daily/channels/aixchem/)
 
 ## AI × Bio
 
-采集 1027，候选 60，精选 8。来源状态：arXiv: RuntimeError: Unable to fetch https://export.arxiv.org/api/query?search_query=%28cat%3Acs.LG+OR+cat%3Acs.AI+OR+cat%3Acs.CL+OR+cat%3Acs.NE+OR+cat%3Astat.ML+OR+cat%3Acs.LO+OR+cat%3Acs.FL+OR+cat%3Acs.SC+OR+cat%3Amath.LO+OR+cat%3Acs.CE+OR+cat%3Aphysics.chem-ph+OR+cat%3Aq-bio.BM+OR+cat%3Aq-bio.GN+OR+cat%3Aq-bio.MN+OR+cat%3Aq-bio.QM+OR+cat%3Aq-bio.NC%29&start=0&max_results=100&sortBy=submittedDate&sortOrder=descending: HTTP Error 429: Unknown Error；medRxiv: JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+采集 2489，候选 60，精选 12。来源状态：bioRxiv: RuntimeError: Unable to fetch https://api.biorxiv.org/details/biorxiv/2026-09-13/2026-09-16/120: The read operation timed out
 
-- [Nonviral, ultrasound-triggered gene delivery platform via gas-core cationic nanobubbles](https://www.biorxiv.org/content/10.64898/2026.09.11.749060) — 气核阳离子纳米气泡在体外高效内化并负载质粒 DNA；在小鼠肝脏中，超声触发后出现局部 GFP 表达及可同步监测的造影变化。
-- [TransBind2: Improving Transcription Factor-DNA Binding Prediction with Multimodal Data and Bidirectional Cross Attention](https://www.biorxiv.org/content/10.64898/2026.09.07.749913) — TransBind2 以 DNA 序列、DNase-seq 可及性、基因组可比对性和 ProstT5 的 TF 序列—结构表示为输入，在 690 个 ChIP-seq 实验、161 个 TF 和 91 种细胞类型上报告宏平均 AUROC 0.9648。
-- [Diagnostic Performance of Agentic AI for Rare Disease Diagnosis: A Systematic Review, Meta-analysis, Workflow Development, and Benchmark-based Validation](https://europepmc.org/article/PPR/PPR1318941) — 该系统综述与单臂随机效应 Meta 分析纳入 7 项研究、19 个效应量和 33,738 个病例；其 50 例 RareBench 验证中，工作流辅助 GPT 的 Top-1 正确数为 11/50，独立 GPT 为 5/50。
+- [Potential of Artificial Intelligence Algorithms for Identification of Relevant Diagnostic and Prognostic Biomarkers of Early-Stage Liver Cancer](https://arxiv.org/abs/2609.15638v1) — 研究以三个来源数据集经半监督学习构建的 HCC 转录组标志物数据集训练深度学习模型；15 基因 SelectKBest 模型准确率为 90.74%，并以 SHAP 和功能实验将 DNAJB14 列为重点候选。
+- [Countering Neural Activity Drift: Sustained Long-term Seizure Prediction Using an Evolutionary Machine-Learning Framework on Continuous Intracranial EEG](https://www.medrxiv.org/content/10.64898/2026.09.14.26359203) — 该研究公开连续长期立体脑电图数据集，覆盖 16 名患者、664.9 小时数据和 121 次发作，并以伪前瞻在线评估量化神经活动漂移对癫痫预测的影响。
+- [Agentic-AI-ready genome-wide poxvirus-host interaction screen refined by a protein language model](https://europepmc.org/article/PPR/PPR1318417) — ICARus 将蛋白质语言模型导出的蛋白—蛋白相互作用信息整合到全基因组 vaccinia virus 宿主因子 RNA 干扰筛选，并提供原始及经修正的筛选读出。
 
 [查看频道专页](https://zichenwang114514.github.io/ai-x-daily/channels/aixbio/)
 
 ## AI × Math
 
-采集 0，候选 0，精选 0。来源状态：arXiv: RuntimeError: Unable to fetch https://export.arxiv.org/api/query?search_query=%28cat%3Acs.LG+OR+cat%3Acs.AI+OR+cat%3Acs.CL+OR+cat%3Acs.NE+OR+cat%3Astat.ML+OR+cat%3Acs.LO+OR+cat%3Acs.FL+OR+cat%3Acs.SC+OR+cat%3Amath.LO+OR+cat%3Acs.CE+OR+cat%3Aphysics.chem-ph+OR+cat%3Aq-bio.BM+OR+cat%3Aq-bio.GN+OR+cat%3Aq-bio.MN+OR+cat%3Aq-bio.QM+OR+cat%3Aq-bio.NC%29&start=0&max_results=100&sortBy=submittedDate&sortOrder=descending: HTTP Error 429: Unknown Error
+采集 1371，候选 60，精选 13。来源状态：各来源已完成
 
-- 今日无足够高质量更新。
+- [Beyond Solver Verdicts: Generative Reward Models for Autoformalization](https://arxiv.org/abs/2609.11085v2) — 提出 Generative Verification（GenV），用于检验自动形式化结果是否与指定参考形式化严格等价，而非仅依赖求解器给出的可满足性或判定结果。
+- [Stellar Colosseum: A Many-Agent Harness for Long-Horizon Research in Mathematics and Theoretical Computer Science](https://arxiv.org/abs/2609.15983v1) — Stellar Colosseum 是用于数学与理论计算机科学长程研究的多智能体编排框架，结合策略探索、证明计划分解、反驳和验证反馈回路。
+- [Func-R1: Incentivizing Mathematical Function Reasoning in Multimodal Large Language Models](https://arxiv.org/abs/2609.14779v1) — Func-R1 面向图像中函数题的多模态数学推理，通过解耦架构、分层后训练和 PATO 同时处理视觉证据与理论推理。
 
 [查看频道专页](https://zichenwang114514.github.io/ai-x-daily/channels/aixmath/)
 
 ## AI Voices
 
-采集 91，候选 60，精选 7。来源状态：各来源已完成
+采集 107，候选 60，精选 10。来源状态：各来源已完成
 
-- [@dair_ai：Great paper from Amazon. In discusses when not to trust LLM judges for agent evaluation. (bookmark it) A common way to c](https://x.com/dair_ai/status/2099518541930332182) — DAIR.AI 转述一项 Amazon 研究：在 25 个、来自六家提供商的智能体上，LLM 裁判的满意度判断与任务成功可能脱钩，且能力接近的智能体比较更易误判。
-- [@chelseabfinn：A video from a Pi robot deployed at Dandelion Chocolate, fully autonomous w/ no interventions. 🤖 Deploying robots has ta](https://x.com/chelseabfinn/status/2099669259735728252) — Chelsea Finn 报告了一台部署于 Dandelion Chocolate 的 Pi 机器人；她以持续真实部署为例，说明“做出一个箱子”和连续数小时可靠地完成工作之间存在明显差距。
-- [@fchollet：> One could even define intelligence as the efficiency with which one converts experience into competence; by this defin](https://x.com/fchollet/status/2099633702888439865) — François Chollet 提出，应以“将经验转化为能力的效率”界定智能；据此，他认为当前 AI 在样本、测试时计算和能耗效率上仍远低于人类。
+- [@MultiverseCompu：⚛️🇪🇺 Introducing Quasar 1.1 438B, the first AI model using quantum-generated data. Quasar 438B, the best European AI mod](https://x.com/MultiverseCompu/status/2099885003492470993) — 事实：Multiverse Computing 在 X 宣布 Quasar 1.1 438B，称其部分“healing set”由运行于 IBM Quantum System Two 的混合量子语言模型生成，并首次进入 CompactifAI 流程。帖文同时提出性能、欧洲部署与合规主张；这些均为发布方说法。
+- [@DKokotajlo：Dan Selsam is a current OpenAI capabilities researcher. (since 2022) He was my boss for a while. He doesn't have a twitt](https://x.com/DKokotajlo/status/2099600298855829616) — 事实：Daniel Kokotajlo 转发了一份署名 Dan Selsam 的 AI 风险个人声明。声明作者认为，单靠放缓前沿研发不足以限制长期风险，并把模型在自认未受监控情境下的可评估性视为被忽略的问题。
+- [@PhAILabs：Scientific discovery often requires changing the question itself. Today, PhAI Labs releases the technical report for Dis](https://x.com/PhAILabs/status/2099898541342675291) — 事实：PhAI Labs 宣布发布 Discovery Foundation Models（DFM）技术报告，将其描述为能识别未知问题、提出问题、形成假设、设计实验并随证据修正理解的 AI 研究方向。
 
 [查看频道专页](https://zichenwang114514.github.io/ai-x-daily/channels/aivoices/)
 
 ## Engineering
 
-采集 59，候选 58，精选 9。来源状态：各来源已完成
+采集 57，候选 56，精选 10。来源状态：各来源已完成
 
-- [JustVugg/colibri](https://github.com/JustVugg/colibri) — JustVugg/colibri 是纯 C、零依赖的 MoE 模型推理引擎，通过从磁盘流式载入专家，尝试让现有硬件运行前沿 MoE 模型；当日 GitHub Trending 第 1 名，新增 2,173 星。
-- [alibaba/open-code-review](https://github.com/alibaba/open-code-review) — alibaba/open-code-review 将确定性流水线与 LLM 智能体结合，生成精确到代码行的审查意见，并内置多语言的空指针、线程安全、XSS 和 SQL 注入规则；当日 GitHub Trending 第 2 名，新增 1,571 星。
-- [multimodal-art-projection/YuE](https://github.com/multimodal-art-projection/YuE) — multimodal-art-projection/YuE 发布 YuE2 音乐生成模型，支持符号化规划、零样本翻唱与智能体式音乐编辑；当日 GitHub Trending 第 3 名，新增 559 星。
+- [alibaba/open-code-review](https://github.com/alibaba/open-code-review) — alibaba/open-code-review 是将确定性检查流水线与 LLM 智能体结合的代码审查工具，可给出精确到行的评论，并内置空指针、线程安全、XSS、SQL 注入等多语言规则。它今日位列 GitHub Trending 第 1 名，新增 2,751 星。
+- [JustVugg/colibri](https://github.com/JustVugg/colibri) — JustVugg/colibri 是纯 C、零依赖的 MoE 模型推理引擎，通过从磁盘流式加载专家，尝试让既有硬件运行前沿 MoE 模型。它今日位列 GitHub Trending 第 2 名，新增 2,035 星。
+- [debpalash/VoiceStudio](https://github.com/debpalash/VoiceStudio) — debpalash/VoiceStudio 是完全本地运行的开源语音工作台，覆盖声音克隆、声音设计、视频配音、听写、转录和有声书制作。它今日位列 GitHub Trending 第 4 名，新增 2,081 星。
 
 [查看频道专页](https://zichenwang114514.github.io/ai-x-daily/channels/engineering/)
 

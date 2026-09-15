@@ -1,35 +1,36 @@
-# AIxDaily · 2026-09-14
+# AIxDaily · 2026-09-15
 
-今日精选：AI × Chem 2 项，AI × Bio 15 项，AI × Math 0 项，AI Voices 0 项，Engineering 1 项。2026年9月14日的精选以预印本为主：化学频道聚焦聚焦超声递送与三维分子生成；生物频道关注可追溯的靶点发现及筛选数据分析。工程频道仅保留一个 GitHub Trending 仓库快照，并非软件发布。数学和公开观点频道均无足够高质量更新；今日没有同行评议论文入选。
+今日精选：AI × Chem 6 项，AI × Bio 8 项，AI × Math 0 项，AI Voices 7 项，Engineering 9 项。9月15日的精选以预印本与公开工程动向为主：化学聚焦三维相互作用条件下的分子生成，生物涵盖超声触发的非病毒基因递送；数学频道因数据源获取失败没有可审阅内容。观点频道收录公开帖文，反思智能体评测与真实部署；工程频道呈现当日热门开源项目，不将其热度等同于经验证的软件能力。
 
 ## 今日重大进展
 
-- [研究者报告：生物医学 AI 模型比较广泛受交叉验证统计偏差影响](https://www.biorxiv.org/content/10.64898/2026.05.17.724301) — 研究者报告，对 30 个领域 184 项高影响生物医学 AI 研究的审查发现，常用交叉验证比较忽略折间相关性；作者提出 SHARP 以控制假阳性并兼顾统计功效。
-- [AutoScreen 公布功能基因组靶点发现多智能体系统](https://europepmc.org/article/PPR/PPR1316885) — 研究者公布 AutoScreen：一个服务功能基因组学靶点发现的多智能体系统，覆盖 CRISPR 筛选设计、命中重排和证据溯源；论文在 320 个筛选上评测，并报告原代 NK 细胞与前瞻性 T 细胞筛选验证。
-- [Miniscope Zero 提出全无线单细胞神经成像平台](https://europepmc.org/article/PPR/PPR1317750) — 研究者提出 Miniscope Zero，以无线供电和高速光学数据链路实现自由行为动物的单细胞分辨率神经荧光成像；论文展示迷宫、三维行为及多动物同步记录。
+- [2004 年强 Papadimitriou–Ratajczak 猜想被宣布解决](https://x.com/LechMazur/status/2098915169799733339) — Lech Mazur 公布，强 Papadimitriou–Ratajczak 猜想已获证明：每个 3-连通平面图都存在凸贪心绘制。其称证明由 ProofAtlas 与 GPT-6 Pro 找到，并已用 Lean 形式化为约 5.2 万行。
+- [Reward AI 公布可跨机器人零样本泛化的 OM-1](https://x.com/RewardAI_/status/2099553899804053992) — Reward AI 在公开帖中发布首个机器人基础模型 OM-1，称其直接从人类操作数据学习，无需遥操作或机器人数据，即可零样本适配桌面机械臂、工业臂与人形机器人，并支持多机器人协作。
+- [社媒称 Atria Dawn Preview 以 MIT 许可开放 744B MoE 智能体模型](https://x.com/Smlay_ero/status/2099699408900342255) — 公开帖称，上海 AI 实验室于 9 月 14 日开源 Atria Dawn Preview：它基于 744B 参数 GLM-5.2 MoE，提供权重与代码、256K 上下文，并面向长程智能体任务；帖文同时列出多项基准成绩。
 
 ## AI × Chem
 
-采集 844，候选 60，精选 2。来源状态：arXiv: RuntimeError: Unable to fetch https://export.arxiv.org/api/query?search_query=%28cat%3Acs.LG+OR+cat%3Acs.AI+OR+cat%3Acs.CL+OR+cat%3Acs.NE+OR+cat%3Astat.ML+OR+cat%3Acs.LO+OR+cat%3Acs.FL+OR+cat%3Acs.SC+OR+cat%3Amath.LO+OR+cat%3Acs.CE+OR+cat%3Aphysics.chem-ph+OR+cat%3Aq-bio.BM+OR+cat%3Aq-bio.GN+OR+cat%3Aq-bio.MN+OR+cat%3Aq-bio.QM+OR+cat%3Aq-bio.NC%29&start=0&max_results=100&sortBy=submittedDate&sortOrder=descending: HTTP Error 429: Unknown Error
+采集 317，候选 39，精选 6。来源状态：arXiv: RuntimeError: Unable to fetch https://export.arxiv.org/api/query?search_query=%28cat%3Acs.LG+OR+cat%3Acs.AI+OR+cat%3Acs.CL+OR+cat%3Acs.NE+OR+cat%3Astat.ML+OR+cat%3Acs.LO+OR+cat%3Acs.FL+OR+cat%3Acs.SC+OR+cat%3Amath.LO+OR+cat%3Acs.CE+OR+cat%3Aphysics.chem-ph+OR+cat%3Aq-bio.BM+OR+cat%3Aq-bio.GN+OR+cat%3Aq-bio.MN+OR+cat%3Aq-bio.QM+OR+cat%3Aq-bio.NC%29&start=0&max_results=100&sortBy=submittedDate&sortOrder=descending: HTTP Error 429: Unknown Error
 
-- [Noninvasive Focal Gene Delivery of Functional Neural Actuators to the Primate Spinal Cord using Focused Ultrasound](https://www.biorxiv.org/content/10.64898/2026.09.05.749619) — 研究以聚焦超声（FUS）在绒猴颈段和胸段脊髓局灶、非侵入性地打开血-脊髓屏障，并递送经全身给药的病毒载体和化学遗传学载荷。作者系统优化声学参数，借助 PET、行为学和组织病理学显示靶区转基因表达、神经功能与组织完整性均得到支持，并提供脊髓 MRI/CT 模板和定位装置设计文件。
-- [Interaction Profiles as a Universal Language for Generative Molecular Design with ShEPhERD-2](https://www.biorxiv.org/content/10.64898/2026.09.10.750648) — ShEPhERD-2 将形状、静电和具有方向性的药效团组成的三维相互作用图谱作为条件，生成低应变、类药分子。该模型可在无需任务专属再训练的情况下执行生物电子等排片段合并、双靶点设计、选择性工程和模态转换，并支持药效团优先级、子结构约束及多个相互作用图谱组合。
+- [Interaction Profiles as a Universal Language for Generative Molecular Design with ShEPhERD-2](https://www.biorxiv.org/content/10.64898/2026.09.10.750648) — ShEPhERD-2 以形状、静电和定向药效团构成的三维相互作用谱为条件，生成低应变、类药小分子；同一模型可用于生物电子等排体片段合并、双靶点设计、选择性工程和模态转换，无需任务特异性再训练。
+- [Machine Learning-Guided Classification of Druggable Pockets and Phylogenetic Druggability Transfer Across the Human Kinome](https://www.biorxiv.org/content/10.64898/2026.09.06.749698) — 研究汇集 11,945 个激酶抑制剂复合物，以 Extra Trees 分类器根据口袋残基—配体相互作用标注七类经典结合模式及变构亚类，并将结果与 Manning 激酶组系统发育整合，以推断未充分研究激酶的变构可成药性。
+- [Heterogeneous graph neural networks with biological prior knowledge for interpretable drug repurposing in triple-negative breast cancer](https://www.biorxiv.org/content/10.64898/2026.09.08.750045) — PRECISION 将转录因子调控网络、蛋白—蛋白相互作用和药物—靶点边整合为异质 GNN，用于三阴性乳腺癌药物再定位；作者以细胞系留出、多队列生存关联及 39 例配对样本评估，提出 7 个候选药物并指向 EGFR 信号轴。
 
 [查看频道专页](https://zichenwang114514.github.io/ai-x-daily/channels/aixchem/)
 
 ## AI × Bio
 
-采集 1691，候选 60，精选 15。来源状态：arXiv: RuntimeError: Unable to fetch https://export.arxiv.org/api/query?search_query=%28cat%3Acs.LG+OR+cat%3Acs.AI+OR+cat%3Acs.CL+OR+cat%3Acs.NE+OR+cat%3Astat.ML+OR+cat%3Acs.LO+OR+cat%3Acs.FL+OR+cat%3Acs.SC+OR+cat%3Amath.LO+OR+cat%3Acs.CE+OR+cat%3Aphysics.chem-ph+OR+cat%3Aq-bio.BM+OR+cat%3Aq-bio.GN+OR+cat%3Aq-bio.MN+OR+cat%3Aq-bio.QM+OR+cat%3Aq-bio.NC%29&start=100&max_results=100&sortBy=submittedDate&sortOrder=descending: The read operation timed out
+采集 1027，候选 60，精选 8。来源状态：arXiv: RuntimeError: Unable to fetch https://export.arxiv.org/api/query?search_query=%28cat%3Acs.LG+OR+cat%3Acs.AI+OR+cat%3Acs.CL+OR+cat%3Acs.NE+OR+cat%3Astat.ML+OR+cat%3Acs.LO+OR+cat%3Acs.FL+OR+cat%3Acs.SC+OR+cat%3Amath.LO+OR+cat%3Acs.CE+OR+cat%3Aphysics.chem-ph+OR+cat%3Aq-bio.BM+OR+cat%3Aq-bio.GN+OR+cat%3Aq-bio.MN+OR+cat%3Aq-bio.QM+OR+cat%3Aq-bio.NC%29&start=0&max_results=100&sortBy=submittedDate&sortOrder=descending: HTTP Error 429: Unknown Error；medRxiv: JSONDecodeError: Expecting value: line 1 column 1 (char 0)
 
-- [AutoScreen: AI Co-Scientist System for Target Discovery in Functional Genomics](https://europepmc.org/article/PPR/PPR1316885) — AutoScreen 是用于功能基因组学靶点发现的多智能体 AI 系统，覆盖筛选设计、命中重排序、证据整合与溯源；在 320 个基因组尺度 CRISPR 筛选中评测，并报告了 NK 细胞杀伤实验和前瞻性 T 细胞筛选验证。
-- [Agentic-AI-ready genome-wide poxvirus-host interaction screen refined by a protein language model](https://www.biorxiv.org/content/10.64898/2026.09.10.750412) — ICARus 将蛋白语言模型导出的蛋白互作信息用于正例-未标记读出校正，以改进痘病毒宿主因子的全基因组 RNA 干扰筛选命中优先级，并提供原始与校正后的读出资源。
-- [Evaluating Safety-Critical Communication Behavior of Large Language Models Using Workflow-Embedded Multi-Agent Clinical Simulation](https://europepmc.org/article/PPR/PPR1317399) — 该研究以角色锁定的多智能体病房升级沟通模拟评估 LLM；在 200 对模拟中，ISBAR 交接降低幻觉频率并缩短对话，但未降低关键安全遗漏。
+- [Nonviral, ultrasound-triggered gene delivery platform via gas-core cationic nanobubbles](https://www.biorxiv.org/content/10.64898/2026.09.11.749060) — 气核阳离子纳米气泡在体外高效内化并负载质粒 DNA；在小鼠肝脏中，超声触发后出现局部 GFP 表达及可同步监测的造影变化。
+- [TransBind2: Improving Transcription Factor-DNA Binding Prediction with Multimodal Data and Bidirectional Cross Attention](https://www.biorxiv.org/content/10.64898/2026.09.07.749913) — TransBind2 以 DNA 序列、DNase-seq 可及性、基因组可比对性和 ProstT5 的 TF 序列—结构表示为输入，在 690 个 ChIP-seq 实验、161 个 TF 和 91 种细胞类型上报告宏平均 AUROC 0.9648。
+- [Diagnostic Performance of Agentic AI for Rare Disease Diagnosis: A Systematic Review, Meta-analysis, Workflow Development, and Benchmark-based Validation](https://europepmc.org/article/PPR/PPR1318941) — 该系统综述与单臂随机效应 Meta 分析纳入 7 项研究、19 个效应量和 33,738 个病例；其 50 例 RareBench 验证中，工作流辅助 GPT 的 Top-1 正确数为 11/50，独立 GPT 为 5/50。
 
 [查看频道专页](https://zichenwang114514.github.io/ai-x-daily/channels/aixbio/)
 
 ## AI × Math
 
-采集 3，候选 1，精选 0。来源状态：arXiv: RuntimeError: Unable to fetch https://export.arxiv.org/api/query?search_query=%28cat%3Acs.LG+OR+cat%3Acs.AI+OR+cat%3Acs.CL+OR+cat%3Acs.NE+OR+cat%3Astat.ML+OR+cat%3Acs.LO+OR+cat%3Acs.FL+OR+cat%3Acs.SC+OR+cat%3Amath.LO+OR+cat%3Acs.CE+OR+cat%3Aphysics.chem-ph+OR+cat%3Aq-bio.BM+OR+cat%3Aq-bio.GN+OR+cat%3Aq-bio.MN+OR+cat%3Aq-bio.QM+OR+cat%3Aq-bio.NC%29&start=100&max_results=100&sortBy=submittedDate&sortOrder=descending: HTTP Error 429: Unknown Error
+采集 0，候选 0，精选 0。来源状态：arXiv: RuntimeError: Unable to fetch https://export.arxiv.org/api/query?search_query=%28cat%3Acs.LG+OR+cat%3Acs.AI+OR+cat%3Acs.CL+OR+cat%3Acs.NE+OR+cat%3Astat.ML+OR+cat%3Acs.LO+OR+cat%3Acs.FL+OR+cat%3Acs.SC+OR+cat%3Amath.LO+OR+cat%3Acs.CE+OR+cat%3Aphysics.chem-ph+OR+cat%3Aq-bio.BM+OR+cat%3Aq-bio.GN+OR+cat%3Aq-bio.MN+OR+cat%3Aq-bio.QM+OR+cat%3Aq-bio.NC%29&start=0&max_results=100&sortBy=submittedDate&sortOrder=descending: HTTP Error 429: Unknown Error
 
 - 今日无足够高质量更新。
 
@@ -37,17 +38,21 @@
 
 ## AI Voices
 
-采集 17，候选 14，精选 0。来源状态：X: RuntimeError: 未找到 Grok X 检索缓存。请先按 ops/grok/x_harvest_protocol.md 采集
+采集 91，候选 60，精选 7。来源状态：各来源已完成
 
-- 今日无足够高质量更新。
+- [@dair_ai：Great paper from Amazon. In discusses when not to trust LLM judges for agent evaluation. (bookmark it) A common way to c](https://x.com/dair_ai/status/2099518541930332182) — DAIR.AI 转述一项 Amazon 研究：在 25 个、来自六家提供商的智能体上，LLM 裁判的满意度判断与任务成功可能脱钩，且能力接近的智能体比较更易误判。
+- [@chelseabfinn：A video from a Pi robot deployed at Dandelion Chocolate, fully autonomous w/ no interventions. 🤖 Deploying robots has ta](https://x.com/chelseabfinn/status/2099669259735728252) — Chelsea Finn 报告了一台部署于 Dandelion Chocolate 的 Pi 机器人；她以持续真实部署为例，说明“做出一个箱子”和连续数小时可靠地完成工作之间存在明显差距。
+- [@fchollet：> One could even define intelligence as the efficiency with which one converts experience into competence; by this defin](https://x.com/fchollet/status/2099633702888439865) — François Chollet 提出，应以“将经验转化为能力的效率”界定智能；据此，他认为当前 AI 在样本、测试时计算和能耗效率上仍远低于人类。
 
 [查看频道专页](https://zichenwang114514.github.io/ai-x-daily/channels/aivoices/)
 
 ## Engineering
 
-采集 68，候选 60，精选 1。来源状态：各来源已完成
+采集 59，候选 58，精选 9。来源状态：各来源已完成
 
-- [tech-leads-club/agent-skills](https://github.com/tech-leads-club/agent-skills) — tech-leads-club/agent-skills 是面向专业 AI 编程智能体的技能注册表，可为 Antigravity、Claude Code、Cursor、Copilot 等工具接入扩展；今日 GitHub Trending 第 4 名，新增 215 星。
+- [JustVugg/colibri](https://github.com/JustVugg/colibri) — JustVugg/colibri 是纯 C、零依赖的 MoE 模型推理引擎，通过从磁盘流式载入专家，尝试让现有硬件运行前沿 MoE 模型；当日 GitHub Trending 第 1 名，新增 2,173 星。
+- [alibaba/open-code-review](https://github.com/alibaba/open-code-review) — alibaba/open-code-review 将确定性流水线与 LLM 智能体结合，生成精确到代码行的审查意见，并内置多语言的空指针、线程安全、XSS 和 SQL 注入规则；当日 GitHub Trending 第 2 名，新增 1,571 星。
+- [multimodal-art-projection/YuE](https://github.com/multimodal-art-projection/YuE) — multimodal-art-projection/YuE 发布 YuE2 音乐生成模型，支持符号化规划、零样本翻唱与智能体式音乐编辑；当日 GitHub Trending 第 3 名，新增 559 星。
 
 [查看频道专页](https://zichenwang114514.github.io/ai-x-daily/channels/engineering/)
 

@@ -1,29 +1,30 @@
-# AIxDaily · 2026-09-21
+# AIxDaily · 2026-09-22
 
-今日精选：AI × Chem 12 项，AI × Bio 16 项，AI × Math 0 项，AI Voices 5 项，Engineering 4 项。今日五频道以研究预印本、公开观点与工程项目为主。化学聚焦AI辅助材料筛选及虚拟筛选控制；生物呈现空间多组学和疫苗配方优化等预印本。数学频道没有足够高质量更新。AI Voices收录公开帖文中的论文转述、数据集公告和实践看法，需回查原始材料；工程频道则关注GitHub Trending项目，非同行评议研究或正式软件发布。
+今日精选：AI × Chem 12 项，AI × Bio 15 项，AI × Math 0 项，AI Voices 10 项，Engineering 5 项。今日更新集中在可验证但仍需审慎解读的前沿进展：化学频道的两项生物催化与分子共折叠工作、生命科学频道的蛋白互作组与发育图谱研究均为预印本，不能等同于同行评议结论；AI Voices 主要是 X 上的公开观点及对论文的二手转述，工程频道则聚焦 GitHub 上的智能体开发框架与记忆、隔离环境工具。数学频道今日没有足够高质量更新。
 
 ## 今日重大进展
 
-- [SIFT 研究报告以 LLM 预筛降低自我改进编程智能体的评测成本](https://x.com/dair_ai/status/2101410759511322725) — 一则讨论 MIT 与 Sakana AI 工作的公开帖文称，SIFT 先由 LLM 裁判筛选智能体自我修改候选，再进行完整评测；其在 Polyglot 上以少于 50 CPU 小时达到 35.1%。
-- [研究者公布覆盖 61.2 亿次请求的 LLM 推理元数据轨迹](https://x.com/1a1a11a/status/2101469990188732897) — 研究者 Juncheng Yang 在 X 公布覆盖一年的 LLM 推理元数据轨迹，称其包含 61.2 亿次请求，面向真实服务负载建模、系统设计和基础设施优化研究。
+- [从头设计的金属蛋白酶实现高效肽键切割，并可作用于疾病相关底物](https://www.biorxiv.org/content/10.1101/2025.11.20.689622) — 研究者用 RoseTTAFold Diffusion 2 设计锌金属蛋白酶；135 个设计中 36% 具活性并能精准切割，最强设计使肽键水解加速超过 10^10 倍，还可切割 TDP-43 和 β-淀粉样蛋白。
+- [X 转述 Google ScientistTwo：AI 将自己的研究发现作为基线继续改进](https://x.com/rohanpaul_ai/status/2101449041091657746) — 研究者在 X 上转述 Google 的 ScientistTwo：系统先改进人类方法，再把发现作为新基线继续迭代；帖文称其在 ICLR、ICML、NeurIPS 论文问题上成功率 80.4%，相对基线提升 25.2%。
+- [FloatLib 在 Lean 中验证任意精度浮点运算，推进可证明科学计算](https://x.com/AnimaAnandkumar/status/2102048384802771185) — Anima Anandkumar 宣布 FloatLib：一个在 Lean 中验证的任意精度浮点库，覆盖 IEEE、posit、P3109 和小型 ML 格式；优化后的后端均附带证明，确保舍入、溢出和异常值结果符合规范。
 
 ## AI × Chem
 
-采集 123，候选 15，精选 12。来源状态：arXiv: RuntimeError: Unable to fetch https://export.arxiv.org/api/query?search_query=%28cat%3Acs.LG+OR+cat%3Acs.AI+OR+cat%3Acs.CL+OR+cat%3Acs.NE+OR+cat%3Astat.ML+OR+cat%3Acs.LO+OR+cat%3Acs.FL+OR+cat%3Acs.SC+OR+cat%3Amath.LO+OR+cat%3Acs.CE+OR+cat%3Aphysics.chem-ph+OR+cat%3Aq-bio.BM+OR+cat%3Aq-bio.GN+OR+cat%3Aq-bio.MN+OR+cat%3Aq-bio.QM+OR+cat%3Aq-bio.NC%29&start=0&max_results=100&sortBy=submittedDate&sortOrder=descending: HTTP Error 406: Not Acceptable；bioRxiv: RuntimeError: Unable to fetch https://api.biorxiv.org/details/biorxiv/2026-09-17/2026-09-21/0: The read operation timed out
+采集 759，候选 60，精选 12。来源状态：arXiv: RuntimeError: Unable to fetch https://export.arxiv.org/api/query?search_query=%28cat%3Acs.LG+OR+cat%3Acs.AI+OR+cat%3Acs.CL+OR+cat%3Acs.NE+OR+cat%3Astat.ML+OR+cat%3Acs.LO+OR+cat%3Acs.FL+OR+cat%3Acs.SC+OR+cat%3Amath.LO+OR+cat%3Acs.CE+OR+cat%3Aphysics.chem-ph+OR+cat%3Aq-bio.BM+OR+cat%3Aq-bio.GN+OR+cat%3Aq-bio.MN+OR+cat%3Aq-bio.QM+OR+cat%3Aq-bio.NC%29&start=0&max_results=100&sortBy=submittedDate&sortOrder=descending: HTTP Error 406: Not Acceptable
 
-- [Artificial Intelligence-Assisted Dopant Discovery toward Air-Stable Sulfide Solid-State Electrolytes](https://doi.org/10.26434/chemrxiv.15009059/v1) — 工作构建了由检索增强系统、LLM 预筛和组成机器学习模型组成的掺杂剂发现平台，以水解反应的最小 Gibbs 自由能变化量表征硫化物固态电解质 LPSC 的空气稳定性。平台筛出 BiF3、CoF3、InF3 和 SnF4 等候选；其中 LPSC-BiF3 在 10% RH 空气暴露 6 h 后仍保留 91% 的离子电导率，并在 Li-In||NCM811 全电池中显示出良好循环稳定性。
-- [Per-Stage Controls and Failure Modes in a Co-Folding Virtual Screening Cascade for the Keap1–Nrf2 Interaction](https://doi.org/10.26434/chemrxiv.15008984/v1) — 工作以 Keap1–Nrf2 蛋白–蛋白相互作用和 130,793 个可按需合成化合物为测试床，逐阶段审计共折叠、学习型亲和力、构象和溶剂化评分组成的虚拟筛选流程。结果显示亲和力模型难以量化效价差、存在分子量耦合且不能区分对映体；构象置信度对几何正确性的信息量有限。作者提出并发布了含匹配诱饵门控等测试的可复用控制套件。
-- [Dynamic Parameter Screening for Accelerated Mechanistic Analysis](https://doi.org/10.26434/chemrxiv.15008823/v2) — 作者提出动态参数筛选（DPS）：在单次批式反应连续监测过程中，依次加入试剂和催化剂，同时探测多种物种的动力学影响。以 PdCl2(dppf)·CH2Cl2、PEPPSI-iPr 和 XPhos Pd G2 催化的 Kumada–Tamao–Corriu 偶联为例，DPS 通常与逐一变量法给出一致的定性和定量结论，并据此提出低催化剂负载下的慢加料提速策略。
+- [Computational design of metalloproteases](https://www.biorxiv.org/content/10.1101/2025.11.20.689622) — 作者使用 RoseTTAFold Diffusion 2 for Molecular Interfaces，从最小催化基序出发进行锌金属蛋白酶从头设计。在实验测试的 135 个计算设计中，36% 具有活性并能在预定位置精准切割；进一步设计的金属蛋白酶可切割人 TDP-43、amyloid-{beta} peptide 和 serum amyloid A，并用于选择性解笼蔽细胞因子和受体拮抗剂。
+- [Large scale prospective evaluation of co-folding across hundreds of Mac1-ligand complexes and three virtual screens](https://www.biorxiv.org/content/10.64898/2025.12.25.696505) — 研究对 551 个 SARS-CoV-2 NSP3 macrodomain（Mac1）配体复合物开展独立于训练数据的大规模前瞻性共折叠评估，并进一步测试三个虚拟筛选场景。AlphaFold3、Boltz-2 和 Chai-1 均能对超过一半的配体重现优于 2 [A] RMSD 的实验构象；Boltz-2 的亲和力预测与实测效力相关性最强。
+- [SimSJSAlert: A Similarity-Augmented Multi-View Learning Framework with Scaffold Alerts for Drug-Induced Stevens-Johnson Syndrome Risk Assessment](https://doi.org/10.26434/chemrxiv.15008910/v2) — 作者构建 SimSJSAlert，通过融合 21 种分子表示、相似性信息和 scaffold alerts，对药物诱导的 Stevens-Johnson syndrome（SJS）风险进行 QSTR 预测。研究采用 scaffold-aware validation、外部 pharmacovigilance negative-signal 化合物评估及 SHAP 与 Bemis-Murcko scaffold 富集分析，并部署了可公开访问的网页服务器。
 
 [查看频道专页](https://zichenwang114514.github.io/ai-x-daily/channels/aixchem/)
 
 ## AI × Bio
 
-采集 1141，候选 60，精选 16。来源状态：arXiv: RuntimeError: Unable to fetch https://export.arxiv.org/api/query?search_query=%28cat%3Acs.LG+OR+cat%3Acs.AI+OR+cat%3Acs.CL+OR+cat%3Acs.NE+OR+cat%3Astat.ML+OR+cat%3Acs.LO+OR+cat%3Acs.FL+OR+cat%3Acs.SC+OR+cat%3Amath.LO+OR+cat%3Acs.CE+OR+cat%3Aphysics.chem-ph+OR+cat%3Aq-bio.BM+OR+cat%3Aq-bio.GN+OR+cat%3Aq-bio.MN+OR+cat%3Aq-bio.QM+OR+cat%3Aq-bio.NC%29&start=0&max_results=100&sortBy=submittedDate&sortOrder=descending: HTTP Error 406: Not Acceptable；bioRxiv: RuntimeError: Unable to fetch https://api.biorxiv.org/details/biorxiv/2026-09-17/2026-09-21/180: The read operation timed out
+采集 1443，候选 60，精选 15。来源状态：arXiv: RuntimeError: Unable to fetch https://export.arxiv.org/api/query?search_query=%28cat%3Acs.LG+OR+cat%3Acs.AI+OR+cat%3Acs.CL+OR+cat%3Acs.NE+OR+cat%3Astat.ML+OR+cat%3Acs.LO+OR+cat%3Acs.FL+OR+cat%3Acs.SC+OR+cat%3Amath.LO+OR+cat%3Acs.CE+OR+cat%3Aphysics.chem-ph+OR+cat%3Aq-bio.BM+OR+cat%3Aq-bio.GN+OR+cat%3Aq-bio.MN+OR+cat%3Aq-bio.QM+OR+cat%3Aq-bio.NC%29&start=0&max_results=100&sortBy=submittedDate&sortOrder=descending: HTTP Error 406: Not Acceptable
 
-- [Spatially resolved multimodal hallmarks of response to neoadjuvant immunotherapies in the melanoma ecosystem in 2D and 3D](https://europepmc.org/article/PPR/PPR1322928) — 最大规模的新辅助免疫检查点阻断空间多组学队列，以超过 1.12 亿个单细胞解析黑色素瘤治疗响应相关的三级淋巴结构、免疫—基质生态位及其三维组织。
-- [Accelerated discovery of thermostable vaccines using data-efficient AI](https://europepmc.org/article/PPR/PPR1322905) — AGENT 将高通量实验与贝叶斯优化结合，用稀疏配方数据在六轮迭代中发现可在 37 °C 保存超过两个月且保持活性的固态 mRNA-LNP 疫苗配方，并在啮齿动物和非人灵长类中验证。
-- [Systematic Engineering of Loss-of-Function Alleles in the Zebrafish Mitochondrial Proteome](https://europepmc.org/article/PPR/PPR1322723) — Z-Terminator 利用线粒体 TALE 碱基编辑器，在斑马鱼中系统构建全部 mtDNA 编码 OXPHOS 亚基的功能缺失等位基因，并解析异质性、组织分布及毛细胞功能表型。
+- [Integrating structural homology with deep learning to achieve highly accurate protein-protein interface prediction for the human interactome](https://www.biorxiv.org/content/10.1101/2025.06.09.658393) — PIONEER2 将结构同源性与几何深度学习结合，用于预测人类互作组中的蛋白质界面。
+- [A lifespan single-cell atlas of the human developing hippocampus benchmarks familial Alzheimer's disease brain organoids.](https://www.biorxiv.org/content/10.64898/2026.09.18.752796) — HuDeHA 汇集从受孕后第3周到15.3岁的658,059个细胞，为家族性阿尔茨海默病脑类器官提供发育参照。
+- [Bivalent bispecific CD28 antibodies reinforce T-cell responsiveness and revert anergy/quiescence in patients treated with bispecific CD3 antibodies](https://www.biorxiv.org/content/10.64898/2026.03.25.714198) — 双价双特异性 CD28 抗体在双特异性 CD3 抗体治疗背景下恢复T细胞反应性。
 
 [查看频道专页](https://zichenwang114514.github.io/ai-x-daily/channels/aixbio/)
 
@@ -37,21 +38,21 @@
 
 ## AI Voices
 
-采集 67，候选 60，精选 5。来源状态：各来源已完成
+采集 78，候选 60，精选 10。来源状态：各来源已完成
 
-- [@dair_ai：Banger paper from MIT and Sakana AI. They show that self-improving coding agents work. The best part is that their appro](https://x.com/dair_ai/status/2101410759511322725) — DAIR.AI转述MIT与Sakana AI的SIFT研究：帖文称，该方法以LLM裁判预筛候选自我修改，将完整基准评估集中在更有希望的候选上，并报告了相对DGM更低的计算开销和Polyglot结果。
-- [@1a1a11a：Announcing one year of LLM inference metadata traces, with 6.12 billion requests. We hope this dataset can support resea](https://x.com/1a1a11a/status/2101469990188732897) — Juncheng Yang宣布发布覆盖一年的LLM推理元数据轨迹，称其包含61.2亿次请求，并希望数据集支持真实服务负载理解、系统设计与基础设施优化研究。
-- [@omarsar0：One of the craziest use cases I’ve found for Jev: verifiers. I am so excited about this that I at least wanted to share ](https://x.com/omarsar0/status/2101443311454036477) — Omar Sar0分享其工程经验：他称自己用Jev为智能体框架的/goal功能构建了逐轮完成度验证器，以较低成本更频繁地检查目标是否真正完成。
+- [@rohanpaul_ai：New Google paper shows LLM agents handle long tasks better when their workflow lives in an editable procedure graph that](https://x.com/rohanpaul_ai/status/2101973711612190756) — 帖文转述一篇 Google 论文：让大语言模型智能体的工作流存在于可编辑、能从执行中学习的程序图中，而不是埋藏在聊天历史里，以改善长任务处理。
+- [@AndrewYNg：The loudest voices stoking fears about AI dangers have made tremendous headway in the past two weeks. AI technology has ](https://x.com/AndrewYNg/status/2102140576498065758) — Andrew Ng 认为，近期 AI 风险讨论中的恐惧被炒作放大；他将智能体带来的主要新风险归为网络安全能力，并主张通过修复沙箱、监控和其他安全工程问题来降低风险，而不是暂停 AI 进展。
+- [@DimitrisPapail：Test-time communication looks like a next axis for scaling capabilities New paper with the incredible @jon_ghoh and @vko](https://x.com/DimitrisPapail/status/2101901206746701880) — 论文作者 Dimitris Papailiopoulos 介绍一项关于测试时通信的研究：N 个相同智能体只通过共享日志协作，在三个研究型任务上超过独立工作的智能体。
 
 [查看频道专页](https://zichenwang114514.github.io/ai-x-daily/channels/aivoices/)
 
 ## Engineering
 
-采集 80，候选 60，精选 4。来源状态：各来源已完成
+采集 67，候选 60，精选 5。来源状态：各来源已完成
 
-- [BuilderIO/agent-native](https://github.com/BuilderIO/agent-native) — BuilderIO 的 agent-native 是用于构建智能体应用的框架；当日 GitHub Trending 第 2 名，新增 89 星。
-- [paperless-ngx/paperless-ngx](https://github.com/paperless-ngx/paperless-ngx) — paperless-ngx 是面向扫描、索引与归档的社区维护文档管理系统；当日 GitHub Trending 第 6 名，新增 32 星。
-- [vercel-labs/json-render](https://github.com/vercel-labs/json-render) — Vercel Labs 的 json-render 是生成式 UI 框架；当日 GitHub Trending 第 12 名，新增 332 星。
+- [BuilderIO/agent-native](https://github.com/BuilderIO/agent-native) — BuilderIO/agent-native 是一个用于构建智能体应用的 TypeScript/React 框架，今日位列 GitHub Trending 第 1 名，新增 607 个星标（总计 5,861）。
+- [akitaonrails/ai-memory](https://github.com/akitaonrails/ai-memory) — akitaonrails/ai-memory 为编程 Agent CLI 提供长期记忆，并支持不同 Agent 厂商之间的交接，今日位列 GitHub Trending 第 4 名，新增 217 个星标（总计 7,649）。
+- [coder/coder](https://github.com/coder/coder) — coder/coder 为开发者及其智能体提供安全的开发环境，今日位列 GitHub Trending 第 5 名，新增 461 个星标（总计 16,399）。
 
 [查看频道专页](https://zichenwang114514.github.io/ai-x-daily/channels/engineering/)
 

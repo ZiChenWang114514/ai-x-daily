@@ -1,36 +1,34 @@
-# AIxDaily · 2026-09-24
+# AIxDaily · 2026-09-25
 
-今日精选：AI × Chem 16 项，AI × Bio 14 项，AI × Math 0 项，AI Voices 9 项，Engineering 10 项。9月24日的更新横跨反应计算、生物机制与智能体工程。化学和生物栏目以预印本为主，分别关注数据高效反应势、肌肉再生细胞亚群及疾病模型；工程端出现智能体编排和办公对象运行时的开源动向。公开观点栏目披露强化学习资源与心理健康评测基准，但相关性能、安全性主张仍应以原始报告和独立复评为准；数学频道未有足够高质量更新。
+今日精选：AI × Chem 9 项，AI × Bio 13 项，AI × Math 0 项，AI Voices 4 项，Engineering 6 项。今日五频道共同日期为 2026-09-25。化学与生物各以预印本为主：前者聚焦机器学习激发态预测及反应、量子材料，后者涵盖 CADASIL 队列、MRSA 菌株和多语种病历抽取。数学频道没有足够高质量更新。公开观点侧重智能体框架、AI 辅助生物发现与计划中的在轨 TPU 测试；工程端则显示智能体记忆、轻量视觉推理和模型优化工具受到关注。
 
 ## 今日重大进展
 
-- [Anthropic 公布 Claude 发现疑似新型噬菌体 DNA 酶系统](https://x.com/AnthropicAI/status/2102824959827742916) — Anthropic 公布，Claude 在噬菌体 DNA 中发现一个此前未知的酶系统；酶基因旁存在类似 CRISPR 的重复 DNA 阵列。该机构称尚不清楚其功能，正继续判断它是否具备可编程 DNA 操作潜力。
-- [Courtade–Kumar 猜想据报获完整证明](https://x.com/yesnoerror/status/2102685032200478934) — 一则研究者帖文称，一篇 85 页论文首次完整证明 Courtade–Kumar 猜想：对任意带噪 n 比特向量，提取信息最优的布尔函数仍是只跟踪单一比特的“独裁者函数”，更复杂函数不能更优。
-- [OpenAI 将插件与 GPT-6 接入 ChatGPT Voice](https://x.com/OpenAI/status/2102808325742322002) — OpenAI 宣布，ChatGPT Voice 已可调用邮件、日历和 Slack 等插件，并由 GPT-6 Astra、Sol、Luna 驱动；该能力在 ChatGPT Work 的网页和移动端全球推送，可语音完成文档、演示、网站、表格与浏览器任务。
+- [Anthropic 研究员公布 Claude 发现类 CRISPR 酶系统](https://x.com/nc_frey/status/2102831099969687847) — Anthropic 研究员 Nathan Frey 公布，950 个 Claude 智能体在 21 小时内检索 DNA 序列库，锁定一种此前未表征的类 CRISPR 酶系统；团队称已在实验室完成分析与测试，但尚不清楚其功能。
 
 ## AI × Chem
 
-采集 633，候选 60，精选 16。来源状态：arXiv: RuntimeError: Unable to fetch https://export.arxiv.org/api/query?search_query=%28cat%3Acs.LG+OR+cat%3Acs.AI+OR+cat%3Acs.CL+OR+cat%3Acs.NE+OR+cat%3Astat.ML+OR+cat%3Acs.LO+OR+cat%3Acs.FL+OR+cat%3Acs.SC+OR+cat%3Amath.LO+OR+cat%3Acs.CE+OR+cat%3Aphysics.chem-ph+OR+cat%3Aq-bio.BM+OR+cat%3Aq-bio.GN+OR+cat%3Aq-bio.MN+OR+cat%3Aq-bio.QM+OR+cat%3Aq-bio.NC%29&start=0&max_results=100&sortBy=submittedDate&sortOrder=descending: HTTP Error 406: Not Acceptable
+采集 386，候选 53，精选 9。来源状态：arXiv: RuntimeError: Unable to fetch https://export.arxiv.org/api/query?search_query=%28cat%3Acs.LG+OR+cat%3Acs.AI+OR+cat%3Acs.CL+OR+cat%3Acs.NE+OR+cat%3Astat.ML+OR+cat%3Acs.LO+OR+cat%3Acs.FL+OR+cat%3Acs.SC+OR+cat%3Amath.LO+OR+cat%3Acs.CE+OR+cat%3Aphysics.chem-ph+OR+cat%3Aq-bio.BM+OR+cat%3Aq-bio.GN+OR+cat%3Aq-bio.MN+OR+cat%3Aq-bio.QM+OR+cat%3Aq-bio.NC%29&start=0&max_results=100&sortBy=submittedDate&sortOrder=descending: HTTP Error 406: Not Acceptable
 
-- [Data-Efficient Machine Learning Potentials for Organic Reactions through Active-Learning-Guided Fine-Tuning](https://doi.org/10.26434/chemrxiv.15009333/v1) — 提出 MACEPre-DeePEST-OS：以预训练化学知识为基础、由主动学习选择量子化学标注构象的反应机器学习势。该方法仅标注约 1,900 万候选构象中的约 2%，便在多类有机反应中实现过渡态优化与能垒预测，并报告了跨数据集和超出微调分子规模的测试。
-- [Integrative Physics and Machine Learning-Based Optimal Binding Pose Generator for Protein-Ligand Complexes](https://doi.org/10.26434/chemrxiv.15009330/v1) — 构建结合物理与机器学习的蛋白—配体最优结合姿势生成方法，针对 TNKS2 和 3CLPro 各使用 10,000 个分子的数据集训练，并在约 3,000 个分子的外部验证集上评估。作者称该方法可筛除松弛后不太可能具有有利结合亲和力的姿势，从而减少后续计算。
-- [Uni-Macro-FRPN: Full-Resolution and Cross-Scale Learning for Polymers](https://doi.org/10.26434/chemrxiv.15009049/v2) — Uni-Macro-FRPN 在统一框架中保留原子级、单体级及显式聚合物拓扑信息，以两个 Transformer 学习 BigSMILES 表征。在 BCDB 层状/非层状分类上达到 86.4% 准确率和 90.6% ROC–AUC，并新建包含 1,640 个点的全原子 MD 拓扑丰富基准。
+- [Machine learning-enabled prediction of dynamic vertical triplet energies underscores the role of vibrational anharmonicity in energy transfer](https://doi.org/10.26434/chemrxiv.15007359/v2) — DvTE-ML 将经 MACE-OMOL 微调的机器学习原子间势与路径积分分子动力学结合，用动态系综预测垂直三重态能量；在 52 个有机分子上达到原 DvTE 框架的精度，并揭示振动非谐性可使能隙分布偏离正态分布。
+- [μ-Oxo-Bridged Iodine(III) Reagents Enable Catalyst- and Light-Free Fluoro(halo)methyl Radical Generation](https://doi.org/10.26434/chemrxiv.15009392/v1) — 研究报道可在加热下释放 fluoro(halo)methyl 自由基的稳定 μ-oxo-bridged iodine(III) 试剂，无需外加催化剂、添加剂或光照；其可驱动甲基丙烯酰胺和甲基丙烯酰肼串联环化，制备多类含氟杂环。
+- [Framework Connectivity Tunes the Nuclear Spin Bath and Extends Coherence in Cu(II) Metal–Organic Framework Qubit Lattices](https://doi.org/10.26434/chemrxiv.15009351/v1) — 研究比较了配位环境相近、但连接方式和堆积不同的 Cu-TPTC 与 Cu-TPTriC MOF。脉冲 EPR 显示，二维 Cu-TPTriC 在 5–25 K 具有更长的 T1 和 Tm，5 K 时 Tm≈4.8 ± 0.011 μs；结果指向次级配位圈核自旋环境和晶格动力学对退相干的关键作用。
 
 [查看频道专页](https://zichenwang114514.github.io/ai-x-daily/channels/aixchem/)
 
 ## AI × Bio
 
-采集 1123，候选 60，精选 14。来源状态：arXiv: RuntimeError: Unable to fetch https://export.arxiv.org/api/query?search_query=%28cat%3Acs.LG+OR+cat%3Acs.AI+OR+cat%3Acs.CL+OR+cat%3Acs.NE+OR+cat%3Astat.ML+OR+cat%3Acs.LO+OR+cat%3Acs.FL+OR+cat%3Acs.SC+OR+cat%3Amath.LO+OR+cat%3Acs.CE+OR+cat%3Aphysics.chem-ph+OR+cat%3Aq-bio.BM+OR+cat%3Aq-bio.GN+OR+cat%3Aq-bio.MN+OR+cat%3Aq-bio.QM+OR+cat%3Aq-bio.NC%29&start=0&max_results=100&sortBy=submittedDate&sortOrder=descending: HTTP Error 406: Not Acceptable；medRxiv: JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+采集 1000，候选 60，精选 13。来源状态：arXiv: RuntimeError: Unable to fetch https://export.arxiv.org/api/query?search_query=%28cat%3Acs.LG+OR+cat%3Acs.AI+OR+cat%3Acs.CL+OR+cat%3Acs.NE+OR+cat%3Astat.ML+OR+cat%3Acs.LO+OR+cat%3Acs.FL+OR+cat%3Acs.SC+OR+cat%3Amath.LO+OR+cat%3Acs.CE+OR+cat%3Aphysics.chem-ph+OR+cat%3Aq-bio.BM+OR+cat%3Aq-bio.GN+OR+cat%3Aq-bio.MN+OR+cat%3Aq-bio.QM+OR+cat%3Aq-bio.NC%29&start=0&max_results=100&sortBy=submittedDate&sortOrder=descending: HTTP Error 406: Not Acceptable；medRxiv: JSONDecodeError: Expecting value: line 1 column 1 (char 0)
 
-- [Multiomics Characterization Identifies S1P-secreting USSHigh Skeletal Muscle Stem Cells as Essential Drivers of Niche Remodeling and Muscle Regeneration](https://www.biorxiv.org/content/10.64898/2026.09.18.752516) — 多组学揭示分泌 S1P 的 USSHigh 骨骼肌干细胞驱动损伤后微环境重塑与再生。
-- [Genomic Engineering of Gene Dosage: A Generalizable Framework for Modeling Haploinsufficiency-Mediated Human Disorders through Splicing Modulation](https://www.biorxiv.org/content/10.64898/2026.09.20.753023) — 利用可调控可变剪接盒构建更接近人类单倍剂量不足疾病的动物模型。
-- [Proinflammatory cytokines promote tau aggregation by inducing cleavage in human Alzheimer’s disease](https://europepmc.org/article/PPR/PPR1323735) — 炎性细胞因子经免疫蛋白酶体相关 tau 切割促进阿尔茨海默病 tau 聚集。
+- [The United States CADASIL Consortium: Baseline Findings from a Natural History Study](https://europepmc.org/article/PPR/PPR1324994) — 美国CADASIL联盟建立了首个多中心、遗传确证的CADASIL自然史队列，并报告其基线临床、影像、遗传与蛋白质组学特征。
+- [Penicillin-clavulanate susceptibility in clinical methicillin-resistant Staphylococcus aureus bloodstream infection strains from the CAMERA2 trial](https://europepmc.org/article/PPR/PPR1325004) — CAMERA2试验的MRSA血流感染菌株分析显示，青霉素-克拉维酸表型与苯唑西林纸片表型、mecA等位基因和临床特征相关。
+- [Uncoded Clinical Features from Multilingual Electronic Health Records in Catalonia: Development and Validation Study](https://europepmc.org/article/PPR/PPR1324962) — 研究在加泰罗尼亚多语种基层EHR中，以本地Phi4-mini与规则抽取未编码的尿路感染临床特征，并在真实病历和合成压力测试中验证。
 
 [查看频道专页](https://zichenwang114514.github.io/ai-x-daily/channels/aixbio/)
 
 ## AI × Math
 
-采集 0，候选 0，精选 0。来源状态：arXiv: RuntimeError: Unable to fetch https://export.arxiv.org/api/query?search_query=%28cat%3Acs.LG+OR+cat%3Acs.AI+OR+cat%3Acs.CL+OR+cat%3Acs.NE+OR+cat%3Astat.ML+OR+cat%3Acs.LO+OR+cat%3Acs.FL+OR+cat%3Acs.SC+OR+cat%3Amath.LO+OR+cat%3Acs.CE+OR+cat%3Aphysics.chem-ph+OR+cat%3Aq-bio.BM+OR+cat%3Aq-bio.GN+OR+cat%3Aq-bio.MN+OR+cat%3Aq-bio.QM+OR+cat%3Aq-bio.NC%29&start=0&max_results=100&sortBy=submittedDate&sortOrder=descending: HTTP Error 406: Not Acceptable；OpenReview: RuntimeError: colmweb.org/COLM/2026/Conference: HTTP 503
+采集 0，候选 0，精选 0。来源状态：arXiv: RuntimeError: Unable to fetch https://export.arxiv.org/api/query?search_query=%28cat%3Acs.LG+OR+cat%3Acs.AI+OR+cat%3Acs.CL+OR+cat%3Acs.NE+OR+cat%3Astat.ML+OR+cat%3Acs.LO+OR+cat%3Acs.FL+OR+cat%3Acs.SC+OR+cat%3Amath.LO+OR+cat%3Acs.CE+OR+cat%3Aphysics.chem-ph+OR+cat%3Aq-bio.BM+OR+cat%3Aq-bio.GN+OR+cat%3Aq-bio.MN+OR+cat%3Aq-bio.QM+OR+cat%3Aq-bio.NC%29&start=0&max_results=100&sortBy=submittedDate&sortOrder=descending: HTTP Error 406: Not Acceptable
 
 - 今日无足够高质量更新。
 
@@ -38,21 +36,21 @@
 
 ## AI Voices
 
-采集 89，候选 60，精选 9。来源状态：各来源已完成
+采集 77，候选 60，精选 4。来源状态：各来源已完成
 
-- [@_LuoFuli：MiMo-V2.6: The Hard Road to Scaling Up RL MiMo-V2.6 is very likely one of the largest single RL runs, by compute, that a](https://x.com/_LuoFuli/status/2102162926802968749) — Fuli Luo 宣布 MiMo-V2.6，并称团队投入数十人长期扩展强化学习；帖文同时称已发布由 MiMo RL 轨迹蒸馏的 Qwen 模型、7,000 个环境及完整 RL 训练框架。
-- [@OpenAI：We're demonstrating how frontier models have continued to improve in realistic mental health conversations with MentalHe](https://x.com/OpenAI/status/2102837574092161102) — OpenAI 宣布开放 MentalHealthBench：该基准用于评估前沿模型在现实心理健康对话中的表现，构建时获得80余名心理健康临床医生的意见。
-- [@XiaomiTech_：A classic mathematical theorem. 6,000+ lines of Lean code. Verified by the kernel. Xiaomi MiMo 2.6 Pro assisted research](https://x.com/XiaomiTech_/status/2102291812870176810) — 小米称，MiMo 2.6 Pro 协助研究者在 Lean 4 中完整形式化 Li–Yorke 论文的主定理；项目逾6,000行 Lean 代码，并由内核验证且无未完成证明占位符。
+- [@mattpocockuk：Stop caring so much about model releases. Focus on the harness, and improving the environment your agent operates in. Yo](https://x.com/mattpocockuk/status/2102757952180686945) — 开发者 Matt Pocock 主张，与其过度关注模型发布，不如优先完善智能体的执行框架及其工作环境；这是作者的工程判断，帖文未提供对照测试或案例。
+- [@nc_frey：We’ve set up a molecular biology lab at Anthropic and we’re announcing our first discovery! Claude discovered a new CRIS](https://x.com/nc_frey/status/2102831099969687847) — Anthropic 研究人员 Nathan C. Frey 称，团队建立分子生物学实验室后，Claude 通过 950 个智能体历时 21 小时检索 DNA 序列，发现了一个此前未表征、具有 CRISPR 相似特征的酶系统；作者同时明确表示尚不清楚其功能。
+- [@Google：After years of research, Project Suncatcher is scheduled to embark on its first test in orbit, launching a prototype sat](https://x.com/Google/status/2103239433809961276) — Google 在官方帖文中宣布，Project Suncatcher 拟发射原型卫星，开展首次在轨测试，以评估 TPU 在太空中的运行表现；帖文没有提供发射时间、成功标准或测试结果。
 
 [查看频道专页](https://zichenwang114514.github.io/ai-x-daily/channels/aivoices/)
 
 ## Engineering
 
-采集 94，候选 60，精选 10。来源状态：各来源已完成
+采集 97，候选 60，精选 6。来源状态：各来源已完成
 
-- [google/ax](https://github.com/google/ax) — Google 的开源智能体编排运行时，今日 GitHub Trending 第 2 名，新增 1,542 星。
-- [dream-num/univer](https://github.com/dream-num/univer) — Univer 是面向 AI 智能体的办公软件运行时，覆盖表格、文档、幻灯片、画布、关系表和 PDF；今日 GitHub Trending 第 6 名，新增 1,140 星。
-- [superdesigndev/treg](https://github.com/superdesigndev/treg) — Treg 将自身定位为“面向智能体工具的 OpenRouter”，提供工具注册与接入层；今日 GitHub Trending 第 11 名，新增 502 星。
+- [vectorize-io/hindsight](https://github.com/vectorize-io/hindsight) — Hindsight 是可学习的智能体记忆系统，今日 GitHub Trending 第 2 名，新增 1,607 星。
+- [leejet/stable-diffusion.cpp](https://github.com/leejet/stable-diffusion.cpp) — stable-diffusion.cpp 以纯 C/C++ 实现 Stable Diffusion、Flux、Wan、Qwen Image、Z-Image 等扩散模型推理，今日 GitHub Trending 第 14 名，新增 69 星。
+- [NVIDIA/Model-Optimizer](https://github.com/NVIDIA/Model-Optimizer) — NVIDIA Model Optimizer 汇集量化、蒸馏、剪枝、神经架构搜索和投机解码等模型优化方法，面向 TensorRT-LLM、TensorRT 与 vLLM 等部署框架；今日 GitHub Trending 第 5 名，新增 22 星。
 
 [查看频道专页](https://zichenwang114514.github.io/ai-x-daily/channels/engineering/)
 

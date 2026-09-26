@@ -1,25 +1,25 @@
 {
   "schema_version": "2.0",
-  "date": "2026-09-25",
+  "date": "2026-09-26",
   "channel": "aixchem",
-  "generated_at": "2026-09-24T23:05:12+00:00",
+  "generated_at": "2026-09-26T04:27:21+00:00",
   "title": "AI × Chem 每日精选",
   "subtitle": "预印本、方法、数据集与实验验证的每日精选。",
   "window": {
-    "start": "2026-09-22",
-    "end": "2026-09-25"
+    "start": "2026-09-23",
+    "end": "2026-09-26"
   },
   "method": "公开来源采集、历史去重、规则筛选与模型审阅",
   "method_note": "系统保存当日公开元数据，与历史日报核验后排除已报道事件；论文新版本、新修订及不同软件发布等可核实更新仍可入选，随后由指定模型阅读全文摘要并完成精选。",
   "stats": {
-    "fetched": 386,
-    "suppressed_previous": 24,
-    "candidates": 53,
-    "selected": 9,
+    "fetched": 300,
+    "suppressed_previous": 15,
+    "candidates": 41,
+    "selected": 3,
     "sources": {
       "arXiv": 0,
-      "bioRxiv": 188,
-      "ChemRxiv": 198
+      "bioRxiv": 152,
+      "ChemRxiv": 148
     }
   },
   "source_status": {
@@ -29,11 +29,11 @@
     },
     "bioRxiv": {
       "state": "ok",
-      "count": 188
+      "count": 152
     },
     "ChemRxiv": {
       "state": "ok",
-      "count": 198
+      "count": 148
     }
   },
   "source_errors": [
@@ -41,69 +41,80 @@
   ],
   "items": [
     {
-      "id": "chemrxiv:10.26434/chemrxiv.15007359/v2",
+      "id": "biorxiv:10.64898/2026.09.17.752433",
       "channel": "aixchem",
-      "related_channels": [],
+      "related_channels": [
+        "aixbio"
+      ],
       "item_type": "paper",
-      "source": "ChemRxiv",
-      "title": "Machine learning-enabled prediction of dynamic vertical triplet energies underscores the role of vibrational anharmonicity in energy transfer",
-      "url": "https://doi.org/10.26434/chemrxiv.15007359/v2",
+      "source": "bioRxiv",
+      "title": "Leakage-controlled benchmarking reveals generalization limits of deep learning for protein-ligand binding affinity prediction",
+      "url": "https://www.biorxiv.org/content/10.64898/2026.09.17.752433",
       "published_at": "2026-09-23",
       "updated_at": "2026-09-24",
       "creators": [
-        "Mihai V. Popescu"
+        "Wang L",
+        "Cheng J"
       ],
       "language": "en",
-      "abstract_or_text": "The concept of triplet energy has long served as the operative predictor of energy transfer reactivity in photochemistry, yet its reliable computational determination remains challenging for many organic systems. The recently introduced dynamic vertical triplet energy (DvTE) framework recasts triplet energy as a statistical ensemble of instantaneous vertical gaps sampled from molecular dynamics trajectories, achieving mean absolute errors of 1.7 kcal/mol against experimental data, but at a computational cost that limits its broader application. Here, DvTE-ML is introduced, which extends machine-learned interatomic potentials to dynamic, ensemble-based prediction of excited-state properties. Built by fine-tuning the MACE-OMOL foundation model, DvTE-ML incorporates path integral molecular dynamics to capture nuclear quantum effects explicitly, alongside an iterative filtering workflow that addresses a state-error contamination risk intrinsic to open-shell training data. Applied to a diverse set of 52 organic molecules, including biologically relevant systems previously intractable at the reference level of theory, DvTE-ML matches the accuracy of the original DvTE framework. Beyond this validation, higher-resolution sampling reveals that gap distributions can deviate from the normal form previously assumed, with vibrational anharmonicity producing skewed distributions, providing additional insights into the mechanisms of triplet energy transfer.",
-      "summary_zh": "DvTE-ML 将经 MACE-OMOL 微调的机器学习原子间势与路径积分分子动力学结合，用动态系综预测垂直三重态能量；在 52 个有机分子上达到原 DvTE 框架的精度，并揭示振动非谐性可使能隙分布偏离正态分布。",
-      "why_it_matters_zh": "这把高代价的激发态动力学能量评估扩展到更广的有机体系，也将核量子效应与开放壳层训练中的状态误差问题纳入方法设计。需留意其验证集规模仍为 52 个分子，且摘要所述准确度主要是与原 DvTE 框架一致。",
-      "quality_score": 72.0,
-      "tags": [
-        "方法与模型"
-      ],
-      "evidence_flags": [
-        "experimental"
-      ],
-      "publication_status": "preprint",
-      "rank": 1,
-      "featured": true,
-      "category": "方法与模型",
-      "metrics": {},
-      "metadata": {
-        "doi": "10.26434/chemrxiv.15007359/v2",
-        "arxiv_id": ""
-      },
-      "abstract_zh": "三重态能量的概念长期以来一直是预测光化学中能量转移反应性的有效指标，但对许多有机体系而言，其可靠的计算确定仍具挑战性。近期提出的动态垂直三重态能量（DvTE）框架将三重态能量重构为从分子动力学轨迹采样的瞬时垂直能隙的统计系综；相对于实验数据，其平均绝对误差达到 1.7 kcal/mol，但计算成本限制了其更广泛的应用。本文提出 DvTE-ML，将机器学习原子间势扩展至对激发态性质进行动态、基于系综的预测。DvTE-ML 通过微调 MACE-OMOL 基础模型构建，引入路径积分分子动力学以显式捕获核量子效应，并结合迭代过滤工作流，以解决开放壳层训练数据中固有的状态误差污染风险。应用于包括此前在参考理论水平上难以处理的生物相关体系在内的一组多样化的 52 个有机分子时，DvTE-ML 达到了原始 DvTE 框架的准确度。除该验证外，更高分辨率的采样表明，能隙分布可能偏离此前假定的正态形式；振动非谐性会产生偏斜分布，从而为三重态能量转移机制提供额外见解。",
-      "published": "2026-09-23",
-      "author_line": "Mihai V. Popescu"
-    },
-    {
-      "id": "chemrxiv:10.26434/chemrxiv.15009392/v1",
-      "channel": "aixchem",
-      "related_channels": [],
-      "item_type": "paper",
-      "source": "ChemRxiv",
-      "title": "μ-Oxo-Bridged Iodine(III) Reagents Enable Catalyst- and Light-Free Fluoro(halo)methyl Radical Generation",
-      "url": "https://doi.org/10.26434/chemrxiv.15009392/v1",
-      "published_at": "2026-09-23",
-      "updated_at": "2026-09-24",
-      "creators": [
-        "Anupam Das",
-        "Nagarajan Ramkumar",
-        "Artis Kinēns",
-        "Sergey Belyakov",
-        "Andris Antuzevičs",
-        "Janis Veliks"
-      ],
-      "language": "en",
-      "abstract_or_text": "While conventional radical fluoroalkylation typically requires exogenous catalysts or photoactivation to overcome significant kinetic barriers, here we report bench-stable μ-oxo-bridged iodine(III) reagents that release fluoro(halo)methyl radicals upon heating without an external catalyst, additive, or light. The resulting radicals initiate cascade cyclizations of methacrylamides and methacrylohydrazides to afford fluorinated oxindoles, pyrazolones, and related heterocycles. Variation of the fluorinated carboxylate ligand within the iodine(III) reagent framework controls the identity of the transferred C1 fragment, thereby providing chlorofluoromethyl, bromofluoromethyl, difluoromethyl, and monofluoromethyl products from a common reagent architecture. The transformation is compatible with structurally diverse and natural-product-derived substrates and proceeds efficiently upon scale-up. By encoding the required bond lability directly into the iodine(III) framework, this strategy establishes a general platform for the catalyst-, additive-, and light-free generation and incorporation of fluorinated C1 radicals into complex molecular frameworks.",
-      "summary_zh": "研究报道可在加热下释放 fluoro(halo)methyl 自由基的稳定 μ-oxo-bridged iodine(III) 试剂，无需外加催化剂、添加剂或光照；其可驱动甲基丙烯酰胺和甲基丙烯酰肼串联环化，制备多类含氟杂环。",
-      "why_it_matters_zh": "通过在试剂骨架内预编码键的易裂解性，工作为复杂分子引入含氟 C1 片段提供了简化的合成平台，并报告了底物拓展和放大。局限是摘要未给出产率、选择性或官能团耐受性的定量范围，通用性仍需全文数据评估。",
-      "quality_score": 73.0,
+      "abstract_or_text": "To address widespread data leakage and inconsistent evaluation in protein-ligand affinity prediction, we introduce PLABench, a leakage-controlled and target-centric benchmarking framework that enables standardized comparison across sequence- and structure-based models. We benchmark nine deep learning methods across blind CASP16 targets, leakage-controlled ChEMBL35 sets, and established Davis and KIBA datasets under rigorous data split settings, standardizing structural input via AlphaFold3 to ensure fair comparison. Although pretrained structure-based models achieve the highest overall accuracy, they show severe target-dependent variability, and increasing structural fidelity from predicted to experimental conformations yields no consistent gains. Meanwhile, sequence-based approaches surpass some structure-based methods on select targets, and protein family-level evaluations reveal uneven performance across families and substantial inter-model complementarity obscured by aggregate metrics. These findings demonstrate that training scale and structural input alone cannot guarantee cross-target generalization, highlighting the need for context-aware interaction modeling. PLABench provides an extensible open-source platform to facilitate these developments.",
+      "summary_zh": "PLABench以严格的数据泄漏控制和靶点中心化评测，统一比较9种蛋白—配体结合亲和力深度学习方法。跨CASP16盲测靶点、泄漏控制的ChEMBL35及Davis、KIBA数据集的结果表明：预训练结构模型总体最优，但跨靶点和蛋白家族的表现不稳定；实验结构也未稳定优于预测结构。",
+      "why_it_matters_zh": "这为亲和力预测提供了更接近真实泛化问题的比较框架，并明确指出汇总指标会掩盖模型互补性与靶点依赖性。其证据主要来自既有基准和计算评测，能否转化为前瞻性药物发现收益仍需检验。",
+      "quality_score": 81.0,
       "tags": [
         "分子与药物发现"
       ],
       "evidence_flags": [
+        "benchmark",
+        "dataset",
+        "experimental",
+        "evaluation",
+        "performance"
+      ],
+      "publication_status": "preprint",
+      "rank": 1,
+      "featured": true,
+      "category": "分子与药物发现",
+      "metrics": {},
+      "metadata": {
+        "doi": "10.64898/2026.09.17.752433",
+        "arxiv_id": ""
+      },
+      "abstract_zh": "为解决蛋白—配体结合亲和力预测中普遍存在的数据泄漏和评估不一致问题，我们提出PLABench：一个控制数据泄漏、以靶点为中心的基准测试框架，可对基于序列和基于结构的模型进行标准化比较。我们在盲测CASP16靶点、控制数据泄漏的ChEMBL35数据集，以及既有的Davis和KIBA数据集上，以严格的数据划分设置对9种深度学习方法进行了基准测试；并通过AlphaFold3标准化结构输入，以确保公平比较。尽管预训练的结构模型取得最高的总体准确度，但其表现呈现严重的靶点依赖性变异，且将结构保真度从预测构象提高到实验构象并未带来一致的增益。同时，基于序列的方法在部分靶点上优于某些基于结构的方法；蛋白家族层面的评估揭示了家族间表现不均衡，以及汇总指标所掩盖的显著模型间互补性。这些发现表明，仅靠训练规模和结构输入不能保证跨靶点泛化，凸显了情境感知相互作用建模的必要性。PLABench提供了一个可扩展的开源平台，以推动这些发展。",
+      "published": "2026-09-23",
+      "author_line": "Wang L, Cheng J"
+    },
+    {
+      "id": "biorxiv:10.64898/2026.09.17.752345",
+      "channel": "aixchem",
+      "related_channels": [],
+      "item_type": "paper",
+      "source": "bioRxiv",
+      "title": "Generative Access to Make-on-Demand Chemical Space Enables Ultra-Large Virtual Screening",
+      "url": "https://www.biorxiv.org/content/10.64898/2026.09.17.752345",
+      "published_at": "2026-09-23",
+      "updated_at": "2026-09-24",
+      "creators": [
+        "Zhang K",
+        "Sun Y",
+        "Li X",
+        "Wang Y",
+        "Peng C",
+        "Jin X",
+        "Hu Q",
+        "Huang J"
+      ],
+      "language": "en",
+      "abstract_or_text": "Ultra-large-scale virtual screening (ULVS) increasingly relies on make-on-demand chemical spaces, but efficient access to these spaces remains challenging because their scale far exceeds what can be exhaustively enumerated and docked. Here, we present REAL-SWIT, a generative ULVS framework that learns Enamine REAL Space as a synthesizable molecular distribution and couples this generator with a target-specific scoring model to enable docking-guided exploration of REAL Space at the level of complete molecule. The generative model learned transferable features of the REAL Space distribution: approximately 96% of generated molecules were found in REAL Space, and a subset of generated molecules absent from the training release appeared in later expanded releases. In computational benchmarks, REAL-SWIT identified more molecules with favorable docking scores than representative fragment-based search strategies, including cooperative building-block combinations that fragment-level prioritization tended to miss. Experimental validation for ROCK1 yielded six biochemical inhibitors among 23 synthesized compounds, including RX-3 with an IC50 of 0.17 μM. These results establish generative access to make-on-demand chemical space as a practical strategy for ULVS.",
+      "summary_zh": "REAL-SWIT将Enamine REAL Space学习为可合成分子分布，并以靶点特异性评分模型引导生成式超大规模虚拟筛选。在ROCK1验证中，合成的23个化合物中有6个生化抑制剂，RX-3的IC50为0.17 μM。",
+      "why_it_matters_zh": "该工作把生成模型直接用于探索按需合成空间，缓解了逐一枚举和对接超大库的计算瓶颈，并给出了湿实验命中证据。验证仍限于单一靶点、较小合成集及生化活性，选择性、细胞活性和可推广性尚待确认。",
+      "quality_score": 77.0,
+      "tags": [
+        "分子与药物发现"
+      ],
+      "evidence_flags": [
+        "benchmark",
+        "experimental",
         "release"
       ],
       "publication_status": "preprint",
@@ -112,303 +123,61 @@
       "category": "分子与药物发现",
       "metrics": {},
       "metadata": {
-        "doi": "10.26434/chemrxiv.15009392/v1",
+        "doi": "10.64898/2026.09.17.752345",
         "arxiv_id": ""
       },
-      "abstract_zh": "传统的自由基氟烷基化通常需要外加催化剂或光活化以克服显著的动力学势垒；本文报道了可在实验台上稳定存放的 μ-oxo-bridged iodine(III) 试剂，其经加热即可释放 fluoro(halo)methyl 自由基，无需外加催化剂、添加剂或光照。所得自由基引发甲基丙烯酰胺和甲基丙烯酰肼的串联环化，得到含氟 oxindoles、pyrazolones 及相关杂环。改变 iodine(III) 试剂框架中的含氟羧酸盐配体可控制转移的 C1 片段种类，因而可由共同的试剂架构得到 chlorofluoromethyl、bromofluoromethyl、difluoromethyl 和 monofluoromethyl 产物。该转化兼容结构多样及源自天然产物的底物，并可在放大时高效进行。通过将所需的键易裂解性直接编码进 iodine(III) 框架，该策略建立了一个无需催化剂、添加剂和光照即可生成并掺入含氟 C1 自由基至复杂分子骨架的通用平台。",
+      "abstract_zh": "超大规模虚拟筛选（ULVS）日益依赖按需合成化学空间，但由于其规模远超可被穷尽枚举和对接的范围，高效访问这些空间仍具挑战。这里，我们提出REAL-SWIT，一种生成式ULVS框架：它将Enamine REAL Space学习为可合成的分子分布，并将该生成器与靶点特异性评分模型耦合，从而在完整分子层面实现对REAL Space的对接引导探索。该生成模型学习到了REAL Space分布的可迁移特征：约96%的生成分子可在REAL Space中找到，而训练发布版本中不存在的一部分生成分子出现在后续扩展的发布版本中。在计算基准中，REAL-SWIT发现的具有有利对接评分的分子多于代表性的基于片段搜索策略，包括片段层面优先排序往往会错过的协同构建模块组合。针对ROCK1的实验验证中，在23个合成化合物里得到6个生化抑制剂，其中RX-3的IC50为0.17 μM。这些结果确立了对按需合成化学空间的生成式访问作为ULVS实用策略的地位。",
       "published": "2026-09-23",
-      "author_line": "Anupam Das, Nagarajan Ramkumar, Artis Kinēns, Sergey Belyakov, Andris Antuzevičs, Janis Veliks"
+      "author_line": "Zhang K, Sun Y, Li X, Wang Y, Peng C, Jin X, Hu Q, Huang J"
     },
     {
-      "id": "chemrxiv:10.26434/chemrxiv.15009351/v1",
+      "id": "biorxiv:10.64898/2026.09.17.752373",
       "channel": "aixchem",
-      "related_channels": [],
+      "related_channels": [
+        "aixbio",
+        "aixmath"
+      ],
       "item_type": "paper",
-      "source": "ChemRxiv",
-      "title": "Framework Connectivity Tunes the Nuclear Spin Bath and Extends Coherence in Cu(II) Metal–Organic Framework Qubit Lattices",
-      "url": "https://doi.org/10.26434/chemrxiv.15009351/v1",
+      "source": "bioRxiv",
+      "title": "NoroScope: Exploring the Mutational Landscape of the Human Norovirus Capsid Protein with Context-Aware Machine Learning",
+      "url": "https://www.biorxiv.org/content/10.64898/2026.09.17.752373",
       "published_at": "2026-09-23",
-      "updated_at": "2026-09-23",
+      "updated_at": "2026-09-24",
       "creators": [
-        "Kavish Saini",
-        "Sisheed Sivaraman",
-        "Prashanna Poudel",
-        "Bonaventure A. Odeke",
-        "Gajadhar Joshi",
-        "Manny de Jesus Lopez",
-        "Alvaro Montoya",
-        "Kalina Ranguelova",
-        "C. Thomas Harris",
-        "Ezra Bussmann",
-        "Christoph Boehme",
-        "Sreeprasad T. Sreenivasan",
-        "Sreeprasad T Sreenivasan"
+        "Bowyer S",
+        "Allen D",
+        "Furnham N"
       ],
       "language": "en",
-      "abstract_or_text": "Designing solid-state spin-qubit arrays that retain long coherence at high spin density remains a central challenge in quantum information materials. In molecular qubits, this challenge arises because the same local coordination environment and lattice architecture that define the spin array also control the dominant decoherence channels, most notably nuclear-spin spectral diffusion and coupling to low-frequency phonons. Metal–organic frameworks (MOFs) are therefore especially attractive because they combine dense, crystalline spin arrays with chemically programmable control over the coordination environment, framework connectivity, and supramolecular packing, yet a fundamental understanding of how specific structural changes translate into predictable relaxation behavior remains underdeveloped. Here we compare two closely related oxygen-coordinated Cu(II) frameworks, Cu-TPTC and Cu-TPTriC, that preserve the same first-sphere donor set while changing connectivity and supramolecular packing. Cu-TPTC comprises one-dimensional Cu–O chains assembled into hydrogen-bonded rods, whereas Cu-TPTriC forms coordination-connected Cu–O–Cu two-dimensional sheets that stack through interlayer aromatic contacts in the absence of hydrogen-bond stitching. Continuous-wave electron paramagnetic resonance (CW-EPR) spectroscopy shows that both lattices exhibit relatively narrow linewidths compared with a Cu–N porphyrinic benchmark, consistent with reduced ligand-derived superhyperfine broadening in an oxygenonly coordination sphere. Pulsed electron paramagnetic resonance measurements establish coherent spin control and reveal systematically longer spin–lattice relaxation times (T1) and phase-memory times (Tm) in Cu-TPTriC over 5–25 K, with Tm≈4.8 ± 0.011 μs at 5 K. This coherence gain persists despite substantially shorter Cu···Cu separations in Cu-TPTriC and is consistent with a reduced proton-bath density and modified lattice dynamics, as reflected in the weaker electron spin echo envelope modulation (ESEEM) observed for Cu-TPTriC. Together, these results suggest that within dense oxygen-coordinated Cu(II) framework lattices, the secondary-sphere nuclear-spin environment and lattice dynamics can play an important role in governing decoherence, potentially outweighing spin spacing alone.",
-      "summary_zh": "研究比较了配位环境相近、但连接方式和堆积不同的 Cu-TPTC 与 Cu-TPTriC MOF。脉冲 EPR 显示，二维 Cu-TPTriC 在 5–25 K 具有更长的 T1 和 Tm，5 K 时 Tm≈4.8 ± 0.011 μs；结果指向次级配位圈核自旋环境和晶格动力学对退相干的关键作用。",
-      "why_it_matters_zh": "该工作以相近体系的对照和 CW-EPR、脉冲 EPR 测量，将 MOF 的结构连通性与分子量子比特相干性联系起来，提示自旋间距并非唯一设计变量。证据目前限于两种 Cu(II) 框架和低温区间，机制归因仍以一致性证据为主。",
-      "quality_score": 74.0,
+      "abstract_or_text": "Anticipating the effects of mutations in viral proteins is important for the development of therapeutics and control strategies but remains challenging as mutation phenotypes are shaped by complex overlapping sequence, structural and evolutionary constraints. Machine-learning approaches to mutation-effect prediction have shown considerable success for viruses with exceptionally rich training datasets, but their application to the majority of viruses with comparatively limited data remains underexplored. Here we introduce NoroScope, an interpretable machine-learning framework designed to prioritise plausible amino-acid substitutions in the human norovirus GII.4 capsid protein VP1 through integration of complementary biological evidence. Using VP1 protein sequences and experimentally resolved structures as a foundation, we generated datasets comprising zero-shot mutation scores from the Evolutionary Scale Modeling 2 protein large language model, in silico deep-mutational-scanning estimates of mutation-associated effects on protein stability and histo-blood group antigen binding, and descriptors of the evolutionary history of VP1. NoroScope integrated these evidence sources to prioritise historically observed alternative amino acids according to whether they subsequently received recurrent support in natural virus populations. Across retrospective 2011 and 2016 prediction tasks, the complete model achieved average precision values of 0.805 and 0.834 and recovered 87.9% and 92.9% of future-supported candidates within the top five alternatives at their respective positions. Feature ablation showed that evolutionary, sequence-model and structural information provided distinct and complementary predictive signals, with their integration supporting accurate amino acid prioritisation and revealing biologically informative disagreements between evidence sources. Experimental analysis at VP1 position 297 further supported molecular predictions for selected substitutions in a virus-like particle assembly system. Together, these results establish NoroScope as a framework for integrating pretrained protein representations with target-specific molecular and evolutionary context to explore viral mutation landscapes where available data are comparatively limited.",
+      "summary_zh": "NoroScope整合Evolutionary Scale Modeling 2蛋白语言模型零样本评分、深度突变扫描推断的稳定性和histo-blood group antigen结合效应，以及进化历史特征，对人诺如病毒GII.4 VP1突变进行可解释排序。回溯任务和VP1位点297的病毒样颗粒实验共同支持其预测。",
+      "why_it_matters_zh": "工作展示了在训练数据有限的病毒中，如何将通用蛋白表示与靶点特异的结构、进化证据结合，以支持突变监测和干预设计。结果基于回溯性自然群体支持和少量位点实验，未必等同于对全部突变表型或临床传播优势的前瞻预测。",
+      "quality_score": 77.0,
       "tags": [
-        "材料与催化"
+        "结构与生物"
       ],
       "evidence_flags": [
-        "benchmark"
+        "dataset",
+        "experimental",
+        "ablation"
       ],
       "publication_status": "preprint",
       "rank": 3,
       "featured": true,
-      "category": "材料与催化",
+      "category": "结构与生物",
       "metrics": {},
       "metadata": {
-        "doi": "10.26434/chemrxiv.15009351/v1",
+        "doi": "10.64898/2026.09.17.752373",
         "arxiv_id": ""
       },
-      "abstract_zh": "设计能在高自旋密度下保持长相干时间的固态自旋量子比特阵列，是量子信息材料面临的核心挑战。在分子量子比特中，这一挑战源于：定义自旋阵列的局部配位环境和晶格架构，同时也控制主要的退相干通道，尤其是核自旋谱扩散和与低频声子的耦合。因此，metal–organic frameworks（MOFs）格外具有吸引力，因为它们将致密的晶态自旋阵列与对配位环境、框架连通性和超分子堆积的化学可编程调控相结合；然而，关于特定结构改变如何转化为可预测弛豫行为的基础认识仍不充分。本文比较了两个密切相关的氧配位 Cu(II) 框架 Cu-TPTC 和 Cu-TPTriC；二者保持相同的第一配位圈给体集合，但改变了连通性和超分子堆积。Cu-TPTC 由一维 Cu–O 链组成，并组装成氢键连接的棒状结构；而 Cu-TPTriC 则形成配位连接的 Cu–O–Cu 二维片层，在没有氢键缝合的情况下通过层间芳香相互作用堆叠。连续波电子顺磁共振（CW-EPR）光谱表明，与 Cu–N 卟啉基准物相比，两种晶格均表现出相对较窄的线宽，这与仅含氧配位圈中较低的配体来源超超精细展宽一致。脉冲电子顺磁共振测量确立了相干自旋操控，并显示 Cu-TPTriC 在 5–25 K 内具有系统性更长的自旋–晶格弛豫时间（T1）和相位记忆时间（Tm），其中在 5 K 时 Tm≈4.8 ± 0.011 μs。尽管 Cu-TPTriC 中的 Cu···Cu 间距显著更短，这一相干性增益仍然存在；它与更低的质子自旋浴密度和改变的晶格动力学一致，正如在 Cu-TPTriC 中观察到的较弱电子自旋回波包络调制（ESEEM）所反映。总体而言，这些结果表明，在致密的氧配位 Cu(II) 框架晶格内，次级配位圈的核自旋环境和晶格动力学可在控制退相干中发挥重要作用，其影响可能超过自旋间距本身。",
+      "abstract_zh": "预测病毒蛋白中突变的效应对于治疗方法和防控策略的开发很重要，但仍具挑战性，因为突变表型受复杂且相互重叠的序列、结构和进化约束塑造。突变效应预测的机器学习方法已在训练数据极为丰富的病毒中显示出显著成功，但对于数据相对有限的大多数病毒，其应用仍缺乏探索。这里，我们介绍NoroScope：一个可解释的机器学习框架，旨在通过整合互补的生物学证据，对人诺如病毒GII.4衣壳蛋白VP1中合理的氨基酸替换进行优先排序。以VP1蛋白序列和实验解析的结构为基础，我们构建了数据集，其中包括来自Evolutionary Scale Modeling 2蛋白大语言模型的零样本突变评分、突变相关的蛋白稳定性和histo-blood group antigen结合效应的计算深度突变扫描估计，以及VP1进化历史的描述符。NoroScope整合这些证据来源，依据历史观察到的替代氨基酸其后是否在自然病毒群体中反复获得支持，对其进行优先排序。在回溯性的2011年和2016年预测任务中，完整模型的平均精确率分别达到0.805和0.834，并且在各自位点的前五个替代方案中，找回了87.9%和92.9%后来得到支持的候选。特征消融表明，进化信息、序列模型信息和结构信息提供了不同且互补的预测信号；它们的整合支持准确的氨基酸优先排序，并揭示了证据来源之间具有生物学信息量的不一致。对VP1第297位点的实验分析进一步在病毒样颗粒组装系统中支持了对所选替换的分子预测。总体而言，这些结果确立NoroScope为一个框架：在可用数据相对有限时，整合预训练蛋白表征与靶点特异的分子和进化背景，以探索病毒突变图谱。",
       "published": "2026-09-23",
-      "author_line": "Kavish Saini, Sisheed Sivaraman, Prashanna Poudel, Bonaventure A. Odeke, Gajadhar Joshi, Manny de Jesus Lopez, Alvaro Montoya, Kalina Ranguelova, C. Thomas Harris, Ezra Bussmann, Christoph Boehme, Sreeprasad T. Sreenivasan, Sreeprasad T Sreenivasan"
-    },
-    {
-      "id": "chemrxiv:10.26434/chemrxiv.15009393/v1",
-      "channel": "aixchem",
-      "related_channels": [],
-      "item_type": "paper",
-      "source": "ChemRxiv",
-      "title": "Bidirectional Refractive-Index Programming via Three-Stage Sequential Thiol-Click Chemistry for High-Performance Holographic Recording",
-      "url": "https://doi.org/10.26434/chemrxiv.15009393/v1",
-      "published_at": "2026-09-23",
-      "updated_at": "2026-09-24",
-      "creators": [
-        "Haoqiang Gao",
-        "Mingxuan Wang",
-        "Diqin Zhang",
-        "Yunlong Zhang",
-        "Qixin Zhou",
-        "Yong Bi",
-        "Yuxia Zhao"
-      ],
-      "language": "en",
-      "abstract_or_text": "Conventional holographic photopolymers (HPs) mainly rely on a polymerization–diffusion mechanism to record volume holographic gratings (VHGs), resulting in trade-offs among photosensitivity, refractive-index (RI) modulation (Δn), optical clarity, and VHG stability. To address these trade-offs, we propose a bidirectional refractive-index programming (BRIP) strategy based on three sequential thiol-click reactions. Stage I employs a base-catalyzed thiol–acrylate Michael addition to form a thiol-rich host matrix. Under holographic exposure, Stage II triggers photoinduced thiol–vinyl addition to incorporate a high-RI recording monomer into the bright regions, generating the initial VHG Δn while preserving residual thiol sites in the dark regions. After exposure, Stage III uses thermally activated thiol–epoxy addition to incorporate a low-RI enhancing monomer into these complementary dark regions, further increasing Δn. A representative BRIP HP formulation is developed to validate the strategy. Benefiting from the BRIP design, the material requires only 1.1–1.9 mJ/cm2 exposure dose to generate VHGs with initial Δn values of 0.0103–0.0232 after Stage II, which increase to 0.0193–0.0394 after Stage III, while maintaining >95% visible-light transmittance,",
-      "summary_zh": "该工作以三步连续 thiol-click 反应实现全息光聚合物的双向折射率编程：亮区引入高折射率单体、暗区在后续热反应中引入低折射率单体。代表性配方将 Δn 从第二阶段的 0.0103–0.0232 提升至第三阶段的 0.0193–0.0394，同时保持 >95% 可见光透过率。",
-      "why_it_matters_zh": "互补区域的折射率调控为同时改善灵敏度、折射率调制和透明度提供了清晰的化学设计路线，并给出明确的性能数字。摘要在“while maintaining”后截断，未说明稳定性等完整性能与测试条件，结论宜限于所示代表性配方。",
-      "quality_score": 75.0,
-      "tags": [
-        "材料与催化"
-      ],
-      "evidence_flags": [
-        "performance"
-      ],
-      "publication_status": "preprint",
-      "rank": 4,
-      "featured": false,
-      "category": "材料与催化",
-      "metrics": {},
-      "metadata": {
-        "doi": "10.26434/chemrxiv.15009393/v1",
-        "arxiv_id": ""
-      },
-      "abstract_zh": "传统全息光聚合物（HPs）主要依赖聚合–扩散机制记录体积全息光栅（VHGs），从而在光敏性、折射率（RI）调制（Δn）、光学清晰度和 VHG 稳定性之间产生权衡。为解决这些权衡，我们提出一种基于三步连续 thiol-click 反应的双向折射率编程（BRIP）策略。第一阶段采用碱催化 thiol–acrylate Michael 加成，形成富含 thiol 的主体基体。在全息曝光下，第二阶段触发光诱导 thiol–vinyl 加成，将高 RI 记录单体引入亮区，产生初始 VHG Δn，同时在暗区保留残余 thiol 位点。曝光后，第三阶段采用热活化 thiol–epoxy 加成，将低 RI 增强单体引入这些互补的暗区，进一步提高 Δn。开发了一种代表性的 BRIP HP 配方以验证该策略。得益于 BRIP 设计，该材料仅需 1.1–1.9 mJ/cm2 的曝光剂量，即可生成在第二阶段后初始 Δn 值为 0.0103–0.0232 的 VHG；在第三阶段后该值增至 0.0193–0.0394，同时保持 >95% 的可见光透过率，",
-      "published": "2026-09-23",
-      "author_line": "Haoqiang Gao, Mingxuan Wang, Diqin Zhang, Yunlong Zhang, Qixin Zhou, Yong Bi, Yuxia Zhao"
-    },
-    {
-      "id": "chemrxiv:10.26434/chemrxiv.15009354/v1",
-      "channel": "aixchem",
-      "related_channels": [
-        "aixbio"
-      ],
-      "item_type": "paper",
-      "source": "ChemRxiv",
-      "title": "Docking, Molecular Dynamics, QSAR, and Machine Learning in Alzheimer's Small-Molecule Drug Discovery: Current Utility, Key Limitations, and Reproducibility Challenges",
-      "url": "https://doi.org/10.26434/chemrxiv.15009354/v1",
-      "published_at": "2026-09-23",
-      "updated_at": "2026-09-23",
-      "creators": [
-        "Poulami Saha",
-        "Anuja Chouhan"
-      ],
-      "language": "en",
-      "abstract_or_text": "Alzheimer’s disease (AD) remains one of the most challenging therapeutic areas for small-molecule drug discovery because of its multifactorial pathology, complex target biology, and demanding central nervous system drug-development requirements. In this context, computational methods have become increasingly important for compound prioritization, hypothesis generation, and structure–activity interpretation. Among these, molecular docking, molecular dynamics (MD) simulations, quantitative structure–activity relationship (QSAR) modeling, and machine learning (ML) are widely used in AD-oriented medicinal chemistry, particularly in studies involving targets such as β-secretase 1 (BACE1) and tau. This review critically examines the practical roles of these four approaches in AD small-molecule discovery. Rather than presenting them as universally predictive solutions, the review evaluates their principal strengths, major limitations, and current challenges related to validation, interpretability, reproducibility, and experimental translation. Molecular docking remains useful for structure-based hypothesis generation and binding-pose analysis, especially for structurally characterized targets, but is frequently overinterpreted when numerical scores are treated as direct evidence of biological activity. MD simulations provide a complementary framework for examining protein–ligand stability, conformational flexibility, and interaction persistence, although simulation outcomes remain highly dependent on methodological choices and should not be regarded as definitive validation of binding or efficacy. QSAR continues to support ligand-based activity modeling and analogue prioritization, but its utility depends strongly on dataset quality, applicability domain, and validation strategy. ML offers greater flexibility for activity and property prediction, including multi-parameter prioritization and ADMET-related modeling, yet remains sensitive to dataset bias, overfitting, limited interpretability, and poor reproducibility. Across all four approaches, the review emphasizes that methodological rigor is at least as important as methodological sophistication. Particular attention is given to common problems including inadequate validation, overinterpretation of computational outputs, limited reproducibility, and weak integration with experimental medicinal chemistry. Overall, molecular docking, MD simulations, QSAR, and ML are best viewed as complementary support tools whose value depends on careful application, transparent reporting, and close integration with experimental evidence. A more critical, reproducible, and biologically informed use of these methods is likely to provide a stronger foundation for future AD small-molecule discovery. Keywords",
-      "summary_zh": "该综述批判性评估 molecular docking、MD、QSAR 和 ML 在 Alzheimer’s disease 小分子发现中的作用，覆盖 BACE1、tau 等靶点，并系统讨论验证、可解释性、可重复性及实验转化问题。",
-      "why_it_matters_zh": "它明确指出计算分数或模拟结果不能替代生物活性与疗效证据，有助于为 AD 药物发现建立更严格的计算—实验协同标准。该文为综述而非新的模型或实验研究，其结论依赖所纳入文献与报告质量。",
-      "quality_score": 81.0,
-      "tags": [
-        "分子与药物发现"
-      ],
-      "evidence_flags": [
-        "dataset",
-        "experimental"
-      ],
-      "publication_status": "preprint",
-      "rank": 5,
-      "featured": false,
-      "category": "分子与药物发现",
-      "metrics": {},
-      "metadata": {
-        "doi": "10.26434/chemrxiv.15009354/v1",
-        "arxiv_id": ""
-      },
-      "abstract_zh": "由于 Alzheimer’s disease（AD）具有多因素病理、复杂的靶标生物学以及严格的中枢神经系统药物开发要求，它仍是小分子药物发现中最具挑战性的治疗领域之一。在此背景下，计算方法对于化合物优先排序、假设生成和结构–活性解释日益重要。其中，molecular docking、molecular dynamics（MD）模拟、quantitative structure–activity relationship（QSAR）建模和 machine learning（ML）被广泛用于面向 AD 的药物化学，尤其是在涉及 β-secretase 1（BACE1）和 tau 等靶点的研究中。本综述批判性考察了这四种方法在 AD 小分子发现中的实际作用。该综述并非将它们描述为普遍具有预测力的解决方案，而是评估其主要优势、重大局限，以及与验证、可解释性、可重复性和实验转化相关的当前挑战。Molecular docking 对于基于结构的假设生成和结合构象分析仍然有用，尤其适用于结构已被表征的靶点；但当数值评分被视为生物活性的直接证据时，常被过度解读。MD 模拟为研究 protein–ligand 稳定性、构象柔性和相互作用持续性提供了互补框架，尽管模拟结果仍高度依赖方法学选择，不应被视为对结合或疗效的决定性验证。QSAR 仍可支持基于配体的活性建模和类似物优先排序，但其效用强烈依赖于数据集质量、适用域和验证策略。ML 为活性和性质预测提供了更大的灵活性，包括多参数优先排序和 ADMET 相关建模，但仍易受数据集偏差、过拟合、可解释性有限和可重复性差的影响。在所有四种方法中，该综述强调方法学严谨性至少与方法学复杂性同等重要。特别关注的常见问题包括验证不足、对计算输出的过度解读、可重复性有限，以及与实验药物化学整合薄弱。总体而言，molecular docking、MD、QSAR 和 ML 最适合被视为互补性的支持工具，其价值取决于谨慎应用、透明报告和与实验证据的紧密整合。对这些方法进行更具批判性、可重复性且更具生物学信息的使用，可能为未来 AD 小分子药物发现提供更坚实的基础。关键词",
-      "published": "2026-09-23",
-      "author_line": "Poulami Saha, Anuja Chouhan"
-    },
-    {
-      "id": "chemrxiv:10.26434/chemrxiv.15009257/v1",
-      "channel": "aixchem",
-      "related_channels": [],
-      "item_type": "paper",
-      "source": "ChemRxiv",
-      "title": "AI-Driven Optimization of Electrochemical Fertilizer Processes",
-      "url": "https://doi.org/10.26434/chemrxiv.15009257/v1",
-      "published_at": "2026-09-22",
-      "updated_at": "2026-09-22",
-      "creators": [
-        "Muhammad Bilal"
-      ],
-      "language": "en",
-      "abstract_or_text": "Conventional fertilizer production relies on centralized, fossil-fuel-intensive processes such as Haber–Bosch ammonia synthesis, with high energy demand and associated carbon emissions. Electrochemical routes to nitrogen and phosphorus fertilizers offer a potentially decentralized, renewable-powered alternative, but their practical performance remains limited by the interaction of catalyst structure, electrolyte composition, reactor architecture, and operating conditions. These variables do not act independently: fertilizer synthesis is fundamentally a coupled, high-dimensional optimization problem that is difficult to address by varying one factor at a time. This chapter argues that artificial intelligence becomes genuinely useful for this problem not as an isolated computational tool, but as a layer connecting experimental and sensor data with prediction, optimization, and control. The chapter examines four electrochemical fertilizer pathways nitrogen reduction, nitrate reduction, urea synthesis, and phosphorus recovery alongside the functional materials and electrode architectures used to catalyze them. It then considers the reactors, analytical instrumentation, and real-time, in-situ sensors that generate the data on which these AI applications depend, treating this measurement infrastructure as inseparable from AI-enabled optimization. Three distinct roles for AI and machine learning are developed: discovering and screening catalyst candidates across combinatorial design spaces; predicting process behavior under coupled and time-varying operating conditions; and identifying and maintaining optimal conditions through Bayesian optimization, multi-objective search, and autonomous control. Techno-economic and life-cycle assessment are introduced as additional decision criteria, since chemical performance alone cannot define an optimal process once cost and environmental impact are considered. A fully integrated, autonomous electrochemical fertilizer platform has not yet been demonstrated in the literature reviewed here. Instead, the chapter shows that individual components of such a system, together with several partial integrations from adjacent process industries, already exist and provide a technically credible foundation for future integration. Data scarcity, the DFT–experiment gap, sensor reliability, reproducibility, interpretability, and scale-up nevertheless remain major barriers to realizing this integration in practice.",
-      "summary_zh": "该章节将电化学肥料中的 AI 定位为连接实验和传感器数据与预测、优化、控制的层，讨论 nitrogen reduction、nitrate reduction、urea synthesis 与 phosphorus recovery，并覆盖催化剂筛选、过程预测、Bayesian optimization、多目标搜索和自主控制。",
-      "why_it_matters_zh": "其价值在于把电极材料、反应器、原位传感、技术经济与生命周期评价放在同一优化框架中，而非孤立讨论模型。作者也明确指出尚未有完整自主平台的文献示范；数据稀缺、DFT–experiment 偏差、传感器可靠性和放大仍是关键限制。",
-      "quality_score": 77.0,
-      "tags": [
-        "材料与催化"
-      ],
-      "evidence_flags": [
-        "experimental",
-        "performance"
-      ],
-      "publication_status": "preprint",
-      "rank": 6,
-      "featured": false,
-      "category": "材料与催化",
-      "metrics": {},
-      "metadata": {
-        "doi": "10.26434/chemrxiv.15009257/v1",
-        "arxiv_id": ""
-      },
-      "abstract_zh": "传统肥料生产依赖于集中式、化石燃料密集型过程，例如 Haber–Bosch ammonia synthesis，其能耗高并伴随碳排放。通往氮肥和磷肥的电化学路线提供了潜在的分散式、可再生能源驱动替代方案，但其实际性能仍受催化剂结构、电解质组成、反应器架构和操作条件之间相互作用的限制。这些变量并非彼此独立：肥料合成本质上是一个耦合的高维优化问题，难以通过一次改变一个因素来解决。本章节认为，artificial intelligence 对该问题真正有用之处，不在于作为孤立的计算工具，而在于作为连接实验和传感器数据与预测、优化和控制的层。章节考察了四条电化学肥料路径——nitrogen reduction、nitrate reduction、urea synthesis 和 phosphorus recovery——以及用于催化它们的功能材料和电极架构。随后讨论了生成这些 AI 应用所依赖数据的反应器、分析仪器和实时原位传感器，并将这一测量基础设施视为与 AI 赋能优化不可分割的部分。文章阐述了 AI 和 machine learning 的三种不同作用：在组合设计空间中发现和筛选催化剂候选物；预测耦合且随时间变化的操作条件下的过程行为；以及通过 Bayesian optimization、多目标搜索和自主控制识别并维持最优条件。技术经济和生命周期评价被引入为额外的决策标准，因为一旦考虑成本和环境影响，化学性能本身无法定义最优过程。所回顾文献中尚未展示一个完全整合的自主电化学肥料平台。相反，章节显示，这类系统的各个组成部分，以及来自相邻过程工业的若干部分整合，已经存在，并为未来整合提供了技术上可信的基础。然而，数据稀缺、DFT–experiment 差距、传感器可靠性、可重复性、可解释性和放大仍是实现这一整合的主要障碍。",
-      "published": "2026-09-22",
-      "author_line": "Muhammad Bilal"
-    },
-    {
-      "id": "chemrxiv:10.26434/chemrxiv.15009228/v1",
-      "channel": "aixchem",
-      "related_channels": [],
-      "item_type": "paper",
-      "source": "ChemRxiv",
-      "title": "Emerging Paradigms in Electrochemical Water Treatment: Advanced Electrode Materials, Resource Recovery, and Machine Learning",
-      "url": "https://doi.org/10.26434/chemrxiv.15009228/v1",
-      "published_at": "2026-09-22",
-      "updated_at": "2026-09-22",
-      "creators": [
-        "Srikanth Ponnada",
-        "Anuradha Ponnada",
-        "Abhilasha Bhawsar",
-        "Subash Chandra Bose Rapaka",
-        "Rakesh K Sharma"
-      ],
-      "language": "en",
-      "abstract_or_text": "Electrochemical water treatment offers a versatile approach to contaminant removal and resource recovery, although its practical performance depends on electrode properties, wastewater composition and operating conditions. This review critically examines the principal electrochemical treatment methods, including electrochemical oxidation and reduction, electro-Fenton processes, electrocoagulation, electroflotation, electrodeposition and electrodialysis. Their reaction pathways, treatment capabilities and limitations are discussed, with particular attention to the distinction between pollutant degradation, separation and recovery. Electrode development is examined through boron-doped diamond, mixed metal oxides and two-dimensional materials, including graphene derivatives, MXenes, transition-metal dichalcogenides and black phosphorus. The discussion considers how surface chemistry, electronic structure and electrode architecture influence charge transfer, reactive-species generation and ion transport, while addressing stability, material release and performance in complex wastewater matrices. Commercial implementation is assessed in relation to energy consumption, electrode lifetime, reactor design, maintenance requirements and integration with existing treatment infrastructure. The review also explores the application of machine learning to predict treatment performance, identify influential operating variables and guide material selection and process optimization. Particular emphasis is placed on data quality, model interpretability and validation beyond laboratory datasets. By connecting treatment mechanisms, electrode engineering and data-driven optimization, this review identifies the evidence and development priorities needed to advance electrochemical technologies towards reliable, economically viable water treatment.",
-      "summary_zh": "综述系统梳理电化学氧化还原、电芬顿、电絮凝、电浮选、电沉积和电渗析等水处理过程，讨论 boron-doped diamond、mixed metal oxides、graphene derivatives、MXenes 等电极，以及 ML 在性能预测、变量识别和工艺优化中的角色。",
-      "why_it_matters_zh": "该文将反应机理、电极工程、复杂废水基质下的稳定性和机器学习验证联系起来，并将商业化约束纳入讨论。它不提供新的系统级验证；模型能否外推至实验室数据之外仍是作者强调的未决问题。",
-      "quality_score": 77.0,
-      "tags": [
-        "材料与催化"
-      ],
-      "evidence_flags": [
-        "dataset",
-        "release",
-        "performance"
-      ],
-      "publication_status": "preprint",
-      "rank": 7,
-      "featured": false,
-      "category": "材料与催化",
-      "metrics": {},
-      "metadata": {
-        "doi": "10.26434/chemrxiv.15009228/v1",
-        "arxiv_id": ""
-      },
-      "abstract_zh": "电化学水处理为污染物去除和资源回收提供了一种多用途方法，尽管其实际性能取决于电极性质、废水组成和操作条件。本综述批判性考察了主要电化学处理方法，包括电化学氧化和还原、电芬顿过程、电絮凝、电浮选、电沉积和电渗析。文中讨论了它们的反应路径、处理能力和局限性，尤其关注污染物降解、分离和回收之间的区别。通过 boron-doped diamond、mixed metal oxides 和二维材料考察了电极开发；二维材料包括 graphene derivatives、MXenes、transition-metal dichalcogenides 和 black phosphorus。讨论考虑了表面化学、电子结构和电极架构如何影响电荷转移、活性物种生成和离子传输，同时处理稳定性、材料释放以及复杂废水基质中的性能问题。商业实施从能耗、电极寿命、反应器设计、维护要求和与现有处理基础设施整合等方面进行评估。综述还探讨了 machine learning 在预测处理性能、识别有影响力的操作变量以及指导材料选择和过程优化中的应用。特别强调数据质量、模型可解释性以及超越实验室数据集的验证。通过连接处理机制、电极工程和数据驱动优化，本综述确定了推动电化学技术迈向可靠、经济可行水处理所需的证据与开发优先事项。",
-      "published": "2026-09-22",
-      "author_line": "Srikanth Ponnada, Anuradha Ponnada, Abhilasha Bhawsar, Subash Chandra Bose Rapaka, Rakesh K Sharma"
-    },
-    {
-      "id": "chemrxiv:10.26434/chemrxiv.15009248/v1",
-      "channel": "aixchem",
-      "related_channels": [],
-      "item_type": "paper",
-      "source": "ChemRxiv",
-      "title": "MACHINE LEARNING FOR CELLULOSE MEMBRANES: A REPRESENTATION–MODEL–TASK FRAMEWORK FOR SMALL-DATA REGIMES",
-      "url": "https://doi.org/10.26434/chemrxiv.15009248/v1",
-      "published_at": "2026-09-22",
-      "updated_at": "2026-09-22",
-      "creators": [
-        "Ye O. Kolomiiets"
-      ],
-      "language": "en",
-      "abstract_or_text": "Cellulose membranes are a small-data problem with a chemically ambiguous object. A polymorphic matrix, three chemically inequivalent hydroxyls at C2, C3 and C6, and a two-stage fabrication route make representation — not model architecture — the binding constraint on machine learning in this field, and this is why the toolkit that succeeded for gas-separation polymers and thin-film-composite membranes does not transfer to cellulose unchanged. This review organises the methodology around that claim. It first sets out why cellulose membranes remain of interest and where they fail, then shows that the existing computational treatment of cellulose is stratified into layers — first-principles, atomistic, coarse-grained, pore-scale, phenomenological, process-level — that do not connect, so that no chain of models runs from a synthesis recipe to a measured permeance. That specific structural gap, rather than the absence of cellulose studies in the machine-learning literature, is the argument for a data-driven approach. The representation–model–task framework is then executed task by task across property prediction, synthesis optimisation with Bayesian optimisation, inverse design, microstructural analysis and fouling forecasting, with four mandatory decisions — representation, model, task, validation — made explicit for each, and interpretability treated as a validation instrument whose attributions are falsifiable by synthesis. Cellulose/iron-oxide composites for oil–water separation serve as a running example throughout. Data resources are assessed for cellulose coverage rather than catalogued; methodological pitfalls are given cellulose-specific manifestations and mitigations; and under-explored niches are classified by operational criteria under a stated, repeatable search protocol.",
-      "summary_zh": "该综述提出适用于小数据条件的 cellulose membrane“representation–model–task”框架，按性质预测、Bayesian optimization 合成优化、逆向设计、微结构分析和污染预测组织方法，并以 cellulose/iron-oxide 油水分离复合膜为贯穿案例。",
-      "why_it_matters_zh": "它将纤维素的多晶型性、C2/C3/C6 三类羟基和两阶段制备带来的表征难题置于模型选择之前，强调可证伪的可解释性与合成验证。工作是方法框架综述，尚未给出从合成配方到实测渗透率的贯通模型。",
-      "quality_score": 70.0,
-      "tags": [
-        "材料与催化"
-      ],
-      "evidence_flags": [],
-      "publication_status": "preprint",
-      "rank": 8,
-      "featured": false,
-      "category": "材料与催化",
-      "metrics": {},
-      "metadata": {
-        "doi": "10.26434/chemrxiv.15009248/v1",
-        "arxiv_id": ""
-      },
-      "abstract_zh": "Cellulose membranes 是一个小数据问题，其研究对象在化学上具有模糊性。多晶型基体、位于 C2、C3 和 C6 的三种化学不等价羟基，以及两阶段制备路线，使表征——而非模型架构——成为该领域 machine learning 的约束条件；这也是成功用于气体分离聚合物和薄膜复合膜的工具箱不能原样迁移到 cellulose 的原因。本综述围绕这一主张组织方法学。它首先阐明 cellulose membranes 为何仍值得关注以及其失效之处，随后表明现有对 cellulose 的计算处理被分层为第一性原理、原子级、粗粒化、孔尺度、现象学和过程级等层次——这些层次并未连通，因此不存在从合成配方通向实测渗透率的模型链。正是这一特定结构缺口，而非 machine-learning 文献中缺少 cellulose 研究，构成了采用数据驱动方法的理由。接着，该 representation–model–task 框架逐项用于性质预测、利用 Bayesian optimization 的合成优化、逆向设计、微结构分析和污染预测；针对每一项任务，均明确作出四项必需决策——表征、模型、任务、验证——并将可解释性视为一种验证工具，其归因可由合成进行证伪。Cellulose/iron-oxide composites 用于油水分离，作为贯穿全文的示例。数据资源根据其对 cellulose 的覆盖度进行评估，而非简单罗列；方法学陷阱被赋予 cellulose 特异性表现和缓解措施；探索不足的空白领域则依据既定、可重复的检索协议下的操作性标准进行分类。",
-      "published": "2026-09-22",
-      "author_line": "Ye O. Kolomiiets"
-    },
-    {
-      "id": "chemrxiv:10.26434/chemrxiv.15009371/v1",
-      "channel": "aixchem",
-      "related_channels": [],
-      "item_type": "paper",
-      "source": "ChemRxiv",
-      "title": "A Convenient Crystalline Acyl Silane for the Colorimetric Titration of Diisobutylaluminum Hydride (DIBAL)",
-      "url": "https://doi.org/10.26434/chemrxiv.15009371/v1",
-      "published_at": "2026-09-23",
-      "updated_at": "2026-09-23",
-      "creators": [
-        "Stephen Collins",
-        "Colby Basnett",
-        "Joshua D. Sieber"
-      ],
-      "language": "en",
-      "abstract_or_text": "Due to the intense color associated with acyl silanes and their fast reaction with DIBAL to generate colorless alcohols, these properties were utilized to develop a colorimetric titration of DIBAL. A convenient crystalline acyl silane was identified that can be prepared on gram scale without the need for chromatographic purification by direct crystallization of the reaction products. Use of this material for the colorimetric titration of DIBAL and n-BuLi was possible. A variety of other 2 hydride and organometallic reagents were also tested and showed unsatisfactory endpoints. This work was performed by an American Chemical Society Project SEED student during their summer fellowship under the direction of a senior graduate student. The work disclosed could be suitable for application to an advanced undergraduate level laboratory related to the titration of reactive hydride reagents including the significance of atom effects on the physical and chemical properties or organic compounds.",
-      "summary_zh": "研究利用 acyl silane 的强显色及其与 DIBAL 快速反应生成无色醇的特性，开发 DIBAL 比色滴定法；所选晶态 acyl silane 可克级制备且无需柱层析，也可用于 n-BuLi 滴定。",
-      "why_it_matters_zh": "该方法为活泼氢化物与有机金属试剂的浓度测定提供了易制备、直观的教学和实验室工具。适用范围有限：其他两种氢化物及有机金属试剂给出不理想终点，且摘要未报告准确度或与标准滴定法的比较。",
-      "quality_score": 70.0,
-      "tags": [
-        "材料与催化"
-      ],
-      "evidence_flags": [],
-      "publication_status": "preprint",
-      "rank": 9,
-      "featured": false,
-      "category": "材料与催化",
-      "metrics": {},
-      "metadata": {
-        "doi": "10.26434/chemrxiv.15009371/v1",
-        "arxiv_id": ""
-      },
-      "abstract_zh": "由于 acyl silanes 具有强烈的颜色，并且可与 DIBAL 快速反应生成无色醇，本文利用这些性质开发了 DIBAL 的比色滴定法。研究确定了一种方便的晶态 acyl silane，可通过反应产物的直接结晶在克级制备，无需色谱纯化。该材料可用于 DIBAL 和 n-BuLi 的比色滴定。还测试了多种其他氢化物和有机金属试剂，但显示出不令人满意的终点。本工作由一名 American Chemical Society Project SEED 学生在暑期奖学金期间、在一名高年级研究生指导下完成。所披露的工作可能适合用于高年级本科实验室，内容涉及活泼氢化物试剂的滴定，以及原子效应对有机化合物物理和化学性质重要性的教学。",
-      "published": "2026-09-23",
-      "author_line": "Stephen Collins, Colby Basnett, Joshua D. Sieber"
+      "author_line": "Bowyer S, Allen D, Furnham N"
     }
   ],
   "review": {
     "model": "gpt-5.6-terra",
     "reasoning_effort": "high",
-    "note": "共审阅 53 项候选；9 项质量分达到 70，均予保留。综述类工作主要提供方法论与证据边界，尚非新的端到端验证；所有条目均为预印本。"
+    "note": "仅选入摘要中提供了可审阅的基准或实验验证的候选；T-REX虽质量分达标，但摘要未报告性能或实验结果，故未纳入。"
   }
 }

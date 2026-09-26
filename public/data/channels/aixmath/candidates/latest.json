@@ -1,8 +1,238 @@
 {
   "schema_version": "2.0",
-  "date": "2026-09-25",
+  "date": "2026-09-26",
   "channel": "aixmath",
-  "generated_at": "2026-09-24T23:06:44+00:00",
-  "count": 0,
-  "items": []
+  "generated_at": "2026-09-26T04:33:46+00:00",
+  "count": 7,
+  "items": [
+    {
+      "id": "openreview:3pfdg7v1th",
+      "channel": "aixmath",
+      "related_channels": [],
+      "item_type": "paper",
+      "source": "OpenReview",
+      "title": "Formally Guaranteed Policy Transfer for Reinforcement Learning in Continuous Spaces",
+      "url": "https://openreview.net/forum?id=3pFDg7V1TH",
+      "published_at": "2026-09-16",
+      "updated_at": "2026-09-25",
+      "creators": [],
+      "language": "en",
+      "abstract_or_text": "Synthesizing reinforcement learning policies using Deep Q learning for continuous-space systems is one of the common goals in robotic applications. But using DQN based policies lack formal guarantees on convergence to optimal policy. One can use tabular Q-learning methods which has optimal policy convergence guarantees. However, directly transferring tabular Q-learning policies to continuous environments introduces a severe sim-to-real dynamic mismatch, frequently resulting in catastrophic specification violations. To bridge this gap, this paper proposes a hierarchical reinforcement learning framework that formally bounds spatial drift without requiring hyper-conservative grid resolutions. A high-level Q-learning agent synthesizes an optimal policy on a highly tractable discrete state-space, while a low-level robust tracking controller forces the continuous physical plant to adhere to the discrete trajectory within a strict \\epsilon-tube. By actively suppressing this sim-to-real divergence, we mathematically guarantee that the transferred continuous execution strictly satisfies the original temporal and stability specifications, while maintaining a formally bounded O(\\epsilon) optimality loss relative to the ideal discrete Q-value. The efficacy of the proposed framework is demonstrated through experiments on three nonlinear robotic environments: an omnibot, a 2-DOF helicopter, and an inverted pendulum. Videos of the experiments are available at https://tinyurl.com/2e5c89be{link}https://tinyurl.com/2e5c89be.",
+      "summary_zh": "",
+      "why_it_matters_zh": "",
+      "quality_score": 71,
+      "tags": [
+        "方法与模型"
+      ],
+      "evidence_flags": [],
+      "publication_status": "Under review for TMLR",
+      "rank": 0,
+      "featured": false,
+      "category": "方法与模型",
+      "metrics": {},
+      "metadata": {
+        "forum_id": "3pFDg7V1TH",
+        "domain": "TMLR",
+        "invitation": "TMLR/-/Submission"
+      }
+    },
+    {
+      "id": "openreview:wspohp0n66",
+      "channel": "aixmath",
+      "related_channels": [],
+      "item_type": "paper",
+      "source": "OpenReview",
+      "title": "PubSwap: Public-Data Off-Policy Coordination for Federated RLVR",
+      "url": "https://openreview.net/forum?id=WSpOHp0N66",
+      "published_at": "2026-09-16",
+      "updated_at": "2026-09-25",
+      "creators": [],
+      "language": "en",
+      "abstract_or_text": "Post-training Large Reasoning Models (LRMs) with reinforcement learning from verifiable rewards (RLVR) is typically studied in centralized settings, yet many realistic applications involve private data distributed across organizations. Federated Learning (FL) provides a natural framework for such settings, but scaling federated RLVR to modern LLMs presents two key challenges: frequent model synchronization of large models is expensive, while performing many local steps under heterogeneous data leads to severe client drift. Existing drift-mitigation methods in FL were largely developed for supervised objectives and primarily control divergence in parameter or gradient space. In reinforcement learning (RL), however, client drift additionally changes the policies used to generate training trajectories, inducing off- policy sampling effects that these methods do not directly address and that we find can make them ineffective. We propose PubSwap, a federated RLVR framework that combines LoRA- based local adaptation with lightweight coordination over a small shared public dataset. PubSwap periodically exchanges response-level training signals across clients, enabling knowledge transfer while mitigating policy drift without sharing raw private data. Across mathematical and medical reasoning benchmarks and multiple model families, PubSwap consistently improves over standard federated baselines, with particularly strong gains when many local steps are performed between synchronization rounds. Our results demonstrate that response-level coordination provides an effective mechanism for mitigating policy drift and enabling communication-efficient federated RLVR.",
+      "summary_zh": "",
+      "why_it_matters_zh": "",
+      "quality_score": 67,
+      "tags": [
+        "方法与模型"
+      ],
+      "evidence_flags": [
+        "benchmark",
+        "dataset"
+      ],
+      "publication_status": "Under review for TMLR",
+      "rank": 0,
+      "featured": false,
+      "category": "方法与模型",
+      "metrics": {},
+      "metadata": {
+        "forum_id": "WSpOHp0N66",
+        "domain": "TMLR",
+        "invitation": "TMLR/-/Submission"
+      }
+    },
+    {
+      "id": "openreview:u7djwofbyc",
+      "channel": "aixmath",
+      "related_channels": [],
+      "item_type": "paper",
+      "source": "OpenReview",
+      "title": "ERP-FM: A Foundation Model for Universal ERP Analysis",
+      "url": "https://openreview.net/forum?id=U7dJwoFbyc",
+      "published_at": "2026-09-23",
+      "updated_at": "2026-09-25",
+      "creators": [],
+      "language": "en",
+      "abstract_or_text": "Foundation models have recently shown strong potential for learning generalizable EEG representations, yet their effectiveness for event-related potential (ERP) analysis remains unclear. In this work, we investigate two fundamental questions: 1) can foundation-model learning benefit ERP analysis, and what limits the transfer of existing EEG foundation models to ERP tasks? 2) can the complementary advantages of single-trial and averaged-trial ERP be integrated into a unified training pipeline? To study these questions, we curate a large-scale ERP corpus comprising 1,517,157 single-trial ERPs from 3,696 subjects across 38 datasets and 18 paradigms. Leveraging this corpus, we introduce ERP-FM, to the best of our knowledge, the first foundation model specifically developed for ERP representation learning. ERP-FM uses single-channel tokenization, temporal and spatial positional embeddings, and mixed masked autoencoding for large-scale single-trial pretraining. We compare our model against 17 existing methods on 12 downstream datasets covering ERP event/condition classification and neurological disease classification. Our model achieves the best overall average rank across all evaluated methods. Furthermore, our analyses reveal that both ERP and non-ERP EEG pretraining can provide transferable representations for ERP tasks, while fine-grained temporal tokenization is critical for effectively modeling transient ERP dynamics. We further find that single-trial and averaged-trial ERP play complementary rather than competing roles. Combining single-trial pretraining with averaged-trial downstream adaptation substantially improves neurological disease analysis. Overall, these findings establish an effective foundation-model training pipeline for ERP analysis and represent significant progress toward generalizable ERP representation learning. Source code: https://anonymous.4open.science/r/ERP-FM-7EBD",
+      "summary_zh": "",
+      "why_it_matters_zh": "",
+      "quality_score": 66,
+      "tags": [
+        "方法与模型"
+      ],
+      "evidence_flags": [
+        "dataset"
+      ],
+      "publication_status": "Under review for TMLR",
+      "rank": 0,
+      "featured": false,
+      "category": "方法与模型",
+      "metrics": {},
+      "metadata": {
+        "forum_id": "U7dJwoFbyc",
+        "domain": "TMLR",
+        "invitation": "TMLR/-/Submission"
+      }
+    },
+    {
+      "id": "openreview:mfgq0app6v",
+      "channel": "aixmath",
+      "related_channels": [],
+      "item_type": "paper",
+      "source": "OpenReview",
+      "title": "EmoRouter: Adaptive Modality Selection for Multimodal Emotion Recognition",
+      "url": "https://openreview.net/forum?id=Mfgq0aPP6V",
+      "published_at": "2026-09-17",
+      "updated_at": "2026-09-25",
+      "creators": [],
+      "language": "en",
+      "abstract_or_text": "Multimodal Emotion Recognition (MER) involves detecting the underlying emotion behind each utterance within a conversation, which is essential for emotionally aware human-computer interaction. While omni-modal large language models (Omni-LLMs) demonstrate strong capability for MER by jointly processing modalities including text, audio, and vision, different utterances favor different modality combinations: when textual cues are ambiguous, acoustic and visual signals are indispensable, whereas when text alone is expressive, the extra modalities become redundant and may introduce interference. Processing all modalities for every utterance is also computationally expensive. To this end, we introduce EmoRouter, a training-free, model-agnostic routing framework that dynamically selects the modality combination for each utterance. The routing is guided by prediction-uncertainty estimates derived from Conformal Prediction. EmoRouter routes each utterance through a sequence of increasing-cost modality levels and exits at the first level when the model is confident in the emotion. To determine when to exit, we propose Conformal Set Contraction, a structural calibration criterion that calibrates the per-tier CP error budgets used for these exit decisions. Comprehensive evaluations on 4 MER benchmarks and 3 Omni-LLMs reveal that EmoRouter matches or outperforms the full modalities while reducing inference latency by 68.8--94.6\\%. Furthermore, EmoRouter demonstrates high transferability across different models, validating its robustness.",
+      "summary_zh": "",
+      "why_it_matters_zh": "",
+      "quality_score": 64,
+      "tags": [
+        "方法与模型"
+      ],
+      "evidence_flags": [
+        "benchmark",
+        "evaluation"
+      ],
+      "publication_status": "Under review for TMLR",
+      "rank": 0,
+      "featured": false,
+      "category": "方法与模型",
+      "metrics": {},
+      "metadata": {
+        "forum_id": "Mfgq0aPP6V",
+        "domain": "TMLR",
+        "invitation": "TMLR/-/Submission"
+      }
+    },
+    {
+      "id": "openreview:ypvmt8vfuv",
+      "channel": "aixmath",
+      "related_channels": [],
+      "item_type": "paper",
+      "source": "OpenReview",
+      "title": "Delaunay–Rips filtration: a study and an algorithm",
+      "url": "https://openreview.net/forum?id=YPVmT8VFuV",
+      "published_at": "2026-09-15",
+      "updated_at": "2026-09-25",
+      "creators": [],
+      "language": "en",
+      "abstract_or_text": "The Delaunay–Rips filtration is a lighter and faster alternative to the well-known Rips filtration for low-dimensional Euclidean point clouds, making it a promising tool for topological approaches in machine learning. However, it has seldom been studied. In this paper, we address this gap by providing a comprehensive theoretical and empirical analysis of this construction, as well as an evaluation of its practical performance in classification tasks. From a theoretical perspective, we show how the persistence diagrams associated with the Delaunay–Rips filtration approximate those obtained with the Rips filtration and we describe the instabilities of the Delaunay–Rips persistence diagrams when the input point cloud is perturbed. Then, we introduce an algorithm that computes persistence diagrams of Delaunay–Rips filtrations in any dimension. We show that our approach is faster and has a lower memory footprint than traditional approaches in low dimensions. Finally, we evaluate its performance in classification tasks on synthetic and real datasets. Our C++ implementation, which comes with Python bindings, is available at https://hidden_for_anonymity.",
+      "summary_zh": "",
+      "why_it_matters_zh": "",
+      "quality_score": 63,
+      "tags": [
+        "验证与逻辑"
+      ],
+      "evidence_flags": [
+        "dataset",
+        "evaluation",
+        "performance"
+      ],
+      "publication_status": "Under review for TMLR",
+      "rank": 0,
+      "featured": false,
+      "category": "验证与逻辑",
+      "metrics": {},
+      "metadata": {
+        "forum_id": "YPVmT8VFuV",
+        "domain": "TMLR",
+        "invitation": "TMLR/-/Submission"
+      }
+    },
+    {
+      "id": "openreview:gcrvious3d",
+      "channel": "aixmath",
+      "related_channels": [],
+      "item_type": "paper",
+      "source": "OpenReview",
+      "title": "How Many Decay Factors Do You Need? Tree Positional Encoding for Symbolic Mathematics",
+      "url": "https://openreview.net/forum?id=gcRViOuS3d",
+      "published_at": "2026-09-23",
+      "updated_at": "2026-09-25",
+      "creators": [],
+      "language": "en",
+      "abstract_or_text": "Transformers trained on symbolic mathematics tasks such as symbolic integration typically receive a linearised, sequence-based view of the expression's syntax tree, discarding its structure. Shiv & Quirk (2019) propose a tree positional encoding that instead represents each token by its path of branching decisions from the root, weighted by a learned decay factor that discounts distant ancestors. They do not detail how to combine multiple such factors, and only report results for a single one. In this paper, we show how to combine multiple decay factors using a learned projection and study their impact on accuracy. We do this on the direct symbolic integration setting of Lample & Charton (2020). On the same task, we also look at compositional generalisation (Welleck et al., 2022). This asks whether a model that can integrate f(x) and g(x) separately can also integrate their sum f(x)+g(x). For small models and a single decay factor, tree positional encoding raises integration accuracy from 69.8\\% (standard transformer) to 74.1\\%, while this benefit nearly disappears for large models. Increasing the number of decay factors from one to sixteen has only a modest effect on this standard accuracy, reaching 75.5\\%. The effect is clearer on compositional generalisation. At composition degree two, accuracy rises from 17.7\\% for the standard transformer to 25.8\\% with a single decay factor and 29.0\\% with sixteen. Most of this gain is already obtained with four decay factors (28.5\\%). These results highlight the value of structure-aware positional encodings for mathematical expressions. The benefit is most pronounced in smaller models, suggesting that explicit structural information is particularly useful when model capacity is limited.",
+      "summary_zh": "",
+      "why_it_matters_zh": "",
+      "quality_score": 61,
+      "tags": [
+        "验证与逻辑"
+      ],
+      "evidence_flags": [],
+      "publication_status": "Under review for TMLR",
+      "rank": 0,
+      "featured": false,
+      "category": "验证与逻辑",
+      "metrics": {},
+      "metadata": {
+        "forum_id": "gcRViOuS3d",
+        "domain": "TMLR",
+        "invitation": "TMLR/-/Submission"
+      }
+    },
+    {
+      "id": "openreview:gk97bxwx0c",
+      "channel": "aixmath",
+      "related_channels": [],
+      "item_type": "paper",
+      "source": "OpenReview",
+      "title": "Meta-reinforcement learning with minimum attention",
+      "url": "https://openreview.net/forum?id=GK97bxwX0C",
+      "published_at": "2026-09-22",
+      "updated_at": "2026-09-25",
+      "creators": [],
+      "language": "en",
+      "abstract_or_text": "Minimum attention applies the least action principle in changes of control concerning state and time, first proposed by Brockett. The involved regularization is highly relevant in emulating biological control, such as motor learning. We apply minimum attention in reinforcement learning (RL) as part of the rewards and investigate its connection to meta-learning and stabilization. Specifically, model-based meta-learning with minimum attention is explored in high-dimensional nonlinear dynamics. Ensemble-based model learning and gradient-based meta-policy learning are alternately performed. Empirically, minimum attention improves fast adaptation in few shots and reduces variance from perturbations of the model and environment, compared to model-free and model-based RL baseline, and yields consistent gain when integrated into modern world models (DreamerV3, MAMBA). Furthermore, the minimum attention demonstrates an improvement in energy efficiency.",
+      "summary_zh": "",
+      "why_it_matters_zh": "",
+      "quality_score": 61,
+      "tags": [
+        "验证与逻辑"
+      ],
+      "evidence_flags": [],
+      "publication_status": "Under review for TMLR",
+      "rank": 0,
+      "featured": false,
+      "category": "验证与逻辑",
+      "metrics": {},
+      "metadata": {
+        "forum_id": "GK97bxwX0C",
+        "domain": "TMLR",
+        "invitation": "TMLR/-/Submission"
+      }
+    }
+  ]
 }

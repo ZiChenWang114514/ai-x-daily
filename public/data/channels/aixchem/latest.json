@@ -1,25 +1,25 @@
 {
   "schema_version": "2.0",
-  "date": "2026-09-26",
+  "date": "2026-09-27",
   "channel": "aixchem",
-  "generated_at": "2026-09-26T04:27:21+00:00",
+  "generated_at": "2026-09-26T23:06:56+00:00",
   "title": "AI × Chem 每日精选",
   "subtitle": "预印本、方法、数据集与实验验证的每日精选。",
   "window": {
-    "start": "2026-09-23",
-    "end": "2026-09-26"
+    "start": "2026-09-24",
+    "end": "2026-09-27"
   },
   "method": "公开来源采集、历史去重、规则筛选与模型审阅",
   "method_note": "系统保存当日公开元数据，与历史日报核验后排除已报道事件；论文新版本、新修订及不同软件发布等可核实更新仍可入选，随后由指定模型阅读全文摘要并完成精选。",
   "stats": {
-    "fetched": 300,
-    "suppressed_previous": 15,
-    "candidates": 41,
-    "selected": 3,
+    "fetched": 62,
+    "suppressed_previous": 3,
+    "candidates": 12,
+    "selected": 0,
     "sources": {
       "arXiv": 0,
-      "bioRxiv": 152,
-      "ChemRxiv": 148
+      "bioRxiv": 0,
+      "ChemRxiv": 62
     }
   },
   "source_status": {
@@ -28,156 +28,21 @@
       "count": 0
     },
     "bioRxiv": {
-      "state": "ok",
-      "count": 152
+      "state": "empty",
+      "count": 0
     },
     "ChemRxiv": {
       "state": "ok",
-      "count": 148
+      "count": 62
     }
   },
   "source_errors": [
     "arXiv: RuntimeError: Unable to fetch https://export.arxiv.org/api/query?search_query=%28cat%3Acs.LG+OR+cat%3Acs.AI+OR+cat%3Acs.CL+OR+cat%3Acs.NE+OR+cat%3Astat.ML+OR+cat%3Acs.LO+OR+cat%3Acs.FL+OR+cat%3Acs.SC+OR+cat%3Amath.LO+OR+cat%3Acs.CE+OR+cat%3Aphysics.chem-ph+OR+cat%3Aq-bio.BM+OR+cat%3Aq-bio.GN+OR+cat%3Aq-bio.MN+OR+cat%3Aq-bio.QM+OR+cat%3Aq-bio.NC%29&start=0&max_results=100&sortBy=submittedDate&sortOrder=descending: HTTP Error 406: Not Acceptable"
   ],
-  "items": [
-    {
-      "id": "biorxiv:10.64898/2026.09.17.752433",
-      "channel": "aixchem",
-      "related_channels": [
-        "aixbio"
-      ],
-      "item_type": "paper",
-      "source": "bioRxiv",
-      "title": "Leakage-controlled benchmarking reveals generalization limits of deep learning for protein-ligand binding affinity prediction",
-      "url": "https://www.biorxiv.org/content/10.64898/2026.09.17.752433",
-      "published_at": "2026-09-23",
-      "updated_at": "2026-09-24",
-      "creators": [
-        "Wang L",
-        "Cheng J"
-      ],
-      "language": "en",
-      "abstract_or_text": "To address widespread data leakage and inconsistent evaluation in protein-ligand affinity prediction, we introduce PLABench, a leakage-controlled and target-centric benchmarking framework that enables standardized comparison across sequence- and structure-based models. We benchmark nine deep learning methods across blind CASP16 targets, leakage-controlled ChEMBL35 sets, and established Davis and KIBA datasets under rigorous data split settings, standardizing structural input via AlphaFold3 to ensure fair comparison. Although pretrained structure-based models achieve the highest overall accuracy, they show severe target-dependent variability, and increasing structural fidelity from predicted to experimental conformations yields no consistent gains. Meanwhile, sequence-based approaches surpass some structure-based methods on select targets, and protein family-level evaluations reveal uneven performance across families and substantial inter-model complementarity obscured by aggregate metrics. These findings demonstrate that training scale and structural input alone cannot guarantee cross-target generalization, highlighting the need for context-aware interaction modeling. PLABench provides an extensible open-source platform to facilitate these developments.",
-      "summary_zh": "PLABench以严格的数据泄漏控制和靶点中心化评测，统一比较9种蛋白—配体结合亲和力深度学习方法。跨CASP16盲测靶点、泄漏控制的ChEMBL35及Davis、KIBA数据集的结果表明：预训练结构模型总体最优，但跨靶点和蛋白家族的表现不稳定；实验结构也未稳定优于预测结构。",
-      "why_it_matters_zh": "这为亲和力预测提供了更接近真实泛化问题的比较框架，并明确指出汇总指标会掩盖模型互补性与靶点依赖性。其证据主要来自既有基准和计算评测，能否转化为前瞻性药物发现收益仍需检验。",
-      "quality_score": 81.0,
-      "tags": [
-        "分子与药物发现"
-      ],
-      "evidence_flags": [
-        "benchmark",
-        "dataset",
-        "experimental",
-        "evaluation",
-        "performance"
-      ],
-      "publication_status": "preprint",
-      "rank": 1,
-      "featured": true,
-      "category": "分子与药物发现",
-      "metrics": {},
-      "metadata": {
-        "doi": "10.64898/2026.09.17.752433",
-        "arxiv_id": ""
-      },
-      "abstract_zh": "为解决蛋白—配体结合亲和力预测中普遍存在的数据泄漏和评估不一致问题，我们提出PLABench：一个控制数据泄漏、以靶点为中心的基准测试框架，可对基于序列和基于结构的模型进行标准化比较。我们在盲测CASP16靶点、控制数据泄漏的ChEMBL35数据集，以及既有的Davis和KIBA数据集上，以严格的数据划分设置对9种深度学习方法进行了基准测试；并通过AlphaFold3标准化结构输入，以确保公平比较。尽管预训练的结构模型取得最高的总体准确度，但其表现呈现严重的靶点依赖性变异，且将结构保真度从预测构象提高到实验构象并未带来一致的增益。同时，基于序列的方法在部分靶点上优于某些基于结构的方法；蛋白家族层面的评估揭示了家族间表现不均衡，以及汇总指标所掩盖的显著模型间互补性。这些发现表明，仅靠训练规模和结构输入不能保证跨靶点泛化，凸显了情境感知相互作用建模的必要性。PLABench提供了一个可扩展的开源平台，以推动这些发展。",
-      "published": "2026-09-23",
-      "author_line": "Wang L, Cheng J"
-    },
-    {
-      "id": "biorxiv:10.64898/2026.09.17.752345",
-      "channel": "aixchem",
-      "related_channels": [],
-      "item_type": "paper",
-      "source": "bioRxiv",
-      "title": "Generative Access to Make-on-Demand Chemical Space Enables Ultra-Large Virtual Screening",
-      "url": "https://www.biorxiv.org/content/10.64898/2026.09.17.752345",
-      "published_at": "2026-09-23",
-      "updated_at": "2026-09-24",
-      "creators": [
-        "Zhang K",
-        "Sun Y",
-        "Li X",
-        "Wang Y",
-        "Peng C",
-        "Jin X",
-        "Hu Q",
-        "Huang J"
-      ],
-      "language": "en",
-      "abstract_or_text": "Ultra-large-scale virtual screening (ULVS) increasingly relies on make-on-demand chemical spaces, but efficient access to these spaces remains challenging because their scale far exceeds what can be exhaustively enumerated and docked. Here, we present REAL-SWIT, a generative ULVS framework that learns Enamine REAL Space as a synthesizable molecular distribution and couples this generator with a target-specific scoring model to enable docking-guided exploration of REAL Space at the level of complete molecule. The generative model learned transferable features of the REAL Space distribution: approximately 96% of generated molecules were found in REAL Space, and a subset of generated molecules absent from the training release appeared in later expanded releases. In computational benchmarks, REAL-SWIT identified more molecules with favorable docking scores than representative fragment-based search strategies, including cooperative building-block combinations that fragment-level prioritization tended to miss. Experimental validation for ROCK1 yielded six biochemical inhibitors among 23 synthesized compounds, including RX-3 with an IC50 of 0.17 μM. These results establish generative access to make-on-demand chemical space as a practical strategy for ULVS.",
-      "summary_zh": "REAL-SWIT将Enamine REAL Space学习为可合成分子分布，并以靶点特异性评分模型引导生成式超大规模虚拟筛选。在ROCK1验证中，合成的23个化合物中有6个生化抑制剂，RX-3的IC50为0.17 μM。",
-      "why_it_matters_zh": "该工作把生成模型直接用于探索按需合成空间，缓解了逐一枚举和对接超大库的计算瓶颈，并给出了湿实验命中证据。验证仍限于单一靶点、较小合成集及生化活性，选择性、细胞活性和可推广性尚待确认。",
-      "quality_score": 77.0,
-      "tags": [
-        "分子与药物发现"
-      ],
-      "evidence_flags": [
-        "benchmark",
-        "experimental",
-        "release"
-      ],
-      "publication_status": "preprint",
-      "rank": 2,
-      "featured": true,
-      "category": "分子与药物发现",
-      "metrics": {},
-      "metadata": {
-        "doi": "10.64898/2026.09.17.752345",
-        "arxiv_id": ""
-      },
-      "abstract_zh": "超大规模虚拟筛选（ULVS）日益依赖按需合成化学空间，但由于其规模远超可被穷尽枚举和对接的范围，高效访问这些空间仍具挑战。这里，我们提出REAL-SWIT，一种生成式ULVS框架：它将Enamine REAL Space学习为可合成的分子分布，并将该生成器与靶点特异性评分模型耦合，从而在完整分子层面实现对REAL Space的对接引导探索。该生成模型学习到了REAL Space分布的可迁移特征：约96%的生成分子可在REAL Space中找到，而训练发布版本中不存在的一部分生成分子出现在后续扩展的发布版本中。在计算基准中，REAL-SWIT发现的具有有利对接评分的分子多于代表性的基于片段搜索策略，包括片段层面优先排序往往会错过的协同构建模块组合。针对ROCK1的实验验证中，在23个合成化合物里得到6个生化抑制剂，其中RX-3的IC50为0.17 μM。这些结果确立了对按需合成化学空间的生成式访问作为ULVS实用策略的地位。",
-      "published": "2026-09-23",
-      "author_line": "Zhang K, Sun Y, Li X, Wang Y, Peng C, Jin X, Hu Q, Huang J"
-    },
-    {
-      "id": "biorxiv:10.64898/2026.09.17.752373",
-      "channel": "aixchem",
-      "related_channels": [
-        "aixbio",
-        "aixmath"
-      ],
-      "item_type": "paper",
-      "source": "bioRxiv",
-      "title": "NoroScope: Exploring the Mutational Landscape of the Human Norovirus Capsid Protein with Context-Aware Machine Learning",
-      "url": "https://www.biorxiv.org/content/10.64898/2026.09.17.752373",
-      "published_at": "2026-09-23",
-      "updated_at": "2026-09-24",
-      "creators": [
-        "Bowyer S",
-        "Allen D",
-        "Furnham N"
-      ],
-      "language": "en",
-      "abstract_or_text": "Anticipating the effects of mutations in viral proteins is important for the development of therapeutics and control strategies but remains challenging as mutation phenotypes are shaped by complex overlapping sequence, structural and evolutionary constraints. Machine-learning approaches to mutation-effect prediction have shown considerable success for viruses with exceptionally rich training datasets, but their application to the majority of viruses with comparatively limited data remains underexplored. Here we introduce NoroScope, an interpretable machine-learning framework designed to prioritise plausible amino-acid substitutions in the human norovirus GII.4 capsid protein VP1 through integration of complementary biological evidence. Using VP1 protein sequences and experimentally resolved structures as a foundation, we generated datasets comprising zero-shot mutation scores from the Evolutionary Scale Modeling 2 protein large language model, in silico deep-mutational-scanning estimates of mutation-associated effects on protein stability and histo-blood group antigen binding, and descriptors of the evolutionary history of VP1. NoroScope integrated these evidence sources to prioritise historically observed alternative amino acids according to whether they subsequently received recurrent support in natural virus populations. Across retrospective 2011 and 2016 prediction tasks, the complete model achieved average precision values of 0.805 and 0.834 and recovered 87.9% and 92.9% of future-supported candidates within the top five alternatives at their respective positions. Feature ablation showed that evolutionary, sequence-model and structural information provided distinct and complementary predictive signals, with their integration supporting accurate amino acid prioritisation and revealing biologically informative disagreements between evidence sources. Experimental analysis at VP1 position 297 further supported molecular predictions for selected substitutions in a virus-like particle assembly system. Together, these results establish NoroScope as a framework for integrating pretrained protein representations with target-specific molecular and evolutionary context to explore viral mutation landscapes where available data are comparatively limited.",
-      "summary_zh": "NoroScope整合Evolutionary Scale Modeling 2蛋白语言模型零样本评分、深度突变扫描推断的稳定性和histo-blood group antigen结合效应，以及进化历史特征，对人诺如病毒GII.4 VP1突变进行可解释排序。回溯任务和VP1位点297的病毒样颗粒实验共同支持其预测。",
-      "why_it_matters_zh": "工作展示了在训练数据有限的病毒中，如何将通用蛋白表示与靶点特异的结构、进化证据结合，以支持突变监测和干预设计。结果基于回溯性自然群体支持和少量位点实验，未必等同于对全部突变表型或临床传播优势的前瞻预测。",
-      "quality_score": 77.0,
-      "tags": [
-        "结构与生物"
-      ],
-      "evidence_flags": [
-        "dataset",
-        "experimental",
-        "ablation"
-      ],
-      "publication_status": "preprint",
-      "rank": 3,
-      "featured": true,
-      "category": "结构与生物",
-      "metrics": {},
-      "metadata": {
-        "doi": "10.64898/2026.09.17.752373",
-        "arxiv_id": ""
-      },
-      "abstract_zh": "预测病毒蛋白中突变的效应对于治疗方法和防控策略的开发很重要，但仍具挑战性，因为突变表型受复杂且相互重叠的序列、结构和进化约束塑造。突变效应预测的机器学习方法已在训练数据极为丰富的病毒中显示出显著成功，但对于数据相对有限的大多数病毒，其应用仍缺乏探索。这里，我们介绍NoroScope：一个可解释的机器学习框架，旨在通过整合互补的生物学证据，对人诺如病毒GII.4衣壳蛋白VP1中合理的氨基酸替换进行优先排序。以VP1蛋白序列和实验解析的结构为基础，我们构建了数据集，其中包括来自Evolutionary Scale Modeling 2蛋白大语言模型的零样本突变评分、突变相关的蛋白稳定性和histo-blood group antigen结合效应的计算深度突变扫描估计，以及VP1进化历史的描述符。NoroScope整合这些证据来源，依据历史观察到的替代氨基酸其后是否在自然病毒群体中反复获得支持，对其进行优先排序。在回溯性的2011年和2016年预测任务中，完整模型的平均精确率分别达到0.805和0.834，并且在各自位点的前五个替代方案中，找回了87.9%和92.9%后来得到支持的候选。特征消融表明，进化信息、序列模型信息和结构信息提供了不同且互补的预测信号；它们的整合支持准确的氨基酸优先排序，并揭示了证据来源之间具有生物学信息量的不一致。对VP1第297位点的实验分析进一步在病毒样颗粒组装系统中支持了对所选替换的分子预测。总体而言，这些结果确立NoroScope为一个框架：在可用数据相对有限时，整合预训练蛋白表征与靶点特异的分子和进化背景，以探索病毒突变图谱。",
-      "published": "2026-09-23",
-      "author_line": "Bowyer S, Allen D, Furnham N"
-    }
-  ],
+  "items": [],
   "review": {
     "model": "gpt-5.6-terra",
     "reasoning_effort": "high",
-    "note": "仅选入摘要中提供了可审阅的基准或实验验证的候选；T-REX虽质量分达标，但摘要未报告性能或实验结果，故未纳入。"
+    "note": "完整候选集共 12 项，最高质量分为 69，未达到“质量分达到 70”的入选门槛；因此本期不选。"
   }
 }

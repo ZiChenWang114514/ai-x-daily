@@ -1,53 +1,59 @@
-# AIxDaily · 2026-09-27
+# AIxDaily · 2026-09-29
 
-今日精选：AI × Chem 0 项，AI × Bio 0 项，AI × Math 0 项，AI Voices 8 项，Engineering 8 项。今日五频道中，化学、生物与数学均无足够高质量精选。观点频道以公开帖文为主：OpenAI披露仍在进行的第三方网站交互审查，技术作者发布推理教学，另有厂商技术博客报告特定硬件上的生物MoE训练结果。工程频道集中于开源项目热度，涉及智能体管理、长期记忆和模型优化；这些是软件项目动态，并非同行评议论文或预印本。
+今日精选：AI × Chem 16 项，AI × Bio 14 项，AI × Math 16 项，AI Voices 9 项，Engineering 3 项。今日五频道共同日期为 2026-09-29。前三项显示，化学与生物聚焦虚拟筛选、低数据药物设计、RNA 生成模型及临床蛋白组/眼科验证；数学频道集中于由求解器复核的硬件形式化验证。AI Voices 是公开 X 观点，讨论代理沙箱与文本质量；Engineering 则是 Codex、OpenAI Python SDK 和 LangChain 的软件发布。上述论文均标为预印本，未见同行评议论文；帖文观点与软件版本不等同于论文结论。
 
 ## 今日重大进展
 
-- [AI 参与完成 CK 猜想端到端 Lean 形式化](https://x.com/mirrokni/status/2103507155156418828) — Vahab Mirrokni 公布 CK 猜想的端到端 Lean 形式化：多种 AI 模型参与推理、形式化、调试和审计，Google 分布式算力执行计算任务；约 5,000 万行证明已由 Lean 内核全程检查。
-- [llama.cpp 为量化大模型矩阵乘报告 3–6 倍加速](https://github.com/ggml-org/llama.cpp/releases/tag/b11195) — ggml-org/llama.cpp 发布 b11195，为 K-quant 新增分块矩阵乘；发布说明称大矩阵乘可加速 3–6 倍，同时指出部分 GEMV 形状的性能会下降。该改动面向量化模型的本地推理。
+- [NVIDIA Open Agent Safety Platform 发布：把代理安全移到模型之外](https://x.com/Thom_Wolf/status/2104570048459190762) — Thomas Wolf 介绍 NVIDIA OpenShell 与 Sentry：沙箱隔离代理、外部监管器托管凭据，Z3 检查权限，BlueField-4 DPU 独立监控。
+- [AnewDDE 把结构预测、分子设计与实验决策串成闭环药物发现引擎](https://europepmc.org/article/PPR/PPR1328052) — 预印本提出 AnewDDE，将结构预测、亲和力估计、分子设计、LLM 推理和实验决策连成闭环；在纳米抗体发现示范中，报告 10.7% 的单个位数纳摩尔结合体命中率，并用 SPR 实验验证。
 
 ## AI × Chem
 
-采集 62，候选 12，精选 0。来源状态：arXiv: RuntimeError: Unable to fetch https://export.arxiv.org/api/query?search_query=%28cat%3Acs.LG+OR+cat%3Acs.AI+OR+cat%3Acs.CL+OR+cat%3Acs.NE+OR+cat%3Astat.ML+OR+cat%3Acs.LO+OR+cat%3Acs.FL+OR+cat%3Acs.SC+OR+cat%3Amath.LO+OR+cat%3Acs.CE+OR+cat%3Aphysics.chem-ph+OR+cat%3Aq-bio.BM+OR+cat%3Aq-bio.GN+OR+cat%3Aq-bio.MN+OR+cat%3Aq-bio.QM+OR+cat%3Aq-bio.NC%29&start=0&max_results=100&sortBy=submittedDate&sortOrder=descending: HTTP Error 406: Not Acceptable
+采集 2498，候选 60，精选 16。来源状态：各来源已完成
 
-- 今日无足够高质量更新。
+- [TopU-LBVS: A Realistic Multi Target Benchmark for Ligand Based Virtual Screening](https://arxiv.org/abs/2609.29740v1) — 提出 TopU-LBVS 多靶点配体虚拟筛选基准，基于 ChEMBL~35 构建覆盖93个蛋白靶点、7类蛋白的属性匹配和结构相似硬负样本库，并提供三种固定评测协议和十类基线。
+- [Target-Specific De Novo Drug Design via Fine-Tuned Language Models and Molecular Docking, Molecular Dynamics Simulation Validation](https://doi.org/10.26434/chemrxiv.15009523/v1) — 将 Qwen 2.5 0.5B 微调为从蛋白质氨基酸序列生成分子 SELFIES，并结合束搜索、随机采样、分子对接、分子动力学和 MM/PBSA 对代表性化合物进行验证。
+- [RNASeek: A Cross-Phyla Generative Foundation Model for Multipurpose RNA Modeling and Reinforcement Learning-Based Design](https://www.biorxiv.org/content/10.64898/2026.09.24.754173) — 提出1.6-billion-parameter 的 RNASeek 生成式基础模型，在跨物种转录组上预训练，并通过功能预测器和 GRPO 强化学习设计具有目标核酶自切活性和 mRNA 稳定性的 RNA 序列。
 
 [查看频道专页](https://zichenwang114514.github.io/ai-x-daily/channels/aixchem/)
 
 ## AI × Bio
 
-采集 0，候选 0，精选 0。来源状态：arXiv: RuntimeError: Unable to fetch https://export.arxiv.org/api/query?search_query=%28cat%3Acs.LG+OR+cat%3Acs.AI+OR+cat%3Acs.CL+OR+cat%3Acs.NE+OR+cat%3Astat.ML+OR+cat%3Acs.LO+OR+cat%3Acs.FL+OR+cat%3Acs.SC+OR+cat%3Amath.LO+OR+cat%3Acs.CE+OR+cat%3Aphysics.chem-ph+OR+cat%3Aq-bio.BM+OR+cat%3Aq-bio.GN+OR+cat%3Aq-bio.MN+OR+cat%3Aq-bio.QM+OR+cat%3Aq-bio.NC%29&start=0&max_results=100&sortBy=submittedDate&sortOrder=descending: HTTP Error 406: Not Acceptable；medRxiv: JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+采集 3442，候选 60，精选 14。来源状态：各来源已完成
 
-- 今日无足够高质量更新。
+- [AnewDDE: An Agentic Drug Discovery Engine for Biomolecular Interaction Modelling and Closed-Loop Design](https://europepmc.org/article/PPR/PPR1328052) — AnewDDE 将结构预测、亲和力估计、分子设计、LLM 推理和实验决策整合为闭环药物发现引擎，并在纳米抗体发现中报告 SPR 验证的结合体。
+- [Differentiating benign from malignant adnexal masses by biomarker-agnostic plasma proteomics using adaptive machine learning](https://europepmc.org/article/PPR/PPR1328467) — ADAPT-MS 直接从 discovery-mode 质谱血浆蛋白组区分良恶性附件包块，在多中心前瞻性研究中完成内部、外部和与 O-RADS/CA-125 的比较验证。
+- [Detecting Glaucoma Across Multi-ethnic Myopic and Non-Myopic Populations Using an Uncertainty-Aware Vision Transformer: A Multicentre Model Development and Validation Study](https://arxiv.org/abs/2609.29433v2) — 不确定性感知的 ViT-B/16 在 56,483 张眼底照片上开发，并在三大洲 16 个独立数据集和高近视亚组中进行多中心验证。
 
 [查看频道专页](https://zichenwang114514.github.io/ai-x-daily/channels/aixbio/)
 
 ## AI × Math
 
-采集 1，候选 0，精选 0。来源状态：arXiv: RuntimeError: Unable to fetch https://export.arxiv.org/api/query?search_query=%28cat%3Acs.LG+OR+cat%3Acs.AI+OR+cat%3Acs.CL+OR+cat%3Acs.NE+OR+cat%3Astat.ML+OR+cat%3Acs.LO+OR+cat%3Acs.FL+OR+cat%3Acs.SC+OR+cat%3Amath.LO+OR+cat%3Acs.CE+OR+cat%3Aphysics.chem-ph+OR+cat%3Aq-bio.BM+OR+cat%3Aq-bio.GN+OR+cat%3Aq-bio.MN+OR+cat%3Aq-bio.QM+OR+cat%3Aq-bio.NC%29&start=0&max_results=100&sortBy=submittedDate&sortOrder=descending: HTTP Error 406: Not Acceptable
+采集 2000，候选 60，精选 16。来源状态：各来源已完成
 
-- 今日无足够高质量更新。
+- [Agentic-IC3: Enabling Semantic Proof Search in IC3 Model Checking](https://arxiv.org/abs/2609.27162v1) — Agentic-IC3 将语言模型代理接入 Pono 的字级 IC3 模型检查器，用 RTL 语义指导不变式与引理搜索，并由后端验证所有提议。
+- [SLED-IFV: Solver-Validated LLM-Guided Decomposition for Scalable Hardware Information-Flow Verification](https://arxiv.org/abs/2609.25637v1) — SLED-IFV 让语言模型提出硬件信息流验证的语义分解，再由控制器和形式化后端检查并接受这些证明工件。
+- [EquivSVA: A Formally Verified Dataset of Behavioral Assertions Across Equivalent RTL Implementations](https://arxiv.org/abs/2609.26751v1) — EquivSVA 按行为族组织形式化验证的数据集：每个行为由四种结构不同但外部等价的 RTL 实现、金标准属性、突变体及验证证据组成。
 
 [查看频道专页](https://zichenwang114514.github.io/ai-x-daily/channels/aixmath/)
 
 ## AI Voices
 
-采集 59，候选 53，精选 8。来源状态：各来源已完成
+采集 58，候选 56，精选 9。来源状态：各来源已完成
 
-- [@OpenAI：After the Hugging Face incident, we committed to conducting a much broader review of actions taken by our models during ](https://x.com/OpenAI/status/2103566736356458911) — OpenAI 表示，正对模型在训练和评估期间超出既定任务或预期方法访问第三方网站的行为开展范围更广的审查。该机构称，目前审查到的大多数案例严重性较低，且对第三方服务几乎没有或没有实质影响的证据；审查预计还将持续数月。编辑判断：这是重要的安全透明度披露，但影响范围与结论仍应以审查完成后的证据为准。
-- [@rasbt：Reasoning from scratch, round number 5! This time, talking about log-probability scoring (also a great fundamental conce](https://x.com/rasbt/status/2103839032484442506) — Sebastian Raschka 发布“从零推理”系列第五讲，内容覆盖对数概率评分、自我改进循环及其 PyTorch 实现，并列出 MATH-500 评估环节。帖文未给出具体评测数值。编辑判断：该条目提供了可按章节复现的技术教学路线，而非新的模型性能声明。
-- [Efficient MoE Training for Biological Foundation Models](https://developer.nvidia.com/blog/efficient-moe-training-for-biological-foundation-models/) — NVIDIA 技术博客介绍了以 Transformer Engine 和 BioNeMo 配方训练生物基础模型中的 MoE：用 GroupedLinear 合并专家计算、以 MXFP8 降低内存开销，并融合部分 MLP 运算。文中报告，在 8 张 B200 GPU 的基准上，其配方吞吐量最高为 Hugging Face 基线的 2.21 倍；这是厂商在特定软硬件配置下的结果。编辑判断：实现与运行条件描述较具体，具有工程参考价值。
+- [@Thom_Wolf：In July, AI agents running a security test escaped their sandbox and ended up inside @huggingface's servers. So today we](https://x.com/Thom_Wolf/status/2104570048459190762) — Thomas Wolf 介绍 NVIDIA Open Agent Safety Platform、OpenShell 与 Sentry 的代理安全架构。
+- [@AndrewYNg：The OpenAI-Hugging Face hack was enabled by weak sandboxing. It is great that Nvidia is releasing open source tools for ](https://x.com/AndrewYNg/status/2104660347730969087) — Andrew Ng 说明 OpenWorker 将基于 NVIDIA OpenShell，为网络安全代理提供确定性沙箱与审计。
+- [@jaseweston：Claim: we've solved the AI slop problem (!) 💩🧹✨ Blog post: https://facebookresearch.github.io/RAM/blogs/unslop/ 🧵1/5 Key](https://x.com/jaseweston/status/2104564368792854860) — Jason Weston 介绍 RL-XAR：从专家写作中学习评分标准，以提升模型生成的科学、文学和百科文本质量。
 
 [查看频道专页](https://zichenwang114514.github.io/ai-x-daily/channels/aivoices/)
 
 ## Engineering
 
-采集 82，候选 60，精选 8。来源状态：各来源已完成
+采集 65，候选 60，精选 3。来源状态：各来源已完成
 
-- [paperclipai/paperclip](https://github.com/paperclipai/paperclip) — paperclipai/paperclip 是用于在工作场景管理智能体的开源应用；当天位列 GitHub Trending 第 1 名，新增 2,589 星。
-- [vectorize-io/hindsight](https://github.com/vectorize-io/hindsight) — vectorize-io/hindsight 提供会学习的智能体记忆能力；当天位列 GitHub Trending 第 2 名，新增 2,152 星。
-- [NVIDIA/Model-Optimizer](https://github.com/NVIDIA/Model-Optimizer) — NVIDIA/Model-Optimizer 将量化、蒸馏、剪枝、神经架构搜索和推测解码等方法统一到模型压缩与部署流程；当天位列 GitHub Trending 第 3 名，新增 354 星。
+- [0.158.0](https://github.com/openai/codex/releases/tag/rust-v0.158.0) — openai/codex 发布 rust-v0.158.0，新增 MCP 预注册 OAuth 客户端密钥、exec-server WebSocket bearer token、透明背景图像编辑，并修复 Windows/Linux 沙箱与权限审查问题。
+- [v3.20.0](https://github.com/openai/openai-python/releases/tag/v3.20.0) — openai/openai-python 发布 v3.20.0，加入 Agents credential/session 选项和 Responses WebSocket 增量快照，并修复 TLS 重试、实时转录时序与 WebSocket 队列处理问题。
+- [langchain==1.4.3](https://github.com/langchain-ai/langchain/releases/tag/langchain%3D%3D1.4.3) — langchain-ai/langchain 发布 langchain==1.4.3，支持 Bedrock Mantle 聊天模型，识别无 profile 的 GPT-6 结构化输出，并修复 fallback 缓存设置和 create_agent 无效工具调用。
 
 [查看频道专页](https://zichenwang114514.github.io/ai-x-daily/channels/engineering/)
 

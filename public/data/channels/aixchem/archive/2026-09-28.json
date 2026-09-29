@@ -1,0 +1,799 @@
+{
+  "schema_version": "2.0",
+  "date": "2026-09-28",
+  "channel": "aixchem",
+  "generated_at": "2026-09-27T23:07:07+00:00",
+  "title": "AI × Chem 每日精选",
+  "subtitle": "预印本、方法、数据集与实验验证的每日精选。",
+  "window": {
+    "start": "2026-09-24",
+    "end": "2026-09-28"
+  },
+  "method": "公开来源采集、历史去重、规则筛选与模型审阅",
+  "method_note": "系统保存当日公开元数据，与历史日报核验后排除已报道事件；论文新版本、新修订及不同软件发布等可核实更新仍可入选，随后由指定模型阅读全文摘要并完成精选。",
+  "stats": {
+    "fetched": 823,
+    "suppressed_previous": 5,
+    "candidates": 60,
+    "selected": 16,
+    "sources": {
+      "arXiv": 0,
+      "bioRxiv": 780,
+      "ChemRxiv": 62
+    }
+  },
+  "source_status": {
+    "arXiv": {
+      "state": "failed",
+      "count": 0
+    },
+    "bioRxiv": {
+      "state": "ok",
+      "count": 780
+    },
+    "ChemRxiv": {
+      "state": "ok",
+      "count": 62
+    }
+  },
+  "source_errors": [
+    "arXiv: RuntimeError: Unable to fetch https://export.arxiv.org/api/query?search_query=%28cat%3Acs.LG+OR+cat%3Acs.AI+OR+cat%3Acs.CL+OR+cat%3Acs.NE+OR+cat%3Astat.ML+OR+cat%3Acs.LO+OR+cat%3Acs.FL+OR+cat%3Acs.SC+OR+cat%3Amath.LO+OR+cat%3Acs.CE+OR+cat%3Aphysics.chem-ph+OR+cat%3Aq-bio.BM+OR+cat%3Aq-bio.GN+OR+cat%3Aq-bio.MN+OR+cat%3Aq-bio.QM+OR+cat%3Aq-bio.NC%29&start=0&max_results=100&sortBy=submittedDate&sortOrder=descending: HTTP Error 406: Not Acceptable"
+  ],
+  "items": [
+    {
+      "id": "biorxiv:10.64898/2026.09.20.752967",
+      "channel": "aixchem",
+      "related_channels": [
+        "aixbio",
+        "aixmath"
+      ],
+      "item_type": "paper",
+      "source": "bioRxiv",
+      "title": "AnewDDE: An Agentic Drug Discovery Engine for Biomolecular Interaction Modelling and Closed-Loop Design",
+      "url": "https://www.biorxiv.org/content/10.64898/2026.09.20.752967",
+      "published_at": "2026-09-25",
+      "updated_at": "2026-09-25",
+      "creators": [
+        "Anew Labs Team,",
+        "Liu, K."
+      ],
+      "language": "en",
+      "abstract_or_text": "Accurate modelling of biomolecular interactions is fundamental to drug discovery, yet current artificial intelligence (AI) workflows remain fragmented across structure prediction, affinity estimation, molecular design, and experimental decision-making. We introduce AnewDDE, an agentic Drug Discovery Engine that connects these capabilities into a closed-loop system for biomolecular interaction modelling and design. We demonstrate several components of this system: AnewFold delivers superior performance on challenging targets, including antibody-antigen complexes and molecular glues, providing more reliable structural hypotheses together with pocket identification and conformational analysis; AnewDesign achieves a 10.7% success rate in identifying binders with single-digit-nanomolar affinities measured by surface plasmon resonance (SPR) in a representative nanobody discovery campaign, substantially reducing the experimental search burden; AnewAffinity combines accuracy approaching that of free-energy perturbation (FEP) methods with the speed required for high-throughput screening and prioritizes promising transformations; and AnewMind, a large language model (LLM) at the hundred-billion-parameter scale that underwent in-house full-parameter post-training, provides scientific reasoning and absorption, distribution, metabolism, excretion, and toxicity (ADMET) prediction for pharmaceutical research and development (R&D). To systematically evaluate AnewMind, we introduce PharmBench, an internal benchmark designed by pharmaceutical R&D experts to evaluate long-horizon decision-making in drug discovery. Evaluations on ADMET tasks and PharmBench show that AnewMind performs competitively with leading frontier models. Together, these capabilities establish AnewDDE as an integrated engine for addressing challenging therapeutic targets and translating molecular insights into experimentally validated candidates at scale.",
+      "summary_zh": "AnewDDE 将结构预测、结合亲和力估计、分子设计和实验决策整合为闭环药物发现引擎，并展示了 AnewFold、AnewDesign、AnewAffinity 和 AnewMind 等组件。AnewDesign 在纳米抗体发现活动中通过 SPR 测得个位数纳摩尔结合子，AnewMind 则在 ADMET 和 PharmBench 评估中表现出竞争力。",
+      "why_it_matters_zh": "覆盖药物发现从建模到实验决策的多个环节，并包含真实 SPR 验证，显示出闭环系统减少实验搜索量的潜力。需要注意的是，部分性能来自内部基准和内部后训练模型，10.7% 成功率来自代表性纳米抗体活动，外部可复现性仍需验证。",
+      "quality_score": 85.0,
+      "tags": [
+        "方法与模型"
+      ],
+      "evidence_flags": [
+        "benchmark",
+        "experimental",
+        "evaluation",
+        "performance"
+      ],
+      "publication_status": "preprint",
+      "rank": 1,
+      "featured": true,
+      "category": "方法与模型",
+      "metrics": {},
+      "metadata": {
+        "doi": "10.64898/2026.09.20.752967",
+        "arxiv_id": ""
+      },
+      "abstract_zh": "准确建模生物分子相互作用是药物发现的基础，但当前人工智能（AI）工作流在结构预测、亲和力估计、分子设计和实验决策之间仍然彼此割裂。我们提出 AnewDDE，这是一种智能体药物发现引擎，将这些能力连接成用于生物分子相互作用建模与设计的闭环系统。我们展示了该系统的多个组件：AnewFold 在包括抗体-抗原复合物和分子胶在内的困难靶标上取得了更优性能，提供了更可靠的结构假设以及口袋识别和构象分析；AnewDesign 在一次具有代表性的纳米抗体发现活动中，以表面等离子体共振（SPR）测得的个位数纳摩尔亲和力识别结合子的成功率达到 10.7%，显著减少了实验搜索负担；AnewAffinity 兼具接近自由能微扰（FEP）方法的准确性和高通量筛选所需的速度，并可优先筛选有希望的结构转化；AnewMind 是一个百十亿参数规模的 large language model（LLM），经过内部全参数后训练，可为药物研发（R&D）提供科学推理以及吸收、分布、代谢、排泄和毒性（ADMET）预测。为系统评估 AnewMind，我们引入 PharmBench，这是由制药研发专家设计、用于评估药物发现长期决策的内部基准。在 ADMET 任务和 PharmBench 上的评估显示，AnewMind 的表现可与领先的前沿模型竞争。总体而言，这些能力构成了一个整合式引擎，用于应对困难治疗靶标，并将分子洞见转化为经过实验验证的候选物。",
+      "published": "2026-09-25",
+      "author_line": "Anew Labs Team,, Liu, K."
+    },
+    {
+      "id": "biorxiv:10.64898/2026.09.24.754190",
+      "channel": "aixchem",
+      "related_channels": [
+        "aixbio"
+      ],
+      "item_type": "paper",
+      "source": "bioRxiv",
+      "title": "Fructose Dendrimer-Based Poly Ionic Complexes for Glut5-Specific Intracellular Drug Delivery in Murine Brain",
+      "url": "https://www.biorxiv.org/content/10.64898/2026.09.24.754190",
+      "published_at": "2026-09-25",
+      "updated_at": "2026-09-25",
+      "creators": [
+        "Woods, P. S.",
+        "Aldhahri, G.",
+        "Hanchar, E.",
+        "Dhulekar, S.",
+        "Ramos Espinoza, R.",
+        "Pineiro, A.",
+        "Vincent, J. P.",
+        "O'Shea, T. M."
+      ],
+      "language": "en",
+      "abstract_or_text": "Glial cells play essential roles in maintaining neural tissue homeostasis and limiting the spread of injury-induced neuroinflammation, yet their dysfunction can also exacerbate neurodegenerative, neuroimmune, and neurodevelopmental disorders. Therapeutic targeting of specific glial cell populations would open up new treatment possibilities, but currently available viral and non-viral delivery vehicles are limited by carrier toxicity as well as poor delivery efficiency and specificity. To work towards new glia-targeted, non-viral delivery vehicles, we performed an in silico analysis on neural cell specific RNA-Seq datasets in mice to identify surface molecules differentially enriched on neurons, astrocytes, and microglia. We identified Slc2a5 (Glut5) as a microglia-enriched transporter and validated its microglia specific expression in healthy murine neural tissue using RNA in situ hybridization. By employing a sequential thiol-ene and enzymatic catalyzed reaction scheme, we synthesized polyelectrolytic dendrimers with multivalent presentation of fructose, the natural ligand for Glut5, and formulated nano-sized polyionic complexes (PICs) loaded with protein or nucleic acid cargo by mixing oppositely charged dendrimers. Fructose functionalized PICs lacking cationic surface charge enabled fructose-dependent intracellular protein delivery to Glut5-expressing human breast cancer cells (MCF-7) and mouse fibroblasts, while restricting uptake by Glut5-negative mouse astrocytes, confirming transporter-dependent selectivity in vitro. Fructose functionalized PICs resulted in minimal neuroinflammation when injected into mouse striatum at 1 mg/ml but elicited concentration-dependent neural tissue toxicity at higher doses. Fructose-PICs failed to achieve microglia specific intracellular delivery of functional proteins when injected into healthy neural tissue but aided in directing protein delivery to microglia and astrocytes at ischemic stroke lesions. Together, our findings demonstrate proof-of-principle for using in silico RNA-seq screening workflows to identify cell specific surfaceome targets and incorporating that insight into a modular biomaterial platform for targeted drug delivery.",
+      "summary_zh": "研究者通过 RNA-Seq 筛选发现 Glut5 是小胶质细胞富集的转运体，并据此合成多价果糖树枝状大分子，组装成可装载蛋白或核酸的聚离子复合物。该系统在体外表现出转运体依赖的选择性，在缺血性卒中病灶中可将蛋白递送至小胶质细胞和星形胶质细胞，但健康脑组织中的小胶质细胞特异性递送未实现。",
+      "why_it_matters_zh": "把细胞表面组学筛选与模块化非病毒递送材料结合，为胶质细胞靶向递送提供了概念验证。局限在于高剂量引起神经组织毒性，且健康脑内的细胞特异性递送效果不足，仍需优化剂量、选择性和体内疗效。",
+      "quality_score": 81.0,
+      "tags": [
+        "分子与药物发现"
+      ],
+      "evidence_flags": [
+        "dataset"
+      ],
+      "publication_status": "preprint",
+      "rank": 2,
+      "featured": true,
+      "category": "分子与药物发现",
+      "metrics": {},
+      "metadata": {
+        "doi": "10.64898/2026.09.24.754190",
+        "arxiv_id": ""
+      },
+      "abstract_zh": "胶质细胞在维持神经组织稳态和限制损伤诱导的神经炎症扩散方面发挥重要作用，但其功能障碍也会加剧神经退行性、神经免疫性和神经发育性疾病。靶向特定胶质细胞群可带来新的治疗机会，但现有病毒和非病毒递送载体受到载体毒性、递送效率低和特异性差的限制。为开发新的胶质细胞靶向非病毒递送载体，我们对小鼠神经细胞特异性 RNA-Seq 数据集进行了计算机分析，以识别在神经元、星形胶质细胞和小胶质细胞上差异富集的表面分子。我们发现 Slc2a5（Glut5）是小胶质细胞富集的转运体，并通过 RNA 原位杂交验证了其在健康小鼠神经组织中的小胶质细胞特异性表达。通过顺序硫醇-烯反应和酶催化反应，我们合成了多价呈现果糖（Glut5 的天然配体）的聚电解质树枝状大分子，并通过混合带相反电荷的树枝状大分子制备了装载蛋白或核酸货物的纳米级聚离子复合物（PIC）。不带阳离子表面电荷的果糖功能化 PIC 可在体外实现依赖果糖的蛋白质胞内递送至表达 Glut5 的人乳腺癌细胞（MCF-7）和小鼠成纤维细胞，同时限制被 Glut5 阴性小鼠星形胶质细胞摄取，证实了转运体依赖的选择性。将果糖功能化 PIC 以 1 mg/ml 注射入小鼠纹状体时引起的神经炎症很小，但更高剂量会产生浓度依赖性的神经组织毒性。果糖-PIC 在健康神经组织中注射后未能实现对小胶质细胞的特异性功能蛋白胞内递送，但在缺血性卒中病灶中有助于将蛋白递送至小胶质细胞和星形胶质细胞。总体而言，我们的研究证明，利用计算机 RNA-seq 筛选工作流识别细胞特异性表面组靶点，并将该信息整合到模块化生物材料平台中，可用于靶向药物递送。",
+      "published": "2026-09-25",
+      "author_line": "Woods, P. S., Aldhahri, G., Hanchar, E., Dhulekar, S., Ramos Espinoza, R., Pineiro, A., Vincent, J. P., O'Shea, T. M."
+    },
+    {
+      "id": "biorxiv:10.64898/2026.09.17.751511",
+      "channel": "aixchem",
+      "related_channels": [
+        "aixbio"
+      ],
+      "item_type": "paper",
+      "source": "bioRxiv",
+      "title": "SurfGraphPro: Integrating Protein Language Models with Geometric Deep Learning On Coarse Protein Surfaces for Binding Site Prediction",
+      "url": "https://www.biorxiv.org/content/10.64898/2026.09.17.751511",
+      "published_at": "2026-09-24",
+      "updated_at": "2026-09-24",
+      "creators": [
+        "Habib, A.",
+        "Hung, L.-W.",
+        "Gibson, K.",
+        "Dix, M.",
+        "Chain, P. S. G.",
+        "Hu, B."
+      ],
+      "language": "en",
+      "abstract_or_text": "Accurate and fast prediction of protein binding sites remains essential for understanding molecular interactions and facilitating protein engineering. Here, we present SurfGraphPro, a geometric deep learning approach that bridges protein language models with surface-based structural representations for a rapid binding interface prediction. Our method operates on coarse-graphed triangulated protein surfaces, utilizing solvent-excluded surface meshes downsampled into amino acid residue centered patches. Unlike existing approaches that rely on extensive physicochemical feature engineering, we leverage evolutionary information directly from protein language model embeddings, eliminating the need for computationally expensive multiple sequence alignments and hand-crafted features. This integration achieves on average \\sim18-28 \\times speedup for proteins of \\sim100 to a few 1000s of amino acids over current state-of-the-art surface-based model while maintaining comparable accuracy on diverse binding interfaces, including challenging antibody-antigen complexes. To our knowledge, this represents the first approach to integrate protein language model embeddings with coarse geometric surface representations for binding site prediction, demonstrating that learned evolutionary features coupled with geometric transformers can replace traditional feature engineering without sacrificing performance.",
+      "summary_zh": "SurfGraphPro 将蛋白质语言模型嵌入与粗粒度三角网格蛋白表面结合，用于快速预测结合界面。相较现有表面模型，在保持相近准确率的同时，对约 100 至数千个氨基酸的蛋白质实现约 18–28 倍加速，并覆盖抗体-抗原等困难界面。",
+      "why_it_matters_zh": "用学习到的进化信息替代多序列比对和手工理化特征，降低了结合位点预测的计算成本。摘要只报告与当前先进表面模型的平均速度和相当准确率，尚缺少更广泛独立数据集及实验验证。",
+      "quality_score": 81.0,
+      "tags": [
+        "方法与模型"
+      ],
+      "evidence_flags": [
+        "state-of-the-art",
+        "performance"
+      ],
+      "publication_status": "preprint",
+      "rank": 3,
+      "featured": true,
+      "category": "方法与模型",
+      "metrics": {},
+      "metadata": {
+        "doi": "10.64898/2026.09.17.751511",
+        "arxiv_id": ""
+      },
+      "abstract_zh": "准确而快速地预测蛋白质结合位点对于理解分子相互作用和促进蛋白质工程仍然至关重要。在此，我们提出 SurfGraphPro，一种几何深度学习方法，将蛋白质语言模型与基于表面的结构表示连接起来，以快速预测结合界面。该方法在粗粒度图化的三角网格蛋白质表面上运行，使用下采样到以氨基酸残基为中心的斑块的溶剂排斥表面网格。不同于依赖大量理化特征工程的现有方法，我们直接利用蛋白质语言模型嵌入中的进化信息，消除了计算成本高昂的多序列比对和手工设计特征。对于约 100 个至数千个氨基酸的蛋白质，该整合方法相较当前最先进的基于表面的模型平均实现约 18-28 倍加速，同时在包括困难抗体-抗原复合物在内的多种结合界面上保持相近准确率。据我们所知，这是首个将蛋白质语言模型嵌入与粗粒度几何表征整合用于结合位点预测的方法，表明学习到的进化特征与几何 Transformer 相结合，可以在不牺牲性能的情况下替代传统特征工程。",
+      "published": "2026-09-24",
+      "author_line": "Habib, A., Hung, L.-W., Gibson, K., Dix, M., Chain, P. S. G., Hu, B."
+    },
+    {
+      "id": "biorxiv:10.1101/2025.09.30.679666",
+      "channel": "aixchem",
+      "related_channels": [
+        "aixbio",
+        "aixmath"
+      ],
+      "item_type": "paper",
+      "source": "bioRxiv",
+      "title": "Execution-aware agent harness for accessible and responsible synthetic biology automation",
+      "url": "https://www.biorxiv.org/content/10.1101/2025.09.30.679666",
+      "published_at": "2026-09-24",
+      "updated_at": "2026-09-24",
+      "creators": [
+        "Gao, Y.",
+        "Fu, L.",
+        "Liu, Y.",
+        "Luo, Y.",
+        "Zhang, J.",
+        "Li, W.",
+        "Lan, Y.",
+        "Wang, Y.",
+        "Li, Y.",
+        "Jiang, H.",
+        "Chen, Y.",
+        "Zhang, N.",
+        "Alexanian, T.",
+        "Boldrini, L.",
+        "Yi, X.",
+        "Li, B.",
+        "Alinejad-Rokny, H.",
+        "Wang, T.",
+        "Yang, M.",
+        "Zhou, D.",
+        "Liu, C.",
+        "Si, T."
+      ],
+      "language": "en",
+      "abstract_or_text": "Laboratory automation accelerates synthetic biology, but robot programming remains a barrier to broader participation. Large language model (LLM)-based automation must address four interconnected requirements in this field: sequence-level biosecurity, community standards, context-dependent biological behavior, and distributed collaboration across laboratories. Here we present LabscriptAI, an execution-aware agent framework that couples authoring and runtime control loops to translate natural-language instructions into platform-specific robot scripts and support bounded recovery under deterministic authorization and human oversight. On a 90-task liquid-handling benchmark, LabscriptAI achieved a 96.7% simulation-pass rate, the highest among the evaluated LLM-based and commercial baselines. We demonstrated its capabilities through sequence screening at designated workflow checkpoints; standardized cell-free characterization of 854 green fluorescent protein (GFP) designs from 171 student teams, coupled to data deposition; containment-aware engineering of a formaldehyde-converting enzyme, yielding 6.7-fold higher ethylene glycol titers in a two-stage cascade; and quality-assured preparation of 531 genetic parts for the 2025 iGEM Distribution Kit distributed worldwide. Together, these results establish LabscriptAI as a biosecurity-aware, community-integrated framework connecting protocol authoring, controlled execution, and traceable experimental outputs across laboratory platforms.",
+      "summary_zh": "LabscriptAI 将自然语言协议编写、运行时控制、确定性授权和人工监督结合起来，生成并执行平台特异的机器人脚本。在 90 项液体处理基准中模拟通过率达 96.7%，并展示了 GFP 表征、甲醛转化酶工程和 iGEM 遗传部件制备等实验工作流。",
+      "why_it_matters_zh": "把 LLM 实验自动化从脚本生成推进到执行感知和受控恢复，并明确纳入序列级生物安全与可追溯输出。需要留意 96.7% 是模拟基准结果，真实实验场景和不同实验平台上的鲁棒性仍需独立评估。",
+      "quality_score": 80.0,
+      "tags": [
+        "方法与模型"
+      ],
+      "evidence_flags": [
+        "benchmark",
+        "experimental",
+        "security"
+      ],
+      "publication_status": "preprint",
+      "rank": 4,
+      "featured": false,
+      "category": "方法与模型",
+      "metrics": {},
+      "metadata": {
+        "doi": "10.1101/2025.09.30.679666",
+        "arxiv_id": ""
+      },
+      "abstract_zh": "实验室自动化加速了合成生物学，但机器人编程仍是扩大参与范围的障碍。基于大型语言模型（LLM）的自动化必须应对该领域相互关联的四项要求：序列级生物安全、社区标准、依赖上下文的生物学行为，以及跨实验室的分布式协作。在此，我们提出 LabscriptAI，这是一种执行感知型智能体框架，将编写环路和运行时控制环路结合起来，把自然语言指令转换为平台特异的机器人脚本，并在确定性授权和人工监督下支持受限恢复。在 90 项液体处理基准中，LabscriptAI 的模拟通过率达到 96.7%，在所评估的基于 LLM 的方法和商业基线中最高。我们通过以下工作展示了其能力：在指定工作流检查点进行序列筛选；对来自 171 个学生团队的 854 个绿色荧光蛋白（GFP）设计进行标准化无细胞表征并完成数据存入；对一种甲醛转化酶进行具备生物遏制意识的工程改造，在两阶段级联反应中使乙二醇滴度提高 6.7 倍；以及质量保证地制备 531 个遗传部件，用于在全球分发的 2025 年 iGEM Distribution Kit。总之，这些结果建立了一个具备生物安全意识、融入社区的框架，将协议编写、受控执行和可追溯实验输出连接到不同实验室平台。",
+      "published": "2026-09-24",
+      "author_line": "Gao, Y., Fu, L., Liu, Y., Luo, Y., Zhang, J., Li, W., Lan, Y., Wang, Y., Li, Y., Jiang, H., Chen, Y., Zhang, N., Alexanian, T., Boldrini, L., Yi, X., Li, B., Alinejad-Rokny, H., Wang, T., Yang, M., Zhou, D., Liu, C., Si, T."
+    },
+    {
+      "id": "biorxiv:10.64898/2026.09.18.752645",
+      "channel": "aixchem",
+      "related_channels": [
+        "aixbio"
+      ],
+      "item_type": "paper",
+      "source": "bioRxiv",
+      "title": "Boltz2-Notebook: An Interactive Google Colab Platform for Diffusion-Based Biomolecular Structure and Binding Affinity Prediction using the Boltz2 model.",
+      "url": "https://www.biorxiv.org/content/10.64898/2026.09.18.752645",
+      "published_at": "2026-09-24",
+      "updated_at": "2026-09-24",
+      "creators": [
+        "Tilewale, A.",
+        "Patel, D."
+      ],
+      "language": "en",
+      "abstract_or_text": "Recent advances in deep learning-based structure prediction, including AlphaFold3 and the open-source Boltz model family, have extended biomolecular modeling to joint prediction of protein-ligand, protein-nucleic acid, and multi-chain complexes with binding-affinity estimation. Boltz-2 is among the most feature-complete of these open models, but its practical use requires a local CUDA-capable GPU, command-line execution, and manually authored YAML configuration files, limiting accessibility for researchers without dedicated computational infrastructure. We developed Boltz2-Notebook, a Colab-native interface comprising four integrated stages - automated environment setup, interactive parameter-to-YAML generation, execution management, and automated confidence and affinity visualization - together with a manifest-driven batch mode for multi-target screening. All modelling capabilities are inherited unmodified from Boltz-2; Boltz2-Notebook's contributions are limited to accessibility, input construction, and workflow automation. Independent of the software, we curated a benchmark of 317 protein-ligand pairs (122 proteins, 277 ligands) from BindingDB and predicted binding affinity in triplicate using the Boltz-2 command-line engine on high-performance computing infrastructure. Predicted and experimental pIC50 values showed moderate correlation (Pearson r = 0.609 [95% CI 0.540-0.675]; Spearman {rho} = 0.625; R2 = 0.371; MAE = 0.968 pIC50 units), with high triplicate reproducibility (pairwise r = 0.97) but a systematic compression of the predicted affinity range and no measurable relationship between Boltz-2's self-reported confidence metrics and prediction accuracy. Boltz2-Notebook is freely available as open-source software and provides external, reproducible evidence - including a specific confidence-calibration limitation - relevant to interpreting Boltz-2 affinity predictions responsibly.",
+      "summary_zh": "Boltz2-Notebook 将 Boltz-2 的结构与亲和力预测流程封装为 Colab 界面，支持参数生成、执行管理、置信度/亲和力可视化和批量筛选。对 317 个蛋白质-配体对的独立评估显示预测 pIC50 与实验值中度相关，但预测范围被压缩，且自报告置信度与准确性无可测关系。",
+      "why_it_matters_zh": "提供了可复现的外部基准和明确的置信度校准警示，帮助研究者更谨慎地解释 Boltz-2 的亲和力预测。该软件本身未改变 Boltz-2 模型，相关性能结论主要反映原模型和该基准的表现。",
+      "quality_score": 80.0,
+      "tags": [
+        "结构与生物"
+      ],
+      "evidence_flags": [
+        "benchmark",
+        "experimental",
+        "performance"
+      ],
+      "publication_status": "preprint",
+      "rank": 5,
+      "featured": false,
+      "category": "结构与生物",
+      "metrics": {},
+      "metadata": {
+        "doi": "10.64898/2026.09.18.752645",
+        "arxiv_id": ""
+      },
+      "abstract_zh": "近期基于深度学习的结构预测进展，包括 AlphaFold3 和开源 Boltz 模型系列，已将生物分子建模扩展到蛋白质-配体、蛋白质-核酸和多链复合物的联合预测，并可估计结合亲和力。Boltz-2 是功能最完整的开源模型之一，但其实际使用需要本地支持 CUDA 的 GPU、命令行执行以及手工编写 YAML 配置文件，这限制了没有专用计算基础设施的研究者使用。我们开发了 Boltz2-Notebook，这是一个原生 Colab 界面，包含四个集成阶段——自动环境设置、交互式参数到 YAML 的生成、执行管理以及自动置信度和亲和力可视化——并提供由清单驱动的多靶标批处理模式。所有建模能力均未经修改地继承自 Boltz-2；Boltz2-Notebook 的贡献仅限于可访问性、输入构建和工作流自动化。独立于该软件，我们从 BindingDB 整理了一个包含 317 个蛋白质-配体对（122 个蛋白质、277 个配体）的基准，并在高性能计算基础设施上使用 Boltz-2 命令行引擎对结合亲和力进行三次预测。预测值与实验 pIC50 值呈中度相关（Pearson r = 0.609 [95% CI 0.540-0.675]；Spearman {rho} = 0.625；R2 = 0.371；MAE = 0.968 pIC50 单位），三次预测具有较高的可重复性（两两 r = 0.97），但预测亲和力范围存在系统性压缩，且 Boltz-2 自行报告的置信度指标与预测准确性之间没有可测量的关系。Boltz2-Notebook 作为开源软件免费提供，并给出了包括特定置信度校准局限在内的外部、可复现证据，这些证据与负责任地解释 Boltz-2 的亲和力预测有关。",
+      "published": "2026-09-24",
+      "author_line": "Tilewale, A., Patel, D."
+    },
+    {
+      "id": "biorxiv:10.64898/2026.09.19.752921",
+      "channel": "aixchem",
+      "related_channels": [],
+      "item_type": "paper",
+      "source": "bioRxiv",
+      "title": "A closed-loop language-model agent for target-specific multi-objective hit-to-lead optimization",
+      "url": "https://www.biorxiv.org/content/10.64898/2026.09.19.752921",
+      "published_at": "2026-09-24",
+      "updated_at": "2026-09-24",
+      "creators": [
+        "Cui, W.",
+        "Tian, L.",
+        "Qi, X.",
+        "Wang, H.",
+        "Wu, H.",
+        "He, H.",
+        "Fang, C.",
+        "Hu, J."
+      ],
+      "language": "en",
+      "abstract_or_text": "Hit-to-lead optimization is a multi-objective molecular-design problem in which binding-related scores must be considered together with drug-likeness and synthetic accessibility. We developed a closed-loop language-model medicinal-chemistry agent that combines target and starting-hit context, PubMed retrieval, molecular-property tools, docking, and feedback from previously scored analogues. In a matched computational benchmark comprising six kinase targets, six methods, a 40-candidate budget, and six independent campaigns per method, the agent achieved the highest mean aggregate score under a pre-specified composite objective on four targets. Re-analysis of the same candidate sets with drug-likeness-gated docking and docking-drug-likeness hypervolume produced different target-level winners, showing that evaluation rules can change the comparative interpretation of an optimization campaign. Candidate distributions and component ablations indicated that the agent's advantage was associated primarily with retention of scored-candidate feedback and higher-QED regions rather than with docking alone. An EGFR case study illustrates a scaffold-preserving in-silico optimization trajectory from erlotinib. The study is a computational benchmark and evaluation framework; the prioritized molecules are hypotheses for subsequent experimental testing, not experimentally validated leads.",
+      "summary_zh": "研究者构建了闭环语言模型药物化学智能体，将靶点和起始命中物上下文、PubMed 检索、分子性质工具、对接及历史类似物反馈结合起来。在六个激酶靶点的匹配计算基准中，该智能体在四个靶点上取得最高平均综合分，但不同评价规则会改变靶点级优胜者。",
+      "why_it_matters_zh": "系统地展示了反馈保留和 QED 区域偏好对命中到先导优化的贡献，并提醒评价函数会显著影响模型比较。研究完全是计算基准，优先分子尚未经过实验验证。",
+      "quality_score": 78.0,
+      "tags": [
+        "分子与药物发现"
+      ],
+      "evidence_flags": [
+        "benchmark",
+        "experimental",
+        "ablation",
+        "evaluation"
+      ],
+      "publication_status": "preprint",
+      "rank": 6,
+      "featured": false,
+      "category": "分子与药物发现",
+      "metrics": {},
+      "metadata": {
+        "doi": "10.64898/2026.09.19.752921",
+        "arxiv_id": ""
+      },
+      "abstract_zh": "命中到先导优化是一个多目标分子设计问题，其中必须同时考虑与结合相关的评分、药物相似性和合成可及性。我们开发了一种闭环语言模型药物化学智能体，将靶点和起始命中物上下文、PubMed 检索、分子性质工具、对接以及来自此前评分类似物的反馈结合起来。在一个匹配的计算基准中，该基准包含六个激酶靶点、六种方法、每种方法 40 个候选物的预算以及每种方法六次独立活动，该智能体在四个靶点上根据预先规定的综合目标取得了最高平均综合评分。使用药物相似性门控对接以及对接-药物相似性超体积对相同候选集重新分析后，靶点级优胜者发生了变化，表明评价规则可以改变对优化活动的比较解释。候选物分布和组件消融表明，该智能体的优势主要与保留已评分候选物反馈以及更高 QED 区域有关，而不是仅仅来自对接。一个 EGFR 案例展示了从 erlotinib 出发的保留骨架的计算机内优化轨迹。本研究是计算基准和评价框架；其中优先排序的分子是后续实验测试的假设，并非经过实验验证的先导物。",
+      "published": "2026-09-24",
+      "author_line": "Cui, W., Tian, L., Qi, X., Wang, H., Wu, H., He, H., Fang, C., Hu, J."
+    },
+    {
+      "id": "biorxiv:10.64898/2026.09.21.753204",
+      "channel": "aixchem",
+      "related_channels": [
+        "aixbio"
+      ],
+      "item_type": "paper",
+      "source": "bioRxiv",
+      "title": "Limitations of general protein language models and public TCRpMHC data in training specificity prediction models",
+      "url": "https://www.biorxiv.org/content/10.64898/2026.09.21.753204",
+      "published_at": "2026-09-25",
+      "updated_at": "2026-09-25",
+      "creators": [
+        "Rai, B.",
+        "Hall-Swan, S."
+      ],
+      "language": "en",
+      "abstract_or_text": "T cell receptor (TCR) specificity prediction is critical for understanding adaptive immunity and for enabling the development of therapeutic interventions. Current machine learning models for predicting TCR-peptide-MHC interactions perform poorly, despite large efforts by many groups and advances in protein language models. This work identifies and addresses the fundamental issues that might be hindering progress in this field, focusing on current approaches for constructing training and validation sets, particularly on the strategies used by commonly used methods, which generate negative data either by shuffling TCRs between epitopes or by pairing epitopes with TCRs from background datasets of healthy donors. Here, we visualize and quantify the overlap between positive and generated negative TCR sets produced by both strategies using a range of sequence embedding approaches, including simple encodings (one-hot and BLOSUM62), general protein language models (ESM-2 and ProtGPT2), and a TCR-specific embedding model (TCR-BERT). Using paired {beta}TCR data from VDJdb for two well-studied epitopes (GILGFVFTL and KLGGALQAK), we train Random Forest classifiers on each embedding representation and evaluate their ability to distinguish positive from negative data examples. We find that general sequence embedding methods struggle to differentiate between positive and negative TCRs. We further show that the choice of negative data generation method significantly impacts classifier performance. Our findings highlight fundamental limitations in current TCR specificity training data and general protein language models, and underscore the need for TCR-specific embeddings, experimentally validated negative datasets, transparent reporting of negative data construction, and epitope-specific modeling approaches.",
+      "summary_zh": "该研究系统分析 TCR 特异性预测中的负样本构造和表示学习问题，比较了 one-hot、BLOSUM62、ESM-2、ProtGPT2 和 TCR-BERT 嵌入。结果显示通用序列嵌入难以区分正负 TCR，负样本生成方式会显著改变分类器表现，提示需要 TCR 特异模型和实验验证的负数据。",
+      "why_it_matters_zh": "指出训练/验证集设计中的结构性偏差，直接关系到免疫受体-配体预测模型的可信度。研究基于两个表位和 VDJdb 配对 βTCR 数据，外推到更广泛 TCRpMHC 场景时仍需谨慎。",
+      "quality_score": 77.0,
+      "tags": [
+        "方法与模型"
+      ],
+      "evidence_flags": [
+        "dataset",
+        "experimental",
+        "performance"
+      ],
+      "publication_status": "preprint",
+      "rank": 7,
+      "featured": false,
+      "category": "方法与模型",
+      "metrics": {},
+      "metadata": {
+        "doi": "10.64898/2026.09.21.753204",
+        "arxiv_id": ""
+      },
+      "abstract_zh": "T 细胞受体（TCR）特异性预测对于理解适应性免疫和促进治疗干预开发至关重要。尽管许多团队付出了大量努力，蛋白质语言模型也取得了进展，但当前用于预测 TCR-肽-MHC 相互作用的机器学习模型表现仍然不佳。本研究识别并处理了可能阻碍该领域进展的根本问题，重点考察训练集和验证集的构建方式，尤其是常用方法采用的策略：通过在表位之间打乱 TCR，或将表位与来自健康供者背景数据集的 TCR 配对来生成负数据。在多种序列嵌入方法下，包括简单编码（one-hot 和 BLOSUM62）、通用蛋白质语言模型（ESM-2 和 ProtGPT2）以及 TCR 特异性嵌入模型（TCR-BERT），我们可视化并量化了由这两种策略生成的阳性和阴性 TCR 集合之间的重叠。利用 VDJdb 中针对两个研究充分的表位（GILGFVFTL 和 KLGGALQAK）的配对 βTCR 数据，我们在每种嵌入表示上训练 Random Forest 分类器，并评估其区分正数据和负数据样本的能力。我们发现，通用序列嵌入方法难以区分阳性和阴性 TCR。我们进一步表明，负数据生成方法的选择会显著影响分类器性能。研究结果揭示了当前 TCR 特异性训练数据和通用蛋白质语言模型的根本局限，并强调需要 TCR 特异性嵌入、经过实验验证的负数据集、透明报告负数据构建方法，以及表位特异性建模。",
+      "published": "2026-09-25",
+      "author_line": "Rai, B., Hall-Swan, S."
+    },
+    {
+      "id": "biorxiv:10.1101/2024.10.23.619960",
+      "channel": "aixchem",
+      "related_channels": [
+        "aixbio"
+      ],
+      "item_type": "paper",
+      "source": "bioRxiv",
+      "title": "FoldMark: Safeguarding Protein Structure Generative Models with Distributional and Evolutionary Watermarking",
+      "url": "https://www.biorxiv.org/content/10.1101/2024.10.23.619960",
+      "published_at": "2026-09-26",
+      "updated_at": "2026-09-26",
+      "creators": [
+        "ZHANG, Z.",
+        "Jin, R.",
+        "Liu, J.",
+        "Xu, G.",
+        "Wang, X.",
+        "Zitnik, M.",
+        "Zhao, H.",
+        "Cong, L.",
+        "Wang, M."
+      ],
+      "language": "en",
+      "abstract_or_text": "Proteins are the principal architects of life, fueling advances in bioengineering, drug discovery, and synthetic biology. The integration of generative AI with computational protein science has revolutionized protein design while also posing dual-use risks, such as enabling the creation of pandemic-capable proteins that require strong biosecurity safeguards. Here, we introduce FoldMark, a first-of-its-kind watermarking strategy leveraging distributional and evolutionary principles tailored for protein generative models, balancing watermark capacity and structural quality. FoldMark achieves over 95% watermark bit accuracy at 32 bits with minimal impact on structural quality (>0.9 scTM scores) for leading models including AlphaFold3, ESMFold, RFDiffusion, and RFDiffusionAA. For user tracing, FoldMark can successfully trace up to 1 million users. To validate FoldMark in wet lab, we applied it to structure-based design of EGFP and CRISPR-Cas13, showing wildtype-level function (98% fluorescence, 95% editing efficiency) and >90% watermark detection, demonstrating its practical utility for safeguarding AI-driven protein research.",
+      "summary_zh": "FoldMark 为蛋白质生成模型设计分布式和进化水印，在 AlphaFold3、ESMFold、RFDiffusion 和 RFDiffusionAA 上达到超过 95% 的 32 位水印准确率，同时保持 >0.9 的 scTM 结构质量。对 EGFP 和 CRISPR-Cas13 的湿实验显示接近野生型功能并可检测水印。",
+      "why_it_matters_zh": "为蛋白质生成模型提供了兼顾可追踪性与功能保持的生物安全机制，并有湿实验验证。摘要未说明更广泛蛋白质类别、攻击鲁棒性和部署成本，实际监管效果仍需进一步测试。",
+      "quality_score": 76.0,
+      "tags": [
+        "方法与模型"
+      ],
+      "evidence_flags": [
+        "security"
+      ],
+      "publication_status": "preprint",
+      "rank": 8,
+      "featured": false,
+      "category": "方法与模型",
+      "metrics": {},
+      "metadata": {
+        "doi": "10.1101/2024.10.23.619960",
+        "arxiv_id": ""
+      },
+      "abstract_zh": "蛋白质是生命的主要架构师，推动了生物工程、药物发现和合成生物学的发展。生成式 AI 与计算蛋白质科学的结合已经革新了蛋白质设计，同时也带来了双重用途风险，例如能够创造具有引发大流行能力的蛋白质，因此需要强有力的生物安全保障。在此，我们提出 FoldMark，这是一种首创的水印策略，利用分布和进化原理为蛋白质生成模型量身设计，在水印容量和结构质量之间取得平衡。对于包括 AlphaFold3、ESMFold、RFDiffusion 和 RFDiffusionAA 在内的领先模型，FoldMark 在 32 位水印下实现了超过 95% 的水印比特准确率，同时对结构质量的影响很小（scTM 分数 >0.9）。在用户追踪方面，FoldMark 可以成功追踪最多 1 million 名用户。为在湿实验中验证该方法，我们将其应用于 EGFP 和 CRISPR-Cas13 的基于结构的设计，获得了野生型水平的功能（98% 荧光、95% 编辑效率）以及 >90% 的水印检测率，证明了其保护 AI 驱动蛋白质研究的实用性。",
+      "published": "2026-09-26",
+      "author_line": "ZHANG, Z., Jin, R., Liu, J., Xu, G., Wang, X., Zitnik, M., Zhao, H., Cong, L., Wang, M."
+    },
+    {
+      "id": "biorxiv:10.64898/2026.09.18.752542",
+      "channel": "aixchem",
+      "related_channels": [
+        "aixbio"
+      ],
+      "item_type": "paper",
+      "source": "bioRxiv",
+      "title": "NeoToxPred: a fine-tuned protein language model with orthologous and length-stratified negative controls for robust toxicity classification",
+      "url": "https://www.biorxiv.org/content/10.64898/2026.09.18.752542",
+      "published_at": "2026-09-24",
+      "updated_at": "2026-09-24",
+      "creators": [
+        "Kim, S.",
+        "Kim, M.-S.",
+        "PARK, C."
+      ],
+      "language": "en",
+      "abstract_or_text": "Although protein toxins represent valuable pharmacological templates, predicting toxicity directly from primary sequences is inherently challenging because of their evolutionary dynamics. Active toxins and their benign homologues frequently share identical structural scaffolds and differ by only a few key residue substitutions, making global sequence similarity an unreliable indicator of function. Conventional predictors compound this challenge through flawed negative-set designs that sample non-toxic controls from arbitrary background proteins and reduce redundancy through identity-based clustering under random partitioning. This practice introduces global confounding shortcuts that inflate benchmark performance while failing to capture true functional boundaries. To address these limitations, we developed NeoToxPred, a sequence-only binary classifier that fine-tunes the pretrained ESM-C 600M protein language model end-to-end with a six-layer feed-forward classification head. Although the neural architecture is intentionally standard to ensure computational scalability, the core novelty of the framework lies in its rigorous training-data curation: (i) an orthologous negative set drawn from the same InterPro families under controlled taxonomic proximity to eliminate phylogenetic shortcuts, (ii) a length-stratified negative control set to eliminate sequence length as a predictive cue, and (iii) a strict family-disjoint splitting strategy to prevent performance inflation caused by pattern memorization. On held-out internal benchmarks, NeoToxPred achieved a Matthews correlation coefficient (MCC) of 0.897 and an F1-score of 0.949 on long sequences and an MCC of 0.869 on short peptides, decisively outperforming five recent predictors while maintaining stable performance across varying sequence lengths and evolutionary distances. In a genome-scale external validation using the previously unseen proteome of the redfin waspfish (Paracentropogon rubripinnis), NeoToxPred successfully recovered 11 of 16 empirically validated toxins without collapsing into a single-class prediction, whereas structure-dependent baselines identified substantially fewer positives. Computational alanine scanning further confirmed that the framework contextually localizes its predictions to functionally active residues. Taken together, these findings suggest that systematic negative-set design should be prioritized alongside algorithmic complexity in biological sequence classification.",
+      "summary_zh": "NeoToxPred 对 ESM-C 600M 进行微调，并通过同一 InterPro 家族的正交同源负样本、长度分层负样本及严格家族隔离划分，减少系统性数据捷径。模型在内部留出集和 redfin waspfish 未见蛋白组验证中均优于五种预测器，并恢复 16 个已验证毒素中的 11 个。",
+      "why_it_matters_zh": "突出负样本设计和家族隔离对毒性分类真实性能的影响，外部基因组规模验证增强了可信度。结果仍依赖特定毒素数据和物种，且摘要未给出湿实验新增验证。",
+      "quality_score": 75.0,
+      "tags": [
+        "结构与生物"
+      ],
+      "evidence_flags": [
+        "benchmark",
+        "performance"
+      ],
+      "publication_status": "preprint",
+      "rank": 9,
+      "featured": false,
+      "category": "结构与生物",
+      "metrics": {},
+      "metadata": {
+        "doi": "10.64898/2026.09.18.752542",
+        "arxiv_id": ""
+      },
+      "abstract_zh": "尽管蛋白质毒素是有价值的药理学模板，但直接从一级序列预测毒性本质上很困难，因为它们具有动态的进化特征。活性毒素及其无害同源物经常共享相同的结构骨架，只相差少数关键残基替换，使全局序列相似性成为不可靠的功能指标。传统预测器通过从任意背景蛋白中抽取非毒性对照，并在随机划分下依据序列一致性聚类来降低冗余，进一步加剧了这一挑战。这种做法引入了会夸大基准性能的全局混杂捷径，却无法捕捉真正的功能边界。为应对这些问题，我们开发了 NeoToxPred，这是一种仅依赖序列的二元分类器，对预训练的 ESM-C 600M 蛋白质语言模型进行端到端微调，并配备六层前馈分类头。尽管神经网络架构有意保持标准化以确保计算可扩展性，该框架的核心创新在于严格的训练数据整理：（i）从相同 InterPro 家族中抽取、并在受控分类学距离下构建的正交同源负集，以消除系统发育捷径；（ii）长度分层的负对照集，以消除序列长度作为预测线索；以及（iii）严格的家族隔离划分，以防止模式记忆造成性能膨胀。在留出的内部基准上，NeoToxPred 在长序列上取得了 0.897 的 Matthews 相关系数（MCC）和 0.949 的 F1-score，在短肽上取得了 0.869 的 MCC，显著优于五种近期预测器，并在不同序列长度和进化距离下保持稳定性能。在使用此前未见过的 redfin waspfish（Paracentropogon rubripinnis）蛋白组进行的基因组规模外部验证中，NeoToxPred 成功找回 16 个经实验证实毒素中的 11 个，没有退化为单一类别预测，而依赖结构的基线识别出的阳性数明显更少。计算丙氨酸扫描进一步证实，该框架能将预测定位到具有功能活性的残基。总之，这些结果表明，在生物序列分类中，应当与算法复杂度同等优先考虑系统的负样本设计。",
+      "published": "2026-09-24",
+      "author_line": "Kim, S., Kim, M.-S., PARK, C."
+    },
+    {
+      "id": "biorxiv:10.64898/2026.09.18.752788",
+      "channel": "aixchem",
+      "related_channels": [
+        "aixbio"
+      ],
+      "item_type": "paper",
+      "source": "bioRxiv",
+      "title": "ASOFormer: a Transformer-based model for predicting antisense oligonucleotide efficacy to support therapeutic candidate prioritization",
+      "url": "https://www.biorxiv.org/content/10.64898/2026.09.18.752788",
+      "published_at": "2026-09-24",
+      "updated_at": "2026-09-24",
+      "creators": [
+        "Dove, N. C.",
+        "Min, Y.",
+        "Is, O.",
+        "Ertekin-Taner, N.",
+        "Wickland, D. P.",
+        "Wang, X."
+      ],
+      "language": "en",
+      "abstract_or_text": "Antisense oligonucleotides (ASOs) represent a promising therapeutic modality for RNA-based disease mechanisms, but identifying high-efficacy candidates from large sequence spaces remains a major bottleneck in drug development. Here, we present ASOFormer, a novel Transformer-based neural network that predicts the inhibition efficiency of RNase H-mediated ASOs from sequence, predicted secondary structure, and chemical modification features. ASOFormer was trained on a knockdown efficacy dataset spanning over 170,000 ASO-target pairs compiled largely from published patents. Ablation analysis confirmed that the addition of chemical modification features to the primary sequence drove the largest performance gains, with predicted secondary structure providing complementary benefit when combined with modification information. Further analysis highlighted the importance of the wings of gapmer ASOs and other features. As independent validation, ASOFormer was applied to ASOs targeting seven genes that were not in the training dataset gene list. For four out of the seven genes, the ground truth ASO inhibition efficiency was obtained from a public dataset, whereas the others were measured in-house via qPCR. Compared to two published state-of-the-art methods, ASOFormer achieved the best overall accuracy and prioritized the strongest inhibitors. Crucially, only ASOFormer consistently exceeded random expectation for top-candidate recovery across all seven test genes.",
+      "summary_zh": "ASOFormer 使用序列、预测二级结构和化学修饰特征预测 RNase H 介导的 ASO 抑制效率。模型在超过 170,000 个 ASO-靶点对上训练，并在七个未出现在训练基因列表中的基因上进行独立验证，整体准确性和高效抑制剂优先级优于两种已有方法。",
+      "why_it_matters_zh": "把化学修饰信息纳入 Transformer，并通过外部基因和部分自测 qPCR 验证候选优先级，直接服务于反义寡核苷酸药物开发。训练数据主要来自专利，数据异质性和跨实验室可迁移性仍需关注。",
+      "quality_score": 75.0,
+      "tags": [
+        "方法与模型"
+      ],
+      "evidence_flags": [
+        "dataset",
+        "state-of-the-art",
+        "ablation",
+        "performance"
+      ],
+      "publication_status": "preprint",
+      "rank": 10,
+      "featured": false,
+      "category": "方法与模型",
+      "metrics": {},
+      "metadata": {
+        "doi": "10.64898/2026.09.18.752788",
+        "arxiv_id": ""
+      },
+      "abstract_zh": "反义寡核苷酸（ASO）是针对 RNA 介导疾病机制的有前景治疗方式，但从庞大的序列空间中识别高效候选物仍是药物开发的主要瓶颈。在此，我们提出 ASOFormer，一种基于 Transformer 的新型神经网络，利用序列、预测二级结构和化学修饰特征预测 RNase H 介导 ASO 的抑制效率。ASOFormer 在一个包含超过 170,000 个 ASO-靶点对的敲低效率数据集上训练，该数据集主要由已发表专利汇编而成。消融分析证实，在一级序列中加入化学修饰特征带来了最大的性能提升，而预测二级结构在与修饰信息结合时提供了互补收益。进一步分析突出了 gapmer ASO 翼区及其他特征的重要性。作为独立验证，ASOFormer 被应用于靶向七个不在训练数据基因列表中的基因的 ASO。其中四个基因的真实 ASO 抑制效率来自公共数据集，其余基因的效率通过内部 qPCR 测量。与两种已发表的先进方法相比，ASOFormer 获得了最佳总体准确性，并优先筛出了最强抑制剂。重要的是，在全部七个测试基因上，只有 ASOFormer 持续超过了顶级候选物回收的随机期望。",
+      "published": "2026-09-24",
+      "author_line": "Dove, N. C., Min, Y., Is, O., Ertekin-Taner, N., Wickland, D. P., Wang, X."
+    },
+    {
+      "id": "biorxiv:10.64898/2026.09.23.753684",
+      "channel": "aixchem",
+      "related_channels": [
+        "aixbio"
+      ],
+      "item_type": "paper",
+      "source": "bioRxiv",
+      "title": "Deciphering Mechanistic Signatures in Drug-Drug Interactions with Dual Topology Graphs",
+      "url": "https://www.biorxiv.org/content/10.64898/2026.09.23.753684",
+      "published_at": "2026-09-24",
+      "updated_at": "2026-09-24",
+      "creators": [
+        "Ma, W.",
+        "Bi, X.",
+        "Jiang, H.",
+        "Lu, W.",
+        "Nie, J.",
+        "Lin, S.",
+        "Lin, J.",
+        "Wei, Z.",
+        "Zhang, H.",
+        "Zhang, S."
+      ],
+      "language": "en",
+      "abstract_or_text": "Drug-drug interactions (DDIs) represent a critical challenge in drug development and clinical practice, as they can lead to severe adverse effects, including toxicity and reduced therapeutic efficacy. Deep learning methods have shown promise in large-scale, rapid DDI prediction; however, current approaches suffer from significant limitations in providing mechanistic insights into these interactions. Here, we propose DualTopoDDI, a dual-topology-enhanced interpretable deep learning model for DDI prediction. We applied DualTopoDDI to predict 9.2 billion potential interactions among approved drugs, achieving 97.99% high-confidence predictions. The model demonstrates molecular-level interpretability, identifying key substructures responsible for drug actions in terms of both atom-centric and bond-centric views. DualTopoDDI also excels in elucidating particular DDI toxicity mechanisms, which is validated by its successful explanation of the controversial cardiac toxicity in two COVID-19 drug combination regimens at the time. Evaluations across 11 benchmark datasets demonstrates that DualTopoDDI not only achieves state-of-the-art performance but also showcases robust generalizability and good interpretability. Overall, DualTopoDDI offers a powerful, interpretable tool for understanding and predicting drug-drug interactions, providing critical insights for drug safety and design.",
+      "summary_zh": "DualTopoDDI 用原子中心和键中心的双拓扑表示预测药物-药物相互作用，并为潜在相互作用提供机制解释。模型对已批准药物预测了 9.2 billion 个潜在相互作用，在 11 个基准数据集上展示了先进性能，并解释了两种 COVID-19 联合用药的争议性心脏毒性机制。",
+      "why_it_matters_zh": "将大规模 DDI 筛选与可解释的分子子结构定位结合，有助于药物安全性评估和机制假设生成。9.2 billion 个预测和 97.99% 高置信度比例属于模型输出，不能等同于已验证相互作用，临床机制解释仍需实验确认。",
+      "quality_score": 74.0,
+      "tags": [
+        "分子与药物发现"
+      ],
+      "evidence_flags": [
+        "benchmark",
+        "dataset",
+        "clinical",
+        "state-of-the-art",
+        "evaluation",
+        "performance"
+      ],
+      "publication_status": "preprint",
+      "rank": 11,
+      "featured": false,
+      "category": "分子与药物发现",
+      "metrics": {},
+      "metadata": {
+        "doi": "10.64898/2026.09.23.753684",
+        "arxiv_id": ""
+      },
+      "abstract_zh": "药物-药物相互作用（DDI）是药物开发和临床实践中的关键挑战，因为它们可能导致包括毒性和治疗疗效降低在内的严重不良后果。深度学习方法已显示出大规模、快速预测 DDI 的潜力；然而，现有方法在为这些相互作用提供机制性洞见方面存在显著局限。在此，我们提出 DualTopoDDI，一种采用双拓扑增强、可解释的 DDI 深度学习模型。我们应用 DualTopoDDI 预测已批准药物之间的 9.2 billion 个潜在相互作用，其中 97.99% 被标记为高置信度预测。该模型提供分子层面的可解释性，从原子中心和键中心两个视角识别负责药物作用的关键子结构。DualTopoDDI 还擅长阐明特定 DDI 毒性机制，并通过成功解释当时存在争议的两种 COVID-19 联合用药的心脏毒性进行了验证。在 11 个基准数据集上的评估表明，DualTopoDDI 不仅取得了最先进性能，还展现出稳健的泛化能力和良好的可解释性。总体而言，DualTopoDDI 为理解和预测 DDI 提供了一个强大的可解释工具，为药物安全性和设计提供关键洞见。",
+      "published": "2026-09-24",
+      "author_line": "Ma, W., Bi, X., Jiang, H., Lu, W., Nie, J., Lin, S., Lin, J., Wei, Z., Zhang, H., Zhang, S."
+    },
+    {
+      "id": "biorxiv:10.64898/2026.09.22.753561",
+      "channel": "aixchem",
+      "related_channels": [
+        "aixbio"
+      ],
+      "item_type": "paper",
+      "source": "bioRxiv",
+      "title": "Predicting single mutation effects on binding affinity at protein-protein interfaces based on MMPBSA calculations",
+      "url": "https://www.biorxiv.org/content/10.64898/2026.09.22.753561",
+      "published_at": "2026-09-24",
+      "updated_at": "2026-09-24",
+      "creators": [
+        "Noske, J.",
+        "Janzen, M.",
+        "Lepoivre, T.",
+        "Höcker, B."
+      ],
+      "language": "en",
+      "abstract_or_text": "Accurate prediction of mutation-induced changes in protein-protein affinity remains a central challenge in computational biophysics and protein engineering. Here we present a physics-based scoring method for predicting the effects of single amino acid substitutions on protein-protein and protein-peptide binding affinity. The method is based on MMPBSA energy calculations and implemented in a user-friendly, publicly available workflow (https://github.com/Hoecker-Lab/mmpbsa_scoring). To derive the scoring function, MMPBSA energy terms were fitted using a large and diverse dataset of experimentally measured binding affinity changes upon point mutation. The terms were then evaluated on independent systems. Specifically, we assessed the ability to predict mutational effects at the interface of SARS-CoV-2 spike protein with its cellular receptor, as well as computationally predicted Armadillo-repeat protein-peptide complexes. The approach performs well across diverse targets and shows promising predictive performance on both experimentally determined and computationally predicted structures. It matches or exceeds the accuracy of established physics-based protein design software and state-of-the-art deep learning-based scoring functions when applied to data outside their training domain. The method provides a computationally efficient and interpretable framework for prioritizing interface mutations in protein engineering and binding affinity optimization.",
+      "summary_zh": "研究者提出基于 MMPBSA 能量项拟合的单点突变评分方法，并发布了用户友好的公开工作流。该方法在 SARS-CoV-2 spike-受体界面和 Armadillo-repeat 蛋白-肽复合物上测试，在训练域外达到或超过多种物理模型和深度学习评分函数。",
+      "why_it_matters_zh": "提供了计算高效、可解释且可公开复用的蛋白质界面突变优先级工具，并同时覆盖实验确定和计算预测结构。摘要未给出具体数据规模和误差分层，跨蛋白家族的稳健性仍需进一步检验。",
+      "quality_score": 74.0,
+      "tags": [
+        "结构与生物"
+      ],
+      "evidence_flags": [
+        "dataset",
+        "github",
+        "experimental",
+        "state-of-the-art",
+        "performance"
+      ],
+      "publication_status": "preprint",
+      "rank": 12,
+      "featured": false,
+      "category": "结构与生物",
+      "metrics": {},
+      "metadata": {
+        "doi": "10.64898/2026.09.22.753561",
+        "arxiv_id": ""
+      },
+      "abstract_zh": "准确预测突变引起的蛋白质-蛋白质亲和力变化仍是计算生物物理学和蛋白质工程的核心挑战。在此，我们提出一种基于物理的评分方法，用于预测单个氨基酸替换对蛋白质-蛋白质和蛋白质-肽结合亲和力的影响。该方法基于 MMPBSA 能量计算，并通过用户友好的公开工作流（https://github.com/Hoecker-Lab/mmpbsa_scoring）实现。为推导评分函数，我们使用一个包含大量且多样的实验测定点突变结合亲和力变化的数据集拟合 MMPBSA 能量项。随后在独立体系上评估这些能量项。具体而言，我们评估了该方法预测 SARS-CoV-2 spike 蛋白与其细胞受体界面突变效应的能力，以及预测计算得到的 Armadillo-repeat 蛋白-肽复合物突变效应的能力。该方法在不同靶标上表现良好，并在实验确定结构和计算预测结构上都显示出有希望的预测性能。当应用于训练域之外的数据时，它的准确性达到或超过既有基于物理的蛋白质设计软件和最先进的深度学习评分函数。该方法为蛋白质工程和结合亲和力优化中的界面突变优先排序提供了计算高效且可解释的框架。",
+      "published": "2026-09-24",
+      "author_line": "Noske, J., Janzen, M., Lepoivre, T., Höcker, B."
+    },
+    {
+      "id": "biorxiv:10.64898/2026.09.22.752683",
+      "channel": "aixchem",
+      "related_channels": [
+        "aixbio"
+      ],
+      "item_type": "paper",
+      "source": "bioRxiv",
+      "title": "A Molecular Rotor-Based Platform for Dissecting Protein Phase Separation and Aggregation",
+      "url": "https://www.biorxiv.org/content/10.64898/2026.09.22.752683",
+      "published_at": "2026-09-24",
+      "updated_at": "2026-09-24",
+      "creators": [
+        "Gravell, J.",
+        "Fitikides, N.",
+        "Thrush, R. J.",
+        "Paez-Perez, M.",
+        "Aprile, F. A.",
+        "Vilar, R.",
+        "Kuimova, M. K."
+      ],
+      "language": "en",
+      "abstract_or_text": "Biomolecular condensates formed via phase separation play critical roles in regulating cellular processes, and their dysregulation is increasingly associated with neurodegeneration. A key challenge in understanding condensate pathology lies in distinguishing dynamic condensates from neurotoxic solid aggregates, the formation of which can, in some systems, occur within existing condensates. Yet current detection techniques often lack the sensitivity and resolution to directly monitor these assemblies and their transitions in dynamic and complex environments. Here, we combined fluorescent probes, based on molecular rotors, with fluorescence lifetime imaging microscopy to quantify changes in protein dynamics during phase separation-associated aggregate formation. Molecular rotors respond to local viscosity changes, which in our study allowed discrimination between fluid condensates and rigid amyloids based on rotors' fluorescence lifetime. Using -synuclein, a hallmark protein in Parkinson's disease, as a model system, we demonstrate real-time visualization of phase separation and condensate maturation within a unified experimental framework. Our method preserves protein integrity and provides quantitative, spatially resolved insights into structural transitions. This technology bridges a critical gap in the study of pathological protein aggregation and offers a powerful platform for mechanistic studies, biomarker discovery, and drug discovery in neurodegenerative disease research.",
+      "summary_zh": "研究者将分子转子荧光探针与荧光寿命成像显微镜结合，通过局部黏度响应区分液态凝聚体与刚性淀粉样聚集体，并在 α-synuclein 模型中实时观察相分离和凝聚体成熟。",
+      "why_it_matters_zh": "提供了保留蛋白完整性、具有空间分辨率和定量能力的相分离-聚集统一观测平台，可用于机制研究和药物筛选。当前验证集中于 α-synuclein 模型，向其他蛋白和复杂细胞环境推广仍需测试。",
+      "quality_score": 72.0,
+      "tags": [
+        "方法与模型"
+      ],
+      "evidence_flags": [
+        "experimental"
+      ],
+      "publication_status": "preprint",
+      "rank": 13,
+      "featured": false,
+      "category": "方法与模型",
+      "metrics": {},
+      "metadata": {
+        "doi": "10.64898/2026.09.22.752683",
+        "arxiv_id": ""
+      },
+      "abstract_zh": "由相分离形成的生物分子凝聚体在调节细胞过程中发挥关键作用，其失调越来越多地与神经退行性疾病相关。理解凝聚体病理的一个关键挑战，是区分动态凝聚体与有毒的固态聚集体；在某些系统中，后者可以在已有凝聚体内部形成。然而，当前检测技术通常缺乏在动态而复杂环境中直接监测这些组装体及其转变所需的灵敏度和分辨率。在此，我们将基于分子转子的荧光探针与荧光寿命成像显微镜结合，以量化与相分离相关的聚集体形成过程中蛋白质动力学的变化。分子转子会响应局部黏度变化，在本研究中，研究者利用转子的荧光寿命根据动态凝聚体和刚性淀粉样蛋白进行区分。以 Parkinson's disease 的标志性蛋白 -synuclein 为模型系统，我们展示了在统一实验框架内对相分离和凝聚体成熟进行实时可视化。该方法保持了蛋白质完整性，并提供了关于结构转变的定量、空间分辨洞见。这项技术弥合了病理性蛋白质聚集研究中的关键缺口，并为神经退行性疾病研究中的机制研究、生物标志物发现和药物发现提供了有力平台。",
+      "published": "2026-09-24",
+      "author_line": "Gravell, J., Fitikides, N., Thrush, R. J., Paez-Perez, M., Aprile, F. A., Vilar, R., Kuimova, M. K."
+    },
+    {
+      "id": "biorxiv:10.64898/2026.09.18.752684",
+      "channel": "aixchem",
+      "related_channels": [],
+      "item_type": "paper",
+      "source": "bioRxiv",
+      "title": "PepSpace: An Automated, Physics-Driven Directed Evolution Platform for the De Novo Design of Specific Peptide Binders and Condensate Modulators",
+      "url": "https://www.biorxiv.org/content/10.64898/2026.09.18.752684",
+      "published_at": "2026-09-24",
+      "updated_at": "2026-09-24",
+      "creators": [
+        "Oller Iscar, J.",
+        "Tejedor, A. R.",
+        "Feito, A.",
+        "Velasco-Estevez, M.",
+        "Ocana, A.",
+        "Collepardo-Guevara, R.",
+        "Rene Espinosa, J."
+      ],
+      "language": "en",
+      "abstract_or_text": "Intrinsically disordered proteins, topologically complex protein surfaces, and biomolecular condensates regulate essential cellular processes but remain difficult to drug with conventional small molecules. Here, we present PepSpace, a physics-driven directed-evolution platform coupling residue-resolution coarse-grained molecular dynamics with a multi-objective genetic algorithm. PepSpace designs peptide binders by rewarding target engagement while penalizing peptide self-association and off-target binding. Evaluated alongside deep-learning generative models across multiple targets, PepSpace-designed peptides achieve predicted interaction strengths up to two orders of magnitude greater than machine-learning designs, while reproducing experimentally observed binding hierarchies and revealing distinct binding modes. For PIEZO1, PepSpace designs 25-mer peptides that preferentially engage a defined 30-residue intracellular beam epitope while suppressing interactions with the remainder 2,547-residues of the protein. For CHERP biomolecular condensates, dual-action peptides weaken native intermolecular contacts and destabilize the condensed phase. PepSpace provides a physically grounded framework for de novo peptide design against dynamic protein targets and biomolecular condensates, with explicit control over specificity, solubility, and collective interactions.",
+      "summary_zh": "PepSpace 将残基分辨率粗粒化分子动力学与多目标遗传算法结合，通过奖励靶标结合并惩罚自聚集和脱靶结合，自动设计针对难成药蛋白表面和凝聚体的肽。其设计在多个靶标上达到比机器学习生成设计高至两个数量级的预测相互作用强度，并给出 PIEZO1 和 CHERP 凝聚体案例。",
+      "why_it_matters_zh": "把物理驱动的结合特异性、可溶性和集体相互作用约束纳入肽设计，拓展了对无序蛋白和凝聚体的设计能力。主要证据仍是计算预测和已知结合层级的复现，摘要未报告新设计肽的实验验证。",
+      "quality_score": 72.0,
+      "tags": [
+        "分子与药物发现"
+      ],
+      "evidence_flags": [
+        "experimental"
+      ],
+      "publication_status": "preprint",
+      "rank": 14,
+      "featured": false,
+      "category": "分子与药物发现",
+      "metrics": {},
+      "metadata": {
+        "doi": "10.64898/2026.09.18.752684",
+        "arxiv_id": ""
+      },
+      "abstract_zh": "内在无序蛋白、拓扑复杂的蛋白质表面和生物分子凝聚体调节着重要的细胞过程，但使用传统小分子仍然难以成药。在此，我们提出 PepSpace，这是一种物理驱动的定向进化平台，将残基分辨率粗粒化分子动力学与多目标遗传算法结合起来。PepSpace 通过奖励靶标结合，同时惩罚肽的自缔合和脱靶结合，设计肽结合子。在多个靶标上与深度学习生成模型并行评估时，PepSpace 设计的肽达到比机器学习设计高至两个数量级的预测相互作用强度，同时复现了实验观察到的结合层级，并揭示了不同的结合模式。对于 PIEZO1，PepSpace 设计了 25-mer 肽，优先结合一个确定的 30-residue 细胞内 beam 表位，同时抑制其与该蛋白其余 2,547-residues 的相互作用。对于 CHERP 生物分子凝聚体，双重作用肽削弱了天然分子间接触并使凝聚相不稳定。PepSpace 为针对动态蛋白质靶标和生物分子凝聚体的从头肽设计提供了一个具有物理基础的框架，并可明确控制特异性、溶解性和集体相互作用。",
+      "published": "2026-09-24",
+      "author_line": "Oller Iscar, J., Tejedor, A. R., Feito, A., Velasco-Estevez, M., Ocana, A., Collepardo-Guevara, R., Rene Espinosa, J."
+    },
+    {
+      "id": "biorxiv:10.64898/2026.09.25.754573",
+      "channel": "aixchem",
+      "related_channels": [
+        "aixbio"
+      ],
+      "item_type": "paper",
+      "source": "bioRxiv",
+      "title": "SHERLOCK: Structured representation learning and causal inference of downstream perturbation effects",
+      "url": "https://www.biorxiv.org/content/10.64898/2026.09.25.754573",
+      "published_at": "2026-09-26",
+      "updated_at": "2026-09-26",
+      "creators": [
+        "Zhang, M.",
+        "Myers, J. D.",
+        "Shi, L.",
+        "Giglio, R. M.",
+        "Chatterjee, S.",
+        "McFaline-Figueroa, J. L.",
+        "Azizi, E."
+      ],
+      "language": "en",
+      "abstract_or_text": "Understanding the effects of genetic, molecular, and experimental perturbations is essential for decoding cellular mechanisms and guiding biomedical interventions. Existing computational approaches are typically designed for individual tasks, such as predicting perturbation responses, characterizing downstream transcriptional effects, or modeling perturbation combinations, and therefore do not provide a unified framework for learning interpretable perturbation representations while enabling causal analysis of downstream effects and characterization of condition-dependent responses. We present SHERLOCK, an interpretable deep generative framework for single-cell perturbation analysis that represents perturbation effects as structured interventions on a latent baseline cellular state. SHERLOCK learns correlated and sparse perturbation representations that organize genetic and pharmacological perturbations according to shared transcriptional responses. % By formulating perturbations as interventions within a structural causal model, it enables counterfactual estimation of their downstream transcriptional effects under explicit identifiability assumptions. The same framework quantifies how perturbation responses vary across conditions and compositionally models combinatorial perturbations, enabling prediction of held-out combinations and classification of genetic interactions. Across genome-scale CRISPR, chemical, and spatial perturbation datasets, SHERLOCK recovers perturbation relationships concordant with known biological pathways and pharmacological properties, identifies condition-dependent responses, and predicts combinatorial perturbation effects. Together, SHERLOCK provides a unified framework for interpretable and causal analysis of perturbation effects across diverse single-cell perturbation experiments.",
+      "summary_zh": "SHERLOCK 将扰动效应表示为潜在基线细胞状态上的结构化干预，在单细胞数据中联合学习可解释的扰动表示、反事实下游转录效应、条件依赖响应和组合扰动效应。该框架在 CRISPR、化学和空间扰动数据上恢复了与已知通路和药理性质一致的关系。",
+      "why_it_matters_zh": "统一了单细胞扰动表示学习和因果分析，能处理条件变化与组合扰动，对药物机制和组合疗法建模有潜在价值。因果结论依赖明确的可识别性假设，摘要未量化各数据集上的预测增益。",
+      "quality_score": 71.0,
+      "tags": [
+        "方法与模型"
+      ],
+      "evidence_flags": [
+        "dataset",
+        "experimental"
+      ],
+      "publication_status": "preprint",
+      "rank": 15,
+      "featured": false,
+      "category": "方法与模型",
+      "metrics": {},
+      "metadata": {
+        "doi": "10.64898/2026.09.25.754573",
+        "arxiv_id": ""
+      },
+      "abstract_zh": "理解遗传、分子和实验扰动的影响，对于解析细胞机制和指导生物医学干预至关重要。现有计算方法通常针对单一任务设计，例如预测扰动响应、刻画下游转录效应或建模扰动组合，因此无法提供一个统一框架，在学习可解释扰动表示的同时，对下游效应进行因果分析并刻画依赖条件的响应。我们提出 SHERLOCK，这是一种用于单细胞扰动分析的可解释深度生成框架，将扰动效应表示为对潜在基线细胞状态的结构化干预。SHERLOCK 学习相关且稀疏的扰动表示，并根据共享的转录响应对遗传和药理扰动进行组织。通过将扰动表述为结构因果模型中的干预，在明确的可识别性假设下，它能够对下游转录效应进行反事实估计。该框架还量化扰动响应如何随条件变化，并对组合扰动进行组合建模，从而预测留出的组合并分类遗传互作。在全基因组 CRISPR、化学和空间扰动数据集上，SHERLOCK 恢复了与已知生物通路和药理性质一致的扰动关系，识别了条件依赖响应，并预测了组合扰动效应。总之，SHERLOCK 为不同单细胞扰动实验中的扰动效应提供了一个统一的、可解释且具因果性的分析框架。",
+      "published": "2026-09-26",
+      "author_line": "Zhang, M., Myers, J. D., Shi, L., Giglio, R. M., Chatterjee, S., McFaline-Figueroa, J. L., Azizi, E."
+    },
+    {
+      "id": "biorxiv:10.64898/2026.07.13.738012",
+      "channel": "aixchem",
+      "related_channels": [
+        "aixbio"
+      ],
+      "item_type": "paper",
+      "source": "bioRxiv",
+      "title": "State-selective inhibition of alpha-synuclein aggregation by de novo oligomer-binding proteins",
+      "url": "https://www.biorxiv.org/content/10.64898/2026.07.13.738012",
+      "published_at": "2026-09-25",
+      "updated_at": "2026-09-25",
+      "creators": [
+        "Zhang, Y.",
+        "Han, H. L.",
+        "Ortigosa-Pascual, L.",
+        "Miles, U. Z.",
+        "Wei, J.",
+        "Berkowicz, L.",
+        "Snow, F.",
+        "Tu, D.",
+        "Meisl, G.",
+        "Sansaria, S.",
+        "Nott, T. J.",
+        "Laman, H.",
+        "Halfmann, R.",
+        "McShan, A. C.",
+        "Sahtoe, D. D.",
+        "Knowles, T. P. J."
+      ],
+      "language": "en",
+      "abstract_or_text": "The intrinsically disordered, non-amyloid-{beta} component domain of -synuclein (Syn) drives aggregation in Parkinson's disease but lacks a stable epitope for structure-based drug design. We used deep learning-based protein design to generate de novo binders capturing this region in a {beta}-strand conformation. Three designs bound Syn with nanomolar affinities, with solution NMR spectroscopy supporting the intended fold. All three suppressed fibril formation at substoichiometric ratios, and fitting of aggregation kinetics resolved the microscopic steps inhibited by each. Notably, one binder preferentially engaged oligomers and inhibited secondary nucleation, both closely linked to toxicity. In cells, all three suppressed seeded Syn assembly, with the oligomer binder being the most effective. Together, these findings establish a set of molecules that target distinct aggregation intermediates and mechanistically reshape Syn assembly.",
+      "summary_zh": "研究者利用深度学习蛋白质设计生成针对 alpha-synuclein 非淀粉样蛋白-β 组分区域的从头结合蛋白。三个设计具有纳摩尔亲和力并抑制纤维形成，其中一个优先结合寡聚体、抑制二次成核，并在细胞中最有效地抑制 seeded alpha-synuclein 组装。",
+      "why_it_matters_zh": "针对缺乏稳定表位的 α-synuclein 聚集过程，实现了中间态选择性和机制区分，并结合 NMR、动力学拟合及细胞验证。当前证据主要集中于体外和细胞模型，距离体内疗效与安全性仍有距离。",
+      "quality_score": 70.0,
+      "tags": [
+        "分子与药物发现"
+      ],
+      "evidence_flags": [],
+      "publication_status": "preprint",
+      "rank": 16,
+      "featured": false,
+      "category": "分子与药物发现",
+      "metrics": {},
+      "metadata": {
+        "doi": "10.64898/2026.07.13.738012",
+        "arxiv_id": ""
+      },
+      "abstract_zh": "内在无序的、非淀粉样蛋白-β 组分结构域驱动 Parkinson's disease 中的 -synuclein（Syn）聚集，但缺乏可用于基于结构药物设计的稳定表位。我们使用基于深度学习的蛋白质设计，生成了捕获该区域 β-链构象的从头结合蛋白。三个设计均以纳摩尔亲和力结合 Syn，溶液 NMR 光谱支持其预期折叠。三个设计都以低于化学计量比的比例抑制纤维形成，并通过聚集动力学拟合解析了每种设计所抑制的微观步骤。值得注意的是，其中一个结合蛋白优先作用于寡聚体并抑制二次成核，这两个过程都与毒性密切相关。在细胞中，三个设计均抑制了 seeded Syn 组装，其中寡聚体结合蛋白效果最强。总之，这些结果建立了一组可靶向不同聚集体中间态的分子，并能在机制上重塑 Syn 组装。",
+      "published": "2026-09-25",
+      "author_line": "Zhang, Y., Han, H. L., Ortigosa-Pascual, L., Miles, U. Z., Wei, J., Berkowicz, L., Snow, F., Tu, D., Meisl, G., Sansaria, S., Nott, T. J., Laman, H., Halfmann, R., McShan, A. C., Sahtoe, D. D., Knowles, T. P. J."
+    }
+  ],
+  "review": {
+    "model": "gpt-5.6-terra",
+    "reasoning_effort": "high",
+    "note": "按质量分≥70筛选，并优先保留具有实验验证、外部基准或明确方法学贡献且与分子/药物发现、结构生物学及方法模型高度相关的项目；未纳入材料与催化方向的合格候选，因为本批次没有达到同等质量与相关性的项目。"
+  }
+}

@@ -1,36 +1,46 @@
 {
   "schema_version": "2.0",
-  "date": "2026-09-30",
+  "date": "2026-10-01",
   "channel": "aixmath",
-  "generated_at": "2026-09-29T23:08:28+00:00",
+  "generated_at": "2026-09-30T23:10:55+00:00",
   "count": 60,
   "items": [
     {
-      "id": "arxiv:2609.34460v1",
+      "id": "arxiv:2609.37203v1",
       "channel": "aixmath",
       "related_channels": [],
       "item_type": "paper",
       "source": "arXiv",
-      "title": "When Does Structured Knowledge Help Neural Theorem Proving?",
-      "url": "https://arxiv.org/abs/2609.34460v1",
-      "published_at": "2026-09-28",
-      "updated_at": "2026-09-28",
+      "title": "Learning to Prove, Not Just to Answer: Reinforcement Learning from Formal Verification for Natural-Language Logical Reasoning",
+      "url": "https://arxiv.org/abs/2609.37203v1",
+      "published_at": "2026-09-29",
+      "updated_at": "2026-09-29",
       "creators": [
-        "Sareh Nabi",
-        "Roland Vogl",
-        "Marzieh Nabi"
+        "Qili Zhang",
+        "Qianren Mao",
+        "Hanze Cai",
+        "Kaiming Zhao",
+        "Yuening He",
+        "Xihan Lei",
+        "Yashuo Luo",
+        "Hanwen Hao",
+        "Yutong Gu",
+        "Likang Xiao",
+        "Zhijun Chen",
+        "Weifeng Jiang",
+        "Haoyi Zhou",
+        "Jianxin Li"
       ],
       "language": "en",
-      "abstract_or_text": "Does structured mathematical knowledge help LLMs prove theorems in Lean 4? If so, for which models, and does the answer vary by problem? Formal libraries such as Mathlib encode 285,000+ verified theorems with syntactic dependencies, but the semantic layer mathematicians rely on for discovery (analogies, generalizations, cross-domain bridges) remains implicit. We introduce MathAgent, which builds this layer as a knowledge graph, MathKG, and uses it to augment LLM theorem provers. MathKG connects 364 Mathlib theorems and definitions by 9,434 typed semantic edges inferred via LLM-based relation extraction anchored to verified Mathlib declarations. We run a controlled ablation across four augmentation modes (no context, knowledge-graph context, Mathlib retrieval, both) and five models: Qwen3-8B/32B, their Lean-specialized derivatives Goedel-Prover-V2-8B/32B, and Claude Sonnet 4.6, on miniF2F, plus PutnamBench and MathOlympiadBench for Sonnet. Three findings emerge. (i) Specialization dominates augmentation: Lean fine-tuning adds 33-38 percentage points of solve rate in every mode, and a specialized 8B model beats a 4\\times larger general one by 29-35 points, while no augmentation mode improves solve rate by more than 3 points. (ii) Augmentation is capability-conditioned: knowledge-graph context helps small models but hurts large ones, with the specialized model gaining more relative to its general base at every scale. (iii) Yet the augmentation modes solve different problems: an oracle selecting the best mode per problem solves 6% to 58% more than the unaugmented prover, a complementarity effect that strengthens on harder problems (32% more on PutnamBench). These results motivate adaptive strategies that select augmentation by model capability and problem. Code, data, and artifacts are available at https://github.com/sarehnabi/mathagent",
+      "abstract_or_text": "Large language models (LLMs) are increasingly deployed for natural-language logical reasoning, where the final answer is easy to check but the proof behind it is not. In natural-language logical reasoning, an intermediate conclusion should follow from its premises, and the resulting derivation should support the final answer. Existing methods lack machine-checkable verification of intermediate conclusions and answer-supporting proof dependencies, so they may assign credit to invalid or answer-irrelevant steps. We propose Proof-R1, an RL framework from formal verification that trains LLMs to construct verifiable proofs for natural-language logical reasoning. Proof-R1 admits a generated conclusion into the verified proof state only when the corresponding reasoning action satisfies the proof obligations through UNSAT-based machine-checkable formal verification. Proof-R1 also recovers the answer-supporting dependency closure to trace the proof structure of the final answer and align outcome credit with the proof dependencies. Experiments demonstrate that Proof-R1 improves answer accuracy across three logical reasoning benchmarks and four backbone models and outperforms training-free agents and training-based methods in terms of reasoning-process verifiability.",
       "summary_zh": "",
       "why_it_matters_zh": "",
-      "quality_score": 87,
+      "quality_score": 88,
       "tags": [
         "方法与模型"
       ],
       "evidence_flags": [
-        "github",
-        "ablation"
+        "benchmark"
       ],
       "publication_status": "preprint",
       "rank": 0,
@@ -39,7 +49,52 @@
       "metrics": {},
       "metadata": {
         "doi": "",
-        "arxiv_id": "2609.34460v1"
+        "arxiv_id": "2609.37203v1"
+      }
+    },
+    {
+      "id": "arxiv:2609.36982v1",
+      "channel": "aixmath",
+      "related_channels": [
+        "aixbio"
+      ],
+      "item_type": "paper",
+      "source": "arXiv",
+      "title": "SRJudge: Empowering Large Language Models with Selective Reasoning for Fine-Grained Knowledge Concept Tagging",
+      "url": "https://arxiv.org/abs/2609.36982v1",
+      "published_at": "2026-09-29",
+      "updated_at": "2026-09-29",
+      "creators": [
+        "Zhiwei Yang",
+        "Jiahua Yang",
+        "Huiru Lin",
+        "Xing Chen",
+        "Quanlong Guan"
+      ],
+      "language": "en",
+      "abstract_or_text": "Knowledge concept tagging aims to assign specific concept or topic labels to educational content, which is essential for both educators and learners in traditional and online teaching practices. Recent work has explored large language models (LLMs) for this task, achieving promising performance. However, LLMs still struggle to select the correct concept from a large-scale candidate set due to the high dimensionality of the decision space. In this paper, we propose a novel three-stage Select-Reason-Judge (SRJudge) framework, which empowers LLMs with selective reasoning capability for fine-grained knowledge concept tagging. Specifically, the Selector in Stage 1 first narrows the candidate concepts to a top-K shortlist by fine-tuning a small language model (SLM), e.g., BERT, since the top-K predictions hit the correct concept in most cases, thereby reducing the decision space of correct candidates. Next, the Stage 2 Reasoner employs a lightweight LLM for refined reasoning over the shortlisted candidates. It further integrates an improved reinforcement learning strategy with a dynamic task-specific reward function and a pruning mechanism to better align with human reasoning preferences. Finally, a larger LLM acts as a judger that evaluates the overall rationality of the reasoning process and its explanations to determine the final output. In addition, we construct two high-quality datasets for further validation, i.e., the biology dataset S_Bio and the physics dataset S_Phy. Experimental results demonstrate that our method consistently outperforms state-of-the-art baselines across benchmark datasets, verifying its effectiveness and superiority. Resources are available at: https://github.com/Nicozwy/SRJudge.",
+      "summary_zh": "",
+      "why_it_matters_zh": "",
+      "quality_score": 81,
+      "tags": [
+        "方法与模型"
+      ],
+      "evidence_flags": [
+        "benchmark",
+        "dataset",
+        "github",
+        "experimental",
+        "state-of-the-art",
+        "performance"
+      ],
+      "publication_status": "preprint",
+      "rank": 0,
+      "featured": false,
+      "category": "方法与模型",
+      "metrics": {},
+      "metadata": {
+        "doi": "",
+        "arxiv_id": "2609.36982v1"
       }
     },
     {
@@ -90,26 +145,27 @@
       }
     },
     {
-      "id": "arxiv:2609.35505v1",
+      "id": "arxiv:2609.36562v1",
       "channel": "aixmath",
       "related_channels": [],
       "item_type": "paper",
       "source": "arXiv",
-      "title": "An RL View of OPD: Least Square Policy Distillation for Sample-Efficient LLM Reasoning",
-      "url": "https://arxiv.org/abs/2609.35505v1",
-      "published_at": "2026-09-28",
-      "updated_at": "2026-09-28",
+      "title": "ThinkingGuard: Decoding Implicit Hazards via Step-by-Step Risk Attribution in Multimodal Large Language Models",
+      "url": "https://arxiv.org/abs/2609.36562v1",
+      "published_at": "2026-09-29",
+      "updated_at": "2026-09-29",
       "creators": [
-        "Shangzhe Li",
-        "Yuxiao Yang",
-        "Tianrun Yu",
-        "Kaixiang Zhao",
-        "Xiaoyun Wang",
-        "Taylor W. Killian",
-        "Weitong Zhang"
+        "Ruochen Zhang",
+        "Yao Huang",
+        "Yitong Sun",
+        "Jiahe Xie",
+        "Jin Yan",
+        "Jifan Ma",
+        "Yuanfang Guo",
+        "Xingxing Wei"
       ],
       "language": "en",
-      "abstract_or_text": "We study on-policy distillation (OPD) through the lens of reinforcement learning, establishing a connection between the reverse-KL objective in OPD and KL-regularized policy optimization. Building on this connection, we introduce Least-Square Policy Distillation (LSPD), an RL-inspired framework that brings optimistic exploration and off-policy data reuse from value-based RL into policy distillation. LSPD preserves policy diversity through exploration while improving rollout efficiency by repeatedly learning from previously collected trajectories. Our theoretical analysis connects LSPD to optimistic value-based learning and shows that its idealized formulation achieves a sharp \\mathcal O(\\log K) regret bound under online exploration. Empirically, LSPD consistently outperforms existing distillation baselines across six mathematical reasoning benchmarks and diverse teacher-student settings, with average gains of +1.59 points in Avg@16. Remarkably, through Pass@k evaluations up to k=64, we found that LSPD better preserves policy diversity by achieving stronger performance as k grows. Its fully off-policy variant achieves comparable performance to vanilla OPD using only the first 25% of rollout batches. Together, these results provide an RL perspective on OPD that offers both a principled interpretation and a practical route toward more effective and rollout-efficient language model distillation.",
+      "abstract_or_text": "While Multimodal Large Language Models (MLLMs) are increasingly deployed in safety-critical domains, their reliability is threatened by multimodal implicit risks. Unlike explicit threats, these hazards emerge when individually benign text and neutral visual entities logically converge to induce unsafe outputs. Current detection methods fail to address this because they overlook the underlying risk activation mechanisms that govern cross-modal risk activation, leading to single-modality shortcut learning and hallucinated rationalizations. To bridge this gap, we first construct TriggerBench, the first dataset explicitly modeling risk compositionality (5,600 instances). By formally isolating Key Elements and Trigger Elements to build counterfactual contrastive pairs, TriggerBench eliminates risk residues and forces models to perform genuine logical deduction rather than superficial pattern matching, which provides a rigorous foundation for both large-scale training and fine-grained evaluation. Building on this, we propose a Step-Supervised Structured Reasoning training framework and employ it to train ThinkingGuard, a specialized guard model. Inspired by Situation Awareness theory, we decouple implicit risk identification into progressive cognitive stages, and utilize a step-reward Monte Carlo Tree Search algorithm to explore optimal reasoning trajectories, which are then distilled into the model through Dual-Constraint Preference Alignment. Extensive experiments across both standard and implicit safety benchmarks demonstrate that ThinkingGuard achieves strong performance. Project resources are available at https://github.com/FroggyChen/ThinkingGuard.",
       "summary_zh": "",
       "why_it_matters_zh": "",
       "quality_score": 80,
@@ -118,6 +174,8 @@
       ],
       "evidence_flags": [
         "benchmark",
+        "dataset",
+        "github",
         "evaluation",
         "performance"
       ],
@@ -128,7 +186,7 @@
       "metrics": {},
       "metadata": {
         "doi": "",
-        "arxiv_id": "2609.35505v1"
+        "arxiv_id": "2609.36562v1"
       }
     },
     {
@@ -177,34 +235,83 @@
       }
     },
     {
-      "id": "arxiv:2609.33323v1",
+      "id": "arxiv:2609.38070v1",
       "channel": "aixmath",
       "related_channels": [],
       "item_type": "paper",
       "source": "arXiv",
-      "title": "Agentic Multi-Turn Reasoning: A Fairness Approach",
-      "url": "https://arxiv.org/abs/2609.33323v1",
-      "published_at": "2026-09-27",
-      "updated_at": "2026-09-27",
+      "title": "Probability is Not Enough: Exploring and Counting Divergent Tokens for Reasoning Uncertainty Quantification in LLMs",
+      "url": "https://arxiv.org/abs/2609.38070v1",
+      "published_at": "2026-09-29",
+      "updated_at": "2026-09-29",
       "creators": [
-        "Thanh-Dat Truong",
-        "Sankalp Pandey",
-        "Hugh Churchill",
-        "Jackson Cothren",
-        "Marios Savvides",
-        "Khoa Luu"
+        "Feiyang Li",
+        "Shengjing Liu",
+        "Qi Zhan",
+        "Sijie Cheng",
+        "Weiqing Wang",
+        "Hongwen Chen",
+        "Yuxuan Yang",
+        "Wen Wang",
+        "Yile Wang",
+        "Hui Huang"
       ],
       "language": "en",
-      "abstract_or_text": "Recent advances in Large Language Models (LLMs) have enabled agentic systems capable of solving complex tasks through multi-turn planning, tool use, verification, and memory updates. However, learning agentic systems remains difficult due to two fundamental challenges, i.e., (1) long-horizon credit assignment, where supervision is available only at the final outcome, and (2) imbalanced data distributions, where dominant data patterns bias optimization and weaken adaptation to rare but informative reasoning behaviors. In this paper, we propose Fair Multi-Level Preference Optimization (Fair-MPO or Φ-MPO), a new preference optimization framework for agentic learning. We first show that Multi-Level Preference Optimization provides a principled and more computationally efficient framework for long-horizon reasoning. Then, we introduce a Fair Multi-Level Objective that addresses imbalance in agentic learning. We provide a comprehensive theoretical analysis demonstrating that our approach addresses both long-horizon reasoning and data imbalance. Our experiments on agentic reasoning benchmarks demonstrate that our approach achieves State-of-the-Art (SOTA) performance.",
+      "abstract_or_text": "As the chain-of-thought reasoning capabilities of large language models improve, evaluating and calibrating their reasoning confidence is becoming increasingly important for quantifying the uncertainty of their answers. Current methods for estimating the confidence of large language models are generally based on probabilities of selected key tokens, but the underlying mechanism remains unclear. Our pilot study finds that replacing selected token probabilities with coarse substitutes can also improve calibration, motivating us to further explore effective signals of model confidence. We introduce Divergent Token Confidence (DTC), a framework that estimates confidence by counting tokens at which two models strongly disagree during decoding. DTC identifies these divergent tokens using the Jensen-Shannon divergence between next-token distributions evaluated along the same reasoning trajectory. We find that their count is almost negatively associated with answer accuracy, thereby serving as a simple yet effective signal for uncertainty quantification. DTC supports both white-box and black-box evaluation using auxiliary models, without explicit training and affecting the generation process. Experiments across multiple model families and six mathematical benchmarks demonstrate improved calibration over probability-based and verbalized baselines. Under white-box evaluation, the count-only estimator achieves an average expected calibration error of 13.0%, compared with 32.7%-42.4% for standard full-sequence confidence methods. In black-box settings, it also improves calibration over the original verbalized scores. For example, mean expected calibration error falls from 32.1%-40.2% to 13.7%-16.3% on DeepSeek-V3.2. These findings provide new insights for improving reasoning uncertainty quantification in large language models. The code is released at https://github.com/szu-tera/DTC.git.",
       "summary_zh": "",
       "why_it_matters_zh": "",
-      "quality_score": 80,
+      "quality_score": 79,
       "tags": [
         "方法与模型"
       ],
       "evidence_flags": [
         "benchmark",
-        "state-of-the-art",
+        "github",
+        "evaluation",
+        "release"
+      ],
+      "publication_status": "preprint",
+      "rank": 0,
+      "featured": false,
+      "category": "方法与模型",
+      "metrics": {},
+      "metadata": {
+        "doi": "",
+        "arxiv_id": "2609.38070v1"
+      }
+    },
+    {
+      "id": "arxiv:2609.37773v1",
+      "channel": "aixmath",
+      "related_channels": [
+        "aixbio"
+      ],
+      "item_type": "paper",
+      "source": "arXiv",
+      "title": "OmniVCBench: Benchmarking Evidence-Grounded Multimodal Reasoning Towards AI Virtual Cells",
+      "url": "https://arxiv.org/abs/2609.37773v1",
+      "published_at": "2026-09-29",
+      "updated_at": "2026-09-29",
+      "creators": [
+        "Manyu Li",
+        "Xunkai Li",
+        "Yongfu Xiong",
+        "Yi Liu",
+        "Rong-Hua Li",
+        "Guoren Wang"
+      ],
+      "language": "en",
+      "abstract_or_text": "Artificial Intelligence Virtual Cells (AIVCs) are envisioned as scientific agents that simulate cellular responses, explain underlying mechanisms, and support hypothesis-driven discovery. Existing AIVC benchmarks, however, operate primarily at the simulation layer, motivating complementary evaluation of how models interpret experimental evidence and formulate biological hypotheses. We introduce OmniVCBench, a figure-centric, source-traceable benchmark for the interpretation component of an AIVC. It contains 6,077 curated single- and multi-subfigure question--answer pairs derived from figures and experimental contexts in the scientific literature. Guided by Bloom's taxonomy, we instantiate interpretation-layer counterparts of the AIVC Predict--Explain--Discover agenda through three scientific reasoning tasks. We further introduce AIVC-Judge, a task-conditioned MLLM-as-a-judge framework with category-specific, reference-aware rubrics for evaluating open-ended responses. A complementary Model-Derived Hard-Negative Mining (MDHNM) strategy converts plausible errors observed during model inference into MCQ distractors for lower-cost evaluation. Within the evaluated heterogeneous model pool, MCQ accuracy correlates positively with AIVC-Judge scores, providing a complementary view of performance alongside open-response evaluation. Code and data demo are available at https://anonymous.4open.science/r/OmniVCBench.",
+      "summary_zh": "",
+      "why_it_matters_zh": "",
+      "quality_score": 78,
+      "tags": [
+        "方法与模型"
+      ],
+      "evidence_flags": [
+        "benchmark",
+        "experimental",
+        "evaluation",
         "performance"
       ],
       "publication_status": "preprint",
@@ -214,7 +321,46 @@
       "metrics": {},
       "metadata": {
         "doi": "",
-        "arxiv_id": "2609.33323v1"
+        "arxiv_id": "2609.37773v1"
+      }
+    },
+    {
+      "id": "arxiv:2609.37432v1",
+      "channel": "aixmath",
+      "related_channels": [],
+      "item_type": "paper",
+      "source": "arXiv",
+      "title": "Looped Actor: Depth-Recurrent Reasoning Models for Reinforcement Learning",
+      "url": "https://arxiv.org/abs/2609.37432v1",
+      "published_at": "2026-09-29",
+      "updated_at": "2026-09-29",
+      "creators": [
+        "T. Konstantin Rusch",
+        "Tim Seyde",
+        "Jared Boyer",
+        "Zach J. Patterson",
+        "Daniela Rus"
+      ],
+      "language": "en",
+      "abstract_or_text": "Looped reasoning models repeatedly apply a shared set of parameters, enabling more computation without increasing the model size. These models also support input-dependent computation by dynamically deciding when to stop looping. Motivated by the recent success of looped transformers in language modeling and reasoning, we investigate whether dynamic looping can similarly benefit sequential decision-making. We provide a complexity-theoretic motivation for this approach by showing that there exist Markov decision processes in which a state-adaptive policy achieves the optimal return with asymptotically less expected computation than any optimal fixed-runtime policy. To learn compute-adaptive policies in practice, we introduce Looped Actor, a transformer-based policy that repeatedly refines a latent representation toward a fixed point using a shared computational block. This allows the model to allocate computation adaptively by varying the number of loops based on the current state. We evaluate Looped Actor on 22 tasks across six environments, ranging from combinatorial puzzles to robotic manipulation and spanning online and offline reinforcement learning (RL) with discrete and continuous actions. Looped Actor matches or exceeds the performance of an untied baseline with 16\\times more parameters, with the largest gains in environments where action selection requires substantial multistep planning. For the Boxoban environment, we find that the computation allocation is structured: the number of loops increases with the number of remaining pushes and future optimal pushes become increasingly predictable from the latent state over successive loops. Together, these results highlight actor looping as a simple and efficient way to equip RL agents with adaptive computation and improve their planning capabilities. Code is available at https://github.com/camail-official/LoopedActor",
+      "summary_zh": "",
+      "why_it_matters_zh": "",
+      "quality_score": 78,
+      "tags": [
+        "方法与模型"
+      ],
+      "evidence_flags": [
+        "github",
+        "performance"
+      ],
+      "publication_status": "preprint",
+      "rank": 0,
+      "featured": false,
+      "category": "方法与模型",
+      "metrics": {},
+      "metadata": {
+        "doi": "",
+        "arxiv_id": "2609.37432v1"
       }
     },
     {
@@ -296,33 +442,41 @@
       }
     },
     {
-      "id": "arxiv:2609.33119v1",
+      "id": "arxiv:2609.36773v1",
       "channel": "aixmath",
       "related_channels": [
+        "aixchem",
         "aixbio"
       ],
       "item_type": "paper",
       "source": "arXiv",
-      "title": "MedRouter: Demystifying Knowledge Differences Across Medical LLMs for Routing-Based Reasoning",
-      "url": "https://arxiv.org/abs/2609.33119v1",
-      "published_at": "2026-09-27",
-      "updated_at": "2026-09-27",
+      "title": "NeuroDyn-EEG: An Interpretable Pre-trained Model for EEG Based on Neural Dynamics",
+      "url": "https://arxiv.org/abs/2609.36773v1",
+      "published_at": "2026-09-29",
+      "updated_at": "2026-09-29",
       "creators": [
-        "Lang Cao",
-        "Binghang Lu",
-        "Yuhao Shen",
-        "Yue Guo"
+        "Yi Cui",
+        "Tong Zhao",
+        "Jiaxin Lei",
+        "Chuyi Yang",
+        "Yifan Cui",
+        "Ling Zhang",
+        "Yuxiang Yan",
+        "Bo Hong"
       ],
       "language": "en",
-      "abstract_or_text": "Medical question answering spans diverse specialties and modalities, and individual medical large language models (LLMs) exhibit distinct strengths across tasks and domains. This heterogeneity suggests that combining specialists may enable broader coverage of medical questions than relying on any single model. However, existing LLM routing methods primarily seek to balance answer quality and inference cost, leaving open how to exploit differences in specialist competence to improve medical reasoning. In this paper, we introduce MedRouter, an agentic system that uses an embedding-based multi-label router to select and query specialist LLMs, then passes their responses to a generator to produce the final answer. We further propose SCALE (Specialist Competence-Aware Learning), a two-stage training framework that first trains the Router with specialist correctness supervision and then optimizes its selections through reinforcement learning. The second stage uses a Performance Gain Reward (PGR) that measures how specialist information affects the generator's answer correctness relative to answering without that information. Experiments on eight text-based and multimodal medical QA benchmarks show that MedRouter outperforms the strongest routing baseline by 8% in average accuracy. Our analysis of specialist outputs further reveals distinct strengths and complementary question-level coverage, motivating learned routing to combine these capabilities for more comprehensive medical reasoning.",
+      "abstract_or_text": "Clinical scalp electroencephalography (EEG) offers a noninvasive window into neural dynamics of neuropsychiatric disorders. However, discriminative deep models often lack anatomically indexed physiological interpretability. We propose NeuroDyn-EEG, a pretraining framework integrating generative priors from neural dynamics. It couples an extended Jansen-Rit neural mass model, leadfield-based source projection, and simulation-based parameter inversion. Trained on synthetic parameter-EEG pairs within physiological ranges, NeuroDyn-EEG estimates 11 regional parameter families across 90 AAL regions plus one global parameter from standard 19-channel EEG, using only ~2.43M trainable parameters. We evaluate the framework across three levels. First, controlled simulations demonstrate robust parameter recovery under diverse noise conditions, while real resting-state EEG evaluations confirm spectral and phase consistency in an inverse-forward closed loop. Second, on four clinical benchmarks (AD65, PD31, Figshare MDD, and TUAB), NeuroDyn-EEG achieves competitive classification performance, securing the highest BACC, AUROC, and AUCPR on PD31 and MDD, and highest BACC on AD65. Third, post hoc regional analyses reveal disease-specific alterations: local synaptic connectivity C_1 involves the most altered regions in AD65, whereas the firing threshold theta ranks first in MDD, offering testable mechanistic hypotheses. Overall, NeuroDyn-EEG maps scalp EEG to anatomically indexed dynamical parameters, bridging representation learning and mechanistic neurophysiology. Code: https://github.com/Gnosis-Neurodynamics/NeuroDyn-EEG.",
       "summary_zh": "",
       "why_it_matters_zh": "",
-      "quality_score": 78,
+      "quality_score": 77,
       "tags": [
         "方法与模型"
       ],
       "evidence_flags": [
         "benchmark",
+        "github",
+        "clinical",
+        "evaluation",
         "performance"
       ],
       "publication_status": "preprint",
@@ -332,7 +486,46 @@
       "metrics": {},
       "metadata": {
         "doi": "",
-        "arxiv_id": "2609.33119v1"
+        "arxiv_id": "2609.36773v1"
+      }
+    },
+    {
+      "id": "arxiv:2609.36641v1",
+      "channel": "aixmath",
+      "related_channels": [],
+      "item_type": "paper",
+      "source": "arXiv",
+      "title": "Inducing Process Supervision from Outcome-Only Reinforcement Learning",
+      "url": "https://arxiv.org/abs/2609.36641v1",
+      "published_at": "2026-09-29",
+      "updated_at": "2026-09-29",
+      "creators": [
+        "Shengda Fan",
+        "Xin Cong",
+        "Zhong Zhang",
+        "Haotian Chen",
+        "Yankai Lin"
+      ],
+      "language": "en",
+      "abstract_or_text": "Process reward models (PRMs) have become a key component for LLMs, as their step-level feedback supports both post-training and test-time reasoning. However, training strong PRMs remains costly: human step annotation is difficult to scale, while Monte Carlo estimation is computationally expensive and can drift from the intrinsic correctness of steps. To get effective PRMs at low cost, we introduce TIPS (Thinking-Induced Process Supervision), an outcome-only reinforcement learning (RL) framework for training generative PRMs. In TIPS, the model generates a chain-of-thought (CoT) followed by step-level labels and an outcome label. The reward depends solely on whether the predicted outcome matches the ground truth, and the resulting group-relative advantage is used to optimize the entire generated response. Intuitively, when checking intermediate steps helps determine the outcome, more accurate checks can lead to better outcome judgments and higher rewards. Outcome-only RL can therefore reinforce step-level verification without explicit process supervision. We validate the effectiveness of TIPS across math and agent benchmarks and four backbone families. Notably, TIPS-Qwen3-4B-Thinking-2507 reaches 85.2 F1 on ProcessBench with only 3.2K outcome-labeled trajectories, surpassing all evaluated trained PRMs and strong prompt-only judges such as GPT-5.4-Instruct and Claude-4.7-Opus, while still trailing o1-mini. Code and data are available at https://github.com/RUCBM/TIPS.",
+      "summary_zh": "",
+      "why_it_matters_zh": "",
+      "quality_score": 77,
+      "tags": [
+        "方法与模型"
+      ],
+      "evidence_flags": [
+        "benchmark",
+        "github"
+      ],
+      "publication_status": "preprint",
+      "rank": 0,
+      "featured": false,
+      "category": "方法与模型",
+      "metrics": {},
+      "metadata": {
+        "doi": "",
+        "arxiv_id": "2609.36641v1"
       }
     },
     {
@@ -385,176 +578,6 @@
       }
     },
     {
-      "id": "arxiv:2609.33796v1",
-      "channel": "aixmath",
-      "related_channels": [
-        "aixchem"
-      ],
-      "item_type": "paper",
-      "source": "arXiv",
-      "title": "RAISE: Reinforcing Access Control Policy Synthesis in LLMs via Symbolic Evaluation",
-      "url": "https://arxiv.org/abs/2609.33796v1",
-      "published_at": "2026-09-27",
-      "updated_at": "2026-09-27",
-      "creators": [
-        "Yingming Zhou",
-        "Adarsh Vatsa",
-        "William Eiers"
-      ],
-      "language": "en",
-      "abstract_or_text": "Translating natural-language access-control requirements into policies requires careful reasoning about permissions, constraints, and exceptions, and even frontier LLMs often produce policies that violate the intended authorization semantics. We construct CedarInstruct, to our knowledge the first dataset that supports both training and semantic evaluation for formally verifiable Cedar policy synthesis. It contains 5,800 scenarios across 44 domains and 1,408 representing a single synthetic organization, each with a verified target policy and an executable verification plan. On this data we introduce RAISE, which trains policy synthesizers from formal verification in two stages, verified supervised fine-tuning (SFT) followed by a reinforcement learning (RL) stage that learns from verifier signal. We find that SFT succeeds largely by letting models express authorization logic they already have, since untrained models rarely write valid Cedar but often reason correctly when they do. After SFT, how the verifier's information is used matters more than how much of it is used. Of six RL instantiations that consume progressively richer verifier signal, only RAISE-OC improves meaningfully on SFT; it turns failed checks and symbolic counterexamples into guided exploration and learns from the result with off-context GRPO. With about 5.4K verified scenarios and LoRA fine-tuning, RAISE-OC trains Qwen3.5-9B to surpass zero-shot GPT-6 Astra and Claude Opus 5 by 13.33 and 16.26 percentage points in semantic success on held-out scenarios, and training transfers to the independently constructed CedarBench.",
-      "summary_zh": "",
-      "why_it_matters_zh": "",
-      "quality_score": 77,
-      "tags": [
-        "验证与逻辑"
-      ],
-      "evidence_flags": [
-        "dataset",
-        "evaluation"
-      ],
-      "publication_status": "preprint",
-      "rank": 0,
-      "featured": false,
-      "category": "验证与逻辑",
-      "metrics": {},
-      "metadata": {
-        "doi": "",
-        "arxiv_id": "2609.33796v1"
-      }
-    },
-    {
-      "id": "arxiv:2609.33253v1",
-      "channel": "aixmath",
-      "related_channels": [
-        "aixchem"
-      ],
-      "item_type": "paper",
-      "source": "arXiv",
-      "title": "VGGT-Diff: Visual Geometry Meets Diffusion for Sparse-View Novel View Synthesis",
-      "url": "https://arxiv.org/abs/2609.33253v1",
-      "published_at": "2026-09-27",
-      "updated_at": "2026-09-27",
-      "creators": [
-        "Kangjie Chen",
-        "Xiangyu Li",
-        "Dongbin Zhang",
-        "Chaoda Zheng",
-        "Shijia Chen",
-        "Jinhao Deng",
-        "Hongbin Lin",
-        "Choo Sin Wai",
-        "Minqi Wang",
-        "Minghao Yang",
-        "Dake Zhong",
-        "Guorui Song",
-        "Yu Zhang",
-        "Xianming Liu",
-        "Boyang Wang"
-      ],
-      "language": "en",
-      "abstract_or_text": "We present VGGT-Diff, a geometry-routed multi-view diffusion model for sparse-view novel view synthesis. Existing novel view synthesis (NVS) methods face a fundamental trade-off: reconstruction-based approaches preserve observed geometry but struggle to synthesize unseen regions, while diffusion-based methods provide strong generative priors yet rely on implicit source-to-query correspondence. VGGT-Diff bridges these regimes by routing visual geometry latents from VGGT-Ω into a pretrained video diffusion model. Each visual token is associated with a 3D point and confidence, then transformed into query-aligned latent conditions through a confidence-aware Visual Geometry Router (VGR) that preserves front and back surface evidence. These conditions guide joint target-view denoising, while Point-Track Residual Consistency (PTRC) regularizes predicted-clean residuals along reliable 3D tracks, improving multi-view stability. We further introduce robust geometry conditioning, combining training-time regularization with inference-time guidance for improved robustness. Experiments show competitive or state-of-the-art performance across interpolation and extrapolation under different viewpoint difficulties. Our code is available at https://github.com/chenkangjie1123/VGGT-Diff.",
-      "summary_zh": "",
-      "why_it_matters_zh": "",
-      "quality_score": 77,
-      "tags": [
-        "方法与模型"
-      ],
-      "evidence_flags": [
-        "github",
-        "state-of-the-art",
-        "performance"
-      ],
-      "publication_status": "preprint",
-      "rank": 0,
-      "featured": false,
-      "category": "方法与模型",
-      "metrics": {},
-      "metadata": {
-        "doi": "",
-        "arxiv_id": "2609.33253v1"
-      }
-    },
-    {
-      "id": "arxiv:2609.33061v1",
-      "channel": "aixmath",
-      "related_channels": [
-        "aixchem",
-        "aixbio"
-      ],
-      "item_type": "paper",
-      "source": "arXiv",
-      "title": "LLM sequential decision making under uncertainty in biochemical domains",
-      "url": "https://arxiv.org/abs/2609.33061v1",
-      "published_at": "2026-09-27",
-      "updated_at": "2026-09-27",
-      "creators": [
-        "Mattias Akke",
-        "Soojung Yang",
-        "Jurgis Ruža",
-        "Sathya Edamadaka",
-        "Rafael Gómez-Bombarelli"
-      ],
-      "language": "en",
-      "abstract_or_text": "Large language models (LLMs) are increasingly used to drive scientific discovery. Understanding how LLMs make decisions from new data and memory of the literature is vital before trusting them to design experiments under tight experimental budgets. However, their decision strategies are invisible in the current performance scores used to evaluate research agents. Here, we benchmark five frontier LLMs in a Bayesian Optimization setting against published statistical baselines on seven combinatorial datasets spanning protein engineering, reaction optimization, molecular design, peptide self-assembly, and catalysis. Performance is paired with direct measurements of model beliefs and actions, enabling highly resolved behavior analysis. A prompt ablation that progressively strips context separates memorization from chemical reasoning and from bare categorical optimization. Prior chemical knowledge helps in expectation, but with high variance and occasionally even harms performance. No configuration tested decisively beats a mean statistical baseline across domains. Belief-movement and Martingale diagnostics, corrected here for a measurement-noise bias that mislabels rational agents as irrational, show that models overreact to incoming data rather than entrenching on their priors in the contexts studied here. Interestingly, while LLM actions are exploitative, models sincerely intend to explore and consistently act on that intent. This failure is a competence gap arising from context-stickiness. Removing in-context history restores exploration, indicating that priors and data must be decoupled to achieve effective LLM-driven discovery.",
-      "summary_zh": "",
-      "why_it_matters_zh": "",
-      "quality_score": 77,
-      "tags": [
-        "方法与模型"
-      ],
-      "evidence_flags": [
-        "benchmark",
-        "dataset",
-        "experimental",
-        "ablation",
-        "performance"
-      ],
-      "publication_status": "preprint",
-      "rank": 0,
-      "featured": false,
-      "category": "方法与模型",
-      "metrics": {},
-      "metadata": {
-        "doi": "",
-        "arxiv_id": "2609.33061v1"
-      }
-    },
-    {
-      "id": "arxiv:2609.34960v1",
-      "channel": "aixmath",
-      "related_channels": [],
-      "item_type": "paper",
-      "source": "arXiv",
-      "title": "ProofLoom: Proof-Obligation-Driven Theory Construction for Autoformalizing Research-Level Stochastic Optimization",
-      "url": "https://arxiv.org/abs/2609.34960v1",
-      "published_at": "2026-09-28",
-      "updated_at": "2026-09-28",
-      "creators": [
-        "Feiming Wang",
-        "Daibo Li",
-        "Kun Yuan"
-      ],
-      "language": "en",
-      "abstract_or_text": "Formalizing research-level stochastic optimization in Lean requires both an algorithm model and domain theory connecting foundational libraries to convergence proofs. Revising a model to restore provability can change the mathematical claim. We introduce ProofLoom, a fully automated LLM-agent system for Proof-Obligation-Driven Theory Construction. Given a published algorithm, target theorem, and source proof, ProofLoom autonomously constructs the Lean model and supporting theory. Open proof obligations drive the development of definitions, interfaces, lemmas, and proof plans. Signature contracts record evidence and obligations for model revisions; an independent Judge rejects unsupported assumptions and weakened conclusions. Planner expands the published argument into intermediate claims, and Audit checks whether the Lean proof follows it. Across tasks, SOptLib accumulates verified mathematics and construction experience: reusable results are extracted, generalized, and verified, while modeling decisions and failed proof routes are recorded. Later tasks retrieve these results and records and contribute new developments, forming a cycle of construction, accumulation, and reuse. On fifteen textbook and research-paper tasks, ProofLoom obtains mean human ratings of 6.3/7 and 6.4/7, compared with 4.9/7 and 5.0/7 for the strongest of six baselines. Across 33 developments, it produces 490,693 lines of algorithm-local Lean code with no sorry. The formalizations also expose 28 incorrect formulas, proof gaps, and algorithm-analysis mismatches in published sources across 22 developments, each with checked evidence.",
-      "summary_zh": "",
-      "why_it_matters_zh": "",
-      "quality_score": 76,
-      "tags": [
-        "形式化证明"
-      ],
-      "evidence_flags": [],
-      "publication_status": "preprint",
-      "rank": 0,
-      "featured": false,
-      "category": "形式化证明",
-      "metrics": {},
-      "metadata": {
-        "doi": "",
-        "arxiv_id": "2609.34960v1"
-      }
-    },
-    {
       "id": "arxiv:2609.34344v1",
       "channel": "aixmath",
       "related_channels": [],
@@ -601,35 +624,34 @@
       }
     },
     {
-      "id": "arxiv:2609.34231v1",
+      "id": "arxiv:2609.37605v1",
       "channel": "aixmath",
       "related_channels": [
-        "aixchem"
+        "aixchem",
+        "aixbio"
       ],
       "item_type": "paper",
       "source": "arXiv",
-      "title": "ReGDiff: Guided Diffusion in Regulated Latent Space for Exploring Metamaterial Voxel Geometry",
-      "url": "https://arxiv.org/abs/2609.34231v1",
-      "published_at": "2026-09-28",
-      "updated_at": "2026-09-28",
+      "title": "TomoTransformer: Towards a Foundation Model for CT Reconstruction",
+      "url": "https://arxiv.org/abs/2609.37605v1",
+      "published_at": "2026-09-29",
+      "updated_at": "2026-09-29",
       "creators": [
-        "Wangzhi Zhan",
-        "Jianpeng Chen",
-        "Dongqi Fu",
-        "Dawei Zhou"
+        "AmirEhsan Khorashadizadeh",
+        "Benjamín Béjar"
       ],
       "language": "en",
-      "abstract_or_text": "Metamaterials are artificially engineered structures whose mechanical and physical behaviors are strongly shaped by geometry rather than composition. Voxel representation provides a unified format for metamaterial geometry generation, as it can express diverse classes such as truss, shell, and porous structures within a single cubic discretization. However, voxel-based generation faces a plausibility-novelty trade-off: staying close to known geometries helps preserve geometric regularities, while moving away from them is necessary for novelty but may produce degenerate geometries. To address this challenge, we propose REGDIFF, a generative framework that couples voxel representation with latent space regulation and guided diffusion. REGDIFF introduces a repel-and-sink (RAS) mechanism to smooth the latent distribution of plausible geometries, and short-range repulsion (SRR) guidance to discourage generation overly close to known samples while maintaining geometric plausibility. We further contribute a voxel-based benchmark covering truss- and shell-type metamaterial geometries, together with an evaluation module for geometric plausibility, novelty, and diversity. Experiments show that REGDIFF outperforms voxel-based generative baselines, achieving +8.9% in geometric plausibility, +46.4% in novelty, and +128.6% in diversity on average across two datasets. These results suggest that REGDIFF is a strong geometry candidate generator for downstream evaluation. Our code is provided at https://github.com/wzhan24/ReGDiff.",
+      "abstract_or_text": "Supervised deep learning has advanced sparse-view tomographic reconstruction. However, conventional models, which typically map filtered back-projection (FBP) images or sinograms to clean reconstructions, are brittle under distribution shifts. Because they require retraining whenever projection counts and angles, detector resolutions, or data distributions change, their deployment in real-world applications remains limited. To address this, we introduce TomoTransformer, a transformer-based architecture that treats each local filtered projection as an individual token and predicts missing views via self-attention. Crucially, TomoTransformer operates in a back-projection space that separates projections across spatial locations, making view interpolation geometrically well-posed and invariant to detector size. This design yields a single foundation model that can process any number of input projections, at arbitrary angular locations and detector dimensions, and query any number of target angles without retraining. Trained on a large-scale dataset spanning diverse medical CT anatomies and natural images, TomoTransformer generalizes effectively across anatomies, materials, and resolutions. Extensive evaluations on several benchmark sparse-view datasets show that TomoTransformer significantly outperforms concurrent multi-purpose models like ViewTrans and matches or exceeds strong protocol-specific baselines, while remaining fully agnostic to the number of input and target projections. Furthermore, the model demonstrates robust zero-shot generalization on real experimental nanoscale brain data collected from an X-ray synchrotron, showcasing its practical utility for real-world applications.",
       "summary_zh": "",
       "why_it_matters_zh": "",
-      "quality_score": 76,
+      "quality_score": 75,
       "tags": [
         "方法与模型"
       ],
       "evidence_flags": [
         "benchmark",
         "dataset",
-        "github",
+        "experimental",
         "evaluation"
       ],
       "publication_status": "preprint",
@@ -639,37 +661,78 @@
       "metrics": {},
       "metadata": {
         "doi": "",
-        "arxiv_id": "2609.34231v1"
+        "arxiv_id": "2609.37605v1"
       }
     },
     {
-      "id": "arxiv:2609.33271v1",
+      "id": "arxiv:2609.37054v1",
       "channel": "aixmath",
       "related_channels": [],
       "item_type": "paper",
       "source": "arXiv",
-      "title": "Next Thoughts Are Distributions: Generative Autoregressive Reasoning in the Latent Space",
-      "url": "https://arxiv.org/abs/2609.33271v1",
-      "published_at": "2026-09-27",
-      "updated_at": "2026-09-27",
+      "title": "actr: aligning thoughts and responses for multilingual safety in reasoning llms",
+      "url": "https://arxiv.org/abs/2609.37054v1",
+      "published_at": "2026-09-29",
+      "updated_at": "2026-09-29",
       "creators": [
-        "Yang Li",
-        "Yi Wang",
-        "Shiyuan Huang",
-        "Yang Liu",
-        "Hao Wang",
-        "Chengzhi Mao"
+        "Xianhui Zhang",
+        "Jian Yu",
+        "Chengyu Xie",
+        "Chenhang Cui",
+        "Shuyi Miao",
+        "Pengyang Shao",
+        "Yu Zheng",
+        "Fei Shen",
+        "Tat-Seng Chua"
       ],
       "language": "en",
-      "abstract_or_text": "Reasoning problems often admit multiple valid ways to proceed. Continuous reasoning promises to move computation beyond language tokens into a more compact latent space, but representing several plausible ways to think next remains difficult. We introduce Autoregressive Thought Flow (ATF), which models the next continuous thought as a multimodal distribution. A causal autoregressive model performs the reasoning computation, while a lightweight diffusion head generates a plausible next thought from the resulting condition. The sampled thought is fed back into the model, allowing continuous reasoning to unfold for a variable number of steps while preserving the pretrained backbone. Across mathematical reasoning tasks, ATF improves accuracy with compact latent traces and benefits from reinforcement learning and additional test-time thinking. Multi-sample evaluation shows broader solution coverage, indicating that its multimodal predictions capture useful diversity among reasoning paths. Our results suggest that continuous reasoning is more effective when multiple possible next thoughts remain available rather than being collapsed into a single prediction.",
+      "abstract_or_text": "Ensuring the safety of reasoning large language models (LLMs) across languages is essential for their reliable deployment. However, when exposed to jailbreak attacks in non-high-resource languages, these models may generate unsafe responses even when their reasoning traces identify safety risks. To address this issue, we propose aligning cross-lingual thoughts and responses (ACTR), a framework that improves multilingual safety alignment by strengthening the use of existing safety reasoning. Specifically, we first present the think gap score (TGS) to compare the normalized contributions of reasoning traces to attention outputs during response generation across languages, and use reasoning- trace substitution to measure the cross-lingual safety gap. Next, using a corpus of jailbreak queries, we assess neuron importance through changes in response representations caused by neuron masking and compare the high-importance neuron sets obtained with reasoning enabled and disabled to identify safety think neurons that support the use of safety reasoning. Finally, we devise neuron-selective consistency optimization (NSCO), which uses a frozen judge model to reward agreement between the safety categories of reasoning traces and responses while updating only the parameters associated with the selected neurons, requiring no human-annotated responses or preference data. Across two reasoning models, ACTR achieves lower average attack success rates than the evaluated state-of-the-art methods on AdvBench-X and MultiJail, with safety gains extending to unseen languages, while preserving or improving average performance on multilingual knowledge and mathematical reasoning tasks and limiting false refusals of benign requests. Warning: this paper contains examples with unsafe content.",
       "summary_zh": "",
       "why_it_matters_zh": "",
-      "quality_score": 76,
+      "quality_score": 75,
+      "tags": [
+        "数学推理"
+      ],
+      "evidence_flags": [
+        "state-of-the-art",
+        "performance"
+      ],
+      "publication_status": "preprint",
+      "rank": 0,
+      "featured": false,
+      "category": "数学推理",
+      "metrics": {},
+      "metadata": {
+        "doi": "",
+        "arxiv_id": "2609.37054v1"
+      }
+    },
+    {
+      "id": "arxiv:2609.36620v1",
+      "channel": "aixmath",
+      "related_channels": [],
+      "item_type": "paper",
+      "source": "arXiv",
+      "title": "Neural Structural Reasoner: A Brain-inspired Architecture for Reasoning over Structured Knowledge",
+      "url": "https://arxiv.org/abs/2609.36620v1",
+      "published_at": "2026-09-29",
+      "updated_at": "2026-09-29",
+      "creators": [
+        "Zixing Jia",
+        "Yuhang Pan",
+        "Ni Ji"
+      ],
+      "language": "en",
+      "abstract_or_text": "Structural reasoning, the ability to recognize and make inferences over the relational structure between objects and concepts, is a hallmark of human cognition, yet prevailing methods often collapse relational topology into flat embeddings, cannot discover hidden structure and lack interpretability. We introduce Neural Structural Reasoner (NSR), a brain-inspired network that preserves relational structure directly in the connectivity and dynamics of coupled neuronal populations. NSR draws inspiration from three biological mechanisms: multi-layered architecture for encoding hierarchical knowledge, stable representations of entity and concepts, and path integration for input-driven state inference. At query time, NSR parallelizes computation over candidate relational structures and leverages confidence-weighted scores to perform link prediction. Across standard knowledge-graph benchmarks, NSR achieves competitive accuracy without leading on every dataset, and has lower reported training times than several neural baselines. Because reasoning is implemented through sequences of human-readable neuron activations, NSR affords native interpretability by tracking intermediate inference steps. The model further extracts latent relational hierarchies and compositional rules, demonstrating the brain-inspired architecture as an effective, efficient, and highly interpretable substrate for structural reasoning.",
+      "summary_zh": "",
+      "why_it_matters_zh": "",
+      "quality_score": 75,
       "tags": [
         "方法与模型"
       ],
       "evidence_flags": [
-        "evaluation"
+        "benchmark",
+        "dataset"
       ],
       "publication_status": "preprint",
       "rank": 0,
@@ -678,24 +741,24 @@
       "metrics": {},
       "metadata": {
         "doi": "",
-        "arxiv_id": "2609.33271v1"
+        "arxiv_id": "2609.36620v1"
       }
     },
     {
-      "id": "arxiv:2609.35694v1",
+      "id": "arxiv:2609.35694v2",
       "channel": "aixmath",
       "related_channels": [],
       "item_type": "paper",
       "source": "arXiv",
       "title": "Reasoning with Continuous Latent Diffusion",
-      "url": "https://arxiv.org/abs/2609.35694v1",
+      "url": "https://arxiv.org/abs/2609.35694v2",
       "published_at": "2026-09-28",
-      "updated_at": "2026-09-28",
+      "updated_at": "2026-09-29",
       "creators": [
         "Xiang Cheng"
       ],
       "language": "en",
-      "abstract_or_text": "Continuous diffusion generates complete reasoning solutions through iterative refinement in latent space. We introduce Latent Flow Reasoning Models (LFRMs), an ELF-based training and inference recipe. Our experiments show that accurate decoding alone does not ensure strong reasoning performance. We therefore learn compact representations from multiple layers of a strong autoregressive teacher. Their decomposition also enables asynchronous denoising at different rates. We show that prompt encodings need only preserve the information required for the correct text-conditional score, rather than exactly match teacher features, and use a staged curriculum to learn a compact prompt encoder that replaces the teacher Transformer at inference. We adapt DiffusionNFT to learned self-conditioning guidance and incorporate gold-solution endpoints to supplement sparse rewards. Our supervised models outperform reported results from recent continuous-diffusion baselines at comparable backbone scales on mathematical reasoning and HumanEval code generation. With a 638M-parameter denoising backbone and learned prompt conditioning, post-NFT LFRM-L achieves 63.74% pass@1 on GSM8K and 24.6% on MATH500 at 64 denoising steps, and 32.85% on HumanEval and 30.18% on HumanEval+ at 128 denoising steps. Code will be available at: https://github.com/chengxiang/LFRM",
+      "abstract_or_text": "Continuous diffusion generates complete reasoning solutions through iterative refinement in latent space. We introduce the Continuous Embedding Diffusion Reasoner (CEDR), an ELF-based training and inference recipe. Our experiments show that accurate decoding alone does not ensure strong reasoning performance. We therefore learn compact representations from multiple layers of a strong autoregressive teacher. Their decomposition also enables asynchronous denoising at different rates. We show that prompt encodings need only preserve the information required for the correct text-conditional score, rather than exactly match teacher features, and use a staged curriculum to learn a compact prompt encoder that replaces the teacher Transformer at inference. We adapt DiffusionNFT to learned self-conditioning guidance and incorporate gold-solution endpoints to supplement sparse rewards. Our supervised models outperform reported results from recent continuous-diffusion baselines at comparable backbone scales on mathematical reasoning and HumanEval code generation. With a 638M-parameter denoising backbone and learned prompt conditioning, post-NFT CEDR-L achieves 63.74% pass@1 on GSM8K and 24.6% on MATH500 at 64 denoising steps, and 32.85% on HumanEval and 30.18% on HumanEval+ at 128 denoising steps. Code will be available at: https://github.com/chengxiang/CEDR.",
       "summary_zh": "",
       "why_it_matters_zh": "",
       "quality_score": 75,
@@ -713,52 +776,7 @@
       "metrics": {},
       "metadata": {
         "doi": "",
-        "arxiv_id": "2609.35694v1"
-      }
-    },
-    {
-      "id": "arxiv:2609.35606v1",
-      "channel": "aixmath",
-      "related_channels": [],
-      "item_type": "paper",
-      "source": "arXiv",
-      "title": "TCSAlgBench: Benchmarking Automated Proving for Research-Level Theoretical Computer Science",
-      "url": "https://arxiv.org/abs/2609.35606v1",
-      "published_at": "2026-09-28",
-      "updated_at": "2026-09-28",
-      "creators": [
-        "Chutong Yang",
-        "Xiyuan Zhang",
-        "Yu Huang",
-        "Boran Han",
-        "Soonho Kong",
-        "Shuai Zhang",
-        "Vihang Prakash Patil",
-        "Zhen Han",
-        "Michael Bohlke-Schneider",
-        "Bernie Wang"
-      ],
-      "language": "en",
-      "abstract_or_text": "Large language models perform strongly on competition mathematics, but their research-level reasoning remains difficult to evaluate systematically. Theoretical computer science (TCS) connects algorithm design to explicit guarantees and fundamental limits, providing a setting for evaluating whether models can justify computational improvements with arguments humans can inspect. We introduce TCSAlgBench, a benchmark and reusable pipeline for natural-language proof discovery, comprising 398 theorem-level challenges from 138 STOC and COLT 2026 papers. Expert-designed rules complete paper-specific context, preserve computational assumptions and quantitative guarantees, and withhold constructions when discovering an algorithm is part of the task. For each task, prover systems receive theorem statements and access to cited prior work. The pipeline supports fresh, versioned challenge batches from newly released papers. We evaluate ten model configurations from four families under direct inference and prover-verifier discussion, and compare four agent workflows under matched model-call opportunities. All evaluations use the full benchmark. In the model comparison, GPT-5.6 Sol max achieves the highest five-run verifier-accepted coverage at 23.6% after 10-round discussion. Discussion and repeated sampling improve coverage. In the separate agent comparison using GPT-5.5 xhigh, decomposition improves coverage over discussion, and agentic planning achieves the highest five-run verifier-accepted coverage at 25.4%. TCSAlgBench provides a refreshable testbed for measuring progress in model reasoning and studying how agent workflows support research-level proof discovery.",
-      "summary_zh": "",
-      "why_it_matters_zh": "",
-      "quality_score": 75,
-      "tags": [
-        "数学推理"
-      ],
-      "evidence_flags": [
-        "benchmark",
-        "evaluation",
-        "release"
-      ],
-      "publication_status": "preprint",
-      "rank": 0,
-      "featured": false,
-      "category": "数学推理",
-      "metrics": {},
-      "metadata": {
-        "doi": "",
-        "arxiv_id": "2609.35606v1"
+        "arxiv_id": "2609.35694v2"
       }
     },
     {
@@ -877,6 +895,46 @@
       }
     },
     {
+      "id": "arxiv:2609.35900v1",
+      "channel": "aixmath",
+      "related_channels": [],
+      "item_type": "paper",
+      "source": "arXiv",
+      "title": "Reconstructing Implicit Scientific Knowledge: Evaluating LLM Agents through End-to-End Reproduction of Astronomy",
+      "url": "https://arxiv.org/abs/2609.35900v1",
+      "published_at": "2026-09-28",
+      "updated_at": "2026-09-28",
+      "creators": [
+        "Yuehui Wang",
+        "Xinyu Qi",
+        "Guirong Xue",
+        "Cheng Wang",
+        "Yangbin Xie",
+        "Xiaoyu Tang",
+        "Cong Sun"
+      ],
+      "language": "en",
+      "abstract_or_text": "The integration of large language models (LLMs) into scientific workflows is accelerating, yet their ability to reconstruct the reasoning underlying published research remains unexplored. Papers specify explicit procedures while leaving many methodological dependencies-data selection, calibration corrections, priors, and domain assumptions-implicit. This ambiguity complicates the evaluation of LLM-based agents, since a failure to reproduce a result may reflect either limitations of the agent or underspecification in the source. We present a framework that evaluates agents through end-to-end reproduction, separating execution from verification and computational failure from methodological ambiguity. We apply it to fourteen astronomy studies: a case study from The Astrophysical Journal and thirteen papers published in Nature. Eleven of the thirteen contained an ambiguity preventing a uniquely specified reproduction path. In a controlled case study, twelve predefined paths, a 3x2x2 sensitivity analysis over sample definition, sky masking, and parallax zero-point treatment-gave estimates from 2.16 to 3.53 kpc for the same quantity, with only one recovering the published value (about 2.70 kpc). The published value was never used as an optimization target, selection criterion, or stopping condition; the matching path was found only after all twelve had run. Crucially, the decisive information (a +0.02 mas parallax zero-point correction) was already in the paper, but the agents did not recognize its causal relevance until the analysis made the effect visible. Matching a published outcome therefore does not validate reconstruction of the underlying reasoning, and the bottleneck is as often a failure to connect relevant information as to retrieve it. End-to-end reproduction thus serves both as a test of reproducibility and as a framework for evaluating implicit scientific knowledge in AI systems.",
+      "summary_zh": "",
+      "why_it_matters_zh": "",
+      "quality_score": 75,
+      "tags": [
+        "方法与模型"
+      ],
+      "evidence_flags": [
+        "evaluation"
+      ],
+      "publication_status": "preprint",
+      "rank": 0,
+      "featured": false,
+      "category": "方法与模型",
+      "metrics": {},
+      "metadata": {
+        "doi": "",
+        "arxiv_id": "2609.35900v1"
+      }
+    },
+    {
       "id": "arxiv:2609.34072v1",
       "channel": "aixmath",
       "related_channels": [
@@ -922,38 +980,74 @@
       }
     },
     {
-      "id": "arxiv:2609.33117v1",
+      "id": "arxiv:2609.38065v1",
+      "channel": "aixmath",
+      "related_channels": [],
+      "item_type": "paper",
+      "source": "arXiv",
+      "title": "Jaxolotl: A Unified High-Performance Benchmark Suite for LTL-Based Multi-Task RL",
+      "url": "https://arxiv.org/abs/2609.38065v1",
+      "published_at": "2026-09-29",
+      "updated_at": "2026-09-29",
+      "creators": [
+        "Mathias Jackermeier",
+        "Jacques Cloete",
+        "Alessandro Abate"
+      ],
+      "language": "en",
+      "abstract_or_text": "Training agents to follow arbitrary instructions is an important goal of multi-task reinforcement learning (RL). Linear temporal logic (LTL) provides a precise and structured formalism for specifying instructions to agents, and has been successfully adopted for training generalist multi-task policies. However, differences in implementations, task distributions, and evaluation protocols make existing methods difficult to compare, while high computational costs limit the scale and statistical reliability of experiments. We introduce Jaxolotl, a unified high-performance benchmark suite for multi-task LTL-RL to address these concerns. Jaxolotl provides a modular, end-to-end JAX implementation of six representative algorithms and four environments, together with newly curated task suites and a standardised, statistically robust evaluation protocol. By precompiling symbolic task representations into static arrays, Jaxolotl enables fully JIT-compiled training and evaluation, achieving end-to-end speedups of up to 220\\times and supporting controlled comparisons at substantially greater experimental scale. We use this framework to systematically evaluate existing approaches, revealing complementary strengths and limitations: general methods capable of non-myopic reasoning struggle as the number of propositions grows, while methods with stronger scaling rely on environment-specific assumptions and suffer from myopia.",
+      "summary_zh": "",
+      "why_it_matters_zh": "",
+      "quality_score": 74,
+      "tags": [
+        "验证与逻辑"
+      ],
+      "evidence_flags": [
+        "benchmark",
+        "experimental",
+        "evaluation",
+        "performance"
+      ],
+      "publication_status": "preprint",
+      "rank": 0,
+      "featured": false,
+      "category": "验证与逻辑",
+      "metrics": {},
+      "metadata": {
+        "doi": "",
+        "arxiv_id": "2609.38065v1"
+      }
+    },
+    {
+      "id": "arxiv:2609.38005v1",
       "channel": "aixmath",
       "related_channels": [
-        "aixbio"
+        "aixchem"
       ],
       "item_type": "paper",
       "source": "arXiv",
-      "title": "ECG-Scroll: A Long-Horizon, Streaming Benchmark and Agent Environment for Interpretation of Ambulatory Electrocardiograms",
-      "url": "https://arxiv.org/abs/2609.33117v1",
-      "published_at": "2026-09-27",
-      "updated_at": "2026-09-27",
+      "title": "Diagnosing and Improving Probabilistic Reasoning in Large Language Models",
+      "url": "https://arxiv.org/abs/2609.38005v1",
+      "published_at": "2026-09-29",
+      "updated_at": "2026-09-29",
       "creators": [
-        "Haitao Li",
-        "Chenglin Li",
-        "Zhengyao Ding",
-        "Ziyu Li",
-        "Yiheng Mao",
-        "Zhengxing Huang"
+        "Huaman Sun",
+        "Dingcheng Wang",
+        "Jason Hartline",
+        "Jessica Hullman"
       ],
       "language": "en",
-      "abstract_or_text": "Multimodal large language models (MLLMs) can now interpret a standard ten-second, twelve-lead electrocardiogram (ECG) with clinically grounded, reward-verified reasoning. Real cardiac monitoring is different. Ambulatory (Holter) and telemetry recordings span hours to days and are read as they stream in, and their clinically decisive findings are paroxysmal, brief episodes buried in an otherwise unremarkable trace. Such a recording cannot be held in one context at diagnostic resolution, and its future has not yet happened, so a reader must work online, deciding what to measure now, committing evidence to memory as it passes, and reporting events as they occur. We recast long-duration ECG interpretation as a long-horizon, online (streaming, causal) sequential decision process and introduce ECG-Scroll. As a benchmark, long ambulatory recordings are streamed to an agent chunk by chunk, and it must localize, quantify, and promptly flag paroxysmal events without access to future signal; because the underlying signal is retained, every answer is checkable against objective ground truth, giving rule-based rather than judge-based rewards, and the streaming formulation adds a metric batch evaluation cannot express, the detection latency between an event's onset and the moment the agent records it. As an agent environment, it is a fixed, gym-style interaction layer that exercises three competencies single-glance ECG models never touch: Memory, Tool use through signal-grounded measurement rather than reading pixels, and Planning of what to measure now and when to commit. We release 390 whole-recording instances spanning 2,536 hours of two-lead ambulatory ECG and evaluate a signal-threshold rule agent alongside off-the-shelf LLM agents online, characterizing how they use memory, tools, and planning and where the benchmark's head-room lies.",
+      "abstract_or_text": "Large language models (LLMs) are increasingly proposed as decision assistants who must reason probabilistically from available evidence under explicit decision costs. We propose a decision-theoretic framework that decomposes LLMs' decision loss into two components: forming accurate beliefs from provided evidence and translating those beliefs into actions that optimize a provided utility function. Using a synthetic benchmark with known ground truth, we apply the decomposition to characterize probabilistic reasoning in frontier and open-sourced models. We further evaluate whether RL interventions targeting beliefs, decisions, or both improve these components across three domains, whether improvements transfer across components and elicitation formats, and whether decision performance can improve without improvement in belief formation. We find that targeting one component of probabilistic reasoning redistributes decision loss, improving the target without necessarily transferring to others, and that jointly targeting belief formation and decision-making improves both but hinges on matched formats between training and evaluation.",
       "summary_zh": "",
       "why_it_matters_zh": "",
-      "quality_score": 75,
+      "quality_score": 74,
       "tags": [
         "方法与模型"
       ],
       "evidence_flags": [
         "benchmark",
-        "clinical",
         "evaluation",
-        "release"
+        "performance"
       ],
       "publication_status": "preprint",
       "rank": 0,
@@ -962,7 +1056,258 @@
       "metrics": {},
       "metadata": {
         "doi": "",
-        "arxiv_id": "2609.33117v1"
+        "arxiv_id": "2609.38005v1"
+      }
+    },
+    {
+      "id": "arxiv:2609.37989v1",
+      "channel": "aixmath",
+      "related_channels": [
+        "aixchem"
+      ],
+      "item_type": "paper",
+      "source": "arXiv",
+      "title": "TabFM-Auto: Self-Evolving Pipelines for Tabular Foundation Models",
+      "url": "https://arxiv.org/abs/2609.37989v1",
+      "published_at": "2026-09-29",
+      "updated_at": "2026-09-29",
+      "creators": [
+        "Deqing Fu",
+        "Huangyuan Su",
+        "Rajat Sen",
+        "Taman Narayan",
+        "Sujay Sanghavi",
+        "Abhimanyu Das",
+        "Weihao Kong"
+      ],
+      "language": "en",
+      "abstract_or_text": "Tabular foundation models achieve strong zero-shot accuracy on structured data by pretraining on synthetic tables, but they ignore the column names, task descriptions, and auxiliary files that carry dataset semantics. Meanwhile, self-evolving machine learning engineering (MLE) agents train models from scratch on each dataset, yet jointly searching over features, architectures, and hyperparameters is noisy and prone to overfitting. We introduce TabFM-Auto, which pairs a tabular foundation model, TabFM, with a language model agent that evolves the data pipeline around it. Guided by dataset metadata and validation feedback, TabFM-Auto iteratively refines data cleaning, feature engineering, context selection, and post-processing to reduce TabFM's error. Across all 51 datasets of the TabArena benchmark, five TabFM-Auto configurations with different agents and language models take the top five overall positions, and the best raises TabFM from 1785 to 2013 Elo. The discovered pipelines also transfer to other frozen tabular foundation models (+69 to +143 Elo) with no further search. On the 8 tabular competitions of MLE-Bench, TabFM-Auto ranks first overall among MLE agents.",
+      "summary_zh": "",
+      "why_it_matters_zh": "",
+      "quality_score": 74,
+      "tags": [
+        "方法与模型"
+      ],
+      "evidence_flags": [
+        "benchmark",
+        "dataset"
+      ],
+      "publication_status": "preprint",
+      "rank": 0,
+      "featured": false,
+      "category": "方法与模型",
+      "metrics": {},
+      "metadata": {
+        "doi": "",
+        "arxiv_id": "2609.37989v1"
+      }
+    },
+    {
+      "id": "arxiv:2609.37788v1",
+      "channel": "aixmath",
+      "related_channels": [
+        "aixbio"
+      ],
+      "item_type": "paper",
+      "source": "arXiv",
+      "title": "A Proposed Rubric for Evaluating Expressed Clinical Reasoning in Large Language Model Responses",
+      "url": "https://arxiv.org/abs/2609.37788v1",
+      "published_at": "2026-09-29",
+      "updated_at": "2026-09-29",
+      "creators": [
+        "Zhangshu Joshua Jiang",
+        "Zina Ibrahim",
+        "James T. Teo"
+      ],
+      "language": "en",
+      "abstract_or_text": "Rubrics support the structured evaluation of language models. We propose a rubric for assessing expressed clinical reasoning in model responses, drawing on three bodies of work: medical education assessment frameworks (ART, SCT, Key Feature Problems and OSCE); clinical LLM benchmarks (MedR-Bench, HealthBench, TIMER-Bench, DR.BENCH, PrIME-LLM and PatientSafeBench); and general LLM reasoning evaluation research, including the Factuality-Validity-Coherence-Utility taxonomy, FaithCoT-Bench and C2-Faith. We use groundedness as a clinically oriented adaptation of the taxonomy's factuality category. The rubric brings these concepts together in a multidimensional framework for scoring free-text responses to gold-standard clinical vignettes. It includes provisional behavioural anchors, applicability rules and a separate flag for case-specific safety-critical errors. General-domain frameworks inform its design but are not treated as validated clinical instruments. The rubric does not replace case-specific reference criteria or the task-specific metrics of existing benchmarks. It has not yet been tested for inter-rater reliability, construct validity or clinical utility. Its immediate purpose is to make evaluation decisions explicit and open to scrutiny before empirical testing.",
+      "summary_zh": "",
+      "why_it_matters_zh": "",
+      "quality_score": 74,
+      "tags": [
+        "方法与模型"
+      ],
+      "evidence_flags": [
+        "benchmark",
+        "clinical",
+        "evaluation"
+      ],
+      "publication_status": "preprint",
+      "rank": 0,
+      "featured": false,
+      "category": "方法与模型",
+      "metrics": {},
+      "metadata": {
+        "doi": "",
+        "arxiv_id": "2609.37788v1"
+      }
+    },
+    {
+      "id": "arxiv:2609.37127v1",
+      "channel": "aixmath",
+      "related_channels": [],
+      "item_type": "paper",
+      "source": "arXiv",
+      "title": "LLM unbranding: Erasing Commercial Identity while Preserving Generic Utility",
+      "url": "https://arxiv.org/abs/2609.37127v1",
+      "published_at": "2026-09-29",
+      "updated_at": "2026-09-29",
+      "creators": [
+        "Kajetan Ożóg",
+        "Alicja Wojciechowska",
+        "Dawid Malarz",
+        "Paweł Batorski",
+        "Artur Kasymov",
+        "Przemysław Spurek"
+      ],
+      "language": "en",
+      "abstract_or_text": "Establishing unbranding as a critical practice to prevent visual logos from acquiring negative connotations is standard in image generation. Large Language Models (LLMs) now face a parallel and emerging challenge. These models frequently generate brand descriptions within diverse contexts. This frequency introduces significant risks, such as trademark dilution, false attribution, and brand defamation. In response, we formally define the novel task of LLM Unbranding. We specifically address the complex challenge of managing trade dress within textual outputs. This involves neutralizing characteristic language, slogans, and stylistic markers that define brand identity. Crucially, these elements are less evident than explicit visual logos. To benchmark this task, we introduce a comprehensive evaluation dataset incorporating prominent brands from multiple commercial domains. We rigorously evaluate existing state-of-the-art machine unlearning models using this benchmark. This evaluation identifies their limitations in selective textual unbranding. Finally, we propose MUTE, a novel inference-time method that effectively neutralizes textual trade dress while preserving the LLM's general capabilities and utility. By leveraging an iterative refinement loop, MUTE systematically optimizes system instructions to safely eliminate brand leakage without requiring fragile parameter updates. Code and dataset: The evaluation dataset and code for LLM Unbranding are available at https://github.com/KajetanOzog/LLM_unbranding. The implementation of MUTE is available at https://github.com/KajetanOzog/MUTE.",
+      "summary_zh": "",
+      "why_it_matters_zh": "",
+      "quality_score": 74,
+      "tags": [
+        "方法与模型"
+      ],
+      "evidence_flags": [
+        "benchmark",
+        "dataset",
+        "github",
+        "state-of-the-art",
+        "evaluation"
+      ],
+      "publication_status": "preprint",
+      "rank": 0,
+      "featured": false,
+      "category": "方法与模型",
+      "metrics": {},
+      "metadata": {
+        "doi": "",
+        "arxiv_id": "2609.37127v1"
+      }
+    },
+    {
+      "id": "arxiv:2609.37042v1",
+      "channel": "aixmath",
+      "related_channels": [],
+      "item_type": "paper",
+      "source": "arXiv",
+      "title": "GleanVID: Complementary Token Selection for Efficient Video Large Language Models",
+      "url": "https://arxiv.org/abs/2609.37042v1",
+      "published_at": "2026-09-29",
+      "updated_at": "2026-09-29",
+      "creators": [
+        "Shuo Yang",
+        "Changbai Li",
+        "Rui Tang",
+        "Xinyu Zhao",
+        "Linlin Yang",
+        "Baochang Zhang"
+      ],
+      "language": "en",
+      "abstract_or_text": "Video Large Language Models (VideoLLMs) have achieved strong video understanding capabilities but incur substantial inference overhead due to the large number of visual tokens. Existing VideoLLM token compression methods largely rely on selection-independent scoring, overlooking cross-frame complementarity and consequently retaining redundant evidence across frames. Instead, we view video token selection as a progressive evidence accumulation process. It aims to retain visual evidence that is individually informative and collectively complementary under a limited token budget. Building on this insight, we introduce GleanVID, a training-free inference acceleration framework for VideoLLMs. Specifically, GleanVID first allocates the global token budget across frames according to temporal novelty and then selects tokens by jointly considering local representativeness and subspace complementarity, thereby preserving richer and less redundant visual evidence. Extensive experiments across diverse VideoLLMs and benchmarks demonstrate that GleanVID consistently achieves state-of-the-art performance. Notably, with only 25% of visual tokens, GleanVID preserves 98.6% of Qwen3-VL's original performance while reducing its prefill latency by 44.7%. On LLaVA-OV-7B, GleanVID at a 25% retention ratio even slightly surpasses the original model.",
+      "summary_zh": "",
+      "why_it_matters_zh": "",
+      "quality_score": 74,
+      "tags": [
+        "方法与模型"
+      ],
+      "evidence_flags": [
+        "benchmark",
+        "state-of-the-art",
+        "performance"
+      ],
+      "publication_status": "preprint",
+      "rank": 0,
+      "featured": false,
+      "category": "方法与模型",
+      "metrics": {},
+      "metadata": {
+        "doi": "",
+        "arxiv_id": "2609.37042v1"
+      }
+    },
+    {
+      "id": "arxiv:2609.36830v1",
+      "channel": "aixmath",
+      "related_channels": [
+        "aixbio"
+      ],
+      "item_type": "paper",
+      "source": "arXiv",
+      "title": "Where Does Staleness Accumulate? Pool Aware Effective Staleness Control for Asynchronous RL in LLM Post-Training",
+      "url": "https://arxiv.org/abs/2609.36830v1",
+      "published_at": "2026-09-29",
+      "updated_at": "2026-09-29",
+      "creators": [
+        "Chenliang Li",
+        "Neiwen Ling",
+        "Zijun Wei",
+        "Alfredo Garcia"
+      ],
+      "language": "en",
+      "abstract_or_text": "Fully asynchronous reinforcement learning (RL) improves resource utilization in large language model post-training by overlapping rollout generation with policy optimization, but it also introduces policy lag as trajectories are generated and queued while the trainer continues to update. We study how this lag accumulates over a trajectory's lifetime and how it can be controlled without sacrificing the wall-clock benefits of asynchronous execution. We decompose trajectory staleness into Generation Staleness, accumulated before rollout completion, and Waiting Staleness, accumulated after a completed trajectory enters the pool. Motivated by this decomposition, we introduce PACE (Pool-Aware Control of Effective Staleness). PACE converts excess pool occupancy into an adaptive rejection budget and ranks completed trajectories using an effective-staleness score that combines Waiting Staleness with prefix-aware Generation Staleness. This avoids penalizing long or interrupted rollouts solely because they span multiple policy versions. In single-turn mathematical reasoning, PACE improves the six-benchmark average validation accuracy by 18.7\\% over unfiltered asynchronous RL at the same wall-clock budget and matches synchronous RL performance with 47.1\\% less GPU time. PACE also improves validation performance in multi-turn tool-integrated reasoning, outperforming both synchronous and unfiltered asynchronous RL. Further experiments with the mixture-of-experts model and an alternative RL algorithm support its applicability across model architectures and training algorithms.",
+      "summary_zh": "",
+      "why_it_matters_zh": "",
+      "quality_score": 74,
+      "tags": [
+        "方法与模型"
+      ],
+      "evidence_flags": [
+        "benchmark",
+        "performance"
+      ],
+      "publication_status": "preprint",
+      "rank": 0,
+      "featured": false,
+      "category": "方法与模型",
+      "metrics": {},
+      "metadata": {
+        "doi": "",
+        "arxiv_id": "2609.36830v1"
+      }
+    },
+    {
+      "id": "arxiv:2609.36813v1",
+      "channel": "aixmath",
+      "related_channels": [
+        "aixbio"
+      ],
+      "item_type": "paper",
+      "source": "arXiv",
+      "title": "RESCUE: Repairing Language Model Errors to Sparse Circuits via Reinforcement Learning",
+      "url": "https://arxiv.org/abs/2609.36813v1",
+      "published_at": "2026-09-29",
+      "updated_at": "2026-09-29",
+      "creators": [
+        "Chuanpu Liu",
+        "Miao Yu",
+        "Yikai Cai",
+        "Yuanhe Zhang",
+        "Zhenhong Zhou",
+        "Li Sun",
+        "Zuming Jiang",
+        "Yufei Guo"
+      ],
+      "language": "en",
+      "abstract_or_text": "Large language models (LLMs) exhibit strong general capabilities that mechanistic interpretability has attributed to sparse computational circuits. However, existing circuit studies emphasize preserving functionality or explaining safety, leaving the mechanisms underlying failures across a broader range of tasks largely unexplored. Extending circuit analysis from abilities to errors, we explore the perspective that such failures may likewise arise from erroneous internal computations and that targeted tuning of the corresponding parameters can correct such errors while largely preserving other capabilities. Motivated by this insight, we introduce RESCUE (Reasoning-Error Sparse-Circuit Uncovering and Editing), a framework that localizes error-associated circuits and surgically repairs them for performance enhancement. General tasks typically involve multi-step reasoning and long-form generation, where early deviations can cause prefixes to drift from supervised references, leading SFT-based mask optimization to overlook circuits involved in generation-time errors. RESCUE therefore refines these masks through reinforcement learning with multiple masked-model rollouts, improving their relevance to observed task failures. Finally, RESCUE introduces a pruning technique and precisely fine-tunes error circuits to correct task failures, thereby translating error localization into a sparse and targeted model update. We validate RESCUE on heterogeneous repair sets across two domains: (1) mathematical reasoning, identifying a math error circuit of 1.40% density whose repair raises accuracy from 6.0% to 75.5%; and (2) medical QA, where a similarly compact 1.44% circuit improves repair-set accuracy from 0% to 81%. Our code is available at: https://github.com/chuanpupig/RESCUE.",
+      "summary_zh": "",
+      "why_it_matters_zh": "",
+      "quality_score": 74,
+      "tags": [
+        "方法与模型"
+      ],
+      "evidence_flags": [
+        "github",
+        "performance"
+      ],
+      "publication_status": "preprint",
+      "rank": 0,
+      "featured": false,
+      "category": "方法与模型",
+      "metrics": {},
+      "metadata": {
+        "doi": "",
+        "arxiv_id": "2609.36813v1"
       }
     },
     {
@@ -1049,6 +1394,47 @@
       }
     },
     {
+      "id": "arxiv:2609.35909v1",
+      "channel": "aixmath",
+      "related_channels": [],
+      "item_type": "paper",
+      "source": "arXiv",
+      "title": "Cheap to Hypothesize, Costly to Verify: The Defense Surface of Agentic Vulnerability Discovery",
+      "url": "https://arxiv.org/abs/2609.35909v1",
+      "published_at": "2026-09-28",
+      "updated_at": "2026-09-28",
+      "creators": [
+        "Kaikai Zhang",
+        "Zihan Zhang",
+        "Yuchong Xie",
+        "Zesen Liu",
+        "Shuangjie Yao",
+        "Zhixiang Zhang",
+        "Dongdong She"
+      ],
+      "language": "en",
+      "abstract_or_text": "Autonomous LLM agents turn vulnerability discovery into a repository-scale search: they generate many vulnerability hypotheses but can verify only a subset under a finite budget. We show that autonomous vulnerability discovery exhibits a hypothesis-verification asymmetry, where verifying a candidate hypothesis through reachability analysis, execution, and proof-of-concept construction is substantially more expensive than forming it. Under a finite resource budget, this makes autonomous discovery a resource-bounded selective-verification process, further exposing verification effort as a unique defense surface. We present RedHerring, which inserts certifiably safe decoys that divert verification effort from real vulnerabilities. Each decoy combines a CVE-derived vulnerability chain that attracts verification with a false bridge that keeps its dangerous sink unreachable. A private certificate lets the defender verify this property efficiently, while establishing the same fact from the released repository requires solving a computationally hard problem. RedHerring further adapts each decoy to the target repository so that it reads as ordinary program logic. Across 33 OSS-Fuzz projects, 70 evaluation instances, and five models under matched budgets, RedHerring reduces real vulnerabilities discovered by 38.7-60.4%. Trajectory analysis shows that agents spend 30.6-51.5% of completion tokens and an estimated 32.5-49.9% of runtime verifying decoys, showing that RedHerring redirects a substantial fraction of the fixed search budget toward decoys. When explicitly informed that decoys may be present, the agent adapts its search strategy, yet RedHerring still reduces vulnerabilities discovered by 37.2% relative to an informed Baseline, showing that its effectiveness does not depend on decoy secrecy.",
+      "summary_zh": "",
+      "why_it_matters_zh": "",
+      "quality_score": 74,
+      "tags": [
+        "验证与逻辑"
+      ],
+      "evidence_flags": [
+        "evaluation",
+        "release"
+      ],
+      "publication_status": "preprint",
+      "rank": 0,
+      "featured": false,
+      "category": "验证与逻辑",
+      "metrics": {},
+      "metadata": {
+        "doi": "",
+        "arxiv_id": "2609.35909v1"
+      }
+    },
+    {
       "id": "arxiv:2609.34247v1",
       "channel": "aixmath",
       "related_channels": [],
@@ -1091,80 +1477,31 @@
       }
     },
     {
-      "id": "arxiv:2609.33822v1",
+      "id": "arxiv:2609.37577v1",
       "channel": "aixmath",
-      "related_channels": [
-        "aixchem",
-        "aixbio"
-      ],
+      "related_channels": [],
       "item_type": "paper",
       "source": "arXiv",
-      "title": "Vestrum: Improving Agent Harnesses by Adapting Their Verification, Structure and Memory",
-      "url": "https://arxiv.org/abs/2609.33822v1",
-      "published_at": "2026-09-27",
-      "updated_at": "2026-09-27",
+      "title": "Pair Difficulty Matters: Rethinking Pairwise LLM-as-a-Judge Evaluation and Consistency",
+      "url": "https://arxiv.org/abs/2609.37577v1",
+      "published_at": "2026-09-29",
+      "updated_at": "2026-09-29",
       "creators": [
-        "Jayant Parashar",
-        "Eugene F. Douglass",
-        "William C. Bastian",
-        "Suchendra M. Bhandarkar"
+        "Bruno Brocai",
+        "Maria Becker"
       ],
       "language": "en",
-      "abstract_or_text": "An agent harness controls how a language model accesses information, uses tools, preserves memory, and checks its work. Improving this software is costly when each evaluation requires a long interaction with an environment. We introduce Vestrum, a framework that turns failures in execution traces into scoped harness changes without training the task model. Its organizing overhypothesis is that tasks of a shared kind may exhibit recurring failures whose remedies transfer within that kind. Vestrum expresses failures as recognizable classes, proposes changes across verification, retrieval, decomposition, and knowledge synthesis, and screens their scope before evaluating them as a bundle. A persistent lessons file informs subsequent proposals. Across five settings and two baseline harnesses, the frozen harnesses improve held-out performance: UltraHorizon rises from 47.6 to 59.8 over GAM, Terminal-Bench 4 Hard from 63.7% to 70.3% of checks passed over Claude Code on eight held-out tasks at 1.03x test cost, and cell-type annotation agreement from 67.5% to 77.8% on held-out sections of one slide, alongside gains on LoCoMo and AMA-Bench. Across our searches, verification grounded in evidence helped both intermediate steps and final answers, at lower cost at intermediate steps, while critics asked to rebuild finished answers broke more than they repaired. On the three memory benchmarks, Vestrum also scores above the evaluated GEPA configurations in every paired evaluation.",
+      "abstract_or_text": "Large Language Model judges are widely used to rank texts and text-generating systems through pairwise comparison, and their reliability is typically assessed via three proxies: position bias, transitivity, and pairwise agreement (self- or human-labeled). Because these proxies drive judge selection and benchmarking, a substantial literature reporting that judges perform poorly on them risks steering practitioners away from otherwise capable evaluators. We argue this assessment is misleading. Under the Bradley--Terry geometry underlying pairwise aggregation, each proxy is dominated by close-rank-gap pairs, where inconsistency is information-theoretically expected and individual verdicts contribute little to the aggregate ranking; far-gap pairs carry the ranking signal but barely move the proxies. We formalize this argument and validate it in a controlled simulation and on two human-rated corpora: the proxies correlate only weakly with ranking accuracy against gold, and their predictive component concentrates in the far-gap regime. Judges should therefore be assessed on rank-gap-conditional metrics, ideally against human rankings. Code at https://github.com/brunobrocai/PairDifficulty.",
       "summary_zh": "",
       "why_it_matters_zh": "",
-      "quality_score": 74,
+      "quality_score": 73,
       "tags": [
         "方法与模型"
       ],
       "evidence_flags": [
         "benchmark",
-        "evaluation",
-        "performance"
-      ],
-      "publication_status": "preprint",
-      "rank": 0,
-      "featured": false,
-      "category": "方法与模型",
-      "metrics": {},
-      "metadata": {
-        "doi": "",
-        "arxiv_id": "2609.33822v1"
-      }
-    },
-    {
-      "id": "arxiv:2609.33521v1",
-      "channel": "aixmath",
-      "related_channels": [
-        "aixbio"
-      ],
-      "item_type": "paper",
-      "source": "arXiv",
-      "title": "LLM4Trust: Exploring the Capabilities of Large Language Models for Trust Evaluation",
-      "url": "https://arxiv.org/abs/2609.33521v1",
-      "published_at": "2026-09-27",
-      "updated_at": "2026-09-27",
-      "creators": [
-        "Jie Wang",
-        "Yanbo Sun",
-        "Zheng Yan",
-        "Jiahe Lan",
-        "Elisa Bertino"
-      ],
-      "language": "en",
-      "abstract_or_text": "Trust evaluation plays a critical role in cybersecurity by supporting risk mitigation and decision-making. A variety of trust evaluation methods have been proposed, with learning-based approaches offering high accuracy and automation. However, they often require substantial ground truth, suffer from low training efficiency, lack support for basic trust properties, and provide limited explainability. Large Language Models (LLMs) offer a compelling alternative due to their strong zero-/few-shot reasoning abilities and broad knowledge. To this end, we propose LLM4Trust, the first benchmark framework that systematically explores the capabilities of LLMs for trust evaluation. We first construct diverse trust graphs to model five basic trust properties and design corresponding property understanding tasks. We then assess the ability of eight representative LLMs to understand these properties under nine prompt methods. Based on this exploration, we identify the most effective LLM-prompt combinations and apply them to five real-world datasets for validating LLMs' trust evaluation capability. During this process, we propose two strategies to extract key information from large-scale trust graphs, addressing the context window limitations of LLMs. Extensive experiments show that LLMs can effectively understand basic trust properties and have great potential for real-world trust evaluation, particularly under limited supervision. However, they remain vulnerable to attacks targeting trust graphs and demonstration examples used in few-shot prompting, and incur high inference costs. Accordingly, we propose a defense mechanism and batch inference to improve the robustness and efficiency of LLM-based trust evaluation. The source code of LLM4Trust is available at https://github.com/Jieerbobo/LLM4Trust",
-      "summary_zh": "",
-      "why_it_matters_zh": "",
-      "quality_score": 74,
-      "tags": [
-        "方法与模型"
-      ],
-      "evidence_flags": [
-        "benchmark",
-        "dataset",
         "github",
-        "evaluation",
-        "security"
+        "evaluation"
       ],
       "publication_status": "preprint",
       "rank": 0,
@@ -1173,79 +1510,120 @@
       "metrics": {},
       "metadata": {
         "doi": "",
-        "arxiv_id": "2609.33521v1"
+        "arxiv_id": "2609.37577v1"
       }
     },
     {
-      "id": "arxiv:2609.33487v1",
+      "id": "arxiv:2609.37304v1",
       "channel": "aixmath",
       "related_channels": [],
       "item_type": "paper",
       "source": "arXiv",
-      "title": "What masking geometry works best for EEG foundation models?",
-      "url": "https://arxiv.org/abs/2609.33487v1",
-      "published_at": "2026-09-27",
-      "updated_at": "2026-09-27",
+      "title": "MetaCtrl: Your Large Language Models Can Reason Better and More Concisely with a Metacognitive Controller",
+      "url": "https://arxiv.org/abs/2609.37304v1",
+      "published_at": "2026-09-29",
+      "updated_at": "2026-09-29",
       "creators": [
-        "Pierre Guetschel",
-        "Bruno Aristimunha",
-        "Yassine El Ouahidi",
-        "Arnaud Delorme",
-        "Thomas Moreau",
-        "Michael Tangermann"
+        "Zhibin Wen",
+        "Tao Han",
+        "Lei Bai",
+        "Can Li",
+        "Yang Xu"
       ],
       "language": "en",
-      "abstract_or_text": "EEG foundation models hold promise for scalable brain-signal decoding across clinical and cognitive neuroscience applications, yet their pre-training pipelines remain poorly understood. Among design choices, the masking strategy is particularly critical: it determines what the network must predict and from which context. Yet it has never been ablated in isolation, as each new model bundles a new masking strategy with a new backbone and objective. In this paper, we formalize the design choices for spatio-temporal masking strategies and train various models with a single pipeline under varying masking configurations across two SSL frameworks (MAE and JEPA). We then systematically evaluate the resulting 58 pre-trained models on the 12 datasets of OpenEEGBench under a linear probe. Both frameworks agree on an optimal masking configuration and on shared failure modes. Outside these, performance is robust: 11 MAE and 9 JEPA configurations are statistically indistinguishable from the best. We further identify a novel JEPA-specific failure mode, tagged bias-inflation collapse, invisible to standard detectors. With a well-chosen mask, our pipeline reaches REVE-level downstream performance at a fraction of REVE's pre-training compute.",
+      "abstract_or_text": "Large reasoning models improve performance on challenging problems by allocating additional computation before answering, but longer reasoning does not always lead to better results and can introduce substantial redundant reasoning on simple problems. Conversely, aggressively shortening reasoning can degrade performance on difficult ones. Effective reasoning therefore requires dynamically deciding when additional computation is useful based on the reasoner's capabilities and evolving solution state. Existing approaches often rely on predefined budgets or intervention rules, retrain the target reasoner, or require additional supervision. We introduce MetaCtrl, a lightweight controller that adaptively regulates a frozen reasoner without predefined token budgets or reasoner retraining. We formulate reasoning regulation as a sequential metacognitive control problem: MetaCtrl observes the evolving reasoning trace and decides whether to continue, simplify, skip redundant steps, or conclude reasoning. It is trained directly with reinforcement learning using a reward that prioritizes correctness while favoring shorter trajectories among correct solutions, requiring neither supervised intervention trajectories nor problem-specific budgets. Across seven benchmarks spanning mathematics, science, and code, MetaCtrl consistently improves the accuracy of LRMs while reducing their reasoning length. On DeepSeek-R1-Distill-Qwen-7B, it improves average accuracy by 4.7 points while reducing generation length by 53.3%. Without further training, the same controller transfers to an unseen reasoner (e.g., Qwen3-14B), improving average accuracy by 2.9 points and reducing generation length by 50.3%. These results establish MetaCtrl as a plug-and-play controller for improving reasoning accuracy while substantially reducing inference-time generation. The code is available at https://github.com/binbin2xs/MetaCtrl.",
       "summary_zh": "",
       "why_it_matters_zh": "",
-      "quality_score": 74,
+      "quality_score": 73,
       "tags": [
-        "形式化证明"
+        "方法与模型"
       ],
       "evidence_flags": [
-        "dataset",
-        "clinical",
+        "benchmark",
+        "github",
         "performance"
       ],
       "publication_status": "preprint",
       "rank": 0,
       "featured": false,
-      "category": "形式化证明",
+      "category": "方法与模型",
       "metrics": {},
       "metadata": {
         "doi": "",
-        "arxiv_id": "2609.33487v1"
+        "arxiv_id": "2609.37304v1"
       }
     },
     {
-      "id": "arxiv:2609.33244v1",
+      "id": "arxiv:2609.37038v1",
+      "channel": "aixmath",
+      "related_channels": [],
+      "item_type": "paper",
+      "source": "arXiv",
+      "title": "NowcastDiT: Diffusion Transformers are Effective Precipitation Nowcasters",
+      "url": "https://arxiv.org/abs/2609.37038v1",
+      "published_at": "2026-09-29",
+      "updated_at": "2026-09-29",
+      "creators": [
+        "Haoran Xu",
+        "Xingzhuo Guo",
+        "Yuchen Zhang",
+        "Jincheng Zhong",
+        "Jianmin Wang",
+        "Mingsheng Long"
+      ],
+      "language": "en",
+      "abstract_or_text": "Precipitation nowcasting demands accurate short-term forecasts under strong spatiotemporal variability. Diffusion models are well suited to modeling complex precipitation distributions, yet existing approaches often introduce increasingly specialized designs, leaving the capability of a standard diffusion architecture underexplored. We show that a standard Diffusion Transformer already provides a simple and scalable foundation for precipitation nowcasting, with domain-specific requirements accommodated naturally within its design space. Based on this principle, we develop NowcastDiT and instantiate this flexibility through two complementary adaptations: a dynamics-aware noise prior for temporally coherent forecasts, and end-to-end reinforcement learning with timestep-aware rewards for meteorological skill. Experiments on SEVIR and MRMS benchmarks show that NowcastDiT achieves state-of-the-art performance in both perceptual quality and meteorological skill. These results suggest that standard DiT can serve as an effective foundation for precipitation nowcasting.",
+      "summary_zh": "",
+      "why_it_matters_zh": "",
+      "quality_score": 73,
+      "tags": [
+        "方法与模型"
+      ],
+      "evidence_flags": [
+        "benchmark",
+        "state-of-the-art",
+        "performance"
+      ],
+      "publication_status": "preprint",
+      "rank": 0,
+      "featured": false,
+      "category": "方法与模型",
+      "metrics": {},
+      "metadata": {
+        "doi": "",
+        "arxiv_id": "2609.37038v1"
+      }
+    },
+    {
+      "id": "arxiv:2609.36406v1",
       "channel": "aixmath",
       "related_channels": [
         "aixbio"
       ],
       "item_type": "paper",
       "source": "arXiv",
-      "title": "ActiveMem: Dynamic Latent Memory Trees for Long-Horizon Agents",
-      "url": "https://arxiv.org/abs/2609.33244v1",
-      "published_at": "2026-09-27",
-      "updated_at": "2026-09-27",
+      "title": "From Retrieval to Reasoning: Agentic Mechanism Prediction from Cell Painting Profiles",
+      "url": "https://arxiv.org/abs/2609.36406v1",
+      "published_at": "2026-09-29",
+      "updated_at": "2026-09-29",
       "creators": [
-        "Song-Li Wu",
-        "Jingyi Wang",
-        "Zhaocheng Du",
-        "Weinan Gan"
+        "Jiayuan Chen",
+        "Botao Yu",
+        "Tianyu Liu",
+        "Thai-Hoang Pham",
+        "Meng Wu",
+        "Ping Zhang"
       ],
       "language": "en",
-      "abstract_or_text": "Large Language Model (LLM) agents increasingly rely on external memory to support long-horizon reasoning and decision making. Existing memory systems typically retrieve historical trajectories or summaries as independent context fragments, overlooking the procedural dependencies underlying multi-step execution. As memory scales, such flat retrieval introduces context fragmentation and cross-task interference, leading to structurally inconsistent reasoning trajectories. We propose ActiveMem, a hierarchical memory framework that recursively organizes agent experiences into dependency-aware latent execution trees. ActiveMem abstracts trajectories into reusable subtask nodes while explicitly preserving execution transitions, enabling coherent reasoning-path retrieval conditioned on the current execution state. To support continual adaptation, ActiveMem further learns dynamic memory expansion, retrieval, and pruning policies through reinforcement learning. Experiments across various agent benchmarks demonstrate that ActiveMem consistently improves task completion, reasoning stability, and memory efficiency over existing memory-based agents. Moreover, ActiveMem enables compact open-weight models to achieve competitive performance with substantially larger proprietary systems.",
+      "abstract_or_text": "Cell Painting is a high-content morphological profiling assay widely used for phenotype-based biological inference, with mechanism of action (MOA) prediction as a central application. Existing approaches largely formulate Cell Painting-based inference as representation matching, assigning predictions from nearby reference perturbations in morphological feature space. However, retrieved neighbors are often noisy and partially misleading evidence due to batch effects, non-specific cytotoxicity, phenotypic convergence, and source-dependent variability. We reformulate Cell Painting-based MOA prediction as a calibrated evidence reasoning problem, where retrieved neighbors are treated as uncertain observations that must be evaluated, compared, and sometimes rejected before supporting a mechanistic conclusion. We propose PhenoAIR, a reliability-aware multi-agent framework that maintains a candidate-centric evidence memory and performs controller-guided refinement over phenotype- and mechanism-side evidence. PhenoAIR uses offline reference-set calibration to weight evidence by source reliability, phenotype stability, and mechanism-level confusion. We evaluate PhenoAIR on a benchmark constructed from JUMP Cell Painting profiles and annotations, covering controlled, realistic, and discovery-oriented open-world MOA prediction settings. PhenoAIR outperforms representation-matching and LLM-based baselines across all settings.",
       "summary_zh": "",
       "why_it_matters_zh": "",
-      "quality_score": 74,
+      "quality_score": 73,
       "tags": [
         "方法与模型"
       ],
       "evidence_flags": [
-        "benchmark",
-        "performance"
+        "benchmark"
       ],
       "publication_status": "preprint",
       "rank": 0,
@@ -1254,29 +1632,68 @@
       "metrics": {},
       "metadata": {
         "doi": "",
-        "arxiv_id": "2609.33244v1"
+        "arxiv_id": "2609.36406v1"
       }
     },
     {
-      "id": "arxiv:2609.33066v1",
+      "id": "arxiv:2609.36138v1",
+      "channel": "aixmath",
+      "related_channels": [
+        "aixbio"
+      ],
+      "item_type": "paper",
+      "source": "arXiv",
+      "title": "When Does Correction Become Repair? Mechanistic Auditing of Internal Interventions in Tool-Using LLMs",
+      "url": "https://arxiv.org/abs/2609.36138v1",
+      "published_at": "2026-09-28",
+      "updated_at": "2026-09-28",
+      "creators": [
+        "Jiayi Li",
+        "Ruizhe Li"
+      ],
+      "language": "en",
+      "abstract_or_text": "Before invoking external tools, an agentic LLM must select among a K-way action space: executing a call, seeking clarification, answering directly, or declining. While internal activation steering can alter these pre-execution decisions, conventional aggregate metrics obscure where altered states land and what collateral damage they inflict. We present SAKIKO, an auditing framework that formalizes representation repair via directional error discovery, router-conditioned intervention, destination-resolved verification, and prospectively frozen statistical licensing. Across seven LLMs on When2Call and MetaTool, channel-keyed interventions induce direction-specific net gains in five models; across three sealed evaluations, none of 59 budget-matched random directions matches calibrated target gain. Crucially, destination auditing shows that behavioral movement does not equal repair: an intervention achieving +55 net gain corrupts over half of the baseline-correct decisions it touches, and promising point estimates on Qwen3-4B and Gemma-2-9B are formally declined due to finite-sample uncertainty. SAKIKO establishes the necessity of outcome-resolved adjudication before claiming internal repair. Code: https://github.com/ruizheliUOA/mechanistic-tool-use-llm.",
+      "summary_zh": "",
+      "why_it_matters_zh": "",
+      "quality_score": 73,
+      "tags": [
+        "方法与模型"
+      ],
+      "evidence_flags": [
+        "github",
+        "prospective",
+        "evaluation"
+      ],
+      "publication_status": "preprint",
+      "rank": 0,
+      "featured": false,
+      "category": "方法与模型",
+      "metrics": {},
+      "metadata": {
+        "doi": "",
+        "arxiv_id": "2609.36138v1"
+      }
+    },
+    {
+      "id": "arxiv:2609.35958v1",
       "channel": "aixmath",
       "related_channels": [],
       "item_type": "paper",
       "source": "arXiv",
-      "title": "Zero-Storage Procedural Neural Synthesis via Boundary Dynamics: Formal Verification in Lean 4 and Bare-Metal Gauntlet Validation",
-      "url": "https://arxiv.org/abs/2609.33066v1",
-      "published_at": "2026-09-27",
-      "updated_at": "2026-09-27",
+      "title": "Solver Agent: an Agentic AI Framework for Theoretical Physics Computations Applied to F-theory Uplifts of O3-planes and S-folds",
+      "url": "https://arxiv.org/abs/2609.35958v1",
+      "published_at": "2026-09-28",
+      "updated_at": "2026-09-28",
       "creators": [
-        "Volkan Dağlı",
-        "Zerrin Dağlı",
-        "Dağhan Dağlı"
+        "Eliott Morgensztern",
+        "Cesar Fierro Cota",
+        "Alessandro Mininno"
       ],
       "language": "en",
-      "abstract_or_text": "Contemporary neural inference architectures rely on dense floating-point weight matrices stored in high-bandwidth memory (VRAM), incurring severe memory-wall bottlenecks and preventing native execution inside deterministic virtual machines like the Ethereum Virtual Machine (EVM). Verifying termination and arithmetic invariants for recursive dynamical systems over continuous domains is generally undecidable in the Blum-Shub-Smale model. Here, we present the formal verification and bare-metal empirical validation of WERR (Waves & Errors) and Phase III Orbital Error Dynamics (OED), a non-tensor decision paradigm that procedurally synthesizes non-linear decision boundaries on demand from a 24-byte coordinate seed Θ= (c_x, c_y, zoom) along the boundary of the Mandelbrot set (\\partialM). By projecting the recurrence z_{n+1} = z_n^2 + c onto the modular residue ring Z/9Z and the fixed-point domain Q_{16.16}, we establish ten machine-verified theorems in Lean 4 (v4.34.1) with Mathlib4 and zero unproven conjectures (sorry): proving I_3 = \\{0,3,6\\} \\subset Z/9Z ideal closure, universal fuel-bounded halting (\\le 9 and \\le 12 steps), absence of Q_{16.16} square overflow below 2^{63}-1, non-constant boundary escape sensitivity, and a parametric EVM gas bound (\\le 22,557 \\le 24,000 gas). Evaluated on a 40-core Dual Intel Xeon server, the vectorized 36-iteration CPU kernel processes 100,000 decisions in 6.49 s (15,397 decisions/s, 0 Bytes VRAM, 15.15x speedup), while a sigmoidal outlier gate suppresses 100.00% of adversarial spikes while preserving 89.60% of clean baseline signals.",
+      "abstract_or_text": "We introduce Solver Agent, an AI framework based on large language models for calculations and proofs in mathematics and theoretical physics. The solution process is tracked through a persistent ledger that records assumptions, derivations, and computations. A central agent delegates tasks to specialized sub-agents, while independent agents verify both intermediate steps and the final result. This setup improves the traceability, reproducibility, and verification of computer-assisted calculations. Applying Solver Agent, we study global F-theory uplifts of Type IIB orientifolds and their S-fold generalizations. We establish sufficient conditions for Weierstrass models over projective threefolds with terminal Z_k quotient singularities (k\\in\\{2,3,4,6\\}) to give Q-factorial projective elliptically fibered Calabi-Yau fourfolds with isolated Gorenstein terminal quotient singularities. These geometries realize O3-planes and S-folds, where local D3-brane probes of the latter yield four-dimensional N=3 superconformal field theories. Using stringy invariants, we derive fixed-point contributions to Hodge data and Euler characteristics, and show that these Euler corrections determine the localized D3-brane charges required for tadpole cancellation. We illustrate these results using toric hypersurface constructions, where a single three-dimensional polytope determines both the Type IIB Calabi-Yau threefold and the F-theory base; here, the orientifold double cover naturally forms a bisection of an alternative genus-one-fibered uplift with discrete Z_2 gauge symmetry. Finally, we provide methods for toric computations and four-form flux analysis in four-dimensional N=1 compactifications with non-abelian gauge sectors.",
       "summary_zh": "",
       "why_it_matters_zh": "",
-      "quality_score": 74,
+      "quality_score": 73,
       "tags": [
         "形式化证明"
       ],
@@ -1288,7 +1705,46 @@
       "metrics": {},
       "metadata": {
         "doi": "",
-        "arxiv_id": "2609.33066v1"
+        "arxiv_id": "2609.35958v1"
+      }
+    },
+    {
+      "id": "arxiv:2609.35942v1",
+      "channel": "aixmath",
+      "related_channels": [],
+      "item_type": "paper",
+      "source": "arXiv",
+      "title": "Question-Specific Knowledge Graphs for Efficient Visual Reasoning",
+      "url": "https://arxiv.org/abs/2609.35942v1",
+      "published_at": "2026-09-28",
+      "updated_at": "2026-09-28",
+      "creators": [
+        "Ting-Chih Chen",
+        "Emile van Krieken",
+        "Shujian Yu",
+        "Filip Ilievski"
+      ],
+      "language": "en",
+      "abstract_or_text": "Recent work in visual question answering has shown that vision-language models can exhibit strong reasoning capabilities by translating visual inputs into textual representations. The effectiveness of this translation depends on how well visual details are retained; models need to surface and align both explicit and implicit knowledge sufficient to support reasoning, without introducing spurious assumptions. Existing methods that leverage detailed image captions introduce visual details unrelated to the reasoning task, inflating input token counts and increasing computational cost. To address these challenges, we propose VisKG, a reinforcement learning (RL) framework in which models learn to translate visual content into question-specific knowledge graph (KG) representations. This process filters out perceptual noise while preserving the entity-relation structure needed for chain-of-thought reasoning, following the principle of minimum sufficient information. To ensure stable RL post-training, VisKG adopts Group reward-Decoupled Normalization Policy Optimization (GDPO). In addition, we strengthen the supervision stage with negative rationale samples, exposing the model to incorrect reasoning paths before RL post-training. Experimental results across science, mathematics, and general visual understanding benchmarks show that VisKG achieves performance comparable to or better than baselines, while requiring fewer tokens than caption-based representations. Moreover, training VisKG with GDPO improves accuracy by 2% over its GRPO-trained counterpart on average. These results suggest that KG representations are a promising approach for supporting multi-step reasoning and open up future work on adaptively selecting the most suitable representation for a given task.",
+      "summary_zh": "",
+      "why_it_matters_zh": "",
+      "quality_score": 73,
+      "tags": [
+        "方法与模型"
+      ],
+      "evidence_flags": [
+        "benchmark",
+        "experimental",
+        "performance"
+      ],
+      "publication_status": "preprint",
+      "rank": 0,
+      "featured": false,
+      "category": "方法与模型",
+      "metrics": {},
+      "metadata": {
+        "doi": "",
+        "arxiv_id": "2609.35942v1"
       }
     },
     {
@@ -1410,89 +1866,6 @@
       }
     },
     {
-      "id": "arxiv:2609.34553v1",
-      "channel": "aixmath",
-      "related_channels": [
-        "aixbio"
-      ],
-      "item_type": "paper",
-      "source": "arXiv",
-      "title": "Verifying Neural Networks with Reinforcement Learning",
-      "url": "https://arxiv.org/abs/2609.34553v1",
-      "published_at": "2026-09-28",
-      "updated_at": "2026-09-28",
-      "creators": [
-        "Hai Duong",
-        "Thanh Le",
-        "ThanhVu Nguyen"
-      ],
-      "language": "en",
-      "abstract_or_text": "Formal verification can play a key role in ensuring the reliability of Deep Neural Networks (DNNs) deployed in safety-critical systems. Modern DNN verifiers employ a branch-and-bound framework, which alternates between branching (splitting into smaller subproblems) and bounding (pruning subproblems) to efficiently explore the verification space. However, existing branching heuristics make greedy decisions based on static scoring functions. They do not anticipate long-term efficiency or leverage the growing availability of verification data to improve performance. This work introduces RSB, a reinforcement learning framework that learns to refine baseline branching heuristics. It trains an actor-critic architecture to maximize cumulative future rewards rather than immediate scores. The actor generates attention weights from observations of raw neuron features and learned graph embeddings, which rescale baseline heuristic scores to guide neuron branching. Evaluation on 600 challenging instances demonstrates that RSB consistently outperforms state-of-the-art branching heuristics, solving 11% more instances while reducing branch exploration by 50%.",
-      "summary_zh": "",
-      "why_it_matters_zh": "",
-      "quality_score": 73,
-      "tags": [
-        "方法与模型"
-      ],
-      "evidence_flags": [
-        "state-of-the-art",
-        "evaluation",
-        "performance"
-      ],
-      "publication_status": "preprint",
-      "rank": 0,
-      "featured": false,
-      "category": "方法与模型",
-      "metrics": {},
-      "metadata": {
-        "doi": "",
-        "arxiv_id": "2609.34553v1"
-      }
-    },
-    {
-      "id": "arxiv:2609.34455v1",
-      "channel": "aixmath",
-      "related_channels": [],
-      "item_type": "paper",
-      "source": "arXiv",
-      "title": "RGDT-Bench: Benchmarking LLM Reasoning for Rule-Governed Decisions and Their Justifications",
-      "url": "https://arxiv.org/abs/2609.34455v1",
-      "published_at": "2026-09-28",
-      "updated_at": "2026-09-28",
-      "creators": [
-        "Jianpeng Zhao",
-        "Haihua Xu",
-        "Haoyang Zhang",
-        "Shuang Qian",
-        "Yixiang Tang",
-        "Xintao Wang",
-        "Kun Sun",
-        "Pei Wu",
-        "Shuhan Zhong",
-        "Pengyang Wang"
-      ],
-      "language": "en",
-      "abstract_or_text": "We study reasoning in Rule-Governed Decision Tasks (RGDTs), where models apply external rules to case facts and justify decisions, as required in policy, contract, and compliance settings. Beyond the deductive capability emphasized by standard mathematical and logical reasoning tasks, RGDTs require interpreting rules and their applicability, assessing conditions from evidence, combining judgments under rules and exceptions, and providing checkable justifications. These demands motivate a benchmark assessing both decisions and their stated grounds. We introduce RGDT-Bench, providing 202.1K condition-level supervision slots across four task tracks and eight supported task-probe combinations that vary access to supporting information. Label-blind extraction and deterministic checks produce labels for warrant completeness: source-referenced coverage and consistency of stated decision grounds. The benchmark attributes failures to four process layers: rule use, condition, evidence, and aggregation, and checks the final outcome. Among evaluable correct responses, warrant incompleteness averages 40.2% across six evaluated LLMs and supported task-probe combinations. Such warrant incompleteness poses potential safety risks and remains difficult to detect: the best of seventeen existing evaluators reaches only 57.69% (random: 50%) task-averaged area under the receiver operating characteristic curve (AUROC). To address this difficulty, we train a simple reward model with warrant supervision. It achieves 69.24% task-averaged AUROC among correct answers, exceeding the matched outcome-supervised baseline by 10.37 pp (percentage points) and the best existing evaluator by 11.55 pp. Beyond completeness assessment, the model outperforms both outcome-supervised baselines across nearly all response-selection comparisons, supporting RGDT-Bench's warrant supervision for RGDT reasoning.",
-      "summary_zh": "",
-      "why_it_matters_zh": "",
-      "quality_score": 73,
-      "tags": [
-        "数学推理"
-      ],
-      "evidence_flags": [
-        "benchmark"
-      ],
-      "publication_status": "preprint",
-      "rank": 0,
-      "featured": false,
-      "category": "数学推理",
-      "metrics": {},
-      "metadata": {
-        "doi": "",
-        "arxiv_id": "2609.34455v1"
-      }
-    },
-    {
       "id": "arxiv:2609.34359v1",
       "channel": "aixmath",
       "related_channels": [],
@@ -1567,29 +1940,189 @@
       }
     },
     {
-      "id": "arxiv:2609.33916v1",
+      "id": "arxiv:2609.38177v1",
       "channel": "aixmath",
       "related_channels": [],
       "item_type": "paper",
       "source": "arXiv",
-      "title": "Validating Memory-Optimal Transformer Kernels on Real Hardware: From Formal Derivation to Measured Performance Across Two HPC Clusters",
-      "url": "https://arxiv.org/abs/2609.33916v1",
-      "published_at": "2026-09-27",
-      "updated_at": "2026-09-27",
+      "title": "Imagine3D-LLM: Teaching MLLMs to Imagine 3D Scenes Before Answering",
+      "url": "https://arxiv.org/abs/2609.38177v1",
+      "published_at": "2026-09-29",
+      "updated_at": "2026-09-29",
       "creators": [
-        "Lenore M. Mullin",
-        "Gaetan Hains"
+        "Jaewoo Jung",
+        "Hyeonseo Yu",
+        "Honggyu An",
+        "Jisang Han",
+        "Mungyeom Kim",
+        "Minkyeong Jeon",
+        "Heeseong Shin",
+        "Wonjun Moon",
+        "Federico Tombari",
+        "Daniel Barath",
+        "Marc Pollefeys",
+        "Seungryong Kim",
+        "Sunghwan Hong"
       ],
       "language": "en",
-      "abstract_or_text": "We validate memory-optimal cost functions for transformer kernels derived via the Mathematics of Arrays (MoA). Companion Papers I-IV formally derive kernels for attention forward, backward, fused forward+backward, decode, and the complete block (RMSNorm, gated MLP) as a hardware-independent specification (DNF) transformed to a machine-specific realization (ONF) via gamma, with verification to machine precision against PyTorch. This paper checks those predictions against measured performance on two HPC clusters (Purdue Anvil, NCSA Delta) across CPU and GPU. Three results stand out. (1) We identify and fix a GPU regression: fusing forward+backward, proven to avoid materializing an O(n^2) intermediate, initially ran slower than naive on GPU due to atomic contention. Profiling confirmed 2.00x more atomic instructions; a targeted ONF rewrite reversed it, yielding up to 2.5x speedup. (2) Identical derivations produce markedly different real costs by topology: 535x NUMA-locality penalty on one cluster vs <3x oversubscription on another, showing optimal deployment is a function of the machine's array structure. (3) We report a partially resolved anomaly: identical denotational computations run faster in C than Fortran on CPU but faster in Fortran than C on GPU, narrowed to one dominant kernel and one memory-latency stall mechanism (3.17x time gap matches 3.35x stall gap). We treat hardware-specific optimization as a routine ONF rewrite with fixed, verified DNF, a candidate methodology for scaling AI onto evolving hardware without re-deriving correctness.",
+      "abstract_or_text": "Reasoning about the 3D world from multi-view images remains a fundamental challenge for Multimodal Large Language Models (MLLMs). While modern MLLMs handle single-image inputs effectively, they struggle to integrate evidence across viewpoints into a coherent 3D understanding. A growing body of work attempts to close this gap by injecting 3D awareness into MLLMs, either by boosting fine-grained pixel-level cross-view correspondence or by fusing features from 3D geometry foundation models, yet a substantial gap to human reasoning persists. In this work, we revisit human spatial reasoning, which suggests that rather than relying on fine-grained geometry cues, humans roughly identify common objects across views, infer the relative geometry between viewpoints, and assemble a coarse 3D layout of the scene. Inspired by this process, we introduce Imagine3D-LLM, an MLLM that learns to assemble a similar compact 3D representation of the scene and conditions its answer on this representation. Concretely, we append a small set of learnable summary tokens after the image tokens, decode them into a compact 3D Gaussian Splatting representation supervised by a photometric reconstruction loss, and train jointly with the standard next-token prediction objective. Notably, although only the summary tokens receive direct reconstruction supervision, this objective also induces stronger cross-frame correspondence within the LLM's underlying image features, suggesting that learning to reconstruct propagates 3D-aware signals throughout the model. As a result, Imagine3D-LLM consistently outperforms prior approaches across multiple spatial reasoning and 3D understanding benchmarks, suggesting that imagining the scene can be more effective than being told its pixel-wise geometry.",
       "summary_zh": "",
       "why_it_matters_zh": "",
-      "quality_score": 73,
+      "quality_score": 72,
+      "tags": [
+        "方法与模型"
+      ],
+      "evidence_flags": [
+        "benchmark"
+      ],
+      "publication_status": "preprint",
+      "rank": 0,
+      "featured": false,
+      "category": "方法与模型",
+      "metrics": {},
+      "metadata": {
+        "doi": "",
+        "arxiv_id": "2609.38177v1"
+      }
+    },
+    {
+      "id": "arxiv:2609.37658v1",
+      "channel": "aixmath",
+      "related_channels": [],
+      "item_type": "paper",
+      "source": "arXiv",
+      "title": "EnterpriseBench: Benchmarking LLM Agents on Enterprise-Level Strategic Reasoning and Decision-Making",
+      "url": "https://arxiv.org/abs/2609.37658v1",
+      "published_at": "2026-09-29",
+      "updated_at": "2026-09-29",
+      "creators": [
+        "Min Yang",
+        "Yichen Pan",
+        "Jinghua Piao",
+        "Dandan Song",
+        "Yongshun Gong",
+        "Yong Li"
+      ],
+      "language": "en",
+      "abstract_or_text": "LLM agents are increasingly expected to support enterprise workflows, where tasks often involve missing information, uncertainty, feedback, and long-term trade-offs. However, existing enterprise and financial benchmarks mainly test static capabilities such as information extraction, numerical calculation, domain knowledge, and financial QA, leaving interactive and long-horizon decision-making underexplored. To bridge this gap, we introduce EnterpriseBench, a benchmark that evaluates LLM agents across this spectrum, from static question answering to dynamic decision-making. Specifically, EnterpriseBench reorganizes existing enterprise and financial QA datasets into a unified foundational suite annotated by capability and difficulty, and introduces three professional interactive settings: Consulting, based on management-consulting-style business cases for client problem diagnosis through multi-turn information seeking; the Beer Game, adapted from a classic supply-chain management simulation for inventory control under delayed feedback; and Enterprise Digital Twin, a project-based business simulator for workforce, risk, and project planning. Experiments with nine agent methods under four backbone models show that current agents have not yet achieved stable, comprehensive, and cross-task reliability in enterprise scenarios. These results show that EnterpriseBench provides a practical benchmark for evaluating LLM agents in realistic enterprise strategic reasoning and decision-making.",
+      "summary_zh": "",
+      "why_it_matters_zh": "",
+      "quality_score": 72,
+      "tags": [
+        "方法与模型"
+      ],
+      "evidence_flags": [
+        "benchmark",
+        "dataset"
+      ],
+      "publication_status": "preprint",
+      "rank": 0,
+      "featured": false,
+      "category": "方法与模型",
+      "metrics": {},
+      "metadata": {
+        "doi": "",
+        "arxiv_id": "2609.37658v1"
+      }
+    },
+    {
+      "id": "arxiv:2609.37532v1",
+      "channel": "aixmath",
+      "related_channels": [],
+      "item_type": "paper",
+      "source": "arXiv",
+      "title": "DScale: Scaling Block-Diffusion Speculative Decoding with Adaptive Verification",
+      "url": "https://arxiv.org/abs/2609.37532v1",
+      "published_at": "2026-09-29",
+      "updated_at": "2026-09-29",
+      "creators": [
+        "Rongjian Chen",
+        "Minxian Xu",
+        "Zhengxin Fang",
+        "Kejiang Ye",
+        "Chengzhong Xu"
+      ],
+      "language": "en",
+      "abstract_or_text": "Growing large language model applications demand efficient inference. At high concurrency, block-diffusion speculative decoding suffers from verification padding, rejected candidates, and incompatibility between variable prefixes and fixed-shape graphs. Uniform truncation sacrifices acceptable tokens. We present DScale, preserving drafter architecture, weights, and full draft length. A separate 112K-parameter predictor requires neither confidence calibration nor hardware speed-curve preparation. Path-aware tiles reduce padding. Dynamic verify-length (DVL) allocation packs scored prefixes into half the native verification capacity. Fixed-address workspaces propagate changing boundaries through verification and acceptance while reusing captured graphs. On A100-40GB with tensor parallelism 1, Qwen3-8B and Qwen3-4B cover four datasets and concurrency 8-32, reusing each target's frozen predictor. Geometric-mean throughput gains across these configurations are respectively 43.9% and 48.8% over DFlash, 22.2% and 37.7% over DSpark, and 24.4% and 32.0% over Domino, with lower request latency. Cumulative ablations show that adding the three mechanisms successively increases geometric-mean throughput, while budget adjustment improves accepted-token retention. GPU profiling shows that complete decode-step time on GSM8K decreases by 30.8-52.5% relative to DFlash",
+      "summary_zh": "",
+      "why_it_matters_zh": "",
+      "quality_score": 72,
+      "tags": [
+        "方法与模型"
+      ],
+      "evidence_flags": [
+        "dataset",
+        "ablation"
+      ],
+      "publication_status": "preprint",
+      "rank": 0,
+      "featured": false,
+      "category": "方法与模型",
+      "metrics": {},
+      "metadata": {
+        "doi": "",
+        "arxiv_id": "2609.37532v1"
+      }
+    },
+    {
+      "id": "arxiv:2609.36739v1",
+      "channel": "aixmath",
+      "related_channels": [],
+      "item_type": "paper",
+      "source": "arXiv",
+      "title": "Frontier Autolab: Organizational Memory, Adversarial Dissent and Temporal Leakage in Multi-Agent LLM Firms Across Fifty Years of Technological Change",
+      "url": "https://arxiv.org/abs/2609.36739v1",
+      "published_at": "2026-09-29",
+      "updated_at": "2026-09-29",
+      "creators": [
+        "Bravish Ghosh"
+      ],
+      "language": "en",
+      "abstract_or_text": "Multi-agent LLM systems are increasingly structured like organizations, with roles, critics and shared memory, yet they are evaluated on tasks that last minutes. We ask how such an organization behaves when the ground it stands on keeps moving. Frontier Autolab is a long-horizon testbed in which one simulated firm, voiced by sixteen role personas and a dedicated Red Team, must re-found itself in nine technology eras from 1990 to 2040. Each era is temporally gated: the firm decides from a dated briefing, a historian-judge then reveals what happened and scores the decision on a five-dimension rubric, and lessons enter a persistent Playbook. Six eras are scored against history, one against the live market and two are open forecasts. Across four trajectories (36 era decisions, 180 subscores) we find a consistent foresight-commitment gap: in all 24 historically scored eras the judge rated the firm's recognition of the coming shift above its choice of where to build (mean gap 1.9 points on a 10-point scale), because boards chose the layer their existing assets could reach. Organizational design shaped long-run character. A Red Team armed with numeric kill gates produced fifty years of gated pilots and no product, and the rubric rated this firm highest; firms whose memory stored market-structure lessons pivoted every era, while a firm whose memory stored only validation procedure kept one method throughout. We also show why such results are hard to trust. Scores rise across eras in every run while the judge's own hindsight subscore falls (within-run r = -0.58), so apparent learning is confounded with recall of history, and we trace further distortions to self-judging, briefing selection and score aggregation. We release all records and an API harness, and specify fictional and post-cutoff eras that would turn the testbed into a benchmark.",
+      "summary_zh": "",
+      "why_it_matters_zh": "",
+      "quality_score": 72,
+      "tags": [
+        "方法与模型"
+      ],
+      "evidence_flags": [
+        "benchmark",
+        "release"
+      ],
+      "publication_status": "preprint",
+      "rank": 0,
+      "featured": false,
+      "category": "方法与模型",
+      "metrics": {},
+      "metadata": {
+        "doi": "",
+        "arxiv_id": "2609.36739v1"
+      }
+    },
+    {
+      "id": "arxiv:2609.36663v1",
+      "channel": "aixmath",
+      "related_channels": [],
+      "item_type": "paper",
+      "source": "arXiv",
+      "title": "GenLimitLib: A Formal Library for Language Generation in the Limit and AI-Assisted Mathematical Research",
+      "url": "https://arxiv.org/abs/2609.36663v1",
+      "published_at": "2026-09-29",
+      "updated_at": "2026-09-29",
+      "creators": [
+        "Shuangping Li",
+        "Peng Zhang"
+      ],
+      "language": "en",
+      "abstract_or_text": "We present GenLimitLib, a source-aligned Lean 4 library for language generation in the limit. Introduced by Kleinberg and Mullainathan at NeurIPS 2024, language generation in the limit studies a theoretical question motivated by LLMs: how to generate valid new strings from observed examples. This young and rapidly evolving field offers a natural testbed for studying large-scale formalization. GenLimitLib contains formal developments for 30 papers. It extracts shared definitions and reusable proof components while preserving paper-specific assumptions and statements, and records relationships across papers. In this way, GenLimitLib provides a concrete and structured view of the literature. We show through mathematical case studies and LLM experiments how our library can support both human mathematical research and AI-assisted research. Our Library: https://github.com/pengzhang91/generation-in-the-limit-lib.",
+      "summary_zh": "",
+      "why_it_matters_zh": "",
+      "quality_score": 72,
       "tags": [
         "形式化证明"
       ],
       "evidence_flags": [
-        "performance"
+        "github"
       ],
       "publication_status": "preprint",
       "rank": 0,
@@ -1598,120 +2131,115 @@
       "metrics": {},
       "metadata": {
         "doi": "",
-        "arxiv_id": "2609.33916v1"
+        "arxiv_id": "2609.36663v1"
       }
     },
     {
-      "id": "arxiv:2609.33895v1",
-      "channel": "aixmath",
-      "related_channels": [],
-      "item_type": "paper",
-      "source": "arXiv",
-      "title": "Residual-Stream Burden Shapes Representation Learning in Diffusion Transformers",
-      "url": "https://arxiv.org/abs/2609.33895v1",
-      "published_at": "2026-09-27",
-      "updated_at": "2026-09-27",
-      "creators": [
-        "Tongtong Liang",
-        "Siqi Kou",
-        "Ziqiao Xi",
-        "Esha Singh",
-        "Kun Zhou",
-        "Zhijie Deng",
-        "Alexander Cloninger",
-        "Yu-Xiang Wang",
-        "Rahul Parhi"
-      ],
-      "language": "en",
-      "abstract_or_text": "In diffusion-based generation, a neural network can be trained to predict the clean data, the noise, or the velocity from a noisy input. These prediction targets are interconvertible and describe the same generative process, yet plain Diffusion Transformers operating on large pixel patches succeed with clean prediction and fail with noise or velocity prediction. We argue that this asymmetry arises because noisy targets require the residual stream to preserve noise-dependent input variation through depth for the final readout, forcing subsequent layers to compute on noisy representations. A spectrally concentrated clean target imposes a lighter demand, leaving greater freedom to organize hidden representations for subsequent computation. We call this preservation requirement *residual-stream burden* and show how it shapes representation learning in Diffusion Transformers. Controlled experiments indicate that the exploitable structure is spectral concentration in patch space and that the bandwidth of the persistent residual state is a key resource for noisy prediction. We further show that this account is consistent with recent decoupled pixel-space architectures, whose diverse designs all reduce the residual-stream burden on the main pathway. To examine this understanding from a complementary direction, we expand and reorganize the residual-stream bandwidth directly, introducing Spatially Indexed Hyper-Connections (SiHC) that reach FID 1.71 on ImageNet 256^2. Together, these results identify residual-stream burden as a mechanism through which prediction targets and architecture jointly shape representation learning in Diffusion Transformers.",
-      "summary_zh": "",
-      "why_it_matters_zh": "",
-      "quality_score": 73,
-      "tags": [
-        "方法与模型"
-      ],
-      "evidence_flags": [],
-      "publication_status": "preprint",
-      "rank": 0,
-      "featured": false,
-      "category": "方法与模型",
-      "metrics": {},
-      "metadata": {
-        "doi": "",
-        "arxiv_id": "2609.33895v1"
-      }
-    },
-    {
-      "id": "arxiv:2609.33781v1",
-      "channel": "aixmath",
-      "related_channels": [],
-      "item_type": "paper",
-      "source": "arXiv",
-      "title": "Surprising Success, Repeated Failure: Entropy-Guided Credit Assignment for Exploration in LLM Reasoning",
-      "url": "https://arxiv.org/abs/2609.33781v1",
-      "published_at": "2026-09-27",
-      "updated_at": "2026-09-27",
-      "creators": [
-        "Woongyeong Yeo",
-        "Minki Kang",
-        "Chanuk Lee",
-        "Sangwoo Park",
-        "Jinheon Baek",
-        "Sung Ju Hwang"
-      ],
-      "language": "en",
-      "abstract_or_text": "Reinforcement learning with verifiable rewards (RLVR) enhances reasoning in large language models (LLMs) through outcome-level feedback, yet recent approaches to finer-grained credit assignment often require auxiliary models, additional sampling, or privileged information. Although policy entropy provides a readily available signal, prioritizing uncertain positions under both reinforcement and penalization concentrates penalties where failed responses still retain alternatives for recovery, which can suppress opportunities for exploration. To address this, we introduce Entropic Advantage Policy Optimization (EAPO), an entropy-guided credit assignment method that treats success and failure asymmetrically. Specifically, motivated by the observation that success under uncertainty is less repeatable while confident failures tend to recur, EAPO couples normalized policy entropy with the sign of the response advantage to reinforce surprising success and correct repeated failure. It assigns stronger reinforcement to high-entropy decisions in successful responses and stronger penalties to low-entropy decisions in failed responses, while attenuating penalties at uncertain positions to preserve opportunities for recovery. By redistributing the response advantage across tokens, EAPO derives token-level credit directly from existing rollout signals without additional supervision. We validate EAPO on a range of reasoning tasks across both base and reasoning backbones, demonstrating that it achieves the best overall performance. We further show that EAPO promotes more effective exploration, broadening problem coverage and generating more diverse candidate answers.",
-      "summary_zh": "",
-      "why_it_matters_zh": "",
-      "quality_score": 73,
-      "tags": [
-        "方法与模型"
-      ],
-      "evidence_flags": [
-        "performance"
-      ],
-      "publication_status": "preprint",
-      "rank": 0,
-      "featured": false,
-      "category": "方法与模型",
-      "metrics": {},
-      "metadata": {
-        "doi": "",
-        "arxiv_id": "2609.33781v1"
-      }
-    },
-    {
-      "id": "arxiv:2609.33594v1",
+      "id": "arxiv:2609.36505v1",
       "channel": "aixmath",
       "related_channels": [
         "aixbio"
       ],
       "item_type": "paper",
       "source": "arXiv",
-      "title": "SymbolicLM: Training Language Models as Symbolic Regressors",
-      "url": "https://arxiv.org/abs/2609.33594v1",
-      "published_at": "2026-09-27",
-      "updated_at": "2026-09-27",
+      "title": "BRIDGE: Bilevel Retrieval-Credit-Aware Agentic Reinforcement Learning",
+      "url": "https://arxiv.org/abs/2609.36505v1",
+      "published_at": "2026-09-29",
+      "updated_at": "2026-09-29",
       "creators": [
-        "Jun Yao",
-        "Yingfan Hua",
-        "Ruikun Li",
-        "Shixiang Tang",
-        "Bin Liu",
-        "Wanli Ouyang",
-        "Yan Lu"
+        "Quan Xiao",
+        "Mingda Liu",
+        "Gaowen Liu",
+        "Katsuki Fujisawa",
+        "Tianyi Chen"
       ],
       "language": "en",
-      "abstract_or_text": "Large Language Models (LLMs) have shown promising capabilities in scientific reasoning, yet scientific discovery ultimately requires deriving precise laws directly from observational data, known as Symbolic Regression (SR). This poses a challenge for LLMs due to the gap between probabilistic text generation and the exact structural requirements of SR. Existing approaches rely on complex external scaffolds, which are computationally expensive and separate symbolic reasoning from the model itself. To address this limitation, we propose to directly equip LLMs with symbolic regression capabilities through dedicated numerical-symbolic and physical supervision. We introduce PhysSymbArena, a large-scale benchmark containing over 160,000 equations and 1.8B tokens of numerical-symbolic data with physical descriptions, enabling systematic training and evaluation. Based on PhysSymbArena, we develop SymbolicLM, which enhances the symbolic regression ability of LLMs through mathematical and physical supervision. During inference, we further introduce SymbolicSGA, a refinement framework that leverages quantitative feedback to iteratively improve generated equations. Experiments on multiple symbolic regression benchmarks show that SymbolicLM substantially improves structural recovery while maintaining competitive numerical fitting performance. These results demonstrate that symbolic regression can be explicitly learned as an intrinsic capability of LLMs.",
+      "abstract_or_text": "Agentic reinforcement learning (ARL) with verifiable rewards improves the ability of large language models (LLMs) to tackle knowledge-intensive tasks by learning to interleave search and reasoning. However, most existing ARL methods optimize only LLM-generated tokens and treat retrieved evidence as environment observations. This creates an information-credit gap: failures caused by missing or misleading evidence are attributed to the LLM policy rather than to the retriever, which motivates training the LLM and the retriever jointly. In this paper, we show that retrieval and LLM policy learning are order-sensitive: adapting the retriever before optimizing the policy yields a larger reward gain than the reverse order. To preserve this hierarchy while allowing both components to co-adapt, we formulate retrieval-augmented agentic RL as a bilevel optimization problem. To solve it efficiently, we introduce BRIDGE, a memory-efficient first-order bilevel method motivated by a loss-landscape analysis of the RL and retrieval objectives. Across seven open-domain QA benchmarks, BRIDGE achieves the highest average accuracy with both 3B and 7B backbones, improving the multi-hop average over the strongest baseline by 9.6 and 3.4 EM points, respectively. It also achieves the best averaged answer accuracy and reasoning quality across medical QA benchmarks.",
       "summary_zh": "",
       "why_it_matters_zh": "",
-      "quality_score": 73,
+      "quality_score": 72,
+      "tags": [
+        "方法与模型"
+      ],
+      "evidence_flags": [
+        "benchmark"
+      ],
+      "publication_status": "preprint",
+      "rank": 0,
+      "featured": false,
+      "category": "方法与模型",
+      "metrics": {},
+      "metadata": {
+        "doi": "",
+        "arxiv_id": "2609.36505v1"
+      }
+    },
+    {
+      "id": "arxiv:2609.36303v1",
+      "channel": "aixmath",
+      "related_channels": [],
+      "item_type": "paper",
+      "source": "arXiv",
+      "title": "HeurEvo: Agentic Evolution of Hybrid Solver-Augmented Heuristics for Time-Critical Mathematical Optimization",
+      "url": "https://arxiv.org/abs/2609.36303v1",
+      "published_at": "2026-09-28",
+      "updated_at": "2026-09-28",
+      "creators": [
+        "Feijie Wu",
+        "Hugo Barbalho",
+        "Konstantina Mellou",
+        "Marco Molinaro",
+        "Jing Gao",
+        "Ishai Menache",
+        "Xinzhi Zhang",
+        "Sirui Li"
+      ],
+      "language": "en",
+      "abstract_or_text": "Recent advances in agentic heuristic design use AI agents and execution feedback to automate algorithm discovery for challenging optimization problems. In many practical settings, high-quality solutions must be obtained under strict runtime constraints, motivating hybrid approaches that combine problem-specific heuristics with powerful mathematical programming solvers. However, existing approaches typically improve heuristic components within predefined procedures or tune solver configurations in isolation. This limits holistic adaptation of where to allocate computation, how to leverage solvers, and how to refine the overall algorithmic structure. To address these limitations, we propose HeurEvo, an automated plan--code--component co-evolution framework that jointly evolves the high-level algorithmic structures, their implementations, and a shared pool of reusable components. A planner determines which algorithmic components to use, how to combine them, and how to allocate runtime across stages, a coder realizes the resulting plan as executable code, while a component evolver updates the shared component pool. Within an island-based evolutionary framework, plans and implementations co-evolve with feedback from an interpreter agent that analyzes execution results and identifies opportunities for improvement. Across diverse combinatorial optimization benchmarks and challenging MIPLIB instances, HeurEvo finds high-quality solutions within tight runtime budgets, often matching or surpassing state-of-the-art optimization solvers given hours or days of computation. On several nonlinear geometry problems such as hexagon packing, it also improves upon the best previously reported results. These results highlight the value of jointly searching over algorithmic structure and implementation for agentic heuristic design.",
+      "summary_zh": "",
+      "why_it_matters_zh": "",
+      "quality_score": 72,
       "tags": [
         "方法与模型"
       ],
       "evidence_flags": [
         "benchmark",
-        "evaluation",
+        "state-of-the-art"
+      ],
+      "publication_status": "preprint",
+      "rank": 0,
+      "featured": false,
+      "category": "方法与模型",
+      "metrics": {},
+      "metadata": {
+        "doi": "",
+        "arxiv_id": "2609.36303v1"
+      }
+    },
+    {
+      "id": "arxiv:2609.36238v1",
+      "channel": "aixmath",
+      "related_channels": [],
+      "item_type": "paper",
+      "source": "arXiv",
+      "title": "ChronoSRL: Temporal Geometry for Self-Supervised Reinforcement Learning",
+      "url": "https://arxiv.org/abs/2609.36238v1",
+      "published_at": "2026-09-28",
+      "updated_at": "2026-09-28",
+      "creators": [
+        "Nico Bohlinger",
+        "Jan Peters"
+      ],
+      "language": "en",
+      "abstract_or_text": "A goal that is close in space can be far away in time. Obstacles, terrain, and the agent's own capabilities determine how long it takes to get there. Yet, critics in contrastive and survival reinforcement learning do not measure the distances in their representation space in units of time. We therefore introduce ChronoSRL, which gives the critic's embeddings an explicit temporal geometry. The distance between state-action and goal embeddings is trained to match the time that the agent takes to reach the goal (goal-reaching time), while goals that were not reached, and goals from other trajectories, are pushed at least one discount horizon away. Furthermore, reaching a goal quickly once does not mean that reaching it is reliable in general, so the policy should not follow the temporal distance directly. Instead, we build on survival reinforcement learning and predict from our temporal embeddings not only the full distribution of goal-reaching times but also the time spent near the goal. Thereby, the policy is trained to favor actions that reach the goal sooner and more reliably and that keep the agent near it. ChronoSRL learns faster and reaches higher performance than contrastive, action-chunked contrastive, and survival reinforcement learning baselines on seven standard locomotion and navigation benchmarks, even with much smaller networks. To test the limits of self-supervised reinforcement learning, we introduce velocity tracking, goal-position reaching, and box climbing tasks with a quadruped robot in a realistic sim-to-real locomotion setup, and show how the shaping terms that are typical for robotics can be naturally incorporated into our framework. ChronoSRL is the only one of the tested self-supervised reinforcement learning methods that learns to stay at the commanded velocities and goal positions, and climbs the highest boxes.",
+      "summary_zh": "",
+      "why_it_matters_zh": "",
+      "quality_score": 72,
+      "tags": [
+        "方法与模型"
+      ],
+      "evidence_flags": [
+        "benchmark",
         "performance"
       ],
       "publication_status": "preprint",
@@ -1721,40 +2249,35 @@
       "metrics": {},
       "metadata": {
         "doi": "",
-        "arxiv_id": "2609.33594v1"
+        "arxiv_id": "2609.36238v1"
       }
     },
     {
-      "id": "arxiv:2609.33371v1",
+      "id": "arxiv:2609.36172v1",
       "channel": "aixmath",
       "related_channels": [
-        "aixchem"
+        "aixbio"
       ],
       "item_type": "paper",
       "source": "arXiv",
-      "title": "API Secrets Should Never Become Tokens in the LLM's Vocabulary: A Threat Analysis of API Credential Handling in LLM Agent Systems and an Empirical Evaluation of a Vault-Mediated Execution Boundary",
-      "url": "https://arxiv.org/abs/2609.33371v1",
-      "published_at": "2026-09-27",
-      "updated_at": "2026-09-27",
+      "title": "Exploring Learning Models for Topological Relationship Recognition from Image Data",
+      "url": "https://arxiv.org/abs/2609.36172v1",
+      "published_at": "2026-09-28",
+      "updated_at": "2026-09-28",
       "creators": [
-        "Patrick Kenney",
-        "Hadi Ahmadi",
-        "Denis Lusson",
-        "Donald Nguyen",
-        "Gurbinder Gill"
+        "Saptak Das",
+        "Monidipa Das"
       ],
       "language": "en",
-      "abstract_or_text": "Tool-using large language model (LLM) agents turn credential hygiene from a storage problem into an execution-security problem. A key pasted into a prompt, or embedded in a system prompt or tool configuration, crosses from an authentication boundary into a data pipeline, where it may persist in conversation history, logs, memory stores, generated code, and error payloads. Prompt injection and excessive agency then convert passive disclosure into unauthorized action. This paper formalizes the credential-exposure threat chain for agentic systems; synthesizes evidence from a platform secret-store incident, vendor-reported secret-sprawl measurement, and OWASP and NIST guidance; and describes a vault-mediated execution architecture in which the model selects a connector identifier while a trusted request boundary supplies authentication. We evaluate a production implementation, Corvic Security Vault, in two controlled black-box experiments. Across 16 probes spanning seven control domains, every probe met its expected outcome: an authenticated GitHub API request succeeded while the credential stayed absent from process environment values, caller-visible request headers, tested filesystem locations, three third-party echo services, and two unrelated API origins; both cloud instance-metadata endpoints were unreachable. We also report a negative result, a connector whose stored header mapping did not satisfy its provider's authentication contract, showing that centralized custody does not by itself guarantee correct configuration. Vault mediation removes several disclosure paths but is necessary rather than sufficient: least privilege, deterministic action authorization, human approval, telemetry redaction, and rotation remain independently required. The study is purposive and small, a functional security evaluation rather than a certification.",
+      "abstract_or_text": "Figuring out how objects relate to each other, like whether they touch, overlap, stay completely separate or one sits inside another, matters a lot in fields like GIS, biomedical imaging, and robotics. Even though machine learning has come a long way, people haven't really focused on spotting these topological relationships in images. The main roadblocks? Not enough good datasets and no clear way to measure results. So, we rolled up our sleeves and built a new dataset. It's pretty sizable: over 11,000 labelled images showing all those essential relationships. We ran tests with some classic machine learning models, Naive Bayes, KNN, Random Forest, SVM, and Artificial Neural Networks, and threw in some deep learning stars like VGG16 and InceptionResNetV2. For the dataset itself, we used segmentation, contour detection, and grayscale normalization to tease out solid feature vectors. The results? Deep learning methods, especially VGG16, pulled ahead, with validation accuracy hitting 89.55%. That's a big jump compared to the traditional models. This shows how powerful transfer learning is for analyzing topological relationships in images, and it gives researchers a new standard to aim for in future work on spatial reasoning and topological classification.",
       "summary_zh": "",
       "why_it_matters_zh": "",
-      "quality_score": 73,
+      "quality_score": 72,
       "tags": [
         "方法与模型"
       ],
       "evidence_flags": [
-        "github",
-        "evaluation",
-        "security"
+        "dataset"
       ],
       "publication_status": "preprint",
       "rank": 0,
@@ -1763,44 +2286,7 @@
       "metrics": {},
       "metadata": {
         "doi": "",
-        "arxiv_id": "2609.33371v1"
-      }
-    },
-    {
-      "id": "arxiv:2609.33289v1",
-      "channel": "aixmath",
-      "related_channels": [
-        "aixchem"
-      ],
-      "item_type": "paper",
-      "source": "arXiv",
-      "title": "Learning to Sell: Reinforcement Learning for Strategic Large Language Model Agents in Multi-Product Markets",
-      "url": "https://arxiv.org/abs/2609.33289v1",
-      "published_at": "2026-09-27",
-      "updated_at": "2026-09-27",
-      "creators": [
-        "Shuze Daniel Liu",
-        "Claire Chen",
-        "Jiuqi Wang",
-        "Thorsten Joachims"
-      ],
-      "language": "en",
-      "abstract_or_text": "Autonomous large language model (LLM) agents operating in multi-product markets must make sequential decisions under information asymmetry and resource constraints. We develop a machine learning approach for training such agents to act effectively as sellers in a multi-item bargaining environment, where a seller concurrently negotiates a catalog of substitutable assets across a pool of independent buyers. Buyers hold private, heterogeneous valuations across products, and each can purchase at most one item. Facing limits on total communication turns, the seller must dynamically match buyers with the most profitable products considering their private valuations, while strategically allocating its limited interaction budget toward combinations of greater potential value. We formalize this problem as a Partially Observable Markov Decision Process using a structured, four-part message protocol that maps natural language into a parsable and regulated decision space. Using this formalization, we design a post-training method using Reinforcement Learning from Verifiable Rewards (RLVR). To evaluate this framework, we construct a multidimensional metric suite that quantifies constraint adherence, seller surplus extraction, and allocation quality. Our trained seller agent learns to match limited inventory to buyers more effectively, matching or outperforming trillion-parameter frontier models in both seller surplus extraction and buyer-product allocation quality. Finally, these learned strategies generalize robustly to unseen market structures, correlated valuation distributions, and price ranges not encountered during training.",
-      "summary_zh": "",
-      "why_it_matters_zh": "",
-      "quality_score": 73,
-      "tags": [
-        "方法与模型"
-      ],
-      "evidence_flags": [],
-      "publication_status": "preprint",
-      "rank": 0,
-      "featured": false,
-      "category": "方法与模型",
-      "metrics": {},
-      "metadata": {
-        "doi": "",
-        "arxiv_id": "2609.33289v1"
+        "arxiv_id": "2609.36172v1"
       }
     },
     {
@@ -1927,48 +2413,6 @@
       }
     },
     {
-      "id": "arxiv:2609.34785v1",
-      "channel": "aixmath",
-      "related_channels": [],
-      "item_type": "paper",
-      "source": "arXiv",
-      "title": "BEHAVE: Functional Behavior Modeling Enables Self-Improving Agents for Hardware Design and Verification",
-      "url": "https://arxiv.org/abs/2609.34785v1",
-      "published_at": "2026-09-28",
-      "updated_at": "2026-09-28",
-      "creators": [
-        "Yuheng Wu",
-        "Berk Gokmen",
-        "Sujeeth Jinesh",
-        "Lauren McLane",
-        "Aarav Wattal",
-        "Qi Yang Huang",
-        "Zhaozhuo Xu",
-        "Thierry Tambe"
-      ],
-      "language": "en",
-      "abstract_or_text": "Developing agents for hardware design and verification requires reliable correctness feedback. As a hardware specification may permit correct implementations with different latencies, matching design and reference outputs cycle by cycle can reject valid designs. To address this, we introduce BEHAVE, an agentic framework for multi-turn joint hardware design and verification through functional behavior modeling. We define Behavior IR to express task functionality as executable behavior models without prescribing implementation timing beyond the specification. The agent iteratively develops a register-transfer-level (RTL) design and a behavior model as the design's verification reference. Our evaluator, BEHAVE-Sim, checks both artifacts separately against a hidden golden behavior model using input stimuli generated by random sampling and solver-guided search. BEHAVE thus supports power, performance, and area (PPA) exploration across task-permitted latencies and microarchitectures. During training, the same evaluator provides verifiable reinforcement learning (RL) rewards from specification-behavior pairs without reference RTL. For self-improvement, the agent continually searches for high-level implementations relevant to its capability gaps, constructs and checks specification-behavior pairs, and trains on the expanded task pool. We release BEHAVE-Train and BEHAVE-Eval with 600 human-reviewed specification-behavior pairs for realistic hardware workloads. Starting from 60 seed tasks and acquiring 100 new tasks, self-improvement raises Qwen3.8-27B's RTL pass@1 on BEHAVE-Eval from 55.0% to 75.0%, reaching performance comparable to RL using a 540-task pool.",
-      "summary_zh": "",
-      "why_it_matters_zh": "",
-      "quality_score": 72,
-      "tags": [
-        "方法与模型"
-      ],
-      "evidence_flags": [
-        "release",
-        "performance"
-      ],
-      "publication_status": "preprint",
-      "rank": 0,
-      "featured": false,
-      "category": "方法与模型",
-      "metrics": {},
-      "metadata": {
-        "doi": "",
-        "arxiv_id": "2609.34785v1"
-      }
-    },
-    {
       "id": "arxiv:2609.34736v1",
       "channel": "aixmath",
       "related_channels": [
@@ -2007,436 +2451,6 @@
       "metadata": {
         "doi": "",
         "arxiv_id": "2609.34736v1"
-      }
-    },
-    {
-      "id": "arxiv:2609.34661v1",
-      "channel": "aixmath",
-      "related_channels": [],
-      "item_type": "paper",
-      "source": "arXiv",
-      "title": "Codoku: Renewable Program-Reasoning Challenges for Frontier Coding Agents",
-      "url": "https://arxiv.org/abs/2609.34661v1",
-      "published_at": "2026-09-28",
-      "updated_at": "2026-09-28",
-      "creators": [
-        "Cong Li",
-        "Hao Sun",
-        "Zenan Li",
-        "Zhendong Su"
-      ],
-      "language": "en",
-      "abstract_or_text": "Existing program-reasoning benchmarks ask large language models to predict a program's behavior on a given input. Coding agents break two assumptions on which these benchmarks rest: an agent can recover the answer by executing the program instead of reasoning about it, and fixed task sets drawn from existing programs are increasingly exposed to contamination, yet costly to renew. We introduce Codoku (code sudoku), a renewable benchmark in which a solver fills typed cells in a partial program to satisfy global static and dynamic constraints, such as a prescribed control-flow graph and execution path. Because a partial program cannot be executed and valid fillings are sparse in an exponentially large space of interdependent choices, neither tool use nor enumeration can substitute for program reasoning. Puzzles are synthesized from scratch via semantic reification, so fresh puzzles of controllable complexity can be generated on demand, each with a witness that guarantees solvability. We evaluate five frontier models on 300 puzzles through a coding agent free to use any tool within a fixed budget. Small puzzles already challenge open-weight models, whereas even proprietary models solve only about half of the large ones. Codoku thus offers a renewable testbed for program reasoning that can keep pace with rapidly improving coding agents. GitHub: https://github.com/connglli/Codoku.",
-      "summary_zh": "",
-      "why_it_matters_zh": "",
-      "quality_score": 72,
-      "tags": [
-        "方法与模型"
-      ],
-      "evidence_flags": [
-        "benchmark",
-        "github"
-      ],
-      "publication_status": "preprint",
-      "rank": 0,
-      "featured": false,
-      "category": "方法与模型",
-      "metrics": {},
-      "metadata": {
-        "doi": "",
-        "arxiv_id": "2609.34661v1"
-      }
-    },
-    {
-      "id": "arxiv:2609.34454v1",
-      "channel": "aixmath",
-      "related_channels": [],
-      "item_type": "paper",
-      "source": "arXiv",
-      "title": "When Words Fall Short: Iterative Synergy Between Verbalized Reasoning and Hidden Features for LLM Confidence Estimation",
-      "url": "https://arxiv.org/abs/2609.34454v1",
-      "published_at": "2026-09-28",
-      "updated_at": "2026-09-28",
-      "creators": [
-        "Yekun Xu",
-        "Ante Wang",
-        "Jingyi Ren",
-        "Xuanyi Chen",
-        "Weizhi Ma",
-        "Yang Liu"
-      ],
-      "language": "en",
-      "abstract_or_text": "Confidence estimation is crucial for developing trustworthy large language models (LLMs), with most methods following estimator-based or verbalization-based paradigms. While recent research increasingly focuses on improving verbalized self-reports of confidence, we challenge the prevailing view that this approach surpasses independent confidence estimators. Our empirical study shows that a dedicated confidence estimator can substantially outperform verbalized confidence, indicating that LLMs' internal representations contain richer confidence signals. Building on this finding, we propose Iterative Policy-Estimator Training (IPoET), a framework that synergizes the complementary strengths of verbalized reasoning traces and informative representations. IPoET alternates policy optimization with estimator updating, integrating estimator-derived confidence feedback into policy learning and refreshing the estimator on new policy rollouts. Experiments across diverse datasets and Qwen and Llama backbones demonstrate that, by iteratively exploiting richer hidden features and adapting to the evolving policy distribution, IPoET consistently outperforms both estimator- and verbalization-based baselines in-domain and achieves superior or comparable results across all out-of-domain metrics. For more details, refer to https://github.com/xyk829/ipoet.",
-      "summary_zh": "",
-      "why_it_matters_zh": "",
-      "quality_score": 72,
-      "tags": [
-        "方法与模型"
-      ],
-      "evidence_flags": [
-        "dataset",
-        "github"
-      ],
-      "publication_status": "preprint",
-      "rank": 0,
-      "featured": false,
-      "category": "方法与模型",
-      "metrics": {},
-      "metadata": {
-        "doi": "",
-        "arxiv_id": "2609.34454v1"
-      }
-    },
-    {
-      "id": "arxiv:2609.34342v1",
-      "channel": "aixmath",
-      "related_channels": [],
-      "item_type": "paper",
-      "source": "arXiv",
-      "title": "SAGE: Structured Strategic Reasoning for Efficient LLM Game Playing",
-      "url": "https://arxiv.org/abs/2609.34342v1",
-      "published_at": "2026-09-28",
-      "updated_at": "2026-09-28",
-      "creators": [
-        "Zhiwei Chen",
-        "Tianchun Wang",
-        "Zhongtao Rao",
-        "Haiming Zhu",
-        "Ding Cao",
-        "Tianxiang Zhao"
-      ],
-      "language": "en",
-      "abstract_or_text": "A strong LLM strategic agent should reason prospectively over uncertain futures, adapt its strategy to opponents' behavioral tendencies, and continuously recalibrate its decision process from interaction experience. However, incorporating these sources in free-form reasoning could lead to unsupported strategic assumptions, inconsistent opponent estimates, and harmful interference from irrelevant historical interactions. To address these issues, we propose SAGE, a training-free inference-time framework that structures LLM strategic reasoning around three coordinated operations: anchor, adapt, and recalibrate. SAGE first anchors reasoning to an equilibrium policy that provides a strategically valid prior. It then conditions deviations from this anchor on a soft belief over opponent behavioral tendencies, enabling opponent-specific exploitation. Finally, SAGE distills strategically related interactions into counterfactual hypotheses about previously missing considerations, allowing past experience to recalibrate the model's reasoning. We evaluate SAGE on three repeated imperfect-information games: Leduc Hold'em, Liar's Dice, and Goofspiel, against various opponent types in each game. Compared with reasoning-intensive LLM agents, including Suspicion-Agent, ReTA, Agent-Pro, EMO, and Hypothetical Minds, SAGE achieves up to a 127.6% payoff improvement in Liar's Dice while reducing input and output token usage by up to 80% and 90%, respectively. In direct match-up play, it attains non-negative mean payoff against 5/10, 8/10, and 8/10 evaluated opponents in Leduc Hold'em, Liar's Dice, and Goofspiel, respectively, while using relatively fewer tokens. Code is available at https://github.com/chenzhwsysu57/SAGE.",
-      "summary_zh": "",
-      "why_it_matters_zh": "",
-      "quality_score": 72,
-      "tags": [
-        "方法与模型"
-      ],
-      "evidence_flags": [
-        "github",
-        "prospective"
-      ],
-      "publication_status": "preprint",
-      "rank": 0,
-      "featured": false,
-      "category": "方法与模型",
-      "metrics": {},
-      "metadata": {
-        "doi": "",
-        "arxiv_id": "2609.34342v1"
-      }
-    },
-    {
-      "id": "arxiv:2609.34079v1",
-      "channel": "aixmath",
-      "related_channels": [
-        "aixbio"
-      ],
-      "item_type": "paper",
-      "source": "arXiv",
-      "title": "GenoMorph: Pathway-Grounded Genomic Disease Reasoning via Adaptive Latent Computation",
-      "url": "https://arxiv.org/abs/2609.34079v1",
-      "published_at": "2026-09-28",
-      "updated_at": "2026-09-28",
-      "creators": [
-        "Tanmoy Kanti Halder",
-        "Akash Ghosh",
-        "Arijit Roy",
-        "Sriparna Saha"
-      ],
-      "language": "en",
-      "abstract_or_text": "Large language models (LLMs) have demonstrated strong capabilities in biological reasoning; however, genomic disease inference remains largely dependent on memorized gene-disease associations rather than understanding biological pathways. This shortcut learning undermines robustness and generalization, and breaks down when molecular identifiers are unavailable. We present GenoMorph, a multimodal genomic reasoning framework that shifts disease prediction from associative gene-disease mapping toward pathway-grounded reasoning. GenoMorph couples a frozen DNA foundation model with question-conditioned cross-attention fusion, self-adaptive latent reasoning (LatentSp), a residual reasoning gate for iterative genomic evidence reinjection, and rejection sampling fine-tuning regularized by hierarchical optimal transport (OT). Rather than learning direct gene-disease mappings, GenoMorph aligns genomic sequence representations with latent pathway dynamics, enabling reasoning trajectories that follow molecular interactions before producing disease predictions. LatentSp dynamically allocates computation according to reasoning confidence, reducing unnecessary reasoning steps and improving inference efficiency. We further construct an anonymized benchmark from the Kyoto Encyclopedia of Genes and Genomes (KEGG), replacing every gene and molecular identifier with anonymous symbols while preserving sequences and pathway topology, thereby removing memorization shortcuts. GenoMorph raises the weighted F1 from 0.7863 (BioReason) to 0.9412, and rejection sampling fine-tuning with self-adaptive latent reasoning pushes it to 0.9725 while cutting latency nearly 60%. On the anonymized benchmark it reaches 0.9465 F1, substantially outperforming prior systems and confirming that accurate disease prediction can arise from pathway reasoning rather than memorized gene-disease associations.",
-      "summary_zh": "",
-      "why_it_matters_zh": "",
-      "quality_score": 72,
-      "tags": [
-        "方法与模型"
-      ],
-      "evidence_flags": [
-        "benchmark"
-      ],
-      "publication_status": "preprint",
-      "rank": 0,
-      "featured": false,
-      "category": "方法与模型",
-      "metrics": {},
-      "metadata": {
-        "doi": "",
-        "arxiv_id": "2609.34079v1"
-      }
-    },
-    {
-      "id": "arxiv:2609.34069v1",
-      "channel": "aixmath",
-      "related_channels": [],
-      "item_type": "paper",
-      "source": "arXiv",
-      "title": "Towards Certificate-Driven Software Porting: A Self-Improving Agentic Harness for Scientific Program Optimization",
-      "url": "https://arxiv.org/abs/2609.34069v1",
-      "published_at": "2026-09-28",
-      "updated_at": "2026-09-28",
-      "creators": [
-        "Piyush Jha",
-        "Aishik Ghosh",
-        "Vijay Ganesh"
-      ],
-      "language": "en",
-      "abstract_or_text": "The upgrade and rewriting of large scientific codebases has traditionally been a major challenge. While evolutionary search with large language models (LLMs) can port and accelerate legacy code, repair feedback in prompts alone does not prevent subsequent candidates from repeating the same errors. We introduce Certificate-Driven Evolutionary Search (CDES), which extends evolutionary search with enforceable restrictions derived from failed candidates, recorded as certificates of assumptions, checker evidence, and justified restrictions. Its control logic enforces these restrictions through rejection, backtracking, and targeted repair while preserving compatible edits. We apply CDES to CPU-to-GPU translation of two particle-simulation functions from the Geant4 toolkit, evaluated with a harness that goes beyond unit tests to combine formal checks, numerical comparisons, physics checks, and GPU safety tests. Generated implementations achieve 13.78x and 23.54x function-level speedups over CPU code, including data conversion and transfers; for one function, GPU throughput exceeds an expert implementation by 14.9%, reaching 16.1% when complementary components are combined. In an ablation over execution settings, certificate feedback increases the fraction of candidates passing required correctness checks from 55% to 90%.",
-      "summary_zh": "",
-      "why_it_matters_zh": "",
-      "quality_score": 72,
-      "tags": [
-        "方法与模型"
-      ],
-      "evidence_flags": [
-        "ablation"
-      ],
-      "publication_status": "preprint",
-      "rank": 0,
-      "featured": false,
-      "category": "方法与模型",
-      "metrics": {},
-      "metadata": {
-        "doi": "",
-        "arxiv_id": "2609.34069v1"
-      }
-    },
-    {
-      "id": "arxiv:2609.34039v1",
-      "channel": "aixmath",
-      "related_channels": [
-        "aixchem",
-        "aixbio"
-      ],
-      "item_type": "paper",
-      "source": "arXiv",
-      "title": "Large Language Models for Structured Clinical Data Analysis: Dual-Agent Grounding and Validation",
-      "url": "https://arxiv.org/abs/2609.34039v1",
-      "published_at": "2026-09-28",
-      "updated_at": "2026-09-28",
-      "creators": [
-        "Erfan D. Dehkalani",
-        "Seetha Shankaran",
-        "Abbot R. Laptook",
-        "C. Michael Cotten",
-        "P. Ellen Grant",
-        "Yangming Ou"
-      ],
-      "language": "en",
-      "abstract_or_text": "Objective: To develop and characterize CLEAR-Med, a dual-agent framework for natural-language analysis of structured clinical data that separates SQL-based invocation from independent validation. Methods: CLEAR-Med uses one agent to translate a question into executable Structured Query Language (SQL), retain the executed query and database result, and produce a draft. Deterministic checks and a separately invoked cross-provider Validation Agent then accept the draft, request one bounded repair, or abstain. We formalized the system as a bounded selective pipeline and evaluated CLEAR-Med's configuration and scalability, and the Invocation Agent's accuracy and consistency on a 25-query development benchmark, using a harmonized 21-site neonatal hypoxic-ischemic encephalopathy table containing 532 de-identified infant records and approximately 1,300 variables. Results: CLEAR-Med completed all six nominal scalability configurations, including 500x1300. Across 25 development-benchmark queries repeated five times, the Invocation Agent answered 83 of 125 responses correctly (66.4%; query-cluster bootstrap 95% CI, 48.0-83.2%), compared with 15 of 125 (12.0%; 95% CI, 3.2-22.4%) for the ungrounded ChatGPT baseline, a paired improvement of 54.4 percentage points (95% CI, 36.8-72.0%). Conclusion: CLEAR-Med provides a general architecture for traceable analysis of structured clinical data: numerical claims remain linked to executed SQL, and unresolved cases can fail closed. The reported experiments characterize CLEAR-Med's configuration and scalability and the Invocation Agent's accuracy, while the formal analysis establishes the encoded-property guarantee of the complete control flow; a prospective full-pipeline evaluation of the validation and abstention stages is the next stage of this work.",
-      "summary_zh": "",
-      "why_it_matters_zh": "",
-      "quality_score": 72,
-      "tags": [
-        "方法与模型"
-      ],
-      "evidence_flags": [
-        "benchmark",
-        "prospective",
-        "clinical",
-        "evaluation"
-      ],
-      "publication_status": "preprint",
-      "rank": 0,
-      "featured": false,
-      "category": "方法与模型",
-      "metrics": {},
-      "metadata": {
-        "doi": "",
-        "arxiv_id": "2609.34039v1"
-      }
-    },
-    {
-      "id": "arxiv:2609.33357v1",
-      "channel": "aixmath",
-      "related_channels": [],
-      "item_type": "paper",
-      "source": "arXiv",
-      "title": "DISCERN: Can AI Agents Work Like Scientists and Guide Discovery?",
-      "url": "https://arxiv.org/abs/2609.33357v1",
-      "published_at": "2026-09-27",
-      "updated_at": "2026-09-27",
-      "creators": [
-        "Nan Huang",
-        "Mario Tapia-Pacheco",
-        "Kun Zhou",
-        "Yiming Huang",
-        "Kevin José Barrientos Díaz",
-        "Tiffany Amariuta",
-        "Jingbo Shang"
-      ],
-      "language": "en",
-      "abstract_or_text": "Reliable automated research requires agents to vet data, verify analyses, and generate hypotheses grounded in trustworthy evidence, potentially reducing routine scientific workload while allowing scientists to focus on interpretation and discovery. Existing benchmarks often only assess analytical task completion or hypothesis generation separately rather than testing whether reliable evidence supports valid and novel claims. We introduce DISCERN (Data Integrity and Scientific Capability: Evidence, Reasoning, and Novelty), a controlled benchmark on real, publicly available datasets that evaluates three key levels of an automated research workflow. The first two levels test data integrity and analysis verification under confounds and tool traps, while the third tests hypothesis generation and revision under adversarial review, including counterfactual cases in which evidence consistent with real data and documented scientific phenomena conflicts with established expectations, motivating alternative explanations and testable hypotheses. Across 203 tasks, eight life-science tracks, and eight models, DISCERN shows that strong aggregate performance can mask level-specific weaknesses. Agents earn perfect scores in only 60.8% of Level 1, 34.2% of Level 2, and 0.6% of Level 3 evaluations, with penalties attributed to rejection of sound data, failure to carry recognized limitations into conclusions, and wide variation in hypothesis production. Cross-track rankings by token and code use are substantially more stable than rankings by evidence judgment, suggesting greater consistency in computational effort than in evidence-based reasoning. These profiles identify opportunities for supervised scientific assistance, but current agents do not yet demonstrate reliable autonomous analysis or discovery. Code and data: https://huggingface.co/datasets/discern-bench-anon/discern-benchmark",
-      "summary_zh": "",
-      "why_it_matters_zh": "",
-      "quality_score": 72,
-      "tags": [
-        "数学推理"
-      ],
-      "evidence_flags": [
-        "benchmark",
-        "dataset",
-        "evaluation",
-        "performance"
-      ],
-      "publication_status": "preprint",
-      "rank": 0,
-      "featured": false,
-      "category": "数学推理",
-      "metrics": {},
-      "metadata": {
-        "doi": "",
-        "arxiv_id": "2609.33357v1"
-      }
-    },
-    {
-      "id": "arxiv:2609.33109v1",
-      "channel": "aixmath",
-      "related_channels": [],
-      "item_type": "paper",
-      "source": "arXiv",
-      "title": "Toward Comprehensive 3D Grounding: Orientation Grounding through Vision-Language Models",
-      "url": "https://arxiv.org/abs/2609.33109v1",
-      "published_at": "2026-09-27",
-      "updated_at": "2026-09-27",
-      "creators": [
-        "Tuo Liang",
-        "Disheng Liu",
-        "Nengbo Wang",
-        "Vipin Chaudhary",
-        "Yu Yin"
-      ],
-      "language": "en",
-      "abstract_or_text": "Grounding is a core capability of spatial vision-language models, yet most existing work focuses only on where a referred object is. Many 3D tasks also require knowing how it is oriented. Although existing 3D VLMs may predict oriented boxes, box pose does not explicitly capture object-centric orientation or symmetry-induced ambiguities. We introduce orientation grounding, a referring grounding task that predicts an object's 6D orientation and axial symmetry from a language or box query in single-view or multi-view scenes. To support this task, we construct ReferOri, with 331K multi-view and 387K single-view orientation-grounding queries obtained through scalable reconstruction, consistency checking, and human verification. We further present OG-VLM, which adapts a 3D VLM with structured box/orientation outputs, sign and symmetry tokens, and geometry-aware auxiliary losses. Across single-view and multi-view benchmarks, OG-VLM substantially outperforms orientation-aware VLM baselines and surpasses object-level orientation foundation models on scene-level referring benchmarks, showing that explicit orientation grounding is a distinct and learnable capability beyond localization. Downstream results validate its benefit for orientation-related spatial reasoning.",
-      "summary_zh": "",
-      "why_it_matters_zh": "",
-      "quality_score": 72,
-      "tags": [
-        "方法与模型"
-      ],
-      "evidence_flags": [
-        "benchmark"
-      ],
-      "publication_status": "preprint",
-      "rank": 0,
-      "featured": false,
-      "category": "方法与模型",
-      "metrics": {},
-      "metadata": {
-        "doi": "",
-        "arxiv_id": "2609.33109v1"
-      }
-    },
-    {
-      "id": "arxiv:2609.35188v1",
-      "channel": "aixmath",
-      "related_channels": [],
-      "item_type": "paper",
-      "source": "arXiv",
-      "title": "Beneath the Tokens: A Performance Engineering Study of Multi-Token Prediction in GPU-Accelerated LLM Inference",
-      "url": "https://arxiv.org/abs/2609.35188v1",
-      "published_at": "2026-09-28",
-      "updated_at": "2026-09-28",
-      "creators": [
-        "Suwesh Prasad Sah"
-      ],
-      "language": "en",
-      "abstract_or_text": "Autoregressive large language model inference repeatedly invokes the target model to generate one token at a time, making generation sensitive to GPU memory movement and sequential execution. This study evaluates two-token multi-token prediction (MTP) against autoregressive decoding in a controlled single-request deployment on an NVIDIA A10G GPU. A 360-request benchmark covered plain-text, reasoning-intensive, and tool-calling workloads, while runtime telemetry, Nsight Systems, PyTorch Profiler, and selected Nsight Compute measurements were used to explain the observed performance. MTP increased output throughput by \\(1.91\\times\\) to \\(2.19\\times\\) across all prompts and reduced time to first output by 10.0--14.2\\%. Median mean acceptance length ranged from 2.370 to 2.595 tokens per verification iteration. Profiling showed that MTP introduced a longer and more complex execution path, including proposal, sampling, attention, gathering, and reduction operations. However, it required 56.4--78.1\\% fewer executions of the selected repeating CUDA Graph per generated token. The dominant MTP GEMM kernel was not faster than the dominant autoregressive GEMV kernel, and selected instances of both approached the A10G memory-bandwidth limit. These results show that MTP improved inference through amortization: greater token progress reduced repeated GPU execution sufficiently to outweigh the additional speculative-execution cost.",
-      "summary_zh": "",
-      "why_it_matters_zh": "",
-      "quality_score": 71,
-      "tags": [
-        "方法与模型"
-      ],
-      "evidence_flags": [
-        "benchmark",
-        "performance"
-      ],
-      "publication_status": "preprint",
-      "rank": 0,
-      "featured": false,
-      "category": "方法与模型",
-      "metrics": {},
-      "metadata": {
-        "doi": "",
-        "arxiv_id": "2609.35188v1"
-      }
-    },
-    {
-      "id": "arxiv:2609.35032v1",
-      "channel": "aixmath",
-      "related_channels": [],
-      "item_type": "paper",
-      "source": "arXiv",
-      "title": "JRDB-AVR: An Active Visual Reasoning Benchmark for Embodied Agents in Real-World Environments",
-      "url": "https://arxiv.org/abs/2609.35032v1",
-      "published_at": "2026-09-28",
-      "updated_at": "2026-09-28",
-      "creators": [
-        "Zhixi Cai",
-        "Fucai Ke",
-        "Sukai Huang",
-        "Maria Garcia de la Banda",
-        "Peter J. Stuckey",
-        "Gholamreza Haffari",
-        "Hamid Rezatofighi"
-      ],
-      "language": "en",
-      "abstract_or_text": "In complex embodied visual reasoning scenarios, an agent often has only a limited field of view, and the evidence needed to answer a question may be distributed across time, viewpoint, and interacting objects. A model may therefore give a plausible answer without ever observing the relevant object, time, or view that supports it. Current visual reasoning benchmarks largely evaluate passive observations and final answers, overlooking settings that require active reasoning and evidence acquisition. We introduce JRDB-AVR, a benchmark derived from existing real-world JRDB robotics data through a structured question-generation engine that turns this gap into an explicit evaluation: an embodied agentic system receives a visual reasoning question, requests bounded observations by timestamp and viewing angle, and is evaluated on both the final answer and the grounded visual evidence supporting it. The benchmark contains diverse questions over multiple real-world environments involving temporal search, viewpoint selection, and human-oriented compositional reasoning. We also introduce JRDB-AVR-Agent, a reference active reasoning agentic method that maintains an explicit observation-grounded graph-based world model and answers through solving. Experiments reveal a substantial gap between answer accuracy and evidence accuracy in current baselines, showing that current VLMs can produce unsupported correct answers and that active evidence-aware evaluation is necessary for embodied visual reasoning. Code and benchmark are available at https://github.com/ControlNet/JRDB-AVR.",
-      "summary_zh": "",
-      "why_it_matters_zh": "",
-      "quality_score": 71,
-      "tags": [
-        "数学推理"
-      ],
-      "evidence_flags": [
-        "benchmark",
-        "github",
-        "evaluation"
-      ],
-      "publication_status": "preprint",
-      "rank": 0,
-      "featured": false,
-      "category": "数学推理",
-      "metrics": {},
-      "metadata": {
-        "doi": "",
-        "arxiv_id": "2609.35032v1"
-      }
-    },
-    {
-      "id": "arxiv:2609.34886v1",
-      "channel": "aixmath",
-      "related_channels": [],
-      "item_type": "paper",
-      "source": "arXiv",
-      "title": "Fewer Assumptions by Design: A Reusable Skill for LLM-Assisted Verus Verification",
-      "url": "https://arxiv.org/abs/2609.34886v1",
-      "published_at": "2026-09-28",
-      "updated_at": "2026-09-28",
-      "creators": [
-        "Andrada-Livia Antoneac",
-        "Dorel Lucanu",
-        "Dragoş Teodor Gavriluţ"
-      ],
-      "language": "en",
-      "abstract_or_text": "LLM-assisted Verus verification is a less tedious method to verify Rust implementations, but paired with self-referential structures, e.g., Doubly Linked Lists (DLLs)ânotoriously difficult to formalise for verificationâit becomes a substantially more demanding verification task. Moreover, a specification weakness can arise when verification relies on unproven or invalidated assumptions, such as axiomatic lemmas and assume statements. We investigate whether LLM agents can synthesize strong DLL specifications while minimizing these trusted base. The analysis follows three different approaches: manual verification, property-specific verification, and a defined skill for the specific case of DLLs and certain properties of this type of data structure. The skill encodes domain knowledge and a task-decomposition strategy. We show that an LLM agent equipped with a carefully designed verification skill can generate strong, low-trust specifications for DLLs in Verus.",
-      "summary_zh": "",
-      "why_it_matters_zh": "",
-      "quality_score": 71,
-      "tags": [
-        "方法与模型"
-      ],
-      "evidence_flags": [],
-      "publication_status": "preprint",
-      "rank": 0,
-      "featured": false,
-      "category": "方法与模型",
-      "metrics": {},
-      "metadata": {
-        "doi": "",
-        "arxiv_id": "2609.34886v1"
       }
     }
   ]

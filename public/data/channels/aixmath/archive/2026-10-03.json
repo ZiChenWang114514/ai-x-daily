@@ -1,0 +1,680 @@
+{
+  "schema_version": "2.0",
+  "date": "2026-10-03",
+  "channel": "aixmath",
+  "generated_at": "2026-10-02T23:10:28+00:00",
+  "title": "AI × Math 每日精选",
+  "subtitle": "自动推理、形式化证明、数学智能与基础模型。",
+  "window": {
+    "start": "2026-09-30",
+    "end": "2026-10-03"
+  },
+  "method": "公开来源采集、历史去重、规则筛选与模型审阅",
+  "method_note": "系统保存当日公开元数据，与历史日报核验后排除已报道事件；论文新版本、新修订及不同软件发布等可核实更新仍可入选，随后由指定模型阅读全文摘要并完成精选。",
+  "stats": {
+    "fetched": 1292,
+    "suppressed_previous": 16,
+    "candidates": 60,
+    "selected": 15,
+    "sources": {
+      "arXiv": 1292,
+      "OpenReview": 0
+    }
+  },
+  "source_status": {
+    "arXiv": {
+      "state": "ok",
+      "count": 1292
+    },
+    "OpenReview": {
+      "state": "empty",
+      "count": 0
+    }
+  },
+  "source_errors": [],
+  "items": [
+    {
+      "id": "arxiv:2610.00885v1",
+      "channel": "aixmath",
+      "related_channels": [],
+      "item_type": "paper",
+      "source": "arXiv",
+      "title": "FORALL-LEAN-AGENT for Auditable Reasoning in Formal Mathematics and Software Verification",
+      "url": "https://arxiv.org/abs/2610.00885v1",
+      "published_at": "2026-10-01",
+      "updated_at": "2026-10-01",
+      "creators": [
+        "Naing Oo Lwin"
+      ],
+      "language": "en",
+      "abstract_or_text": "Coding agents increasingly automate Lean proof development, but successful compilation alone does not establish that a candidate proves the intended statement under acceptable assumptions. We present FORALL-LEAN-AGENT, a frontend-agnostic framework for auditable reasoning in formal mathematics and software verification. The framework combines isolated workspaces, Lean tools, and fresh review with statement comparison, axiom audits, and independent proof checking where supported. Verification evidence and reviewer decisions are bound to the same candidate artifact, making acceptance traceable. We evaluate the framework on VeriSoftBench, PutnamBench, and both problems in the Lean Eval softwareverification track. On the 100-task VeriSoftBench subset, integration with FORALLLEAN-AGENT raises benchmark-rule success from 93 to 100 for GPT-5.6 Sol at low effort while reducing cost from 69 to 62. The PutnamBench evaluation accepts all 672 problems at an average of 4.72 each. These results show that agent harness design can improve correctness and efficiency while providing evidence beyond aggregate solve counts.",
+      "summary_zh": "FORALL-LEAN-AGENT 将隔离工作区、Lean 工具、陈述比较、公理审计和独立复核结合起来，使形式化数学与软件验证的接受决策可追溯。",
+      "why_it_matters_zh": "它明确区分“成功编译”和“确实证明目标命题”，并在 VeriSoftBench、PutnamBench 等任务上报告了可检查的成功率与成本变化。",
+      "quality_score": 84.0,
+      "tags": [
+        "形式化证明"
+      ],
+      "evidence_flags": [
+        "benchmark",
+        "evaluation"
+      ],
+      "publication_status": "preprint",
+      "rank": 1,
+      "featured": true,
+      "category": "形式化证明",
+      "metrics": {},
+      "metadata": {
+        "doi": "",
+        "arxiv_id": "2610.00885v1"
+      },
+      "abstract_zh": "编码代理越来越多地自动化 Lean 证明开发，但成功编译本身并不能说明候选证明在可接受假设下证明了预期命题。我们提出 FORALL-LEAN-AGENT，一个面向前端的、用于形式化数学和软件验证的可审计推理框架。该框架结合隔离工作区、Lean 工具和新鲜复核，并在适用时进行命题比较、公理审计和独立证明检查。验证证据与审阅者决定绑定到同一个候选产物，使接受过程可追溯。我们在 VeriSoftBench、PutnamBench 以及 Lean Eval softwareverification track 的两个问题上评估该框架。在 VeriSoftBench 的 100 项任务子集上，将 FORALL-LEAN-AGENT 集成到 GPT-5.6 Sol 的低推理强度设置中，使符合基准规则的成功率从 93 提升到 100，同时将成本从 69 降至 62。PutnamBench 评测接受了全部 672 个问题，平均每题成本为 4.72。结果表明，代理框架设计可以在提供超越总体解题数量的证据的同时，提高正确性和效率。",
+      "published": "2026-10-01",
+      "author_line": "Naing Oo Lwin"
+    },
+    {
+      "id": "arxiv:2610.00661v1",
+      "channel": "aixmath",
+      "related_channels": [],
+      "item_type": "paper",
+      "source": "arXiv",
+      "title": "Exploring More, Reasoning Better: Stepwise Risk-Sensitive GRPO for Diffusion Language Models",
+      "url": "https://arxiv.org/abs/2610.00661v1",
+      "published_at": "2026-09-30",
+      "updated_at": "2026-09-30",
+      "creators": [
+        "Yue YU",
+        "Bowen Zuo",
+        "David Crandall",
+        "Yinglun Zhu",
+        "Dongruo Zhou"
+      ],
+      "language": "en",
+      "abstract_or_text": "Diffusion large language models (dLLMs) generate text by denoising a sequence or successive blocks, allowing several tokens to be revealed in parallel. Reinforcement learning with verifiable rewards (RLVR) reuses terminal feedback across these decisions, even as their conditioning context changes. We propose stepwise risk-sensitive GRPO (StepRS-GRPO), which varies the risk coefficient of the group-advantage transformation across denoising states while retaining the underlying trainer. For binary rewards, we show that this transformation is exactly a prompt- and state-dependent rescaling of centered outcome advantages. A capability-based calibration suggests a coefficient scale, while endpoint and interpolation ablations guide schedule selection. Across multiple dLLM backbones and mathematical reasoning benchmarks, StepRS-GRPO improves both pass@1 accuracy and pass@k coverage over centered GRPO, while increasing answer diversity. In our ablation studies, mass-matched controls support the contributions of state allocation and schedule direction, and the gains persist after matching the root mean square (RMS) of the advantages to that of centered GRPO. Reasoning-trace diagnostics further show that the diversity gains from StepRS-GRPO extend beyond final-answer strings.",
+      "summary_zh": "StepRS-GRPO 针对扩散语言模型的不同去噪状态调整风险系数，并通过消融和匹配控制评估数学推理收益。",
+      "why_it_matters_zh": "研究把奖励优化与去噪过程状态联系起来，报告了 pass@1、pass@k 和答案多样性的同步变化，但并未据此宣称普遍数学能力。",
+      "quality_score": 81.0,
+      "tags": [
+        "方法与模型"
+      ],
+      "evidence_flags": [
+        "benchmark",
+        "ablation"
+      ],
+      "publication_status": "preprint",
+      "rank": 2,
+      "featured": true,
+      "category": "方法与模型",
+      "metrics": {},
+      "metadata": {
+        "doi": "",
+        "arxiv_id": "2610.00661v1"
+      },
+      "abstract_zh": "扩散大型语言模型（dLLM）通过对序列或连续块进行去噪来生成文本，因此可以并行揭示多个词元。带可验证奖励的强化学习（RLVR）会在这些决策之间复用终端反馈，即使它们的条件上下文在变化。我们提出逐步风险敏感 GRPO（StepRS-GRPO），在保留底层训练器的同时，使组优势变换的风险系数随去噪状态变化。对于二元奖励，我们证明该变换恰好等价于对以提示和状态为条件的中心化结果优势进行重新缩放。基于能力的校准给出系数尺度，端点和插值消融则用于指导调度选择。在多个 dLLM 骨干模型和数学推理基准上，StepRS-GRPO 相比中心化 GRPO 同时提高 pass@1 准确率和 pass@k 覆盖率，并增加答案多样性。在消融研究中，质量匹配控制支持状态分配和调度方向的贡献；在将优势的均方根（RMS）匹配到中心化 GRPO 后，收益仍然存在。推理轨迹诊断进一步显示，StepRS-GRPO 带来的多样性收益不仅体现在最终答案字符串上。",
+      "published": "2026-09-30",
+      "author_line": "Yue YU, Bowen Zuo, David Crandall, Yinglun Zhu, Dongruo Zhou"
+    },
+    {
+      "id": "arxiv:2610.00682v1",
+      "channel": "aixmath",
+      "related_channels": [
+        "aixchem",
+        "aixbio"
+      ],
+      "item_type": "paper",
+      "source": "arXiv",
+      "title": "Ontology-Grounded, Reasoner-Verified Benchmarks for Evaluating LLM Reasoning in Scientific AI",
+      "url": "https://arxiv.org/abs/2610.00682v1",
+      "published_at": "2026-09-30",
+      "updated_at": "2026-09-30",
+      "creators": [
+        "Nishtha N. Vaidya",
+        "Stephan Grimm",
+        "Thomas Hubauer",
+        "Thomas A. Runkler"
+      ],
+      "language": "en",
+      "abstract_or_text": "Large language models (LLMs) increasingly underpin scientific AI applications that reason over structured knowledge, from biomedical question answering to materials informatics. However, their logical reasoning often falls short, producing factual inaccuracies unacceptable in these settings. Reliable evaluation remains challenging: manual dataset construction scales poorly, and LLM-based generation risks embedding the very flaws it aims to measure. High-quality benchmarks must ground both correct and incorrect labelled examples in explicit background knowledge, formally verifiable by a standard reasoner. We propose a pipeline that automatically generates ontology-grounded multiple-choice question (MCQ) benchmarks from any sufficiently axiomatised OWL 2 ontology, with correct answers grounded in the ontology by design. Distractors are generated by perturbing the right-hand-side class expressions of class definition axioms, and their incorrectness is formally verified by an OWL reasoner via entailment checks. We evaluate the pipeline on three ontologies: Pizza (small, academic), PMDco (complex, materials science), and DOID (large, biomedical), generating 112, 2,491, and 15,216 MCQs respectively. Distractors span four semantic categories from class unsatisfiability to weakened subsumptions, enabling diagnostic evaluation of specific reasoning failures. Items meet natural language quality standards: mean LLM judge scores of 4.02, 4.36, and 3.36 out of 5 confirm fluency, and correct-answer-to-distractor similarity above 0.8 shows that wrong options cannot be dismissed on surface form alone. Six LLMs evaluated zero-shot achieve 41.1-76.8% accuracy, well above the 25% random-guessing baseline, indicating the benchmarks are challenging and discriminative. This work is a step towards more reliable benchmarks for assessing logical reasoning in scientific AI.",
+      "summary_zh": "该工作从 OWL 2 本体自动生成由推理器验证的选择题基准，分别覆盖 Pizza、PMDco 和 DOID 本体，并用六个 LLM 测试逻辑推理。",
+      "why_it_matters_zh": "正确选项和干扰项都有形式化语义依据，错误选项经 OWL 推理器验证，因而比纯 LLM 生成题目更容易复核。",
+      "quality_score": 80.0,
+      "tags": [
+        "方法与模型"
+      ],
+      "evidence_flags": [
+        "benchmark",
+        "dataset",
+        "evaluation"
+      ],
+      "publication_status": "preprint",
+      "rank": 3,
+      "featured": true,
+      "category": "方法与模型",
+      "metrics": {},
+      "metadata": {
+        "doi": "",
+        "arxiv_id": "2610.00682v1"
+      },
+      "abstract_zh": "大型语言模型（LLM）越来越多地支撑需要在结构化知识上进行推理的科学 AI 应用，从生物医学问答到材料信息学都是如此。然而，它们的逻辑推理经常不足，会产生在这些场景中无法接受的事实错误。可靠评测仍然具有挑战性：手工构建数据集难以扩展，而基于 LLM 的生成又可能把其试图测量的缺陷嵌入其中。高质量基准应当把正确和错误的标注示例都建立在明确的背景知识上，并由标准推理器进行形式验证。我们提出一条流程，可从任何公理化程度足够的 OWL 2 本体自动生成以本体为依据的多项选择题基准；正确答案在设计上由本体支撑。干扰项通过扰动类定义公理右侧的类表达式生成，其错误性由 OWL 推理器通过蕴含检查进行形式验证。我们在三个本体上评估该流程：小型学术本体 Pizza、复杂的材料科学本体 PMDco，以及大型生物医学本体 DOID，分别生成 112、2,491 和 15,216 道选择题。干扰项覆盖从类不可满足性到减弱的从属关系等四类语义，使评测能够诊断具体推理失败。题目满足自然语言质量标准：LLM 评审平均分分别为 4.02、4.36 和 3.36（满分 5 分），正确答案与干扰项的相似度均高于 0.8，说明错误选项不能仅凭表面形式排除。六个 LLM 在零样本设置下取得 41.1%—76.8% 的准确率，明显高于 25% 的随机猜测基线，表明这些基准具有挑战性和区分度。这项工作是构建更可靠科学 AI 逻辑推理评测的一步。",
+      "published": "2026-09-30",
+      "author_line": "Nishtha N. Vaidya, Stephan Grimm, Thomas Hubauer, Thomas A. Runkler"
+    },
+    {
+      "id": "arxiv:2610.01799v1",
+      "channel": "aixmath",
+      "related_channels": [],
+      "item_type": "paper",
+      "source": "arXiv",
+      "title": "SkillEvoLean: Mutation-enhanced skill evolution for Lean provers",
+      "url": "https://arxiv.org/abs/2610.01799v1",
+      "published_at": "2026-10-01",
+      "updated_at": "2026-10-01",
+      "creators": [
+        "Kuo Zhou",
+        "ZiXion Yang",
+        "Lu Zhang"
+      ],
+      "language": "en",
+      "abstract_or_text": "Skill evolution offers a promising way to improve large language model agents without updating their parameters, but its use in formal theorem proving remains underexplored. Existing methods mainly target natural-language reasoning, improving skills by analyzing successful and failed trajectories and incrementally revising solving strategies. Although the Lean verifier provides reliable execution feedback, when all sampled trajectories fail, existing skill evolution methods lack successful trajectories from which to infer effective update directions. Furthermore, these methods also focus mainly on the root instruction file, thus underexploring the evolution of reference knowledge including mathematical concepts and proving techniques. To address these limitations, we propose a mutation-enhanced skill self-evolution framework for building skill-augmented Lean provers. The framework jointly evolves a high-level solving policy and its reference knowledge through progressive and mutation-based updates. Progressive evolution derives local improvements from successful and failed trajectories, while mutation is triggered when no complete proof can be generated, sampling mathematical concepts to produce and select new skill candidates under verifier feedback. We evaluate our method on MiniF2F, PutnamBench, the 2025 International Mathematical Olympiad (IMO 2025), and the 2026 USA Mathematical Olympiad (USAMO 2026). Under the same backbone model, trajectorysampling budget, and test-time compute, our method achieves proof success rates of 100.0%, 90.6%, 4/6, and 4/6, respectively, with GPT-5.5, outperforming the baseline methods. Further analysis shows that concept-guided mutation outperforms random-text-guided mutation by 6.9 and 8.2 percentage points on MiniF2F and PutnamBench, respectively, while solving one additional problem on both IMO 2025 and USAMO 2026.",
+      "summary_zh": "SkillEvoLean 通过渐进式更新和概念引导的变异机制共同演化 Lean 求解策略与参考知识，并在 MiniF2F、PutnamBench、IMO 2025 和 USAMO 2026 上测试。",
+      "why_it_matters_zh": "它利用 Lean 验证器反馈处理“所有轨迹都失败”的情形，评测给出了同一骨干模型和计算预算下的证明成功率。",
+      "quality_score": 79.0,
+      "tags": [
+        "形式化证明"
+      ],
+      "evidence_flags": [],
+      "publication_status": "preprint",
+      "rank": 4,
+      "featured": false,
+      "category": "形式化证明",
+      "metrics": {},
+      "metadata": {
+        "doi": "",
+        "arxiv_id": "2610.01799v1"
+      },
+      "abstract_zh": "技能演化为不更新参数而改进大型语言模型代理提供了有前景的途径，但其在形式化定理证明中的应用仍未得到充分研究。现有方法主要面向自然语言推理，通过分析成功和失败轨迹并逐步修订求解策略来改进技能。尽管 Lean 验证器能够提供可靠的执行反馈，但当所有采样轨迹都失败时，现有技能演化方法缺少可用于推断有效更新方向的成功轨迹。此外，这些方法也主要关注根指令文件，因而对包括数学概念和证明技巧在内的参考知识演化探索不足。为解决这些限制，我们提出一个用于构建技能增强型 Lean 证明器的、带变异机制的技能自演化框架。该框架通过渐进式更新和基于变异的更新共同演化高层求解策略及其参考知识。渐进式演化从成功和失败轨迹中得到局部改进；当无法生成完整证明时，则触发变异，在验证器反馈下采样数学概念，以生成并选择新的技能候选。我们在 MiniF2F、PutnamBench、2025 年国际数学奥林匹克竞赛（IMO 2025）和 2026 年美国数学奥林匹克竞赛（USAMO 2026）上评估该方法。在相同骨干模型、轨迹采样预算和测试时计算量下，使用 GPT-5.5 时，该方法的证明成功率分别为 100.0%、90.6%、4/6 和 4/6，优于基线方法。进一步分析表明，在 MiniF2F 和 PutnamBench 上，概念引导的变异相对于随机文本引导的变异分别高出 6.9 和 8.2 个百分点；在 IMO 2025 和 USAMO 2026 上，两者都多解决了一个问题。",
+      "published": "2026-10-01",
+      "author_line": "Kuo Zhou, ZiXion Yang, Lu Zhang"
+    },
+    {
+      "id": "arxiv:2609.39544v2",
+      "channel": "aixmath",
+      "related_channels": [],
+      "item_type": "paper",
+      "source": "arXiv",
+      "title": "Growing an Agent/Prover Interface: Evolutionary Tool Design for Cost-Efficient Theorem Proving in Rocq and Lean",
+      "url": "https://arxiv.org/abs/2609.39544v2",
+      "published_at": "2026-09-30",
+      "updated_at": "2026-10-01",
+      "creators": [
+        "Jules Viennot",
+        "Guillaume Baudart",
+        "Marc Lelarge"
+      ],
+      "language": "en",
+      "abstract_or_text": "Recent achievements in AI-assisted mathematics require intensive interaction of agents with proof assistants to generate machine-checked proof certificates. Agents interact with proof assistants such as Rocq or Lean through an interface that controls what the agent receives from the prover and the cost of these interactions. Today, these interfaces are adapted from tools designed for humans and not optimized for agents. We propose an evolutionary method where a frontier model incrementally proposes new features and only keeps the ones that improve the overall performance of smaller models. We demonstrate the effectiveness of our method by growing, on a curated set of mathematical problems, \\rme, a new MCP server for the Rocq prover. On the held-out test split of miniF2F-Rocq, an agent equipped with \\rme outperforms both the baseline that only exposes the Rocq compiler and an established MCP server, across four models from two families, in success rate, cost per solve, and time per solve. Although evolved for Rocq, the resulting server transfers to Lean, improving cost and time per solve on a subset of PutnamBench. We release \\rme and its port to Lean.",
+      "summary_zh": "该工作用进化方法设计 Rocq/Lean 的代理—证明器接口，生成 me MCP 服务器，并在 miniF2F-Rocq 和 PutnamBench 子集上比较成功率、成本与时间。",
+      "why_it_matters_zh": "研究直接评估工具接口如何影响机器检查证明的效率，并报告了跨模型、跨证明助手的迁移结果。",
+      "quality_score": 78.0,
+      "tags": [
+        "形式化证明"
+      ],
+      "evidence_flags": [
+        "release",
+        "performance"
+      ],
+      "publication_status": "preprint",
+      "rank": 5,
+      "featured": false,
+      "category": "形式化证明",
+      "metrics": {},
+      "metadata": {
+        "doi": "",
+        "arxiv_id": "2609.39544v2"
+      },
+      "abstract_zh": "AI 辅助数学的近期成果要求代理与证明助手进行密集交互，以生成机器检查的证明证书。代理通过控制证明器向其提供的内容及交互成本的接口，与 Rocq 或 Lean 等证明助手交互。现有接口大多从为人类设计的工具改造而来，并未针对代理进行优化。我们提出一种进化方法：由前沿模型逐步提出新功能，只保留那些能够提升较小模型总体性能的功能。我们在一组精选数学问题上展示该方法的有效性，构建了新的 Rocq 证明器 MCP 服务器 me。在 miniF2F-Rocq 的留出测试集上，配备 me 的代理在四个来自两个模型家族的模型上，相比只暴露 Rocq 编译器的基线和一个已有 MCP 服务器，在成功率、每次求解成本和每次求解时间方面均有提升。尽管该服务器是为 Rocq 演化的，它还可以迁移到 Lean，在 PutnamBench 子集上降低每次求解成本和时间。我们发布 me 及其 Lean 移植版本。",
+      "published": "2026-09-30",
+      "author_line": "Jules Viennot, Guillaume Baudart, Marc Lelarge"
+    },
+    {
+      "id": "arxiv:2610.01729v1",
+      "channel": "aixmath",
+      "related_channels": [],
+      "item_type": "paper",
+      "source": "arXiv",
+      "title": "Function-Structured Reinforcement Learning with Executable Verifiers for Mathematical Reasoning",
+      "url": "https://arxiv.org/abs/2610.01729v1",
+      "published_at": "2026-10-01",
+      "updated_at": "2026-10-01",
+      "creators": [
+        "Zihan Liu",
+        "Xurong Xie"
+      ],
+      "language": "en",
+      "abstract_or_text": "Algorithmic mathematical reasoning requires reliable decomposition, computation, and aggregation. Final-answer rewards provide limited guidance on intermediate errors, while successful execution does not guarantee mathematical correctness. This work proposes Function-Structured Graph Reinforcement Learning (FSG-RL), connecting subproblem graphs and Python implementations with multi-verifier feedback. The policy first learns to generate code from function graphs through supervised fine-tuning (SFT). Group Relative Policy Optimization (GRPO) then optimizes the policy using answer-gated rewards and span-level credit assignment. The framework also supports teacher supervision and structured memory. A benchmark curated from Grade School Math 8K (GSM8K), MathQA, MATH, and Omni-MATH pairs public function graphs with private verification specifications. Under a unified evaluation protocol, GRPO improves final-answer accuracy from 43.25% to 67.50% and full solution success from 32.25% to 52.25% over SFT. Continued reinforcement learning (RL) with teacher supervision yields additional gains. The gains extend beyond producing correctly formatted code, supporting verifier-guided reinforcement learning for mathematical reasoning. Code is available at https://github.com/ZihanLiummyycc/FSG-RL.",
+      "summary_zh": "FSG-RL 将函数图、Python 实现和多验证器反馈结合起来，用答案门控奖励与跨度级信用分配训练数学推理模型。",
+      "why_it_matters_zh": "它同时报告最终答案准确率和完整解答成功率，并在 GSM8K、MathQA、MATH 与 Omni-MATH 混合基准上进行统一评测。",
+      "quality_score": 77.0,
+      "tags": [
+        "数学推理"
+      ],
+      "evidence_flags": [
+        "benchmark",
+        "github",
+        "evaluation"
+      ],
+      "publication_status": "preprint",
+      "rank": 6,
+      "featured": false,
+      "category": "数学推理",
+      "metrics": {},
+      "metadata": {
+        "doi": "",
+        "arxiv_id": "2610.01729v1"
+      },
+      "abstract_zh": "算法数学推理需要可靠的分解、计算和聚合。最终答案奖励对中间错误提供的指导有限，而成功执行也不能保证数学正确性。本文提出函数结构图强化学习（FSG-RL），将子问题图和 Python 实现连接起来，并使用多验证器反馈。策略首先通过监督微调（SFT）学习从函数图生成代码；随后，组相对策略优化（GRPO）利用答案门控奖励和跨度级信用分配优化策略。该框架还支持教师监督和结构化记忆。我们从 Grade School Math 8K（GSM8K）、MathQA、MATH 和 Omni-MATH 中整理出一个基准，将公开函数图与私有验证规范配对。在统一评测协议下，GRPO 将最终答案准确率从 SFT 的 43.25% 提高到 67.50%，并将完整解答成功率从 32.25% 提高到 52.25%。继续使用教师监督进行强化学习（RL）还会带来额外收益。这些收益不仅来自生成格式正确的代码，也支持在验证器指导下进行数学推理强化学习。代码见 https://github.com/ZihanLiummyycc/FSG-RL。",
+      "published": "2026-10-01",
+      "author_line": "Zihan Liu, Xurong Xie"
+    },
+    {
+      "id": "arxiv:2610.01847v1",
+      "channel": "aixmath",
+      "related_channels": [],
+      "item_type": "paper",
+      "source": "arXiv",
+      "title": "Detecting Inconsistencies in Model Specifications with LLM-as-Verifier Reasoning",
+      "url": "https://arxiv.org/abs/2610.01847v1",
+      "published_at": "2026-10-01",
+      "updated_at": "2026-10-01",
+      "creators": [
+        "Zichen Xie",
+        "Mrigank Pawagi",
+        "Lize Shao",
+        "Yang Hu",
+        "Wenxi Wang"
+      ],
+      "language": "en",
+      "abstract_or_text": "Model specifications define how large language models (LLMs) should behave, guiding alignment training, inference-time behavior, and evaluation. Yet these specifications may themselves contain defects: two individually reasonable principles may prescribe incompatible behavior when applied to the same situation, leaving no response that satisfies both. Detecting such inconsistencies is challenging. Formalizing natural-language specifications risks losing subtle distinctions, while behavior-based testing cannot reliably distinguish specification defects from differences in model behavior. We introduce VeriSpec, the first approach to directly detect inconsistencies in model specifications by auditing the specification text itself. Our key insight is to preserve the specification in natural language while using an LLM as a verifier. VeriSpec extracts structured, context-aware rules, constructs a topic-guided graph to cluster behaviorally related rules at the same authority level, and applies LLM-as-verifier reasoning to detect inconsistencies. Applying VeriSpec to the OpenAI Model Spec, we extract 405 rules and manually validate five inconsistencies, all reported to its developers, who responded positively and have initiated internal discussions. Compared with five baselines, VeriSpec identifies the most validated inconsistencies, achieves the highest precision (38.5%), and incurs the lowest cost per validated inconsistency (11.12). These results establish direct specification auditing as a practical complement to behavioral alignment evaluation, catching defects at the source before they shape any model. The code is available at https://github.com/HIPREL-Group/VeriSpec.",
+      "summary_zh": "VeriSpec 直接审计模型规范文本，抽取规则、按主题构图并用 LLM 作为验证器检测规则冲突，在 OpenAI Model Spec 上发现并人工确认五处不一致。",
+      "why_it_matters_zh": "任务对象从模型行为转向规范本身，评测提供了人工确认数量、精确率和单位成本等可检验指标。",
+      "quality_score": 75.0,
+      "tags": [
+        "方法与模型"
+      ],
+      "evidence_flags": [
+        "github",
+        "evaluation"
+      ],
+      "publication_status": "preprint",
+      "rank": 7,
+      "featured": false,
+      "category": "方法与模型",
+      "metrics": {},
+      "metadata": {
+        "doi": "",
+        "arxiv_id": "2610.01847v1"
+      },
+      "abstract_zh": "模型规范规定大型语言模型（LLM）应如何行为，为对齐训练、推理时行为和评测提供指导。然而，这些规范本身也可能存在缺陷：两个各自合理的原则在应用于同一情境时可能规定不相容的行为，使得不存在能同时满足二者的响应。检测这类不一致很困难。将自然语言规范形式化可能丢失细微区别，而基于行为的测试又无法可靠地区分规范缺陷和模型行为差异。我们提出 VeriSpec，这是首个直接通过审计规范文本来检测模型规范不一致的方法。其关键思想是在保留自然语言规范的同时，使用 LLM 作为验证器。VeriSpec 抽取结构化、具有上下文的规则，构建主题引导的图来聚集同一权威层级中行为相关的规则，并应用 LLM-as-verifier 推理来检测不一致。应用 VeriSpec 审计 OpenAI Model Spec 时，我们抽取了 405 条规则，并由人工确认其中五处不一致；这些问题均报告给其开发者，开发者积极回应并已启动内部讨论。与五个基线相比，VeriSpec 找到的已验证不一致数量最多，达到最高精确率（38.5%），并具有最低的每个已验证不一致成本（11.12）。这些结果表明，直接审计规范可以作为行为对齐评测的实用补充，在缺陷影响模型之前从源头发现它们。代码见 https://github.com/HIPREL-Group/VeriSpec。",
+      "published": "2026-10-01",
+      "author_line": "Zichen Xie, Mrigank Pawagi, Lize Shao, Yang Hu, Wenxi Wang"
+    },
+    {
+      "id": "arxiv:2610.01110v1",
+      "channel": "aixmath",
+      "related_channels": [],
+      "item_type": "paper",
+      "source": "arXiv",
+      "title": "How Much Can Language Models Gain from Test-Time Computation?",
+      "url": "https://arxiv.org/abs/2610.01110v1",
+      "published_at": "2026-10-01",
+      "updated_at": "2026-10-01",
+      "creators": [
+        "Bangji Yang",
+        "Jingyuan Li",
+        "Jiajun Fan",
+        "Yi Evie Zhang",
+        "Ruihan Guo",
+        "Hongba Ma",
+        "Neil He",
+        "Chumeng Liang",
+        "Qinglong Zheng",
+        "Zhanghan Ni",
+        "Ge Liu"
+      ],
+      "language": "en",
+      "abstract_or_text": "How much can test-time computation improve a language model, and at what cost? Test-time scaling is widely proposed as a substitute for larger models, but existing comparisons mostly evaluate one domain at a time and rarely charge selection to the budget. We introduce SELF-POT, a benchmark and evaluation framework that measures the test-time potential of a model across competition mathematics, competitive programming, and agentic workflows. SELF-POT separates candidate coverage from final accuracy on static tasks, tracks correctness transitions under revision, and measures protocol completion alongside task success in agentic environments. Under a unified budget rule, it compares Direct inference with parallel sampling and self-revision under fixed multiples of the Direct budget, and charges every model call, including selection and critique, in dollars. This design supports two kinds of comparison: the gain a model obtains from additional inference, and a lower-cost model with additional inference against a stronger model. Across five low-cost reasoning models on 350 sealed tasks, with Claude Opus 5.5 Direct as the reference, the returns depend on the domain, the selection rule, and failure handling. When we replay the retained programming candidate pools, public-example selection raises correct submissions from 376 to 453 of 500 scheduled cells while saving 12-49% of logical API cost across models, and simply retaining an available candidate when judging fails recovers 61 submissions at unchanged cost. On identical mathematics pools, judging with fallback yields 186 correct submissions versus 182 for voting, while voting saves 12-21% of logical API cost. These controlled replays show how selection and failure handling change the gains realized from the same generated candidates, and they quantify the marginal value of a model judge.",
+      "summary_zh": "SELF-POT 建立统一的测试时计算评测框架，区分候选覆盖率和最终准确率，并把选择、批评和失败处理的调用成本计入预算。",
+      "why_it_matters_zh": "它在竞赛数学、竞赛编程和代理工作流上比较并行采样、自我修订和投票，为模型能力与额外推理成本的关系提供了可复现实验。",
+      "quality_score": 74.0,
+      "tags": [
+        "方法与模型"
+      ],
+      "evidence_flags": [
+        "benchmark",
+        "evaluation"
+      ],
+      "publication_status": "preprint",
+      "rank": 8,
+      "featured": false,
+      "category": "方法与模型",
+      "metrics": {},
+      "metadata": {
+        "doi": "",
+        "arxiv_id": "2610.01110v1"
+      },
+      "abstract_zh": "测试时计算能够在多大程度上改进语言模型，又需要付出什么代价？测试时扩展通常被提出作为更大模型的替代方案，但现有比较大多一次只评估一个领域，而且很少把选择过程计入预算。我们提出 SELF-POT，一个评估框架和基准，用于衡量模型在竞赛数学、竞赛编程和代理工作流上的测试时潜力。对于静态任务，SELF-POT 将候选覆盖率与最终准确率分开，跟踪修订过程中的正确性转变；对于代理环境，它衡量协议完成情况以及任务成功率。在统一预算规则下，它在直接推理预算固定倍数的范围内比较直接推理、并行采样和自我修订，并以美元计费每次模型调用，包括选择和批评。该设计支持两类比较：模型从额外推理中获得的收益，以及较弱模型通过额外推理与更强模型的比较。在 350 个封闭任务上，我们使用五个低成本推理模型，并以 Claude Opus 5.5 Direct 为参考。结果表明，收益取决于领域、选择规则和失败处理方式。回放保留的编程候选池时，公开示例选择使正确提交数从 500 个计划单元中的 376 个提高到 453 个，并在不同模型上节省 12%—49% 的逻辑 API 成本；在评判失败时简单保留可用候选，则在成本不变的情况下恢复 61 次提交。在相同的数学候选池上，带回退机制的评判得到 186 个正确提交，而投票得到 182 个；投票节省 12%—21% 的逻辑 API 成本。这些受控回放表明，选择和失败处理会改变同一批生成候选所能实现的收益，并量化模型评判器的边际价值。",
+      "published": "2026-10-01",
+      "author_line": "Bangji Yang, Jingyuan Li, Jiajun Fan, Yi Evie Zhang, Ruihan Guo, Hongba Ma, Neil He, Chumeng Liang, Qinglong Zheng, Zhanghan Ni, Ge Liu"
+    },
+    {
+      "id": "arxiv:2610.00972v1",
+      "channel": "aixmath",
+      "related_channels": [
+        "aixbio"
+      ],
+      "item_type": "paper",
+      "source": "arXiv",
+      "title": "VeriHarness: Scaling Agentic Verification for Long-Horizon Tasks",
+      "url": "https://arxiv.org/abs/2610.00972v1",
+      "published_at": "2026-10-01",
+      "updated_at": "2026-10-01",
+      "creators": [
+        "Caiqi Zhang",
+        "Rujun Han",
+        "Zifeng Wang",
+        "Zoey CuiZhu",
+        "Nigel Collier",
+        "Tomas Pfister",
+        "Chen-Yu Lee"
+      ],
+      "language": "en",
+      "abstract_or_text": "As LLM agents undertake increasingly complex, long-horizon tasks, verifying their outputs becomes increasingly challenging. We study how verification capability can be strengthened with a fixed base model, without access to reference answers or grading rubrics at test time. Repeated sampling yields multiple rollouts that can contain complementary correct claims, but we need a reliable verification mechanism to determine which claims to trust. We first find that disagreement often exposes correct alternatives, while consensus can conceal errors. These observations motivate VeriHarness, which turns the underlying LLM a generator uses into an agentic verifier by giving it a workspace, evidence tools, and reusable verification skills. A disagreement resolver checks competing claims against environmental evidence, while a consensus challenger tests shared claims and searches for omitted requirements. Their findings guide the selection and revision of the final artifact. Across five long-horizon workspace benchmarks and two frontier models, VeriHarness achieves the highest selection scores among the evaluated baselines. Evidence-backed revision further improves average performance, bringing gains over a single rollout to 6.2 points with Gemini 3.5 Flash and 6.4 points with Claude Opus 4.8. We further show that verification skills can self-improve from failure feedback, demonstrating VeriHarness as a novel and critical approach for scaling long-horizon agentic verification. We release the full pool of approximately 26,000 rollouts across all five benchmarks and both models, produced at a cost of over 100,000, to support future research on agentic verification.",
+      "summary_zh": "VeriHarness 将生成模型配备工作区、证据工具和可复用验证技能，通过分歧解析与共识挑战来选择和修订长程任务产物。",
+      "why_it_matters_zh": "研究在五个长程工作区基准和两个前沿模型上比较验证策略，并公开约 26,000 条 rollout 供复核。",
+      "quality_score": 74.0,
+      "tags": [
+        "方法与模型"
+      ],
+      "evidence_flags": [
+        "benchmark",
+        "release",
+        "performance"
+      ],
+      "publication_status": "preprint",
+      "rank": 9,
+      "featured": false,
+      "category": "方法与模型",
+      "metrics": {},
+      "metadata": {
+        "doi": "",
+        "arxiv_id": "2610.00972v1"
+      },
+      "abstract_zh": "随着 LLM 代理承担越来越复杂的长程任务，验证其输出也越来越困难。我们研究在测试时无法访问参考答案或评分标准的情况下，如何使用固定的基础模型增强验证能力。重复采样会产生多个 rollout，其中可能包含互补的正确主张，但我们需要可靠的验证机制来决定信任哪些主张。我们首先发现，分歧经常暴露正确的替代方案，而共识可能掩盖错误。这些观察促成了 VeriHarness：通过为底层 LLM 生成器提供工作区、证据工具和可复用验证技能，将其转变为代理验证器。分歧解析器针对环境证据检查相互竞争的主张，共识挑战器测试共同主张并搜索遗漏要求；它们的发现指导最终产物的选择和修订。在五个长程工作区基准和两个前沿模型上，VeriHarness 在所评估的基线中取得最高选择分数。基于证据的修订进一步提高平均性能：相对于单次 rollout，Gemini 3.5 Flash 提高 6.2 分，Claude Opus 4.8 提高 6.4 分。我们还表明，验证技能可以从失败反馈中自我改进，说明 VeriHarness 是扩展长程代理验证的一种新方法。我们发布了五个基准和两个模型上约 26,000 条 rollout 的完整池，这些数据生成成本超过 100,000，可支持未来的代理验证研究。",
+      "published": "2026-10-01",
+      "author_line": "Caiqi Zhang, Rujun Han, Zifeng Wang, Zoey CuiZhu, Nigel Collier, Tomas Pfister, Chen-Yu Lee"
+    },
+    {
+      "id": "arxiv:2610.02191v1",
+      "channel": "aixmath",
+      "related_channels": [],
+      "item_type": "paper",
+      "source": "arXiv",
+      "title": "The Missing Primitive: Diagnosing and Repairing Mathematical Reasoning in Large Language Models",
+      "url": "https://arxiv.org/abs/2610.02191v1",
+      "published_at": "2026-10-01",
+      "updated_at": "2026-10-01",
+      "creators": [
+        "Shuo Xing",
+        "Zilin Dai",
+        "Chengyuan Qian",
+        "Fangzhou Lin",
+        "Wenjing Chen",
+        "Ping He",
+        "Pan Lu",
+        "Alvaro Velasquez",
+        "Mohit Bansal",
+        "Zhengzhong Tu"
+      ],
+      "language": "en",
+      "abstract_or_text": "While Large Language Models (LLMs) have demonstrated striking capabilities on frontier mathematical problems, it remains unclear whether they possess the structural mathematical understanding underlying their solutions. In this paper, we take a first step toward systematically studying mathematical understanding in LLMs, from diagnosing its distinct capabilities to leveraging these findings to improve post-training. First, we introduce the notion of Mathematical Primitive to probe structural mathematical understanding and propose , a novel benchmark that evaluates mathematical reasoning along four distinct dimensions: Discovery, Generation, Digestion, and Execution. Second, our systematic diagnosis shows that solution accuracy masks distinct capability profiles, primitives unlock substantial latent execution capacity, and Discovery is the dominant bottleneck in mathematical reasoning. Our post-training analysis further shows that discovery-limited failures are particularly amenable to repair. Finally, building on these findings, we introduce , a primitive-privileged self-distillation framework that selectively transfers primitive-guided reasoning into the student model. Extensive experiments demonstrate that consistently improves mathematical reasoning over baselines across model scales and challenging benchmarks.",
+      "summary_zh": "该工作提出 Mathematical Primitive 概念，用 Discovery、Generation、Digestion 和 Execution 四个维度诊断数学推理，并用 primitive-privileged self-distillation 改进模型。",
+      "why_it_matters_zh": "它强调最终答案准确率会掩盖不同的能力结构，并把“发现”作为主要瓶颈进行基准化分析；原摘要中的基准和方法名称存在缺失，未作臆补。",
+      "quality_score": 73.0,
+      "tags": [
+        "数学推理"
+      ],
+      "evidence_flags": [
+        "benchmark"
+      ],
+      "publication_status": "preprint",
+      "rank": 10,
+      "featured": false,
+      "category": "数学推理",
+      "metrics": {},
+      "metadata": {
+        "doi": "",
+        "arxiv_id": "2610.02191v1"
+      },
+      "abstract_zh": "大型语言模型（LLM）已经展现出解决前沿数学问题的显著能力，但它们是否具备支撑这些解答的结构化数学理解，仍不清楚。在本文中，我们迈出系统研究 LLM 数学理解的第一步：诊断其不同能力，并利用这些发现改进后训练。首先，我们提出 Mathematical Primitive 的概念，用于探测结构化数学理解，并提出一个新基准，从 Discovery、Generation、Digestion 和 Execution 四个不同维度评估数学推理。其次，我们的系统诊断表明，解答准确率会掩盖不同的能力构成；primitives 可以释放大量潜在的执行能力；而 Discovery 是数学推理中的主要瓶颈。我们的后训练分析进一步表明，以发现为限制的失败尤其适合修复。最后，基于这些发现，我们提出一个 primitive-privileged self-distillation 框架，有选择地将由 primitive 引导的推理迁移到学生模型。大量实验表明，该方法在不同模型规模和具有挑战性的基准上持续优于基线，提高数学推理能力。",
+      "published": "2026-10-01",
+      "author_line": "Shuo Xing, Zilin Dai, Chengyuan Qian, Fangzhou Lin, Wenjing Chen, Ping He, Pan Lu, Alvaro Velasquez, Mohit Bansal, Zhengzhong Tu"
+    },
+    {
+      "id": "arxiv:2610.01519v1",
+      "channel": "aixmath",
+      "related_channels": [],
+      "item_type": "paper",
+      "source": "arXiv",
+      "title": "Auto-Formalizing Neuro-Symbolic Predictors",
+      "url": "https://arxiv.org/abs/2610.01519v1",
+      "published_at": "2026-10-01",
+      "updated_at": "2026-10-01",
+      "creators": [
+        "Samuele Bortolotti",
+        "Weixin Chen",
+        "Han Zhao",
+        "Andrea Passerini",
+        "Stefano Teso",
+        "Antonio Vergari"
+      ],
+      "language": "en",
+      "abstract_or_text": "Neuro-Symbolic (NeSy) predictors incorporate prior knowledge into the prediction process of neural networks, ensuring that outputs satisfy specified constraints, making them particularly suitable for high-stakes applications where compliance with domain knowledge is essential. A key bottleneck in this paradigm is the acquisition of symbolic constraints: encoding domain knowledge into logical formulas remains a manual and expert-intensive process. In this work, we investigate the extent to which auto-formalization via LLMs can systematically translate textual knowledge into symbolic knowledge that can be plugged into NeSy predictors. To this end, we introduce auto-nesy-bench, a new benchmark for evaluating constraint formalization and its impact on downstream accuracy of NeSy predictors. Through an extensive evaluation across several domains, we find that LLMs can formalize constraints to a meaningful extent, generating formulas that are often similar to those provided by human experts. Moreover, when the generated formulas are syntactically valid, they can lead to high-quality downstream predictions. The code and benchmark are available at https://unitn-sml.github.io/auto-nesy-bench/.",
+      "summary_zh": "Auto-Formalizing Neuro-Symbolic Predictors 研究 LLM 将文本知识自动转换为神经符号预测器约束的能力，并发布 auto-nesy-bench。",
+      "why_it_matters_zh": "评测不仅检查公式是否接近专家版本，还观察这些约束对下游预测准确率的影响，连接了形式化质量与任务结果。",
+      "quality_score": 73.0,
+      "tags": [
+        "验证与逻辑"
+      ],
+      "evidence_flags": [
+        "benchmark",
+        "github",
+        "evaluation"
+      ],
+      "publication_status": "preprint",
+      "rank": 11,
+      "featured": false,
+      "category": "验证与逻辑",
+      "metrics": {},
+      "metadata": {
+        "doi": "",
+        "arxiv_id": "2610.01519v1"
+      },
+      "abstract_zh": "神经符号（NeSy）预测器将先验知识纳入神经网络的预测过程，确保输出满足指定约束，因此特别适合必须遵守领域知识的高风险应用。这一范式的关键瓶颈是获取符号约束：将领域知识编码为逻辑公式仍然是手工且高度依赖专家的过程。在本文中，我们研究 LLM 自动形式化能否系统地把文本知识转译为可插入 NeSy 预测器的符号知识。为此，我们引入 auto-nesy-bench，一个评估约束形式化及其对 NeSy 预测器下游准确率影响的新基准。通过在多个领域进行广泛评估，我们发现 LLM 在一定程度上能够形式化约束，生成的公式通常与人类专家提供的公式相似。此外，当生成的公式在语法上有效时，可以带来高质量的下游预测。代码和基准见 https://unitn-sml.github.io/auto-nesy-bench/。",
+      "published": "2026-10-01",
+      "author_line": "Samuele Bortolotti, Weixin Chen, Han Zhao, Andrea Passerini, Stefano Teso, Antonio Vergari"
+    },
+    {
+      "id": "arxiv:2609.39022v2",
+      "channel": "aixmath",
+      "related_channels": [],
+      "item_type": "paper",
+      "source": "arXiv",
+      "title": "From Verification Failures to Reusable Guidance for Coding Agents",
+      "url": "https://arxiv.org/abs/2609.39022v2",
+      "published_at": "2026-09-30",
+      "updated_at": "2026-10-01",
+      "creators": [
+        "Yuqing Zhai",
+        "Xiaohong Chen",
+        "Lingming Zhang",
+        "Sriram Vishwanath",
+        "Grigore Rosu"
+      ],
+      "language": "en",
+      "abstract_or_text": "Coding agents need to establish that a program satisfies a specification and that the specification captures the requested behavior. We study how expert diagnosis of verification failures can become reusable guidance for this work. Our approach combines executable language definitions in the K framework with a kit of procedures for constructing specifications, repairing proofs, and auditing their adequacy. A human-guided development campaign on HumanEval, a benchmark of 164 Python programming tasks, achieves a 164/164 success rate with the semantics and the kit, measured by final AI audit Pass verdicts after two targeted repairs. To examine whether auditing detects problems that successful proofs leave unresolved, we construct 12 author-reviewed pairs of clean and defective packages. Every package passes its K proofs, and completed audits identify all defects and accept all clean packages. We then use KleverBench to test specification and proof construction for 31 programs with changed operator meanings. Comparisons with complete acceptance rules and equally long generic advice yield mixed results across two model and budget settings, motivating further work on selecting useful guidance within resource limits. Human-reviewed Optimism proofs establish expected pause reverts for six operations within declared input bounds under London semantics with unbounded gas. We report progress, difficulties, and lessons toward agents that deliver programs with checkable correctness arguments.",
+      "summary_zh": "该工作把 K 框架中的可执行语言定义、规范构造、证明修复和充分性审计流程结合起来，研究如何将专家对验证失败的诊断转化为可复用指导。",
+      "why_it_matters_zh": "HumanEval 上 164/164 的结果与作者审阅的缺陷包审计测试，分别检验了成功证明之外的规范缺陷发现能力。",
+      "quality_score": 73.0,
+      "tags": [
+        "形式化证明"
+      ],
+      "evidence_flags": [
+        "benchmark"
+      ],
+      "publication_status": "preprint",
+      "rank": 12,
+      "featured": false,
+      "category": "形式化证明",
+      "metrics": {},
+      "metadata": {
+        "doi": "",
+        "arxiv_id": "2609.39022v2"
+      },
+      "abstract_zh": "编码代理需要证明程序满足规范，并证明规范确实描述了所请求的行为。我们研究专家对验证失败的诊断如何转化为可复用的指导。我们的方法结合 K 框架中的可执行语言定义，以及用于构造规范、修复证明和审计规范充分性的一组流程。在 HumanEval（包含 164 个 Python 编程任务的基准）上，使用这些语义和流程进行人工引导的开发活动达到 164/164 的成功率；该结果依据两次定向修复后的最终 AI 审计 Pass 判定测量。为了检验审计是否能够发现成功证明仍未解决的问题，我们构造了 12 对由作者审阅的干净包和有缺陷包。每个包都通过了 K 证明，完成的审计识别出全部缺陷包并接受全部干净包。随后，我们使用 KleverBench 测试 31 个运算符含义发生变化的程序的规范和证明构造。在两个模型和预算设置下，与完整接受规则以及长度相同的通用建议相比，结果各不相同，这促使我们进一步研究如何在资源限制下选择有用的指导。人工审阅的 Optimism 证明在 London 语义和无界 gas 下、声明的输入范围内，确立了六个操作的预期暂停回退。我们报告了朝向让代理交付带有可检查正确性论证的程序所取得的进展、困难和经验。",
+      "published": "2026-09-30",
+      "author_line": "Yuqing Zhai, Xiaohong Chen, Lingming Zhang, Sriram Vishwanath, Grigore Rosu"
+    },
+    {
+      "id": "arxiv:2610.01140v1",
+      "channel": "aixmath",
+      "related_channels": [],
+      "item_type": "paper",
+      "source": "arXiv",
+      "title": "ReSolve: Reusing Candidate Reasoning through Selective Generative Moderation",
+      "url": "https://arxiv.org/abs/2610.01140v1",
+      "published_at": "2026-10-01",
+      "updated_at": "2026-10-01",
+      "creators": [
+        "Bangji Yang",
+        "Jiajun Fan",
+        "Hongba Ma",
+        "Xi Zhu",
+        "Weizhi Zhang",
+        "Minghao Guo",
+        "Ye Li",
+        "Hamid Palangi",
+        "Jiaxuan You"
+      ],
+      "language": "en",
+      "abstract_or_text": "Sampling multiple solutions spends computation on intermediate deductions and unfinished arguments as well as final answers. We introduce ReSolve, a training-free inference procedure that reuses this candidate reasoning through selective generative moderation. An answer-distribution controller invokes a model to examine existing derivations when candidates disagree or lack a parseable answer, then incorporates the generated solution into a bounded loop. Under Hybrid scoring on 130 competition-mathematics problems evaluated with two independently sampled candidate pools, ReSolve obtains 100 and 99 correct answers, compared with 91 and 92 for voting over the same four candidates, with no correct-to-incorrect changes relative to that vote in either pool. Eight-sample self-consistency obtains 94 and 96 correct answers while consuming substantially more tokens; ReSolve uses 46.3% and 47.2% fewer tokens in the two evaluations. A controlled ablation removes visible derivations while retaining answer keys, vote counts, and the per-state output-cap rule, reducing accuracy from 100 to 93 correct despite increasing computation. Selective and always-on Uniform moderation both solve 97 problems, while selectivity reduces moderation tokens by approximately 54% and total pipeline tokens by 6.2%. These results support candidate reasoning as reusable inference computation. They do not establish an accuracy advantage over additional sampling or a distinct benefit from specialized route instructions.",
+      "summary_zh": "ReSolve 在候选答案分歧或缺少可解析答案时调用模型审查已有推导，在 130 道竞赛数学题上比较了准确率、token 成本和可见推导消融。",
+      "why_it_matters_zh": "结果显示候选推理可以作为可复用的推理计算，但摘要也明确指出尚未证明其优于额外采样或专门路由指令。",
+      "quality_score": 72.0,
+      "tags": [
+        "数学推理"
+      ],
+      "evidence_flags": [
+        "ablation",
+        "evaluation"
+      ],
+      "publication_status": "preprint",
+      "rank": 13,
+      "featured": false,
+      "category": "数学推理",
+      "metrics": {},
+      "metadata": {
+        "doi": "",
+        "arxiv_id": "2610.01140v1"
+      },
+      "abstract_zh": "对多个解答进行采样时，计算量不仅花在最终答案上，也花在中间推导和未完成论证上。我们提出 ReSolve，一种无需训练的推理过程，通过选择性生成式调解复用这些候选推理。当候选不一致或缺少可解析答案时，答案分布控制器调用模型检查已有推导，并将生成的解答纳入一个有界循环。在 130 道竞赛数学题上，使用两个独立采样的候选池并采用 Hybrid 评分，ReSolve 分别得到 100 和 99 个正确答案，而对相同四个候选进行投票分别得到 91 和 92 个；在两个候选池中，相对于投票都没有发生由正确变错误的变化。八样本自洽性分别得到 94 和 96 个正确答案，但消耗的 token 明显更多；ReSolve 在两次评测中分别少用 46.3% 和 47.2% 的 token。一个受控消融移除可见推导，同时保留答案键、投票计数和每个状态的输出上限规则，使准确答案从 100 降到 93，尽管计算量增加。选择性调解和始终开启的 Uniform 调解都解决了 97 道题，而选择性机制将调解 token 减少约 54%，将流水线总 token 减少 6.2%。这些结果支持把候选推理作为可复用的推理计算。它们并未证明该方法相对于额外采样具有准确率优势，也未证明专门的路由指令具有独立收益。",
+      "published": "2026-10-01",
+      "author_line": "Bangji Yang, Jiajun Fan, Hongba Ma, Xi Zhu, Weizhi Zhang, Minghao Guo, Ye Li, Hamid Palangi, Jiaxuan You"
+    },
+    {
+      "id": "arxiv:2610.00571v1",
+      "channel": "aixmath",
+      "related_channels": [],
+      "item_type": "paper",
+      "source": "arXiv",
+      "title": "Interpreting Reasoning of Large Language Models via Partial Information Decomposition",
+      "url": "https://arxiv.org/abs/2610.00571v1",
+      "published_at": "2026-09-30",
+      "updated_at": "2026-09-30",
+      "creators": [
+        "Barproda Halder",
+        "Qiuyi Zhang",
+        "Sanghamitra Dutta"
+      ],
+      "language": "en",
+      "abstract_or_text": "Large reasoning models (LRMs) have achieved substantial improvements in solving complex mathematical problems, but often produce lengthy, repetitive, or erroneous reasoning trajectories. In this work, we introduce a new interpretability framework, SLIDER, to evaluate the quality of the reasoning process. SLIDER leverages an emerging body of work from information theory called Partial Information Decomposition to disentangle the information about the final answer between two consecutive reasoning steps into non-negative components: unique information (in preceding steps or current step), redundant information, and synergistic information. Building on this decomposition, we propose the *Step-wise Repetitive Reasoning Index (Step-RRI)*, a theoretically grounded measure that assesses whether the answer-relevant information in the current step S_i is predominantly redundant with the past steps S_{<i}, relative to its unique and synergistic contributions. To evaluate the effectiveness of Step-RRI in detecting repetitiveness, we apply SLIDER to the redundancy class of the PRMBench dataset where Step-RRI improves step-level redundancy identification accuracy by over 10 points compared to embedding-similarity and information-gain baselines. Next, we define *Trajectory-RRI*, an aggregate measure of repetitiveness for an individual reasoning trajectory. To demonstrate its practical relevance, we show that average Trajectory-RRI strongly correlates with actual reasoning length across QwQ-32B, DeepSeek-R1-Distill-Qwen-32B, and GPT-4.1, motivating its use as a signal for improving reasoning efficiency. Finally, we introduce *Trajectory-RRI-guided data selection for fine-tuning*, demonstrating that selecting training data based on Trajectory-RRI can improve a fine-tuned model's reasoning efficiency while largely preserving its task performance.",
+      "summary_zh": "SLIDER 用 Partial Information Decomposition 将相邻推理步骤对最终答案的信息分解为独有、冗余和协同成分，并提出 Step-RRI 与 Trajectory-RRI 衡量重复推理。",
+      "why_it_matters_zh": "该指标在 PRMBench 冗余类别上优于嵌入相似度和信息增益基线，并与多个模型的实际推理长度相关。",
+      "quality_score": 72.0,
+      "tags": [
+        "数学推理"
+      ],
+      "evidence_flags": [
+        "dataset",
+        "performance"
+      ],
+      "publication_status": "preprint",
+      "rank": 14,
+      "featured": false,
+      "category": "数学推理",
+      "metrics": {},
+      "metadata": {
+        "doi": "",
+        "arxiv_id": "2610.00571v1"
+      },
+      "abstract_zh": "大型推理模型（LRM）在解决复杂数学问题方面取得了显著改进，但经常生成冗长、重复或错误的推理轨迹。在本文中，我们提出一个新的可解释性框架 SLIDER，用于评估推理过程的质量。SLIDER 利用信息论中一个新兴的研究方向 Partial Information Decomposition，将连续两个推理步骤之间关于最终答案的信息分解为非负成分：前面步骤或当前步骤中的独有信息、冗余信息和协同信息。在此分解基础上，我们提出 Step-wise Repetitive Reasoning Index（Step-RRI），一个有理论依据的指标，用于评估当前步骤 S_i 中与过去步骤 S_{<i} 冗余的答案相关信息，是否相对于其独有和协同贡献占主导。为评估 Step-RRI 检测重复性的有效性，我们将 SLIDER 应用于 PRMBench 的冗余类别；与嵌入相似度和信息增益基线相比，Step-RRI 将步骤级冗余识别准确率提高了 10 多个百分点。随后，我们定义 Trajectory-RRI，用于衡量单条推理轨迹的总体重复程度。为展示其实际意义，我们表明，在 QwQ-32B、DeepSeek-R1-Distill-Qwen-32B 和 GPT-4.1 上，平均 Trajectory-RRI 与实际推理长度高度相关，这支持将其作为提高推理效率的信号。最后，我们提出由 Trajectory-RRI 引导的微调数据选择方法，结果表明，根据 Trajectory-RRI 选择训练数据可以提高微调模型的推理效率，同时大体保持任务性能。",
+      "published": "2026-09-30",
+      "author_line": "Barproda Halder, Qiuyi Zhang, Sanghamitra Dutta"
+    },
+    {
+      "id": "arxiv:2610.01896v1",
+      "channel": "aixmath",
+      "related_channels": [],
+      "item_type": "paper",
+      "source": "arXiv",
+      "title": "Asynchronous LLM Post-Training: Group-Mass Capping and Convergence Analysis",
+      "url": "https://arxiv.org/abs/2610.01896v1",
+      "published_at": "2026-10-01",
+      "updated_at": "2026-10-01",
+      "creators": [
+        "Qijia He",
+        "Ruinan Jin",
+        "Jun Luo",
+        "Shaofeng Zou",
+        "Yingbin Liang"
+      ],
+      "language": "en",
+      "abstract_or_text": "Asynchronous reinforcement learning (RL) improves the efficiency of large language model post-training but introduces stale rollouts generated by earlier policies. Theoretical understanding of how this staleness affects convergence and how to mitigate its impact remains limited. We derive a convergence bound for GRPO-style algorithms that explicitly characterizes the tradeoff between the gradient estimator's second moment and bias. For trajectory-level importance-weighted estimators, our analysis shows that once the second moment is uniformly controlled, delay enters the bound through the bias introduced by clipping or rescaling. Guided by this insight, we propose a novel group mass capping GRPO (GMC-GRPO) method, which minimizes a ratio-based bias bound within a class of weighted estimators sharing a common second-moment guarantee. We establish convergence guarantees for asynchronous GMC-GRPO and show that, compared with TIC-GRPO, it improves the threshold dependence of the fourth-order delay term from O(ε^{-4}) to O(ε^{-2}) as ε\\to0, where 1+ε is the ratio threshold. Under local policy overlap, the delay-dependent term decreases as G^{-2/5} after tuning the step size, where G is the group size. For fixed behavior and current policies, the bias introduced by group rescaling also vanishes as G\\to\\infty, whereas the bias from trajectory-wise clipping can persist. Experiments across Qwen3 models and reasoning benchmarks demonstrate improved robustness to stale rollouts, with GMC-GRPO achieving the best performance among stable baselines under large rollout delays.",
+      "summary_zh": "GMC-GRPO 针对异步强化学习中的陈旧 rollout 推导收敛界，并通过组质量截断降低延迟项和重缩放偏差。",
+      "why_it_matters_zh": "论文给出明确的渐近阶改进和组大小依赖，并在 Qwen3 与推理基准上测试大延迟下的稳定性。",
+      "quality_score": 71.0,
+      "tags": [
+        "方法与模型"
+      ],
+      "evidence_flags": [
+        "benchmark",
+        "performance"
+      ],
+      "publication_status": "preprint",
+      "rank": 15,
+      "featured": false,
+      "category": "方法与模型",
+      "metrics": {},
+      "metadata": {
+        "doi": "",
+        "arxiv_id": "2610.01896v1"
+      },
+      "abstract_zh": "异步强化学习（RL）可以提高大型语言模型后训练的效率，但会引入由较早策略生成的陈旧 rollout。关于这种陈旧性如何影响收敛以及如何减轻其影响，理论理解仍然有限。我们为 GRPO 风格算法推导了一个收敛界，明确刻画梯度估计器二阶矩与偏差之间的权衡。对于轨迹级重要性加权估计器，我们的分析表明，一旦二阶矩得到一致控制，延迟就会通过裁剪或重缩放引入的偏差进入该界。受此洞见启发，我们提出组质量截断 GRPO（GMC-GRPO）方法；它在一类共享共同二阶矩保证的加权估计器中，使基于比率的偏差界最小化。我们建立了异步 GMC-GRPO 的收敛保证，并表明，与 TIC-GRPO 相比，当 1+ε 为比率阈值且 ε 趋近于 0 时，它将四阶延迟项对阈值的依赖从 O(ε^{-4}) 改进为 O(ε^{-2})。在局部策略重叠条件下，调节步长后，延迟相关项随组大小 G 按 G^{-2/5} 减小。对于固定的行为策略和当前策略，组重缩放引入的偏差在 G 趋近无穷时也会消失，而轨迹级裁剪产生的偏差可能持续存在。在 Qwen3 模型和推理基准上的实验表明，GMC-GRPO 对陈旧 rollout 更稳健，并在大 rollout 延迟下的稳定基线中取得最佳性能。",
+      "published": "2026-10-01",
+      "author_line": "Qijia He, Ruinan Jin, Jun Luo, Shaofeng Zou, Yingbin Liang"
+    }
+  ],
+  "review": {
+    "model": "gpt-5.6-terra",
+    "reasoning_effort": "high",
+    "note": "已审阅完整 60 项候选；入选项均达到质量分 70 分，且未在 2026-10-03 前的综合日报归档中发现相同 arXiv 身份。未发现 OpenReview 撤回项。筛选重点为形式化证明、可执行验证器、数学推理评测与可审计验证。"
+  }
+}

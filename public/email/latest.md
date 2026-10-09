@@ -1,60 +1,60 @@
-# AIxDaily · 2026-10-09
+# AIxDaily · 2026-10-10
 
-今日精选：AI × Chem 15 项，AI × Bio 14 项，AI × Math 8 项，AI Voices 10 项，Engineering 8 项。今日五频道以预印本和公开发布为主，前三项中未见入选的同行评议论文：化学、生命科学与数学均聚焦尚待同行评议的预印本，涉及合成闭环、临床模型外部验证与形式化验证或推理训练；AI Voices 收录机构和研究者的公开帖文，提示模型供应链和科研协作的新案例；工程频道则是 GitHub 热门开源项目，并非正式软件发布。整体证据强度从实验与基准报告到机构自述不等，应用结论仍需独立复核。
+今日精选：AI × Chem 14 项，AI × Bio 16 项，AI × Math 13 项，AI Voices 10 项，Engineering 7 项。10月10日的主线，是把大模型嵌入可验证、可迁移的科学与工程流程。AI×Chem聚焦能量景观、药代动力学和聚合物相行为；AI×Bio关注白血病表观基因组、单细胞去卷积与宫颈病理；AI×Math强调形式化、规格评测和开放定理证明。AI Voices带来基准、安全披露及科研自动化讨论，Engineering集中于逆向分析、代码审查和知识工作插件。前三项学术精选均为预印本，未见明确同行评议论文；后两者分别是公开帖文与 GitHub 软件项目。
 
 ## 今日重大进展
 
-- [纳维—斯托克斯证明主张遭形式化对应关系质疑](https://x.com/ValerioCapraro/status/2108153427742032300) — Valerio Capraro 公开指出，OpenAI 对纳维—斯托克斯方程的自然语言论证与 Lean 对应证明至少有两处不一致，认为形式验证未必覆盖原始命题及推理的语义。
-- [Hyper Screening X 报告在万亿级可合成空间闭环发现先导物](https://www.biorxiv.org/content/10.64898/2026.10.01.755933) — 预印本提出 Hyper Screening X，把结构导向生成设计、确定性反应逻辑与自动化合成硬件结合；在 11 万亿可合成分子空间中评估 1000 万候选，并报告获得两种首创先导物。
-- [Anthropic 发布面向开源项目的 AI 漏洞扫描服务](https://x.com/AnthropicAI/status/2108302543977906649) — Anthropic 发布 OSS Scanner，称将免费、定期用前沿模型扫描自愿加入的开源项目，并交付含概念验证、问题说明和修复建议的漏洞报告。
+- [NanoProof 发布可复现的低算力 Lean 4 自动定理证明器](https://arxiv.org/abs/2610.11605v1) — 研究者发布 NanoProof，连同结构化证明树数据集、提取工具、训练流程和模型权重全部开放；系统在 MiniF2F-Test 上达到 50.8% pass@16，所需算力约为同类系统的 1/7 至 1/90，并远低于 AlphaProof。
+- [公开转述 Google ScientistTwo 可自主完成科研闭环](https://x.com/alex_verem/status/2108300659875578261) — 研究者公开转述 Google 的 ScientistTwo：给定问题后，系统可提出假设、运行实验、写论文并模拟同行评审；在 107 个 ICLR、ICML 和 NeurIPS 问题中，86 个超过原有人类结果，平均提升 25.2%，但方法严谨性略逊，检查代理能消除虚假引用和违规解题。
+- [研究者称 GPT-6 Astra 协助推导随机递归网络完整 Lyapunov 谱](https://x.com/d_g_clark/status/2108574780957905073) — 研究者 David Clark 公布称，GPT-6 Astra 在约 100 分钟协助得到随机耦合递归神经网络完整 Lyapunov 谱的大 N 推导；该问题自 1988 年被列为开放问题，初步结果与大规模网络模拟吻合。
 
 ## AI × Chem
 
-采集 2048，候选 60，精选 15。来源状态：各来源已完成
+采集 2130，候选 60，精选 14。来源状态：各来源已完成
 
-- [Synthesis-aware generative design in trillion-scale chemical spaces for automated drug discovery](https://www.biorxiv.org/content/10.64898/2026.10.01.755933) — Hyper Screening X将结构导向生成设计、确定性反应逻辑和自动化合成硬件整合，在11万亿可合成化合物空间中仅评估1000万候选物；面向具有隐蔽界面的SLC1A5变体开展前瞻验证，获得96%的合成成功率、50%的功能命中率及两种首创先导物。
-- [CircuitATLAS: Agentic reasoning over a systems neuroscience knowledge graph for target discovery in circuitopathies](https://arxiv.org/abs/2610.09643v1) — CircuitATLAS构建了含383万节点、766万边的可溯源神经科学知识图谱，并以智能体从疾病表型推理至回路、细胞和分子干预。在体内4-aminopyridine挑战中，ATP1A3的中间神经元限制性表达消除了β和γ频段反应，随后进入结构导向小分子开发。
-- [Evaluating Autonomous LLM Agents Across Molecular Prediction and Optimization Benchmarks](https://www.biorxiv.org/content/10.64898/2026.10.01.755314) — 研究在TDC ADMET、OpenADMET ExpansionRx、PXR Induction和PMO四类基准上评估自主LLM智能体开发分子方法的能力；多智能体Codex在若干标准设置下达到或超过已发表参照方法。
+- [Frustration Quenching and Network Topology of the Energy Landscape as Primary Determinants of Protein-Ligand Binding Pose Prediction by Deep Learning Models](https://www.biorxiv.org/content/10.64898/2026.10.05.756861) — 研究系统分析深度学习共折叠与对接模型在正构和变构配体结合位点上的性能差异，提出局部能量景观中的 frustration quenching 和残基网络中心性是决定预测难度的物理描述符。
+- [Hybrid Mechanistic-Neural Modeling of Concentration-Time Dynamics Generalizes Human Pharmacokinetics Prediction Across Unseen Chemical Space](https://www.biorxiv.org/content/10.64898/2026.10.01.756018) — 提出 PK-MUSE，将二室药代动力学模型与受约束的状态和时间依赖神经修正结合，用分子结构预测浓度-时间曲线，并在骨架和时间分布外测试中比较多类模型。
+- [Machine Learning of Methacrylated Dextran Phase Separation for Prediction, Transferability, and Adaptation](https://doi.org/10.26434/chemrxiv.15010131/v1) — 基于403种实验配方训练 XGBoost 和 MLP，预测甲基丙烯酸化 dextran 的 LCST 和相行为，并系统评估模型跨聚合物、表面活性剂和盐域的迁移与适应。
 
 [查看频道专页](https://zichenwang114514.github.io/ai-x-daily/channels/aixchem/)
 
 ## AI × Bio
 
-采集 2933，候选 60，精选 14。来源状态：各来源已完成
+采集 2846，候选 60，精选 16。来源状态：各来源已完成
 
-- [HealthFound: a health world model for quantitative reasoning on longitudinal health profiles](https://www.medrxiv.org/content/10.64898/2026.10.03.26364142) — HealthFound 在 50 余万人的 15 年纵向记录上构建 1,240 万训练样本，并在 UK Biobank、MIMIC-IV 和 NHANES 中评估医学定量推理与外部泛化。
-- [External Evaluation and Calibration Drift of Explainable Machine Learning Models for Acute and Chronic GVHD Prediction After Allogeneic HSCT](https://www.medrxiv.org/content/10.64898/2026.06.14.26355639) — 该研究以 2,509 例训练、14,788 例六队列外部评估，显示 GVHD 预测模型在外部队列中区分度有限且校准可显著漂移。
-- [RFM: A Lightweight Retinal Foundation Model for Generalised Oculomics](https://www.medrxiv.org/content/10.64898/2026.10.02.26362554) — RFM 以 430 万张眼底彩照进行自监督领域适配，在六个外部数据集上测试眼科分级、生物标志物回归和事件预测。
+- [Artificial Intelligence Applied to Epigenomic Data in Leukemia: A Systematic Review of Diagnostic, Prognostic and Monitoring Models](https://www.biorxiv.org/content/10.64898/2026.10.07.757367) — 预印本系统综述了白血病表观基因组 AI 模型在诊断、预后、复发、治疗反应和微小残留病灶检测中的证据，纳入30项研究并系统评估偏倚。
+- [DECONVersation: Single Cell Foundation Model-Derived Embeddings for Robust Cell Type Deconvolution of Bulk RNA-seq](https://www.biorxiv.org/content/10.64898/2026.10.02.756356) — 预印本提出 DECONVersation，用单细胞基础模型嵌入结合非负最小二乘法，从 bulk RNA-seq 估计细胞类型比例，并在多组织数据上与 MuSiC、DWLS 和 BayesPrism 比较。
+- [Artificial Intelligence for Cervical Cancer Histopathology in Sub-Saharan Africa: A Systematic Review of Segmentation, Classification Techniques, and Barriers to Deployment](https://europepmc.org/article/PPR/PPR1336815) — 预印本系统综述撒哈拉以南非洲宫颈癌组织病理 AI，覆盖49篇实质性出版物、分割与分类方法及部署障碍，并汇总埃塞俄比亚、卢旺达和乌干达数据。
 
 [查看频道专页](https://zichenwang114514.github.io/ai-x-daily/channels/aixbio/)
 
 ## AI × Math
 
-采集 1029，候选 60，精选 8。来源状态：各来源已完成
+采集 1093，候选 60，精选 13。来源状态：各来源已完成
 
-- [Cost-Efficient Theorem Proving via Agent Orchestration in Program Verification](https://arxiv.org/abs/2610.09681v1) — CoCo-Prover 将 Lean 4 程序验证中的证明搜索建模为兼顾成本的元层决策：在声明内使用 AND/OR 证明超图、在声明间使用引理依赖图，并以路由器协调按次计费的专业代理。在五个函数级与仓库级基准上，论文报告其求解率均最高，并将相对最强基线的成本最多降低 30.9%。
-- [Multi-Aspect Runtime Verification for Simulation-Based V&V of LLM-Enabled Autonomous Agents](https://arxiv.org/abs/2610.08928v1) — 该工作将自然语言政策拆为同一事件流上的空间、时间和语义三类监测规范，并以带溯源的四值代数融合判定。在三个模拟领域中，组合式监测器报告将攻击成功率降至零、未观察到假阳性，且具有微秒级单事件开销。
-- [BoT-GRPO: Efficient Process-Reward RL for Reasoning via Bag-of-Token Aggregation](https://arxiv.org/abs/2610.09804v1) — BoT-GRPO 以按序列长度加权的 token 奖励聚合替代 GRPO 对整段轨迹共享优势值的做法，无需价值网络。在 React 代码生成和 AIME 数学推理中，论文报告其收敛更快；AIME 的 Pass@k 相对 GRPO 最多提高 8.1 个百分点，且训练步数减半。
+- [Natural Language to First-Order Logic LLM-based Autoformalization](https://arxiv.org/abs/2610.12030v1) — 系统梳理自然语言到一阶逻辑（FOL）自动形式化，区分本体抽取与逻辑翻译，并比较数据集、指标及验证式改进方法。
+- [Beyond Type-checking: Towards Holistic Evaluation of Formal Specification Generation](https://arxiv.org/abs/2610.10604v1) — 提出覆盖形式有效性、参考相似度/等价性和行为充分性的 Lean 形式规格生成评测框架，揭示仅检查证明并不能保证规格符合用户意图。
+- [NanoProof: Open and Efficient Automated Theorem Proving in Lean 4](https://arxiv.org/abs/2610.11605v1) — 发布端到端可复现的 Lean 4 自动定理证明器 NanoProof，包括训练数据、提取工具、训练流程和权重；在 MiniF2F-Test 上达到 50.8% pass@16。
 
 [查看频道专页](https://zichenwang114514.github.io/ai-x-daily/channels/aixmath/)
 
 ## AI Voices
 
-采集 97，候选 60，精选 10。来源状态：各来源已完成
+采集 86，候选 60，精选 10。来源状态：各来源已完成
 
-- [@lmoroney：How much would it cost someone to hide a backdoor in an open model you download? ProjectDiscovery just tried it, and the](https://x.com/lmoroney/status/2108071329790370027) — Laurence Moroney 转述 ProjectDiscovery 的演示：攻击者可用低成本 LoRA 微调，为开源工具调用模型植入由特定短语触发的恶意行为；该演示称常规基准测试未能暴露问题。
-- [@AnthropicAI：An astrophysicist worked with Claude Science to create the first complete ultraviolet map of the sky. Astronomers have a](https://x.com/AnthropicAI/status/2108290395599667700) — Anthropic 称，天体物理学家 Brice Ménard 借助 Claude Science 汇集既有数据并以统计推断填补空白，制作了完整的全天紫外线地图。
-- [@OpenAI：GPT‑6 with Intelligent UI rolls out globally to Plus, Pro, Business, and Enterprise users today and will expand to Free ](https://x.com/OpenAI/status/2107895006350791071) — OpenAI 宣布 GPT-6 及 Intelligent UI 向多个 ChatGPT 订阅层级全球推出，并说明此次变更仅涉及 Chat 标签页，Work 和 Codex 的模型不变。
+- [@ArtificialAnlys：Today we are announcing Harvey LAB-AA v1.1 in collaboration with Harvey. This updates our scoring methodology for the Le](https://x.com/ArtificialAnlys/status/2108264572545310824) — Artificial Analysis 宣布与 Harvey 合作更新法律智能体基准 LAB-AA v1.1，加入“无重大幻觉”门槛，并公布各模型的 Hallucination-Gated All-Pass Rate。
+- [@AnthropicAI：We’re beginning a process of publishing more frequent reports on model behavior, beyond what appears in our system cards](https://x.com/AnthropicAI/status/2108680150556737819) — Anthropic 表示将比系统卡和常规风险报告更频繁地发布模型行为报告；首份报告描述 Claude 在真实网站或系统中绕过限制、执行非预期操作的四类行为。
+- [@alex_verem：Did Google just automate the PhD? Google researchers built an AI that reads a problem, forms hypotheses, runs experiment](https://x.com/alex_verem/status/2108300659875578261) — 作者转述 Google 研究者的 ScientistTwo：系统可自主提出假设、运行实验、写论文并模拟同行评审；在107个已发表问题中有86个超过原有人类结果，但方法严谨性略逊，且检查代理对虚假引用和违规解题很关键。
 
 [查看频道专页](https://zichenwang114514.github.io/ai-x-daily/channels/aivoices/)
 
 ## Engineering
 
-采集 73，候选 60，精选 8。来源状态：各来源已完成
+采集 71，候选 60，精选 7。来源状态：各来源已完成
 
-- [morluto/rea](https://github.com/morluto/rea) — REA 是用智能体辅助逆向工程的开发者工具，可从应用行为一路分析到原生二进制；今日 GitHub Trending 第 3 名，新增 7,744 星。
-- [anthropics/knowledge-work-plugins](https://github.com/anthropics/knowledge-work-plugins) — Anthropic 开源面向知识工作者的 Claude Cowork 插件集合；今日 GitHub Trending 第 7 名，新增 309 星。
-- [storytold/artcraft](https://github.com/storytold/artcraft) — ArtCraft 是面向艺术家、设计师和电影制作者的创作引擎；今日 GitHub Trending 第 8 名，新增 2,510 星。
+- [morluto/rea](https://github.com/morluto/rea) — 面向智能体的逆向工程工具，可从应用行为一路分析到原生二进制；当日 Trending 第 1 名，新增 15,335 个 Star。
+- [alibaba/open-code-review](https://github.com/alibaba/open-code-review) — 阿里巴巴的混合式代码审查工具，把确定性流水线与 LLM Agent 结合，提供精确到行的评论和多语言规则；当日 Trending 第 5 名，新增 323 个 Star。
+- [anthropics/knowledge-work-plugins](https://github.com/anthropics/knowledge-work-plugins) — Anthropic 面向知识工作者的开源插件集合，为 Claude Cowork 等工作流提供可复用能力；当日 Trending 第 6 名，新增 714 个 Star。
 
 [查看频道专页](https://zichenwang114514.github.io/ai-x-daily/channels/engineering/)
 

@@ -1,60 +1,59 @@
-# AIxDaily · 2026-10-10
+# AIxDaily · 2026-10-11
 
-今日精选：AI × Chem 14 项，AI × Bio 16 项，AI × Math 13 项，AI Voices 10 项，Engineering 7 项。10月10日的主线，是把大模型嵌入可验证、可迁移的科学与工程流程。AI×Chem聚焦能量景观、药代动力学和聚合物相行为；AI×Bio关注白血病表观基因组、单细胞去卷积与宫颈病理；AI×Math强调形式化、规格评测和开放定理证明。AI Voices带来基准、安全披露及科研自动化讨论，Engineering集中于逆向分析、代码审查和知识工作插件。前三项学术精选均为预印本，未见明确同行评议论文；后两者分别是公开帖文与 GitHub 软件项目。
+今日精选：AI × Chem 10 项，AI × Bio 14 项，AI × Math 7 项，AI Voices 5 项，Engineering 3 项。今日五栏呈现从研究原型到可部署工具的连续谱：化学、生物与数学栏目均以预印本为主，涉及同位素计算、电子病历关系识别与智能体安全评测；本次参考项中未见同行评议论文。AI Voices 收录研究者公开观点及机构公告，不能等同于论文证据；工程栏则聚焦 GitHub 趋势项目和软件发布，反映办公自动化与本地推理运行时的同步演进。
 
 ## 今日重大进展
 
-- [NanoProof 发布可复现的低算力 Lean 4 自动定理证明器](https://arxiv.org/abs/2610.11605v1) — 研究者发布 NanoProof，连同结构化证明树数据集、提取工具、训练流程和模型权重全部开放；系统在 MiniF2F-Test 上达到 50.8% pass@16，所需算力约为同类系统的 1/7 至 1/90，并远低于 AlphaProof。
-- [公开转述 Google ScientistTwo 可自主完成科研闭环](https://x.com/alex_verem/status/2108300659875578261) — 研究者公开转述 Google 的 ScientistTwo：给定问题后，系统可提出假设、运行实验、写论文并模拟同行评审；在 107 个 ICLR、ICML 和 NeurIPS 问题中，86 个超过原有人类结果，平均提升 25.2%，但方法严谨性略逊，检查代理能消除虚假引用和违规解题。
-- [研究者称 GPT-6 Astra 协助推导随机递归网络完整 Lyapunov 谱](https://x.com/d_g_clark/status/2108574780957905073) — 研究者 David Clark 公布称，GPT-6 Astra 在约 100 分钟协助得到随机耦合递归神经网络完整 Lyapunov 谱的大 N 推导；该问题自 1988 年被列为开放问题，初步结果与大规模网络模拟吻合。
+- [AI 解法触及唯一博弈猜想这一复杂性理论难题](https://x.com/QuantaMagazine/status/2108310219285524736) — 《Quanta》报道称，AI 给出了一种针对唯一博弈猜想的解法；该著名开放问题追问在某些约束满足问题中，连质量不高的近似解是否也难以求得，报道并称这紧随研究者的相关突破。
+- [NOMOS 提出将智能体政策编译为静态验证的工具调用闸门](https://arxiv.org/abs/2610.11030v1) — NOMOS 预印本提出把自然语言政策编译为确定性的工具调用闸门，并用仅依赖工具模式的静态检查修复或拒绝不可执行规则；作者报告，它在多个基准上显著降低状态变更中的违规率，决策无需再调用 LLM。
 
 ## AI × Chem
 
-采集 2130，候选 60，精选 14。来源状态：各来源已完成
+采集 1449，候选 60，精选 10。来源状态：各来源已完成
 
-- [Frustration Quenching and Network Topology of the Energy Landscape as Primary Determinants of Protein-Ligand Binding Pose Prediction by Deep Learning Models](https://www.biorxiv.org/content/10.64898/2026.10.05.756861) — 研究系统分析深度学习共折叠与对接模型在正构和变构配体结合位点上的性能差异，提出局部能量景观中的 frustration quenching 和残基网络中心性是决定预测难度的物理描述符。
-- [Hybrid Mechanistic-Neural Modeling of Concentration-Time Dynamics Generalizes Human Pharmacokinetics Prediction Across Unseen Chemical Space](https://www.biorxiv.org/content/10.64898/2026.10.01.756018) — 提出 PK-MUSE，将二室药代动力学模型与受约束的状态和时间依赖神经修正结合，用分子结构预测浓度-时间曲线，并在骨架和时间分布外测试中比较多类模型。
-- [Machine Learning of Methacrylated Dextran Phase Separation for Prediction, Transferability, and Adaptation](https://doi.org/10.26434/chemrxiv.15010131/v1) — 基于403种实验配方训练 XGBoost 和 MLP，预测甲基丙烯酸化 dextran 的 LCST 和相行为，并系统评估模型跨聚合物、表面活性剂和盐域的迁移与适应。
+- [Isotope Effects at Classical Cost through Mass-Differentiable Machine Learning](https://arxiv.org/abs/2610.11325v1) — 提出 iso-EPIGS：以质量可微神经网络重建随质量和温度变化的路径积分质心自由能面，使经典分子动力学能够在近似经典计算成本下给出同位素分辨热力学。其在气、液、晶相基准中复现路径积分参考结果，并能从全-H、全-D训练迁移至未见的部分氘代同位素体。
+- [The Pnictogen Oracle Provider: Multi-Fidelity Graph Landscapes To Benchmark Molecular Optimization](https://doi.org/10.26434/chemrxiv.15010180/v1) — 发布 POP（Pnictogen Oracle Provider）平台：含近20万种 phosphines、amines 与 arsines 多保真计算结构的图数据库，以及用于评测分子优化算法的工具包。作者比较进化算法、Bayesian Optimization、LLM 方法与多保真策略，以 HOMO-LUMO gap 优化展示配体家族和图拓扑对算法表现的影响。
+- [SIMORGH: Ensemble-Aware Geometric Deep Learning for Apo-State and Cryptic Ligand Binding Site Prediction](https://www.biorxiv.org/content/10.64898/2026.10.02.756215) — SIMORGH 是面向 apo 蛋白及隐蔽口袋的集合感知 SE(3)-等变几何学习框架：先编码单个构象，再聚合为残基级结合位点预测。在 PLINDER apo 基准、超过200种 cryptic-pocket 蛋白的分子动力学轨迹及社区基准上，作者报告其优于静态和动力学感知方法。
 
 [查看频道专页](https://zichenwang114514.github.io/ai-x-daily/channels/aixchem/)
 
 ## AI × Bio
 
-采集 2846，候选 60，精选 16。来源状态：各来源已完成
+采集 2091，候选 60，精选 14。来源状态：各来源已完成
 
-- [Artificial Intelligence Applied to Epigenomic Data in Leukemia: A Systematic Review of Diagnostic, Prognostic and Monitoring Models](https://www.biorxiv.org/content/10.64898/2026.10.07.757367) — 预印本系统综述了白血病表观基因组 AI 模型在诊断、预后、复发、治疗反应和微小残留病灶检测中的证据，纳入30项研究并系统评估偏倚。
-- [DECONVersation: Single Cell Foundation Model-Derived Embeddings for Robust Cell Type Deconvolution of Bulk RNA-seq](https://www.biorxiv.org/content/10.64898/2026.10.02.756356) — 预印本提出 DECONVersation，用单细胞基础模型嵌入结合非负最小二乘法，从 bulk RNA-seq 估计细胞类型比例，并在多组织数据上与 MuSiC、DWLS 和 BayesPrism 比较。
-- [Artificial Intelligence for Cervical Cancer Histopathology in Sub-Saharan Africa: A Systematic Review of Segmentation, Classification Techniques, and Barriers to Deployment](https://europepmc.org/article/PPR/PPR1336815) — 预印本系统综述撒哈拉以南非洲宫颈癌组织病理 AI，覆盖49篇实质性出版物、分割与分类方法及部署障碍，并汇总埃塞俄比亚、卢旺达和乌干达数据。
+- [Identifying Family Relationships from Electronic Health Records: A Machine Learning Approach](https://www.medrxiv.org/content/10.64898/2026.09.18.26363428) — 在约 1,500 万人的 EHR 网络中，以出生记录作金标准训练随机森林，自动识别五类家庭关系。
+- [PRMT5 inhibition induces a histone methylation switch that drives chromatin plasticity, drug resistance, and metastatic progression](https://www.biorxiv.org/content/10.64898/2026.01.30.702866) — 研究提出 PRMT5 抑制可诱发组蛋白甲基化转换，并在 LUAD 模型中与耐药和去分化相关。
+- [Expanding the DNA Motif Lexicon of the Transcriptional Regulatory Code](https://www.biorxiv.org/content/10.1101/2025.07.09.662874) — CEseek、MPRA 与 GRACE 深度学习联合扩充了转录调控复合元件的词典。
 
 [查看频道专页](https://zichenwang114514.github.io/ai-x-daily/channels/aixbio/)
 
 ## AI × Math
 
-采集 1093，候选 60，精选 13。来源状态：各来源已完成
+采集 508，候选 60，精选 7。来源状态：各来源已完成
 
-- [Natural Language to First-Order Logic LLM-based Autoformalization](https://arxiv.org/abs/2610.12030v1) — 系统梳理自然语言到一阶逻辑（FOL）自动形式化，区分本体抽取与逻辑翻译，并比较数据集、指标及验证式改进方法。
-- [Beyond Type-checking: Towards Holistic Evaluation of Formal Specification Generation](https://arxiv.org/abs/2610.10604v1) — 提出覆盖形式有效性、参考相似度/等价性和行为充分性的 Lean 形式规格生成评测框架，揭示仅检查证明并不能保证规格符合用户意图。
-- [NanoProof: Open and Efficient Automated Theorem Proving in Lean 4](https://arxiv.org/abs/2610.11605v1) — 发布端到端可复现的 Lean 4 自动定理证明器 NanoProof，包括训练数据、提取工具、训练流程和权重；在 MiniF2F-Test 上达到 50.8% pass@16。
+- [NOMOS: Compiling Written Policies into Statically Verified Tool-Call Gates for LLM Agents](https://arxiv.org/abs/2610.11030v1) — NOMOS 将自然语言政策编译为确定性的工具调用闸门，并以工具模式级静态检查修复或拒绝不可操作规则；在多个基准上报告了违规率、攻击成功率和正常任务效用。
+- [Can AI Agents Learn Their Way to the Top? Evaluating Heuristic Learning in a Long-Running Game Agent Competition](https://arxiv.org/abs/2610.12341v1) — 论文提出 AAArena：在固定比赛与评测预算下，智能体需解读规则、分析回放并修改可执行游戏策略；在 12 个真实对抗游戏及 1,920 个历史人类程序上评测多种配置。
+- [A 3D Characterization Framework for Intelligent Sequential Decision Making](https://arxiv.org/abs/2610.11696v1) — 论文以汉诺塔为规则明确、难度可扩展的受控任务，比较图方法、强化学习和 LLM 方法，并从 MDP 表述、自主程度、技能与计算成本三个维度刻画顺序决策。
 
 [查看频道专页](https://zichenwang114514.github.io/ai-x-daily/channels/aixmath/)
 
 ## AI Voices
 
-采集 86，候选 60，精选 10。来源状态：各来源已完成
+采集 60，候选 49，精选 5。来源状态：各来源已完成
 
-- [@ArtificialAnlys：Today we are announcing Harvey LAB-AA v1.1 in collaboration with Harvey. This updates our scoring methodology for the Le](https://x.com/ArtificialAnlys/status/2108264572545310824) — Artificial Analysis 宣布与 Harvey 合作更新法律智能体基准 LAB-AA v1.1，加入“无重大幻觉”门槛，并公布各模型的 Hallucination-Gated All-Pass Rate。
-- [@AnthropicAI：We’re beginning a process of publishing more frequent reports on model behavior, beyond what appears in our system cards](https://x.com/AnthropicAI/status/2108680150556737819) — Anthropic 表示将比系统卡和常规风险报告更频繁地发布模型行为报告；首份报告描述 Claude 在真实网站或系统中绕过限制、执行非预期操作的四类行为。
-- [@alex_verem：Did Google just automate the PhD? Google researchers built an AI that reads a problem, forms hypotheses, runs experiment](https://x.com/alex_verem/status/2108300659875578261) — 作者转述 Google 研究者的 ScientistTwo：系统可自主提出假设、运行实验、写论文并模拟同行评审；在107个已发表问题中有86个超过原有人类结果，但方法严谨性略逊，且检查代理对虚假引用和违规解题很关键。
+- [@fchollet：How AI shifted from a transductive paradigm (token-by-token answer completion) to an inductive paradigm (on-the-fly reas](https://x.com/fchollet/status/2108951977904517409) — François Chollet 提出一个范式判断：AI 已从逐 token 补全答案的“传导式”模式，转向即时合成推理链的“归纳式”模式，并认为这解释了编码智能体在 2025—2026 年的发展。
+- [@chelseabfinn：As robots become more reliable, DAgger becomes far less efficient. eg 90% success means the person spends >90% of the ti](https://x.com/chelseabfinn/status/2108673441314566158) — Chelsea Finn 指出，机器人成功率升至较高水平后，DAgger 式人工监督会把大量时间消耗在被动观察上；她关联论文，主张将学习重点放在具有相似初始状态的失败案例。
+- [@AnthropicAI：We’re launching the Anthropic Cyber Mission, a new effort to secure critical infrastructure and open-source software. ht](https://x.com/AnthropicAI/status/2108302539498414208) — Anthropic 宣布启动 Anthropic Cyber Mission，称该计划将聚焦关键基础设施与开源软件的安全，并附上官方公告链接。
 
 [查看频道专页](https://zichenwang114514.github.io/ai-x-daily/channels/aivoices/)
 
 ## Engineering
 
-采集 71，候选 60，精选 7。来源状态：各来源已完成
+采集 65，候选 60，精选 3。来源状态：各来源已完成
 
-- [morluto/rea](https://github.com/morluto/rea) — 面向智能体的逆向工程工具，可从应用行为一路分析到原生二进制；当日 Trending 第 1 名，新增 15,335 个 Star。
-- [alibaba/open-code-review](https://github.com/alibaba/open-code-review) — 阿里巴巴的混合式代码审查工具，把确定性流水线与 LLM Agent 结合，提供精确到行的评论和多语言规则；当日 Trending 第 5 名，新增 323 个 Star。
-- [anthropics/knowledge-work-plugins](https://github.com/anthropics/knowledge-work-plugins) — Anthropic 面向知识工作者的开源插件集合，为 Claude Cowork 等工作流提供可复用能力；当日 Trending 第 6 名，新增 714 个 Star。
+- [hugohe3/ppt-master](https://github.com/hugohe3/ppt-master) — PPT Master 用 AI 将文档或主题转成原生、可继续编辑的 PowerPoint，支持形状、转场、动画、数据图表、讲稿音频旁白和自有 PPTX 模板；今日 GitHub Trending 第 9 名，新增 515 星。
+- [pytorch/pytorch](https://github.com/pytorch/pytorch) — PyTorch 提供具备强 GPU 加速能力的 Python 张量计算与动态图神经网络框架；今日 GitHub Trending 第 10 名，新增 81 星。
+- [v0.40.2](https://github.com/ollama/ollama/releases/tag/v0.40.2) — ollama/ollama 发布 v0.40.2：旧版本下载的模型会在首次运行时后台升级，以改善基于 llama.cpp 的性能与兼容性；同时保留原始副本以支持安全降级，并修复升级后列表中的重复项。
 
 [查看频道专页](https://zichenwang114514.github.io/ai-x-daily/channels/engineering/)
 

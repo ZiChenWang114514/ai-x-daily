@@ -1,21 +1,21 @@
 {
   "schema_version": "2.0",
-  "date": "2026-10-11",
+  "date": "2026-10-12",
   "channel": "aixmath",
-  "generated_at": "2026-10-10T22:09:14+00:00",
+  "generated_at": "2026-10-11T22:11:42+00:00",
   "title": "AI × Math 每日精选",
   "subtitle": "自动推理、形式化证明、数学智能与基础模型。",
   "window": {
     "start": "2026-10-08",
-    "end": "2026-10-11"
+    "end": "2026-10-12"
   },
   "method": "公开来源采集、历史去重、规则筛选与模型审阅",
   "method_note": "系统保存当日公开元数据，与历史日报核验后排除已报道事件；论文新版本、新修订及不同软件发布等可核实更新仍可入选，随后由指定模型阅读全文摘要并完成精选。",
   "stats": {
     "fetched": 508,
-    "suppressed_previous": 16,
+    "suppressed_previous": 25,
     "candidates": 60,
-    "selected": 7,
+    "selected": 5,
     "sources": {
       "arXiv": 508,
       "OpenReview": 0
@@ -34,34 +34,36 @@
   "source_errors": [],
   "items": [
     {
-      "id": "arxiv:2610.11030v1",
+      "id": "arxiv:2610.12061v1",
       "channel": "aixmath",
       "related_channels": [],
       "item_type": "paper",
       "source": "arXiv",
-      "title": "NOMOS: Compiling Written Policies into Statically Verified Tool-Call Gates for LLM Agents",
-      "url": "https://arxiv.org/abs/2610.11030v1",
+      "title": "When Should Agents Think? Adaptive Reasoning via Cross-Turn Estimation",
+      "url": "https://arxiv.org/abs/2610.12061v1",
       "published_at": "2026-10-08",
       "updated_at": "2026-10-08",
       "creators": [
-        "Min-Young Yu",
-        "Tony Kim",
-        "Jang Won Choi"
+        "Yiruo Cheng",
+        "Shen Huang",
+        "Xiaoshuai Song",
+        "Jiejun Tan",
+        "Guanting Dong",
+        "Pengjun Xie",
+        "Ji-Rong Wen",
+        "Zhicheng Dou"
       ],
       "language": "en",
-      "abstract_or_text": "Tool-using LLM agents violate the policies they are deployed to enforce, often silently. Prior defenses hand-write rules, query an LLM verifier per action, or compile policies through heavyweight formal machinery. Naive compilation fails: extracted rules block the tool satisfying their own precondition, or read arguments their tool lacks. NOMOS, a four-pass compiler, turns a natural-language policy into a deterministic tool-call gate; static verification with tool-schema-level checks alone (no prover, solver, or LLM) repairs or rejects 37% (airline) and 13% (retail) of candidates, without which most shipped rules are inoperable. Replaying compiled rules over undefended transcripts flags bindings that refuse legitimate work (a development binding refused 95.9% of task-passing calls); no evaluation binding is flagged. On τ^2-bench the gate cuts violations of reference-encoded clauses among state-changing calls from 66.3% to 2.6% (airline) and 30.8% to 6.9% (retail), raising airline task success significantly for 2 \\le k \\le 4; a 26B on-premise compilation is not significantly worse than hand-written or frontier-compiled rules. Unlike AgentDojo's shipped defenses, it reaches a zero attack success rate (ASR) on banking, where nine attack families collapse onto three structural rules. On the other three suites its ASR is at most 3.6%, from goals with no tool call to govern and one write admitted by a binding weaker than its clause; a second agent model, Llama-3.3-70B, reproduces the effect on both benchmarks. Decisions take microseconds without an LLM call, at a domain-dependent benign-utility cost; compilation runs on-premise on open-weight gemma-4-26B.",
-      "summary_zh": "NOMOS 将自然语言政策编译为确定性的工具调用闸门，并以工具模式级静态检查修复或拒绝不可操作规则；在多个基准上报告了违规率、攻击成功率和正常任务效用。",
-      "why_it_matters_zh": "把策略文本转为可静态检查的执行约束，且报告了安全性与正常效用之间的权衡，为智能体工具调用的可验证防护提供了可复现的评测对象。",
-      "quality_score": 88.0,
+      "abstract_or_text": "Large language model (LLM)-based agents have demonstrated strong capabilities on complex tasks. They typically perform reasoning before each action throughout an interaction trajectory. However, reasoning may not be necessary at every turn, as reasoning produced earlier can continue to support subsequent actions. A key challenge is therefore to determine when existing reasoning remains sufficient and when a new reasoning step is needed, without relying on costly generation-based verification. We find that decreases in the likelihood of subsequent reference actions after removing additional reasoning closely track whether those actions remain recoverable given earlier reasoning, providing an effective and lightweight signal for estimating cross-turn action support. Based on this observation, we propose Reasoning Adaptation through Cross-Turn Estimation (RACE), a training approach for adaptive agent reasoning. RACE introduces a Likelihood-Guided Progressive Reasoning Cover Detection (LoGiC) procedure that progressively identifies reasoning turns whose removal has limited impact on the current and subsequent reference actions. The resulting removal signals are incorporated into both supervised fine-tuning and agentic reinforcement learning, enabling the policy to learn when to reason and when to act directly. Extensive experiments on four representative agent benchmarks show that RACE substantially reduces reasoning cost while maintaining or improving task performance.",
+      "summary_zh": "RACE 用移除额外推理后参考动作的似然下降估计跨轮动作支撑，并据此训练智能体在推理与直接行动之间自适应选择。论文报告其在四类智能体基准上降低推理成本，同时维持或提升任务表现。",
+      "why_it_matters_zh": "该工作把“是否还需要继续推理”转化为可由行为似然计算的训练信号，并在多个代理基准上检验效率与任务表现；但摘要未提供各基准的具体数值，能力增益仍应以论文完整实验为准。",
+      "quality_score": 84.0,
       "tags": [
-        "方法与模型",
-        "形式化验证",
-        "智能体安全",
-        "评测"
+        "方法与模型"
       ],
       "evidence_flags": [
         "benchmark",
-        "evaluation"
+        "performance"
       ],
       "publication_status": "preprint",
       "rank": 1,
@@ -70,67 +72,40 @@
       "metrics": {},
       "metadata": {
         "doi": "",
-        "arxiv_id": "2610.11030v1"
+        "arxiv_id": "2610.12061v1"
       },
-      "abstract_zh": "使用工具的 LLM 智能体会违反其被部署来执行的政策，而且往往悄无声息。已有防御要么手写规则，要么对每次行动查询 LLM 验证器，要么通过重量级形式化机制编译政策。朴素编译会失败：提取出的规则会阻止满足其自身前置条件的工具，或者读取该工具不具备的参数。NOMOS 是一个四遍编译器，它将自然语言政策转换为确定性的工具调用闸门；仅用工具模式级检查进行静态验证（不使用证明器、求解器或 LLM），即可修复或拒绝 37%（航空）和 13%（零售）的候选规则；若无此步骤，大多数已交付规则都无法运行。在无防御的转录记录上回放已编译规则，可标出会拒绝正当工作的绑定（一个开发绑定拒绝了 95.9% 的通过任务调用）；没有评测绑定被标出。在 τ²-bench 上，该闸门将改变状态调用中违反参考编码条款的比例从 66.3% 降至 2.6%（航空），从 30.8% 降至 6.9%（零售），并在 2 ≤ k ≤ 4 时显著提高航空任务成功率；一个 26B 本地部署的编译模型并不显著差于手写规则或前沿模型编译的规则。与 AgentDojo 随附的防御不同，它在银行业务中达到零攻击成功率（ASR），其中九个攻击族归并为三条结构规则。在另外三个套件中，其 ASR 至多为 3.6%，这些攻击来自没有工具调用可约束的目标，以及一个允许了比其条款更弱写入的绑定；第二个智能体模型 Llama-3.3-70B 在两个基准上复现了该效果。决策无需 LLM 调用、耗时微秒，但会带来依领域而异的正常效用成本；编译可在开源权重 gemma-4-26B 上本地运行。",
+      "abstract_zh": "基于大语言模型（LLM）的智能体已在复杂任务上展现出较强能力。它们通常会在交互轨迹中的每个动作之前进行推理。然而，并非每一轮都需要推理，因为较早产生的推理可以继续支持后续动作。因此，关键挑战是在不依赖成本高昂的生成式验证的情况下，确定既有推理何时仍然足够、何时需要新的推理步骤。我们发现，在移除额外推理后，后续参考动作的似然下降与这些动作在给定较早推理时是否仍可恢复密切对应，为估计跨轮动作支撑提供了有效且轻量的信号。基于这一观察，我们提出 Reasoning Adaptation through Cross-Turn Estimation（RACE），一种用于自适应智能体推理的训练方法。RACE 引入 Likelihood-Guided Progressive Reasoning Cover Detection（LoGiC）过程，逐步识别那些被移除后对当前及后续参考动作影响有限的推理轮次。由此得到的移除信号被同时纳入监督微调和智能体强化学习，使策略学会何时推理、何时直接行动。在四个具有代表性的智能体基准上的大量实验表明，RACE 在维持或提升任务表现的同时，显著降低了推理成本。",
       "published": "2026-10-08",
-      "author_line": "Min-Young Yu, Tony Kim, Jang Won Choi"
+      "author_line": "Yiruo Cheng, Shen Huang, Xiaoshuai Song, Jiejun Tan, Guanting Dong, Pengjun Xie, Ji-Rong Wen, Zhicheng Dou"
     },
     {
-      "id": "arxiv:2610.12341v1",
+      "id": "arxiv:2610.12247v1",
       "channel": "aixmath",
-      "related_channels": [
-        "aixbio"
-      ],
+      "related_channels": [],
       "item_type": "paper",
       "source": "arXiv",
-      "title": "Can AI Agents Learn Their Way to the Top? Evaluating Heuristic Learning in a Long-Running Game Agent Competition",
-      "url": "https://arxiv.org/abs/2610.12341v1",
+      "title": "Batch Before You Lift: Scalable Topological Deep Learning on Large Graphs",
+      "url": "https://arxiv.org/abs/2610.12247v1",
       "published_at": "2026-10-08",
       "updated_at": "2026-10-08",
       "creators": [
-        "Kaisen Yang",
-        "Qingle Liu",
-        "Kejin Wang",
-        "Yicheng Zhao",
-        "Jieming Li",
-        "Shenghan Zheng",
-        "Ruize Yang",
-        "Bojun Yang",
-        "Heng Gong",
-        "Xiang Gao",
-        "Lanyue Zhang",
-        "Kaiyu Zhong",
-        "Zhuo Liu",
-        "Shaoxuan Li",
-        "Chengxi Li",
-        "Yong Yan",
-        "Weixuan Zhang",
-        "Tianwei Luo",
-        "Situ Wang",
-        "Youjie Zheng",
-        "Sihan Zhao",
-        "Shengyuan Wang",
-        "Huan-ang Gao",
-        "Jiazheng Xu",
-        "Xiaohui Xie",
-        "Wentao Han",
-        "Hongning Wang"
+        "David Leko",
+        "Luka Benić",
+        "Guillermo Bernárdez",
+        "Nina Miolane",
+        "Olga Fink",
+        "Lev Telyatnikov"
       ],
       "language": "en",
-      "abstract_or_text": "Adversarial games have driven advances from heuristic search to reinforcement learning, yet learning and adapting strategies from limited samples remain challenging. AI agents offer an alternative by turning game experience into revisions of executable policies. Building on heuristic learning (HL), we formalize Adversarial Heuristic Learning (AHL), a paradigm that uses AI agents as learning engines to refine game policies and supporting software while keeping model weights fixed. We introduce AAArena, a benchmark comprising 12 authentic adversarial games and 1,920 archived human programs, with an evaluation protocol modeled on real-world game competitions. Agents interpret rules, choose opponents, analyze replays, and revise game agents to achieve their highest ranking within fixed match and evaluation budgets. We evaluate completedmodels model and harness configurations: Opus5.5 with Claude Code earns 6 gold medals, while no evaluated configuration tops the remaining 6 human ladders. Performance is generally weaker in games with more complex rule specifications. Further experiments show that opponent selection and dense feedback support policy improvement, and that agents learn from both on-policy replays of their own matches and off-policy replays of other players' matches. These results highlight HL's potential in adversarial games and identify persistent challenges in game understanding, strategy implementation, and long-horizon policy development.",
-      "summary_zh": "论文提出 AAArena：在固定比赛与评测预算下，智能体需解读规则、分析回放并修改可执行游戏策略；在 12 个真实对抗游戏及 1,920 个历史人类程序上评测多种配置。",
-      "why_it_matters_zh": "它以长期、资源受限的竞赛排名衡量智能体从经验修改策略的能力，并显示已评测系统尚未在全部人类梯队中夺冠。",
-      "quality_score": 85.0,
+      "abstract_or_text": "Topological Deep Learning extends graph-based learning to higher-order domains, such as hypergraphs, cellular, and simplicial complexes. These domains are typically constructed from patterns in an input graph through a process of graph lifting. Full-domain training constructs and stores the complete lifted representation before model execution. On large and dense datasets like Reddit (233k nodes and 57.3M edges), this global materialization becomes a severe computational bottleneck, often rendering training infeasible. To address this limitation, we introduce Cluster-TNN, a domain-agnostic framework that avoids this bottleneck by lifting locally instead. After partitioning the input graph during preprocessing, at runtime Cluster-TNN dynamically samples groups of node clusters, reconstructs their induced subgraphs to form mini-batches, and applies the chosen lifting within each mini-batch. Retaining all edges among sampled nodes preserves the connectivity needed to construct higher-order structures across clusters, producing topological mini-batches that existing Topological Neural Networks can process directly. Across 21 matched comparisons with full-graph execution, Cluster-TNN reduces peak GPU memory in every configuration, by 83.2% on average while maintaining competitive predictive performance. Notably, such a reduction enables, to our knowledge, the first training of multiple different higher-order Topological Neural Networks on large datasets such as Reddit and OGBN Products. These results establish Cluster-TNN as a general strategy for scaling Topological Deep Learning beyond the limitations of global domain construction.",
+      "summary_zh": "Cluster-TNN 在每个小批次中局部进行图提升，以避免拓扑深度学习的全图高阶结构物化。论文在 21 组与全图执行相匹配的比较中报告所有配置的峰值 GPU 内存均下降，平均降幅为 83.2%，且预测性能保持有竞争力。",
+      "why_it_matters_zh": "该方法针对高阶图、超图和单纯复形上的学习提出可检验的扩展策略，并以匹配的全图比较和内存指标报告结果；摘要中的性能表述为“有竞争力”，不应解读为在所有任务上优于全图训练。",
+      "quality_score": 72.0,
       "tags": [
-        "方法与模型",
-        "数学推理",
-        "智能体评测",
-        "博弈"
+        "方法与模型"
       ],
       "evidence_flags": [
-        "benchmark",
-        "evaluation",
+        "dataset",
         "performance"
       ],
       "publication_status": "preprint",
@@ -140,39 +115,42 @@
       "metrics": {},
       "metadata": {
         "doi": "",
-        "arxiv_id": "2610.12341v1"
+        "arxiv_id": "2610.12247v1"
       },
-      "abstract_zh": "对抗游戏推动了从启发式搜索到强化学习的进步，但从有限样本中学习和调整策略仍具挑战。AI 智能体提供了另一种途径：将游戏经验转化为对可执行策略的修订。基于启发式学习（HL），我们形式化了对抗式启发式学习（AHL）：一种使用 AI 智能体作为学习引擎来改进游戏策略和支持软件、同时保持模型权重固定的范式。我们提出 AAArena，这是一个由 12 个真实对抗游戏和 1,920 个归档人类程序构成的基准，其评测协议仿照现实游戏竞赛。智能体解读规则、选择对手、分析回放，并修订游戏智能体，以在固定比赛和评测预算内获得最高排名。我们评测了已完成的模型与运行框架配置：Opus5.5 搭配 Claude Code 获得 6 枚金牌，而没有任何已评测配置在其余 6 个由人类占据的梯队中登顶。在规则规格更复杂的游戏中，性能通常更弱。进一步实验显示，对手选择和密集反馈有助于策略改进；智能体既能从自身比赛的在策略回放中学习，也能从其他玩家比赛的离策略回放中学习。这些结果凸显了 HL 在对抗游戏中的潜力，并指出游戏理解、策略实现和长期策略开发仍面临持续挑战。",
+      "abstract_zh": "Topological Deep Learning 将基于图的学习扩展到高阶域，例如超图、胞腔复形和单纯复形。这些域通常通过图提升过程从输入图中的模式构造而来。全域训练会在模型执行前构建并存储完整的提升表示。在 Reddit（23.3 万个节点和 5730 万条边）等大型稠密数据集上，这种全局物化会成为严重的计算瓶颈，往往使训练无法进行。为解决这一限制，我们引入 Cluster-TNN，这是一种通过局部提升来避免该瓶颈的领域无关框架。在预处理阶段对输入图进行划分后，Cluster-TNN 在运行时动态采样节点簇组，重建其诱导子图以形成小批次，并在每个小批次内应用选定的提升操作。保留采样节点之间的所有边，可维持构造跨簇高阶结构所需的连通性，从而产生现有 Topological Neural Networks 能够直接处理的拓扑小批次。在与全图执行进行的 21 组匹配比较中，Cluster-TNN 在每种配置下都降低了峰值 GPU 内存，平均降低 83.2%，同时保持有竞争力的预测性能。值得注意的是，据我们所知，这一降幅首次使多种不同的高阶 Topological Neural Networks 能够在 Reddit 和 OGBN Products 等大型数据集上训练。这些结果确立了 Cluster-TNN 作为一种通用策略，可将 Topological Deep Learning 扩展到超越全局域构建限制的规模。",
       "published": "2026-10-08",
-      "author_line": "Kaisen Yang, Qingle Liu, Kejin Wang, Yicheng Zhao, Jieming Li, Shenghan Zheng, Ruize Yang, Bojun Yang, Heng Gong, Xiang Gao, Lanyue Zhang, Kaiyu Zhong, Zhuo Liu, Shaoxuan Li, Chengxi Li, Yong Yan, Weixuan Zhang, Tianwei Luo, Situ Wang, Youjie Zheng, Sihan Zhao, Shengyuan Wang, Huan-ang Gao, Jiazheng Xu, Xiaohui Xie, Wentao Han, Hongning Wang"
+      "author_line": "David Leko, Luka Benić, Guillermo Bernárdez, Nina Miolane, Olga Fink, Lev Telyatnikov"
     },
     {
-      "id": "arxiv:2610.11696v1",
+      "id": "arxiv:2610.11373v1",
       "channel": "aixmath",
-      "related_channels": [],
+      "related_channels": [
+        "aixbio"
+      ],
       "item_type": "paper",
       "source": "arXiv",
-      "title": "A 3D Characterization Framework for Intelligent Sequential Decision Making",
-      "url": "https://arxiv.org/abs/2610.11696v1",
+      "title": "From a Prompt to Repertoires: Evolving Functional REpertoires Enable LLM Continual Learning",
+      "url": "https://arxiv.org/abs/2610.11373v1",
       "published_at": "2026-10-08",
       "updated_at": "2026-10-08",
       "creators": [
-        "Sadig Gojayev",
-        "Carolina Fortuna"
+        "Fengyuan Liu",
+        "Yue Wang",
+        "Hangxi Guo",
+        "Fengyuan Liu",
+        "Chenxu Wu",
+        "Yanguang Liu",
+        "Mengnan Du"
       ],
       "language": "en",
-      "abstract_or_text": "Puzzles are widely used to evaluate the reasoning capabilities of artificial intelligence (AI) systems for sequential decision making, yet approaches originating from different paradigms are rarely compared under unified conditions. To address this gap, we introduce a three-dimensional characterization framework that enables the analysts of AI methods by 1) projecting them to the Markov decision process (MDP) sequential decision making formalism, 2) degree of autonomy through human prior ranking of their designs and, 3) skill and computational cost. Using this framework, we analyze how representative graph-based, reinforcement learning, and large language model (LLM)-based approaches differ in their design choices and performance characteristics, instantiated respectively by Neurosolver, forward-backward reinforcement learning (FBRL), and automated thought-of-search (AutoToS), including a double-agent extension of thought-of-search (DA-ToS). The analysis relies on the Tower of Hanoi puzzle that provides a controlled benchmark with well-defined rules and scalable complexity, enabling consistent comparison across increasing problem sizes. The 3D characterization reveals that LLM-based methods, due to their weakly constrained action-space design, shift complexity from architecture to inference-time verification, leading to substantially higher memory and runtime costs than Neurosolver and FBRL.",
-      "summary_zh": "论文以汉诺塔为规则明确、难度可扩展的受控任务，比较图方法、强化学习和 LLM 方法，并从 MDP 表述、自主程度、技能与计算成本三个维度刻画顺序决策。",
-      "why_it_matters_zh": "统一比较显示，所考察的 LLM 方法把较多复杂度转移到推理时验证，内存和运行时成本高于所比较的 Neurosolver 与 FBRL；这是一项受控任务上的比较结论。",
-      "quality_score": 83.0,
+      "abstract_or_text": "Continual learning remains challenging for large language models, which must enable models to acquire new skills and knowledge without degrading existing capabilities. Existing approaches typically address this challenge by carefully designing how model parameters are updated. In contrast, prompt optimization avoids costly parameter updates while achieving competitive or even superior performance to reinforcement learning methods such as GRPO on individual knowledge-intensive and reasoning tasks. This raises a natural question: Can prompt optimization, as an efficient adaptation approach, be directly applied to continual learning? Our analysis shows that, under sequential task adaptation, it suffers from catastrophic forgetting, while optimized prompts accumulate rules that overfit to local task distributions. To address these limitations, we propose Evolving Functional REpertoires (EFRE), which replaces a single prompt with a repertoire of functions that evolves as new tasks arrive: compatible updates refine existing functions, while conflicting updates trigger the emergence of new ones. On a three-task continual-learning stream, EFRE achieves a final average performance 7.50 percentage points higher than GRPO. Moreover, after adaptation to the Bio task, its performance on FinQA decreases by only 1.56 percentage points, compared with 25.10 percentage points for the base prompt optimization method. We further instantiate EFRE in a minimal agent system and observe consistent improvements across different backbone models. Overall, these results demonstrate EFRE's strong performance in continual learning for large language models and highlight its substantial potential for continual learning in advanced agent systems.",
+      "summary_zh": "EFRE 将单一优化提示替换为会随新任务到来而演化的功能集合：兼容更新改进已有函数，冲突更新产生新函数。摘要报告，在三任务持续学习流中其最终平均表现比 GRPO 高 7.50 个百分点，且适应 Bio 任务后 FinQA 的表现降幅为 1.56 个百分点。",
+      "why_it_matters_zh": "该研究直接检验提示优化在持续学习中的遗忘问题，并给出与 GRPO 和基础提示优化的量化对照；其证据目前限于三任务流及所述骨干模型，不能据此泛化为对所有持续学习或数学推理任务的结论。",
+      "quality_score": 72.0,
       "tags": [
-        "方法与模型",
-        "数学推理",
-        "顺序决策",
-        "基准"
+        "方法与模型"
       ],
       "evidence_flags": [
-        "benchmark",
         "performance"
       ],
       "publication_status": "preprint",
@@ -182,42 +160,38 @@
       "metrics": {},
       "metadata": {
         "doi": "",
-        "arxiv_id": "2610.11696v1"
+        "arxiv_id": "2610.11373v1"
       },
-      "abstract_zh": "谜题被广泛用于评估人工智能（AI）系统在顺序决策中的推理能力，但源自不同范式的方法很少在统一条件下比较。为弥补这一空白，我们引入一个三维刻画框架，它通过以下方面支持对 AI 方法的分析：1）将其投射到马尔可夫决策过程（MDP）的顺序决策形式化；2）通过对其设计进行人类先验排序来衡量自主程度；3）衡量技能和计算成本。利用该框架，我们分析了代表性的图方法、强化学习和大语言模型（LLM）方法在设计选择和性能特征上的差异，分别以 Neurosolver、前向后向强化学习（FBRL）和自动化思维搜索（AutoToS）为实例，其中还包括思维搜索的双智能体扩展（DA-ToS）。分析依赖于汉诺塔谜题；该谜题具有定义明确的规则和可扩展的复杂度，从而可以在不断增大的问题规模上进行一致比较。三维刻画显示，由于动作空间设计约束较弱，基于 LLM 的方法将复杂度从架构转移至推理时验证，导致其内存和运行时成本显著高于 Neurosolver 和 FBRL。",
+      "abstract_zh": "持续学习对于大语言模型仍然具有挑战性：模型必须在不降低既有能力的情况下获得新技能和知识。现有方法通常通过精心设计模型参数的更新方式来应对这一挑战。相比之下，提示优化避免了成本高昂的参数更新，同时在单个知识密集型和推理任务上取得了可与 GRPO 等强化学习方法相当、甚至更优的性能。这提出了一个自然问题：作为一种高效的适应方法，提示优化能否直接应用于持续学习？我们的分析表明，在顺序任务适应下，它会遭受灾难性遗忘，而优化后的提示会累积规则并对局部任务分布过拟合。为解决这些局限，我们提出 Evolving Functional REpertoires（EFRE），它以会随着新任务到来而演化的函数集合取代单一提示：兼容的更新会改进既有函数，而冲突的更新会触发新函数的产生。在一个三任务持续学习流上，EFRE 的最终平均性能比 GRPO 高 7.50 个百分点。此外，在适应 Bio 任务后，它在 FinQA 上的性能仅下降 1.56 个百分点，而基础提示优化方法下降 25.10 个百分点。我们还在一个极简智能体系统中实例化 EFRE，并观察到其在不同骨干模型上持续改进。总体而言，这些结果表明 EFRE 在大语言模型持续学习中表现强劲，并凸显了其在高级智能体系统持续学习中的巨大潜力。",
       "published": "2026-10-08",
-      "author_line": "Sadig Gojayev, Carolina Fortuna"
+      "author_line": "Fengyuan Liu, Yue Wang, Hangxi Guo, Fengyuan Liu, Chenxu Wu, Yanguang Liu, Mengnan Du"
     },
     {
-      "id": "arxiv:2610.11978v1",
+      "id": "arxiv:2610.12333v1",
       "channel": "aixmath",
       "related_channels": [],
       "item_type": "paper",
       "source": "arXiv",
-      "title": "Specialized Decision Models vs. General-Purpose LLMs: Benchmarking Jev Across Knowledge, Reasoning, and Multilingual Tasks",
-      "url": "https://arxiv.org/abs/2610.11978v1",
+      "title": "RiCo: Neural Simulation of Rigid-Body Interactions via Local Contact Reasoning",
+      "url": "https://arxiv.org/abs/2610.12333v1",
       "published_at": "2026-10-08",
       "updated_at": "2026-10-08",
       "creators": [
-        "Xing Li",
-        "Qingcheng Chang",
-        "Jinzhong Ning",
-        "Changfeng Xu",
-        "Shenlong Zhang",
-        "Yijia Zhang",
-        "Ling Luo",
-        "Hongfei Lin"
+        "Ruixiang Ouyang",
+        "Guanren Qiao",
+        "Fansen Meng",
+        "Yueci Deng",
+        "Ruixing Jin",
+        "Kui Jia",
+        "Guiliang Liu"
       ],
       "language": "en",
-      "abstract_or_text": "Jev is a \"System One\" model that returns a choice among given options instead of generating text. We study how such a specialized decision model compares with general-purpose large language models (LLMs). We evaluate Jev on 13 multiple-choice benchmarks covering knowledge, reasoning, and multilingual understanding, and compare it with 19 LLMs in three tiers: frontier, representative, and small. Jev is competitive with frontier LLMs on knowledge and commonsense benchmarks and obtains the best score on MMLU-Redux and ARC-Challenge. Outside mathematics, it also outperforms most representative LLMs and all small LLMs. However, it falls behind on mathematical word problems: on MathQA, it is 17.7 points below the frontier median and scores lower than all 19 LLMs. These results indicate that a specialized decision model can match general-purpose LLMs on decisions that rely mainly on knowledge, but not on decisions that require multi-step calculation.",
-      "summary_zh": "该研究在 13 个选择题基准上将专用决策模型 Jev 与 19 个通用 LLM 比较；Jev 在 MathQA 上低于前沿模型中位数 17.7 分，且低于全部 19 个 LLM。",
-      "why_it_matters_zh": "结果把知识型选择决策与需要多步计算的数学文字题区分开来，避免将某些选择题成绩泛化为数学推理能力。",
-      "quality_score": 82.0,
+      "abstract_or_text": "Accurate simulation of rigid-body interactions is essential for predictive physical world models. Despite recent progress in modeling object dynamics, capturing how local contacts between surfaces shape object motion remains challenging. While end-to-end world models predict interactions across entire scenes or objects, in practice, rigid-body contact is inherently local, and only nearby surfaces can directly exchange contact forces. Motivated by this observation, we introduce Rigid-body Contact Reasoning (RiCo), which represents interactions between objects through sparse neighborhoods of contact surface points. RiCo combines each point's state with the relative geometry, motion, and physical properties of nearby surfaces, then reasons across the object's points to determine how these local contacts jointly affect its motion. By confining cross-object reasoning to nearby surfaces while propagating contact information within each rigid body, RiCo retains fine-grained interaction details without the cost of modeling every pair of scene points. Such properties enable RiCo a higher accuracy and contact fidelity. Experiments on MOVi-benchmark demonstrate that RiCo reduces 100-frame position and orientation errors by 31-35% and approximately 38%, respectively, compared with baselines. Moreover, RiCo achieves high contact fidelity, with ground-truth-relative penetration-time and mean-depth differences of 11.0% and 2.22 mm, respectively. RiCo further generalizes zero-shot from small-scale training scenarios to scenes containing 270 objects. Our real-world multi-ball collision experiments further provide preliminary evidence of sim-to-real transfer.",
+      "summary_zh": "RiCo 以稀疏的接触表面点邻域表示刚体间相互作用，并在物体内传播接触信息以预测运动。在 MOVi-benchmark 上，论文报告相较基线将 100 帧位置误差降低 31%–35%、姿态误差降低约 38%，并在最多 270 个物体的场景中进行零样本泛化测试。",
+      "why_it_matters_zh": "刚体接触推理有明确的局部几何与物理约束，论文采用长时轨迹误差、接触保真度和规模泛化进行检验；其真实多球碰撞结果仅构成初步的仿真到现实迁移证据。",
+      "quality_score": 70.0,
       "tags": [
-        "方法与模型",
-        "数学推理",
-        "模型评测",
-        "基准"
+        "数学推理"
       ],
       "evidence_flags": [
         "benchmark"
@@ -225,54 +199,40 @@
       "publication_status": "preprint",
       "rank": 4,
       "featured": false,
-      "category": "方法与模型",
+      "category": "数学推理",
       "metrics": {},
       "metadata": {
         "doi": "",
-        "arxiv_id": "2610.11978v1"
+        "arxiv_id": "2610.12333v1"
       },
-      "abstract_zh": "Jev 是一个“系统一”模型，它返回给定选项中的一个选择，而不生成文本。我们研究这种专用决策模型与通用大语言模型（LLM）相比表现如何。我们在覆盖知识、推理和多语言理解的 13 个选择题基准上评估 Jev，并将其与三个层级中的 19 个 LLM 比较：前沿、代表性和小型。Jev 在知识和常识基准上可与前沿 LLM 竞争，并在 MMLU-Redux 和 ARC-Challenge 上获得最高分。在数学之外，它也优于大多数代表性 LLM 和全部小型 LLM。然而，它在数学文字题上落后：在 MathQA 上，它比前沿模型中位数低 17.7 分，并且得分低于全部 19 个 LLM。这些结果表明，专用决策模型能够在主要依赖知识的决策上匹配通用 LLM，但不能在需要多步计算的决策上做到这一点。",
+      "abstract_zh": "对刚体相互作用进行准确模拟对于预测性物理世界模型至关重要。尽管近期在建模物体动力学方面取得了进展，但捕捉表面之间的局部接触如何塑造物体运动仍具挑战。端到端世界模型虽然预测整个场景或物体的相互作用，但在实践中，刚体接触本质上是局部的，只有邻近表面能够直接交换接触力。受此观察启发，我们引入 Rigid-body Contact Reasoning（RiCo），它通过接触表面点的稀疏邻域来表示物体之间的相互作用。RiCo 将每个点的状态与附近表面的相对几何、运动和物理属性结合，然后在物体的各点之间进行推理，以确定这些局部接触如何共同影响其运动。通过将跨物体推理限制在邻近表面，同时在每个刚体内部传播接触信息，RiCo 在无需建模场景中每一对点的代价下保留细粒度交互细节。这些特性使 RiCo 具有更高的准确性和接触保真度。在 MOVi-benchmark 上的实验表明，与基线相比，RiCo 将 100 帧位置误差和姿态误差分别降低 31%–35% 和约 38%。此外，RiCo 实现了较高的接触保真度：相对于真实值的穿透时间差和平均深度差分别为 11.0% 和 2.22 mm。RiCo 还可从小规模训练场景零样本泛化到包含 270 个物体的场景。我们的真实多球碰撞实验进一步为仿真到现实的迁移提供了初步证据。",
       "published": "2026-10-08",
-      "author_line": "Xing Li, Qingcheng Chang, Jinzhong Ning, Changfeng Xu, Shenlong Zhang, Yijia Zhang, Ling Luo, Hongfei Lin"
+      "author_line": "Ruixiang Ouyang, Guanren Qiao, Fansen Meng, Yueci Deng, Ruixing Jin, Kui Jia, Guiliang Liu"
     },
     {
-      "id": "arxiv:2610.11366v1",
+      "id": "arxiv:2610.11740v1",
       "channel": "aixmath",
-      "related_channels": [
-        "aixbio"
-      ],
+      "related_channels": [],
       "item_type": "paper",
       "source": "arXiv",
-      "title": "SpatialOPSD: Self-Distilling Spatial Intelligence from Verified Coding Agent Traces",
-      "url": "https://arxiv.org/abs/2610.11366v1",
+      "title": "Correlational Training of Morphological Neural Networks",
+      "url": "https://arxiv.org/abs/2610.11740v1",
       "published_at": "2026-10-08",
       "updated_at": "2026-10-08",
       "creators": [
-        "Rongxue Li",
-        "Meng Yang",
-        "Yiru Mao",
-        "Yongliang Tao",
-        "Lulu Hu",
-        "Bin Yang",
-        "Zhao Xu",
-        "Weihua Luo",
-        "Bowen Xu"
+        "Konstantinos Fotopoulos",
+        "Petros Maragos"
       ],
       "language": "en",
-      "abstract_or_text": "Spatial coding agents significantly improve spatial reasoning in Multimodal Large Language Models (MLLMs) by using external tools to generate verified execution traces. However, this paradigm inherently suffers from prohibitive inference-time overhead and external dependencies. In this paper, we explore whether an MLLM can internalize this agentic capability to operate entirely tool-free. We begin with a simple observation: prompting an MLLM with summarized execution traces of a spatial coding agent naturally unlocks the model's internal spatial Chain-of-Thought (CoT). Motivated by this, we introduce SpatialOPSD, an on-policy self-distillation framework that internalizes spatial reasoning into a standalone MLLM by formulating verified agent traces as privileged information. To mitigate privileged-information leakage during distillation, we introduce Repetition-Aware Distillation, which combines repetition masking with unlikelihood regularization. Experiments across multiple benchmarks demonstrate that self-distilling SpatialOPSD achieves higher average accuracy than SFT and GRPO on both spatial and OOD datasets, exhibiting superior performance and generalization.",
-      "summary_zh": "SpatialOPSD 把空间编码智能体产生的已验证执行轨迹作为特权信息，蒸馏进无需工具的多模态大语言模型，并在多个空间与分布外数据集上与 SFT、GRPO 比较。",
-      "why_it_matters_zh": "研究的结论限定于所述空间基准：已验证轨迹可作为训练信号，论文报告其蒸馏模型在这些评测上优于两个比较训练方案。",
-      "quality_score": 81.0,
+      "abstract_or_text": "Neural networks are typically trained using first-order methods and back-propagation. It is unclear whether this approach is optimal for morphological layers whose weight Jacobians are sparse and whose resulting parameter gradients can be poor. In this work, we propose a novel weight update method for morphological neural networks inspired from the Multiplicative Weights Update (MWU) scheme. We view each morphological perceptron as an instance of the learning from experts' advice problem in logarithmic space, and use a correlation-based reward that favors inputs aligned with the desired output change, regardless of whether a strong gradient signal has reached their weight. We empirically evaluate our approach by training fully connected layers both as stand-alone models and as parts of larger transformer networks. Across nine benchmarks, correlational training yields improvements on eight, by up to 32.84 percentage points, while substantially reducing run-to-run variability.",
+      "summary_zh": "该工作针对形态神经网络的稀疏权重雅可比与较弱梯度问题，提出受 Multiplicative Weights Update（MWU）启发的相关性权重更新。它在九个基准上评测独立全连接层和更大 Transformer 中的层，报告八个基准改进，最高为 32.84 个百分点。",
+      "why_it_matters_zh": "工作将形态感知器的更新明确地联系到专家建议学习，并通过跨九个基准的比较与运行间方差检验其经验效果；摘要没有给出各基准、模型或统计显著性细节，因此改进范围仍需结合完整实验解读。",
+      "quality_score": 70.0,
       "tags": [
-        "方法与模型",
-        "空间推理",
-        "可验证轨迹",
-        "模型评测"
+        "方法与模型"
       ],
       "evidence_flags": [
-        "benchmark",
-        "dataset",
-        "performance"
+        "benchmark"
       ],
       "publication_status": "preprint",
       "rank": 5,
@@ -281,112 +241,16 @@
       "metrics": {},
       "metadata": {
         "doi": "",
-        "arxiv_id": "2610.11366v1"
+        "arxiv_id": "2610.11740v1"
       },
-      "abstract_zh": "空间编码智能体通过使用外部工具生成已验证的执行轨迹，显著提升了多模态大语言模型（MLLM）的空间推理能力。然而，这一范式天然面临高昂的推理时开销和外部依赖。本文探究 MLLM 是否能够将这种智能体能力内化，从而完全在无工具条件下运行。我们从一个简单观察出发：向 MLLM 提供空间编码智能体的摘要执行轨迹，会自然激发模型内部的空间思维链（CoT）。受此启发，我们提出 SpatialOPSD，这是一种在策略自蒸馏框架；它将已验证的智能体轨迹作为特权信息，把空间推理内化到独立的 MLLM 中。为缓解蒸馏过程中的特权信息泄漏，我们引入重复感知蒸馏，将重复掩码与非似然正则化结合。多个基准上的实验表明，经过自蒸馏的 SpatialOPSD 在空间数据集和分布外数据集上的平均准确率均高于 SFT 和 GRPO，并表现出更好的性能与泛化。",
+      "abstract_zh": "神经网络通常使用一阶方法和反向传播进行训练。对于形态层而言，这种方法是否最优尚不明确，因为其权重雅可比矩阵稀疏，得到的参数梯度可能较差。在这项工作中，我们提出一种受 Multiplicative Weights Update（MWU）方案启发、用于形态神经网络的新型权重更新方法。我们将每个形态感知器视为对数空间中“从专家建议中学习”问题的一个实例，并使用一种基于相关性的奖励：无论强梯度信号是否已到达其权重，只要输入与期望的输出变化一致，该奖励就偏向这些输入。我们通过训练全连接层来实证评估该方法，既将其作为独立模型，也将其作为更大 Transformer 网络的一部分。在九个基准上，相关性训练在其中八个基准上带来改进，最高达 32.84 个百分点，同时显著降低了不同运行之间的变异性。",
       "published": "2026-10-08",
-      "author_line": "Rongxue Li, Meng Yang, Yiru Mao, Yongliang Tao, Lulu Hu, Bin Yang, Zhao Xu, Weihua Luo, Bowen Xu"
-    },
-    {
-      "id": "arxiv:2610.12355v1",
-      "channel": "aixmath",
-      "related_channels": [],
-      "item_type": "paper",
-      "source": "arXiv",
-      "title": "Distilling Routed 3D Privilege for Spatial Reasoning in Vision-Language Models",
-      "url": "https://arxiv.org/abs/2610.12355v1",
-      "published_at": "2026-10-08",
-      "updated_at": "2026-10-08",
-      "creators": [
-        "Hongxing Li",
-        "Yixin Li",
-        "Dingming Li",
-        "Zixuan Wang",
-        "Yuchen Yan",
-        "Wenqi Zhang",
-        "Weiming Lu",
-        "Yongliang Shen"
-      ],
-      "language": "en",
-      "abstract_or_text": "Spatial reasoning remains a persistent weakness of vision-language models (VLMs), because RGB inputs do not directly provide geometric evidence. Existing remedies either inject 3D into the model at inference, paying architecture and latency costs, or train with outcome rewards that supervise only the final answer. Spatial errors originate in perception: a misjudged depth or direction can be corrected only by the scene's true geometry, which the 3D-scanned sources of spatial training corpora already provide. We propose GPD (Geometry-Privileged Distillation), which makes geometric evidence the privilege in on-policy self-distillation (OPSD). For each question, depth, semantic, and bird's-eye-view (BEV) cues are rendered as compact text and routed to the teacher alongside the reference answer; a privileged KL, applied only to incorrect trajectories, augments GRPO, and the deployed model remains RGB-only. On the 4B backbone, GPD achieves 57.1 on VSI-Bench and 37.6 average across MindCube, SPARBench, MMSI-Bench, and ViewSpatial, outperforming both GRPO and answer-privileged OPSD across spatial reasoning benchmarks. Ablations confirm the complementarity of 3D and answer privilege, the advantage of question-conditioned routing over full-context injection, and the benefit of restricting distillation to incorrect trajectories.",
-      "summary_zh": "GPD 在空间推理训练中把深度、语义与鸟瞰图几何线索作为特权信息；部署时仍只使用 RGB，并在四个空间推理基准的平均分及消融中与 GRPO、answer-privileged OPSD 比较。",
-      "why_it_matters_zh": "论文明确报告了训练时可得几何证据与部署时 RGB 输入之间的边界；其优势仅是在所述 4B 骨干和空间基准设置下得到验证。",
-      "quality_score": 79.0,
-      "tags": [
-        "数学推理",
-        "空间推理",
-        "几何",
-        "基准"
-      ],
-      "evidence_flags": [
-        "benchmark",
-        "ablation"
-      ],
-      "publication_status": "preprint",
-      "rank": 6,
-      "featured": false,
-      "category": "数学推理",
-      "metrics": {},
-      "metadata": {
-        "doi": "",
-        "arxiv_id": "2610.12355v1"
-      },
-      "abstract_zh": "空间推理仍是视觉语言模型（VLM）的持续弱点，因为 RGB 输入并不直接提供几何证据。现有补救方法要么在推理时向模型注入 3D 信息，付出架构和延迟成本；要么使用仅监督最终答案的结果奖励进行训练。空间错误起源于感知：对深度或方向的误判只能由场景的真实几何结构纠正，而空间训练语料的 3D 扫描来源已经提供了这些结构。我们提出 GPD（Geometry-Privileged Distillation，几何特权蒸馏），它将几何证据设为在策略自蒸馏（OPSD）中的特权信息。对于每个问题，深度、语义和鸟瞰图（BEV）线索被渲染为紧凑文本，并与参考答案一起路由给教师模型；仅应用于错误轨迹的特权 KL 项增强 GRPO，而部署模型保持只使用 RGB。在 4B 骨干上，GPD 在 VSI-Bench 上获得 57.1 分，并在 MindCube、SPARBench、MMSI-Bench 和 ViewSpatial 上平均获得 37.6 分，优于 GRPO 和 answer-privileged OPSD。消融实验确认了 3D 特权与答案特权的互补性、问题条件路由相对完整上下文注入的优势，以及将蒸馏限制于错误轨迹的益处。",
-      "published": "2026-10-08",
-      "author_line": "Hongxing Li, Yixin Li, Dingming Li, Zixuan Wang, Yuchen Yan, Wenqi Zhang, Weiming Lu, Yongliang Shen"
-    },
-    {
-      "id": "arxiv:2610.11087v1",
-      "channel": "aixmath",
-      "related_channels": [
-        "aixchem"
-      ],
-      "item_type": "paper",
-      "source": "arXiv",
-      "title": "Beyond Imitation: A Framework and Benchmark for LLM-Assisted Peer Review",
-      "url": "https://arxiv.org/abs/2610.11087v1",
-      "published_at": "2026-10-08",
-      "updated_at": "2026-10-08",
-      "creators": [
-        "Rachel S. Y. Teo",
-        "Yutaro Yamada",
-        "Shashank Kotyan",
-        "Yuki Imajuku",
-        "Tarin Clanuwat"
-      ],
-      "language": "en",
-      "abstract_or_text": "The rapid growth of scientific publishing has strained peer review, particularly in machine learning, raising concerns about declining review quality and increasing reviewer workload. Large language models (LLMs) have been proposed as automated review assistants, yet their evaluation has focused largely on imitating human-written reviews rather than supporting the core functions of peer review. Here, we introduce a verification-centric perspective on LLM-assisted peer review, emphasizing error detection as a critical and resource-intensive task. We present a scalable benchmark that evaluates review systems' ability to identify logical contradictions, constructed through synthetic insertion of errors into conference papers, yielding unambiguous evaluation targets and enabling systematic comparison. We further propose a Multi-Layered Review (MLR) framework that prioritizes detailed manuscript comprehension before review generation, aligning more closely with human reviewing practices while improving token efficiency. Across evaluations, our approach demonstrates strong alignment with human review scores, achieves high error detection performance, and provides complementary perspectives on reviewer focus. These improvements can be attributed to both the choice of the underlying LLM and the design of our system. At the same time, we corroborate persistent vulnerabilities to adversarial manipulation, underscoring the need for robustness in automated review systems. Our findings highlight the importance of rigorous, error-focused evaluation to guide responsible deployment of LLM-based tools in peer review and other critical scientific workflows.",
-      "summary_zh": "论文构建通过向会议论文合成插入错误而形成的逻辑矛盾检测基准，并评估以详细理解稿件为优先的 Multi-Layered Review 框架。",
-      "why_it_matters_zh": "合成错误提供了明确的判定目标，使“发现逻辑矛盾”可被系统比较；论文同时报告对抗操纵脆弱性，未将自动审稿描述为可直接替代人工审稿。",
-      "quality_score": 77.0,
-      "tags": [
-        "方法与模型",
-        "逻辑推理",
-        "验证",
-        "基准"
-      ],
-      "evidence_flags": [
-        "benchmark",
-        "evaluation",
-        "performance"
-      ],
-      "publication_status": "preprint",
-      "rank": 7,
-      "featured": false,
-      "category": "方法与模型",
-      "metrics": {},
-      "metadata": {
-        "doi": "",
-        "arxiv_id": "2610.11087v1"
-      },
-      "abstract_zh": "科学出版的快速增长已使同行评审承压，尤其是在机器学习领域，引发了对评审质量下降和评审者工作量增加的担忧。大语言模型（LLM）被提出作为自动评审助手，但其评估在很大程度上集中于模仿人类撰写的评审，而非支持同行评审的核心功能。本文提出一种以验证为中心的 LLM 辅助同行评审视角，强调错误检测是一项关键且资源密集的任务。我们提出一个可扩展的基准，通过向会议论文中合成插入错误来评估评审系统识别逻辑矛盾的能力；这产生了无歧义的评估目标，并支持系统比较。我们还提出 Multi-Layered Review（MLR）框架，在生成评审前优先进行细致的稿件理解；该框架更接近人类评审实践，同时提高了 token 效率。跨评估结果显示，我们的方法与人类评审分数具有较强一致性，实现了较高的错误检测性能，并为评审者关注点提供了互补视角。这些改进既可归因于底层 LLM 的选择，也可归因于系统设计。同时，我们证实了自动化评审系统持续存在对抗操纵脆弱性，强调此类系统需要具备鲁棒性。研究结果突显了严格、以错误为中心的评估对于指导 LLM 工具在同行评审及其他关键科学工作流中负责任部署的重要性。",
-      "published": "2026-10-08",
-      "author_line": "Rachel S. Y. Teo, Yutaro Yamada, Shashank Kotyan, Yuki Imajuku, Tarin Clanuwat"
+      "author_line": "Konstantinos Fotopoulos, Petros Maragos"
     }
   ],
   "review": {
     "model": "gpt-5.6-terra",
     "reasoning_effort": "high",
-    "note": "仅保留任务定义、评测协议或可检验结果较清晰的候选；模型能力结论均限于论文所述实验范围。"
+    "note": "入选项均为公开预印本且候选质量分不低于 70。达到阈值的候选中未见同时满足形式化定理证明或证明助手重点、且证据充分的项目，因此未按数量凑选。"
   }
 }

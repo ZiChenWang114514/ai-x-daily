@@ -1,0 +1,397 @@
+{
+  "schema_version": "2.0",
+  "date": "2026-10-12",
+  "channel": "aixchem",
+  "generated_at": "2026-10-11T22:09:59+00:00",
+  "title": "AI × Chem 每日精选",
+  "subtitle": "预印本、方法、数据集与实验验证的每日精选。",
+  "window": {
+    "start": "2026-10-08",
+    "end": "2026-10-12"
+  },
+  "method": "公开来源采集、历史去重、规则筛选与模型审阅",
+  "method_note": "系统保存当日公开元数据，与历史日报核验后排除已报道事件；论文新版本、新修订及不同软件发布等可核实更新仍可入选，随后由指定模型阅读全文摘要并完成精选。",
+  "stats": {
+    "fetched": 1597,
+    "suppressed_previous": 70,
+    "candidates": 60,
+    "selected": 7,
+    "sources": {
+      "arXiv": 508,
+      "bioRxiv": 952,
+      "ChemRxiv": 148
+    }
+  },
+  "source_status": {
+    "arXiv": {
+      "state": "ok",
+      "count": 508
+    },
+    "bioRxiv": {
+      "state": "ok",
+      "count": 952
+    },
+    "ChemRxiv": {
+      "state": "ok",
+      "count": 148
+    }
+  },
+  "source_errors": [],
+  "items": [
+    {
+      "id": "biorxiv:10.64898/2026.10.05.756918",
+      "channel": "aixchem",
+      "related_channels": [
+        "aixbio"
+      ],
+      "item_type": "paper",
+      "source": "bioRxiv",
+      "title": "Filling the Missing Puzzle: Integrating Interaction and Evolutionary Information to Enhance Protein Fitness Prediction in Inverse Folding",
+      "url": "https://www.biorxiv.org/content/10.64898/2026.10.05.756918",
+      "published_at": "2026-10-11",
+      "updated_at": "2026-10-11",
+      "creators": [
+        "Wang, Z.",
+        "Zhang, Z.",
+        "Yang, Y.",
+        "Qu, Y.",
+        "Mu, Y.",
+        "Wang, S.",
+        "Han, N.",
+        "Zheng, L.",
+        "Li, W."
+      ],
+      "language": "en",
+      "abstract_or_text": "Protein inverse folding, which infers compatible amino acid sequences from a given backbone structure, is central to rational protein design. Current methods rely largely on sequence recovery rate as the evaluation metric, emphasizing structural compatibility but seldom addressing function. Yet functional activity depends on the proper network of non-covalent interactions-protein-ligand contacts being a prime example. We argue that function-oriented protein design is governed by three complementary constraints: structural, interaction, and evolutionary, none of which are handled in a unified manner by existing pretrained models. To bridge this gap, we introduce zPolaron, a graph neural network built on protein-ligand complexes for functional protein design. zPolaron represents residues and ligand atoms as a heterogeneous graph and jointly encodes structural, interaction, and evolutionary information by fusing physical-interaction-enhanced graph representations with ESM-2 embeddings. Across multiple fitness prediction benchmarks, zPolaron outperforms all baselines, with gains evident across structural, interaction, and evolutionary dimensions. Wet-lab experiments further confirm its utility in functional enzyme screening and design: the optimized CalA6-D205A-S160G mutant achieves a 17.84-fold improvement in activity, while the CalB-I121M mutant yields a 1.91-fold increase. Together, these results show that integrating interaction and evolutionary information fills the missing puzzle of inverse folding, enhancing protein fitness prediction beyond structural compatibility. zPolaron is available at https://github.com/zelixirSH/zPolaron.",
+      "summary_zh": "zPolaron 将蛋白—配体相互作用、结构和进化信息整合到异质图神经网络中，用于功能导向的逆折叠与蛋白适应度预测；除多项基准外，作者还以 CalA6-D205A-S160G 和 CalB-I121M 的湿实验验证了活性提升。",
+      "why_it_matters_zh": "把配体接触显式纳入逆折叠模型，有望让蛋白设计从“序列恢复”更接近功能优化；但活性验证集中于少数突变体，跨蛋白家族和真实设计闭环的泛化仍需独立检验。",
+      "quality_score": 70.0,
+      "tags": [
+        "结构与生物",
+        "蛋白质设计",
+        "逆折叠",
+        "图神经网络"
+      ],
+      "evidence_flags": [
+        "benchmark",
+        "github",
+        "evaluation"
+      ],
+      "publication_status": "preprint",
+      "rank": 1,
+      "featured": true,
+      "category": "结构与生物",
+      "metrics": {},
+      "metadata": {
+        "doi": "10.64898/2026.10.05.756918",
+        "arxiv_id": ""
+      },
+      "abstract_zh": "蛋白质逆折叠从给定的骨架结构推断相容的氨基酸序列，是理性蛋白质设计的核心。现有方法在很大程度上依赖序列恢复率作为评价指标，强调结构相容性，却很少处理功能问题。然而，功能活性依赖于恰当的非共价相互作用网络——蛋白质—配体接触便是一个典型例子。我们认为，功能导向的蛋白质设计受结构、相互作用和进化这三类互补约束支配，而现有预训练模型尚未以统一方式处理它们。为弥合这一差距，我们提出 zPolaron：一种建立在蛋白质—配体复合物之上的、用于功能蛋白设计的图神经网络。zPolaron 将残基和配体原子表示为异质图，并通过融合物理相互作用增强的图表示与 ESM-2 嵌入，联合编码结构、相互作用和进化信息。在多个适应度预测基准上，zPolaron 优于所有基线，在结构、相互作用和进化维度上均显示出提升。湿实验进一步证实了其在功能酶筛选和设计中的效用：优化的 CalA6-D205A-S160G 突变体活性提高了 17.84 倍，而 CalB-I121M 突变体提高了 1.91 倍。总之，这些结果表明，整合相互作用和进化信息填补了逆折叠中的缺失环节，使蛋白质适应度预测超越了结构相容性。zPolaron 已发布于 https://github.com/zelixirSH/zPolaron。",
+      "published": "2026-10-11",
+      "author_line": "Wang, Z., Zhang, Z., Yang, Y., Qu, Y., Mu, Y., Wang, S., Han, N., Zheng, L., Li, W."
+    },
+    {
+      "id": "biorxiv:10.64898/2026.10.05.755809",
+      "channel": "aixchem",
+      "related_channels": [
+        "aixbio"
+      ],
+      "item_type": "paper",
+      "source": "bioRxiv",
+      "title": "Autonomous AI agents discover reverse transcriptases with tandem repeat arrays",
+      "url": "https://www.biorxiv.org/content/10.64898/2026.10.05.755809",
+      "published_at": "2026-10-11",
+      "updated_at": "2026-10-11",
+      "creators": [
+        "Yoon, P. H.",
+        "Athukoralage, J. S.",
+        "Ameisen, E.",
+        "Kauderer-Abrams, E.",
+        "Perry, N. T.",
+        "Durrant, M. G."
+      ],
+      "language": "en",
+      "abstract_or_text": "Metagenomic databases hold vast quantities of unexplored genetic material that can seed tools for biotechnology and medicine, but discovery is limited by our ability to examine sequence data at scale. Here, we show that large language models (LLMs) in an autonomous harness can alleviate this bottleneck and surface novel molecular systems. We deployed Claude Code instances to survey reverse transcriptase (RT) loci across 1.9 billion protein clusters. Among the top candidates were array-associated RTs (ART), a novel family of jumbo-phage RTs coupled with an array of ~200-nucleotide units and a dedicated partner gene. Session transcripts show that Claude identified the ART family by directly examining its DNA sequences and recognizing the atypical repeats, a behavior attributable to specific Mythos 5 internal signals that respond to repeated DNA. ART arrays are highly expressed and appear as discrete units during Staphylococcus phage infection, suggesting an RT system directed by a repertoire of distinct RNAs. These findings indicate that LLMs can autonomously detect anomalies and drive analyses to initiate biological discoveries.",
+      "summary_zh": "研究以自主运行的 Claude Code 检索 19 亿个蛋白簇中的逆转录酶位点，发现与约 200 nt 重复单元阵列及伙伴基因耦联的 jumbo 噬菌体新型 array-associated RTs（ART）；感染中的表达和离散阵列信号支持其为 RNA 指导系统。",
+      "why_it_matters_zh": "这是将自主 LLM 工作流用于大规模序列异常发现的具体案例，可能扩展生物技术工具的发现空间；不过 ART 的分子功能仍主要是推断，且模型“自主发现”的因果归因需要可复现的对照审计。",
+      "quality_score": 73.0,
+      "tags": [
+        "结构与生物",
+        "自主智能体",
+        "逆转录酶",
+        "宏基因组"
+      ],
+      "evidence_flags": [],
+      "publication_status": "preprint",
+      "rank": 2,
+      "featured": true,
+      "category": "结构与生物",
+      "metrics": {},
+      "metadata": {
+        "doi": "10.64898/2026.10.05.755809",
+        "arxiv_id": ""
+      },
+      "abstract_zh": "宏基因组数据库蕴藏着大量尚未探索的遗传物质，可为生物技术和医学工具提供种子；但我们的发现能力受限于大规模审查序列数据的能力。这里，我们表明，处于自主执行框架中的大语言模型（LLMs）可以缓解这一瓶颈并揭示新的分子系统。我们部署 Claude Code 实例，对 19 亿个蛋白簇中的逆转录酶（RT）位点进行了调查。排名靠前的候选物包括阵列相关 RT（ART）：这是一个新的 jumbo 噬菌体 RT 家族，与一个由约 200 个核苷酸单元组成的阵列及一个专属伙伴基因耦联。会话记录显示，Claude 通过直接检查其 DNA 序列并识别非典型重复序列而鉴定出 ART 家族；这种行为可归因于对重复 DNA 作出响应的特异 Mythos 5 内部信号。ART 阵列高表达，并在 Staphylococcus 噬菌体感染期间表现为离散单元，提示这是一种由一组不同 RNA 指导的 RT 系统。这些发现表明，LLMs 能够自主检测异常并推动分析，从而启动生物学发现。",
+      "published": "2026-10-11",
+      "author_line": "Yoon, P. H., Athukoralage, J. S., Ameisen, E., Kauderer-Abrams, E., Perry, N. T., Durrant, M. G."
+    },
+    {
+      "id": "biorxiv:10.64898/2026.10.07.757477",
+      "channel": "aixchem",
+      "related_channels": [
+        "aixbio"
+      ],
+      "item_type": "paper",
+      "source": "bioRxiv",
+      "title": "The Batten disease gene product CLN6 is a glycerophosphoglycerol epimerase that establishes S,S-BMP stereochemistry",
+      "url": "https://www.biorxiv.org/content/10.64898/2026.10.07.757477",
+      "published_at": "2026-10-09",
+      "updated_at": "2026-10-09",
+      "creators": [
+        "Zhu, Z.",
+        "Xiong, J.",
+        "Maaz, I.",
+        "Matrongolo, M. J.",
+        "Ghoochani, A.",
+        "Chilkunda, C.",
+        "Peng, X.",
+        "Alur, A.",
+        "Porsen, C.",
+        "Schulz, A.",
+        "Cotman, S.",
+        "Gomez-Ospina, N.",
+        "Abu-Remaileh, M."
+      ],
+      "language": "en",
+      "abstract_or_text": "Bis(monoacylglycero)phosphate (BMP), a lysosomal phospholipid essential for lipid catabolism and cholesterol clearance, has a noncanonical S,S glycerol configuration found in no other mammalian phospholipid, a feature necessary for its stability in the lysosome. How cells invert glycerol stereochemistry to build S,S-BMP has remained unexplained since this configuration was discovered five decades ago. Here, we show that the endoplasmic reticulum-resident Batten disease protein CLN6 is a Ca2+-dependent epimerase that isomerizes glycerophosphoglycerol (GPG) from R,S-GPG to S,S-GPG. CLN6-deficient cells, mouse tissues, and patient samples predominantly contain R,S-GPG, S,R-lysophosphatidylglycerol (LPG), and R,S-BMP instead of their S,S counterparts, with a net depletion of BMP. Purified CLN6 catalyzes GPG epimerization in vitro, an activity abolished by a pathogenic substitution in its substrate-binding pocket. Consistently, exogenous S,S-GPG restores BMP synthesis and relieves lipid storage in CLN6-null cells. Our work establishes stereochemical commitment upstream of acylation, placing CLN6, CLN8, and CLN5 in sequence in BMP biosynthesis and unifying the lipid defect across these neurodegenerative disorders.",
+      "summary_zh": "研究鉴定出 Batten 病蛋白 CLN6 是一种 Ca2+-依赖的 glycerophosphoglycerol epimerase，可将 R,S-GPG 转化为 S,S-GPG，从而在 BMP 生物合成中建立关键立体化学；纯化蛋白、细胞、鼠组织和患者样本均支持该结论。",
+      "why_it_matters_zh": "工作解决了 BMP 非常规 S,S 构型来源这一长期问题，并把 CLN6、CLN8、CLN5 接入同一通路；S,S-GPG 补充的救援结果也提示可干预节点，但离体补充能否转化为疾病治疗尚未得到证明。",
+      "quality_score": 70.0,
+      "tags": [
+        "材料与催化",
+        "脂质生物化学",
+        "立体化学",
+        "Batten病"
+      ],
+      "evidence_flags": [],
+      "publication_status": "preprint",
+      "rank": 3,
+      "featured": true,
+      "category": "材料与催化",
+      "metrics": {},
+      "metadata": {
+        "doi": "10.64898/2026.10.07.757477",
+        "arxiv_id": ""
+      },
+      "abstract_zh": "双（单酰基甘油）磷酸（BMP）是一种对脂质分解代谢和胆固醇清除至关重要的溶酶体磷脂，具有其他哺乳动物磷脂中不存在的非经典 S,S 甘油构型；这一特征对于其在溶酶体中的稳定性是必需的。自这种构型在五十年前被发现以来，细胞如何倒转甘油立体化学以构建 S,S-BMP 一直未获解释。这里，我们表明，内质网驻留的 Batten 病蛋白 CLN6 是一种 Ca2+-依赖的 epimerase，可将 glycerophosphoglycerol（GPG）从 R,S-GPG 异构化为 S,S-GPG。CLN6 缺陷细胞、鼠组织和患者样本主要含有 R,S-GPG、S,R-lysophosphatidylglycerol（LPG）和 R,S-BMP，而非其 S,S 对映体，并伴随 BMP 的净耗竭。纯化的 CLN6 能在体外催化 GPG 差向异构化；底物结合口袋中的致病替换会消除该活性。与此一致，外源 S,S-GPG 可恢复 CLN6-null 细胞中的 BMP 合成并缓解脂质贮积。我们的工作在酰化之前确立了立体化学定向步骤，将 CLN6、CLN8 和 CLN5 依次置于 BMP 生物合成中，并统一解释了这些神经退行性疾病中的脂质缺陷。",
+      "published": "2026-10-09",
+      "author_line": "Zhu, Z., Xiong, J., Maaz, I., Matrongolo, M. J., Ghoochani, A., Chilkunda, C., Peng, X., Alur, A., Porsen, C., Schulz, A., Cotman, S., Gomez-Ospina, N., Abu-Remaileh, M."
+    },
+    {
+      "id": "chemrxiv:10.26434/chemrxiv.15010120/v1",
+      "channel": "aixchem",
+      "related_channels": [],
+      "item_type": "paper",
+      "source": "ChemRxiv",
+      "title": "Solid-state NMR and first-principle calculations reveal the structure and dynamics of Li-N-H materials",
+      "url": "https://doi.org/10.26434/chemrxiv.15010120/v1",
+      "published_at": "2026-10-08",
+      "updated_at": "2026-10-09",
+      "creators": [
+        "Ruipeng Luo",
+        "Jennifer S. Gómez",
+        "Tom Speelman",
+        "Benjamin Tatman",
+        "Paul Tinnemans",
+        "Dinu Iuga",
+        "Gilles A. de Wijs",
+        "Arno P. M. Kentgens",
+        "Evan Wenbo Zhao"
+      ],
+      "language": "en",
+      "abstract_or_text": "Lithium-nitrogen-hydrogen (Li-N-H) materials are promising for hydrogen storage, solid-state batteries, and lithium-mediated ammonia synthesis, yet their local structures and proton dynamics remain poorly understood because of compositional disorder and limited sensitivity of conventional diffraction methods. Here, we combine multinuclear solid-state nuclear magnetic resonance spectroscopy (1H, 7Li, 14N, and 15N ssNMR) with first-principles calculations to resolve the atomic environments and dynamics of Li3N, LiNH2, and Li1+xNH2-x (. 7Li NMR and density functional theory calculations identify distinct lithium sites in coexisting α- and β-Li3N phases and in tetragonal LiNH2. 1H and 15N NMR, together with 1H-detected 14N spectroscopy, reveal two distinct domains in synthesized lithium-rich Li1+xNH2-x that are not resolved by laboratory X-ray diffraction. Comparison with calculated NMR parameters assigns these domains to LiNH2 and Li2NH, respectively. Variable-temperature 1H-1H exchange spectroscopy shows that correlations between the two domains arise predominantly from spin diffusion rather than interdomain proton exchange, indicating nanoscale structural heterogeneity within a solid solution. Local proton motion occurs within the Li2NH environment and is restricted in the LiNH­2 domains. These results establish a molecular-level relationship between local structure and proton mobility in Li-N-H materials, providing insights relevant to hydrogen storage, solid-state batteries, and ammonia synthesis.",
+      "summary_zh": "作者将多核固态 NMR 与第一性原理计算结合，解析 Li3N、LiNH2 和锂富 Li1+xNH2-x 的局域结构与质子动力学，识别出 XRD 未分辨的 LiNH2/Li2NH 纳米尺度异质域。",
+      "why_it_matters_zh": "这为 Li–N–H 储氢、固态电池和锂介导氨合成材料建立了局域结构—质子迁移之间的实验和计算联系；结论目前集中于所考察的组成与合成样品，尚需检验其在器件工况下的可迁移性。",
+      "quality_score": 70.0,
+      "tags": [
+        "材料与催化",
+        "固态NMR",
+        "第一性原理计算",
+        "锂氮氢材料"
+      ],
+      "evidence_flags": [],
+      "publication_status": "preprint",
+      "rank": 4,
+      "featured": false,
+      "category": "材料与催化",
+      "metrics": {},
+      "metadata": {
+        "doi": "10.26434/chemrxiv.15010120/v1",
+        "arxiv_id": ""
+      },
+      "abstract_zh": "锂—氮—氢（Li-N-H）材料有望用于储氢、固态电池和锂介导氨合成；然而，由于组成无序以及常规衍射方法灵敏度有限，其局域结构和质子动力学仍知之甚少。这里，我们结合多核固态核磁共振谱（1H、7Li、14N 和 15N ssNMR）与第一性原理计算，解析 Li3N、LiNH2 和 Li1+xNH2-x 的原子环境和动力学。7Li NMR 和密度泛函理论计算鉴定出共存 α- 和 β-Li3N 相以及四方 LiNH2 中不同的锂位点。1H 和 15N NMR 连同 1H 检测的 14N 光谱，揭示了合成的富锂 Li1+xNH2-x 中两个不同的区域，而实验室 X 射线衍射无法分辨这些区域。与计算的 NMR 参数比较后，将这些区域分别指认为 LiNH2 和 Li2NH。变温 1H-1H 交换光谱显示，两个区域之间的相关性主要源于自旋扩散而非区域间质子交换，表明固溶体内存在纳米尺度结构异质性。局域质子运动发生在 Li2NH 环境中，而在 LiNH2 区域中受到限制。这些结果建立了 Li-N-H 材料中局域结构与质子迁移率之间的分子层面关系，为储氢、固态电池和氨合成提供了相关见解。",
+      "published": "2026-10-08",
+      "author_line": "Ruipeng Luo, Jennifer S. Gómez, Tom Speelman, Benjamin Tatman, Paul Tinnemans, Dinu Iuga, Gilles A. de Wijs, Arno P. M. Kentgens, Evan Wenbo Zhao"
+    },
+    {
+      "id": "biorxiv:10.1101/2025.05.20.654583",
+      "channel": "aixchem",
+      "related_channels": [
+        "aixbio"
+      ],
+      "item_type": "paper",
+      "source": "bioRxiv",
+      "title": "Molecular mechanisms regulating PDE11A4 age-related liquid-liquid phase separation and its reversal by selective PDE11A4-targeted small molecules in cells and brain",
+      "url": "https://www.biorxiv.org/content/10.1101/2025.05.20.654583",
+      "published_at": "2026-10-08",
+      "updated_at": "2026-10-08",
+      "creators": [
+        "Amurrio, E.",
+        "Patel, J.",
+        "Danaher, M.",
+        "Do, H.",
+        "Elzaree, L.",
+        "Fisher, J. L.",
+        "Greene, H.",
+        "Kargbo, P.",
+        "Kim, P.",
+        "Klimentova, E.",
+        "Lin, S.",
+        "Liu, Y.",
+        "Mehboob, M. Y.",
+        "Abdella, S.",
+        "Temesgen, Y.",
+        "Yu, W.",
+        "Mahmood, S. U.",
+        "Rotella, D. P.",
+        "Kelly, M. P."
+      ],
+      "language": "en",
+      "abstract_or_text": "Age-related increases in hippocampal PDE11A expression occur in humans and rodents, causing age-related cognitive decline of social memories. Interestingly, this age-related increase triggers PDE11A4 liquid-liquid phase separation (LLPS), causing the enzyme to condensate in neurons forming filamentous structures termed \"ghost axons\". Here we sought to identify molecular mechanisms regulating PDE11A4 LLPS and its reversal by therapeutic agents. PDE11A4 LLPS was increased by broad kinase inhibition and overactivation of the trans-Golgi network (via TGN38 or RhoB) but suppressed by PDE11A4-pS163, PDE11A4-pS239 or a D355A mutation affecting allosteric cGMP-GAF-A interactions. PDE11Ai inhibitors across three scaffolds rapidly reversed PDE11A LLPS independently of their catalytic effects, pS163 or pS239, but rather--at least in part--by reducing PDE11 homodimerization at the GAF-B domain. PDE11Ais blocked exacerbated LLPS caused by age-related PDE11A4 phosphorylation, kinase disruption, and altered proteostasis in hippocampal HT22 neuronal cells. Further, in hippocampus and amygdala of old mice, oral SMQ-03-20 reversed age-related increases in PDE11A4 condensation in ghost axons and protein expression of immunoglobulin light chains (a marker of increased blood-brain permeability), with direct correlation between the two measures. These findings suggest PDE11A4 LLPS is a regulated and druggable mechanism contributing to age-related hippocampal pathology.\\",
+      "summary_zh": "研究解析了 PDE11A4 年龄相关液-液相分离的调控因素，并显示三类 PDE11Ai 可在细胞中迅速逆转凝聚；老年小鼠口服 SMQ-03-20 后，海马和杏仁核的 PDE11A4 凝聚及血脑屏障渗漏相关标志物均下降。",
+      "why_it_matters_zh": "结果将 PDE11A4 凝聚、衰老脑病理与可药靶变构/二聚化联系起来，为靶向蛋白相分离提供机制线索；但行为和长期疗效、安全性及人类转化证据仍不足。",
+      "quality_score": 70.0,
+      "tags": [
+        "分子与药物发现",
+        "PDE11A4",
+        "液-液相分离",
+        "小分子"
+      ],
+      "evidence_flags": [],
+      "publication_status": "preprint",
+      "rank": 5,
+      "featured": false,
+      "category": "分子与药物发现",
+      "metrics": {},
+      "metadata": {
+        "doi": "10.1101/2025.05.20.654583",
+        "arxiv_id": ""
+      },
+      "abstract_zh": "人类和啮齿动物海马中 PDE11A 表达随年龄增加，导致与年龄相关的社会记忆认知下降。有趣的是，这种年龄相关增加会触发 PDE11A4 液-液相分离（LLPS），使该酶在神经元中凝聚，形成称为“ghost axons”的丝状结构。这里，我们旨在鉴定调控 PDE11A4 LLPS 及其被治疗剂逆转的分子机制。广谱激酶抑制和 trans-Golgi network 过度激活（经由 TGN38 或 RhoB）均增加 PDE11A4 LLPS，而 PDE11A4-pS163、PDE11A4-pS239 或影响变构 cGMP-GAF-A 相互作用的 D355A 突变则抑制其 LLPS。三种骨架的 PDE11Ai 抑制剂均能快速逆转 PDE11A LLPS，且不依赖于其催化效应、pS163 或 pS239；相反，至少部分是通过减少 GAF-B 域处的 PDE11 同二聚化实现。PDE11Ai 阻断了由年龄相关 PDE11A4 磷酸化、激酶扰动以及海马 HT22 神经元细胞中蛋白稳态改变所加剧的 LLPS。此外，在老年小鼠的海马和杏仁核中，口服 SMQ-03-20 逆转了 PDE11A4 在 ghost axons 中凝聚的年龄相关增加，以及免疫球蛋白轻链蛋白表达的增加（后者是血脑屏障通透性增加的标志）；这两项指标直接相关。这些发现提示，PDE11A4 LLPS 是一种受调控且可药靶的机制，可促成与年龄相关的海马病理。",
+      "published": "2026-10-08",
+      "author_line": "Amurrio, E., Patel, J., Danaher, M., Do, H., Elzaree, L., Fisher, J. L., Greene, H., Kargbo, P., Kim, P., Klimentova, E., Lin, S., Liu, Y., Mehboob, M. Y., Abdella, S., Temesgen, Y., Yu, W., Mahmood, S. U., Rotella, D. P., Kelly, M. P."
+    },
+    {
+      "id": "biorxiv:10.64898/2026.10.07.756993",
+      "channel": "aixchem",
+      "related_channels": [
+        "aixbio"
+      ],
+      "item_type": "paper",
+      "source": "bioRxiv",
+      "title": "SCKAnalyzer: A Web Tool for Single-Cycle Kinetics Analysis and Simulation",
+      "url": "https://www.biorxiv.org/content/10.64898/2026.10.07.756993",
+      "published_at": "2026-10-09",
+      "updated_at": "2026-10-09",
+      "creators": [
+        "Malard, F.",
+        "Blanc, J.-M.",
+        "Roubin, E.",
+        "Schafer, T.",
+        "Di Primo, C."
+      ],
+      "language": "en",
+      "abstract_or_text": "Surface plasmon resonance (SPR) and biolayer interferometry (BLI) are well-established label-free analytical technologies used to determine biomolecular interaction rates (ka, kd) and equilibrium constants (KD). While assays historically rely on multi-cycle kinetics (MCK), this approach requires intermediate surface regeneration, risking sensor degradation and increasing reagent consumption. Single-cycle kinetics (SCK) avoids regeneration by sequentially injecting increasing analyte concentrations. However, implementing SCK workflows on biosensor platforms like the OctetRR8 BLI instrument (Sartorius) remains a challenge due to the lack of built-in or online data analysis tools. To address this, we introduce SCKAnalyzer, a free, user-friendly web application designed for processing and fitting SCK datasets. SCKAnalyzer accepts column-based text files and native raw BLI data (.frd format) from Sartorius instruments, performing data pre-processing and non-linear fitting to a 1:1 interaction model. Additionally, it offers advanced simulation capabilities that allow variable association and dissociation durations across sequential injection steps, a feature absent in existing platforms such as BiacoreTMSimul8. The performance of SCKAnalyzer was experimentally validated using a 3-step SCK method (SCK3) for DNA/RNA duplex formation on a Biacore T200, as well as 4-step (SCK4) and 5-step (SCK5) methods for DNA/DNA duplex formation on an OctetRR8 BLI instrument. Binding parameters (ka, kd, KD) derived from SCKAnalyzer showed excellent agreement with values from established proprietary softwares such as Biacore T200 Evaluation Software v3.2.1 and BIAevaluation v4.1.1. SCKAnalyzer provides a practical alternative to MCK, reducing probe consumption and extending SCK utility across biosensor platforms. SCKAnalyzer is available at sck.iecb.u-bordeaux.fr (source code: github.com/synthaze/sckanalyzer).",
+      "summary_zh": "SCKAnalyzer 是处理单循环动力学 SPR/BLI 数据的免费网页工具，支持原始 .frd 文件、1:1 非线性拟合及可变注射时程模拟；在 DNA/RNA 与 DNA/DNA 双链形成实验中，其 ka、kd、KD 与商用软件高度一致。",
+      "why_it_matters_zh": "该工具降低了不经表面再生获取结合动力学参数的实验与分析门槛，适用于生物分子和药物结合研究；当前验证以 1:1 模型和核酸双链体系为主，复杂多价结合体系仍需评估。",
+      "quality_score": 70.0,
+      "tags": [
+        "结构与生物",
+        "SPR",
+        "BLI",
+        "结合动力学"
+      ],
+      "evidence_flags": [
+        "dataset",
+        "github",
+        "experimental",
+        "evaluation",
+        "performance"
+      ],
+      "publication_status": "preprint",
+      "rank": 6,
+      "featured": false,
+      "category": "结构与生物",
+      "metrics": {},
+      "metadata": {
+        "doi": "10.64898/2026.10.07.756993",
+        "arxiv_id": ""
+      },
+      "abstract_zh": "表面等离子体共振（SPR）和生物层干涉（BLI）是成熟的无标记分析技术，用于测定生物分子相互作用速率（ka、kd）和平衡常数（KD）。虽然历史上测定通常依赖多循环动力学（MCK），但这种方法需要中间表面再生，可能造成传感器降解并增加试剂消耗。单循环动力学（SCK）通过顺序注入递增浓度的分析物来避免再生。然而，由于缺乏内置或在线数据分析工具，在诸如 OctetRR8 BLI instrument（Sartorius）等生物传感器平台上实施 SCK 工作流仍具挑战。为解决这一问题，我们推出 SCKAnalyzer：一款免费、用户友好的网页应用，用于处理和拟合 SCK 数据集。SCKAnalyzer 接受列式文本文件和 Sartorius 仪器的原生原始 BLI 数据（.frd format），执行数据预处理并拟合到 1:1 相互作用模型。此外，它还提供高级模拟功能，可在顺序注射步骤中改变缔合和解离时长；这是现有平台如 BiacoreTMSimul8 所不具备的特性。SCKAnalyzer 的性能通过在 Biacore T200 上进行 DNA/RNA 双链形成的三步 SCK 方法（SCK3），以及在 OctetRR8 BLI 上进行 DNA/DNA 双链形成的四步（SCK4）和五步（SCK5）方法得到实验验证。SCKAnalyzer 得出的结合参数（ka、kd、KD）与成熟专有软件如 Biacore T200 Evaluation Software v3.2.1 和 BIAevaluation v4.1.1 的数值高度一致。SCKAnalyzer 为 MCK 提供了实用替代方案，可减少探针消耗，并扩展 SCK 在不同生物传感器平台上的效用。SCKAnalyzer 可在 sck.iecb.u-bordeaux.fr 获得（源代码：github.com/synthaze/sckanalyzer）。",
+      "published": "2026-10-09",
+      "author_line": "Malard, F., Blanc, J.-M., Roubin, E., Schafer, T., Di Primo, C."
+    },
+    {
+      "id": "biorxiv:10.64898/2026.10.01.756023",
+      "channel": "aixchem",
+      "related_channels": [
+        "aixbio"
+      ],
+      "item_type": "paper",
+      "source": "bioRxiv",
+      "title": "Machine learning classifies subcellular Golgi morphology from imaging flow cytometry during inflammatory activation: an exploratory study",
+      "url": "https://www.biorxiv.org/content/10.64898/2026.10.01.756023",
+      "published_at": "2026-10-08",
+      "updated_at": "2026-10-08",
+      "creators": [
+        "Zhang, X.",
+        "Fang, M.",
+        "Geng, B.",
+        "Che, P."
+      ],
+      "language": "en",
+      "abstract_or_text": "Inflammatory activation remodels the Golgi apparatus to meet increased secretory demand, yet whether these structural changes carry computationally accessible information about immune cell state has not been explored. Here we show that machine learning applied to imaging flow cytometry images of the Golgi can distinguish lipopolysaccharide (LPS) treated from control cells. We trained models on Golgi images from human THP-1 monocytes before and 16 h after LPS stimulation in vitro, and from circulating myeloid cells of mice 24 h after intratracheal LPS or saline in vivo. In each dataset, the best-performing model was a deep learning model trained directly on images rather than a classifier using predefined morphometric features. Cross-domain performance varied with the model, transfer direction and use of labelled target data: several deep learning models trained on mouse images classified THP-1 cells above chance without changing model parameters. Grad-CAM highlighted regions within or adjacent to the GM130 fluorescence pattern. These findings indicate that GM130 images carry information associated with LPS treatment that supports classification within and across the two datasets. To our knowledge, this is the first application of supervised deep learning to imaging flow cytometry images of a subcellular organelle for inflammatory phenotyping, establishing organelle level image analysis as a potential complement to molecular assays for immune cell classification.",
+      "summary_zh": "该探索性研究用深度学习分析成像流式细胞术中的 GM130 Golgi 图像，以区分 LPS 处理与对照的 THP-1 单核细胞和小鼠髓系细胞；图像端到端模型优于预定义形态特征模型，部分小鼠训练模型可零参数迁移至 THP-1。",
+      "why_it_matters_zh": "工作表明细胞器形态可提供可计算的炎症表型信号，为分子检测提供补充；但研究规模和任务范围有限，跨物种迁移表现依赖模型与方向，不能据此推断形态变化的机制或临床可用性。",
+      "quality_score": 70.0,
+      "tags": [
+        "方法与模型",
+        "深度学习",
+        "成像流式细胞术",
+        "Golgi"
+      ],
+      "evidence_flags": [
+        "dataset",
+        "in vivo",
+        "performance"
+      ],
+      "publication_status": "preprint",
+      "rank": 7,
+      "featured": false,
+      "category": "方法与模型",
+      "metrics": {},
+      "metadata": {
+        "doi": "10.64898/2026.10.01.756023",
+        "arxiv_id": ""
+      },
+      "abstract_zh": "炎症激活会重塑 Golgi apparatus，以满足增加的分泌需求；然而，这些结构变化是否携带可由计算访问的免疫细胞状态信息尚未被探索。这里，我们表明，应用于 Golgi 成像流式细胞术图像的机器学习能够区分 lipopolysaccharide（LPS）处理细胞与对照细胞。我们在体外 LPS 刺激前和刺激后 16 h 的人 THP-1 monocytes 的 Golgi 图像上，以及在气管内给予 LPS 或 saline 后 24 h 的小鼠循环髓系细胞图像上训练模型。在每个数据集中，最佳模型都是直接用图像训练的深度学习模型，而非使用预定义形态学特征的分类器。跨域性能因模型、迁移方向和是否使用带标签的目标数据而异：若干在小鼠图像上训练的深度学习模型，在不改变模型参数的情况下，能够以高于随机水平的表现对 THP-1 细胞进行分类。Grad-CAM 突出了 GM130 荧光图样内部或邻近的区域。这些发现表明，GM130 图像携带与 LPS 处理相关的信息，支持在两个数据集内部及跨数据集进行分类。据我们所知，这是首次将监督式深度学习应用于亚细胞细胞器的成像流式细胞术图像以进行炎症表型分析，它确立了细胞器层面图像分析作为免疫细胞分类中分子测定潜在补充方法的地位。",
+      "published": "2026-10-08",
+      "author_line": "Zhang, X., Fang, M., Geng, B., Che, P."
+    }
+  ],
+  "review": {
+    "model": "gpt-5.6-terra",
+    "reasoning_effort": "high",
+    "note": "从完整候选集中选出 7 项：优先保留直接连接 AI 与化学/生物发现且具实验或多基准证据的工作；合并同一 CLN6 发现的重复预印本，并排除与 AI×Chem 关联不足或证据较弱的项目。"
+  }
+}

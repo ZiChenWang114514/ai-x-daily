@@ -1,397 +1,665 @@
 {
   "schema_version": "2.0",
-  "date": "2026-10-12",
+  "date": "2026-10-13",
   "channel": "aixchem",
-  "generated_at": "2026-10-11T22:09:59+00:00",
+  "generated_at": "2026-10-12T22:02:24+00:00",
   "title": "AI × Chem 每日精选",
   "subtitle": "预印本、方法、数据集与实验验证的每日精选。",
   "window": {
-    "start": "2026-10-08",
-    "end": "2026-10-12"
+    "start": "2026-10-10",
+    "end": "2026-10-13"
   },
   "method": "公开来源采集、历史去重、规则筛选与模型审阅",
   "method_note": "系统保存当日公开元数据，与历史日报核验后排除已报道事件；论文新版本、新修订及不同软件发布等可核实更新仍可入选，随后由指定模型阅读全文摘要并完成精选。",
   "stats": {
-    "fetched": 1597,
-    "suppressed_previous": 70,
+    "fetched": 585,
+    "suppressed_previous": 12,
     "candidates": 60,
-    "selected": 7,
+    "selected": 13,
     "sources": {
-      "arXiv": 508,
-      "bioRxiv": 952,
-      "ChemRxiv": 148
+      "arXiv": 0,
+      "bioRxiv": 495,
+      "ChemRxiv": 93
     }
   },
   "source_status": {
     "arXiv": {
-      "state": "ok",
-      "count": 508
+      "state": "empty",
+      "count": 0
     },
     "bioRxiv": {
       "state": "ok",
-      "count": 952
+      "count": 495
     },
     "ChemRxiv": {
       "state": "ok",
-      "count": 148
+      "count": 93
     }
   },
   "source_errors": [],
   "items": [
     {
-      "id": "biorxiv:10.64898/2026.10.05.756918",
+      "id": "chemrxiv:10.26434/chemrxiv.15010253/v1",
       "channel": "aixchem",
-      "related_channels": [
-        "aixbio"
-      ],
+      "related_channels": [],
       "item_type": "paper",
-      "source": "bioRxiv",
-      "title": "Filling the Missing Puzzle: Integrating Interaction and Evolutionary Information to Enhance Protein Fitness Prediction in Inverse Folding",
-      "url": "https://www.biorxiv.org/content/10.64898/2026.10.05.756918",
-      "published_at": "2026-10-11",
-      "updated_at": "2026-10-11",
+      "source": "ChemRxiv",
+      "title": "CP-GFM-SGX: Topology-Aware Cyclic Peptide Generation and Design with Receptor-Conditioned Structural Evaluation and Experimental KRAS Affinity Optimization",
+      "url": "https://doi.org/10.26434/chemrxiv.15010253/v1",
+      "published_at": "2026-10-12",
+      "updated_at": "2026-10-12",
       "creators": [
-        "Wang, Z.",
-        "Zhang, Z.",
-        "Yang, Y.",
-        "Qu, Y.",
-        "Mu, Y.",
-        "Wang, S.",
-        "Han, N.",
-        "Zheng, L.",
-        "Li, W."
+        "Zhiyuan Hu",
+        "Russell Dillworth"
       ],
       "language": "en",
-      "abstract_or_text": "Protein inverse folding, which infers compatible amino acid sequences from a given backbone structure, is central to rational protein design. Current methods rely largely on sequence recovery rate as the evaluation metric, emphasizing structural compatibility but seldom addressing function. Yet functional activity depends on the proper network of non-covalent interactions-protein-ligand contacts being a prime example. We argue that function-oriented protein design is governed by three complementary constraints: structural, interaction, and evolutionary, none of which are handled in a unified manner by existing pretrained models. To bridge this gap, we introduce zPolaron, a graph neural network built on protein-ligand complexes for functional protein design. zPolaron represents residues and ligand atoms as a heterogeneous graph and jointly encodes structural, interaction, and evolutionary information by fusing physical-interaction-enhanced graph representations with ESM-2 embeddings. Across multiple fitness prediction benchmarks, zPolaron outperforms all baselines, with gains evident across structural, interaction, and evolutionary dimensions. Wet-lab experiments further confirm its utility in functional enzyme screening and design: the optimized CalA6-D205A-S160G mutant achieves a 17.84-fold improvement in activity, while the CalB-I121M mutant yields a 1.91-fold increase. Together, these results show that integrating interaction and evolutionary information fills the missing puzzle of inverse folding, enhancing protein fitness prediction beyond structural compatibility. zPolaron is available at https://github.com/zelixirSH/zPolaron.",
-      "summary_zh": "zPolaron 将蛋白—配体相互作用、结构和进化信息整合到异质图神经网络中，用于功能导向的逆折叠与蛋白适应度预测；除多项基准外，作者还以 CalA6-D205A-S160G 和 CalB-I121M 的湿实验验证了活性提升。",
-      "why_it_matters_zh": "把配体接触显式纳入逆折叠模型，有望让蛋白设计从“序列恢复”更接近功能优化；但活性验证集中于少数突变体，跨蛋白家族和真实设计闭环的泛化仍需独立检验。",
-      "quality_score": 70.0,
+      "abstract_or_text": "Cyclic-peptide discovery requires molecular topology, atomic structure, receptor-associated evidence and computational decisions to remain consistent across a multistage workflow. We present CP-GFM-SGX, an all-atom generative AI model for cyclic-peptide design that integrates a topology-aware generative core with a Unified Evidence State Machine (UESM) to track candidate identity, chemical validity, provenance, typed failures and bounded computation. We evaluated three distinct aspects of the system. In Track A, a frozen five-complex known-ligand benchmark with 100 scheduled poses per complex, the native-free FULL route selected a ligand-backbone pose with root-mean-square deviation (RMSD) below 2 Å in four of five systems; retrospective best-of-100 evaluation found a sub-2-Å pose in all five (median selected RMSD, 1.72 Å). In Track B, matched true-pocket versus shuffled-pocket comparisons favored the specified pocket in all seven main targets (median of target medians, +172.6 Rosetta energy units; weakest margin, +3.9 for MCL-1–9CDT). An exploratory post-protocol assessor admitted 42/42, 42/42 and 40/42 selected top-K slots in the full, condition-masked and post hoc head-to-tail arms, respectively. In Track C, FULL UESM produced the specified protective outcomes for six deterministic synthetic fault fixtures and one additional missing-evidence case; targeted ablations isolated the roles of provenance and failure propagation. In a separate KRAS G12D–GDP experimental-feedback series, synthesis and SPR/BLI testing of cyclic-peptide analogues guided position-2 basic-side-chain selection and dual-basic-group placement, advancing the reported SPR affinity from approximately 60 µM for CRO-748 to approximately 6 µM for 748-R1 and approximately 1 µM for 748-RK. Comparisons using the 31-dimension Structured Capability and Evidence Grid (SCEG-31D) demonstrate that CP-GFM-SGX exhibits certain superiority over other design platforms in multiple aspects. Together, we evaluate a topology-aware generative artificial intelligence workflow for receptor-focused cyclic-peptide design and show, in a KRAS feedback series, how binding measurements guide iterative chemical optimization.",
+      "summary_zh": "提出面向受体的拓扑感知环肽生成系统CP-GFM-SGX，将全原子生成模型与Unified Evidence State Machine（UESM）结合，并通过结构基准、故障注入测试及KRAS G12D实验反馈验证设计流程。",
+      "why_it_matters_zh": "把分子拓扑、受体口袋、证据溯源和失败传播纳入同一工作流，并用SPR/BLI反馈将CRO-748的报告亲和力从约60 μM优化到748-R1的约6 μM和748-RK的约1 μM。需要注意的是，研究为ChemRxiv预印本，部分评估为回顾性或探索性测试，平台间比较的普适性仍需独立实验验证。",
+      "quality_score": 84.0,
       "tags": [
-        "结构与生物",
-        "蛋白质设计",
-        "逆折叠",
-        "图神经网络"
+        "分子与药物发现",
+        "环肽生成",
+        "受体设计",
+        "KRAS",
+        "实验反馈"
       ],
       "evidence_flags": [
         "benchmark",
-        "github",
+        "experimental",
+        "ablation",
         "evaluation"
       ],
       "publication_status": "preprint",
       "rank": 1,
       "featured": true,
-      "category": "结构与生物",
+      "category": "分子与药物发现",
       "metrics": {},
       "metadata": {
-        "doi": "10.64898/2026.10.05.756918",
+        "doi": "10.26434/chemrxiv.15010253/v1",
         "arxiv_id": ""
       },
-      "abstract_zh": "蛋白质逆折叠从给定的骨架结构推断相容的氨基酸序列，是理性蛋白质设计的核心。现有方法在很大程度上依赖序列恢复率作为评价指标，强调结构相容性，却很少处理功能问题。然而，功能活性依赖于恰当的非共价相互作用网络——蛋白质—配体接触便是一个典型例子。我们认为，功能导向的蛋白质设计受结构、相互作用和进化这三类互补约束支配，而现有预训练模型尚未以统一方式处理它们。为弥合这一差距，我们提出 zPolaron：一种建立在蛋白质—配体复合物之上的、用于功能蛋白设计的图神经网络。zPolaron 将残基和配体原子表示为异质图，并通过融合物理相互作用增强的图表示与 ESM-2 嵌入，联合编码结构、相互作用和进化信息。在多个适应度预测基准上，zPolaron 优于所有基线，在结构、相互作用和进化维度上均显示出提升。湿实验进一步证实了其在功能酶筛选和设计中的效用：优化的 CalA6-D205A-S160G 突变体活性提高了 17.84 倍，而 CalB-I121M 突变体提高了 1.91 倍。总之，这些结果表明，整合相互作用和进化信息填补了逆折叠中的缺失环节，使蛋白质适应度预测超越了结构相容性。zPolaron 已发布于 https://github.com/zelixirSH/zPolaron。",
-      "published": "2026-10-11",
-      "author_line": "Wang, Z., Zhang, Z., Yang, Y., Qu, Y., Mu, Y., Wang, S., Han, N., Zheng, L., Li, W."
+      "abstract_zh": "环肽发现要求在多阶段工作流中保持分子拓扑、原子结构、受体相关证据和计算决策的一致性。我们提出CP-GFM-SGX，这是一种用于环肽设计的全原子生成式AI模型，将拓扑感知生成核心与Unified Evidence State Machine（UESM）结合，用于跟踪候选物身份、化学有效性、来源、类型化失败以及有界计算。我们评估了该系统的三个不同方面。在Track A中，针对五个复合物的冻结已知配体基准，每个复合物安排100个姿势；无天然配体信息的FULL路线在五个体系中的四个体系中选出了配体-骨架均方根偏差（RMSD）低于2 Å的姿势；回顾性最佳100个姿势评估则在全部五个体系中都找到了低于2 Å的姿势（选定姿势的RMSD中位数为1.72 Å）。在Track B中，匹配的真实口袋与打乱口袋比较在七个主要靶点中均偏向指定口袋（各靶点中位数的中位数为+172.6 Rosetta能量单位；最弱差值为MCL-1–9CDT的+3.9）。探索性的协议后评估器在full、condition-masked和post hoc head-to-tail三组中分别接纳了42/42、42/42和40/42个选定的top-K位置。在Track C中，FULL UESM针对六个确定性合成故障装置和另一个缺失证据案例产生了预设的保护性结果；靶向消融分析分离出了来源信息和失败传播的作用。在另一组KRAS G12D–GDP实验反馈系列中，环肽类似物的合成和SPR/BLI测试指导了位置2碱性侧链的选择以及双碱性基团的布置，使报告的SPR亲和力从CRO-748的约60 μM提高到748-R1的约6 μM和748-RK的约1 μM。使用31维Structured Capability and Evidence Grid（SCEG-31D）的比较表明，CP-GFM-SGX在多个方面相较其他设计平台具有一定优势。总之，我们评估了一种面向受体的拓扑感知生成式人工智能环肽设计工作流，并在KRAS反馈系列中展示了结合测量如何指导迭代化学优化。",
+      "published": "2026-10-12",
+      "author_line": "Zhiyuan Hu, Russell Dillworth"
     },
     {
-      "id": "biorxiv:10.64898/2026.10.05.755809",
-      "channel": "aixchem",
-      "related_channels": [
-        "aixbio"
-      ],
-      "item_type": "paper",
-      "source": "bioRxiv",
-      "title": "Autonomous AI agents discover reverse transcriptases with tandem repeat arrays",
-      "url": "https://www.biorxiv.org/content/10.64898/2026.10.05.755809",
-      "published_at": "2026-10-11",
-      "updated_at": "2026-10-11",
-      "creators": [
-        "Yoon, P. H.",
-        "Athukoralage, J. S.",
-        "Ameisen, E.",
-        "Kauderer-Abrams, E.",
-        "Perry, N. T.",
-        "Durrant, M. G."
-      ],
-      "language": "en",
-      "abstract_or_text": "Metagenomic databases hold vast quantities of unexplored genetic material that can seed tools for biotechnology and medicine, but discovery is limited by our ability to examine sequence data at scale. Here, we show that large language models (LLMs) in an autonomous harness can alleviate this bottleneck and surface novel molecular systems. We deployed Claude Code instances to survey reverse transcriptase (RT) loci across 1.9 billion protein clusters. Among the top candidates were array-associated RTs (ART), a novel family of jumbo-phage RTs coupled with an array of ~200-nucleotide units and a dedicated partner gene. Session transcripts show that Claude identified the ART family by directly examining its DNA sequences and recognizing the atypical repeats, a behavior attributable to specific Mythos 5 internal signals that respond to repeated DNA. ART arrays are highly expressed and appear as discrete units during Staphylococcus phage infection, suggesting an RT system directed by a repertoire of distinct RNAs. These findings indicate that LLMs can autonomously detect anomalies and drive analyses to initiate biological discoveries.",
-      "summary_zh": "研究以自主运行的 Claude Code 检索 19 亿个蛋白簇中的逆转录酶位点，发现与约 200 nt 重复单元阵列及伙伴基因耦联的 jumbo 噬菌体新型 array-associated RTs（ART）；感染中的表达和离散阵列信号支持其为 RNA 指导系统。",
-      "why_it_matters_zh": "这是将自主 LLM 工作流用于大规模序列异常发现的具体案例，可能扩展生物技术工具的发现空间；不过 ART 的分子功能仍主要是推断，且模型“自主发现”的因果归因需要可复现的对照审计。",
-      "quality_score": 73.0,
-      "tags": [
-        "结构与生物",
-        "自主智能体",
-        "逆转录酶",
-        "宏基因组"
-      ],
-      "evidence_flags": [],
-      "publication_status": "preprint",
-      "rank": 2,
-      "featured": true,
-      "category": "结构与生物",
-      "metrics": {},
-      "metadata": {
-        "doi": "10.64898/2026.10.05.755809",
-        "arxiv_id": ""
-      },
-      "abstract_zh": "宏基因组数据库蕴藏着大量尚未探索的遗传物质，可为生物技术和医学工具提供种子；但我们的发现能力受限于大规模审查序列数据的能力。这里，我们表明，处于自主执行框架中的大语言模型（LLMs）可以缓解这一瓶颈并揭示新的分子系统。我们部署 Claude Code 实例，对 19 亿个蛋白簇中的逆转录酶（RT）位点进行了调查。排名靠前的候选物包括阵列相关 RT（ART）：这是一个新的 jumbo 噬菌体 RT 家族，与一个由约 200 个核苷酸单元组成的阵列及一个专属伙伴基因耦联。会话记录显示，Claude 通过直接检查其 DNA 序列并识别非典型重复序列而鉴定出 ART 家族；这种行为可归因于对重复 DNA 作出响应的特异 Mythos 5 内部信号。ART 阵列高表达，并在 Staphylococcus 噬菌体感染期间表现为离散单元，提示这是一种由一组不同 RNA 指导的 RT 系统。这些发现表明，LLMs 能够自主检测异常并推动分析，从而启动生物学发现。",
-      "published": "2026-10-11",
-      "author_line": "Yoon, P. H., Athukoralage, J. S., Ameisen, E., Kauderer-Abrams, E., Perry, N. T., Durrant, M. G."
-    },
-    {
-      "id": "biorxiv:10.64898/2026.10.07.757477",
-      "channel": "aixchem",
-      "related_channels": [
-        "aixbio"
-      ],
-      "item_type": "paper",
-      "source": "bioRxiv",
-      "title": "The Batten disease gene product CLN6 is a glycerophosphoglycerol epimerase that establishes S,S-BMP stereochemistry",
-      "url": "https://www.biorxiv.org/content/10.64898/2026.10.07.757477",
-      "published_at": "2026-10-09",
-      "updated_at": "2026-10-09",
-      "creators": [
-        "Zhu, Z.",
-        "Xiong, J.",
-        "Maaz, I.",
-        "Matrongolo, M. J.",
-        "Ghoochani, A.",
-        "Chilkunda, C.",
-        "Peng, X.",
-        "Alur, A.",
-        "Porsen, C.",
-        "Schulz, A.",
-        "Cotman, S.",
-        "Gomez-Ospina, N.",
-        "Abu-Remaileh, M."
-      ],
-      "language": "en",
-      "abstract_or_text": "Bis(monoacylglycero)phosphate (BMP), a lysosomal phospholipid essential for lipid catabolism and cholesterol clearance, has a noncanonical S,S glycerol configuration found in no other mammalian phospholipid, a feature necessary for its stability in the lysosome. How cells invert glycerol stereochemistry to build S,S-BMP has remained unexplained since this configuration was discovered five decades ago. Here, we show that the endoplasmic reticulum-resident Batten disease protein CLN6 is a Ca2+-dependent epimerase that isomerizes glycerophosphoglycerol (GPG) from R,S-GPG to S,S-GPG. CLN6-deficient cells, mouse tissues, and patient samples predominantly contain R,S-GPG, S,R-lysophosphatidylglycerol (LPG), and R,S-BMP instead of their S,S counterparts, with a net depletion of BMP. Purified CLN6 catalyzes GPG epimerization in vitro, an activity abolished by a pathogenic substitution in its substrate-binding pocket. Consistently, exogenous S,S-GPG restores BMP synthesis and relieves lipid storage in CLN6-null cells. Our work establishes stereochemical commitment upstream of acylation, placing CLN6, CLN8, and CLN5 in sequence in BMP biosynthesis and unifying the lipid defect across these neurodegenerative disorders.",
-      "summary_zh": "研究鉴定出 Batten 病蛋白 CLN6 是一种 Ca2+-依赖的 glycerophosphoglycerol epimerase，可将 R,S-GPG 转化为 S,S-GPG，从而在 BMP 生物合成中建立关键立体化学；纯化蛋白、细胞、鼠组织和患者样本均支持该结论。",
-      "why_it_matters_zh": "工作解决了 BMP 非常规 S,S 构型来源这一长期问题，并把 CLN6、CLN8、CLN5 接入同一通路；S,S-GPG 补充的救援结果也提示可干预节点，但离体补充能否转化为疾病治疗尚未得到证明。",
-      "quality_score": 70.0,
-      "tags": [
-        "材料与催化",
-        "脂质生物化学",
-        "立体化学",
-        "Batten病"
-      ],
-      "evidence_flags": [],
-      "publication_status": "preprint",
-      "rank": 3,
-      "featured": true,
-      "category": "材料与催化",
-      "metrics": {},
-      "metadata": {
-        "doi": "10.64898/2026.10.07.757477",
-        "arxiv_id": ""
-      },
-      "abstract_zh": "双（单酰基甘油）磷酸（BMP）是一种对脂质分解代谢和胆固醇清除至关重要的溶酶体磷脂，具有其他哺乳动物磷脂中不存在的非经典 S,S 甘油构型；这一特征对于其在溶酶体中的稳定性是必需的。自这种构型在五十年前被发现以来，细胞如何倒转甘油立体化学以构建 S,S-BMP 一直未获解释。这里，我们表明，内质网驻留的 Batten 病蛋白 CLN6 是一种 Ca2+-依赖的 epimerase，可将 glycerophosphoglycerol（GPG）从 R,S-GPG 异构化为 S,S-GPG。CLN6 缺陷细胞、鼠组织和患者样本主要含有 R,S-GPG、S,R-lysophosphatidylglycerol（LPG）和 R,S-BMP，而非其 S,S 对映体，并伴随 BMP 的净耗竭。纯化的 CLN6 能在体外催化 GPG 差向异构化；底物结合口袋中的致病替换会消除该活性。与此一致，外源 S,S-GPG 可恢复 CLN6-null 细胞中的 BMP 合成并缓解脂质贮积。我们的工作在酰化之前确立了立体化学定向步骤，将 CLN6、CLN8 和 CLN5 依次置于 BMP 生物合成中，并统一解释了这些神经退行性疾病中的脂质缺陷。",
-      "published": "2026-10-09",
-      "author_line": "Zhu, Z., Xiong, J., Maaz, I., Matrongolo, M. J., Ghoochani, A., Chilkunda, C., Peng, X., Alur, A., Porsen, C., Schulz, A., Cotman, S., Gomez-Ospina, N., Abu-Remaileh, M."
-    },
-    {
-      "id": "chemrxiv:10.26434/chemrxiv.15010120/v1",
+      "id": "chemrxiv:10.26434/chemrxiv.15010212/v1",
       "channel": "aixchem",
       "related_channels": [],
       "item_type": "paper",
       "source": "ChemRxiv",
-      "title": "Solid-state NMR and first-principle calculations reveal the structure and dynamics of Li-N-H materials",
-      "url": "https://doi.org/10.26434/chemrxiv.15010120/v1",
-      "published_at": "2026-10-08",
-      "updated_at": "2026-10-09",
+      "title": "FMS2Lib: A Machine Learning-Ready Tandem Mass Spectral Library for Nontargeted Analysis of Non-conventional PFAS",
+      "url": "https://doi.org/10.26434/chemrxiv.15010212/v1",
+      "published_at": "2026-10-11",
+      "updated_at": "2026-10-12",
       "creators": [
-        "Ruipeng Luo",
-        "Jennifer S. Gómez",
-        "Tom Speelman",
-        "Benjamin Tatman",
-        "Paul Tinnemans",
-        "Dinu Iuga",
-        "Gilles A. de Wijs",
-        "Arno P. M. Kentgens",
-        "Evan Wenbo Zhao"
+        "Tao Yang",
+        "Xiaoyun Wang",
+        "Diwen Yang",
+        "Elizabeth Xu",
+        "Lifei Wang",
+        "Sonya M. Kleywegt",
+        "Paul Helm",
+        "Frank Wania",
+        "Xianzhi Peng",
+        "Hui Peng"
       ],
       "language": "en",
-      "abstract_or_text": "Lithium-nitrogen-hydrogen (Li-N-H) materials are promising for hydrogen storage, solid-state batteries, and lithium-mediated ammonia synthesis, yet their local structures and proton dynamics remain poorly understood because of compositional disorder and limited sensitivity of conventional diffraction methods. Here, we combine multinuclear solid-state nuclear magnetic resonance spectroscopy (1H, 7Li, 14N, and 15N ssNMR) with first-principles calculations to resolve the atomic environments and dynamics of Li3N, LiNH2, and Li1+xNH2-x (. 7Li NMR and density functional theory calculations identify distinct lithium sites in coexisting α- and β-Li3N phases and in tetragonal LiNH2. 1H and 15N NMR, together with 1H-detected 14N spectroscopy, reveal two distinct domains in synthesized lithium-rich Li1+xNH2-x that are not resolved by laboratory X-ray diffraction. Comparison with calculated NMR parameters assigns these domains to LiNH2 and Li2NH, respectively. Variable-temperature 1H-1H exchange spectroscopy shows that correlations between the two domains arise predominantly from spin diffusion rather than interdomain proton exchange, indicating nanoscale structural heterogeneity within a solid solution. Local proton motion occurs within the Li2NH environment and is restricted in the LiNH­2 domains. These results establish a molecular-level relationship between local structure and proton mobility in Li-N-H materials, providing insights relevant to hydrogen storage, solid-state batteries, and ammonia synthesis.",
-      "summary_zh": "作者将多核固态 NMR 与第一性原理计算结合，解析 Li3N、LiNH2 和锂富 Li1+xNH2-x 的局域结构与质子动力学，识别出 XRD 未分辨的 LiNH2/Li2NH 纳米尺度异质域。",
-      "why_it_matters_zh": "这为 Li–N–H 储氢、固态电池和锂介导氨合成材料建立了局域结构—质子迁移之间的实验和计算联系；结论目前集中于所考察的组成与合成样品，尚需检验其在器件工况下的可迁移性。",
+      "abstract_or_text": "Nontargeted identification of non-conventional per- and polyfluoroalkyl substances (PFAS), including fluorinated pharmaceuticals and pesticides, remains challenging. Existing machine learning models for nontargeted analysis, primarily trained on tandem mass spectra of nonfluorinated compounds, may not generalize well to non-conventional PFAS because of their distinct mass spectrometric chemistry. Here, we established FMS2Lib, an experimental tandem mass spectral library containing 34,686 fluorinated drug-like compounds (F 1-4 ), to support machine learning-based nontargeted PFAS analysis. We demonstrated that training with FMS2Lib substantially improved the performance of existing models for both molecular formula prediction and structure annotation. We further applied these models to identify PFAS in passive samplers from wastewater effluents and surface waters and in high-throughput laboratory biotransformation experiments, revealing dozens of non-conventional PFAS and their biotransformation products. Collectively, FMS2Lib addresses a major data bottleneck in machine learning-based nontargeted analysis of non-conventional PFAS.",
+      "summary_zh": "建立包含34,686种含氟类药物化合物串联质谱的FMS2Lib库，并将其用于非靶向PFAS的机器学习分子式预测和结构注释。",
+      "why_it_matters_zh": "针对非传统PFAS缺少训练数据这一瓶颈，数据集不仅提升模型性能，还在废水、地表水和生物转化实验中发现了数十种PFAS及其产物。局限在于摘要未给出具体性能增幅和外部验证细节，且应用对象集中于含氟化合物。",
+      "quality_score": 71.0,
+      "tags": [
+        "方法与模型",
+        "PFAS",
+        "质谱库",
+        "非靶向分析",
+        "机器学习"
+      ],
+      "evidence_flags": [
+        "experimental",
+        "performance"
+      ],
+      "publication_status": "preprint",
+      "rank": 2,
+      "featured": true,
+      "category": "方法与模型",
+      "metrics": {},
+      "metadata": {
+        "doi": "10.26434/chemrxiv.15010212/v1",
+        "arxiv_id": ""
+      },
+      "abstract_zh": "非靶向鉴定非传统全氟和多氟烷基物质（PFAS），包括含氟药物和农药，仍然具有挑战性。现有用于非靶向分析的机器学习模型主要用非氟化合物的串联质谱训练，因此可能无法很好地泛化到非传统PFAS，因为后者具有不同的质谱化学性质。在此，我们建立了FMS2Lib，这是一个实验串联质谱库，包含34,686种含氟类药物化合物（F 1-4），用于支持基于机器学习的非靶向PFAS分析。我们证明，使用FMS2Lib进行训练能够显著提升现有模型在分子式预测和结构注释两项任务上的性能。随后，我们将这些模型应用于废水出水和地表水中的被动采样器，以及高通量实验室生物转化实验，发现了数十种非传统PFAS及其生物转化产物。总体而言，FMS2Lib解决了基于机器学习的非靶向分析中非传统PFAS数据不足这一主要瓶颈。",
+      "published": "2026-10-11",
+      "author_line": "Tao Yang, Xiaoyun Wang, Diwen Yang, Elizabeth Xu, Lifei Wang, Sonya M. Kleywegt, Paul Helm, Frank Wania, Xianzhi Peng, Hui Peng"
+    },
+    {
+      "id": "biorxiv:10.64898/2026.10.04.756538",
+      "channel": "aixchem",
+      "related_channels": [
+        "aixbio"
+      ],
+      "item_type": "paper",
+      "source": "bioRxiv",
+      "title": "CHORUS: A proteome-scale atlas of membrane interaction interfaces constructed using cross-protein language model embeddings from sequences alone",
+      "url": "https://www.biorxiv.org/content/10.64898/2026.10.04.756538",
+      "published_at": "2026-10-11",
+      "updated_at": "2026-10-11",
+      "creators": [
+        "Zhao, J.",
+        "Huang, S.",
+        "Sun, J."
+      ],
+      "language": "en",
+      "abstract_or_text": "Membrane proteins drive vital cellular signaling and bioenergetics yet resolving their physical interaction interfaces remains hindered by the paucity of experimental complexes and the breakdown of sequence alignments across hydrophobic bilayers. Here, we present CHORUS, a sequence-only deep-learning framework that decodes interaction sites across membrane proteins without requiring 3D structures, multiple sequence alignments (MSAs), or predefined partner identities. By systematically synthesizing complementary latent representations across diverse protein language model (pLM) families and functional layer depths, CHORUS outperforms 18 established sequence- and structure-based methods across 4,655 homology-isolated test contexts (average precision: 0.643), demonstrating amplified predictive capacity within the lipid-embedded core (0.746). We show that CHORUS delineates quaternary contact boundaries across megadalton respiratory supercomplexes directly from sequences alone (0.984). We deliver the CHORUS Atlas (https://chorus.atlas.sunnylab.org), providing precomputed, residue-resolved interaction landscapes for 80,619 reviewed transmembrane proteins spanning 4,918 species and 33.7 million residues to empower interactome-scale discovery and allosteric therapeutic design.",
+      "summary_zh": "提出仅依赖序列的膜蛋白相互作用界面预测框架CHORUS，整合不同蛋白语言模型和层深表示，构建覆盖80,619种跨膜蛋白的残基分辨率交互图谱。",
+      "why_it_matters_zh": "在缺乏实验复合物、序列比对和三维结构时仍能预测膜内接触界面，并在4,655个同源隔离测试情境中超过18种既有方法；大规模Atlas为互作组发现和变构药物设计提供了可复用资源。摘要未说明实验验证的具体类型，预测性能仍可能受数据分布和模型外推限制。",
       "quality_score": 70.0,
       "tags": [
-        "材料与催化",
-        "固态NMR",
-        "第一性原理计算",
-        "锂氮氢材料"
+        "结构与生物",
+        "膜蛋白",
+        "蛋白语言模型",
+        "相互作用界面",
+        "Atlas"
+      ],
+      "evidence_flags": [
+        "experimental"
+      ],
+      "publication_status": "preprint",
+      "rank": 3,
+      "featured": true,
+      "category": "结构与生物",
+      "metrics": {},
+      "metadata": {
+        "doi": "10.64898/2026.10.04.756538",
+        "arxiv_id": ""
+      },
+      "abstract_zh": "膜蛋白驱动重要的细胞信号传导和生物能量过程，但由于实验复合物稀缺以及疏水双层中序列比对失效，解析其物理相互作用界面仍然受限。在此，我们提出CHORUS，这是一种仅基于序列的深度学习框架，无需3D结构、多序列比对（MSA）或预先指定的互作伙伴，即可解析膜蛋白上的相互作用位点。通过系统整合不同蛋白语言模型（pLM）家族和功能层深度的互补潜在表示，CHORUS在4,655个同源隔离测试情境中超过18种既有的序列和结构方法（平均精确率为0.643），并在脂质嵌入核心区域表现出更高的预测能力（0.746）。我们展示了CHORUS能够仅从序列直接描绘兆道尔顿级呼吸超复合体中的四级接触边界（0.984）。我们发布了CHORUS Atlas（https://chorus.atlas.sunnylab.org），为覆盖4,918个物种的80,619种经审核跨膜蛋白、共计3,370万残基提供预计算的残基分辨率相互作用图谱，以支持互作组尺度的发现和变构治疗设计。",
+      "published": "2026-10-11",
+      "author_line": "Zhao, J., Huang, S., Sun, J."
+    },
+    {
+      "id": "biorxiv:10.64898/2026.10.09.757855",
+      "channel": "aixchem",
+      "related_channels": [],
+      "item_type": "paper",
+      "source": "bioRxiv",
+      "title": "Modular Cell-Free Extract Mixing Enables Soluble, Active Biomanufacturing of Difficult-to-Express and Aggregation-Prone Proteins",
+      "url": "https://www.biorxiv.org/content/10.64898/2026.10.09.757855",
+      "published_at": "2026-10-12",
+      "updated_at": "2026-10-12",
+      "creators": [
+        "Firmansyah, L.",
+        "Delmundo, A.",
+        "Oza, J. P."
+      ],
+      "language": "en",
+      "abstract_or_text": "Cell-free protein synthesis (CFPS) is a powerful platform for rapid protein prototyping and biomanufacturing, but expression of complex proteins remains limited by labor-intensive extract preparation as well as the inability of conventional Escherichia coli extracts to efficiently support disulfide bond formation and prevent protein aggregation. We previously developed a Cell-Free Autoinduction (CFAI) workflow that simplifies extract preparation, however, CFAI-derived extracts retain the folding limitations of standard E. coli systems for producing traditionally difficult proteins. Here, we address these challenges by utilizing extracts enriched with molecular chaperones or Erv1p-based oxidative folding catalysts and combining them through a modular extract mixing strategy to enable independent tuning of the cell-free folding environment. This workflow supplies folding factors through enriched extracts, avoiding recurring purchases of purified supplements and enabling a modeled reagent-cost advantage. To evaluate real-world applications and utility of lysate mixing for protein production, we demonstrate a 10-fold increase in solubility of the aggregation-prone bacterial toxin Colicin M, achieving >95% soluble protein while retaining antimicrobial activity. We further used a Design of Experiments (DoE) framework to optimize combinations of chaperone-enriched and Erv1p-based oxidative folding extracts containing either protein disulfide isomerase (PDI) or DsbC. The optimized compositions produced >95% soluble truncated human tissue plasminogen activator (vtPA), comprising the kringle 2 and protease domains, while preserving enzymatic activity. Together, these results demonstrate that CFAI-derived modular extract mixing provides a tunable, high-throughput strategy with low modeled materials costs for tailoring cell-free biochemical environments for difficult-to-express proteins, expanding CFPS utility for protein engineering and biomanufacturing.",
+      "summary_zh": "通过模块化混合富含分子伴侣或Erv1p氧化折叠催化剂的无细胞提取物，改善难表达和易聚集蛋白的可溶性、活性和规模化生产。",
+      "why_it_matters_zh": "该方法在Colicin M和截短人组织型纤溶酶原激活剂（vtPA）中均实现超过95%的可溶蛋白，并保留抗菌或酶活性，显示出CFPS工艺调控价值。摘要没有明确的AI建模成分，材料成本优势也是模型估算，因此其AI×Chem相关性和经济性仍需谨慎解读。",
+      "quality_score": 76.0,
+      "tags": [
+        "结构与生物",
+        "无细胞蛋白合成",
+        "蛋白折叠",
+        "生物制造"
       ],
       "evidence_flags": [],
       "publication_status": "preprint",
       "rank": 4,
       "featured": false,
-      "category": "材料与催化",
+      "category": "结构与生物",
       "metrics": {},
       "metadata": {
-        "doi": "10.26434/chemrxiv.15010120/v1",
+        "doi": "10.64898/2026.10.09.757855",
         "arxiv_id": ""
       },
-      "abstract_zh": "锂—氮—氢（Li-N-H）材料有望用于储氢、固态电池和锂介导氨合成；然而，由于组成无序以及常规衍射方法灵敏度有限，其局域结构和质子动力学仍知之甚少。这里，我们结合多核固态核磁共振谱（1H、7Li、14N 和 15N ssNMR）与第一性原理计算，解析 Li3N、LiNH2 和 Li1+xNH2-x 的原子环境和动力学。7Li NMR 和密度泛函理论计算鉴定出共存 α- 和 β-Li3N 相以及四方 LiNH2 中不同的锂位点。1H 和 15N NMR 连同 1H 检测的 14N 光谱，揭示了合成的富锂 Li1+xNH2-x 中两个不同的区域，而实验室 X 射线衍射无法分辨这些区域。与计算的 NMR 参数比较后，将这些区域分别指认为 LiNH2 和 Li2NH。变温 1H-1H 交换光谱显示，两个区域之间的相关性主要源于自旋扩散而非区域间质子交换，表明固溶体内存在纳米尺度结构异质性。局域质子运动发生在 Li2NH 环境中，而在 LiNH2 区域中受到限制。这些结果建立了 Li-N-H 材料中局域结构与质子迁移率之间的分子层面关系，为储氢、固态电池和氨合成提供了相关见解。",
-      "published": "2026-10-08",
-      "author_line": "Ruipeng Luo, Jennifer S. Gómez, Tom Speelman, Benjamin Tatman, Paul Tinnemans, Dinu Iuga, Gilles A. de Wijs, Arno P. M. Kentgens, Evan Wenbo Zhao"
+      "abstract_zh": "无细胞蛋白合成（CFPS）是快速蛋白原型开发和生物制造的强大平台，但复杂蛋白的表达仍受到提取物制备劳动密集，以及常规Escherichia coli提取物难以有效支持二硫键形成和防止蛋白聚集的限制。我们此前开发了Cell-Free Autoinduction（CFAI）工作流以简化提取物制备；然而，CFAI衍生提取物在生产传统上难以表达的蛋白时仍保留标准Escherichia coli体系的折叠局限。在此，我们使用富含分子伴侣或基于Erv1p的氧化折叠催化剂的提取物，并通过模块化提取物混合策略将它们组合，从而能够独立调节无细胞折叠环境。该工作流通过富集提取物提供折叠因子，避免反复购买纯化补充剂，并带来模型估算的试剂成本优势。为评估裂解液混合用于蛋白生产的实际应用和效用，我们展示了聚集倾向性细菌毒素Colicin M的可溶性提高10倍，在保留抗菌活性的同时达到超过95%的可溶蛋白。我们还使用实验设计（DoE）框架，优化富含分子伴侣的提取物与基于Erv1p的氧化折叠提取物的组合，其中后者含有蛋白质二硫键异构酶（PDI）或DsbC。优化后的配方使截短的人组织型纤溶酶原激活剂（vtPA）（包含kringle 2和protease结构域）达到超过95%的可溶蛋白，同时保留酶活性。总体而言，这些结果表明，CFAI衍生的模块化提取物混合提供了一种可调、高通量且材料成本模型较低的策略，可为难表达蛋白定制无细胞生化环境，扩大CFPS在蛋白工程和生物制造中的应用。",
+      "published": "2026-10-12",
+      "author_line": "Firmansyah, L., Delmundo, A., Oza, J. P."
     },
     {
-      "id": "biorxiv:10.1101/2025.05.20.654583",
+      "id": "chemrxiv:10.26434/chemrxiv.15010245/v1",
       "channel": "aixchem",
       "related_channels": [
-        "aixbio"
+        "aixmath"
       ],
       "item_type": "paper",
-      "source": "bioRxiv",
-      "title": "Molecular mechanisms regulating PDE11A4 age-related liquid-liquid phase separation and its reversal by selective PDE11A4-targeted small molecules in cells and brain",
-      "url": "https://www.biorxiv.org/content/10.1101/2025.05.20.654583",
-      "published_at": "2026-10-08",
-      "updated_at": "2026-10-08",
+      "source": "ChemRxiv",
+      "title": "From Vacuum Geometry to Solution-Phase Electronic Properties and Thermodynamics via Equivariant Neural Networks",
+      "url": "https://doi.org/10.26434/chemrxiv.15010245/v1",
+      "published_at": "2026-10-11",
+      "updated_at": "2026-10-12",
       "creators": [
-        "Amurrio, E.",
-        "Patel, J.",
-        "Danaher, M.",
-        "Do, H.",
-        "Elzaree, L.",
-        "Fisher, J. L.",
-        "Greene, H.",
-        "Kargbo, P.",
-        "Kim, P.",
-        "Klimentova, E.",
-        "Lin, S.",
-        "Liu, Y.",
-        "Mehboob, M. Y.",
-        "Abdella, S.",
-        "Temesgen, Y.",
-        "Yu, W.",
-        "Mahmood, S. U.",
-        "Rotella, D. P.",
-        "Kelly, M. P."
+        "Mathias Hilfiker",
+        "Lorenzo D’Amore",
+        "Dries Van Rompaey",
+        "Marco Klähn",
+        "Ola Engkvist",
+        "Alexandre Tkatchenko",
+        "Leonardo Medrano Sandonas"
       ],
       "language": "en",
-      "abstract_or_text": "Age-related increases in hippocampal PDE11A expression occur in humans and rodents, causing age-related cognitive decline of social memories. Interestingly, this age-related increase triggers PDE11A4 liquid-liquid phase separation (LLPS), causing the enzyme to condensate in neurons forming filamentous structures termed \"ghost axons\". Here we sought to identify molecular mechanisms regulating PDE11A4 LLPS and its reversal by therapeutic agents. PDE11A4 LLPS was increased by broad kinase inhibition and overactivation of the trans-Golgi network (via TGN38 or RhoB) but suppressed by PDE11A4-pS163, PDE11A4-pS239 or a D355A mutation affecting allosteric cGMP-GAF-A interactions. PDE11Ai inhibitors across three scaffolds rapidly reversed PDE11A LLPS independently of their catalytic effects, pS163 or pS239, but rather--at least in part--by reducing PDE11 homodimerization at the GAF-B domain. PDE11Ais blocked exacerbated LLPS caused by age-related PDE11A4 phosphorylation, kinase disruption, and altered proteostasis in hippocampal HT22 neuronal cells. Further, in hippocampus and amygdala of old mice, oral SMQ-03-20 reversed age-related increases in PDE11A4 condensation in ghost axons and protein expression of immunoglobulin light chains (a marker of increased blood-brain permeability), with direct correlation between the two measures. These findings suggest PDE11A4 LLPS is a regulated and druggable mechanism contributing to age-related hippocampal pathology.\\",
-      "summary_zh": "研究解析了 PDE11A4 年龄相关液-液相分离的调控因素，并显示三类 PDE11Ai 可在细胞中迅速逆转凝聚；老年小鼠口服 SMQ-03-20 后，海马和杏仁核的 PDE11A4 凝聚及血脑屏障渗漏相关标志物均下降。",
-      "why_it_matters_zh": "结果将 PDE11A4 凝聚、衰老脑病理与可药靶变构/二聚化联系起来，为靶向蛋白相分离提供机制线索；但行为和长期疗效、安全性及人类转化证据仍不足。",
-      "quality_score": 70.0,
+      "abstract_or_text": "We introduce a general framework for predicting solution-phase quantum-mechanical (QM) properties of drug-like molecules directly from gas-phase geometries, without solvent-specific structural optimization or property calculations. Using current equivariant neural network (ENN) architectures, such as MACE and Allegro, we demonstrate that they can also predict extensive and intensive QM properties in implicit water at a high level of theory. Direct-and ∆-learning strategies are employed for this prediction task using the Aquamarine dataset, which provides QM properties for the same molecules in both environments. The developed models are systematically evaluated for scalability to larger molecules, transferability across chemical space, and generalization to out-of-equilibrium configurations. Our results show that, despite substantial differences between gas-and solution-phase conformational ensembles, the models can accurately reconstruct ensemble-averaged solution-phase properties from gas-phase molecular dynamics. We further integrate the learned QM properties into the QUEDsol framework (“QUantum Electronic Descriptors in SOLution”) as electronic descriptors for hydration free-energy prediction. A simple and interpretable quadratic regression model trained on the FreeSolv dataset achieves state-of-the-art performance on the challenging and chemically diverse FlexiSol benchmark, outperforming previously reported QM-and ML-based approaches. These results establish ENNs as a versatile approach for inter-phase molecular property prediction and demonstrate that environment-specific QM descriptors generated from gas-phase geometries can provide transferable inputs for complex thermodynamic modeling.",
+      "summary_zh": "利用等变神经网络从气相几何直接预测药物样分子的溶液相量子力学性质，并将学习到的电子描述符用于水合自由能建模。",
+      "why_it_matters_zh": "方法避免逐分子进行溶剂特异性结构优化，在Aquamarine、FreeSolv和FlexiSol上检验了规模扩展、化学空间迁移和非平衡构象泛化，说明气相分子动力学可提供可迁移的溶液相输入。摘要未报告实验测量验证，性能依赖数据集和隐式水模型。",
+      "quality_score": 78.0,
       "tags": [
         "分子与药物发现",
-        "PDE11A4",
-        "液-液相分离",
-        "小分子"
+        "等变神经网络",
+        "量子化学",
+        "水合自由能",
+        "分子性质"
       ],
-      "evidence_flags": [],
+      "evidence_flags": [
+        "benchmark",
+        "dataset",
+        "state-of-the-art",
+        "performance"
+      ],
       "publication_status": "preprint",
       "rank": 5,
       "featured": false,
       "category": "分子与药物发现",
       "metrics": {},
       "metadata": {
-        "doi": "10.1101/2025.05.20.654583",
+        "doi": "10.26434/chemrxiv.15010245/v1",
         "arxiv_id": ""
       },
-      "abstract_zh": "人类和啮齿动物海马中 PDE11A 表达随年龄增加，导致与年龄相关的社会记忆认知下降。有趣的是，这种年龄相关增加会触发 PDE11A4 液-液相分离（LLPS），使该酶在神经元中凝聚，形成称为“ghost axons”的丝状结构。这里，我们旨在鉴定调控 PDE11A4 LLPS 及其被治疗剂逆转的分子机制。广谱激酶抑制和 trans-Golgi network 过度激活（经由 TGN38 或 RhoB）均增加 PDE11A4 LLPS，而 PDE11A4-pS163、PDE11A4-pS239 或影响变构 cGMP-GAF-A 相互作用的 D355A 突变则抑制其 LLPS。三种骨架的 PDE11Ai 抑制剂均能快速逆转 PDE11A LLPS，且不依赖于其催化效应、pS163 或 pS239；相反，至少部分是通过减少 GAF-B 域处的 PDE11 同二聚化实现。PDE11Ai 阻断了由年龄相关 PDE11A4 磷酸化、激酶扰动以及海马 HT22 神经元细胞中蛋白稳态改变所加剧的 LLPS。此外，在老年小鼠的海马和杏仁核中，口服 SMQ-03-20 逆转了 PDE11A4 在 ghost axons 中凝聚的年龄相关增加，以及免疫球蛋白轻链蛋白表达的增加（后者是血脑屏障通透性增加的标志）；这两项指标直接相关。这些发现提示，PDE11A4 LLPS 是一种受调控且可药靶的机制，可促成与年龄相关的海马病理。",
-      "published": "2026-10-08",
-      "author_line": "Amurrio, E., Patel, J., Danaher, M., Do, H., Elzaree, L., Fisher, J. L., Greene, H., Kargbo, P., Kim, P., Klimentova, E., Lin, S., Liu, Y., Mehboob, M. Y., Abdella, S., Temesgen, Y., Yu, W., Mahmood, S. U., Rotella, D. P., Kelly, M. P."
+      "abstract_zh": "我们提出一个通用框架，可直接从气相几何预测药物样分子的溶液相量子力学（QM）性质，而无需进行溶剂特异性结构优化或性质计算。使用当前的等变神经网络（ENN）架构，例如MACE和Allegro，我们证明这些模型也能在高理论水平下预测隐式水中的广延和强度型QM性质。我们使用提供相同分子在两种环境中QM性质的Aquamarine数据集，采用直接学习和Δ-learning策略完成这一预测任务。我们系统评估了所开发模型对更大分子的可扩展性、跨化学空间的迁移能力以及对非平衡构象的泛化能力。结果表明，尽管气相与溶液相构象系综存在显著差异，模型仍能从气相分子动力学准确重建系综平均的溶液相性质。我们进一步将学习到的QM性质整合到QUEDsol（“QUantum Electronic Descriptors in SOLution”）框架中，作为水合自由能预测的电子描述符。在FreeSolv数据集上训练的简单且可解释的二次回归模型，在具有挑战性且化学多样的FlexiSol基准上取得了state-of-the-art性能，超过此前报道的基于QM和ML的方法。这些结果确立了ENN作为相间分子性质预测的通用方法，并表明由气相几何生成的环境特异性QM描述符可以为复杂热力学建模提供可迁移输入。",
+      "published": "2026-10-11",
+      "author_line": "Mathias Hilfiker, Lorenzo D’Amore, Dries Van Rompaey, Marco Klähn, Ola Engkvist, Alexandre Tkatchenko, Leonardo Medrano Sandonas"
     },
     {
-      "id": "biorxiv:10.64898/2026.10.07.756993",
+      "id": "chemrxiv:10.26434/chemrxiv.15010246/v1",
       "channel": "aixchem",
       "related_channels": [
+        "aixmath",
         "aixbio"
       ],
       "item_type": "paper",
-      "source": "bioRxiv",
-      "title": "SCKAnalyzer: A Web Tool for Single-Cycle Kinetics Analysis and Simulation",
-      "url": "https://www.biorxiv.org/content/10.64898/2026.10.07.756993",
-      "published_at": "2026-10-09",
-      "updated_at": "2026-10-09",
+      "source": "ChemRxiv",
+      "title": "Unleashing AI for preclinical drug development",
+      "url": "https://doi.org/10.26434/chemrxiv.15010246/v1",
+      "published_at": "2026-10-11",
+      "updated_at": "2026-10-12",
       "creators": [
-        "Malard, F.",
-        "Blanc, J.-M.",
-        "Roubin, E.",
-        "Schafer, T.",
-        "Di Primo, C."
+        "Himansu Kumar",
+        "Yankai Yu",
+        "Zhengxiao Yang",
+        "Bowen Wang",
+        "Xi Hu",
+        "Haixia Xu",
+        "Xiaohui Zhan",
+        "Hao Zhou",
+        "Jianguo Wen",
+        "Xiaobo Zhou"
       ],
       "language": "en",
-      "abstract_or_text": "Surface plasmon resonance (SPR) and biolayer interferometry (BLI) are well-established label-free analytical technologies used to determine biomolecular interaction rates (ka, kd) and equilibrium constants (KD). While assays historically rely on multi-cycle kinetics (MCK), this approach requires intermediate surface regeneration, risking sensor degradation and increasing reagent consumption. Single-cycle kinetics (SCK) avoids regeneration by sequentially injecting increasing analyte concentrations. However, implementing SCK workflows on biosensor platforms like the OctetRR8 BLI instrument (Sartorius) remains a challenge due to the lack of built-in or online data analysis tools. To address this, we introduce SCKAnalyzer, a free, user-friendly web application designed for processing and fitting SCK datasets. SCKAnalyzer accepts column-based text files and native raw BLI data (.frd format) from Sartorius instruments, performing data pre-processing and non-linear fitting to a 1:1 interaction model. Additionally, it offers advanced simulation capabilities that allow variable association and dissociation durations across sequential injection steps, a feature absent in existing platforms such as BiacoreTMSimul8. The performance of SCKAnalyzer was experimentally validated using a 3-step SCK method (SCK3) for DNA/RNA duplex formation on a Biacore T200, as well as 4-step (SCK4) and 5-step (SCK5) methods for DNA/DNA duplex formation on an OctetRR8 BLI instrument. Binding parameters (ka, kd, KD) derived from SCKAnalyzer showed excellent agreement with values from established proprietary softwares such as Biacore T200 Evaluation Software v3.2.1 and BIAevaluation v4.1.1. SCKAnalyzer provides a practical alternative to MCK, reducing probe consumption and extending SCK utility across biosensor platforms. SCKAnalyzer is available at sck.iecb.u-bordeaux.fr (source code: github.com/synthaze/sckanalyzer).",
-      "summary_zh": "SCKAnalyzer 是处理单循环动力学 SPR/BLI 数据的免费网页工具，支持原始 .frd 文件、1:1 非线性拟合及可变注射时程模拟；在 DNA/RNA 与 DNA/DNA 双链形成实验中，其 ka、kd、KD 与商用软件高度一致。",
-      "why_it_matters_zh": "该工具降低了不经表面再生获取结合动力学参数的实验与分析门槛，适用于生物分子和药物结合研究；当前验证以 1:1 模型和核酸双链体系为主，复杂多价结合体系仍需评估。",
-      "quality_score": 70.0,
+      "abstract_or_text": "Artificial intelligence (AI) is reshaping preclinical drug development across target discovery, therapeutic design, synthesis, functional characterization and safety assessment. In this review, we present an integrated view of AI across the preclinical pipeline, beginning with target identification, modality selection and representation learning for molecular, protein, structural, cellular and multimodal data. We then examine major generative modeling paradigms including autoregressive, latent-variable, diffusion, flow-based and guided approaches and their applications across small molecules, peptides, enzymes, antibodies, Tcell receptors and mRNA therapeutics. We discuss how these methods support de novo design, structure- and pocket-conditioned generation, sequence–structure co-design, affinity and activity optimization, developability engineering and synthesis-aware discovery. We further review AI-enabled retrosynthesis, reaction prediction and closed-loop experimental optimization, emphasizing the distinction between computational synthesizability and experimentally executable chemistry. Beyond molecular generation, we organize functional prediction from binding and kinetics through target engagement, pharmacological activity, mechanism of action, pathway response and phenotypic outcome. We also examine singlecell perturbation modeling, organoid-based drug-response prediction, toxicity and off-target assessment, and prospective validation across therapeutic modalities. Across these areas, we highlight the importance of uncertainty estimation, out-of-distribution generalization, reproducibility and experimentally grounded benchmarking. Finally, we discuss how integrating generative AI, mechanistic biology and iterative design–make–test–analyze cycles could transform AI from isolated predictive tools into decision-support systems for preclinical drug development.",
+      "summary_zh": "综述AI在临床前药物开发全流程中的应用，从靶点发现、分子与蛋白生成到合成、功能评价、安全性和前瞻性验证，强调不确定性与实验闭环。",
+      "why_it_matters_zh": "提供跨模态、跨治疗形式的统一框架，系统区分计算可合成性与实验可执行化学，并将生成模型、机制生物学和design–make–test–analyze循环联系起来。由于这是ChemRxiv综述，价值主要在于框架整合，具体模型优劣和临床转化结论不能视为原始实验结果。",
+      "quality_score": 93.0,
       "tags": [
-        "结构与生物",
-        "SPR",
-        "BLI",
-        "结合动力学"
+        "分子与药物发现",
+        "临床前药物开发",
+        "生成模型",
+        "实验闭环",
+        "综述"
       ],
       "evidence_flags": [
-        "dataset",
-        "github",
+        "benchmark",
         "experimental",
-        "evaluation",
-        "performance"
+        "prospective",
+        "clinical"
       ],
       "publication_status": "preprint",
       "rank": 6,
       "featured": false,
-      "category": "结构与生物",
+      "category": "分子与药物发现",
       "metrics": {},
       "metadata": {
-        "doi": "10.64898/2026.10.07.756993",
+        "doi": "10.26434/chemrxiv.15010246/v1",
         "arxiv_id": ""
       },
-      "abstract_zh": "表面等离子体共振（SPR）和生物层干涉（BLI）是成熟的无标记分析技术，用于测定生物分子相互作用速率（ka、kd）和平衡常数（KD）。虽然历史上测定通常依赖多循环动力学（MCK），但这种方法需要中间表面再生，可能造成传感器降解并增加试剂消耗。单循环动力学（SCK）通过顺序注入递增浓度的分析物来避免再生。然而，由于缺乏内置或在线数据分析工具，在诸如 OctetRR8 BLI instrument（Sartorius）等生物传感器平台上实施 SCK 工作流仍具挑战。为解决这一问题，我们推出 SCKAnalyzer：一款免费、用户友好的网页应用，用于处理和拟合 SCK 数据集。SCKAnalyzer 接受列式文本文件和 Sartorius 仪器的原生原始 BLI 数据（.frd format），执行数据预处理并拟合到 1:1 相互作用模型。此外，它还提供高级模拟功能，可在顺序注射步骤中改变缔合和解离时长；这是现有平台如 BiacoreTMSimul8 所不具备的特性。SCKAnalyzer 的性能通过在 Biacore T200 上进行 DNA/RNA 双链形成的三步 SCK 方法（SCK3），以及在 OctetRR8 BLI 上进行 DNA/DNA 双链形成的四步（SCK4）和五步（SCK5）方法得到实验验证。SCKAnalyzer 得出的结合参数（ka、kd、KD）与成熟专有软件如 Biacore T200 Evaluation Software v3.2.1 和 BIAevaluation v4.1.1 的数值高度一致。SCKAnalyzer 为 MCK 提供了实用替代方案，可减少探针消耗，并扩展 SCK 在不同生物传感器平台上的效用。SCKAnalyzer 可在 sck.iecb.u-bordeaux.fr 获得（源代码：github.com/synthaze/sckanalyzer）。",
-      "published": "2026-10-09",
-      "author_line": "Malard, F., Blanc, J.-M., Roubin, E., Schafer, T., Di Primo, C."
+      "abstract_zh": "人工智能（AI）正在重塑临床前药物开发，涵盖靶点发现、治疗设计、合成、功能表征和安全性评估。在本综述中，我们对AI在临床前流程中的应用进行整合性梳理，从靶点识别、治疗形式选择以及分子、蛋白质、结构、细胞和多模态数据的表示学习开始。随后，我们考察主要的生成建模范式，包括autoregressive、latent-variable、diffusion、flow-based和guided方法，以及它们在小分子、肽、酶、抗体、Tcell receptors和mRNA therapeutics中的应用。我们讨论这些方法如何支持de novo设计、结构和口袋条件生成、sequence–structure协同设计、亲和力和活性优化、可开发性工程以及合成感知发现。我们进一步综述AI支持的逆合成、反应预测和闭环实验优化，强调计算可合成性与实验上可执行的化学之间的区别。除分子生成之外，我们还组织了从结合和动力学到靶点占有、药理活性、作用机制、通路响应和表型结果的功能预测。我们也考察单细胞扰动建模、基于类器官的药物反应预测、毒性和脱靶评估，以及不同治疗形式的前瞻性验证。在这些领域中，我们强调不确定性估计、分布外泛化、可重复性和以实验为基础的基准测试的重要性。最后，我们讨论如何整合生成式AI、机制生物学和迭代式design–make–test–analyze循环，使AI从孤立的预测工具转变为临床前药物开发的决策支持系统。",
+      "published": "2026-10-11",
+      "author_line": "Himansu Kumar, Yankai Yu, Zhengxiao Yang, Bowen Wang, Xi Hu, Haixia Xu, Xiaohui Zhan, Hao Zhou, Jianguo Wen, Xiaobo Zhou"
     },
     {
-      "id": "biorxiv:10.64898/2026.10.01.756023",
+      "id": "biorxiv:10.64898/2026.06.25.734678",
       "channel": "aixchem",
       "related_channels": [
         "aixbio"
       ],
       "item_type": "paper",
       "source": "bioRxiv",
-      "title": "Machine learning classifies subcellular Golgi morphology from imaging flow cytometry during inflammatory activation: an exploratory study",
-      "url": "https://www.biorxiv.org/content/10.64898/2026.10.01.756023",
-      "published_at": "2026-10-08",
-      "updated_at": "2026-10-08",
+      "title": "AI-guided discovery for low-resource peptide engineering using evolutionary scale modeling",
+      "url": "https://www.biorxiv.org/content/10.64898/2026.06.25.734678",
+      "published_at": "2026-10-11",
+      "updated_at": "2026-10-11",
       "creators": [
-        "Zhang, X.",
-        "Fang, M.",
-        "Geng, B.",
-        "Che, P."
+        "Andrekson, L.",
+        "Rydbergh, R.",
+        "Mercado, R.",
+        "Wenzel, M."
       ],
       "language": "en",
-      "abstract_or_text": "Inflammatory activation remodels the Golgi apparatus to meet increased secretory demand, yet whether these structural changes carry computationally accessible information about immune cell state has not been explored. Here we show that machine learning applied to imaging flow cytometry images of the Golgi can distinguish lipopolysaccharide (LPS) treated from control cells. We trained models on Golgi images from human THP-1 monocytes before and 16 h after LPS stimulation in vitro, and from circulating myeloid cells of mice 24 h after intratracheal LPS or saline in vivo. In each dataset, the best-performing model was a deep learning model trained directly on images rather than a classifier using predefined morphometric features. Cross-domain performance varied with the model, transfer direction and use of labelled target data: several deep learning models trained on mouse images classified THP-1 cells above chance without changing model parameters. Grad-CAM highlighted regions within or adjacent to the GM130 fluorescence pattern. These findings indicate that GM130 images carry information associated with LPS treatment that supports classification within and across the two datasets. To our knowledge, this is the first application of supervised deep learning to imaging flow cytometry images of a subcellular organelle for inflammatory phenotyping, establishing organelle level image analysis as a potential complement to molecular assays for immune cell classification.",
-      "summary_zh": "该探索性研究用深度学习分析成像流式细胞术中的 GM130 Golgi 图像，以区分 LPS 处理与对照的 THP-1 单核细胞和小鼠髓系细胞；图像端到端模型优于预定义形态特征模型，部分小鼠训练模型可零参数迁移至 THP-1。",
-      "why_it_matters_zh": "工作表明细胞器形态可提供可计算的炎症表型信号，为分子检测提供补充；但研究规模和任务范围有限，跨物种迁移表现依赖模型与方向，不能据此推断形态变化的机制或临床可用性。",
-      "quality_score": 70.0,
+      "abstract_or_text": "Data scarcity is a major bottleneck in artificial intelligence (AI)-guided peptide engineering, where experimental training sets often contain only tens to a few hundred sequences, and it is difficult to judge in advance whether a protein language model (PLM) will effectively guide iterative discovery before committing to wet-lab work. Here we present SCARSE, a machine learning framework that couples ESM2 protein language model embeddings with Gaussian process regression. Benchmarked across 24 diverse peptide and small-protein datasets spanning substitution and indel variants, antimicrobial peptides, and hemolytic peptides, SCARSE significantly outperformed hand-engineered descriptor baselines on substitution and indel tasks in low-data regimes (20-500 training samples) and performed comparably on short non-mutant peptides. In active learning simulations it consistently prioritized high-performing candidates, discovering up to 7-fold more top-tier peptides than random sampling. Cross-validation (CV) R2 correlated strongly with final active learning performance (Pearson r = 0.80-0.84), and evaluating on as few as 50 labeled peptides reduced CV R2 variance enough for it to serve as a practical, data-efficient criterion for assessing model suitability before iterative screening. SCARSE thus provides an early diagnostic indicator for active learning success and is freely available as an open-source Python package (pip) and through an interactive Hugging Face Spaces web interface.",
+      "summary_zh": "提出SCARSE，将ESM2蛋白语言模型嵌入与高斯过程回归结合，用于低数据肽工程，并以交叉验证R²预判主动学习是否适合迭代筛选。",
+      "why_it_matters_zh": "在20–500个训练样本的多类肽和小蛋白数据集上优于手工描述符，主动学习模拟最多发现7倍的高性能肽，并给出仅需约50个标注肽的模型适用性诊断。主要限制是核心发现来自模拟和交叉验证，尚缺少前瞻性湿实验验证。",
+      "quality_score": 78.0,
       "tags": [
-        "方法与模型",
-        "深度学习",
-        "成像流式细胞术",
-        "Golgi"
+        "分子与药物发现",
+        "低数据学习",
+        "肽工程",
+        "主动学习",
+        "ESM2"
       ],
       "evidence_flags": [
+        "benchmark",
         "dataset",
-        "in vivo",
+        "experimental",
         "performance"
       ],
       "publication_status": "preprint",
       "rank": 7,
       "featured": false,
+      "category": "分子与药物发现",
+      "metrics": {},
+      "metadata": {
+        "doi": "10.64898/2026.06.25.734678",
+        "arxiv_id": ""
+      },
+      "abstract_zh": "数据稀缺是AI指导肽工程的主要瓶颈，因为实验训练集通常只有几十到几百条序列，而且在投入湿实验之前，很难预先判断蛋白语言模型（PLM）是否能有效指导迭代发现。在此，我们提出SCARSE，这是一种将ESM2蛋白语言模型嵌入与高斯过程回归结合的机器学习框架。我们在24个多样化的肽和小蛋白数据集上进行基准测试，这些数据集涵盖替换和indel变体、抗菌肽以及溶血肽。在低数据场景（20–500个训练样本）中，SCARSE在替换和indel任务上显著优于手工设计的描述符基线；在短的非突变肽上，其表现相当。在主动学习模拟中，SCARSE持续优先选择高性能候选物，相比随机采样最多发现7倍的高水平肽。交叉验证（CV）R²与最终主动学习表现高度相关（Pearson r = 0.80–0.84）；在仅有50条带标签肽的情况下进行评估，就能将CV R²的方差降低到足以作为迭代筛选前评估模型适用性的实用、数据高效标准。因此，SCARSE提供了一个主动学习成功可能性的早期诊断指标，并以开源Python软件包（pip）和交互式Hugging Face Spaces网页界面的形式免费提供。",
+      "published": "2026-10-11",
+      "author_line": "Andrekson, L., Rydbergh, R., Mercado, R., Wenzel, M."
+    },
+    {
+      "id": "biorxiv:10.64898/2026.10.05.756880",
+      "channel": "aixchem",
+      "related_channels": [
+        "aixbio"
+      ],
+      "item_type": "paper",
+      "source": "bioRxiv",
+      "title": "Beyond the Final Layer: Evaluating Single-Cell Foundation Model Representations for Molecular Prediction",
+      "url": "https://www.biorxiv.org/content/10.64898/2026.10.05.756880",
+      "published_at": "2026-10-12",
+      "updated_at": "2026-10-12",
+      "creators": [
+        "Wen, M.-C. C.",
+        "Lyu, Y.",
+        "Robbins, A."
+      ],
+      "language": "en",
+      "abstract_or_text": "Single-cell foundation models (scFMs) are commonly benchmarked using final-layer embeddings, although useful depth may depend on the task. We evaluate Geneformer, scBERT, scGPT, and scFoundation as frozen feature extractors for cell-type and perturbation-response prediction using layer-wise probes, leave-one-dataset-out (LODO) selection, readout controls, representation diagnostics, centered kernel alignment (CKA), and retrieval/collapse analyses. Intermediate layers significantly improve cell-type accuracy for scGPT and scBERT in several settings, while Geneformer and scFoundation generally show performance comparable to their final layers. For perturbation prediction, LODO identifies layer 1 as an earliest-on-par candidate across all four models, without establishing universal superiority. Paired scGPT CLS and mean-pooling analyses show that readout affects preferred depth. CKA and representation metrics reveal model- and task-dependent geometric changes, while retrieval and collapse checks support the robustness of perturbation findings. We recommend reporting extraction depth, readout, selection protocol, and task-specific diagnostics. A validated non-final layer may also reduce computation, although efficiency was not directly benchmarked.",
+      "summary_zh": "系统评估Geneformer、scBERT、scGPT和scFoundation的层级表示，发现中间层在部分细胞类型和扰动响应预测任务中优于最终层，并提出规范化报告协议。",
+      "why_it_matters_zh": "指出单细胞基础模型的特征提取深度会影响下游结果，LODO选择、readout对照、CKA和塌缩分析增强了评估严谨性。效率收益尚未直接基准测试，也未证明存在对所有模型和任务都最优的统一层。",
+      "quality_score": 71.0,
+      "tags": [
+        "方法与模型",
+        "单细胞基础模型",
+        "表示学习",
+        "层级探针",
+        "扰动预测"
+      ],
+      "evidence_flags": [
+        "benchmark",
+        "dataset",
+        "performance"
+      ],
+      "publication_status": "preprint",
+      "rank": 8,
+      "featured": false,
       "category": "方法与模型",
       "metrics": {},
       "metadata": {
-        "doi": "10.64898/2026.10.01.756023",
+        "doi": "10.64898/2026.10.05.756880",
         "arxiv_id": ""
       },
-      "abstract_zh": "炎症激活会重塑 Golgi apparatus，以满足增加的分泌需求；然而，这些结构变化是否携带可由计算访问的免疫细胞状态信息尚未被探索。这里，我们表明，应用于 Golgi 成像流式细胞术图像的机器学习能够区分 lipopolysaccharide（LPS）处理细胞与对照细胞。我们在体外 LPS 刺激前和刺激后 16 h 的人 THP-1 monocytes 的 Golgi 图像上，以及在气管内给予 LPS 或 saline 后 24 h 的小鼠循环髓系细胞图像上训练模型。在每个数据集中，最佳模型都是直接用图像训练的深度学习模型，而非使用预定义形态学特征的分类器。跨域性能因模型、迁移方向和是否使用带标签的目标数据而异：若干在小鼠图像上训练的深度学习模型，在不改变模型参数的情况下，能够以高于随机水平的表现对 THP-1 细胞进行分类。Grad-CAM 突出了 GM130 荧光图样内部或邻近的区域。这些发现表明，GM130 图像携带与 LPS 处理相关的信息，支持在两个数据集内部及跨数据集进行分类。据我们所知，这是首次将监督式深度学习应用于亚细胞细胞器的成像流式细胞术图像以进行炎症表型分析，它确立了细胞器层面图像分析作为免疫细胞分类中分子测定潜在补充方法的地位。",
-      "published": "2026-10-08",
-      "author_line": "Zhang, X., Fang, M., Geng, B., Che, P."
+      "abstract_zh": "单细胞基础模型（scFMs）通常使用最终层嵌入进行基准测试，但有用的网络深度可能取决于任务。我们将Geneformer、scBERT、scGPT和scFoundation作为冻结特征提取器进行评估，用于细胞类型和扰动响应预测，并采用逐层探针、留一数据集外（LODO）选择、readout对照、表示诊断、中心化核对齐（CKA）以及检索/塌缩分析。中间层显著提高了scGPT和scBERT在若干设置下的细胞类型准确率，而Geneformer和scFoundation的表现通常与最终层相当。对于扰动预测，LODO在全部四个模型中都将第1层识别为最早达到同等水平的候选层，但并未证明其具有普遍优势。成对比较scGPT的CLS和mean-pooling表明，readout会影响偏好的深度。CKA和表示指标揭示了依赖模型和任务的几何变化，而检索和塌缩检查支持扰动结果的稳健性。我们建议报告特征提取深度、readout、选择协议和任务特异性诊断。经过验证的非最终层还可能降低计算量，但本文没有直接对效率进行基准测试。",
+      "published": "2026-10-12",
+      "author_line": "Wen, M.-C. C., Lyu, Y., Robbins, A."
+    },
+    {
+      "id": "biorxiv:10.64898/2026.10.09.757856",
+      "channel": "aixchem",
+      "related_channels": [
+        "aixbio"
+      ],
+      "item_type": "paper",
+      "source": "bioRxiv",
+      "title": "Probing Physical Intuition in Large Language Models through Partner-Dependent Mutation Prediction",
+      "url": "https://www.biorxiv.org/content/10.64898/2026.10.09.757856",
+      "published_at": "2026-10-12",
+      "updated_at": "2026-10-12",
+      "creators": [
+        "Cheng, L.",
+        "Zheng, K.",
+        "Huang, W.",
+        "Chen, H.-F.",
+        "Yu, Z."
+      ],
+      "language": "en",
+      "abstract_or_text": "Structure-guided mutation design requires relating a proposed substitution to its molecular environment to anticipate its effects. Existing evaluations of large language models (LLMs) in protein engineering emphasize sequence-based prediction or tool-integrated workflows, leaving unclear whether LLMs themselves can infer mutation effects from structural evidence without dedicated predictors. We evaluate physical intuition-qualitative reasoning that connects structural observations with molecular interaction principles-using a benchmark that tests the same substitution in the same protein across different binding partners, with predictions based on local atomic coordinates and no dedicated mutation-effect predictors. In the tested comparisons, the best-performing LLM achieved group accuracy comparable to the evaluated energy predictors and Biomni, an LLM-driven tool workflow, while the methods differed in their prediction patterns. Most evaluated LLMs achieved higher group accuracy for larger affinity improvements. Structural interventions support selective dependence on mutation-site and partner information, while assessable structural claims largely agree with the supplied coordinates. These findings support direct LLM structural reasoning as a basis for developing rational mutation-design tools that connect molecular observations with partner-specific effects.",
+      "summary_zh": "用配对结合伙伴的突变预测基准测试大型语言模型是否能从局部原子坐标和分子相互作用原则推断伙伴依赖的突变效应。",
+      "why_it_matters_zh": "把LLM的结构推理与能量预测器和Biomni工作流进行对照，结果显示最佳LLM在组准确率上相当，并能选择性利用突变位点和伙伴信息。研究规模和比较方法有限，且“物理直觉”仍是间接测量，不能替代定量亲和力实验。",
+      "quality_score": 71.0,
+      "tags": [
+        "结构与生物",
+        "蛋白突变",
+        "结构推理",
+        "大型语言模型",
+        "亲和力"
+      ],
+      "evidence_flags": [
+        "benchmark",
+        "evaluation"
+      ],
+      "publication_status": "preprint",
+      "rank": 9,
+      "featured": false,
+      "category": "结构与生物",
+      "metrics": {},
+      "metadata": {
+        "doi": "10.64898/2026.10.09.757856",
+        "arxiv_id": ""
+      },
+      "abstract_zh": "结构指导的突变设计要求将提出的替换与其分子环境联系起来，以预期其影响。现有对大型语言模型（LLM）在蛋白工程中能力的评估强调基于序列的预测或集成工具的工作流，因此尚不清楚LLM自身能否在没有专用预测器的情况下，从结构证据推断突变效应。我们使用一个基准测试来评估这种连接结构观察与分子相互作用原理的物理直觉式定性推理：在该测试中，同一蛋白中的同一替换被置于不同结合伙伴环境中，模型仅依据局部原子坐标进行预测，不使用专用突变效应预测器。在所测试的比较中，表现最佳的LLM达到了与所评估能量预测器和Biomni（一个由LLM驱动的工具工作流）相当的组准确率，但不同方法的预测模式不同。大多数被评估的LLM在亲和力改善幅度较大的组中取得了更高的组准确率。结构干预支持模型选择性依赖突变位点和伙伴信息，而可评估的结构陈述大体上与所提供的坐标一致。这些发现支持将LLM直接结构推理作为开发理性突变设计工具的基础，使分子观察能够与依赖伙伴的效应相联系。",
+      "published": "2026-10-12",
+      "author_line": "Cheng, L., Zheng, K., Huang, W., Chen, H.-F., Yu, Z."
+    },
+    {
+      "id": "biorxiv:10.64898/2026.10.09.752255",
+      "channel": "aixchem",
+      "related_channels": [],
+      "item_type": "paper",
+      "source": "bioRxiv",
+      "title": "Reformulating Protein Corona Prediction as Universal Protein-conditioned Learning",
+      "url": "https://www.biorxiv.org/content/10.64898/2026.10.09.752255",
+      "published_at": "2026-10-12",
+      "updated_at": "2026-10-12",
+      "creators": [
+        "Wu, X.",
+        "Wang, C.",
+        "Jin, Y.",
+        "Zhao, Y.",
+        "Tang, H."
+      ],
+      "language": "en",
+      "abstract_or_text": "When nanoparticles enter biological environments, their surfaces are rapidly coated by proteins, forming a protein corona that governs their biological identity and downstream responses. Existing computational methods treat each protein as an independent prediction task, preventing the learning of shared adsorption principles and limiting generalization beyond experimentally characterized proteins. Here we introduce NanoPCT, a universal protein-conditioned learning framework that jointly models nanoparticle physicochemical properties and protein sequence representations. Using frozen ESM-2 embeddings and a joint interaction transformer, NanoPCT learns transferable representations of nano-bio interaction patterns across hundreds of proteins and maintains robust performance as protein diversity increases. The learned protein representation further enables zero-shot prediction for previously unseen proteins and biologically distinct protein groups through classifier reconstruction in embedding space. Beyond prediction, NanoPCT supports large-scale in silico inverse design and reveals consistent adsorption preferences between observed and unseen protein populations, suggesting that it captures transferable interaction patterns rather than protein-specific memorization. NanoPCT provides a unified framework for protein corona prediction, zero-shot generalization, and rational nanomaterial design.",
+      "summary_zh": "提出NanoPCT，将纳米颗粒物化性质与蛋白序列表示联合建模，用于蛋白冠预测、未见蛋白零样本泛化和纳米材料逆向设计。",
+      "why_it_matters_zh": "把每个蛋白独立建模改为蛋白条件化的统一学习，并报告在蛋白多样性增加时仍保持性能及对未见蛋白的零样本预测能力，为纳米-生物界面设计提供可迁移表示。摘要未给出实验设计规模和具体误差指标，逆向设计结果主要是in silico推断。",
+      "quality_score": 71.0,
+      "tags": [
+        "材料与催化",
+        "蛋白冠",
+        "纳米材料",
+        "零样本学习",
+        "逆向设计"
+      ],
+      "evidence_flags": [
+        "experimental",
+        "performance"
+      ],
+      "publication_status": "preprint",
+      "rank": 10,
+      "featured": false,
+      "category": "材料与催化",
+      "metrics": {},
+      "metadata": {
+        "doi": "10.64898/2026.10.09.752255",
+        "arxiv_id": ""
+      },
+      "abstract_zh": "当纳米颗粒进入生物环境时，其表面会迅速被蛋白质包覆，形成蛋白冠；蛋白冠决定纳米颗粒的生物学身份及后续响应。现有计算方法将每种蛋白视为独立的预测任务，阻碍了共享吸附规律的学习，并限制了对实验表征之外蛋白的泛化。在此，我们提出NanoPCT，这是一种通用的蛋白条件化学习框架，将纳米颗粒物化性质与蛋白序列表示联合建模。NanoPCT使用冻结的ESM-2嵌入和联合交互Transformer，在数百种蛋白之间学习可迁移的纳米-生物相互作用模式，并在蛋白多样性增加时保持稳健性能。学习到的蛋白表示还通过在嵌入空间中重建分类器，实现了对未见蛋白和生物学上不同蛋白群的零样本预测。除预测之外，NanoPCT支持大规模in silico逆向设计，并揭示了观测到的蛋白群体与未见蛋白群体之间一致的吸附偏好，提示模型捕获的是可迁移的相互作用模式，而不是针对特定蛋白的记忆。NanoPCT为蛋白冠预测、零样本泛化和理性纳米材料设计提供了统一框架。",
+      "published": "2026-10-12",
+      "author_line": "Wu, X., Wang, C., Jin, Y., Zhao, Y., Tang, H."
+    },
+    {
+      "id": "chemrxiv:10.26434/chemrxiv.15010270/v1",
+      "channel": "aixchem",
+      "related_channels": [
+        "aixmath",
+        "aixbio"
+      ],
+      "item_type": "paper",
+      "source": "ChemRxiv",
+      "title": "Drug Molecular and Route Similarity-Aware Retrieval-Augmented LLM Generation with Knowledge Graph for Semantic Reasoning",
+      "url": "https://doi.org/10.26434/chemrxiv.15010270/v1",
+      "published_at": "2026-10-12",
+      "updated_at": "2026-10-12",
+      "creators": [
+        "Jiaxin Lao",
+        "Liansuo Zu"
+      ],
+      "language": "en",
+      "abstract_or_text": "To address the inherent limitations of large language models (LLMs) in chemical synthesis—hallucinations, and low knowledge dense—this study presents a Knowledge Graph–enhanced Retrieval-Augmented Generation framework (KG-RAG-LLM) with a multi-scale calculation of molecular and route similarity. Empirical evaluations demonstrate that KG-RAG-LLM significantly mitigates hallucinations, increasing the proportion of concrete chemical information in generated responses to 39.52%–40.87%, drastically outperforming baseline LLMs and standard literature-based RAG pipelines in response completeness and accuracy. To overcome the inability of traditional 2D linear fingerprints to capture 3D spatial properties and reaction path variations, we further developed a multidimensional molecular and route similarity calculation combining SimHash, core similarity, and FCFP, as an alternative to Route CGR representations coupled with UMAP dimensionality reduction. This formulation accurately distinguishes between subtle and distinct synthetic strategies, demonstrating superior precision over traditional clustering methods for fuzzy retrieval of synthetic routes. Overall, this work provides a reliable, knowledge-dense solution for intelligent retrosynthetic Semantic Reasoning.",
+      "summary_zh": "提出KG-RAG-LLM，将知识图谱、分子与合成路线多尺度相似性计算和检索增强生成结合，用于更可靠的逆合成语义推理。",
+      "why_it_matters_zh": "报告生成回答中具体化学信息比例达到39.52%–40.87%，并声称优于基线LLM和文献RAG；SimHash、core similarity和FCFP有助于区分细微但不同的合成策略。摘要仅给出经验评估，未说明实验合成验证、数据划分和评价定义，不能据此确认实际路线可执行性。",
+      "quality_score": 82.0,
+      "tags": [
+        "分子与药物发现",
+        "检索增强生成",
+        "知识图谱",
+        "逆合成",
+        "路线相似性"
+      ],
+      "evidence_flags": [
+        "evaluation"
+      ],
+      "publication_status": "preprint",
+      "rank": 11,
+      "featured": false,
+      "category": "分子与药物发现",
+      "metrics": {},
+      "metadata": {
+        "doi": "10.26434/chemrxiv.15010270/v1",
+        "arxiv_id": ""
+      },
+      "abstract_zh": "为解决大型语言模型（LLM）在化学合成中的固有局限——幻觉和知识密度低——本研究提出一种知识图谱增强的检索增强生成框架（KG-RAG-LLM），并结合分子和路线相似性的多尺度计算。经验评估显示，KG-RAG-LLM显著减轻了幻觉，使生成回答中具体化学信息的比例提高到39.52%–40.87%，在回答完整性和准确性方面大幅超过基线LLM和标准的基于文献的RAG流程。为克服传统二维线性指纹无法捕捉三维空间性质和反应路径变化的问题，我们进一步开发了多维分子与路线相似性计算，将SimHash、core similarity和FCFP结合起来，作为Route CGR表示与UMAP降维组合方案的替代方法。该形式能够准确区分细微和明显不同的合成策略，在模糊合成路线检索中显示出优于传统聚类方法的精度。总体而言，这项工作为智能逆合成语义推理提供了一种可靠、知识密集的解决方案。",
+      "published": "2026-10-12",
+      "author_line": "Jiaxin Lao, Liansuo Zu"
+    },
+    {
+      "id": "biorxiv:10.64898/2026.09.25.754455",
+      "channel": "aixchem",
+      "related_channels": [
+        "aixbio"
+      ],
+      "item_type": "paper",
+      "source": "bioRxiv",
+      "title": "AmyloCore-ML: AI/Machine Learning Enabled Identification of Amyloid Fibril Core Regions Using Protein Language Models",
+      "url": "https://www.biorxiv.org/content/10.64898/2026.09.25.754455",
+      "published_at": "2026-10-12",
+      "updated_at": "2026-10-12",
+      "creators": [
+        "Singh, J.",
+        "Jangid, R.",
+        "Srivastava, A."
+      ],
+      "language": "en",
+      "abstract_or_text": "Identification of amyloid forming regions in proteins remains central to understanding of their aggregation behaviour, which are central to various neurodegenerative and systemic disorders. Many predictors have been designed to identify amyloid forming regions, however they may not necessarily identify total residues found in actual disease associated fibril structures. To address this, we formed a sequence-based based predictor-AmyloCore-ML to ascertain structural amyloid-core propensity. The predictor was developed using experimentally determined fibril structures obtained from Amyloid Atlas. Ordered residues in the experimental structures were designated as core, and unresolved sampled from the same proteins as matched controls as non-core. Core and non-core regions were encoded using various physicochemical descriptors and protein language model (PLM) embeddings (ESM-2, ANKH, ProtT5) and evaluated using protein-grouped cross-validation. PLMs consistently outperformed physicochemical descriptors, with the best models reaching AUROC values of ~0.88 and AUPRC values of ~0.85. Locked full-length protein scans further localized experimental cores, with ESM-2/ExtraTrees achieving AUROC 0.833, AUPRC 0.751, and a mean peak distance of 12.4 residues. In comparative benchmarking, our predictor showed better performance metrics than CrossBeta and AggrescanAI. The framework therefore provides residue-resolved prediction of structurally incorporated amyloid-core regions directly from sequence.",
+      "summary_zh": "提出AmyloCore-ML，利用Amyloid Atlas实验纤维结构和ESM-2、ANKH、ProtT5嵌入，从序列预测淀粉样纤维中结构性核心残基区域。",
+      "why_it_matters_zh": "模型在蛋白分组交叉验证和全长扫描中取得AUROC约0.88、AUPRC约0.85，并优于CrossBeta和AggrescanAI，为神经退行性疾病相关淀粉样核心定位提供残基级工具。预测依赖已有实验纤维结构，外推到未解析或不同条件下的聚集体系仍需验证。",
+      "quality_score": 80.0,
+      "tags": [
+        "结构与生物",
+        "淀粉样纤维",
+        "蛋白语言模型",
+        "聚集核心",
+        "残基级预测"
+      ],
+      "evidence_flags": [
+        "benchmark",
+        "experimental",
+        "performance"
+      ],
+      "publication_status": "preprint",
+      "rank": 12,
+      "featured": false,
+      "category": "结构与生物",
+      "metrics": {},
+      "metadata": {
+        "doi": "10.64898/2026.09.25.754455",
+        "arxiv_id": ""
+      },
+      "abstract_zh": "识别蛋白质中的淀粉样形成区域对于理解其聚集行为仍然至关重要，而聚集行为又与多种神经退行性和全身性疾病有关。已有许多预测器用于识别淀粉样形成区域，但它们未必能够识别实际疾病相关纤维结构中包含的全部残基。为此，我们构建了一个基于序列的预测器AmyloCore-ML，用于确定结构性淀粉样核心倾向性。该预测器使用从Amyloid Atlas获得的实验测定纤维结构开发。实验结构中的有序残基被定义为核心，并从相同蛋白中抽取未解析残基作为匹配的非核心对照。核心和非核心区域用多种物理化学描述符以及蛋白语言模型（PLM）嵌入（ESM-2、ANKH、ProtT5）编码，并通过蛋白质分组交叉验证进行评估。PLM始终优于物理化学描述符，最佳模型达到约0.88的AUROC和约0.85的AUPRC。锁定的全长蛋白扫描进一步定位了实验核心，其中ESM-2/ExtraTrees达到0.833的AUROC、0.751的AUPRC，平均峰值距离为12.4个残基。在比较基准测试中，我们的预测器在性能指标上优于CrossBeta和AggrescanAI。因此，该框架能够直接从序列提供结构性整合淀粉样核心区域的残基分辨率预测。",
+      "published": "2026-10-12",
+      "author_line": "Singh, J., Jangid, R., Srivastava, A."
+    },
+    {
+      "id": "chemrxiv:10.26434/chemrxiv.15010262/v1",
+      "channel": "aixchem",
+      "related_channels": [],
+      "item_type": "paper",
+      "source": "ChemRxiv",
+      "title": "Building the Data Foundations for the Design and Discovery of Transition Metal Complexes",
+      "url": "https://doi.org/10.26434/chemrxiv.15010262/v1",
+      "published_at": "2026-10-12",
+      "updated_at": "2026-10-12",
+      "creators": [
+        "Hannes Kneiding",
+        "Bastian Bjerkem Skjelstad",
+        "Luca Cibinel",
+        "Lucı́a Morán-González",
+        "Ainara Nova",
+        "David Balcells"
+      ],
+      "language": "en",
+      "abstract_or_text": "The unique chemistry of transition metal complexes (TMCs) enables several advanced technologies in diverse fields including renewable energies, medicine, and catalysis. Machine learning methods can accelerate their rational design but are bounded by limited dataset sizes, restricted chemical scopes, and insufficient quality. This Perspective surveys the current landscape of TMC datasets and investigates how they seek to address these challenges. The analysis focuses on the data curation processes as well as the scope of the properties provided, and their level of theory. Furthermore, the applications and methodological advancements enabled by TMC datasets are reviewed, including the generative design of metal ligands and the evolutionary optimization of TMCs. The Perspective concludes by outlining future directions, with particular emphasis on extending data to broader chemical scopes including non-equilibrium geometries, establishing community-wide data formats and benchmarks, and developing strategies to effectively integrate heterogeneous data sources.",
+      "summary_zh": "综述过渡金属配合物数据集的范围、性质、理论水平和整理流程，讨论其对配体生成设计和配合物进化优化的支持，并提出数据格式与基准发展方向。",
+      "why_it_matters_zh": "指出过渡金属配合物机器学习受数据规模、化学范围和质量限制，强调非平衡几何、统一格式和异构数据融合等基础设施问题，对催化与能源材料的可计算设计具有方法学价值。该文为Perspective，主要是现状分析和展望，不提供新的模型或实验性能。",
+      "quality_score": 70.0,
+      "tags": [
+        "材料与催化",
+        "过渡金属配合物",
+        "数据集",
+        "催化",
+        "生成设计"
+      ],
+      "evidence_flags": [
+        "benchmark",
+        "dataset"
+      ],
+      "publication_status": "preprint",
+      "rank": 13,
+      "featured": false,
+      "category": "材料与催化",
+      "metrics": {},
+      "metadata": {
+        "doi": "10.26434/chemrxiv.15010262/v1",
+        "arxiv_id": ""
+      },
+      "abstract_zh": "过渡金属配合物（TMC）的独特化学性质支持可再生能源、医学和催化等多个领域的先进技术。机器学习方法可以加速其理性设计，但受到数据集规模有限、化学范围受限和质量不足的约束。本Perspective综述了当前TMC数据集的状况，并研究这些数据集如何应对上述挑战。分析重点包括数据整理流程、所提供性质的范围以及理论水平。此外，我们还综述了TMC数据集推动的应用和方法学进展，包括金属配体的生成式设计和TMC的进化优化。最后，Perspective提出未来方向，重点是将数据扩展到更广的化学范围（包括非平衡几何），建立社区通用的数据格式和基准，并发展有效整合异构数据源的策略。",
+      "published": "2026-10-12",
+      "author_line": "Hannes Kneiding, Bastian Bjerkem Skjelstad, Luca Cibinel, Lucı́a Morán-González, Ainara Nova, David Balcells"
     }
   ],
   "review": {
     "model": "gpt-5.6-terra",
     "reasoning_effort": "high",
-    "note": "从完整候选集中选出 7 项：优先保留直接连接 AI 与化学/生物发现且具实验或多基准证据的工作；合并同一 CLN6 发现的重复预印本，并排除与 AI×Chem 关联不足或证据较弱的项目。"
+    "note": "从完整候选集中选入12项质量分≥70且与AI×Chem高度相关的工作，按综合相关性、创新性、方法可信度及验证强度排序；未纳入摘要中缺乏明确AI方法且相关性较弱的项目。"
   }
 }

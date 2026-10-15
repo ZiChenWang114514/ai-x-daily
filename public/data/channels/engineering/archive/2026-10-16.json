@@ -1,0 +1,502 @@
+{
+  "schema_version": "2.0",
+  "date": "2026-10-16",
+  "channel": "engineering",
+  "generated_at": "2026-10-15T22:15:52+00:00",
+  "title": "Engineering 每日精选",
+  "subtitle": "每日 GitHub Trending 中的 AI 开源项目、社区动向与重要发布。",
+  "window": {
+    "start": "2026-10-13",
+    "end": "2026-10-16"
+  },
+  "method": "公开来源采集、历史去重、规则筛选与模型审阅",
+  "method_note": "系统保存当日公开元数据，与历史日报核验后排除已报道事件；论文新版本、新修订及不同软件发布等可核实更新仍可入选，随后由指定模型阅读全文摘要并完成精选。",
+  "stats": {
+    "fetched": 66,
+    "suppressed_previous": 1,
+    "candidates": 60,
+    "selected": 9,
+    "sources": {
+      "GitHub Trending": 12,
+      "GitHub Releases": 54
+    }
+  },
+  "source_status": {
+    "GitHub Trending": {
+      "state": "ok",
+      "count": 12
+    },
+    "GitHub Releases": {
+      "state": "ok",
+      "count": 54
+    }
+  },
+  "source_errors": [],
+  "items": [
+    {
+      "id": "github:414070533",
+      "channel": "engineering",
+      "related_channels": [
+        "aixmath",
+        "aixbio"
+      ],
+      "item_type": "software_release",
+      "source": "GitHub Releases",
+      "title": "v0.7.0",
+      "url": "https://github.com/ggml-org/llama.cpp/releases/tag/v0.7.0",
+      "published_at": "2026-10-15T17:13:19Z",
+      "updated_at": "2026-10-15T17:13:13Z",
+      "creators": [
+        "ggml-org/llama.cpp"
+      ],
+      "language": "en",
+      "abstract_or_text": "## Overview llama.cpp v0.7.0 adds the LiliCorr speculative decoding technique and MTP for GLM5-Next, a new GPU cache for MoE experts kept in host memory (`--moe-cache-mib`, up to ~2.2x decode speedup when experts are offloaded), and a large batch of new models: K2 Horizon (dense and MoVA), Prism Bonsai 2 27B, EmbeddingGemma-2 (text+vision+audio), the LiquidAI d1/d1-omni and vLLM decision 2/d3 decision models, pplx-decider, MiniCPM-V 4.7, Nemotron Super 3.5 VL / Nemotron Bolt and maion-coder. The…",
+      "summary_zh": "ggml-org/llama.cpp 发布 v0.7.0：加入 LiliCorr 与 GLM5-Next MTP 投机解码、主机内存 MoE 专家 GPU 缓存（官方说明离载场景最高约 2.2 倍解码加速），并扩展多种新模型、嵌入模型和决策模型支持。",
+      "why_it_matters_zh": "它把投机解码、MoE 内存分层和多模态/决策模型支持进一步带入本地推理栈，适合边缘部署、私有化服务和模型运行时开发者。升级时需注意默认服务端口改为 9931、聊天会话 API 重构，以及不同后端和模型组合的回归测试。",
+      "quality_score": 84.0,
+      "tags": [
+        "推理运行时与模型支持",
+        "本地推理",
+        "MoE",
+        "投机解码",
+        "多模态模型",
+        "推理服务"
+      ],
+      "evidence_flags": [
+        "benchmark",
+        "github",
+        "release",
+        "breaking",
+        "performance"
+      ],
+      "publication_status": "release",
+      "rank": 1,
+      "featured": true,
+      "category": "推理运行时与模型支持",
+      "metrics": {},
+      "metadata": {
+        "repository": "ggml-org/llama.cpp",
+        "version": "v0.7.0",
+        "release_id": "414070533",
+        "release_type": "release"
+      },
+      "abstract_zh": "这是 llama.cpp v0.7.0 的正式版本更新，重点包括 LiliCorr 草稿模型选择、GLM5-Next 多 token 预测、跨 GPU 的主机内存专家缓存、K2 Horizon、Prism Bonsai 2、EmbeddingGemma-2、LiquidAI/vLLM 决策模型、MiniCPM-V 4.7、Nemotron 和 maion-coder 等模型支持；服务端改进了会话 API、提示缓存恢复和模型管理界面，底层 ggml 更新至 v0.27.0。",
+      "published": "2026-10-15",
+      "author_line": "ggml-org/llama.cpp"
+    },
+    {
+      "id": "github:414095490",
+      "channel": "engineering",
+      "related_channels": [
+        "aixmath",
+        "aixbio"
+      ],
+      "item_type": "software_release",
+      "source": "GitHub Releases",
+      "title": "Release v5.20.0",
+      "url": "https://github.com/huggingface/transformers/releases/tag/v5.20.0",
+      "published_at": "2026-10-15T18:05:36Z",
+      "updated_at": "2026-10-15T17:55:40Z",
+      "creators": [
+        "huggingface/transformers"
+      ],
+      "language": "en",
+      "abstract_or_text": "# Release v5.20.0 ## New Model additions ### Muse Spark Open Muse Spark Open is a multimodal mixture-of-experts model from Meta that takes text, images, audio, and video as input and generates text. It has 816B total parameters (42B active per token) and a context window of up to 1,048,576 tokens shared across modalities. It is trained for agentic coding tasks such as multi-file editing, debugging, and tool use. Checkpoints are available in BF16 and NVFP4 formats. **Links:** [Documentation](http…",
+      "summary_zh": "Hugging Face Transformers 发布 v5.20.0，新增 Meta Muse Spark Open 多模态 MoE 模型支持，并原生接入 Ling 3.0 Flash 等模型。",
+      "why_it_matters_zh": "模型库开始把超大规模、跨文本图像音频视频的 agentic 模型以统一接口交付，便于训练和推理平台快速接入。Muse Spark Open 总参数量达 816B、单 token 激活 42B，使用者需评估显存、量化格式和超长上下文成本。",
+      "quality_score": 81.0,
+      "tags": [
+        "模型库与多模态推理",
+        "模型库",
+        "多模态",
+        "MoE",
+        "长上下文",
+        "Agent 编程"
+      ],
+      "evidence_flags": [
+        "github",
+        "release",
+        "breaking"
+      ],
+      "publication_status": "release",
+      "rank": 2,
+      "featured": true,
+      "category": "模型库与多模态推理",
+      "metrics": {},
+      "metadata": {
+        "repository": "huggingface/transformers",
+        "version": "v5.20.0",
+        "release_id": "414095490",
+        "release_type": "release"
+      },
+      "abstract_zh": "v5.20.0 增加 Muse Spark Open：一个输入文本、图像、音频和视频并生成文本的多模态混合专家模型，支持最长约 1,048,576 token 的跨模态上下文，并面向多文件编辑、调试和工具调用等代理式编程任务；同时原生支持采用混合注意力结构的 Ling 3.0 Flash，无需 trust_remote_code。",
+      "published": "2026-10-15",
+      "author_line": "huggingface/transformers"
+    },
+    {
+      "id": "github:414112417",
+      "channel": "engineering",
+      "related_channels": [
+        "aixchem"
+      ],
+      "item_type": "software_release",
+      "source": "GitHub Releases",
+      "title": "v1.16.0",
+      "url": "https://github.com/huggingface/trl/releases/tag/v1.16.0",
+      "published_at": "2026-10-15T18:00:33Z",
+      "updated_at": "2026-10-15T17:56:13Z",
+      "creators": [
+        "huggingface/trl"
+      ],
+      "language": "en",
+      "abstract_or_text": "## Features ### 🛠️ TRL now trains on AWS Trainium The fused LM head from v1.15 is what made Neuron tractable; the remaining gaps are closed here. There is a [guide](https://huggingface.co/docs/trl/neuron) to go with it. Neuron recompiles once per input shape, so an unpadded run stalls about a minute on every new sequence length. `pad_to_multiple_of` now defaults to `\"auto\"`: 128 on Neuron, `None` elsewhere, so nothing changes on GPU. Trainium2, Qwen3-0.6B SFT, 20 steps: **130 s with the default…",
+      "summary_zh": "Hugging Face TRL 发布 v1.16.0，补齐 AWS Trainium/Neuron 训练支持，并改进 AsyncGRPO 的 tree attention 与无 Triton 设备上的融合内核。",
+      "why_it_matters_zh": "这降低了强化学习微调从 GPU 迁移到 Trainium 的门槛，也显示训练框架正在围绕异构加速器统一实现。官方示例中 Trainium2 上 Qwen3-0.6B SFT 从 260 秒降至 130 秒；但 Neuron 会按输入形状重新编译，生产流水线仍需固定或规范化序列长度。",
+      "quality_score": 81.0,
+      "tags": [
+        "训练基础设施与强化学习",
+        "强化学习",
+        "微调",
+        "AWS Trainium",
+        "异构加速",
+        "GRPO"
+      ],
+      "evidence_flags": [
+        "dataset",
+        "github",
+        "experimental"
+      ],
+      "publication_status": "release",
+      "rank": 3,
+      "featured": true,
+      "category": "训练基础设施与强化学习",
+      "metrics": {},
+      "metadata": {
+        "repository": "huggingface/trl",
+        "version": "v1.16.0",
+        "release_id": "414112417",
+        "release_type": "release"
+      },
+      "abstract_zh": "v1.16.0 提供 AWS Trainium 训练指南，启用 Neuron 融合 LM head 和蒸馏内核，并将 Trainium 上的 pad_to_multiple_of 默认设为 auto；还加入 AsyncGRPO 的 tree attention，以及在没有 Triton 的设备上运行融合内核和激活卸载的支持。",
+      "published": "2026-10-15",
+      "author_line": "huggingface/trl"
+    },
+    {
+      "id": "github:412945332",
+      "channel": "engineering",
+      "related_channels": [
+        "aixchem"
+      ],
+      "item_type": "software_release",
+      "source": "GitHub Releases",
+      "title": "v1.4.0rc0",
+      "url": "https://github.com/NVIDIA/TensorRT-LLM/releases/tag/v1.4.0rc0",
+      "published_at": "2026-10-14T16:35:44Z",
+      "updated_at": "2026-10-08T22:16:15Z",
+      "creators": [
+        "NVIDIA/TensorRT-LLM"
+      ],
+      "language": "en",
+      "abstract_or_text": "Highlights - Known Issues - Multi-GPU (TP2) streaming or RPC executor workloads may hang during worker initialization when MPI worker pools are reused across LLM instances (observed on H100). - DeepSeek MLA models on SM120/SM121 GPUs (for example RTX PRO 6000 Blackwell) may crash with an illegal memory access when CUDA graphs are captured with BF16 BMM. - GPT-OSS models on SM120 GPUs may fail with attention data parallelism when automatic communication selects NCCL EP for unsupported hidden size…",
+      "summary_zh": "NVIDIA TensorRT-LLM 发布 v1.4.0rc0，新增 GLM-5.3-Flash、K-EXAONE-2、Qwen-Image-Layered、Cosmos3 和 Nemotron 等模型/量化支持，并扩展 FP8、KV cache 与多 GPU 推理能力。",
+      "why_it_matters_zh": "它把新一代模型架构和 FP8/多 GPU 优化更快带入 NVIDIA 生产推理栈，适合服务端和大规模部署团队。由于这是候选版本，已知存在 TP2/RPC 初始化挂起、特定 Blackwell 上非法内存访问和部分 tied-embedding 模型构建失败，不能直接视为稳定升级。",
+      "quality_score": 73.0,
+      "tags": [
+        "高性能推理与兼容性",
+        "TensorRT-LLM",
+        "高性能推理",
+        "FP8",
+        "多 GPU",
+        "模型兼容性"
+      ],
+      "evidence_flags": [
+        "github",
+        "release",
+        "breaking",
+        "performance"
+      ],
+      "publication_status": "prerelease",
+      "rank": 4,
+      "featured": false,
+      "category": "高性能推理与兼容性",
+      "metrics": {},
+      "metadata": {
+        "repository": "NVIDIA/TensorRT-LLM",
+        "version": "v1.4.0rc0",
+        "release_id": "412945332",
+        "release_type": "prerelease"
+      },
+      "abstract_zh": "该候选版本是 TensorRT-LLM v1.4.0 的预发布版本，重点覆盖 GLM-5.3-Flash、K-EXAONE-2、Qwen-Image-Layered、静态 FP8 Cosmos3、Nemotron Super 3.5 VL 等模型，并改进量化 KV cache、专家并行、视觉模型和多 GPU 执行器支持；发布说明同时列出若干 H100、SM120/SM121 和 TP>1 场景的已知问题。",
+      "published": "2026-10-14",
+      "author_line": "NVIDIA/TensorRT-LLM"
+    },
+    {
+      "id": "github:414286110",
+      "channel": "engineering",
+      "related_channels": [],
+      "item_type": "software_release",
+      "source": "GitHub Releases",
+      "title": "0.163.0",
+      "url": "https://github.com/openai/codex/releases/tag/rust-v0.163.0",
+      "published_at": "2026-10-15T21:30:38Z",
+      "updated_at": "2026-10-15T18:57:08Z",
+      "creators": [
+        "openai/codex"
+      ],
+      "language": "en",
+      "abstract_or_text": "## New Features - Open `/config` to search preferences across categories, change supported settings immediately, and see which changes require a restart. (#52990, #53429) - Send a follow-up while Codex is responding to steer it immediately. Interrupting a turn also stops active Code Mode cells and their nested tool calls. (#51812, #51835) - Configure a leader key in `/keymap`. The default is `Ctrl+X`, shortcut hints stay open until you choose or cancel, and voice mute moves to `F9`. (#52273) - R…",
+      "summary_zh": "OpenAI Codex 发布 rust-v0.163.0：新增可搜索配置面板、即时中断与并行只读工具执行，并强化网络代理、沙箱完整性和线程权限恢复。",
+      "why_it_matters_zh": "编码智能体开始把可操控性、并行编排和网络/沙箱策略作为运行时基础能力，适合需要受控代理执行的开发团队。升级需留意移除 patched zsh 后的配置迁移、实验性 Daybreak，以及 Linux/Windows 沙箱策略的兼容性。",
+      "quality_score": 72.0,
+      "tags": [
+        "编码智能体与执行安全",
+        "编码智能体",
+        "MCP",
+        "沙箱",
+        "网络安全",
+        "TUI"
+      ],
+      "evidence_flags": [
+        "github",
+        "experimental",
+        "release",
+        "security"
+      ],
+      "publication_status": "release",
+      "rank": 5,
+      "featured": false,
+      "category": "编码智能体与执行安全",
+      "metrics": {},
+      "metadata": {
+        "repository": "openai/codex",
+        "version": "rust-v0.163.0",
+        "release_id": "414286110",
+        "release_type": "release"
+      },
+      "abstract_zh": "该版本为 Codex TUI 增加可搜索且可即时应用的配置界面、响应中途的 follow-up 和即时中断、后台服务重启、并行只读工具调用及更清晰的键位设置；同时恢复线程权限与网络授权、要求代理在 DNS 查询前完成主机授权、拒绝重复 Host 头并阻止凭据别名绕过检查，还更新了 GPT-6 迁移文档和沙箱说明。",
+      "published": "2026-10-15",
+      "author_line": "openai/codex"
+    },
+    {
+      "id": "github:413093320",
+      "channel": "engineering",
+      "related_channels": [],
+      "item_type": "software_release",
+      "source": "GitHub Releases",
+      "title": "v0.40.5",
+      "url": "https://github.com/ollama/ollama/releases/tag/v0.40.5",
+      "published_at": "2026-10-14T19:45:22Z",
+      "updated_at": "2026-10-15T16:11:12Z",
+      "creators": [
+        "ollama/ollama"
+      ],
+      "language": "en",
+      "abstract_or_text": "## NVIDIA Nemotron 3.5 Super [NVIDIA Nemotron 3.5 Super](https://ollama.com/library/nemotron-3.5-super) is a vision-language model for coding, reasoning, tool use, and document understanding. It pairs a 120B-parameter hybrid Mamba-2/Transformer mixture-of-experts backbone (12B active per token) with a C-RADIO vision encoder, and supports tool calling, an on/off thinking mode, and context up to 1M tokens. ``` ollama run nemotron-3.5-super ``` A compact sibling, [Nemotron 3.5 Bolt](https://ollama.…",
+      "summary_zh": "Ollama 发布 v0.40.5，加入 NVIDIA Nemotron 3.5 Super/Bolt 视觉语言模型，支持云端 decision models，并修复带自定义工具调用的 OpenAI Responses 会话续接问题。",
+      "why_it_matters_zh": "它把面向编码、推理、工具调用和文档理解的新模型直接带入易用的本地服务接口；Nemotron 3.5 Bolt 针对 24GB NVIDIA GPU，适合个人开发机和边缘部署。使用者仍需区分本地拉取与 ollama.com 云端能力，并评估 120B/74B 模型的显存和延迟。",
+      "quality_score": 72.0,
+      "tags": [
+        "本地与云端模型服务",
+        "本地模型服务",
+        "视觉语言模型",
+        "工具调用",
+        "决策模型",
+        "NVIDIA"
+      ],
+      "evidence_flags": [
+        "github",
+        "release",
+        "model"
+      ],
+      "publication_status": "release",
+      "rank": 6,
+      "featured": false,
+      "category": "本地与云端模型服务",
+      "metrics": {},
+      "metadata": {
+        "repository": "ollama/ollama",
+        "version": "v0.40.5",
+        "release_id": "413093320",
+        "release_type": "release"
+      },
+      "abstract_zh": "v0.40.5 支持 Nemotron 3.5 Super（120B 混合 Mamba-2/Transformer、12B 激活、最长 1M 上下文）及面向 24GB GPU 的 74B Nemotron 3.5 Bolt，二者支持视觉理解、工具调用和可切换思考模式；决策模型可通过 clef:cloud 与 clef-flash:cloud 使用，带自定义工具调用的 Responses 会话续接不再报错，云端错误信息也更明确。",
+      "published": "2026-10-14",
+      "author_line": "ollama/ollama"
+    },
+    {
+      "id": "github:410905890",
+      "channel": "engineering",
+      "related_channels": [],
+      "item_type": "software_release",
+      "source": "GitHub Releases",
+      "title": "v0.40.4",
+      "url": "https://github.com/ollama/ollama/releases/tag/v0.40.4",
+      "published_at": "2026-10-12T19:00:12Z",
+      "updated_at": "2026-10-13T21:23:05Z",
+      "creators": [
+        "ollama/ollama"
+      ],
+      "language": "en",
+      "abstract_or_text": "## Decision models in the CLI Decision models can now be used directly from the terminal with `ollama run` — ask yes/no questions, classify text into labels, or score against a rubric: `ollama run nimble --ask \"Is a refund being requested?\" < ticket.txt` ## What's Changed * Kev decision models are now supported by the MLX runner on Apple silicon * `ollama launch` can now be used with usage credits without upgrading to a paid plan * `ollama launch codex` now includes locally installed Ollama mode…",
+      "summary_zh": "Ollama v0.40.4 将 decision models 带入命令行，可直接做问答、分类和评分；同时加入 Apple Silicon MLX 支持、缓存复用和多模态嵌入改进。",
+      "why_it_matters_zh": "这一版本把轻量决策模型从服务 API 推到终端工作流，并改善 Apple Silicon 与 NVIDIA 上的推理路径，适合本地自动化、票据分类和边缘代理原型。升级时需验证 MLX 的 speculative decoding 回滚行为，以及多模态嵌入模型的小上下文兼容性。",
+      "quality_score": 66.0,
+      "tags": [
+        "端侧推理与模型工具",
+        "端侧推理",
+        "决策模型",
+        "Apple Silicon",
+        "MLX",
+        "多模态嵌入"
+      ],
+      "evidence_flags": [
+        "github",
+        "performance",
+        "release"
+      ],
+      "publication_status": "release",
+      "rank": 7,
+      "featured": false,
+      "category": "端侧推理与模型工具",
+      "metrics": {},
+      "metadata": {
+        "repository": "ollama/ollama",
+        "version": "v0.40.4",
+        "release_id": "410905890",
+        "release_type": "release"
+      },
+      "abstract_zh": "v0.40.4 支持通过 ollama run 直接调用决策模型进行是非判断、标签分类和 rubric 评分；Kev 决策模型可在 Apple Silicon 的 MLX runner 上运行，已加载模型和验证过的 manifest 会被复用以降低启动开销，同时加入 llama-server 多模态嵌入、Gemma 4 NVIDIA 预填充优化，并改进 MLX 推测解码和递归状态回滚可靠性。",
+      "published": "2026-10-12",
+      "author_line": "ollama/ollama"
+    },
+    {
+      "id": "github:412325009",
+      "channel": "engineering",
+      "related_channels": [],
+      "item_type": "software_release",
+      "source": "GitHub Releases",
+      "title": "v3.30.0",
+      "url": "https://github.com/openai/openai-python/releases/tag/v3.30.0",
+      "published_at": "2026-10-14T04:00:19Z",
+      "updated_at": "2026-10-14T03:55:51Z",
+      "creators": [
+        "openai/openai-python"
+      ],
+      "language": "en",
+      "abstract_or_text": "## [3.30.0](https://github.com/openai/openai-python/compare/v3.29.0...v3.30.0) (2026-10-14) ### Features * **api:** add beta session spending limits ([#4058](https://github.com/openai/openai-python/issues/4058)) ([b570279](https://github.com/openai/openai-python/commit/b5702792a0adb1e86a8b51709e935c1e0acde727)) * **api:** add OCI external-storage provider support ([#4060](https://github.com/openai/openai-python/issues/4060)) ([9eb83fe](https://github.com/openai/openai-python/commit/9eb83fe4649af…",
+      "summary_zh": "openai-python v3.30.0 增加 beta session spending limits、OCI 外部存储、Decisions 用量报告、图像工具错误与安全告警详情，并修复异步 HTTP/1.1 连接复用。",
+      "why_it_matters_zh": "这些变化直接影响 AI 应用的成本治理、图像工具错误处理、安全审计和流式客户端可靠性，适合维护生产 SDK 集成的开发者。涉及 beta API、项目密钥过期时间和返回字段扩展，升级前应检查类型定义与错误处理逻辑。",
+      "quality_score": 66.0,
+      "tags": [
+        "AI API 开发者工具",
+        "Python SDK",
+        "API 兼容性",
+        "成本治理",
+        "安全告警",
+        "流式传输"
+      ],
+      "evidence_flags": [
+        "github",
+        "release",
+        "security",
+        "compatibility"
+      ],
+      "publication_status": "release",
+      "rank": 8,
+      "featured": false,
+      "category": "AI API 开发者工具",
+      "metrics": {},
+      "metadata": {
+        "repository": "openai/openai-python",
+        "version": "v3.30.0",
+        "release_id": "412325009",
+        "release_type": "release"
+      },
+      "abstract_zh": "v3.30.0 为 Python 客户端加入会话级消费限额、OCI 外部存储提供商、组织 Decisions 用量报告、图像工具错误和安全告警解释、图像 URL 及项目 API key 过期时间更新支持，并恢复异步 HTTP/1.1 连接复用；还澄清 agent tool 限制和环境分页行为。",
+      "published": "2026-10-14",
+      "author_line": "openai/openai-python"
+    },
+    {
+      "id": "github-trending:2026-10-16:xerj-org/xerj",
+      "channel": "engineering",
+      "related_channels": [],
+      "item_type": "trending_repository",
+      "source": "GitHub Trending",
+      "title": "xerj-org/xerj",
+      "url": "https://github.com/xerj-org/xerj",
+      "published_at": "2026-10-16",
+      "updated_at": "2026-10-15T16:22:50Z",
+      "creators": [
+        "xerj-org"
+      ],
+      "language": "en",
+      "abstract_or_text": "XERJ is the new way for AI to search data. Its autoindex capability activates agents to know your data without the token waste of grep and sed. One command indexes code, docs, logs and PDFs for search, RAG, security audits and agent memory, using 40x fewer tokens than grep. Elasticsearch compatible, so existing clients just work. · Topics: ai-search, ai-search-algorithms, ai-search-engine, ai-search-free, ai-search-module, ai-search-optimization, ai-searchengine, bm25-search, elastic-search, elasticsearch, elasticstack, graph-search, graph-semantic-search, hybrid-search, hybrid-semantic-search, search-api, search-engine, semantic-search, vector-database, vector-search",
+      "summary_zh": "XERJ 在 2026-10-16 的 GitHub Trending 排名第 12，当日新增 725 个 star；项目用自动索引把代码、文档、日志和 PDF 变成可供智能体检索的搜索层，并兼容 Elasticsearch。",
+      "why_it_matters_zh": "它代表面向智能体的数据检索正在从 grep/文本拼接转向自动索引、混合语义搜索和可复用搜索 API，适合构建 RAG、代码审计、日志分析和 agent memory。项目总 star 约 5.6k、仍有 46 个 open issues，所谓 40 倍 token 节省应在真实语料和召回率基准上独立验证。",
+      "quality_score": 80.0,
+      "tags": [
+        "数据检索与智能体基础设施",
+        "AI 搜索",
+        "RAG",
+        "混合检索",
+        "向量数据库",
+        "智能体记忆"
+      ],
+      "evidence_flags": [
+        "daily_snapshot",
+        "github_metadata"
+      ],
+      "publication_status": "daily_trending",
+      "rank": 9,
+      "featured": false,
+      "category": "数据检索与智能体基础设施",
+      "metrics": {
+        "daily_rank": 12,
+        "stars_today": 725,
+        "stars_total": 5564,
+        "forks": 306,
+        "open_issues": 46
+      },
+      "metadata": {
+        "repository": "xerj-org/xerj",
+        "language": "Rust",
+        "topics": [
+          "ai-search",
+          "ai-search-algorithms",
+          "ai-search-engine",
+          "ai-search-free",
+          "ai-search-module",
+          "ai-search-optimization",
+          "ai-searchengine",
+          "bm25-search",
+          "elastic-search",
+          "elasticsearch",
+          "elasticstack",
+          "graph-search",
+          "graph-semantic-search",
+          "hybrid-search",
+          "hybrid-semantic-search",
+          "search-api",
+          "search-engine",
+          "semantic-search",
+          "vector-database",
+          "vector-search"
+        ],
+        "license": "Apache-2.0",
+        "created_at": "2026-06-30T04:32:45Z",
+        "pushed_at": "2026-10-15T16:22:50Z",
+        "snapshot_date": "2026-10-16",
+        "trending_id": "2026-10-16:xerj-org/xerj",
+        "trending_rank": 12
+      },
+      "abstract_zh": "XERJ 是一个 Rust 编写的 AI 搜索工具，自动为代码、文档、日志和 PDF 建立索引，服务于搜索、RAG、安全审计和智能体记忆；它结合 BM25、语义/图搜索与向量数据库能力，并提供 Elasticsearch 兼容接口，目标是在保持检索效果的同时减少上下文 token 消耗。",
+      "published": "2026-10-16",
+      "author_line": "xerj-org"
+    }
+  ],
+  "review": {
+    "model": "gpt-5.6-terra",
+    "reasoning_effort": "high",
+    "note": "已按目标日期之前的综合归档完成跨日报导去重，排除已报道项目与证据不足的 sponsors 条目；保留 9 项高质量工程更新。"
+  }
+}

@@ -1,58 +1,60 @@
-# AIxDaily · 2026-10-14
+# AIxDaily · 2026-10-15
 
-今日精选：AI × Chem 14 项，AI × Bio 16 项，AI × Math 0 项，AI Voices 10 项，Engineering 6 项。今日五频道呈现“科研预印本+工程项目+公开观点”的组合：AI×化学聚焦带校准不确定性的分子性质预测、对映选择性人工金属酶及计算药物发现综述；AI×生物覆盖低样本临床预测、帕金森生物标志物和百日咳监测。化学与生物精选均为预印本，今日没有同行评议论文入选。AI Voices 汇集 X 上的基准、模型架构和教材线索，属于公开帖文；Engineering 则是 GitHub Trending 软件项目。AI×数学今日没有足够高质量更新。
+今日精选：AI × Chem 16 项，AI × Bio 13 项，AI × Math 16 项，AI Voices 10 项，Engineering 8 项。今日五频道共同日期为 2026-10-15。内容以预印本和公开观点为主：AI×Chem 聚焦生成式分子设计、药物发现代理与逆合成；AI×Bio 涵盖乳腺癌预后、创伤性脑损伤血脑屏障和超增强子调控；AI×Math 讨论形式化验证与协作推理。AI Voices 汇总 X 公开帖，Engineering 则是 GitHub Trending 项目快照。所列论文均为预印本，未见同行评议论文；工程条目也不等同于今日软件新版本发布。
 
 ## 今日重大进展
 
-- [Anthropic公布自研源代码管理系统，五个月把单体仓库迁离 Git](https://x.com/AnthropicAI/status/2110047081414987957) — Anthropic工程博客公布自研源代码管理系统：随着代码合并量从5月日均约2500次增至9月逾3万次，公司称面向人类的开发基础设施成为瓶颈，并在五个月内完成单体仓库迁移。
-- [Gemini 4 Argon据称仅凭视频教会人形机器人连续投中7次](https://x.com/GoogleDeepMind/status/2110078384617464201) — Google DeepMind称，Gemini 4 Argon仅观察一段视频，便完成物理映射、编写仿真，并指导Apptronik Apollo人形机器人连续7次投中玉米洞。
-- [Pushmeet Kohli称 Argon 找到 Grad 猜想更多反例](https://x.com/pushmeet/status/2110049810342609120) — Google DeepMind负责人 Pushmeet Kohli在公开帖文中称，Argon发现核聚变等离子体中Grad猜想的更多反例，并得到恒星器三维磁场的新解析解，用于改进设计代码验证。
+- [Google DeepMind称 Gemini 4 Argon 数小时设计出5种经实验室验证的丝氨酸酯酶](https://x.com/GoogleDeepMind/status/2110421871103730104) — Google DeepMind在公开帖文中称，Gemini 4 Argon将酶工程压缩到数小时，设计出5种经实验室验证的丝氨酸酯酶，显示生成式模型开始直接影响湿实验路线。
+- [Ai2发布HiRO-ACEv2：全球3公里极端天气模拟成本降至X-SHiELD约1/300](https://x.com/allen_ai/status/2110407184685072881) — Ai2公开HiRO-ACEv2，两阶段把100公里气候模拟下采样到3公里，可生成全球多年极端天气数据；官方称其在百万分之一稀有事件上的统计结果与X-SHiELD相差不超过3%。
+- [Anthropic公布Claude蒸馏攻击防御进展，称已显著降低模型复制有效性](https://x.com/AnthropicAI/status/2109795898909950247) — Anthropic在公开帖文中称，过去数月已显著降低针对Claude的蒸馏攻击有效性，并将具体防御方法写入研究博客，回应前沿模型被系统性提取能力的安全问题。
 
 ## AI × Chem
 
-采集 841，候选 60，精选 14。来源状态：各来源已完成
+采集 2999，候选 60，精选 16。来源状态：各来源已完成
 
-- [Molecular Property Prediction with Well-Calibrated Uncertainties via Graph Neural Networks and Conformal Quantile Regression](https://doi.org/10.26434/chemrxiv.15010324/v1) — 将保序分位数回归（CQR）与图神经网络结合，用于分子性质预测和校准预测不确定性；在量子力学、物理化学和药代动力学数据集上与多种不确定性方法比较，并在抗生素回顾性虚拟筛选中取得超过 90% 的命中率。
-- [De Novo Design of Enantioselective Artificial Metalloenzyme Photocatalysts Containing Metal Polypyridine Cofactors](https://doi.org/10.26434/chemrxiv.15002852/v3) — 利用生成式蛋白质设计从头构建人工金属酶支架，使金属多吡啶光催化辅因子实现对映选择性光催化；瞬态吸收表征将催化提升归因于辅因子量子产率和激发态寿命增加以及活性位点近端底物结合。
-- [Computationally Guided Discovery of Cannabinoid Derivatives for Antiviral and Anticancer Applications: From Chemical Space to Experimental Validation](https://doi.org/10.26434/chemrxiv.15008399/v2) — 综述以大麻素衍生物为对象的计算药物发现流程，整合化学空间生成、靶点识别、虚拟筛选、分子对接、分子动力学、自由能、量子化学、QSAR、AI/ML 和 ADMET，并强调生化、细胞及动物验证的闭环。
+- [Prospective discovery of LasB inhibitors by integrating generative design, free energy ranking, and experimental validation](https://www.biorxiv.org/content/10.64898/2026.10.12.758448) — 提出开源计算—实验一体化流程，将片段式从头分子设计与严格的绝对结合自由能计算结合，用于筛选 LasB 抑制剂；从约40,000个候选中优先合成测试，发现3个此前未报道的纳摩尔级抑制剂。
+- [MADDIE: Multi-Agent Drug Discovery Engine](https://arxiv.org/abs/2610.16975v1) — 构建多智能体药物发现引擎 MADDIE，由 Orchestrator 协调 HitIdentifier、LeadOptimizer、Synthesizer 和 Evaluator 四类专门智能体，在50个蛋白靶点上完成分子设计与合成路线规划。
+- [Single-step Retrosynthesis via Reinforcement Learning from Forward Feedback](https://arxiv.org/abs/2610.15141v1) — 提出 RetroRLFF，在单步逆合成中同时利用参考反应一致性和冻结正向反应模型的反馈，通过序列级强化学习生成更符合化学可行性的反应物集合。
 
 [查看频道专页](https://zichenwang114514.github.io/ai-x-daily/channels/aixchem/)
 
 ## AI × Bio
 
-采集 1123，候选 60，精选 16。来源状态：各来源已完成
+采集 2978，候选 60，精选 13。来源状态：各来源已完成
 
-- [Can GPT Be Used as an Alternative Prediction Model to Traditional Machine Learning and Neural Networks on Low-Volume Clinical Data?](https://www.medrxiv.org/content/10.64898/2026.08.19.26360765) — 预印本；提出将结构化临床记录转写为医生风格文本，并用 GPT4 生成医学释义后微调 GPT2，在四个低样本、类别不平衡的疾病数据集上进行疾病预测。
-- [Application of Bayesian-Derived Gene Interaction Network and Subnetwork for Classification of Idiopathic Parkinson Disease with Biomarkers](https://www.biorxiv.org/content/10.64898/2026.10.05.756343) — 预印本；在 PPMI 队列血液转录组上用 Bayesian gene interaction network 进行信号扩散，并结合临床特征和 random forest 筛选 13 个 Parkinson Disease 生物标志物基因。
-- [Enhancing molecular and genomic approaches for Bordetella pertussis investigation and public health surveillance in Victoria, Australia](https://www.medrxiv.org/content/10.64898/2026.10.11.26364704) — 预印本；在 Victoria, Australia 的 2024–2025 百日咳疫情期间评估 culture-independent PCR、amplicon sequencing、耐药筛查和 shotgun metagenomics 的公共卫生监测可行性。
+- [Multimodal Machine Learning-Based Clinical and Genomic Prognostic Factors for Progression-Free Survival in Metastatic Breast Cancer Using Phase III MONALEESA Trials](https://www.medrxiv.org/content/10.64898/2026.10.09.26364892) — 【preprint；clinical】整合 MONALEESA-2、-3、-7 三项 III 期试验的临床、基因表达和 ctDNA 数据，利用多模态融合模型预测 HR+/HER2− 晚期乳腺癌无进展生存期。
+- [Cerebral microthrombi promote focal Cav-1-dependent blood-brain barrier impairment, triggering neuroinflammation and neuronal damage after traumatic brain injury](https://www.biorxiv.org/content/10.64898/2026.09.24.754043) — 【preprint；in vivo】结合荧光纳米示踪、光电关联成像、单细胞转录组和 Cav-1 遗传操作，研究创伤性脑损伤后微血栓、血脑屏障渗漏与神经损伤的联系。
+- [Decoding super-enhancer regulatory grammar and pathogenic gain-of-function variants directly from DNA sequence](https://www.biorxiv.org/content/10.64898/2026.10.11.756618) — 【preprint；实验】Borzoi-SE 从长程 DNA 序列直接识别 90 种人类谱系的超级增强子，解析其调控语法，并用 CRISPRi 验证 β-珠蛋白超级增强子中的关键位点。
 
 [查看频道专页](https://zichenwang114514.github.io/ai-x-daily/channels/aixbio/)
 
 ## AI × Math
 
-采集 0，候选 0，精选 0。来源状态：各来源已完成
+采集 2000，候选 60，精选 16。来源状态：各来源已完成
 
-- 今日无足够高质量更新。
+- [TLA-Verus: Generating and Solving Temporal Proof Obligations with LLM Agents](https://arxiv.org/abs/2610.14923v1) — TLA-Verus 将 TLA+ 规约转译为 Verus 证明义务，并用 LLM agent 生成安全性与活性证明。
+- [Beyond LLM Judge: Mechanical Verification for Agentic Autoformalization](https://arxiv.org/abs/2610.20573v1) — Beyond LLM Judge 将语义审查与机械数值检查、空洞性检查结合，用于验证 Lean 形式化是否忠实。
+- [Compositional RL: Evaluating and Training LLMs for Collaborative Reasoning](https://arxiv.org/abs/2610.17456v1) — Compositional RL 用 Shapley 值与留一法定义模型在协作系统中的贡献，并训练面向整体协作结果的策略。
 
 [查看频道专页](https://zichenwang114514.github.io/ai-x-daily/channels/aixmath/)
 
 ## AI Voices
 
-采集 71，候选 60，精选 10。来源状态：各来源已完成
+采集 70，候选 60，精选 10。来源状态：各来源已完成
 
-- [@induction_labs：Human researchers decide everything from compute and data spend to what experiments to run. To replace them, models need](https://x.com/induction_labs/status/2110059300651679969) — Induction Labs宣布推出 FrontierML 基准，评估智能体如何分配计算与数据预算，并在21项端到端机器学习任务上提升模型性能。事实来自帖文；其对“替代人类研究者所需判断力”的表述属于作者设定。编辑判断：该基准直接测量智能体的科研资源配置能力。
-- [@neal_k_patel：You already gave the LLM the answer. So why is it writing it out from scratch? Introducing a new AI model architecture: ](https://x.com/neal_k_patel/status/2109978626124898587) — Neal Patel介绍受约束解码模型（CDM）：针对单一任务读取一次输入并直接输出答案，跳过逐词生成循环。帖子强调其速度、一致性和成本优势；具体性能数据尚未提供。
-- [@Gorden_Sun：谁把教材上传Arxiv了？ 《Agentic Large Language Models》（智能体大语言模型）：来自荷兰莱顿大学的AI教材，内容涵盖大模型工作原理、Agent原理等相关AI内容，共472页。 地址：https://arxiv](https://x.com/Gorden_Sun/status/2109937184900063249) — Gorden Sun分享荷兰莱顿大学的《Agentic Large Language Models》教材，称其涵盖大模型和智能体原理，共472页。事实限于帖文所述书目信息。
+- [@r_de_santi：We’re bringing natural-language control to any scientific generator. We are very excited to introduce LLM-to-Flow Distil](https://x.com/r_de_santi/status/2110433657664000234) — 作者介绍 LLM-to-Flow Distillation（LFD）：通过迭代式 DPO，把前沿大模型从自然语言发现目标中提炼出的子目标知识注入科学生成器，并报告其在留出计算评测中超过 FlowGRPO、DiffusionNFT。
+- [@AnimaAnandkumar：Excited to share ReRoute, our new framework for scientific counterfactual prediction: informed by partial physics knowle](https://x.com/AnimaAnandkumar/status/2110141540639355137) — Anima Anandkumar 介绍 ReRoute：把观测数据与部分物理知识结合，用轻量微调预测未见过的干预情形；帖文报告气候模拟器误差最多降低31.8%、受控平流–扩散实验反事实误差最多降低89.6%，并给出 Lean 机器检查证明。
+- [@Dipanjan_Dey：⚠️ Frontier AI models still fall significantly short of human designers on design creativity. ⚠️ Introducing Design Crea](https://x.com/Dipanjan_Dey/status/2110401121672130566) — Design Creativity Bench 评估16个前沿模型在80个开放式 UI 设计任务中的创意表现；帖文称最佳模型 GPT-6 Astra 得分65.5，而人类设计师参考得分为92.3。
 
 [查看频道专页](https://zichenwang114514.github.io/ai-x-daily/channels/aivoices/)
 
 ## Engineering
 
-采集 56，候选 55，精选 6。来源状态：各来源已完成
+采集 65，候选 60，精选 8。来源状态：各来源已完成
 
-- [morluto/rea](https://github.com/morluto/rea) — GitHub Trending 当日第 1 名，新增 54,706 颗星。rea 用智能体辅助从应用行为一直逆向到原生二进制，整合反编译、静态分析、MCP 与命令行工作流。
-- [bilawalsidhu/gods-eye-view](https://github.com/bilawalsidhu/gods-eye-view) — GitHub Trending 当日第 2 名，新增 1,961 颗星。项目在浏览器中以真实数据驱动的 3D 地球呈现航班、卫星和空间情报信息。
-- [debpalash/VoiceStudio](https://github.com/debpalash/VoiceStudio) — GitHub Trending 当日第 3 名，新增 2,277 颗星。VoiceStudio 是完全本地运行的语音工作台，覆盖声音克隆、语音设计、视频配音、听写、转录和有声书制作，支持 646 种语言。
+- [morluto/rea](https://github.com/morluto/rea) — rea 使用智能体从应用行为一路分析到原生二进制，面向逆向工程和开发者工具场景。
+- [debpalash/VoiceStudio](https://github.com/debpalash/VoiceStudio) — VoiceStudio 是一个完全本地运行的 ElevenLabs 替代方案，覆盖语音克隆、语音设计、视频配音、听写、转录和有声书制作。
+- [sponsors/mksglu](https://github.com/sponsors/mksglu) — mksglu 面向 AI 编码代理优化上下文窗口，通过沙箱化工具输出、持久化会话记忆和 MCP 加钩路由来减少上下文开销。
 
 [查看频道专页](https://zichenwang114514.github.io/ai-x-daily/channels/engineering/)
 

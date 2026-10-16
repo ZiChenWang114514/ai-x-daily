@@ -1,61 +1,65 @@
 {
   "schema_version": "2.0",
-  "date": "2026-10-16",
+  "date": "2026-10-17",
   "channel": "aixmath",
-  "generated_at": "2026-10-15T22:12:11+00:00",
+  "generated_at": "2026-10-16T22:10:57+00:00",
   "title": "AI × Math 每日精选",
   "subtitle": "自动推理、形式化证明、数学智能与基础模型。",
   "window": {
-    "start": "2026-10-13",
-    "end": "2026-10-16"
+    "start": "2026-10-14",
+    "end": "2026-10-17"
   },
   "method": "公开来源采集、历史去重、规则筛选与模型审阅",
   "method_note": "系统保存当日公开元数据，与历史日报核验后排除已报道事件；论文新版本、新修订及不同软件发布等可核实更新仍可入选，随后由指定模型阅读全文摘要并完成精选。",
   "stats": {
-    "fetched": 1098,
-    "suppressed_previous": 15,
+    "fetched": 1079,
+    "suppressed_previous": 12,
     "candidates": 60,
-    "selected": 12,
+    "selected": 11,
     "sources": {
-      "arXiv": 1098,
-      "OpenReview": 0
+      "arXiv": 1046,
+      "OpenReview": 33
     }
   },
   "source_status": {
     "arXiv": {
       "state": "ok",
-      "count": 1098
+      "count": 1046
     },
     "OpenReview": {
-      "state": "empty",
-      "count": 0
+      "state": "ok",
+      "count": 33
     }
   },
   "source_errors": [],
   "items": [
     {
-      "id": "arxiv:2610.19764v1",
+      "id": "arxiv:2610.20681v1",
       "channel": "aixmath",
       "related_channels": [],
       "item_type": "paper",
       "source": "arXiv",
-      "title": "Verifying deployed bytecode against executable EVM semantics, with exact gas and no added axioms",
-      "url": "https://arxiv.org/abs/2610.19764v1",
+      "title": "IneqAgent: Agentic Inequality Proving in Lean with Symbolic Computation",
+      "url": "https://arxiv.org/abs/2610.20681v1",
       "published_at": "2026-10-14",
       "updated_at": "2026-10-14",
       "creators": [
-        "Seulkee Baek"
+        "Gaolei He",
+        "Jinhui Li",
+        "Ruobing Zuo",
+        "Xia Zeng",
+        "Zhengfeng Yang"
       ],
       "language": "en",
-      "abstract_or_text": "Much of Ethereum's most consequential code is immutable bytecode: old output of unverified compilers, and protocol logic run as contract code. We show that such bytecode can be verified as it is, without trusting what produced it, without simplifying the machine it runs on, and with no axioms beyond Lean's own. Blanc, a Lean 4 verification stack, reads fixed runtime bytes via kernel-checked certificates and states every theorem against Jaune, an executable semantics of the EVM and block processing that passes all 34,205 blockchain-test cases of Ethereum's fixture release v20.0.2 that involve only forks that have governed mainnet since May 2025. Eight artifacts, deployed from 2017 to 2026, come from seven compiler versions and an assembler. For the EIP-7002 contract, we prove that the end-of-block call to it, whose failure would invalidate the block, succeeds whatever its storage holds, and that each block's withdrawal requests are exactly the oldest pending submissions; mainnet met these theorems' starting premises when Prague began. For a Uniswap V2 pair, we prove that after any valid history whose hashed slots stay apart, from any checkpoint representing its Solidity model's state, the storage represents that model replayed over exactly the committed calls, a balanced liquidity ledger stays balanced, and, under a premise on token answers, geometric-mean reserves per share fall only through the protocol fee. Exact gas makes liveness provable: a tracked WETH9 holder without code can withdraw by a transaction whose gas has a closed form, matching all 3,748 comparable mainnet receipts of its shape in 30,000 blocks. On Curve pool bytes compiled with the lock bug exploited in 2023, Jaune executes such a reentrancy from deployment; for bytes from a fixed compiler, we prove the lock excludes it. AI agents wrote the proofs in fifteen days under one author's direction, atop an existing stack.",
-      "summary_zh": "Blanc 将已部署的 EVM 字节码直接接入 Lean 4 证明栈，并以可执行的 Jaune 语义验证真实合约性质，覆盖精确 gas、存储模型、重入和主网交易行为。",
-      "why_it_matters_zh": "这是可检验性很强的形式化验证工作：定理针对实际字节码和可执行语义，测试夹具、主网收据及证明工件均给出明确核验对象。",
-      "quality_score": 71.0,
+      "abstract_or_text": "Formal inequality proving requires mathematical reasoning and exact computation, often connected through intermediate lemmas and goal reformulations. We introduce IneqAgent, an agentic framework combining LLM reasoning with symbolic computation for inequality proving in Lean4. Lemma-level Monte Carlo Tree Search coordinates lemma construction, goal reformulation, and symbolic backend selection. Complementary sum-of-squares, Bernstein, and successive difference-substitution backends produce exact certificates for local Lean proof generation. The agent integrates these proofs with LLM-generated steps and uses Lean feedback to construct complete proofs checked against the original theorem statements. On four benchmarks, IneqAgent with DeepSeek-V4-Flash solves 175 of 186 problems (94.09%), achieving the highest overall success rate among the evaluated methods. Across four backbones, it achieves higher success rates at low LLM inference cost thresholds than Direct Agent using the same backbone, with lower mean inference costs over each method's successful runs. We also obtain Lean-verified strengthenings of Dittert's conjecture in dimensions four and five, and certify the Holens--Djokovic (4,4) inequality, implying Merris's conjecture in dimension four.",
+      "summary_zh": "IneqAgent 将大语言模型推理、引理级蒙特卡洛树搜索与符号计算后端结合，在 Lean4 中自动生成并核验不等式证明。",
+      "why_it_matters_zh": "任务、验证器和结果都较清晰：四个基准、186 道题以及 Lean 核验的具体猜想强化和不等式证书，使性能主张具有可检验性。",
+      "quality_score": 85.0,
       "tags": [
         "形式化证明"
       ],
       "evidence_flags": [
-        "release"
+        "benchmark"
       ],
       "publication_status": "preprint",
       "rank": 1,
@@ -64,125 +68,34 @@
       "metrics": {},
       "metadata": {
         "doi": "",
-        "arxiv_id": "2610.19764v1"
+        "arxiv_id": "2610.20681v1"
       },
-      "abstract_zh": "Ethereum 许多最重要的代码都是不可变字节码：它们可能来自未经验证的旧编译器输出，也可能是以合约代码运行的协议逻辑。我们展示了可以直接验证这类字节码，无需信任生成它的工具，无需简化其运行的机器，也无需 Lean 自身之外的任何公理。Blanc 是一个 Lean 4 验证栈，它通过内核检查的证书读取固定的运行时字节，并把每个定理都表述在 Jaune 之上；Jaune 是 EVM 和区块处理的可执行语义，在 Ethereum fixture release v20.0.2 中涉及自 2025 年 5 月以来主网所采用分叉的全部 34,205 个区块链测试用例上均通过了测试。八个工件的部署时间从 2017 年到 2026 年不等，来自七个编译器版本和一个汇编器。对于 EIP-7002 合约，我们证明：无论其存储内容为何，对它的区块结束调用都会成功（该调用失败将使区块无效）；并且每个区块的提款请求恰好是最早的待处理提交。在 Prague 升级开始时，主网满足这些定理的起始前提。对于一个 Uniswap V2 交易对，我们证明：在任意一段有效历史中，只要经哈希的存储槽彼此分离，从代表其 Solidity 模型状态的任意检查点出发，存储都表示该模型对已提交调用的逐次重放；平衡的流动性账本保持平衡；并且在代币返回值满足某一前提时，每份储备的几何平均值只会因协议费用而下降。精确 gas 使活性也可以被证明：一个没有代码的、被跟踪的 WETH9 持有者可以通过一笔 gas 量有闭式表达式的交易完成提款；在 30,000 个区块中，所有 3,748 笔形状可比的主网收据都与该表达式吻合。对于在 2023 年被利用锁漏洞编译的 Curve 池字节码，Jaune 从部署开始就能执行这样的重入；对于由一个固定编译器生成的字节码，我们证明该锁会排除这种重入。AI agents 在一位作者指导下，用十五天写出了这些证明，所依托的是一个已有的验证栈。",
+      "abstract_zh": "形式化不等式证明需要数学推理和精确计算，并且通常要通过中间引理和目标重写将二者连接起来。我们提出 IneqAgent，一个将大语言模型推理与符号计算结合起来的 Lean4 不等式证明智能体框架。引理级蒙特卡洛树搜索负责协调引理构造、目标重写和符号后端选择。互补的平方和、Bernstein 以及 successive difference-substitution 后端，为局部 Lean 证明生成精确证书。该智能体将这些证明与大语言模型生成的步骤整合，并利用 Lean 反馈构造针对原始定理陈述、经过完整检查的证明。在四个基准上，使用 DeepSeek-V4-Flash 的 IneqAgent 解决了 186 道题中的 175 道（94.09%），在所评估方法中取得最高总体成功率。在四个骨干模型上，相比使用相同骨干模型的 Direct Agent，它在较低的大语言模型推理成本阈值下取得更高成功率，并且在每种方法成功运行的平均推理成本上更低。我们还获得了 Lean 核验的 Dittert's conjecture 在四维和五维中的强化版本，并证明了 Holens--Djokovic (4,4) inequality，从而推出四维中的 Merris's conjecture。",
       "published": "2026-10-14",
-      "author_line": "Seulkee Baek"
+      "author_line": "Gaolei He, Jinhui Li, Ruobing Zuo, Xia Zeng, Zhengfeng Yang"
     },
     {
-      "id": "arxiv:2610.19223v1",
+      "id": "arxiv:2610.21604v1",
       "channel": "aixmath",
       "related_channels": [],
       "item_type": "paper",
       "source": "arXiv",
-      "title": "Definition Grounding in Theory-Level Auto-formalization",
-      "url": "https://arxiv.org/abs/2610.19223v1",
-      "published_at": "2026-10-13",
-      "updated_at": "2026-10-13",
+      "title": "Evaluating Inquiry Learning in LLM-Based Agents: Hypothesizing, Reasoning, and Exploration",
+      "url": "https://arxiv.org/abs/2610.21604v1",
+      "published_at": "2026-10-15",
+      "updated_at": "2026-10-15",
       "creators": [
-        "Leyan Pan",
-        "Christian Szegedy",
-        "Frederick Rajasekaran",
-        "Robi Bhattacharjee",
-        "Gregory Constantine",
-        "Wenke Lee"
+        "Marta Knežević",
+        "Seyed Parsa Neshaei",
+        "Jibril Frej",
+        "Vinitra Swamy",
+        "Tanja Käser"
       ],
       "language": "en",
-      "abstract_or_text": "LLM-based auto-formalization systems can now generate formally verified Lean code at unprecedented rates. However, a formalization advances mathematical research only when further mathematical results can be built on it, especially when its definitions and helper lemmas are general enough to be imported and used idiomatically. We propose definition grounding, where definition formalizations are continuously judged and revised, as a method to ensure formalization quality. We find that agents formalizing definitions from textbook text often produce definitions that later statements cannot use, and only 25%-50% of their definition sets are compatible with all later statements. However, clarifying the informal definitions can improve this rate up to 77.5% averaged over all models. Furthermore, stating a small set of basic properties without proving them can improve model judges' capability to detect definitions with compatibility issues, at only about 11% of the definition formalization cost. These results are verified with ReuseBench, a benchmark we curated for formalizing new mathematical fields and theories.",
-      "summary_zh": "Definition grounding 通过持续判断和修订定义，评估理论级自动形式化是否产生可复用、能支撑后续定理的 Lean 定义；ReuseBench 显示定义兼容性仍是主要瓶颈。",
-      "why_it_matters_zh": "它把“代码能否通过形式验证”推进到“定义能否被后续数学使用”，并用后续陈述兼容率和基准数据提供可复核的质量指标。",
-      "quality_score": 72.0,
-      "tags": [
-        "形式化证明"
-      ],
-      "evidence_flags": [
-        "benchmark"
-      ],
-      "publication_status": "preprint",
-      "rank": 2,
-      "featured": true,
-      "category": "形式化证明",
-      "metrics": {},
-      "metadata": {
-        "doi": "",
-        "arxiv_id": "2610.19223v1"
-      },
-      "abstract_zh": "基于 LLM 的自动形式化系统如今能够以前所未有的速率生成经过形式验证的 Lean 代码。然而，只有当形式化结果能够支撑进一步的数学成果时，尤其是当其定义和辅助引理足够一般、可以被导入并按惯例使用时，形式化才会推进数学研究。我们提出 definition grounding：持续判断并修订定义，以确保形式化质量的一种方法。我们发现，agents 根据教材文本形式化定义时，经常产生后续陈述无法使用的定义；在所有模型中，定义集合中只有 25%–50% 能与后续全部陈述兼容。澄清非形式化定义后，这一比例在所有模型上的平均值最高可提高到 77.5%。此外，在不证明一小组基本性质的情况下陈述这些性质，也能提高模型评审者发现定义兼容性问题的能力，而成本约只有定义形式化成本的 11%。这些结果通过我们整理的 ReuseBench 得到验证；该基准用于形式化新的数学领域和理论。",
-      "published": "2026-10-13",
-      "author_line": "Leyan Pan, Christian Szegedy, Frederick Rajasekaran, Robi Bhattacharjee, Gregory Constantine, Wenke Lee"
-    },
-    {
-      "id": "arxiv:2610.17724v1",
-      "channel": "aixmath",
-      "related_channels": [],
-      "item_type": "paper",
-      "source": "arXiv",
-      "title": "Evidence-First Agentic Verification",
-      "url": "https://arxiv.org/abs/2610.17724v1",
-      "published_at": "2026-10-13",
-      "updated_at": "2026-10-13",
-      "creators": [
-        "Reza Sanayei",
-        "Razvan-Gabriel Dumitru",
-        "Sunjie Hou",
-        "MohammadHossein Rezaei",
-        "Haris Riaz",
-        "Robert Vacareanu",
-        "Minglai Yang",
-        "Ying Liu",
-        "Mihai Surdeanu",
-        "Daniel Yue Zhang"
-      ],
-      "language": "en",
-      "abstract_or_text": "Long-horizon, semi-verifiable agentic tasks often rely on rubric-based evaluation, but the evidence needed to assess these tasks can be spread across the environment state and the execution trace. A judge may overlook this evidence or accept unsupported claims, including an agent's own reports of success. When rubric verdicts serve as reinforcement-learning rewards, such errors can reinforce undesirable behavior. We introduce Sauron, an evidence-first agentic verifier that investigates both state and trace and relies on a claim only after independently validating it against its source. Bounded queries and joint investigation of related criteria reduce context use and redundant work, and each verdict carries an auditable receipt of its supporting evidence. Across 2,586 human-labeled criteria from 100 personal-assistant episodes, Sauron achieves the highest F1 of five verifiers on all eight backbones tested while costing less than Gandalf, the strongest baseline. With GPT-5.6 Sol, it reaches 0.96 F1 versus Gandalf's 0.92 at 23% lower cost, with a wider margin on process criteria. On a paired fault-injection suite covering 13 families, several of which simulate reward hacking, Sauron detects 97% of injected failures while flagging only 2% of clean controls, outperforming baselines even when they are given the full trace. On TRAIL, a benchmark for detecting and localizing real agent errors, Sauron leads both Gandalf and TRAIL's own judge on all three quality metrics.",
-      "summary_zh": "Sauron 是一种证据优先的 agent 验证器，会独立核对环境状态、执行轨迹和声明，并为每个判定生成可审计证据回执；在人类标注和故障注入测试中均优于基线。",
-      "why_it_matters_zh": "任务、证据来源和错误检测指标都明确，且包含 reward hacking 类故障注入，适合检验验证器是否真正依据可追溯证据作出判定。",
-      "quality_score": 72.0,
-      "tags": [
-        "形式化证明"
-      ],
-      "evidence_flags": [
-        "benchmark",
-        "evaluation"
-      ],
-      "publication_status": "preprint",
-      "rank": 3,
-      "featured": true,
-      "category": "形式化证明",
-      "metrics": {},
-      "metadata": {
-        "doi": "",
-        "arxiv_id": "2610.17724v1"
-      },
-      "abstract_zh": "长时程、半可验证的 agent 任务通常依赖基于量规的评估，但评估任务所需的证据可能分散在环境状态和执行轨迹中。评审者可能忽略这些证据，或接受没有支持的声明，包括 agent 自己关于成功的报告。当量规判定被用作强化学习奖励时，这类错误可能会强化不良行为。我们提出 Sauron，一种证据优先的 agent 验证器：它调查状态和轨迹，只有在独立地根据来源验证一项声明之后才依赖该声明。受限的查询次数以及对相关标准的联合调查，减少了上下文使用和重复工作；每个判定都附带一份记录其支持证据的、可审计的回执。在来自 100 个个人助理 episode 的 2,586 条人工标注标准上，Sauron 在测试的八个 backbone 上都取得了五种验证器中的最高 F1，同时成本低于最强基线 Gandalf。使用 GPT-5.6 Sol 时，其 F1 为 0.96，而 Gandalf 为 0.92，成本低 23%；在过程标准上差距更大。在覆盖 13 类故障的成对故障注入套件中（其中若干类模拟 reward hacking），Sauron 检出 97% 的注入故障，同时只将 2% 的干净对照标记为故障；即使给基线完整轨迹，它仍优于基线。在用于检测和定位真实 agent 错误的 TRAIL 基准上，Sauron 在三个质量指标上都领先于 Gandalf 和 TRAIL 自带的评审器。",
-      "published": "2026-10-13",
-      "author_line": "Reza Sanayei, Razvan-Gabriel Dumitru, Sunjie Hou, MohammadHossein Rezaei, Haris Riaz, Robert Vacareanu, Minglai Yang, Ying Liu, Mihai Surdeanu, Daniel Yue Zhang"
-    },
-    {
-      "id": "arxiv:2610.18760v1",
-      "channel": "aixmath",
-      "related_channels": [],
-      "item_type": "paper",
-      "source": "arXiv",
-      "title": "Beyond the Verdict: Agentic Code Judging with Verifiable Feedback",
-      "url": "https://arxiv.org/abs/2610.18760v1",
-      "published_at": "2026-10-13",
-      "updated_at": "2026-10-13",
-      "creators": [
-        "Zheye Deng",
-        "Sha Li",
-        "Changlong Yu",
-        "Xin Liu",
-        "Qin Lu",
-        "Priyanka Nigam",
-        "Yangqiu Song"
-      ],
-      "language": "en",
-      "abstract_or_text": "Test-time scaling for large language models (LLMs) can involve generating multiple candidate solutions for selection or revising an earlier attempt. To guide selection and revision, we need a verifier that can estimate candidate correctness and provide evidence of failure. In competitive programming, however, official judging systems provide authoritative verdicts under finite submission budgets, without revealing failure explanations or failing inputs. To provide informative feedback without consuming official submissions, we formulate a task in which a model judges and diagnoses a candidate program using only the problem statement and source code, with generated counterexamples serving as checkable evidence. To evaluate this task, we build USACO-JUDGE from the USACO 2026 contests, using accepted and unaccepted programs written by human experts and multiple LLMs. We then train ARBITER, a 35B mixture-of-experts (MoE) agentic verifier, with reinforcement learning in a generic execution sandbox. Training raises counterexample success on incorrect programs from 40.61% to 62.67% and mean binary verdict accuracy on USACO-JUDGE from 71.41% to 87.41%, approaching frontier verification performance. Beyond verification, ARBITER outperforms baselines in both code selection and refinement. In an IOI 2026 case study, ARBITER-guided refinement raises GPT-OSS-120B's expected score above the gold-medal threshold under the official submission limit.",
-      "summary_zh": "ARBITER 在不消耗官方提交次数的前提下，为竞赛程序生成可检查反例并判断错误原因；在 USACO-JUDGE 上显著提升反例成功率和二元判定准确率。",
-      "why_it_matters_zh": "它把程序验证转化为可复核的反例生成任务，使用人类和 LLM 编写的已接受/未接受程序，并以独立测试集衡量判定、选择和修订效果。",
-      "quality_score": 72.0,
+      "abstract_or_text": "Scientific inquiry involves iterative cycles of exploration, hypothesis generation, and reasoning over observations to uncover relationships in complex systems. Large language models (LLMs) have demonstrated strong capabilities in several components of this process, including inductive reasoning, hypothesis generation, and data analysis. However, prior work typically evaluates these abilities in isolation, leaving open how models integrate them across a full inquiry cycle. In this work, we introduce a framework for evaluating LLMs' inquiry capabilities in a unified, interactive setting. We extend the Countdown task to a mathematical environment where an agent probes the system by manipulating variables, collecting observations, and inferring relationships between them. This setup enables analysis of exploration strategies, causal discovery, and hypothesis refinement during inquiry. Across seven LLMs and multiple prompting strategies, our experiments reveal limited inherent inquiry capabilities and low success rates in discovering the underlying expressions. However, structured guidance inspired by educational scaffolding significantly improves performance. Our findings highlight current limitations of LLMs in strategic exploration and iterative hypothesis refinement, and show how simple guidance strategies developed for human learners in inquiry learning can support more effective inquiry behavior.",
+      "summary_zh": "该工作在可交互的数学 Countdown 环境中评估大语言模型的探索、假设生成和迭代推理能力，并测试教育式脚手架引导。",
+      "why_it_matters_zh": "把数学推理拆成可观察的探索和假设修正过程；跨七个模型和多种提示策略的成功率结果，能直接检验模型是否真正完成探究循环。",
+      "quality_score": 76.0,
       "tags": [
         "方法与模型"
       ],
@@ -190,133 +103,222 @@
         "performance"
       ],
       "publication_status": "preprint",
-      "rank": 4,
-      "featured": false,
+      "rank": 2,
+      "featured": true,
       "category": "方法与模型",
       "metrics": {},
       "metadata": {
         "doi": "",
-        "arxiv_id": "2610.18760v1"
+        "arxiv_id": "2610.21604v1"
       },
-      "abstract_zh": "大型语言模型（LLM）的测试时扩展可以包括生成多个候选解供选择，或修订早先的尝试。为了指导选择和修订，我们需要一个能够估计候选解正确性并提供失败证据的验证器。然而，在竞赛编程中，官方评测系统在有限提交次数下给出权威判定，却不公开失败解释或失败输入。为在不消耗官方提交次数的情况下提供有信息量的反馈，我们提出这样一个任务：模型仅使用题目陈述和源代码来判断并诊断候选程序，并把生成的反例作为可检查证据。为了评估该任务，我们基于 USACO 2026 竞赛构建了 USACO-JUDGE，其中包含由人类专家和多个 LLM 编写的已接受及未接受程序。随后，我们在一个通用执行沙箱中通过强化学习训练了 ARBITER，这是一个 35B mixture-of-experts（MoE）agentic verifier。训练使错误程序上的反例成功率从 40.61% 提高到 62.67%，并使 USACO-JUDGE 上的平均二元判定准确率从 71.41% 提高到 87.41%，接近前沿验证性能。除验证外，ARBITER 在代码选择和代码修订方面也优于基线。在 IOI 2026 的案例研究中，在官方提交次数限制下，由 ARBITER 指导的修订使 GPT-OSS-120B 的预期得分超过金牌门槛。",
-      "published": "2026-10-13",
-      "author_line": "Zheye Deng, Sha Li, Changlong Yu, Xin Liu, Qin Lu, Priyanka Nigam, Yangqiu Song"
+      "abstract_zh": "科学探究涉及探索、生成假设以及基于观察进行推理的迭代循环，以发现复杂系统中的关系。大语言模型（LLM）已经在这一过程的若干组成部分上展现出较强能力，包括归纳推理、假设生成和数据分析。然而，既有工作通常将这些能力分开评估，因此模型如何在完整的探究循环中整合它们仍不清楚。在本文中，我们提出一个在统一交互环境中评估 LLM 探究能力的框架。我们将 Countdown 任务扩展为一个数学环境，在其中智能体通过操纵变量、收集观察结果并推断变量之间的关系来探测系统。这一设置能够分析探索策略、因果发现和假设修正。我们在七个 LLM 和多种提示策略上进行实验，结果显示模型固有的探究能力有限，在发现底层表达式方面的成功率较低。然而，受教育式脚手架启发的结构化引导能显著提升性能。我们的结果揭示了 LLM 在战略性探索和迭代假设修正方面的当前局限，并表明为人类探究学习设计的简单引导策略可以支持更有效的探究行为。",
+      "published": "2026-10-15",
+      "author_line": "Marta Knežević, Seyed Parsa Neshaei, Jibril Frej, Vinitra Swamy, Tanja Käser"
     },
     {
-      "id": "arxiv:2610.20245v1",
+      "id": "arxiv:2610.21983v1",
+      "channel": "aixmath",
+      "related_channels": [
+        "aixchem"
+      ],
+      "item_type": "paper",
+      "source": "arXiv",
+      "title": "OntoAct: Hypothesis-Based Neuro-Symbolic Agents through Ontological Abstraction",
+      "url": "https://arxiv.org/abs/2610.21983v1",
+      "published_at": "2026-10-15",
+      "updated_at": "2026-10-15",
+      "creators": [
+        "Donghyeok Lee",
+        "Bong Gyun Kang",
+        "Junyong Ahn",
+        "Sungroh Yoon"
+      ],
+      "language": "en",
+      "abstract_or_text": "Learning from experience requires recovering reusable knowledge and determining when it applies to a new situation. We introduce OntoAct, a hypothesis-based neuro-symbolic framework built on ontological abstraction. OntoAct turns individual experiences into axioms over entity types, relations, and conditions, making their underlying patterns reusable across situations. A large language model (LLM) uses this world knowledge to propose hypotheses and actions, while a symbolic verifier assesses their supporting conditions against current observations. Verification identifies missing evidence, and new observations and intervention outcomes update hypothesis assessments and guide subsequent actions. We also introduce Tacit-FLE, a benchmark built on the Factorio Learning Environment (FLE) for diagnosing and repairing hidden faults in existing factories using inherited operational records. Its synthetic maintenance corpus distributes evidence across records, and an executed repair may leave the fault unresolved, requiring agents to reassess their diagnoses through interaction. Across Tacit-FLE, Mars, and ALFWorld, OntoAct achieves leading task performance with efficient interaction and inference.",
+      "summary_zh": "OntoAct 用本体抽象把经验转成可复用公理，由 LLM 提出假设和行动，再由符号验证器检查条件并依据新证据更新。",
+      "why_it_matters_zh": "验证器、缺失证据识别和交互式再评估构成了可检查的逻辑闭环；Tacit-FLE、Mars 和 ALFWorld 提供了多环境评测。",
+      "quality_score": 78.0,
+      "tags": [
+        "验证与逻辑"
+      ],
+      "evidence_flags": [
+        "benchmark",
+        "performance"
+      ],
+      "publication_status": "preprint",
+      "rank": 3,
+      "featured": true,
+      "category": "验证与逻辑",
+      "metrics": {},
+      "metadata": {
+        "doi": "",
+        "arxiv_id": "2610.21983v1"
+      },
+      "abstract_zh": "从经验中学习需要恢复可复用的知识，并确定这些知识何时适用于新情境。我们提出 OntoAct，一个建立在本体抽象之上的假设驱动神经符号框架。OntoAct 将个体经验转化为关于实体类型、关系和条件的公理，使其底层模式能够在不同情境之间复用。大语言模型（LLM）利用这些世界知识提出假设和行动，而符号验证器则根据当前观察评估其支持条件。验证过程会识别缺失证据；新的观察和干预结果会更新假设评估，并指导后续行动。我们还引入 Tacit-FLE，这是一个建立在 Factorio Learning Environment（FLE）上的基准，用于利用继承的运行记录诊断和修复现有工厂中的隐藏故障。其合成维护语料库将证据分散在不同记录中，而且执行的修复可能无法消除故障，因此智能体必须通过交互重新评估诊断。在 Tacit-FLE、Mars 和 ALFWorld 上，OntoAct 都取得了领先的任务性能，同时保持较高的交互和推理效率。",
+      "published": "2026-10-15",
+      "author_line": "Donghyeok Lee, Bong Gyun Kang, Junyong Ahn, Sungroh Yoon"
+    },
+    {
+      "id": "arxiv:2610.21881v1",
       "channel": "aixmath",
       "related_channels": [],
       "item_type": "paper",
       "source": "arXiv",
-      "title": "P2Patch: Exploit-Guided Vulnerability Repair",
-      "url": "https://arxiv.org/abs/2610.20245v1",
-      "published_at": "2026-10-14",
-      "updated_at": "2026-10-14",
+      "title": "Learning Lean Feedback for Efficient Proof-Candidate Evaluation on GPUs",
+      "url": "https://arxiv.org/abs/2610.21881v1",
+      "published_at": "2026-10-15",
+      "updated_at": "2026-10-15",
       "creators": [
-        "Mohsen Iranmanesh",
-        "Sina Moradi Sabet",
-        "Sina Marefat",
-        "Ali Javidi Ghasr",
-        "Maxime Newman Nereyabagabo",
-        "Kousha Amouzesh",
-        "Jaivir Malhi",
-        "Vinci Velasco",
-        "Alex Chung",
-        "Mohammad A. Tayebi"
+        "Lazar Milikic",
+        "Etienne Bamas",
+        "Emmanuel Abbe",
+        "Viktor Kunčak"
       ],
       "language": "en",
-      "abstract_or_text": "Large language models are increasingly deployed as autonomous agents for automated program repair, patching software vulnerabilities through multi-step reasoning and tool use. Yet these systems typically validate a patch against the same evidence used to construct it -- a static alert, sanitizer trace, published exploit, or test suite. A patch that blocks that one piece of evidence can therefore look successful while remaining vulnerable to the same vulnerability with some variation. We present P2Patch, a generative adversarial repair system that treats each patch as a new attack target. Starting from a normalized vulnerability finding, an exploitation agent constructs a reproducing proof of vulnerability (PoV), a patching agent repairs the program, and the exploitation agent then attacks the patched program for a distinct same-vulnerability exploit. Every successful exploit becomes a permanent repair requirement, and the final patch must block all PoVs accumulated during the patching process, with construction-time PoVs kept strictly separate from held-out evaluation oracles. Across 101 C/C++ and Java CVE subjects, this adversarial loop surfaces a distinct confirmed exploit in 41% of runs after the patch has already blocked its original construction-time PoV. Against single-pass repair from the same finding using Claude Code, P2Patch raises held-out fix-closed coverage from 78.1% to 84.7% and beyond-upstream coverage from 42.1% to 62.5%. Under the same held-out oracles, it also certifies more attack paths as blocked than recent state-of-the-art agentic repair systems on overlapping subjects. These results show that adversarial testing and independent security oracles expose repair gaps that one-shot validation misses.",
-      "summary_zh": "P2Patch 将漏洞修复置于对抗循环中：利用 agent 先构造漏洞证明，再攻击补丁并累积新的修复要求；在 101 个 CVE 实例上提升独立预留 oracle 的修复覆盖率。",
-      "why_it_matters_zh": "构造期 PoV 与留出的评估 oracle 严格分离，避免用同一证据自证补丁有效，结果具有清晰的安全可检验性。",
-      "quality_score": 72.0,
+      "abstract_or_text": "Training language models for formal theorem proving requires large numbers of verifier calls. Slow checks and timeouts often leave GPUs waiting and withhold rewards from potentially correct proofs. We train neural evaluators to predict Lean 4 verdicts and compiler feedback on GPUs using 4.84M labelled programs. We compare two validity classifiers with a feedback model that annotates proof attempts with predicted goal states and error messages. A two-stage evaluator that screens candidates with a classifier and scores its positive predictions with the feedback model reaches 87.8% accuracy in predicting whether Lean accepts a candidate proof, evaluated on a 68,932-program benchmark collected from public provers. The combined evaluator processes 3.5 candidates per second on one H100, 4.2x the throughput of our 64-worker Lean baseline with environment reuse. Finally, we combine our evaluator with Lean verdicts to obtain a hybrid reward system that shortens GRPO training steps by approximately 31%. After one GRPO epoch with hybrid rewards, the prover achieves nearly the same miniF2F pass@1 as with Lean-only rewards (62.2% versus 62.4%) and a pass@32 of 72.4% versus 71.3%.",
+      "summary_zh": "研究用神经评估器预测 Lean 4 的证明判定和编译反馈，以减少形式定理证明中的验证开销，并报告与 Lean 混合奖励下的 miniF2F 结果。",
+      "why_it_matters_zh": "评估器在 68,932 个程序上测试，报告了准确率、吞吐量、训练步长缩短以及 miniF2F pass@1/pass@32，指标可复核且没有把预测反馈等同于正式证明。",
+      "quality_score": 77.0,
       "tags": [
-        "方法与模型"
+        "形式化证明"
       ],
       "evidence_flags": [
-        "state-of-the-art",
-        "evaluation",
-        "security"
+        "benchmark",
+        "evaluation"
+      ],
+      "publication_status": "preprint",
+      "rank": 4,
+      "featured": false,
+      "category": "形式化证明",
+      "metrics": {},
+      "metadata": {
+        "doi": "",
+        "arxiv_id": "2610.21881v1"
+      },
+      "abstract_zh": "训练用于形式定理证明的语言模型需要大量验证器调用。缓慢的检查和超时经常使 GPU 空闲，并使潜在正确的证明得不到奖励。我们使用 484 万个带标签的程序，在 GPU 上训练预测 Lean 4 判定和编译器反馈的神经评估器。我们比较了两个有效性分类器，以及一个为证明尝试标注预测目标状态和错误消息的反馈模型。一个两阶段评估器先用分类器筛选候选，再用反馈模型评估其正类预测；在一个从公开证明器收集、包含 68,932 个程序的基准上，它预测 Lean 是否接受候选证明的准确率达到 87.8%。组合评估器在一块 H100 上每秒处理 3.5 个候选，相比使用环境复用的 64 工作进程 Lean 基线，吞吐量为其 4.2 倍。最后，我们将该评估器与 Lean 判定结合形成混合奖励系统，使 GRPO 训练步骤缩短约 31%。经过一个 GRPO epoch，使用混合奖励的证明器在 miniF2F 上的 pass@1 几乎与仅使用 Lean 奖励相同（62.2% 对 62.4%），而 pass@32 为 72.4% 对 71.3%。",
+      "published": "2026-10-15",
+      "author_line": "Lazar Milikic, Etienne Bamas, Emmanuel Abbe, Viktor Kunčak"
+    },
+    {
+      "id": "arxiv:2610.21581v1",
+      "channel": "aixmath",
+      "related_channels": [],
+      "item_type": "paper",
+      "source": "arXiv",
+      "title": "ClaimScope: Label-Blind Witness Verification for Mathematical Claim Auditing",
+      "url": "https://arxiv.org/abs/2610.21581v1",
+      "published_at": "2026-10-15",
+      "updated_at": "2026-10-15",
+      "creators": [
+        "Mushir Akhtar"
+      ],
+      "language": "en",
+      "abstract_or_text": "Mathematical agents are commonly evaluated by answer accuracy or proof acceptance. We introduce ClaimScope, a 72-task benchmark for auditing proposed claims through a verdict, scope, counterexample, and repair. Tasks cover optimizer-state transport, finite-horizon affine recurrences, and exact 2\\times2 linear algebra. We evaluate Qwen3-8B with direct generation and four matched two-pass conditions, each starting from the same draft. A witness checker evaluates only the model's submitted state, without consulting reference verdicts or supplying a replacement witness. Its feedback still conveys information about validity: a verified refutation establishes that the claim is false, and rejection reasons can suggest structural fixes. In this evaluation, verifier feedback yields 23/39 accepted counterexamples on invalid claims and 25/72 safe completions, compared with 15/39 and 20/72 for checker-free generic feedback. Strict completion remains 17/72; verdict accuracy changes from 47/72 to 46/72. The claim-grouped safe-completion difference is .094, with a bootstrap 95\\% interval of [.000,.198]. All seven task-level gains follow horizon/input-length diagnostics. A post-hoc schema-only correction of the direct outputs reaches the same 25 safe tasks without another model call. These results separate claim classification from executable evidence, while locating the observed gains in witness-structure correction rather than demonstrating broader reasoning improvement.",
+      "summary_zh": "ClaimScope 用 72 个任务评估数学主张的判定、范围、反例和修复，并检验只依据模型提交见证的检查器反馈。",
+      "why_it_matters_zh": "它把主张分类与可执行证据分开，报告了反例接受率、安全完成率、严格完成率和置信区间，也明确指出增益主要来自见证结构修正。",
+      "quality_score": 77.0,
+      "tags": [
+        "形式化证明"
+      ],
+      "evidence_flags": [
+        "benchmark",
+        "evaluation"
       ],
       "publication_status": "preprint",
       "rank": 5,
       "featured": false,
-      "category": "方法与模型",
+      "category": "形式化证明",
       "metrics": {},
       "metadata": {
         "doi": "",
-        "arxiv_id": "2610.20245v1"
+        "arxiv_id": "2610.21581v1"
       },
-      "abstract_zh": "大型语言模型越来越多地作为自主 agent 部署，用于自动程序修复，通过多步推理和工具使用来修补软件漏洞。然而，这些系统通常使用构造补丁时的同一证据来验证补丁——静态告警、sanitizer 轨迹、已发布的 exploit 或测试套件。因此，只要补丁阻断了那一条证据，面对同一漏洞的某种变体时仍可能保持易受攻击，却会看起来修复成功。我们提出 P2Patch，这是一种生成式对抗修复系统，把每个补丁都当作新的攻击目标。系统从规范化的漏洞发现开始，由 exploitation agent 构造一个可复现的漏洞证明（PoV），由 patching agent 修复程序，随后 exploitation agent 再攻击已修补的程序，寻找一个针对同一漏洞、但不同的 exploit。每个成功的 exploit 都会成为永久修复要求，最终补丁必须阻断在修补过程中累积的全部 PoV；构造期 PoV 与留出的评估 oracle 严格分离。在 101 个 C/C++ 和 Java 的 CVE 目标上，补丁已经阻断其原始构造期 PoV 后，41% 的运行仍发现了不同的、已确认的 exploit。与使用同一漏洞发现进行单次修复的 Claude Code 相比，在相同的留出 oracle 下，P2Patch 将 fix-closed 覆盖率从 78.1% 提高到 84.7%，并将 beyond-upstream 覆盖率从 42.1% 提高到 62.5%。在相同的留出 oracle 下，它还比近期 agentic 修复系统的最先进方法在重叠目标上认证了更多被阻断的攻击路径。这些结果表明，对抗性测试和独立安全 oracle 能发现一次性验证遗漏的修复缺口。",
-      "published": "2026-10-14",
-      "author_line": "Mohsen Iranmanesh, Sina Moradi Sabet, Sina Marefat, Ali Javidi Ghasr, Maxime Newman Nereyabagabo, Kousha Amouzesh, Jaivir Malhi, Vinci Velasco, Alex Chung, Mohammad A. Tayebi"
+      "abstract_zh": "数学智能体通常通过答案准确率或证明接受率进行评估。我们提出 ClaimScope，一个包含 72 个任务的基准，用于审计所提出的主张，输出包括判定、范围、反例和修复。任务涵盖优化器状态传输、有限时域仿射递推以及精确的 2×2 线性代数。我们评估 Qwen3-8B 的直接生成和四种匹配的两遍条件，每种条件都从同一份草稿开始。见证检查器只评估模型提交的状态，不查看参考判定，也不提供替代见证。它的反馈仍然能够传递有效性信息：经过验证的反驳可以确立主张为假，而拒绝原因则可以提示结构性修复。在这项评估中，对于无效主张，验证器反馈得到 39 个反例中的 23 个被接受；对于安全完成，72 个任务中有 25 个，相比之下，不使用检查器、采用通用反馈时分别为 15/39 和 20/72。严格完成率仍为 17/72；判定准确率从 47/72 变为 46/72。按主张分组的安全完成差异为 0.094，bootstrap 95% 区间为 [0.000, 0.198]。七个任务层面的增益全部符合关于时域和输入长度的诊断。事后仅进行模式修正的直接输出，未再调用模型，就达到了相同的 25 个安全任务。这些结果将主张分类与可执行证据区分开来，同时表明观察到的增益来自见证结构修正，而不是更广泛的推理能力提升。",
+      "published": "2026-10-15",
+      "author_line": "Mushir Akhtar"
     },
     {
-      "id": "arxiv:2610.17869v1",
+      "id": "arxiv:2610.20108v2",
       "channel": "aixmath",
       "related_channels": [],
       "item_type": "paper",
       "source": "arXiv",
-      "title": "ECMR: Evidence-Aware Deliberation Control for Multi-Agent LLM Reasoning",
-      "url": "https://arxiv.org/abs/2610.17869v1",
-      "published_at": "2026-10-13",
-      "updated_at": "2026-10-13",
+      "title": "Exhaustive Canonical Skeletons Generation: A Formal Dataset for Decomposable Symbolic Regression",
+      "url": "https://arxiv.org/abs/2610.20108v2",
+      "published_at": "2026-10-14",
+      "updated_at": "2026-10-15",
       "creators": [
-        "Yuan Liu",
-        "Haoyue Peng",
-        "Fanliang Hu",
-        "Lei Huang",
-        "Wenli Cai"
+        "Giorgio Morales",
+        "Anikó Ekárt"
       ],
       "language": "en",
-      "abstract_or_text": "Multi-agent Large Language Model (LLM) systems typically commit to a deliberation protocol before inference. A fixed protocol cannot allocate computation differently to resolved and unresolved instances, and it may mistake repeated support for independent confirmation. We study this failure as semantic false consensus: a confident group answer supported by narrow, duplicated, or correlated rationales. We introduce ECMR, an evidence-aware controller over frozen role-conditioned LLMs. At each step, ECMR summarizes answer concentration, support diversity and independence, contradictions, role behavior, verification history, and remaining budget, then selects whether to propose, challenge, verify, arbitrate, diversify, correct a role, or stop. We formulate this decision as finite-horizon budgeted control and derive sufficient conditions under which state conditioning, risk-triggered verification, and role correction improve cost-adjusted utility. Across a declared held-out evaluation of 9,000 records from MedQA, CaseHOLD, and FinQA, ECMR-Full increases pooled accuracy from 62.1% to 84.9%, reduces false-consensus rate from 40.7% to 17.0%, and raises evidence-support rate from 58.0% to 88.7%. State shuffling loses 11.7 accuracy points with only 0.7 fewer rounds, while harder traces shift from early stopping toward arbitration. ECMR-Full uses the largest token budget, yielding the strongest absolute reliability rather than uniformly superior token efficiency.",
-      "summary_zh": "ECMR 根据答案集中度、证据独立性、矛盾和验证历史动态选择提出、质疑、验证、仲裁或停止，并将其建模为有限时域预算控制。",
-      "why_it_matters_zh": "论文同时给出控制问题的充分条件、状态打乱消融和 9,000 条留出记录上的多项指标，能检验多 agent 推理是否真的减少虚假共识。",
-      "quality_score": 76.0,
+      "abstract_or_text": "Neural symbolic regression (SR) models require diverse datasets of mathematical expressions for robust training. However, existing datasets rely predominantly on stochastic sampling methods, which suffer from high structural redundancy and incomplete functional coverage. To address this, we introduce an exhaustive dataset of univariate canonical skeletons generated via a deterministic constrained context-free grammar. A canonical skeleton acts as a generic structural representation that subsumes more specific functional forms, eliminating redundant expressions and avoiding repeated computational efforts. Although our dataset consists of univariate skeletons, it is designed to support the decomposable SR paradigm to solve multivariate SR problems without assuming linear separability. Furthermore, we pair this dataset with a sampling strategy that generates clean numerical data without triggering numerical instabilities or relying on artificial protected operators. Canonicalizing two existing neural SR datasets reveals that our dataset is substantially more compact, eliminates structural repetitions, and achieves a uniform operator distribution free of simplicity bias. Finally, we establish a benchmark of 150 SR problems across three tiers, on which state-of-the-art SR methods are shown to struggle significantly.",
+      "summary_zh": "论文构建由确定性受限上下文无关文法生成的可穷举、规范化符号回归骨架数据集，并用 150 个问题评估现有方法。",
+      "why_it_matters_zh": "数据生成规则、去重目标和三层基准都明确，结果显示当前符号回归方法在结构覆盖上仍有可测的困难。",
+      "quality_score": 73.0,
       "tags": [
-        "方法与模型"
+        "形式化证明"
       ],
       "evidence_flags": [
-        "evaluation"
+        "benchmark",
+        "dataset",
+        "state-of-the-art"
       ],
       "publication_status": "preprint",
       "rank": 6,
       "featured": false,
-      "category": "方法与模型",
+      "category": "形式化证明",
       "metrics": {},
       "metadata": {
         "doi": "",
-        "arxiv_id": "2610.17869v1"
+        "arxiv_id": "2610.20108v2"
       },
-      "abstract_zh": "多 agent 大型语言模型（LLM）系统通常在推理前就确定一种审议协议。固定协议无法针对已解决和未解决的实例分配不同的计算量，也可能把重复支持误认为独立确认。我们将这种失败称为语义上的虚假共识：一个由狭窄、重复或相关的理由支持的自信群体答案。我们提出 ECMR，一种作用于冻结的、按角色设定的 LLM 之上的证据感知控制器。在每一步，ECMR 都总结答案集中度、支持的多样性和独立性、矛盾、角色行为、验证历史及剩余预算，然后选择提出、质疑、验证、仲裁、多样化、纠正某个角色或停止。我们把这一决策形式化为有限时域预算控制，并推导出充分条件：状态条件化、风险触发的验证和角色纠正能够改善成本调整后的效用。在对 MedQA、CaseHOLD 和 FinQA 中 9,000 条记录进行的、已声明的留出评估上，ECMR-Full 将合并准确率从 62.1% 提高到 84.9%，将虚假共识率从 40.7% 降低到 17.0%，并将证据支持率从 58.0% 提高到 88.7%。状态打乱使准确率下降 11.7 个百分点，而轮数只减少 0.7 轮；更困难的轨迹从较早停止转向仲裁。ECMR-Full 使用最大的 token 预算，因此具有最强的绝对可靠性，但并非在 token 效率上普遍占优。",
-      "published": "2026-10-13",
-      "author_line": "Yuan Liu, Haoyue Peng, Fanliang Hu, Lei Huang, Wenli Cai"
+      "abstract_zh": "神经符号回归（SR）模型需要多样化的数学表达式数据集，以实现稳健训练。然而，现有数据集主要依赖随机采样，存在结构冗余严重和函数覆盖不完整的问题。为此，我们引入一个由确定性受限上下文无关文法生成的一元规范化骨架穷举数据集。规范化骨架是一种通用结构表示，能够包含更具体的函数形式，从而消除冗余表达式并避免重复计算。尽管我们的数据集由一元骨架组成，但它旨在支持可分解 SR 范式，以解决多元 SR 问题，而不假设线性可分。我们还将该数据集与一种采样策略配对，用于生成不会触发数值不稳定、也不依赖人工保护算子的干净数值数据。对两个现有神经 SR 数据集进行规范化后发现，我们的数据集更加紧凑，消除了结构重复，并实现了不受简单性偏差影响的均匀算子分布。最后，我们建立了一个包含 150 个 SR 问题、分为三个层级的基准；在该基准上，最先进的 SR 方法仍明显难以应对。",
+      "published": "2026-10-14",
+      "author_line": "Giorgio Morales, Anikó Ekárt"
     },
     {
-      "id": "arxiv:2610.18862v1",
+      "id": "arxiv:2610.20675v1",
       "channel": "aixmath",
       "related_channels": [],
       "item_type": "paper",
       "source": "arXiv",
-      "title": "DoubtLess: Training-Free Contrastive Decoding for Efficient Reasoning",
-      "url": "https://arxiv.org/abs/2610.18862v1",
-      "published_at": "2026-10-13",
-      "updated_at": "2026-10-13",
+      "title": "AlphaDiana: A Measurement System for Agents in Verifiable Reasoning Tasks",
+      "url": "https://arxiv.org/abs/2610.20675v1",
+      "published_at": "2026-10-14",
+      "updated_at": "2026-10-14",
       "creators": [
-        "Minghao Luo",
-        "Liang Chen"
+        "Zhanke Zhou",
+        "Zongze Li",
+        "Weikai Huang",
+        "Xuan Li",
+        "Chentao Cao",
+        "Xiao Feng",
+        "Xiangyu Lu",
+        "Jinbo Hu",
+        "Yi Xie",
+        "Nico Pelleriti",
+        "Shiyang Liu",
+        "Menghan Lu",
+        "Max Zimmer",
+        "Brando Miranda",
+        "Jiangchao Yao",
+        "Bo Liu",
+        "Sanmi Koyejo",
+        "Sebastian Pokutta",
+        "Bo Han"
       ],
       "language": "en",
-      "abstract_or_text": "Reasoning models achieve strong performance through long chains of thought (CoT), but often spend more tokens than needed to solve a problem. Existing ways to shorten the CoT require additional training for each model, add a fixed steering vector to the model's hidden states, or use decoding heuristics such as stopping early or banning words like \"wait\", which can reduce accuracy. We propose DoubtLess, a training-free decoding method in which a much smaller reasoning model steers the large one towards brevity. The small model reads the large model's CoT so far twice, once prompted to be brief (the brief thinker) and once prompted to be verbose (the verbose thinker), and the difference between its two logit vectors, scaled by a strength, is added to the large model's logits at every step of the CoT. On seven benchmarks of competition mathematics, graduate-level science and competitive programming, DoubtLess shortens the CoT of Qwen3-32B by 31% with unchanged accuracy, outperforming five inference-time baselines. We also show that DoubtLess reduces thinking tokens per turn by 20% in a self-debugging coding agent with unchanged task performance. It also generalizes to two other model families with unchanged accuracy. When combined with training-based compression, it further shortens the CoT of a model already trained for brevity. Ablations and behavioral analysis show that DoubtLess reduces repeated checking, with most token savings coming after the correct answer first appears in the CoT. Our code is available at https://github.com/leoluolol/DoubtLess.",
-      "summary_zh": "DoubtLess 用一个较小的 reasoning model 对大模型当前思维链进行简洁/冗长对比，在无需训练的情况下缩短推理；在竞赛数学等七个基准上保持准确率。",
-      "why_it_matters_zh": "任务边界和对照清晰，既有多模型族、多基准结果，也有消融分析，支持对“少想一些但不损失数学正确性”的直接检验。",
-      "quality_score": 72.0,
+      "abstract_or_text": "Agents pair reasoning models with harnesses that organize model calls, execute tools, load skill instructions, and retain history in memory. Understanding agent performance requires linking execution conditions to outcomes, behavior, and resource use. We introduce AlphaDiana, a measurement system with modular interfaces for datasets, agents, environments, and scorers. It preserves harness-native control loops while controlling file reuse and memory retention separately. AlphaDiana supports macro analyses of complete agents and micro interventions on agent components such as tools, skills, and memory under matched conditions. We study three open-source models and three open-source harnesses on five answer-based benchmarks, with two models also tested on two interactive benchmarks. We find that harnesses do not consistently improve the accuracy of reasoning: gains on questions unsolved by the model alone can be outweighed by losses on questions it answers correctly without tools. This inconsistency extends to component interventions: neither skill guidance nor retained history reliably improves accuracy. Behavior and output-token use must be assessed with correctness: low token entropy can accompany wrong answers, and less output per execution can mean more output tokens per correct answer when accuracy falls. AlphaDiana links answer correctness and execution status to traces and resource records for comparing agents and diagnosing failures under shared task and resource policies.",
+      "summary_zh": "AlphaDiana 将智能体执行条件、行为、答案正确性和资源使用关联起来，并在多种模型、工具和记忆干预下测量可验证推理任务表现。",
+      "why_it_matters_zh": "它把 harness、工具和记忆的影响置于匹配条件下评测，并报告准确性与资源记录，能检验“更多工具或更长输出必然更好”的直觉。",
+      "quality_score": 71.0,
       "tags": [
         "数学推理"
       ],
       "evidence_flags": [
         "benchmark",
-        "github",
-        "ablation",
+        "dataset",
         "performance"
       ],
       "publication_status": "preprint",
@@ -326,121 +328,119 @@
       "metrics": {},
       "metadata": {
         "doi": "",
-        "arxiv_id": "2610.18862v1"
+        "arxiv_id": "2610.20675v1"
       },
-      "abstract_zh": "推理模型通过很长的思维链（CoT）取得强大性能，但经常使用超过解决问题所需的 token。现有缩短 CoT 的方法需要为每个模型额外训练，或向模型隐藏状态加入固定引导向量，或使用提前停止、禁止诸如“wait”等词的解码启发式，这些方法可能降低准确率。我们提出 DoubtLess，一种无需训练的解码方法，其中一个小得多的 reasoning model 引导大模型变得简洁。小模型读取大模型截至当前的 CoT 两次：一次被提示为简洁思考者，一次被提示为冗长思考者；两次得到的 logit 向量之差乘以一个强度后，在 CoT 的每个 token 上加入大模型的 logits。DoubtLess 在七个竞赛数学、研究生水平科学和竞赛编程基准上，使 Qwen3-32B 的 CoT 缩短 31% 且准确率不变，优于五种推理时基线。我们还展示，在一个自调试代码 agent 中，DoubtLess 使每轮思考 token 减少 20%，而任务性能不变。它还推广到另外两个模型族，并保持准确率不变。与基于训练的压缩结合后，它能进一步缩短一个已经为简洁性训练过的模型的 CoT。消融和行为分析表明，DoubtLess 减少了重复检查，大部分 token 节省发生在 CoT 中首次出现正确答案之后。代码见：https://github.com/leoluolol/DoubtLess。",
-      "published": "2026-10-13",
-      "author_line": "Minghao Luo, Liang Chen"
+      "abstract_zh": "智能体将推理模型与组织模型调用、执行工具、加载技能指令并在记忆中保留历史的 harness 结合起来。理解智能体性能需要把执行条件与结果、行为和资源使用联系起来。我们引入 AlphaDiana，一个为数据集、智能体、环境和评分器提供模块化接口的测量系统。它在分别控制文件复用和记忆保留的同时，保留 harness 原生的控制循环。AlphaDiana 支持对完整智能体进行宏观分析，也支持在匹配条件下对工具、技能和记忆等智能体组件进行微观干预。我们在五个基于答案的基准上研究三个开源模型和三个开源 harness，其中两个模型还在两个交互式基准上进行测试。我们发现，harness 并不能持续提升推理准确率：模型单独无法解决的问题上的增益，可能被模型无需工具即可正确回答的问题上的损失抵消。这种不一致也延伸到组件干预：技能引导和保留历史都不能可靠地提升准确率。行为和输出 token 使用量必须与正确性一起评估；低 token 熵可能伴随错误答案，而每次执行输出更少，可能意味着在准确率下降时每个正确答案需要更多输出 token。AlphaDiana 将答案正确性和执行状态与轨迹及资源记录关联起来，以便在共享任务和资源策略下比较智能体并诊断失败。",
+      "published": "2026-10-14",
+      "author_line": "Zhanke Zhou, Zongze Li, Weikai Huang, Xuan Li, Chentao Cao, Xiao Feng, Xiangyu Lu, Jinbo Hu, Yi Xie, Nico Pelleriti, Shiyang Liu, Menghan Lu, Max Zimmer, Brando Miranda, Jiangchao Yao, Bo Liu, Sanmi Koyejo, Sebastian Pokutta, Bo Han"
     },
     {
-      "id": "arxiv:2610.17734v1",
+      "id": "openreview:5aevft3zec",
+      "channel": "aixmath",
+      "related_channels": [],
+      "item_type": "paper",
+      "source": "OpenReview",
+      "title": "Do LLMs Know What to Ask and When? Evaluating Multi- Turn Information Seeking",
+      "url": "https://openreview.net/forum?id=5AEvfT3ZEc",
+      "published_at": "2026-10-04",
+      "updated_at": "2026-10-17",
+      "creators": [],
+      "language": "en",
+      "abstract_or_text": "When a user question is underspecified, a capable model should recognize that its context is insufficient, identify the missing information, ask for it, and respond only once that information determines a unique answer. We formalize multi-turn information seeking as solving a k-underspecified constraint satisfaction problem, where k is the number of variables jointly required to determine the target and therefore measures the degree of missing information. We instantiate the formulation in MT-InfoSeek, a controlled evaluation suite of 5,251 problems and 8,912 task instances spanning mathematics, logic, biology, medicine, and general knowledge. We evaluate models along three axes: what they ask, when they ask it, and how the acquired information affects the final answer. Performance degrades across models and domains as underspecification increases. Models recognize that additional information is needed but underestimate how much, and in logical problems at k = 2 they under-predict the degree of missing information about four times as often as they over-predict it. They also fail to identify a minimal sufficient set of queries, improve only marginally when given the true k, and often stop before acquiring sufficient information. In tasks with ordered dependencies, an incorrect query order is associated with lower final accuracy even when the model eventually acquires all necessary information. We measure information seeking directly through final sufficiency, which records whether the acquired information determines the target independent of answer generation. This separation shows differences between models that final accuracy alone does not capture, and indicates that the ability to seek information over multiple turns is distinct from the ability to generate answers and is not measured by current LLM evaluations.",
+      "summary_zh": "MT-InfoSeek 把多轮信息寻求形式化为欠规格约束满足问题，评估模型需要询问什么、何时询问以及信息是否足以唯一确定答案。",
+      "why_it_matters_zh": "覆盖数学和逻辑任务的 5,251 个问题、8,912 个实例提供了可检验的“信息是否充分”指标；投稿状态仍为公开的 Under review for TMLR。",
+      "quality_score": 71.0,
+      "tags": [
+        "形式化证明"
+      ],
+      "evidence_flags": [
+        "evaluation",
+        "performance"
+      ],
+      "publication_status": "Under review for TMLR",
+      "rank": 8,
+      "featured": false,
+      "category": "形式化证明",
+      "metrics": {},
+      "metadata": {
+        "forum_id": "5AEvfT3ZEc",
+        "domain": "TMLR",
+        "invitation": "TMLR/-/Submission"
+      },
+      "abstract_zh": "当用户的问题不充分明确时，具备能力的模型应该识别上下文不足，找出缺失信息，提出询问，并且只在这些信息能够确定唯一答案后作答。我们将多轮信息寻求形式化为一个 k-欠规格约束满足问题，其中 k 是共同决定目标所需变量的数量，因此衡量缺失信息的程度。我们实例化了 MT-InfoSeek，这是一个包含 5,251 个问题和 8,912 个任务实例的受控评测套件，覆盖数学、逻辑、生物学、医学和一般知识。我们从三个维度评估模型：询问什么、何时询问，以及获得的信息如何影响最终答案。随着欠规格程度增加，各模型和各领域的性能都会下降。模型能够识别需要更多信息，但会低估所需信息量；在 k = 2 的逻辑问题中，它们低估缺失信息程度的次数约为高估的四倍。即使给出真实的 k，它们也只能略微改善识别最小充分查询集的表现，并且经常在获得足够信息之前停止。在具有有序依赖关系的任务中，即使模型最终获得了全部必要信息，错误的询问顺序也与较低的最终准确率相关。我们通过最终充分性直接测量信息寻求：该指标记录所获得的信息是否足以独立于答案生成而确定目标。这种分离揭示了模型之间的差异，而这些差异无法由最终准确率单独捕捉；结果表明，多轮信息寻求能力不同于答案生成能力，当前 LLM 评测尚未测量这种能力。",
+      "published": "2026-10-04",
+      "author_line": "作者信息暂缺"
+    },
+    {
+      "id": "arxiv:2610.22355v1",
       "channel": "aixmath",
       "related_channels": [],
       "item_type": "paper",
       "source": "arXiv",
-      "title": "Explore with Memory, Learn without It: In-Context Exploration and Self-Distillation for LLM Reasoning",
-      "url": "https://arxiv.org/abs/2610.17734v1",
-      "published_at": "2026-10-13",
-      "updated_at": "2026-10-13",
+      "title": "OmniVerifier-C1: Decomposed Graded Verifier for Rule-Governed Generative World Modeling",
+      "url": "https://arxiv.org/abs/2610.22355v1",
+      "published_at": "2026-10-15",
+      "updated_at": "2026-10-15",
       "creators": [
-        "Yutong Chen",
-        "Zhichao Xu",
-        "Rui Liu",
-        "Kunpeng Liu"
+        "Bowei Liu",
+        "Xinchen Zhang",
+        "Xuhuan Li",
+        "Tianlin Zhang",
+        "Kaian Jiang",
+        "Jingwei Liu",
+        "Congyang Zhao",
+        "Yifei Qian",
+        "Junhong Liu",
+        "Zhiheng Li",
+        "Yujiu Yang",
+        "Yang Cai",
+        "Ling Yang"
       ],
       "language": "en",
-      "abstract_or_text": "Exploration bounds learning efficiency in reinforcement learning with verifiable rewards (RLVR). Current methods explore mostly through independent sampling, without fully using the information gathered along the way, such as known wrong answers and environment feedback. We propose LEAF, which injects a dynamic, problem-specific memory into the context before every rollout. The memory contains the most recent response, its reward, and other environment feedback. It is updated after every verifier call. We decouple policy updates from rollouts and update the policy through self-distillation. On four benchmarks and two open models, LEAF accelerates exploration by about 4x compared with a random sampling baseline. On unseen test sets, it improves accuracy over the strongest baseline by 1.59 and 1.83 percentage points on the two models, while using less compute than any RL baseline. These results highlight the potential of LEAF in improving both exploration and learning efficiency. Code is available at: https://github.com/on1262/LEAF",
-      "summary_zh": "LEAF 把最近回答、奖励和环境反馈写入动态问题级记忆，在可验证奖励强化学习中配合自蒸馏提高探索效率；在未见测试集上以更少计算取得小幅准确率提升。",
-      "why_it_matters_zh": "使用 verifier 调用后的真实反馈更新记忆，并在未见测试集及两个开放模型上评测，结果可用于检验探索记忆是否带来泛化而非只增加采样。",
-      "quality_score": 72.0,
+      "abstract_or_text": "Generative visual verifiers play a crucial role in advancing multimodal intelligence. To enhance the robustness of visual verifiers in complex multimodal scenarios involving compositional requirements, we move beyond conventional binary verifiers that produce only True/False discrete judgments and introduce a verifier that automatically decomposes complex prompts or environmental rules into fine-grained components and assigns pointwise scores to provide a continuous and more informative critique signal. Our experiments further demonstrate that these structured and interpretable outputs improve the verifier's generalization to out-of-domain multimodal critic tasks. To train this verifier, we introduce a Decoupled RL training strategy that jointly optimizes sub-question-level binary judgment and global alignment scoring, using precise local feedback to develop fine-grained verification capabilities that provide a foundation for reliable continuous scoring at the global level. Under a general reinforcement learning framework, we first empirically demonstrate that the proposed pointwise graded verifier significantly outperforms binary verifiers in traditional text-to-image scenarios. We then extend our investigation to rule-governed generative world modeling where generative models are leveraged for world simulation and world reasoning under explicit rules. From a theoretical standpoint, we further show that a pairwise verification paradigm yields more accurate critiques than the pointwise formulation when ground-truth images are available, with empirical results on diverse structured world-modeling tasks such as Maze and Sudoku further validating the effectiveness of our approach. Overall, our findings suggest a key insight: the transition from generative models to structured world-modeling agents critically hinges on the availability of accurate pairwise graded visual verifiers.",
+      "summary_zh": "OmniVerifier-C1 将复杂规则分解为细粒度子问题并给出连续评分，研究其在文本到图像和规则驱动世界建模中的验证能力。",
+      "why_it_matters_zh": "工作同时比较二值与分级验证，并在 Maze、Sudoku 等结构化任务上检验泛化；但其数学相关性主要来自规则验证而非定理证明。",
+      "quality_score": 70.0,
       "tags": [
         "方法与模型"
       ],
-      "evidence_flags": [
-        "benchmark",
-        "github"
-      ],
+      "evidence_flags": [],
       "publication_status": "preprint",
-      "rank": 8,
+      "rank": 9,
       "featured": false,
       "category": "方法与模型",
       "metrics": {},
       "metadata": {
         "doi": "",
-        "arxiv_id": "2610.17734v1"
+        "arxiv_id": "2610.22355v1"
       },
-      "abstract_zh": "探索限制了带可验证奖励的强化学习（RLVR）的学习效率。当前方法主要通过独立采样进行探索，没有充分利用过程中收集的信息，例如已知的错误答案和环境反馈。我们提出 LEAF，在每次 rollout 之前把动态的、问题特定的记忆注入上下文。该记忆包含最近一次回答、它的奖励以及其他环境反馈，并在每次 verifier 调用后更新。我们将策略更新与 rollout 解耦，并通过自蒸馏更新策略。在四个基准和两个开放模型上，与随机采样基线相比，LEAF 将探索速度提高约 4 倍。在未见测试集上，它在两个模型上的准确率分别比最强基线高 1.59 和 1.83 个百分点，同时使用的计算量少于任何 RL 基线。这些结果表明，LEAF 有望提高探索和学习效率。代码见：https://github.com/on1262/LEAF。",
-      "published": "2026-10-13",
-      "author_line": "Yutong Chen, Zhichao Xu, Rui Liu, Kunpeng Liu"
+      "abstract_zh": "生成式视觉验证器在推进多模态智能方面发挥着重要作用。为提升视觉验证器在包含组合性要求的复杂多模态场景中的稳健性，我们超越只输出 True/False 离散判定的传统二值验证器，引入一种能够自动将复杂提示或环境规则分解为细粒度组件并逐点评分的验证器，从而提供连续且信息更丰富的批评信号。我们的实验进一步表明，这些结构化且可解释的输出能够提升验证器在分布外多模态批评任务上的泛化能力。为训练该验证器，我们提出 Decoupled RL 训练策略，联合优化子问题级二值判定和全局一致性评分，利用精确的局部反馈培养细粒度验证能力，为全局层面的可靠连续评分奠定基础。在通用强化学习框架下，我们首先在传统文本到图像场景中实证表明，逐点分级验证器显著优于二值验证器。随后，我们将研究扩展到规则驱动的生成式世界建模，其中生成模型被用于世界模拟和显式规则下的世界推理。从理论上看，当存在真实图像时，我们进一步证明成对验证范式比逐点形式能够产生更准确的批评；在 Maze 和 Sudoku 等多样化结构化世界建模任务上的实验证实了这一点。总体而言，我们的结果提出一个关键认识：从生成模型转向结构化世界建模智能体，关键取决于是否有准确的成对分级视觉验证器。",
+      "published": "2026-10-15",
+      "author_line": "Bowei Liu, Xinchen Zhang, Xuhuan Li, Tianlin Zhang, Kaian Jiang, Jingwei Liu, Congyang Zhao, Yifei Qian, Junhong Liu, Zhiheng Li, Yujiu Yang, Yang Cai, Ling Yang"
     },
     {
-      "id": "arxiv:2610.18298v1",
+      "id": "arxiv:2610.22152v1",
       "channel": "aixmath",
       "related_channels": [],
       "item_type": "paper",
       "source": "arXiv",
-      "title": "Output Discipline Sets the Floor: A Falsification-Guided, Model-Agnostic Agent Protocol for Auditable Hypothesis-Driven Decision Making",
-      "url": "https://arxiv.org/abs/2610.18298v1",
-      "published_at": "2026-10-13",
-      "updated_at": "2026-10-13",
+      "title": "Specification Gaming and a Constrained Reinforcement Learning Mitigation in a Cleaning Gridworld",
+      "url": "https://arxiv.org/abs/2610.22152v1",
+      "published_at": "2026-10-15",
+      "updated_at": "2026-10-15",
       "creators": [
-        "Jing Liu",
-        "Yongxing Qi",
-        "Ping Yao",
-        "Ting Wu"
+        "Hilda Adwubi Osei"
       ],
       "language": "en",
-      "abstract_or_text": "What binds large language models on auditable, hypothesis-driven decision tasks, where every candidate can be checked against the evidence? On the public TCMEval-SDT benchmark for Traditional Chinese Medicine syndrome differentiation (200 cases), the binding constraint is output discipline and reasoning structure, not model capability alone: two years of model scaling move zero-shot scores by only -0.03 to +0.08, while output-discipline failures (non-terminating reasoning, format non-compliance, large run-to-run spread) persist even in frontier models. We test this with a model-agnostic agent framework formalizing decision making as a five-stage closed loop, enforced by a candidate x evidence matrix falsification protocol: every candidate is judged against every evidence item, at least half of the candidates must be falsified before a conclusion is licensed, and survivors are emitted in a machine-verifiable single-line format. Across five base models, the effect is sign-conditional on zero-shot output discipline: it rescues models whose discipline fails (DeepSeek-V4-Flash: +0.267/+0.271, entirely termination rescue), reduces a high-variance model's run-to-run standard deviation from 0.218 to 0.007 (Kimi K3), and significantly costs already-disciplined models (-0.087 to -0.120 on budget-matched Qwen3-4B/32B). Ablations attribute the cost to the candidate-bounded format layer and show the effect is independent of injected knowledge content (protocol-knowledge decoupling). The protocol also transfers to misinformation-robust mathematical reasoning, detecting injected false premises at 89.8% recall with a 6.8% false-positive rate (MCC 0.54; a flag-everything baseline scores 0) and restoring accuracy to the no-misinformation ceiling. Where zero-shot output discipline is weak, the reasoning protocol sets the floor; base-model capability always sets the ceiling.",
-      "summary_zh": "该协议把可审计决策形式化为候选项—证据矩阵的五阶段闭环，要求逐项证伪并输出机器可验证格式；在数学误导信息测试中能识别注入的错误前提。",
-      "why_it_matters_zh": "它明确区分模型能力与输出纪律，并用召回率、误报率、MCC、消融和跨模型结果检验“可验证推理协议”是否有效。",
-      "quality_score": 74.0,
-      "tags": [
-        "数学推理"
-      ],
-      "evidence_flags": [
-        "benchmark",
-        "ablation"
-      ],
-      "publication_status": "preprint",
-      "rank": 9,
-      "featured": false,
-      "category": "数学推理",
-      "metrics": {},
-      "metadata": {
-        "doi": "",
-        "arxiv_id": "2610.18298v1"
-      },
-      "abstract_zh": "在每个候选项都可以根据证据检查的、可审计的假设驱动决策任务上，是什么限制了大型语言模型？在公开的 TCMEval-SDT 基准（200 个案例）上，限制因素是输出纪律和推理结构，而不只是模型能力：两年的模型扩展使零样本得分仅变化 -0.03 到 +0.08，而不终止推理、不遵守格式以及运行间波动大等输出纪律问题，即使在前沿模型中仍然存在。我们通过一个与模型无关的 agent 框架检验这一点。该框架将决策形式化为五阶段闭环，并强制使用候选项 × 证据矩阵的证伪协议：每个候选项都要与每条证据核对，至少一半候选项必须被证伪后才能许可结论，幸存项以机器可验证的单行格式输出。在五个基础模型上，该协议的效果取决于零样本输出纪律：它挽救了纪律失败的模型（DeepSeek-V4-Flash：+0.267/+0.271，完全来自终止问题的修复），将高方差模型 Kimi K3 的运行间标准差从 0.218 降至 0.007，同时使本来已有纪律的模型在预算匹配的 Qwen3-4B/32B 上显著下降（-0.087 至 -0.120）。消融实验将代价归因于候选项有界的格式层，并表明该效果独立于注入的知识内容（协议—知识解耦）。该协议还迁移到抗误导信息的数学推理：它以 89.8% 的召回率和 6.8% 的误报率检测注入的错误前提（MCC 0.54；“全部标记”基线得分为 0），并将准确率恢复到无误导信息时的上限。在零样本输出纪律较弱的地方，推理协议设定下限；基础模型能力始终设定上限。",
-      "published": "2026-10-13",
-      "author_line": "Jing Liu, Yongxing Qi, Ping Yao, Ting Wu"
-    },
-    {
-      "id": "arxiv:2610.19705v1",
-      "channel": "aixmath",
-      "related_channels": [],
-      "item_type": "paper",
-      "source": "arXiv",
-      "title": "RouteWeaver: Weaving Mode Selection and Execution into Unified LLM Routing",
-      "url": "https://arxiv.org/abs/2610.19705v1",
-      "published_at": "2026-10-14",
-      "updated_at": "2026-10-14",
-      "creators": [
-        "Xiaohan Wang",
-        "Haozhen Zhang",
-        "Qingyuan Liu",
-        "Tao Feng",
-        "Wenya Wang"
-      ],
-      "language": "en",
-      "abstract_or_text": "LLM routing dynamically selects and coordinates heterogeneous language models across diverse tasks. However, existing approaches are largely built around a predefined execution paradigm, such as single-round, multi-round, or agentic routing, which fixes how model calls are organized and limits adaptation to different query needs. We propose RouteWeaver, a unified routing framework that integrates these routing modes within a single LLM policy, jointly learning which mode to use and how to select models within that mode. To jointly optimize mode selection and within-mode execution, we develop COMET-GRPO (COordinated Mode-Execution Training), which decouples the trajectory-level advantage into separate signals for mode selection and within-mode execution, enabling more targeted credit assignment to each decision level. We further introduce progressive exploration, which gradually shifts training from externally assigned modes to autonomous selection, so that the router first learns how to execute each mode before deciding when to use it. We evaluate RouteWeaver across mathematics, coding, knowledge, logical reasoning, and factual recall. RouteWeaver achieves an average accuracy of 61.4%, an 11.03% relative improvement over the strongest baseline, and outperforms all compared baselines in each of the five domains. Ablations show that both COMET-GRPO and progressive exploration are important for adaptive routing; without progressive exploration, the routing policy collapses entirely to single-round execution.",
-      "summary_zh": "RouteWeaver 在一次调用、多轮和 agentic 路由之间联合选择执行模式与模型，并用 COMET-GRPO 分离两层决策的信用分配；在数学等五类任务上优于基线。",
-      "why_it_matters_zh": "包含跨数学、代码、知识、逻辑推理和事实回忆的统一评测，以及组件消融，能检验模型路由是否真正适应任务而非依赖固定流程。",
-      "quality_score": 75.0,
+      "abstract_or_text": "Reinforcement learning agents optimize exactly the reward signal they are given, which can diverge sharply from an intended true objective when that signal is only a proxy for it; this failure mode is known as specification gaming. Existing evidence for this failure mode is largely observational, with comparatively few demonstrations pairing a controlled, deliberately constructed proxy/true gap with a mitigation that carries a verifiable guarantee rather than only an empirical improvement. We construct a minimal gridworld in which a cleaning-robot agent can either genuinely remove dirt or conceal it from a cheap sensor, and show that a standard deep Q-network trained only on the sensor's proxy reward converges to a policy that games it completely, reaching near-maximal proxy reward while never achieving the true objective. We then introduce a constrained reinforcement learning fix, penalizing the specific behaviors through which the agent exploits the gap, and show that it eliminates the gaming behavior from the final policy while substantially recovering true-objective performance. We further derive and empirically verify an exact accounting identity relating the proxy reward, true reward, and our cost signal for this environment, showing that the cost signal measures the proxy/true gap exactly rather than merely tracking it, and yields a deterministic guarantee under a hard-constrained variant of the method.",
+      "summary_zh": "该研究在清洁机器人网格世界中构造可控的 specification gaming 场景，并用带硬约束的强化学习消除利用代理奖励的行为。",
+      "why_it_matters_zh": "代理目标、真实目标、成本信号和约束保证都被明确区分；精确记账恒等式与确定性保证使结果比单纯经验改进更可检验。",
+      "quality_score": 70.0,
       "tags": [
         "方法与模型"
       ],
       "evidence_flags": [
-        "ablation"
+        "performance"
       ],
       "publication_status": "preprint",
       "rank": 10,
@@ -449,98 +449,56 @@
       "metrics": {},
       "metadata": {
         "doi": "",
-        "arxiv_id": "2610.19705v1"
+        "arxiv_id": "2610.22152v1"
       },
-      "abstract_zh": "LLM 路由会在多种任务中动态选择并协调异构语言模型。然而，现有方法大多建立在预先定义的执行范式上，例如单轮、多轮或 agentic 路由；这固定了模型调用的组织方式，限制了对不同查询需求的适应能力。我们提出 RouteWeaver，一种统一的路由框架，在单个 LLM 策略中整合这些路由模式，同时学习选择使用哪种模式以及在该模式中选择哪些模型。为联合优化模式选择和模式内执行，我们提出 COMET-GRPO（COordinated Mode-Execution Training），将轨迹层面的 advantage 解耦为模式选择和模式内执行的独立信号，从而对每个决策层级进行更有针对性的信用分配。我们进一步引入渐进式探索：训练从外部指定模式逐步转向自主选择，使路由器先学会执行每种模式，再决定何时使用它。我们在数学、代码、知识、逻辑推理和事实回忆五个领域评估 RouteWeaver。其平均准确率为 61.4%，相对最强基线提高 11.03%，并在五个领域中的每个领域都优于所有比较基线。消融实验表明，COMET-GRPO 和渐进式探索都对自适应路由很重要；没有渐进式探索时，路由策略会完全坍缩为单轮执行。",
-      "published": "2026-10-14",
-      "author_line": "Xiaohan Wang, Haozhen Zhang, Qingyuan Liu, Tao Feng, Wenya Wang"
+      "abstract_zh": "强化学习智能体会精确优化所给出的奖励信号，而当该信号只是目标的代理时，它可能与真正目标严重偏离；这种失效模式称为 specification gaming。关于这种失效模式的现有证据大多是观察性的，很少有工作将受控构造的代理目标/真实目标差距，与具有可验证保证而不仅是经验改进的缓解方法结合起来。我们构造了一个最小网格世界，其中清洁机器人智能体可以真正清除污垢，也可以把污垢隐藏起来以欺骗廉价传感器；我们表明，仅使用传感器代理奖励训练的标准深度 Q 网络会收敛到完全利用该漏洞的策略：代理奖励接近最大，但从未实现真实目标。随后，我们引入一种受约束的强化学习修复方法，对智能体利用目标差距的特定行为进行惩罚，并表明该方法能够从最终策略中消除 gaming 行为，同时大幅恢复真实目标性能。我们还推导并在实验中验证了一个精确的恒等式，将代理奖励、真实奖励和成本信号联系起来，显示成本信号精确度量了代理目标与真实目标之间的差距，而不只是跟踪该差距；在硬约束版本的方法中，它还给出了确定性保证。",
+      "published": "2026-10-15",
+      "author_line": "Hilda Adwubi Osei"
     },
     {
-      "id": "arxiv:2610.20221v1",
+      "id": "arxiv:2610.21393v1",
       "channel": "aixmath",
       "related_channels": [],
       "item_type": "paper",
       "source": "arXiv",
-      "title": "Scaling Multilingual Safety and Reasoning Evaluation through Reasoning-Guided Translation",
-      "url": "https://arxiv.org/abs/2610.20221v1",
-      "published_at": "2026-10-14",
-      "updated_at": "2026-10-14",
+      "title": "Self-Guided LLM Reasoning for Error Diagnosis in Vehicle Routing Problems",
+      "url": "https://arxiv.org/abs/2610.21393v1",
+      "published_at": "2026-10-15",
+      "updated_at": "2026-10-15",
       "creators": [
-        "Zahraa Al Sahili",
-        "Ioannis Patras",
-        "Matthew Purver"
+        "Ni Zhang",
+        "Jianan Zhou",
+        "Yue-Jiao Gong",
+        "Zhiguang Cao"
       ],
       "language": "en",
-      "abstract_or_text": "Large language models (LLMs) are increasingly deployed across languages, yet their safety and reasoning capabilities remain predominantly evaluated in English. Translating existing benchmarks offers a scalable approach to multilingual evaluation, but preserving task-specific meaning across languages presents significant challenges, particularly for harmful requests, mathematical reasoning, and conversational interactions. We introduce a reasoning-guided translation framework for constructing multilingual evaluations designed to preserve the structure and intended meaning of diverse benchmark tasks. Our approach separates translation strategy selection from large-scale generation, combining reasoning-guided configuration selection with task-aware validation, targeted repair, and independent quality screening. Using this framework, we develop a source-aligned evaluation collection spanning seven safety, conversational, and mathematical reasoning resources across 11 languages. The resulting collection achieves 99.94\\% coverage of intended item--language pairs in the two subsets requiring repair. Evaluations of open-source LLMs reveal distinct language-dependent vulnerabilities, including inconsistent refusal behaviour and substantial reasoning degradation in lower-resource languages. These findings highlight the importance of task-sensitive benchmark construction and systematic quality assessment for understanding multilingual model behaviour beyond English.",
-      "summary_zh": "该工作用推理引导翻译构建覆盖 11 种语言的安全、对话和数学推理评测集，并进行任务级验证、修复和独立质检，报告低资源语言中的推理退化。",
-      "why_it_matters_zh": "它关注数学基准跨语言迁移时的语义保持和质量控制，提供覆盖率与模型评测结果，避免把机器翻译后的分数直接当作能力结论。",
-      "quality_score": 71.0,
-      "tags": [
-        "数学推理"
-      ],
-      "evidence_flags": [
-        "benchmark",
-        "evaluation"
-      ],
-      "publication_status": "preprint",
-      "rank": 11,
-      "featured": false,
-      "category": "数学推理",
-      "metrics": {},
-      "metadata": {
-        "doi": "",
-        "arxiv_id": "2610.20221v1"
-      },
-      "abstract_zh": "大型语言模型（LLM）正被部署到多种语言中，但其安全和推理能力仍主要在英语中评估。翻译现有基准是构建多语言评测的一种可扩展方法，但在不同语言中保持任务特定的含义具有挑战性，尤其是有害请求、数学推理和对话交互。我们提出一种推理引导的翻译框架，用于构建旨在保持多样基准任务结构和预期含义的多语言评测。该方法将翻译策略选择与大规模生成分离，并结合推理引导的配置选择、任务感知验证、定向修复和独立质量筛查。利用这一框架，我们构建了一个与源数据对齐的评测集合，覆盖 11 种语言中的七个安全、对话和数学推理资源。在需要修复的两个子集中，最终集合达到了预期条目—语言配对的 99.94% 覆盖率。对开源 LLM 的评测揭示了与语言有关的不同脆弱性，包括拒答行为不一致，以及低资源语言中显著的推理退化。这些结果凸显了任务敏感的基准构建和系统化质量评估对于理解超越英语的模型行为的重要性。",
-      "published": "2026-10-14",
-      "author_line": "Zahraa Al Sahili, Ioannis Patras, Matthew Purver"
-    },
-    {
-      "id": "arxiv:2610.18415v1",
-      "channel": "aixmath",
-      "related_channels": [],
-      "item_type": "paper",
-      "source": "arXiv",
-      "title": "Do Factuality Methods Make LLMs More Factual? Reproducibility and Fair Comparison",
-      "url": "https://arxiv.org/abs/2610.18415v1",
-      "published_at": "2026-10-13",
-      "updated_at": "2026-10-13",
-      "creators": [
-        "Pratuat Amatya",
-        "Vinay Setty",
-        "V Venktesh",
-        "Avishek Anand"
-      ],
-      "language": "en",
-      "abstract_or_text": "Large Language Models (LLMs) are aligned to human preferences, after pre-training and supervised fine-tuning steps. However, standard RL alignment steps such as RLHF do not focus on factuality of LLMs, hence they may generate non-factual information, which could result in unintended consequences. In response, a number of factuality alignment approaches have been proposed in the literature which claim to improve factuality of LLMs on their own benchmarks. However, these methods have not been reproduced independently and are also not comparable since each uses a different base model, training data, evaluation set, judge, and metric. In this paper, we present the first independent reproduction of five factuality alignment methods, which span on-policy RL (PPO, GRPO, and Dr.~GRPO) and offline preference optimization (DPO and KTO), and compare them on a common benchmark with common evaluation metrics. We found that none of these methods reproduces in full, and on the common benchmark none of the methods significantly outperforms the base model. On closer inspection, the rewards optimize for format, length, or brevity rather than factuality and relevance, whereas the choice between on-policy and offline training matters little. Furthermore, the evaluation metrics and benchmarks are also part of the problem since they do not measure relevance of text to the prompt. Since there is no ground truth associated with the prompts, the reliance on LLM judges and retrieval for verification also makes the evaluation fragile. We release our code, data, and checkpoints.",
-      "summary_zh": "该论文独立复现五种事实性对齐方法，并在统一基准、数据和指标下比较，发现方法未能稳定优于基座模型，且现有评测容易被格式、长度和 LLM 评审偏差影响。",
-      "why_it_matters_zh": "它直接检验“模型能力提升”是否可复现，公开代码、数据和检查点，并指出没有真实答案时评审与检索验证的脆弱性。",
+      "abstract_or_text": "Vehicle Routing Problems (VRPs) are fundamental to many real-world applications. Recent advances in large language models (LLMs) have spurred progress in solving these NP-hard problems. However, most existing approaches assume that input instances are error-free, neglecting the presence of faults commonly encountered in real-world data. In this work, we systematically investigate the capability of LLMs to detect (and correct) errors in VRP instances, and identify key limitations, particularly in handling complex instances or errors that substantially increase the LLM's reasoning burden. To overcome these challenges, we propose a self-guided reasoning framework in which LLMs autonomously generate code that provides structured insights to aid in error diagnosis. Experiments across diverse problem settings and LLMs demonstrate that our framework significantly improves error detection performance, achieving near-perfect accuracy.",
+      "summary_zh": "研究评估 LLM 发现和纠正车辆路径问题输入错误的能力，并让模型生成代码提供结构化诊断信息。",
+      "why_it_matters_zh": "车辆路径问题是典型组合优化任务；论文明确比较不同问题设置和模型，并报告自引导推理对错误检测的改进，同时承认复杂实例上的局限。",
       "quality_score": 70.0,
       "tags": [
         "方法与模型"
       ],
       "evidence_flags": [
-        "benchmark",
-        "evaluation",
-        "release"
+        "performance"
       ],
       "publication_status": "preprint",
-      "rank": 12,
+      "rank": 11,
       "featured": false,
       "category": "方法与模型",
       "metrics": {},
       "metadata": {
         "doi": "",
-        "arxiv_id": "2610.18415v1"
+        "arxiv_id": "2610.21393v1"
       },
-      "abstract_zh": "大型语言模型（LLM）在预训练和监督微调之后会根据人类偏好进行对齐。然而，RLHF 等标准 RL 对齐步骤并不关注 LLM 的事实性，因此模型可能生成非事实信息，从而导致意外后果。针对这一点，文献提出了许多事实性对齐方法，并在各自的基准上声称能够提高事实性。然而，这些方法尚未得到独立复现，而且由于每种方法使用不同的基座模型、训练数据、评测集、评审者和指标，彼此也不可比较。在本文中，我们首次独立复现了五种事实性对齐方法，涵盖 on-policy RL（PPO、GRPO 和 Dr. GRPO）以及离线偏好优化（DPO 和 KTO），并在统一基准和统一评测指标上进行比较。我们发现，这些方法没有一种能够被完整复现；在统一基准上，没有一种方法显著优于基座模型。进一步检查发现，奖励优化的是格式、长度或简洁性，而不是事实性和相关性；on-policy 与 offline 训练方式的选择影响也很小。此外，评测指标和基准本身也是问题的一部分，因为它们没有衡量文本与提示之间的相关性。由于提示没有对应的真实答案，依赖 LLM 评审和检索来进行验证也使评测变得脆弱。我们发布代码、数据和检查点。",
-      "published": "2026-10-13",
-      "author_line": "Pratuat Amatya, Vinay Setty, V Venktesh, Avishek Anand"
+      "abstract_zh": "车辆路径问题（VRP）是许多现实应用的基础。近年来大语言模型（LLM）的进展推动了使用 LLM 求解这些 NP-hard 问题。然而，大多数方法假设输入实例没有错误，忽略了现实数据中常见的故障。在本文中，我们系统研究 LLM 检测并纠正 VRP 实例错误的能力，并识别出关键局限，尤其是在复杂实例或显著增加 LLM 推理负担的错误上。为克服这些挑战，我们提出一种自引导推理框架，使 LLM 自主生成代码，从而提供有助于错误诊断的结构化信息。在多种问题设置和多个 LLM 上的实验表明，我们的框架显著提升了错误检测性能，达到了接近完美的准确率。",
+      "published": "2026-10-15",
+      "author_line": "Ni Zhang, Jianan Zhou, Yue-Jiao Gong, Zhiguang Cao"
     }
   ],
   "review": {
     "model": "gpt-5.6-terra",
     "reasoning_effort": "high",
-    "note": "已审阅完整 60 项候选；按质量分≥70、任务清晰度、评测可靠性和结果可检验性筛选 12 项。目标日期之前的综合日报中未发现这些条目的重复身份；候选中无 OpenReview 撤回稿。"
+    "note": "依据候选公开内容审阅；已按历史归档身份检查，未发现重复。保留 1 项公开状态为“Under review for TMLR”的 OpenReview 投稿，未选撤回内容。"
   }
 }

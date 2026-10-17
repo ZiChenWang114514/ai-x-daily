@@ -7,7 +7,7 @@ import argparse
 from datetime import date
 from pathlib import Path
 
-from aix_pipeline import CHANNELS, LIMITS, THRESHOLDS, previously_reported_keys, report_key
+from aix_pipeline import CHANNELS, LIMITS, THRESHOLDS, previously_reported_keys, report_key, same_day_key
 from daily_digest import archive_index_entry, author_line, clean_text, load_json, looks_cjk, publish_tags, slim_public_item, write_json
 from publish_daily import SITE_URL, build as build_daily
 
@@ -24,6 +24,9 @@ def earlier_channel_keys(site_root: Path, channel: str, day: str) -> set[str]:
             key = report_key(item)
             if key:
                 claimed.add(key)
+            same_key = same_day_key(item)
+            if same_key:
+                claimed.add(same_key)
     return claimed
 
 

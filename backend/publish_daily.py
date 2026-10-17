@@ -9,7 +9,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
-from aix_pipeline import CHANNELS, CHANNEL_META, previously_reported_keys, report_key
+from aix_pipeline import CHANNELS, CHANNEL_META, previously_reported_keys, report_key, same_day_key
 from daily_digest import SITE_NAME, SITE_TITLE, load_json, slim_public_item, write_json
 
 
@@ -104,10 +104,12 @@ def build(site_root: Path, summary_path: Path | None, site_url: str, *, write_pa
         if not stale:
             for item in latest.get("items") or latest.get("papers") or []:
                 key = report_key(item)
-                if key in seen:
+                same_key = same_day_key(item)
+                if key in seen or same_key in seen:
                     suppressed += 1
                     continue
                 seen.add(key)
+                seen.add(same_key)
                 items.append(item)
         stats = dict(latest.get("stats") or {})
         stats["suppressed_previous"] = int(stats.get("suppressed_previous") or 0) + suppressed

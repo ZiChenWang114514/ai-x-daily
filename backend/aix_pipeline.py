@@ -168,11 +168,22 @@ def report_key(item: dict[str, Any]) -> str:
     source = str(item.get("source") or "").lower()
     metadata = item.get("metadata") or {}
     doi = str(metadata.get("doi") or "").strip().lower()
+    if doi:
+        key = f"doi:{doi}"
     if doi and source in {"biorxiv", "medrxiv"}:
         revision_date = publication_date(str(item.get("updated_at") or item.get("published_at") or ""))
         if revision_date:
             return f"{key}@revision:{revision_date.isoformat()}"
     return key
+
+
+def same_day_key(item: dict[str, Any]) -> str:
+    """Identify the same event across channels while preserving revision-aware history keys."""
+    metadata = item.get("metadata") or {}
+    doi = str(metadata.get("doi") or "").strip().lower()
+    if doi:
+        return f"doi:{doi}"
+    return natural_key(item)
 
 
 def archive_items(payload: dict[str, Any]) -> list[dict[str, Any]]:

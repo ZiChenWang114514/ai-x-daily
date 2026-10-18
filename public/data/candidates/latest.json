@@ -1,41 +1,48 @@
 {
   "schema_version": "2.0",
-  "date": "2026-10-18",
+  "date": "2026-10-19",
   "channel": "aixchem",
-  "generated_at": "2026-10-17T22:09:05+00:00",
+  "generated_at": "2026-10-18T22:04:05+00:00",
   "count": 60,
   "items": [
     {
-      "id": "biorxiv:10.1101/2025.10.07.680851",
+      "id": "biorxiv:10.64898/2026.10.15.759315",
       "channel": "aixchem",
       "related_channels": [
-        "aixbio",
-        "aixmath"
+        "aixbio"
       ],
       "item_type": "paper",
       "source": "bioRxiv",
-      "title": "Exploring the Upper Boundaries of Distance-Based Protein-Ligand Binding Affinity Prediction: Accuracy Improvements via Linear Regression and Artificial Neural Networks",
-      "url": "https://www.biorxiv.org/content/10.1101/2025.10.07.680851",
+      "title": "LigRNA: High-accuracy prediction of RNA-ligand binding sites via dynamic chemical complementarity and language model encoding",
+      "url": "https://www.biorxiv.org/content/10.64898/2026.10.15.759315",
       "published_at": "2026-10-17",
       "updated_at": "2026-10-17",
       "creators": [
-        "Yang, Y. X.",
-        "Zhu, B. T."
+        "Wang, X.",
+        "Zhu, H.",
+        "Li, H.",
+        "Chang, A.",
+        "Zhang, F.",
+        "Chen, H.",
+        "Wang, C.",
+        "Chen, K.",
+        "Zhou, S. K.",
+        "Xiong, P."
       ],
       "language": "en",
-      "abstract_or_text": "The traditional scoring functions for protein-ligand binding affinity prediction usually adopt fixed mathematical formulas to characterize atomic interaction energies, where electrostatic interactions are described by the a/r function and van der Waals interactions by the b/r^6 -c/r^12 function. These fixed power exponents of distance-based variables severely limit the predictive flexibility and generalization of conventional scoring models. To address this limitation, this study proposes an improved prediction strategy with unrestricted power exponents for distance-dependent atomic interaction variables. To explore the upper boundaries of the predictive powers, the optimized distance-based descriptors were integrated with linear regression and artificial neural network algorithms to construct novel models for protein-ligand binding affinity and binding energy prediction. All linear, artificial neural network, and hybrid models in this work were trained and validated on the latest high-quality dataset from PDBbind (version 2024). Quantitative evaluation based on the Pearson's correlation coefficient (R) demonstrated that the optimized linear models achieved a moderate predictive performance with R values ranging from 0.700 to 0.800 on the high-quality affinity dataset, while the artificial neural network-based hybrid models yielded substantially improved accuracy, with R values between 0.800 and 0.900. Comparative analysis verified that the optimal models established in this study outperform previously-reported state-of-the-art linear and machine learning-based scoring functions. Specially, this work indicates that the scoring functions with explicit mathematical expressions can achieve a high accuracy close to the experimental error for affinity prediction in a dataset composed of several thousand protein-ligand complexes. The overall results indicate that rationally-optimized power exponents for distance-based variables can effectively enhance the predictive accuracy of protein-ligand binding affinity prediction, providing a reliable and efficient tool for computational drug discovery.",
+      "abstract_or_text": "RNA-binding small molecules represent a validated therapeutic modality, yet pinpointing their exact RNA binding sites remains critical for mechanistic understanding and drug optimization. Experimental methods, while precise, are costly and low-throughput, necessitating robust computational alternatives. Approaches based on static feature concatenation may overlook input-dependent relationships between RNA residues and ligand functional groups. Here we present LigRNA, a graph neural network framework that predicts RNA-ligand binding sites through joint cross-modal encoding of both molecules. LigRNA integrates structure-guided language model embeddings with physicochemical features-solvent-accessible surface area and secondary structure types, to construct comprehensive RNA representations. Ligands are encoded as attributed molecular graphs via graph attention networks, preserving atom-level chemical topology rather than compressing molecules into fixed fingerprints. A cross-attention mechanism then enables dynamic, ligand-dependent modulation of RNA nucleotide attention, capturing context-specific interaction patterns. Benchmarked on TE9 and TE18 datasets, LigRNA achieves F1 scores of 0.73 and 0.58, improving on GATRsite by 7.4% and 18.4%, respectively. Ablation studies identify the RNA residual encoder as the most consistent contributor across the two benchmarks. The source code is freely available at https://github.com/WillowWang0216/LigRNA.",
       "summary_zh": "",
       "why_it_matters_zh": "",
-      "quality_score": 84,
+      "quality_score": 87,
       "tags": [
         "分子与药物发现"
       ],
       "evidence_flags": [
+        "benchmark",
         "dataset",
+        "github",
         "experimental",
-        "state-of-the-art",
-        "evaluation",
-        "performance"
+        "ablation"
       ],
       "publication_status": "preprint",
       "rank": 0,
@@ -43,173 +50,47 @@
       "category": "分子与药物发现",
       "metrics": {},
       "metadata": {
-        "doi": "10.1101/2025.10.07.680851",
+        "doi": "10.64898/2026.10.15.759315",
         "arxiv_id": ""
       }
     },
     {
-      "id": "arxiv:2610.21477v1",
-      "channel": "aixchem",
-      "related_channels": [
-        "aixbio",
-        "aixmath"
-      ],
-      "item_type": "paper",
-      "source": "arXiv",
-      "title": "Tool-Augmented Large Language Models for Reliable Medical Calculation from Patient Notes",
-      "url": "https://arxiv.org/abs/2610.21477v1",
-      "published_at": "2026-10-15",
-      "updated_at": "2026-10-15",
-      "creators": [
-        "Yang Zhong",
-        "Ling Luo",
-        "Xuanlyu Zhu",
-        "Yanhua Wang",
-        "Yuanyuan Sun",
-        "Jian Wang",
-        "Hongfei Lin"
-      ],
-      "language": "en",
-      "abstract_or_text": "Medical calculators translate raw patient observations into clinically actionable values and scores. However, applying these calculators directly to free-form patient notes requires precise variable extraction combined with the exact execution of complex formulas, scoring rules, and output conventions. Relying solely on direct large language model (LLM) prompting is unreliable in this context, as rule recall, parameter extraction, arithmetic reasoning, and formatting become entangled within a single generative step. To address these limitations, we propose a tool-augmented LLM framework for reliable medical calculation from patient notes. The framework retrieves and structures calculator specifications, generates reusable executable tools, and uses a constrained extractor to map each patient note to calculator-ready inputs. The tools then perform deterministic calculation, separating clinical language understanding from rule execution and arithmetic. Evaluated on the MedCalc-Bench dataset, our method achieves 86.73% final-answer accuracy, outperforming the one-shot prompting and supervised fine tuning-only baselines by 24.0 and 17.27 percentage points. Ablation and error analyses show that these performance gains are primarily driven by rule-grounded tool synthesis and schema-constrained extraction, whereas remaining failures are concentrated in clinical-semantic extraction and benchmark-specific output contracts. By grounding calculator logic in executable tools, the proposed approach alleviates arithmetic hallucinations and improves the computational reliability of the final clinical outputs.",
-      "summary_zh": "",
-      "why_it_matters_zh": "",
-      "quality_score": 80,
-      "tags": [
-        "方法与模型"
-      ],
-      "evidence_flags": [
-        "benchmark",
-        "dataset",
-        "clinical",
-        "ablation",
-        "performance"
-      ],
-      "publication_status": "preprint",
-      "rank": 0,
-      "featured": false,
-      "category": "方法与模型",
-      "metrics": {},
-      "metadata": {
-        "doi": "",
-        "arxiv_id": "2610.21477v1"
-      }
-    },
-    {
-      "id": "arxiv:2610.21391v1",
+      "id": "biorxiv:10.64898/2026.10.15.759509",
       "channel": "aixchem",
       "related_channels": [
         "aixbio"
       ],
       "item_type": "paper",
-      "source": "arXiv",
-      "title": "NOCE-Net: Representation Learning for Battery Operational Context via Nested Sequence Modelling",
-      "url": "https://arxiv.org/abs/2610.21391v1",
-      "published_at": "2026-10-15",
-      "updated_at": "2026-10-15",
+      "source": "bioRxiv",
+      "title": "Scalable Enzyme Reaction Retrieval Enables Metagenomic Biocatalyst Discovery",
+      "url": "https://www.biorxiv.org/content/10.64898/2026.10.15.759509",
+      "published_at": "2026-10-18",
+      "updated_at": "2026-10-18",
       "creators": [
-        "Arnab Bhattacharjee",
-        "Wayes Tushar",
-        "Tapan Kumar Saha"
+        "Luo, D.",
+        "Jiang, M.",
+        "Wang, B."
       ],
       "language": "en",
-      "abstract_or_text": "Learning effective representations from battery operational history is essential for predictive health management and control-oriented applications. Existing approaches rely on response-dependent engineered features or short early-life windows, limiting generalisability and precluding use in prospective settings where future responses are unavailable. We propose NOCE-Net, a deep nested sequence model that learns control-enabling representations directly from raw cyclic operational or telemetric data. Our data pipeline, re-BatteryData, standardises heterogeneous aging datasets into semantically equivalent Full Equivalent Cycles (FECs) defined by absolute charge throughput, enabling end-to-end learning across diverse operational regimes. NOCE-Net combines multi-patch transformer encoders for intra-cycle dynamics with a GRU backbone for inter-cycle state evolution, operating on approximately 700 batteries across ten public datasets spanning over 300 operational profiles. In zero-shot evaluation on unseen battery chemistries and usage patterns, NOCE-Net achieves 13.7\\% MAPE in voltage response prediction, outperforming strong long-sequence baselines by over 43\\% while using 40 \\times fewer parameters. Shape and component diagnostics of the learned hidden states reveal that the GRU's principal direction of evolution achieves Spearman |ρ| \\geq 0.95 with the capacity fade trajectory on average across all datasets with monotone degradation profiles, including zero-shot test batteries, providing evidence that the representations encode degradation dynamics transferable to downstream tasks beyond battery response modelling. Code is available at https://github.com/BeArnab96/NOCE-Net.",
+      "abstract_or_text": "Enzyme catalyzed reactions drive metabolism and enable diverse applications in biotechnology and sustainable synthesis, but assigning catalytic functions to uncharacterized enzymes and finding enzymes for target reactions remain major challenges. Despite recent advances in machine learning, translating enzyme function prediction into systematic discovery across the vast space of uncharacterized proteins and biochemical reactions remains challenging. Here we present EzHit, a lightweight framework for bidirectional enzyme reaction retrieval. Across enzyme annotation, orphan-reaction retrieval and family-specific fine-tuning benchmarks, EzHit achieved strong top-ranked performance and outperformed representative enzyme reaction matching baselines. We further show that Mahalanobis distance based geometric confidence provides more useful reliability estimates than probability-derived uncertainty metrics or evidential learning, enabling confidence-aware prioritization of high scoring candidates. Owing to its efficiency, EzHit was applied to a nearly trillion-scale OMG_Prot50 with RHEA screen, yielding 8.20 billion retained enzyme reaction associations across 30.27 million predicted enzyme sequences. Experimental validation further confirmed the activity of EzHit prioritized metagenomic enzyme candidates for a sparsely annotated reaction. Together, these results establish EzHit as a scalable framework for enzyme annotation, reaction-guided mining and biocatalyst discovery",
       "summary_zh": "",
       "why_it_matters_zh": "",
       "quality_score": 79,
       "tags": [
-        "方法与模型"
-      ],
-      "evidence_flags": [
-        "dataset",
-        "github",
-        "prospective",
-        "evaluation"
-      ],
-      "publication_status": "preprint",
-      "rank": 0,
-      "featured": false,
-      "category": "方法与模型",
-      "metrics": {},
-      "metadata": {
-        "doi": "",
-        "arxiv_id": "2610.21391v1"
-      }
-    },
-    {
-      "id": "biorxiv:10.64898/2026.10.14.759218",
-      "channel": "aixchem",
-      "related_channels": [
-        "aixbio"
-      ],
-      "item_type": "paper",
-      "source": "bioRxiv",
-      "title": "RePurpose: An LLM-Assisted, Source-Traceable Drug Repurposing Tool with Retrospective Validation on Clemastine in Multiple Sclerosis",
-      "url": "https://www.biorxiv.org/content/10.64898/2026.10.14.759218",
-      "published_at": "2026-10-16",
-      "updated_at": "2026-10-16",
-      "creators": [
-        "Nayagam, N.",
-        "Arun, A."
-      ],
-      "language": "en",
-      "abstract_or_text": "Summary Thus far, evidence for drug repurposing is contained in target-, drug-, trial-, and literature-based data sources that are challenging to synthesize for non-specialists. Here, we introduce RePurpose, a web-based tool that takes as input a topic written in plain language and returns candidate drugs built from data in Open Targets, ClinicalTrials.gov, UniProt, and PubMed. For queries in the form of a goal, RePurpose filters candidate drugs by whether they modulate all targets implicated in the goal in the corresponding direction. Every candidate has a source that contributes evidence: a structured database, a clinical trial, or a proposal from a large language model. An adjustable ranking adjusts the order of candidates from well-studied to less well-known candidate drugs. We retrospectively tested RePurpose with the trial drug clemastine, which was being considered as a remyelinating agent in multiple sclerosis (MS). RePurpose retrieved clemastine in each replicate of the mechanism-worded queries, but in no replicates of the disease-worded queries, and no structured query retrieved it without the language model enabled. Its ranked outputs reflected the evidence supporting clemastine but not later evidence of harm in progressive MS, which was reachable only through an on-demand literature search. Our results imply that RePurpose may be better at tracing evidence around a hypothesis than generating new hypotheses. Availability and Implementation RePurpose Pharma is freely accessible at https://www.repurposepharma.com/. For code and more information on the application, see: https://github.com/nayagamnitin-hub/RePurpose-Pharma.",
-      "summary_zh": "",
-      "why_it_matters_zh": "",
-      "quality_score": 78,
-      "tags": [
-        "方法与模型"
-      ],
-      "evidence_flags": [
-        "github",
-        "clinical"
-      ],
-      "publication_status": "preprint",
-      "rank": 0,
-      "featured": false,
-      "category": "方法与模型",
-      "metrics": {},
-      "metadata": {
-        "doi": "10.64898/2026.10.14.759218",
-        "arxiv_id": ""
-      }
-    },
-    {
-      "id": "biorxiv:10.64898/2026.10.11.758217",
-      "channel": "aixchem",
-      "related_channels": [
-        "aixbio"
-      ],
-      "item_type": "paper",
-      "source": "bioRxiv",
-      "title": "Benchmarking Large Language Models for Assay-Aware Drug-Target Binding Affinity Prediction",
-      "url": "https://www.biorxiv.org/content/10.64898/2026.10.11.758217",
-      "published_at": "2026-10-16",
-      "updated_at": "2026-10-16",
-      "creators": [
-        "Gupta, N.",
-        "Verma, A.",
-        "Khandelwal, P.",
-        "Sethi, T."
-      ],
-      "language": "en",
-      "abstract_or_text": "Machine learning models for molecular discovery often train on bioactivity data from heterogeneous assays, yet assay context is rarely explicitly represented. We investigate whether natural-language assay descriptions provide predictive information beyond molecular and protein representations. We develop ACL-DTI (Assay-aware Contrastive Learning-based Drug Target Interaction) and MAMMAL-AsAP, an assay-context extension of MAMMAL-DTI. Across five triplet-disjoint random splits, assay-aware models achieve competitive or improved performance over assay-agnostic baselines. Among the evaluated models, MAMMAL-AsAP achieves the highest (R^2) of 0.7198 +/- 0.0085. Masking experiments show that ACL-DTI is robust to incomplete assay descriptions, exhibiting the smallest reductions in R^2 among the evaluated models when masking the target name, assay technique, or both: 0.0228 +/- 0.0064, 0.0406 +/- 0.0113, and 0.0620 +/- 0.0190, respectively. These results indicate that assay descriptions contain predictive information not fully captured by molecular structures and protein sequences, and reveal architecture-dependent differences in how this information is exploited.",
-      "summary_zh": "",
-      "why_it_matters_zh": "",
-      "quality_score": 78,
-      "tags": [
-        "方法与模型"
+        "结构与生物"
       ],
       "evidence_flags": [
         "benchmark",
+        "experimental",
         "performance"
       ],
       "publication_status": "preprint",
       "rank": 0,
       "featured": false,
-      "category": "方法与模型",
+      "category": "结构与生物",
       "metrics": {},
       "metadata": {
-        "doi": "10.64898/2026.10.11.758217",
+        "doi": "10.64898/2026.10.15.759509",
         "arxiv_id": ""
       }
     },
@@ -292,39 +173,35 @@
       }
     },
     {
-      "id": "biorxiv:10.64898/2026.10.09.758138",
+      "id": "biorxiv:10.64898/2026.10.12.758456",
       "channel": "aixchem",
       "related_channels": [
         "aixbio"
       ],
       "item_type": "paper",
       "source": "bioRxiv",
-      "title": "CucurbitAgent: An AI agent for exploring cucurbit multi-omics resources",
-      "url": "https://www.biorxiv.org/content/10.64898/2026.10.09.758138",
-      "published_at": "2026-10-16",
-      "updated_at": "2026-10-16",
+      "title": "Beyond Better Models: Barriers and a Path Forward in Generalisable TCR Antigen Specificity Prediction",
+      "url": "https://www.biorxiv.org/content/10.64898/2026.10.12.758456",
+      "published_at": "2026-10-18",
+      "updated_at": "2026-10-18",
       "creators": [
-        "Zhang, R.",
-        "Zhang, J.",
-        "Zhang, Y.",
-        "Zhang, X.",
-        "Yang, J.",
-        "Xia, C.",
-        "Zhang, J.",
-        "Zhao, H.",
-        "Wen, C."
+        "Koohy, H.",
+        "Ilievski, I.",
+        "Antanaviciute, A.",
+        "Ogg, G."
       ],
       "language": "en",
-      "abstract_or_text": "Functional genomics in crops increasingly depends on integrating information from an extensive literature and heterogeneous multi-omics datasets. Large language models (LLMs) offer a powerful approach to synthesizing these resources and revealing hidden connections across datasets; however, they frequently hallucinate, producing plausible but unsupported claims, when responding to gene-specific queries. Here, we present CucurbitAgent, an AI research agent for functional genomics in the Cucurbitaceae, a major family of horticultural crops. CucurbitAgent integrates multi-omics resources from nine cultivated cucurbit species and more than 18,000 publications, encompassing approximately 256,000 genes, tissue-resolved expression profiles, over 16 million natural genetic variants, and roughly 242,000 predicted protein structures with more than 14 million predicted binding-site residue annotations. Responses link retrieved evidence to source records, including gene entries, expression measurements, structural predictions, and literature passages. On a curated benchmark of 50 tasks assessed by domain experts under blinded conditions, CucurbitAgent achieved an overall pairwise win rate of 96.0% against nine general-purpose LLMs, based on weighted scores for factual accuracy, completeness, relevance, and traceability. The platform is freely available at https://cucurbitagent.com and supports queries in 37 languages collectively spoken by an estimated 70% or more of the world's population. CucurbitAgent not only unifies evidence retrieval and interpretation but also reveals latent associations across datasets, helping researchers formulate testable hypotheses and substantially accelerating candidate-gene research. Its framework is readily transferable to other crops and, more broadly, provides a blueprint for building specialized agents in any domain.",
+      "abstract_or_text": "T cells are at the centre of adaptive immunity, protecting the organism against infection and cancer. T cell receptors (TCRs), expressed on the surface of T cells, enable the recognition of target cells through interactions with peptides presented by major histocompatibility complex (pMHC) molecules. Reliable, large-scale mapping of TCRs to their cognate pMHCs remains a holy grail of modern systems immunology, with far-reaching implications for cancer immunotherapy, vaccine development, and the understanding and treatment of autoimmune diseases. While exhaustive experimental mapping remains intractable due to the enormous combinatorial sequence space of TCRs and pMHCs, computational approaches offer a promising alternative. Consequently, we have witnessed increasingly sophisticated computational models of TCR antigen specificity, from small neural networks to deep generative models and large protein language models. However, several independent benchmarks have shown that these models, despite their size and sophistication, largely fail to generalise to TCRs or pMHCs not present in the data available during model development. Here, we investigate possible reasons for this and suggest a path forward to generalisable TCR:pMHC prediction. First, our analysis of the largest public repositories of TCR:pMHC data reveals significant biases towards a small number of antigens and MHC molecules, sparse sampling of TCR sequence space per pMHC, as well as inconsistencies and inaccuracies in data collation. Second, we show the importance of carefully setting up model evaluation to measure discrimination based on antigen specificity instead of confounding factors present in the evaluation data. Finally, we highlight the need for and propose how best to match the evaluation metric with the specific downstream application of the predictions. Our investigation suggests that we, as a community, need more representative and better curated data, and a robust set of metrics and benchmarks to guide future model development towards generalisable TCR:pMHC specificity prediction.",
       "summary_zh": "",
       "why_it_matters_zh": "",
-      "quality_score": 74,
+      "quality_score": 75,
       "tags": [
         "方法与模型"
       ],
       "evidence_flags": [
         "benchmark",
-        "dataset"
+        "experimental",
+        "evaluation"
       ],
       "publication_status": "preprint",
       "rank": 0,
@@ -332,7 +209,7 @@
       "category": "方法与模型",
       "metrics": {},
       "metadata": {
-        "doi": "10.64898/2026.10.09.758138",
+        "doi": "10.64898/2026.10.12.758456",
         "arxiv_id": ""
       }
     },
@@ -450,105 +327,6 @@
       }
     },
     {
-      "id": "biorxiv:10.64898/2026.03.06.710001",
-      "channel": "aixchem",
-      "related_channels": [
-        "aixbio"
-      ],
-      "item_type": "paper",
-      "source": "bioRxiv",
-      "title": "What comes after de novo? Automated lead optimization of proteins with CRADLE-1",
-      "url": "https://www.biorxiv.org/content/10.64898/2026.03.06.710001",
-      "published_at": "2026-10-16",
-      "updated_at": "2026-10-16",
-      "creators": [
-        "Bixby, E.",
-        "Brunner, G.",
-        "Danciu, D.",
-        "Dela Rosa, R.",
-        "Deutschmann, N.",
-        "Ferragu, C.",
-        "Geiger, F.",
-        "Holberg, C.",
-        "Kidger, P.",
-        "Lindoulsi, A.",
-        "Lutz, N.",
-        "McColgan, T.",
-        "Milius, S.",
-        "van Rossum, H.",
-        "Shah, J.",
-        "Vandeloo, M.",
-        "Vidas, P.",
-        "van der Vorm, D.",
-        "Ziegler, J. D.",
-        "Baldi, N.",
-        "IJSpeert, C.",
-        "Monza, E.",
-        "Schriek, A."
-      ],
-      "language": "en",
-      "abstract_or_text": "Lead optimization remains the longest and most expensive step in pre-clinical drug discovery, typically consuming 12-36 months whilst costing 5M-15M per candidate. We introduce 'CRADLE-1', an automated framework for protein engineering. While CRADLE-1 supports the full process of drug discovery and industrial protein engineering pipelines, including hit identification and de novo binder design, this work focuses on its application to multi-property lead optimization across protein modalities (VHHs, scFvs, IgGs, peptides, enzymes, CRISPR systems, vaccines). We show it is 4-7x faster than rational design, as measured by the number of wet lab rounds required. We provide in-vitro validation across all of the above modalities, typically optimizing multiple properties simultaneously (single and polyspecific binding down to picomolar, activity, thermostability, ...). Technically, CRADLE-1 starts with pre-trained foundation protein language models (PLMs), which are fine-tuned in unsupervised fashion on evolutionary neighborhoods, in supervised fashion using lab-in-the-loop data, and then deployed in a multi-model workflow. Of additional interest, we find that (a) the end-to-end system may be run in automated fashion; (b) wet lab data may be consumed in 'black box' fashion without knowledge of the underlying biochemical mechanisms; (c) structural data may largely be superseded by sequence-function pairs.",
-      "summary_zh": "",
-      "why_it_matters_zh": "",
-      "quality_score": 72,
-      "tags": [
-        "结构与生物"
-      ],
-      "evidence_flags": [
-        "clinical"
-      ],
-      "publication_status": "preprint",
-      "rank": 0,
-      "featured": false,
-      "category": "结构与生物",
-      "metrics": {},
-      "metadata": {
-        "doi": "10.64898/2026.03.06.710001",
-        "arxiv_id": ""
-      }
-    },
-    {
-      "id": "arxiv:2610.21200v1",
-      "channel": "aixchem",
-      "related_channels": [
-        "aixbio"
-      ],
-      "item_type": "paper",
-      "source": "arXiv",
-      "title": "Poisoning the corpora of protein design systems during pre-training and retrieval",
-      "url": "https://arxiv.org/abs/2610.21200v1",
-      "published_at": "2026-10-15",
-      "updated_at": "2026-10-15",
-      "creators": [
-        "Charalampos Koilakos",
-        "Kimon-Antonios Provatas",
-        "Michail Patsakis",
-        "Candace SY Chan",
-        "Georgios A. Pavlopoulos",
-        "Ilias Georgakopoulos-Soares"
-      ],
-      "language": "en",
-      "abstract_or_text": "Protein foundation models increasingly support the generation of novel biological sequences, yet their reliance on large public datasets creates opportunities for adversarial manipulation of the material they learn from and retrieve. We investigate two data-only poisoning attacks against protein design systems, targeting the pre-training corpus of autoregressive protein language models and the retrieval corpus of a text-guided protein generator. For the first, we pre-trained ProtGPT2 and ProGen2 variants of 300 million parameters, introducing poisoned protein sequences containing one of two triggers followed by one of three payloads. Across all poisoned runs, both architectures acquired highly reliable trigger-dependent generation under uniform and ramped poisoning schedules. Under ramped exposure, the earliest majority activation occurred after only 200 contaminated examples, while for the uniform schedule earliest activation occurred around 5000 poisoned samples. For the second attack, we inserted records into a retrieval corpus system without modifying its weights or decoding procedure. A single query-aware record captured a top-16 retrieval position for 58\\% of templated requests and 97\\% of free-text requests. Conditional on successful poisoned retrieval, 62\\% of requests produced altered sequences, while 19-21% acquired the inserted domain by profile-HMM homology. A universal query-unaware attack using 1,500 records also achieved substantial retrieval capture and domain transfer. Together, these findings demonstrate that adversarial protein sequence contributions can establish persistent, sequence-specific behaviour during pre-training or redirect protein generation at inference, while leaving ordinary model behaviour largely preserved. Our work establishes the integrity and biological provenance of protein sequence data as critical safeguards for generative protein design systems.",
-      "summary_zh": "",
-      "why_it_matters_zh": "",
-      "quality_score": 72,
-      "tags": [
-        "方法与模型"
-      ],
-      "evidence_flags": [
-        "dataset"
-      ],
-      "publication_status": "preprint",
-      "rank": 0,
-      "featured": false,
-      "category": "方法与模型",
-      "metrics": {},
-      "metadata": {
-        "doi": "",
-        "arxiv_id": "2610.21200v1"
-      }
-    },
-    {
       "id": "arxiv:2610.21113v1",
       "channel": "aixchem",
       "related_channels": [],
@@ -622,6 +400,41 @@
       "metadata": {
         "doi": "",
         "arxiv_id": "2610.21098v1"
+      }
+    },
+    {
+      "id": "biorxiv:10.64898/2026.10.11.758399",
+      "channel": "aixchem",
+      "related_channels": [],
+      "item_type": "paper",
+      "source": "bioRxiv",
+      "title": "PATHNet: A Thermodynamic Path-Integral-Inspired Neural Network for Protein-Ligand Interaction Prediction",
+      "url": "https://www.biorxiv.org/content/10.64898/2026.10.11.758399",
+      "published_at": "2026-10-17",
+      "updated_at": "2026-10-17",
+      "creators": [
+        "A. S., B. G.",
+        "Singh, A.",
+        "Kanchan, S.",
+        "Kulkarni, N. M."
+      ],
+      "language": "en",
+      "abstract_or_text": "Protein-ligand scoring functions must capture strongly nonlinear, target-dependent binding physics while remaining generalizable beyond their training data, a balance that purely analytic and purely data-driven models each struggle to achieve on their own. We present PATHNet, a physics-informed framework that learns this unknown functional relationship from molecular-mechanics descriptors using a non-monotonic piecewise-linear mapper with a bounded neural-network correction, trained through a variational, least-action-inspired objective and regulated by a renormalization-group-inspired spectral constraint, with model selection performed through multi-start basin optimization. Across seven DUD-E targets, PATHNet achieved the highest mean active inactive/decoy classification accuracy among the methods tested, outperforming three literature baselines representing distinct architectural families. These results support a physics-grounded, variationally constrained approach to neural-network scoring as a practical route toward more interpretable and transferable protein-ligand interaction models.",
+      "summary_zh": "",
+      "why_it_matters_zh": "",
+      "quality_score": 71,
+      "tags": [
+        "分子与药物发现"
+      ],
+      "evidence_flags": [],
+      "publication_status": "preprint",
+      "rank": 0,
+      "featured": false,
+      "category": "分子与药物发现",
+      "metrics": {},
+      "metadata": {
+        "doi": "10.64898/2026.10.11.758399",
+        "arxiv_id": ""
       }
     },
     {
@@ -932,48 +745,6 @@
       }
     },
     {
-      "id": "arxiv:2610.21270v1",
-      "channel": "aixchem",
-      "related_channels": [
-        "aixbio",
-        "aixmath"
-      ],
-      "item_type": "paper",
-      "source": "arXiv",
-      "title": "Auditing Escalation Reliability in Healthcare LLM Agents: A Perturbation-Controlled Benchmark of Workflow-State Failures",
-      "url": "https://arxiv.org/abs/2610.21270v1",
-      "published_at": "2026-10-15",
-      "updated_at": "2026-10-15",
-      "creators": [
-        "Zihao Zheng",
-        "Junyi Yao",
-        "Baichuan Li",
-        "Jiayu Long"
-      ],
-      "language": "en",
-      "abstract_or_text": "Trustworthy biomedical AI requires reliable action selection when evidence is missing, stale, conflicting, or late, not only accurate answers on static inputs. We instantiate an episode-level evaluation protocol as 400 synthetic healthcare workflow episodes: 40 hand-authored semantic seeds across four task classes, two surface parameterizations, and five controlled variants, scored on ANSWER/ASK CLARIFICATION/ABSTAIN/ESCALATE under a pre-declared 5:1 missed-versus-unnecessary escalation cost. Reference actions are single-author study-policy labels, not clinician-adjudicated ground truth. Across five open-weight configurations (1.7B--9.7B), clean decision accuracy reaches 0.97, yet uncertainty-prompted models miss 32--97% of required escalations. The stronger 9.7B configuration narrows but does not remove the gap, falling from 0.97 clean accuracy to 0.78 under conflict. Verbalized confidence is inconsistent (ECE 0.10--0.54; failure AUROC 0.48--0.77), and a development-tuned confidence-only policy yields no utility gain. A transparent workflow-aware controller improves 5:1 utility for every model and reduces missed escalations to 0.12--0.24, at specificity 0.83--0.93. However, a 30-concept lexical stress test reduces each rule detector's recall from 1.00 on trigger phrases to 0.00 on unseen paraphrases, limiting the controller claim to this benchmark. Seed-clustered statistics, ablations, cross-task transfer, raw outputs, and manifests are packaged for audit. The results motivate explicit workflow-state evaluation while showing that apparently effective routing controls need their own generalization tests.",
-      "summary_zh": "",
-      "why_it_matters_zh": "",
-      "quality_score": 70,
-      "tags": [
-        "方法与模型"
-      ],
-      "evidence_flags": [
-        "benchmark",
-        "ablation",
-        "evaluation"
-      ],
-      "publication_status": "preprint",
-      "rank": 0,
-      "featured": false,
-      "category": "方法与模型",
-      "metrics": {},
-      "metadata": {
-        "doi": "",
-        "arxiv_id": "2610.21270v1"
-      }
-    },
-    {
       "id": "biorxiv:10.64898/2026.10.14.759022",
       "channel": "aixchem",
       "related_channels": [],
@@ -1173,45 +944,6 @@
       }
     },
     {
-      "id": "arxiv:2610.21290v1",
-      "channel": "aixchem",
-      "related_channels": [
-        "aixmath"
-      ],
-      "item_type": "paper",
-      "source": "arXiv",
-      "title": "Bias Control and Injection for Multi-Agent Aggregation",
-      "url": "https://arxiv.org/abs/2610.21290v1",
-      "published_at": "2026-10-15",
-      "updated_at": "2026-10-15",
-      "creators": [
-        "Sungjae Lee",
-        "Soheil Abbasloo",
-        "Jabin Koo",
-        "Jungseul Ok"
-      ],
-      "language": "en",
-      "abstract_or_text": "Multi-agent reasoning with large language models (LLMs) raises a central question for collective decision-making: when agents disagree, whose decision should be trusted? Resolving such disagreements is difficult because agents' decisions are susceptible to non-semantic biases such as majority pressure and response-style preferences, which can obscure the quality of the underlying reasoning. Our analysis shows how bias can be both mitigated and exploited: bias control improves initial answer selection, while bias injection elicits decision instability that serves as a reliability signal. Building on these findings, we introduce a test-time aggregation framework that requires neither validation data nor prior knowledge of relative model strength. The framework implements bias control by presenting one style-normalized reasoning trace per distinct answer, and bias injection by placing each aggregating agent's initially selected answer in the minority. Overall, our framework achieves higher average accuracy and better token efficiency than competing non-oracle aggregation methods across three mathematical reasoning benchmarks and four heterogeneous LLM combinations. It also improves final-answer accuracy when applied to multi-agent debate and Mixture-of-Agents, without modifying their interaction or synthesis processes.",
-      "summary_zh": "",
-      "why_it_matters_zh": "",
-      "quality_score": 69,
-      "tags": [
-        "方法与模型"
-      ],
-      "evidence_flags": [
-        "benchmark"
-      ],
-      "publication_status": "preprint",
-      "rank": 0,
-      "featured": false,
-      "category": "方法与模型",
-      "metrics": {},
-      "metadata": {
-        "doi": "",
-        "arxiv_id": "2610.21290v1"
-      }
-    },
-    {
       "id": "arxiv:2610.21167v1",
       "channel": "aixchem",
       "related_channels": [],
@@ -1405,6 +1137,47 @@
       "metrics": {},
       "metadata": {
         "doi": "10.26434/chemrxiv.15010513/v1",
+        "arxiv_id": ""
+      }
+    },
+    {
+      "id": "biorxiv:10.64898/2026.10.12.758406",
+      "channel": "aixchem",
+      "related_channels": [
+        "aixbio"
+      ],
+      "item_type": "paper",
+      "source": "bioRxiv",
+      "title": "CAPO: Compute-Aware Automated Protein-Model Optimization",
+      "url": "https://www.biorxiv.org/content/10.64898/2026.10.12.758406",
+      "published_at": "2026-10-18",
+      "updated_at": "2026-10-18",
+      "creators": [
+        "Schifferli, T.",
+        "Garcia Pardinas, J.",
+        "B. Irvine, E.",
+        "Hartley, M.-A.",
+        "Bikias, T."
+      ],
+      "language": "en",
+      "abstract_or_text": "Protein models such as Evolutionary Scale Modeling (ESM), AlphaFold and Boltz have transformed computational protein science, yet a pretrained model rarely transfers to a particular laboratory's assay without adaptation to its data and experimental setting, and that adaptation is technically demanding and spends real compute budget. Existing agentic systems can automate model training, yet typically treat fine-tuning as a reliable tool call: feasibility and cost are estimated rather than measured, and infeasibility is discovered only after compute has been spent. We formulate protein-model adaptation as a gated decision problem: given a task, raw data and a compute budget c_max, a system should decide whether and how to adapt a model before committing expensive computation. We introduce CAPO (Compute-Aware Automated Protein-Model Optimization), a multi-agent system built around one rule: gate before you train. CAPO measures feasibility on the target accelerator, projects cost against the available budget, runs a canary inside the actual training loop and maintains an auditable artifact trail; critically, it can decline an unaffordable adaptation and select a cheaper alternative. We evaluate CAPO, without system changes, on three protein-modeling tasks: (i) SARS-CoV-2 host-range prediction, (ii) hit-to-lead affinity ranking and (iii) temporal variant-effect reclassification. On host range, CAPO partially fine-tuned an 8-million-parameter ESM-2 model to a species-averaged MCC of 0.826, compared with 0.743 for a hand-designed expert transformer; it matched a general coding agent while using 57.4% less GPU time and reduced failed training trials from four to zero. For hit-to-lead affinity ranking, CAPO rejected Boltz-2 fine-tuning and instead trained an assay-calibrated lightweight head over frozen representations, improving ranking on 11 of 15 held-out targets in 1.68 GPU-hours. On temporally held-out ClinVar variants, rank-4 low-rank adaptation of ESM-2 reached an MCC of 0.478, compared with 0.252 for a one-hot baseline and 0.000 for the frozen zero-shot score. These results come from single runs, without a gate ablation and with one generalist-agent comparison. Within those limits, they show that measured admission control can make protein-model adaptation not only automated but selective: deciding what to compute, what not to compute and why.",
+      "summary_zh": "",
+      "why_it_matters_zh": "",
+      "quality_score": 68,
+      "tags": [
+        "结构与生物"
+      ],
+      "evidence_flags": [
+        "experimental",
+        "ablation"
+      ],
+      "publication_status": "preprint",
+      "rank": 0,
+      "featured": false,
+      "category": "结构与生物",
+      "metrics": {},
+      "metadata": {
+        "doi": "10.64898/2026.10.12.758406",
         "arxiv_id": ""
       }
     },
@@ -2488,6 +2261,196 @@
       "metadata": {
         "doi": "",
         "arxiv_id": "2610.21394v1"
+      }
+    },
+    {
+      "id": "arxiv:2610.21259v1",
+      "channel": "aixchem",
+      "related_channels": [],
+      "item_type": "paper",
+      "source": "arXiv",
+      "title": "Energy Flow Shapes the Decomposition Dynamics of a Reactive Atmospheric Intermediate",
+      "url": "https://arxiv.org/abs/2610.21259v1",
+      "published_at": "2026-10-15",
+      "updated_at": "2026-10-15",
+      "creators": [
+        "Mitradip Das",
+        "Cangtao Yin",
+        "M. Meuwly"
+      ],
+      "language": "en",
+      "abstract_or_text": "The unimolecular dynamics of Criegee intermediates depend strongly on their internal energy, which can differ substantially between nascent atmospheric species and laboratory-prepared reactants. Here, the decomposition dynamics of {\\it anti-}CH_3CHOO are investigated using molecular dynamics simulations on a neural network-based potential energy surface under thermal and mode-selective vibrational excitation. Simulations were performed at internal energies representative of those released during ozonolysis (chemical/thermal preparation, TP) or following vibrational excitation (VibEx) along the CH-stretching mode with two or three quanta, as can be done in laboratory studies. These excitation conditions strongly affect reaction yields and kinetics, with VibEx promoting passage across the initial cyclization barrier. For TP, 35 kcal/mol of internal energy are required to form molecular products, whereas for VibEx, 27 kcal/mol are sufficient. Although TP and VibEx ensembles access largely the same fragmentation pathways with comparable relative yields, the absolute product yields, characteristic timescales, and kinetic behavior differ substantially. Methyldioxirane is found to be a kinetic trap along the pathway. The resulting molecular-level description of {\\it anti-}CH_3CHOO decomposition provides guidance for interpreting experiments and contributes to a broader understanding of energy-dependent Criegee-intermediate dynamics.",
+      "summary_zh": "",
+      "why_it_matters_zh": "",
+      "quality_score": 65,
+      "tags": [
+        "结构与生物"
+      ],
+      "evidence_flags": [
+        "release"
+      ],
+      "publication_status": "preprint",
+      "rank": 0,
+      "featured": false,
+      "category": "结构与生物",
+      "metrics": {},
+      "metadata": {
+        "doi": "",
+        "arxiv_id": "2610.21259v1"
+      }
+    },
+    {
+      "id": "arxiv:2610.21223v1",
+      "channel": "aixchem",
+      "related_channels": [],
+      "item_type": "paper",
+      "source": "arXiv",
+      "title": "Learning and Forecasting Multiscale Spatiotemporal Epidemic Dynamics with Lagrangian-Eulerian Graph Neural ODEs",
+      "url": "https://arxiv.org/abs/2610.21223v1",
+      "published_at": "2026-10-15",
+      "updated_at": "2026-10-15",
+      "creators": [
+        "Jinyi Duan",
+        "Qian Li",
+        "Biao Tang"
+      ],
+      "language": "en",
+      "abstract_or_text": "Accurate medium- to long-range epidemic forecasting requires extrapolating high-dimensional, heterogeneous and nonstationary dynamics from partial observations. Yet hybrid models often leave implicit which observations inform which epidemic processes and how learned graph interactions modify system state. We introduce LE-EpiGNODE, which replaces generic message passing with process-specific, mechanism-guided neural operators: age-contact information drives Lagrangian infection generation, whereas mobility drives conservative Eulerian population transport within a structure-preserving universal differential equation. We evaluated LE-EpiGNODE across 14 controlled synthetic mechanisms spanning time-modulated, state-dependent, nonlinear and coupled dynamics, three complementary COVID-19 settings, 21 comparator models and five targeted ablations. Forecasting gains tended to become more pronounced at longer horizons; at the longest horizon, LE-EpiGNODE achieved the lowest WMAPE in all three real-world datasets, reducing error by 17.7-40.0% relative to the best baseline. Controlled ablations linked these gains to the Lagrangian-Eulerian decomposition and process-aligned priors, while synthetic ground truth showed that learned operators and induced state fluxes track known generating dynamics. These results support mechanism-organized graph neural dynamics as a route to reliable long-horizon extrapolation with directly testable, process-level mechanistic interpretation beyond trajectory accuracy.",
+      "summary_zh": "",
+      "why_it_matters_zh": "",
+      "quality_score": 65,
+      "tags": [
+        "方法与模型"
+      ],
+      "evidence_flags": [
+        "dataset",
+        "ablation"
+      ],
+      "publication_status": "preprint",
+      "rank": 0,
+      "featured": false,
+      "category": "方法与模型",
+      "metrics": {},
+      "metadata": {
+        "doi": "",
+        "arxiv_id": "2610.21223v1"
+      }
+    },
+    {
+      "id": "chemrxiv:10.26434/chemrxiv.15010224/v2",
+      "channel": "aixchem",
+      "related_channels": [
+        "aixbio"
+      ],
+      "item_type": "paper",
+      "source": "ChemRxiv",
+      "title": "Advancing Targeted Nanoparticle mRNA Delivery Using Machine Learning",
+      "url": "https://doi.org/10.26434/chemrxiv.15010224/v2",
+      "published_at": "2026-10-14",
+      "updated_at": "2026-10-15",
+      "creators": [
+        "Marius Kausas",
+        "Valentina Schastlivaia"
+      ],
+      "language": "en",
+      "abstract_or_text": "Effective delivery remains a major barrier to translating nucleic acid therapeutics into the clinic. A successful delivery system must cross biological barriers, target the tissue of interest, deliver the potent payload to the cell, and be manufactured with ease at scale. The three clinically relevant carrier classes involve trade-offs with one another: viral vectors are limited by payload capacity and limited redosing; lipid nanoparticles are a clinical standard for mRNA delivery, but default to liver tropism; polymeric nanoparticles have lower immunogenicity and offer shelf-stable manufacturing, but fewer candidates have reached clinical trials. The design of effective nanomedicines requires multi-faceted optimization of nanoparticle properties, targeted delivery, and cargo efficacy. Machine learning offers an opportunity to accelerate nanoparticle development by effectively navigating the design space and providing a deeper insight into structure-activity relationships. Here, we present a high-level overview of the fast evolving nanoparticle delivery field and outline best practices for advancing the development of targeted nanoparticle mRNA delivery using machine learning. The key design principles are introduced: identification of target cell surface receptors, de novo design of epitope-targeted antibodies, design of mRNA payloads, and prediction of nanoparticle properties and their interactions at different biological scales. Together, advancing targeted nanoparticle mRNA delivery will require a coordinated integration of key design principles, the generation of high-quality datasets, and the effective adoption of machine learning.",
+      "summary_zh": "",
+      "why_it_matters_zh": "",
+      "quality_score": 65,
+      "tags": [
+        "材料与催化"
+      ],
+      "evidence_flags": [
+        "dataset",
+        "clinical"
+      ],
+      "publication_status": "preprint",
+      "rank": 0,
+      "featured": false,
+      "category": "材料与催化",
+      "metrics": {},
+      "metadata": {
+        "doi": "10.26434/chemrxiv.15010224/v2",
+        "arxiv_id": ""
+      }
+    },
+    {
+      "id": "biorxiv:10.64898/2026.10.14.758948",
+      "channel": "aixchem",
+      "related_channels": [
+        "aixbio"
+      ],
+      "item_type": "paper",
+      "source": "bioRxiv",
+      "title": "Distinct roles of Hsp110 proteins in regulating prion propagation",
+      "url": "https://www.biorxiv.org/content/10.64898/2026.10.14.758948",
+      "published_at": "2026-10-16",
+      "updated_at": "2026-10-16",
+      "creators": [
+        "Mosca, M.",
+        "Ansari, M.",
+        "Marrero-Winkens, C.",
+        "Sankaran, C.",
+        "Abdulrahman, B.",
+        "Schatzl, H."
+      ],
+      "language": "en",
+      "abstract_or_text": "Prion diseases are fatal, transmissible neurodegenerative disorders characterized by the conformational conversion of the cellular prion protein (PrPC) into its pathogenic isoform PrPSc. Propagation of prions depends on the fragmentation of PrPSc aggregates to generate new seeds. However, the factors regulating this process remain incompletely understood. For yeast prions, Hsp104 that has no mammalian homologue, is firmly established as a disaggregase. Hsp110 has emerged as a potential mediator of protein disaggregation and aggregate remodeling in mammalian cells. Although Hsp110 proteins have been implicated in several protein misfolding disorders, their individual contributions to mammalian prion propagation have not been characterized. In this study, we examined the roles of the three Hsp110 proteins -Apg-1, Apg-2, and Hsp105- in cellular prion infection. CRISPR-generated knockout cell lines were established for each Hsp110 and evaluated for their effect on de novo prion infection. PrPSc accumulation was assessed by immunoblot across serial passages and up to 40 days, and prion seeding activity was quantified using real-time quaking-induced conversion (RT-QuIC). Loss of individual Hsp110s produced distinct effects on prion propagation. Apg-1-deficient cells exhibited strongly reduced levels of PrPSc over all passages analyzed, suggesting a role for Apg-1 in establishing persistent prion infection. Interestingly, prion seeding activity was detectable in later passages. Hsp105-deficient cells displayed reduced PrPSc levels during the early stages, indicating that Hsp105 contributes to early prion replication. In contrast, Apg-2 knockout resulted in high prion seeding activity over all passages analyzed and only slightly reduced PrPSc levels in early passages. Collectively, these findings demonstrate that Hsp110 family members perform distinct functions during early phases of prion infection and establishment of persistent infection. This work provides new insight into the role of molecular chaperones in prion biology and identifies Hsp110 proteins as potential modulators of prion replication and potentially therapeutic targets for protein misfolding diseases.",
+      "summary_zh": "",
+      "why_it_matters_zh": "",
+      "quality_score": 64,
+      "tags": [
+        "结构与生物"
+      ],
+      "evidence_flags": [],
+      "publication_status": "preprint",
+      "rank": 0,
+      "featured": false,
+      "category": "结构与生物",
+      "metrics": {},
+      "metadata": {
+        "doi": "10.64898/2026.10.14.758948",
+        "arxiv_id": ""
+      }
+    },
+    {
+      "id": "biorxiv:10.64898/2026.10.15.759489",
+      "channel": "aixchem",
+      "related_channels": [
+        "aixbio"
+      ],
+      "item_type": "paper",
+      "source": "bioRxiv",
+      "title": "Lipid nanoparticle-mediated RNAi targeting of KRAS mutants sensitises colorectal cancer cells to chemotherapy",
+      "url": "https://www.biorxiv.org/content/10.64898/2026.10.15.759489",
+      "published_at": "2026-10-16",
+      "updated_at": "2026-10-16",
+      "creators": [
+        "Wang, Y.",
+        "Su, S.",
+        "Zahra, K.",
+        "Sang, R.",
+        "Molloy, M. P.",
+        "Hutvagner, G.",
+        "Deng, W."
+      ],
+      "language": "en",
+      "abstract_or_text": "KRAS mutations, including G12D, G12V and G13D, are major oncogenic drivers in colorectal cancer (CRC) and are associated with therapeutic resistance. However, approved KRAS inhibitors remain focused on G12C subtype, leaving these prevalent variants without approved targeted therapies. Here, we developed a lipid nanoparticle (LNP)-based RNA interference (RNAi) strategy to target these three KRAS variants using a single small interfering RNA (siRNA) sequence. The developed siRNA-LNPs reduced KRAS mRNA and protein expression in HCT116 (G13D), SW620 (G12V) and LS180 (G12D) cells, but not in KRAS wild-type HT29 cells, suppressing the cellular proliferation, clonogenic survival and migration. Transcriptomic profiling revealed changes in KRAS associated signalling, including suppression of cell-cycle and DNA repair programmes, providing a rationale for combining siRNA silencing with the fluoropyrimidine chemotherapeutic agent 5-fluorouracil (5-FU). The combination produced synergistic effects across all three KRAS-mutant CRC cell models and enhanced the apoptosis in both monolayer cultures and 3D spheroids. Collectively, these findings provide proof of concept for this combination strategy and support its further investigation as a potential therapeutic approach for KRAS-mutant CRC.",
+      "summary_zh": "",
+      "why_it_matters_zh": "",
+      "quality_score": 64,
+      "tags": [
+        "结构与生物"
+      ],
+      "evidence_flags": [],
+      "publication_status": "preprint",
+      "rank": 0,
+      "featured": false,
+      "category": "结构与生物",
+      "metrics": {},
+      "metadata": {
+        "doi": "10.64898/2026.10.15.759489",
+        "arxiv_id": ""
       }
     }
   ]

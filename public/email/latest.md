@@ -1,60 +1,58 @@
-# AIxDaily · 2026-10-19
+# AIxDaily · 2026-10-20
 
-今日精选：AI × Chem 8 项，AI × Bio 13 项，AI × Math 6 项，AI Voices 10 项，Engineering 4 项。今日五频道前三项显示，研究侧以预印本为主：化学聚焦 RNA‑配体位点、可扩展酶检索与复杂活性位点设计；生物关注可追溯药物再利用、分子编码和边缘细胞分割；数学侧评测程序性幻觉、代理鲁棒性与科研判断。AI Voices收录X上的公开观点，涉及嵌入模型基准、O‑kRystal及Harness²；工程侧则有vLLM v0.32.0软件发布和两个GitHub趋势项目。当前前三项未包含同行评议论文。
+今日精选：AI × Chem 3 项，AI × Bio 14 项，AI × Math 0 项，AI Voices 8 项，Engineering 3 项。10月20日，AIXChem 与 AIXBio 各精选三项预印本：涉及蛋白结合位点网络、蛋白生成引导、化学蛋白质组学覆盖，以及跨物种基因组模型、蛋白质组学和抗体药物偶联物组合；当前未见同行评议论文入选。AIXMath 今日没有足够高质量更新。AI Voices 汇集三条公开帖文，Engineering 则关注两个 GitHub 热门项目与 JAX v0.12.0 软件发布。
 
 ## 今日重大进展
 
-- [X 帖文称 Google 开源 Harness²，智能体可按任务自我改写 harness](https://x.com/akshay_pachaar/status/2111753928031531232) — X 帖文介绍 Google 开源 Harness²：代理在不改模型权重的情况下，按任务改写提示、工具、记忆、技能和子代理组合；帖文称其在 Gemini 3.5 Flash、GLM-5 的多类工作基准上一轮即超过原始配置。
-- [O-kRystal 以低成本 PBE 信息校正近 6000 种材料的超越 DFT 能带](https://x.com/AnimaAnandkumar/status/2111579335161520630) — 研究者公布 O-kRystal：E(3) 等变图神经网络用低成本 PBE 轨道信息校正电子态、预测 HSE06 能带；帖文称其覆盖近 6000 种三维材料，在强关联材料基准将 PBE 能带能量 MAE 降低 68.7%。
-- [EzHit 将酶–反应检索扩展到 3000 万条宏基因组序列并完成实验验证](https://www.biorxiv.org/content/10.64898/2026.10.15.759509) — bioRxiv 预印本提出 EzHit 双向酶–反应检索框架，以几何置信度筛选候选；作者在近万亿规模 OMG_Prot50–RHEA 检索中保留 3027 万条序列的 82 亿个反应关联，并对优先候选完成活性实验验证。
+- [研究者发布 Mercury 3，声称扩散式语言模型达到千 token/秒级](https://x.com/StefanoErmon/status/2112222911218291051) — Stefano Ermon 宣布发布 Mercury 3，称其在质量评测上超过 GPT-6 Luna 与 Haiku 5.5，同时吞吐超过每秒 1000 个 token；当前候选仅给出发布者单方面对比。
+- [OpenAI 公开 722 篇数学稿件，覆盖 372 个未解问题](https://x.com/lctrnotes/status/2111920313474941227) — 帖文转述 OpenAI 于 10 月 6 日将 722 篇内部模型产出的数学稿件放入公开仓库，涉及 372 个此前未解结果，其中 235 项附有机器检查的 Lean 证明；这是一项研究规模与开放方式的声明。
+- [Google Quantum AI 展示 Willow 芯片魔态培育，帖文称误差降低约 40 倍](https://x.com/professorclawai/status/2111851464977011002) — 帖文转述 Google Quantum AI 在《Science》发表 Willow 处理器的首次硬件魔态培育演示，称误差降低约 40 倍并达到创纪录 T 态；候选未提供论文细节。
 
 ## AI × Chem
 
-采集 1289，候选 60，精选 8。来源状态：各来源已完成
+采集 356，候选 41，精选 3。来源状态：各来源已完成
 
-- [LigRNA: High-accuracy prediction of RNA-ligand binding sites via dynamic chemical complementarity and language model encoding](https://www.biorxiv.org/content/10.64898/2026.10.15.759315) — LigRNA 通过结构引导的语言模型嵌入、RNA 物理化学特征、配体分子图和跨注意力联合预测 RNA-配体结合位点，在 TE9 和 TE18 数据集上优于 GATRsite。
-- [Scalable Enzyme Reaction Retrieval Enables Metagenomic Biocatalyst Discovery](https://www.biorxiv.org/content/10.64898/2026.10.15.759509) — EzHit 是一个轻量级的双向酶-反应检索框架，用于酶注释、孤儿反应检索和家族特异性微调，并以 Mahalanobis 距离几何置信度筛选大规模宏基因组候选酶；作者还对优先候选进行了活性实验验证。
-- [Complex enzyme active site scaffolding by iteratively detuned catalytic guidance](https://www.biorxiv.org/content/10.64898/2026.10.02.756307) — CaGE 交替进行约束引导的结构预测和序列设计，并逐轮减弱约束；它通过 RF3、classifier-free guidance 和无需训练的 motif guidance 设计复杂酶活性位点，并以独立 AF3 预测、活性位点替换和 2.7[A] 晶体结构支持设计机制。
+- [Network organization of protein binding-site landscapes across scales](https://www.biorxiv.org/content/10.64898/2026.10.17.759831) — 将 121,673 个经实验鉴定、去冗余的蛋白质配体结合位点编码为 ProtT5 表征，构建互近邻网络，分析结合位点在全局、介观和局部尺度上的组织规律；在激酶中进一步区分蛋白内不同结合区域及重复出现的残基定义微环境，并发现低序列同一性、不同 InterPro 注释蛋白之间的相似识别环境。
+- [Generative steering to adapt proteins beyond native biological contexts](https://www.biorxiv.org/content/10.1101/2025.07.11.664238) — 提出 ProVADA 测试时蛋白生成引导框架，通过 Mixture-Adaptation Directed Annealing 采样器在保留功能约束的同时引导预训练蛋白生成器满足外部指定性质；实验上将分泌型 human renin 改造成具有活性且可被药物抑制的胞质蛋白酶，并对两个小鼠单链抗体片段去免疫化。
+- [Determinants of cysteine coverage by chemoproteomics](https://www.biorxiv.org/content/10.64898/2026.10.12.758458) — 结合半胱氨酸特征化、可解释机器学习和稳健统计过滤，研究 IA-DTB 化学蛋白质组学中半胱氨酸可检测性的决定因素；模型显示蛋白质丰度和肽段自身性质是 LC-MS 行为的主要决定因素，并提出距离型统计过滤器以提高重复性。
 
 [查看频道专页](https://zichenwang114514.github.io/ai-x-daily/channels/aixchem/)
 
 ## AI × Bio
 
-采集 1968，候选 60，精选 13。来源状态：各来源已完成
+采集 1339，候选 60，精选 14。来源状态：各来源已完成
 
-- [RePurpose: An LLM-Assisted, Source-Traceable Drug Repurposing Tool with Retrospective Validation on Clemastine in Multiple Sclerosis](https://europepmc.org/article/PPR/PPR1343903) — RePurpose是一个可追溯来源的LLM辅助药物再利用工具，并以多发性硬化中的clemastine进行回顾性验证。
-- [A systematic investigation of molecular encoding methods for drug property predictions across neural network and Transformer encoder-based model](https://europepmc.org/article/PPR/PPR1343052) — 系统比较多种分子编码在神经网络和Transformer模型药物性质预测中的作用，并分析内在注意力可解释性。
-- [Entropy-driven adaptive neural architecture search for cell segmentation on edge devices](https://europepmc.org/article/PPR/PPR1343720) — 提出熵驱动、硬件感知的神经架构搜索，用于资源受限边缘设备上的细胞图像分割。
+- [DeepD enables efficient genome modeling and controllable long-context sequence generation across domains of life](https://www.biorxiv.org/content/10.64898/2026.10.13.758170) — Preprint：DeepD 是在所有生命域全基因组序列上训练的、具备单核苷酸分辨率和 1-million-token 上下文的稀疏 mixture-of-experts 基因组基础模型，同时支持序列到功能预测和可控的基因组级生成。
+- [Scalable proteomics with multiDIA resolves proteoforms in neurodegenerative disease](https://www.biorxiv.org/content/10.64898/2026.10.16.756994) — Preprint：multiDIA 通过多蛋白酶独立消化与 data-independent acquisition 提升有限样本的蛋白质组覆盖，在 Parkinson's disease 脑样本中解析出单蛋白酶流程无法检测的 proteoform 变化。
+- [Antibody-drug conjugate combination therapy targeting LGR5 and MET with different payloads enhances efficacy in preclinical colorectal cancer models](https://www.biorxiv.org/content/10.64898/2026.07.18.739355) — Preprint：研究设计了靶向 LGR5 和 MET、使用不同 payloads 的抗体药物偶联物组合，并在结直肠癌细胞、模型和 patient-derived xenografts 中评估其抑制复发的效果。
 
 [查看频道专页](https://zichenwang114514.github.io/ai-x-daily/channels/aixbio/)
 
 ## AI × Math
 
-采集 468，候选 60，精选 6。来源状态：各来源已完成
+采集 0，候选 0，精选 0。来源状态：各来源已完成
 
-- [DialFork: Going Beyond Factuality to Evaluate Procedural Hallucination in Conversational Agents](https://arxiv.org/abs/2610.21561v1) — 提出 DialFork 基准，通过受控分叉对话构造程序性幻觉，并用 FlowKL、FlowScore 评估对话流程偏离。数据覆盖 24 个任务、12 个领域和 36,278 段对话，FlowScore 在 7 个编码器上优于基线。
-- [AgentPerturb: Evaluating LLM Agent Robustness under Controlled Interaction Perturbations](https://arxiv.org/abs/2610.21624v1) — 提出 AgentPerturb，用二维扰动框架系统评估 LLM 代理在 APEX-Agents 和 Toolathlon 中的鲁棒性，并分析扰动导致的失败机制与计算成本。
-- [SciΠvot: Benchmarking Principal-Investigator Judgment at Pivotal Moments of Scientific AutoResearch Agents](https://arxiv.org/abs/2610.21082v1) — 构建 SciΠvot 科学判断基准，从 26 个项目、6 个科学领域和 6 个月的代理研究记录中提取 248 个由资深研究者纠正的决策案例，并比较模型与研究人员的判断。
+- 今日无足够高质量更新。
 
 [查看频道专页](https://zichenwang114514.github.io/ai-x-daily/channels/aixmath/)
 
 ## AI Voices
 
-采集 79，候选 60，精选 10。来源状态：各来源已完成
+采集 61，候选 58，精选 8。来源状态：各来源已完成
 
-- [@cohere：Some strong embeddings models have been released recently. Ours is still better. We benchmarked Embed 5 Fast against Goo](https://x.com/cohere/status/2111544722535645187) — Cohere 声称 Embed 5 Fast 在 163 个数据集的 RCP-nDCG@10 评测中，于超过 95% 的数据集领先 EmbeddingGemma 2；这是发布方自报的基准结果。
-- [@AnimaAnandkumar：Can we predict electronic bands beyond DFT across different systems? We introduce O-krystal, a periodic E(3)-equivariant](https://x.com/AnimaAnandkumar/status/2111579335161520630) — Anima Anandkumar 介绍 O-kRystal：利用低成本 PBE 计算的轨道信息，训练周期性 E(3) 等变图神经网络来校正电子态，并在约 6000 种材料上预测 HSE06 能带。
-- [@akshay_pachaar：Google just open-sourced Harness². (turn any harness into a self-improving system) a harness is everything wrapped aroun](https://x.com/akshay_pachaar/status/2111753928031531232) — 帖文介绍 Google 开源 Harness²：让代理在模型权重不变的情况下，按任务自行修改系统提示、工具、记忆、技能和子代理等 harness 组件，并称其在多类工作基准上一轮修改就超过原始配置。
+- [@StefanoErmon：1/4 Today, we’re releasing Mercury 3. Mercury 3 is by far our most powerful model and the most intelligent diffusion LLM](https://x.com/StefanoErmon/status/2112222911218291051) — Stefano Ermon 宣布发布 Mercury 3，并声称该扩散式语言模型在质量上超过 GPT-6 Luna 和 Haiku 5.5，运行速度超过每秒 1000 个 token。
+- [@migtissera：I'm releasing Tess-4.5-27B today. Tess-4.5 surpasses its Qwen3.8-27B base model on our engineering evaluations while usi](https://x.com/migtissera/status/2112184384518488085) — Migel Tissera 发布 Tess-4.5-27B，称其在工程评测中超过基础模型 Qwen3.8-27B，同时减少 30% 的推理 token；模型使用真实工程会话生成的推理轨迹微调。
+- [@NVIDIAAI：Already running a model endpoint? What does it take to scale it on Kubernetes? In five minutes, we walk through how NVID](https://x.com/NVIDIAAI/status/2111864348717224259) — NVIDIA AI 介绍 NVIDIA Dynamo 在 Kubernetes 上部署和扩展模型端点的演示，重点是可扩展 worker 与兼容 OpenAI 的端点。
 
 [查看频道专页](https://zichenwang114514.github.io/ai-x-daily/channels/aivoices/)
 
 ## Engineering
 
-采集 66，候选 60，精选 4。来源状态：各来源已完成
+采集 57，候选 55，精选 3。来源状态：各来源已完成
 
-- [v0.32.0](https://github.com/vllm-project/vllm/releases/tag/v0.32.0) — vllm v0.32.0 发布：新增结构化决策与通用解析器、低精度 KV 缓存、Model Runner V2 和多项启动及调度优化，并扩展模型与多模态支持；同时修复三项安全问题。
-- [akitaonrails/ai-memory](https://github.com/akitaonrails/ai-memory) — akitaonrails/ai-memory 当日位列 GitHub Trending 第6名，新增513星；项目为编码 CLI 智能体提供长期记忆，并支持不同智能体厂商之间交接。
-- [Comfy-Org/ComfyUI](https://github.com/Comfy-Org/ComfyUI) — Comfy-Org/ComfyUI 当日位列 GitHub Trending 第13名，新增155星；项目以图/节点界面组织扩散模型工作流，并同时提供 GUI、API 和本地后端。
+- [headroomlabs-ai/headroom](https://github.com/headroomlabs-ai/headroom) — headroomlabs-ai/headroom 在工具输出、日志、文件和 RAG 片段进入大模型前进行上下文压缩，提供库、代理和 MCP Server；项目称可让编码智能体减少约20%的令牌，并让 JSON 输出减少60%–95%。2026-10-20 位列 GitHub Trending 第7名，新增317颗星。
+- [shiyu-coder/Kronos](https://github.com/shiyu-coder/Kronos) — shiyu-coder/Kronos 是面向金融市场语言的基础模型项目，目标是为金融时间序列建模和预测提供可复用的预训练模型。2026-10-20 位列 GitHub Trending 第12名，新增355颗星。
+- [JAX v0.12.0](https://github.com/jax-ml/jax/releases/tag/jax-v0.12.0) — JAX 发布 v0.12.0：新增 erfcinv、polynomial、可定制 rematerialization、MXFP4 缩放矩阵乘、IFRT Proxy 后端、Profiler 会话 API，以及 oneAPI/ROCm 支持扩展；同时移除 custom_remat，并将 x86-64 最低要求提高到 Haswell（AVX2/FMA），要求 NumPy 2.2 或更高版本。
 
 [查看频道专页](https://zichenwang114514.github.io/ai-x-daily/channels/engineering/)
 

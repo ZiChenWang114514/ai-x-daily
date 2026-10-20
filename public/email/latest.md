@@ -1,58 +1,58 @@
-# AIxDaily · 2026-10-20
+# AIxDaily · 2026-10-21
 
-今日精选：AI × Chem 3 项，AI × Bio 14 项，AI × Math 0 项，AI Voices 8 项，Engineering 3 项。10月20日，AIXChem 与 AIXBio 各精选三项预印本：涉及蛋白结合位点网络、蛋白生成引导、化学蛋白质组学覆盖，以及跨物种基因组模型、蛋白质组学和抗体药物偶联物组合；当前未见同行评议论文入选。AIXMath 今日没有足够高质量更新。AI Voices 汇集三条公开帖文，Engineering 则关注两个 GitHub 热门项目与 JAX v0.12.0 软件发布。
+今日精选：AI × Chem 14 项，AI × Bio 12 项，AI × Math 13 项，AI Voices 6 项，Engineering 1 项。今日五频道的更新以预印本为主：化学聚焦蛋白质组反向靶点捕获、反馈式逆合成与 AI—物理—实验药物发现；生物医学强调临床模型校准、医学影像工作流和跨物种基因调控；数学频道集中于 Lean 协调证明与形式化验证。AI Voices 的帖子是公开帖文，涉及 Flora、SKY-001 及 Anthropic 数据开放，性能说法仍属作者自报；Engineering 仅有 DeepSpeed v0.19.8 软件发布，参考项中未见同行评议论文。
 
 ## 今日重大进展
 
-- [研究者发布 Mercury 3，声称扩散式语言模型达到千 token/秒级](https://x.com/StefanoErmon/status/2112222911218291051) — Stefano Ermon 宣布发布 Mercury 3，称其在质量评测上超过 GPT-6 Luna 与 Haiku 5.5，同时吞吐超过每秒 1000 个 token；当前候选仅给出发布者单方面对比。
-- [OpenAI 公开 722 篇数学稿件，覆盖 372 个未解问题](https://x.com/lctrnotes/status/2111920313474941227) — 帖文转述 OpenAI 于 10 月 6 日将 722 篇内部模型产出的数学稿件放入公开仓库，涉及 372 个此前未解结果，其中 235 项附有机器检查的 Lean 证明；这是一项研究规模与开放方式的声明。
-- [Google Quantum AI 展示 Willow 芯片魔态培育，帖文称误差降低约 40 倍](https://x.com/professorclawai/status/2111851464977011002) — 帖文转述 Google Quantum AI 在《Science》发表 Willow 处理器的首次硬件魔态培育演示，称误差降低约 40 倍并达到创纪录 T 态；候选未提供论文细节。
+- [Maestro 让 Lean 证明器全局协同回溯，Claude Opus 5 解出 PutnamBench 669/672 题](https://arxiv.org/abs/2610.25920v1) — Maestro 论文提出 Lean 证明框架，让证明器报告失败原因并全局回溯重规划；Claude Opus 5 在 arXivLean 48 个定理中找到 34 个证明，PutnamBench 解出 669/672 题。
+- [GenFish 将反向靶点捕获改写为生成式检索，覆盖全人类蛋白质组](https://arxiv.org/abs/2610.24458v1) — 论文提出 GenFish，将反向靶点捕获改写为生成式检索，并发布 ProTargetBench；在覆盖 20,431 个人类蛋白的评测中，GenFish 在 198 个留出分子上超过四类神经和三类非神经基线。
+- [研究者发布 SKY-001：自称首个工程世界模型，CAD/BIM 速度最高快 125 倍](https://x.com/spisallyouneed/status/2112242023805964327) — 研究者 Sam Pasupalak 在 X 发布 SKY-001，称其为首个工程世界模型；据帖文，CAD/BIM 任务相较测试前沿模型快 51–125 倍、成本低 150–210 倍且 IoU 更高。
 
 ## AI × Chem
 
-采集 356，候选 41，精选 3。来源状态：各来源已完成
+采集 1438，候选 60，精选 14。来源状态：各来源已完成
 
-- [Network organization of protein binding-site landscapes across scales](https://www.biorxiv.org/content/10.64898/2026.10.17.759831) — 将 121,673 个经实验鉴定、去冗余的蛋白质配体结合位点编码为 ProtT5 表征，构建互近邻网络，分析结合位点在全局、介观和局部尺度上的组织规律；在激酶中进一步区分蛋白内不同结合区域及重复出现的残基定义微环境，并发现低序列同一性、不同 InterPro 注释蛋白之间的相似识别环境。
-- [Generative steering to adapt proteins beyond native biological contexts](https://www.biorxiv.org/content/10.1101/2025.07.11.664238) — 提出 ProVADA 测试时蛋白生成引导框架，通过 Mixture-Adaptation Directed Annealing 采样器在保留功能约束的同时引导预训练蛋白生成器满足外部指定性质；实验上将分泌型 human renin 改造成具有活性且可被药物抑制的胞质蛋白酶，并对两个小鼠单链抗体片段去免疫化。
-- [Determinants of cysteine coverage by chemoproteomics](https://www.biorxiv.org/content/10.64898/2026.10.12.758458) — 结合半胱氨酸特征化、可解释机器学习和稳健统计过滤，研究 IA-DTB 化学蛋白质组学中半胱氨酸可检测性的决定因素；模型显示蛋白质丰度和肽段自身性质是 LC-MS 行为的主要决定因素，并提出距离型统计过滤器以提高重复性。
+- [Generative Retrieval for Reverse Target Fishing with a Proteome-Scale Benchmark](https://arxiv.org/abs/2610.24458v1) — 提出 GenFish，将反向靶点捕获重构为生成式检索，并用 ProTargetBench 评估其在全蛋白质组中恢复实验阳性靶点的能力。
+- [ReTRACE: Feedback-Guided LLM Agent in a Chemistry Harness for Retrosynthesis Planning](https://arxiv.org/abs/2610.24744v1) — 提出 ReTRACE 化学智能体，将 LLM、分子工具、单步逆合成引擎、可购买原料库、路线记忆和多标准评估器组合，用评估反馈迭代修正逆合成路线。
+- [IMPECCABLE: A Digital Twin Drug Discovery Workflow Comprising AI, Physics and Experiment & the Creation of Nanomolar-Potent Inhibitors](https://doi.org/10.26434/chemrxiv.15002535/v3) — 构建融合物理计算、AI、主动学习和实验药物化学的 IMPECCABLE 数字孪生流程，并在 WDR91 上以前瞻性实验验证获得4个纳摩尔级抑制剂。
 
 [查看频道专页](https://zichenwang114514.github.io/ai-x-daily/channels/aixchem/)
 
 ## AI × Bio
 
-采集 1339，候选 60，精选 14。来源状态：各来源已完成
+采集 2257，候选 60，精选 12。来源状态：各来源已完成
 
-- [DeepD enables efficient genome modeling and controllable long-context sequence generation across domains of life](https://www.biorxiv.org/content/10.64898/2026.10.13.758170) — Preprint：DeepD 是在所有生命域全基因组序列上训练的、具备单核苷酸分辨率和 1-million-token 上下文的稀疏 mixture-of-experts 基因组基础模型，同时支持序列到功能预测和可控的基因组级生成。
-- [Scalable proteomics with multiDIA resolves proteoforms in neurodegenerative disease](https://www.biorxiv.org/content/10.64898/2026.10.16.756994) — Preprint：multiDIA 通过多蛋白酶独立消化与 data-independent acquisition 提升有限样本的蛋白质组覆盖，在 Parkinson's disease 脑样本中解析出单蛋白酶流程无法检测的 proteoform 变化。
-- [Antibody-drug conjugate combination therapy targeting LGR5 and MET with different payloads enhances efficacy in preclinical colorectal cancer models](https://www.biorxiv.org/content/10.64898/2026.07.18.739355) — Preprint：研究设计了靶向 LGR5 和 MET、使用不同 payloads 的抗体药物偶联物组合，并在结直肠癌细胞、模型和 patient-derived xenografts 中评估其抑制复发的效果。
+- [Auto-MD-bench: Evaluating Autoresearch Agents for Real-World Medical Tasks](https://arxiv.org/abs/2610.25069v1) — Auto-MD-bench 以 15 个真实医疗任务、10 个临床数据集和跨队列/医院/时间外部验证评估四类自动建模智能体，发现高主指标并不保证校准和跨人群稳健性。
+- [MedMCP: An Open Agentic Ecosystem for Medical Imaging Workflows](https://www.biorxiv.org/content/10.64898/2026.10.12.758708) — MedMCP 将本地语言模型的工作流编排与领域工具执行分离，提供带权限门、完整溯源和可重复运行的医学影像分析环境。
+- [Predicting cell-state-specific gene regulation from DNA across species](https://www.biorxiv.org/content/10.64898/2026.10.19.760026) — Bolero 用 1,070 万个细胞、33 个数据集和 6 种哺乳动物训练，结合细胞状态嵌入预测 DNA 驱动的状态特异性染色质可及性和转录本丰度。
 
 [查看频道专页](https://zichenwang114514.github.io/ai-x-daily/channels/aixbio/)
 
 ## AI × Math
 
-采集 0，候选 0，精选 0。来源状态：各来源已完成
+采集 853，候选 60，精选 13。来源状态：各来源已完成
 
-- 今日无足够高质量更新。
+- [Maestro: Agentic Formal Proof Development by Coordination](https://arxiv.org/abs/2610.25920v1) — Maestro 是一个面向 Lean 形式化证明的协调式证明框架：它让不同证明器报告失败原因，由全局协调器决定引导、修正错误引理、撤回错误子树并重新规划。四个前沿模型在数学与软件验证基准上测试，Claude Opus 5 在 arXivLean 48 个定理中独立发现 34 个证明。
+- [Formally Verified Autoresearch for Analyzing the Expressivity of Multi-Head Attention](https://arxiv.org/abs/2610.25341v1) — 论文研究带加性位置嵌入的单层、仅注意力 Transformer，定义布尔函数的 head complexity，并给出精确正规形、阈值次数下界及一个十比特反例；相关定理由模型提出并在 Lean 中形式化和机器验证。
+- [Conformal Prediction-Enabled Sequence-level Policy Optimization for Reasoning Language Models](https://arxiv.org/abs/2610.25092v1) — CSPO 将共形预测用于序列级策略优化，依据近期训练统计量自适应校准裁剪区间，并给出含误覆盖率、CDF 差异和策略漂移项的概率界；Qwen3-1.7B 系列在数学推理基准上相对 GSPO 有改进。
 
 [查看频道专页](https://zichenwang114514.github.io/ai-x-daily/channels/aixmath/)
 
 ## AI Voices
 
-采集 61，候选 58，精选 8。来源状态：各来源已完成
+采集 48，候选 45，精选 6。来源状态：各来源已完成
 
-- [@StefanoErmon：1/4 Today, we’re releasing Mercury 3. Mercury 3 is by far our most powerful model and the most intelligent diffusion LLM](https://x.com/StefanoErmon/status/2112222911218291051) — Stefano Ermon 宣布发布 Mercury 3，并声称该扩散式语言模型在质量上超过 GPT-6 Luna 和 Haiku 5.5，运行速度超过每秒 1000 个 token。
-- [@migtissera：I'm releasing Tess-4.5-27B today. Tess-4.5 surpasses its Qwen3.8-27B base model on our engineering evaluations while usi](https://x.com/migtissera/status/2112184384518488085) — Migel Tissera 发布 Tess-4.5-27B，称其在工程评测中超过基础模型 Qwen3.8-27B，同时减少 30% 的推理 token；模型使用真实工程会话生成的推理轨迹微调。
-- [@NVIDIAAI：Already running a model endpoint? What does it take to scale it on Kubernetes? In five minutes, we walk through how NVID](https://x.com/NVIDIAAI/status/2111864348717224259) — NVIDIA AI 介绍 NVIDIA Dynamo 在 Kubernetes 上部署和扩展模型端点的演示，重点是可扩展 worker 与兼容 OpenAI 的端点。
+- [@DrJimFan：We built a robotics data engine with Astra-level performance at 125x lower cost. And we are open-sourcing the weights to](https://x.com/DrJimFan/status/2112597587987689912) — 事实：Jim Fan 宣布开源 Flora 模型套件，用于把原始视频转化为机器人学习训练信号，并称其内部数据引擎每天在500张 GPU 上标注20万小时视频。作者观点：Flora 可将机器人数据引擎成本降至 Astra 级方案的 1/125。编辑判断：这是具有明确数据管线和训练用途的开放模型发布，但性能与成本对比仍需查看完整技术材料。
+- [@spisallyouneed：Introducing SKY-001, the first Engineering World Model. On CAD and BIM tasks, it beats GPT-6 Astra and every frontier mo](https://x.com/spisallyouneed/status/2112242023805964327) — 事实：Sam Pasupalak 发布 SKY-001，并称其在 CAD 与 BIM 任务上相较测试的前沿模型速度快51–125倍、成本低150–210倍且 IoU 更高。作者观点：该模型被定位为“Engineering World Model”，服务于自主制造。编辑判断：帖文给出可量化工程指标，但未附基准协议或外部复核，结论应视为自报结果。
+- [@AnthropicAI：We’re releasing all 211 of the tested designs and the lab data as a resource for scientists: https://huggingface.co/data](https://x.com/AnthropicAI/status/2112579263039725659) — 事实：Anthropic 宣布公开全部211个经过测试的设计及实验室数据，并提供技术报告。作者观点：这些材料被定位为供科学家复用的资源。编辑判断：相较单纯宣传研究结果，开放设计与实验数据更有利于独立复核和后续方法比较。
 
 [查看频道专页](https://zichenwang114514.github.io/ai-x-daily/channels/aivoices/)
 
 ## Engineering
 
-采集 57，候选 55，精选 3。来源状态：各来源已完成
+采集 55，候选 52，精选 1。来源状态：各来源已完成
 
-- [headroomlabs-ai/headroom](https://github.com/headroomlabs-ai/headroom) — headroomlabs-ai/headroom 在工具输出、日志、文件和 RAG 片段进入大模型前进行上下文压缩，提供库、代理和 MCP Server；项目称可让编码智能体减少约20%的令牌，并让 JSON 输出减少60%–95%。2026-10-20 位列 GitHub Trending 第7名，新增317颗星。
-- [shiyu-coder/Kronos](https://github.com/shiyu-coder/Kronos) — shiyu-coder/Kronos 是面向金融市场语言的基础模型项目，目标是为金融时间序列建模和预测提供可复用的预训练模型。2026-10-20 位列 GitHub Trending 第12名，新增355颗星。
-- [JAX v0.12.0](https://github.com/jax-ml/jax/releases/tag/jax-v0.12.0) — JAX 发布 v0.12.0：新增 erfcinv、polynomial、可定制 rematerialization、MXFP4 缩放矩阵乘、IFRT Proxy 后端、Profiler 会话 API，以及 oneAPI/ROCm 支持扩展；同时移除 custom_remat，并将 x86-64 最低要求提高到 Haswell（AVX2/FMA），要求 NumPy 2.2 或更高版本。
+- [v0.19.8 Patch Release](https://github.com/deepspeedai/DeepSpeed/releases/tag/v0.19.8) — microsoft/DeepSpeed 发布 v0.19.8，新增和改进 AutoEP、AutoTP、ZeRO、MoE、连续 rollout、NPU/XPU 后端及 CUDA Graph 等训练与推理能力，同时修复多项内存、梯度、检查点和兼容性问题。
 
 [查看频道专页](https://zichenwang114514.github.io/ai-x-daily/channels/engineering/)
 

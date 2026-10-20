@@ -1,0 +1,616 @@
+{
+  "schema_version": "2.0",
+  "date": "2026-10-21",
+  "channel": "aixmath",
+  "generated_at": "2026-10-20T22:05:24+00:00",
+  "title": "AI × Math 每日精选",
+  "subtitle": "自动推理、形式化证明、数学智能与基础模型。",
+  "window": {
+    "start": "2026-10-18",
+    "end": "2026-10-21"
+  },
+  "method": "公开来源采集、历史去重、规则筛选与模型审阅",
+  "method_note": "系统保存当日公开元数据，与历史日报核验后排除已报道事件；论文新版本、新修订及不同软件发布等可核实更新仍可入选，随后由指定模型阅读全文摘要并完成精选。",
+  "stats": {
+    "fetched": 853,
+    "suppressed_previous": 0,
+    "candidates": 60,
+    "selected": 13,
+    "sources": {
+      "arXiv": 853,
+      "OpenReview": 0
+    }
+  },
+  "source_status": {
+    "arXiv": {
+      "state": "ok",
+      "count": 853
+    },
+    "OpenReview": {
+      "state": "empty",
+      "count": 0
+    }
+  },
+  "source_errors": [],
+  "items": [
+    {
+      "id": "arxiv:2610.25920v1",
+      "channel": "aixmath",
+      "related_channels": [],
+      "item_type": "paper",
+      "source": "arXiv",
+      "title": "Maestro: Agentic Formal Proof Development by Coordination",
+      "url": "https://arxiv.org/abs/2610.25920v1",
+      "published_at": "2026-10-19",
+      "updated_at": "2026-10-19",
+      "creators": [
+        "Haoyu Li",
+        "Zeren Shui",
+        "Yuhao Zhang",
+        "Ferhat Erata",
+        "Benjamin Mikek",
+        "Murali Krishna Ramanathan",
+        "Hao Zhou"
+      ],
+      "language": "en",
+      "abstract_or_text": "Lean is increasingly used to verify mathematical proofs and software produced by LLM agents, but writing formal proofs remains hard. Existing prover systems take a divide-and-conquer approach that recursively decomposes hard proof obligations into easier lemmas and splits again any lemma that resists proof. However, a lemma can resist proof for different reasons, including insufficient guidance, a false statement, or a flaw in the decomposition that produced it. Existing systems cannot tell these apart as a failed attempt reports little beyond its failure, and responses are confined to the failing node without considering the rest of the proof or revising the plan above it. The system may thus keep decomposing obligations along a flawed proof direction until the budget runs out, causing the whole proof attempt to fail. We introduce Maestro, a Lean prover harness that handles failures through global coordination. Provers report why they failed, not just that they failed, and a coordinator that sees the whole proof chooses an appropriate response, such as guiding a stuck prover, correcting a false lemma, or retracting a flawed subtree and replanning it. The same harness extends to verified code synthesis, where a checked counterexample sends the code back for repair. We evaluate Maestro with four frontier LLMs on seven mathematics and three software verification benchmarks. It proves more targets than each model's native coding agent (Claude Code or Codex) on every benchmark the agent has not already saturated, with the largest gains on research-level mathematics. With Claude Opus 5, it discovers its own proofs of 34 of the 48 theorems in the June 2026 release of arXivLean, against 19 for the native agent. It also outperforms all published prover systems on every benchmark they share, solving 669/672 PutnamBench, 59/60 Lean-IMO-Bench, and 6/6 IMO 2026.",
+      "summary_zh": "Maestro 是一个面向 Lean 形式化证明的协调式证明框架：它让不同证明器报告失败原因，由全局协调器决定引导、修正错误引理、撤回错误子树并重新规划。四个前沿模型在数学与软件验证基准上测试，Claude Opus 5 在 arXivLean 48 个定理中独立发现 34 个证明。",
+      "why_it_matters_zh": "它把证明失败从局部重试提升为全局诊断，并用 Lean 检查结果约束模型输出；论文同时给出多个公开基准上的可复核数字，但这些结果仍是特定模型、代理和预算下的实验表现。",
+      "quality_score": 87.0,
+      "tags": [
+        "形式化证明",
+        "证明助手",
+        "基准评测"
+      ],
+      "evidence_flags": [
+        "benchmark",
+        "release"
+      ],
+      "publication_status": "preprint",
+      "rank": 1,
+      "featured": true,
+      "category": "形式化证明",
+      "metrics": {},
+      "metadata": {
+        "doi": "",
+        "arxiv_id": "2610.25920v1"
+      },
+      "abstract_zh": "Lean 越来越多地用于验证 LLM 智能体生成的数学证明和软件，但编写形式化证明仍然困难。现有证明系统采用分而治之的方法，把困难的证明义务递归分解为更容易的引理，并继续拆分任何难以证明的引理。然而，一个引理无法证明可能有不同原因，包括指导不足、命题为假，或产生该引理的分解存在缺陷。现有系统无法区分这些情况，因为失败尝试通常只报告失败，而响应也局限于失败节点，无法考虑证明的其余部分或修改上层计划。因此，系统可能沿着有缺陷的证明方向不断分解义务，直到预算耗尽，导致整个证明尝试失败。我们提出 Maestro，这是一个通过全局协调处理失败的 Lean 证明器框架。证明器报告失败原因，而不只是报告失败；能够看到完整证明的协调器选择适当的响应，例如指导卡住的证明器、修正错误引理，或撤回有缺陷的子树并重新规划。该框架还扩展到经验证代码合成，其中经过检查的反例会把代码送回修复环节。我们使用四个前沿 LLM，在七个数学基准和三个软件验证基准上评估 Maestro。在原生编码智能体（Claude Code 或 Codex）尚未饱和的每个基准上，Maestro 证明的目标都多于相应模型的原生智能体，在研究级数学上增益最大。使用 Claude Opus 5 时，它在 2026 年 6 月发布的 arXivLean 中 48 个定理里自行发现了 34 个证明，而原生智能体发现了 19 个。在双方共有的每个基准上，它也超过了所有已发表的证明系统，解决了 PutnamBench 的 669/672 题、Lean-IMO-Bench 的 59/60 题以及 IMO 2026 的 6/6 题。",
+      "published": "2026-10-19",
+      "author_line": "Haoyu Li, Zeren Shui, Yuhao Zhang, Ferhat Erata, Benjamin Mikek, Murali Krishna Ramanathan, Hao Zhou"
+    },
+    {
+      "id": "arxiv:2610.25341v1",
+      "channel": "aixmath",
+      "related_channels": [],
+      "item_type": "paper",
+      "source": "arXiv",
+      "title": "Formally Verified Autoresearch for Analyzing the Expressivity of Multi-Head Attention",
+      "url": "https://arxiv.org/abs/2610.25341v1",
+      "published_at": "2026-10-18",
+      "updated_at": "2026-10-18",
+      "creators": [
+        "Karthik Viswanathan",
+        "Plamen Dimitrov",
+        "Stefano Rocca",
+        "Sarayu Sirikonda"
+      ],
+      "language": "en",
+      "abstract_or_text": "Multi-head attention is a central component of the transformer architecture, yet how its expressivity depends on the number of heads remains poorly understood. We study a one-layer, attention-only transformer with additive positional embeddings and define the head complexity H^\\ast(f) of a Boolean function f as the minimum number of attention heads required to represent it. We derive an exact linear-fractional normal form for head complexity, prove a general threshold-degree lower bound, and give an explicit ten-bit function for which this bound is strict. For symmetric Boolean functions, we independently show that head complexity equals the number of times the function changes value between consecutive Hamming-weight levels, even when positional embeddings are allowed. This agrees with the concurrent characterization of Hsu and Xu (arXiv:2608.04243) in a model without positional embeddings. The symmetric lower bound combines our general threshold-degree bound with the classical result of Aspnes et al. (1994). These results were discovered and formalized by a frontier model through conjecture generation, theorem proving, and machine verification, while human researchers asked the high-level questions and reviewed the generated theorems. We make the Lean formalization and research traces publicly available to support agent-assisted theorem proving and formal verification in mechanistic interpretability. This work provides a proof of concept for using the capabilities of frontier models, grounded by formal verification, to develop an understanding of transformer architectures.",
+      "summary_zh": "论文研究带加性位置嵌入的单层、仅注意力 Transformer，定义布尔函数的 head complexity，并给出精确正规形、阈值次数下界及一个十比特反例；相关定理由模型提出并在 Lean 中形式化和机器验证。",
+      "why_it_matters_zh": "它把模型提出数学命题、证明和机器核验放在同一流程中，结论对象和验证载体都较清晰；论文仍是特定架构下的理论结果，不能据此泛化为模型已普遍具备数学发现能力。",
+      "quality_score": 76.0,
+      "tags": [
+        "形式化证明",
+        "定理证明",
+        "Transformer理论",
+        "形式化验证"
+      ],
+      "evidence_flags": [],
+      "publication_status": "preprint",
+      "rank": 2,
+      "featured": true,
+      "category": "形式化证明",
+      "metrics": {},
+      "metadata": {
+        "doi": "",
+        "arxiv_id": "2610.25341v1"
+      },
+      "abstract_zh": "多头注意力是 Transformer 架构的核心组件，但其表达能力如何依赖头的数量仍未得到充分理解。我们研究一个带加性位置嵌入的单层、仅注意力 Transformer，并将布尔函数 f 的头复杂度 H^\\ast(f) 定义为表示它所需的最少注意力头数量。我们推导出头复杂度的精确线性分式正规形，证明一般的阈值次数下界，并给出一个该下界严格不紧的显式十比特函数。对于对称布尔函数，即使允许使用位置嵌入，我们还独立证明，头复杂度等于该函数在相邻汉明重量层级之间改变取值的次数。这与 Hsu 和 Xu（arXiv:2608.04243）在不含位置嵌入的模型中的同期刻画一致。对称情形的下界结合了我们的一般阈值次数下界与 Aspnes 等人（1994 年）的经典结果。这些结果由一个前沿模型通过猜想生成、定理证明和机器验证发现并形式化；人类研究者提出高层问题并审阅生成的定理。我们公开 Lean 形式化和研究轨迹，以支持机制可解释性中的智能体辅助定理证明和形式化验证。该工作以形式化验证为基础，展示了使用前沿模型理解 Transformer 架构的一种概念验证。",
+      "published": "2026-10-18",
+      "author_line": "Karthik Viswanathan, Plamen Dimitrov, Stefano Rocca, Sarayu Sirikonda"
+    },
+    {
+      "id": "arxiv:2610.25092v1",
+      "channel": "aixmath",
+      "related_channels": [],
+      "item_type": "paper",
+      "source": "arXiv",
+      "title": "Conformal Prediction-Enabled Sequence-level Policy Optimization for Reasoning Language Models",
+      "url": "https://arxiv.org/abs/2610.25092v1",
+      "published_at": "2026-10-18",
+      "updated_at": "2026-10-18",
+      "creators": [
+        "Hui Yang",
+        "Wan Tian",
+        "Tao Ren",
+        "Zhongyi Li",
+        "Yijie Peng"
+      ],
+      "language": "en",
+      "abstract_or_text": "Reinforcement learning improves the reasoning capability of large language models through verifiable rewards for mathematical and coding tasks. In token-level methods such as GRPO, clipping acts on individual token ratios while the reward and advantage apply to a complete response. Recent sequence-level methods align these units but still use fixed clipping bands, whose tail probabilities change as the score distribution evolves. We propose Conformal Prediction-Enabled Sequence-level Policy Optimization (CSPO), which adaptively calibrates sequence-level clipping bounds using recent training statistics. The resulting band targets a specified marginal tail budget and adapts to policy drift; calibration conditional on response length requires additional assumptions. We bound the probability that a fresh score falls outside the band by the target miscoverage level plus explicit CDF discrepancy and drift terms. Under additional moment conditions, this bound also controls the objective and gradient error relative to the unclipped GSPO power surrogate. Experiments with the Qwen3-1.7B series show improvements over GSPO on difficult mathematical reasoning benchmarks and ALFWorld, with clipping endpoints that adapt during training.",
+      "summary_zh": "CSPO 将共形预测用于序列级策略优化，依据近期训练统计量自适应校准裁剪区间，并给出含误覆盖率、CDF 差异和策略漂移项的概率界；Qwen3-1.7B 系列在数学推理基准上相对 GSPO 有改进。",
+      "why_it_matters_zh": "方法同时给出可检查的概率界和训练实验，明确了长度条件校准所需的附加假设；实验提升来自有限模型与任务组合，不能直接等同于通用数学能力提升。",
+      "quality_score": 76.0,
+      "tags": [
+        "数学推理",
+        "强化学习",
+        "共形预测",
+        "概率界"
+      ],
+      "evidence_flags": [
+        "benchmark"
+      ],
+      "publication_status": "preprint",
+      "rank": 3,
+      "featured": true,
+      "category": "数学推理",
+      "metrics": {},
+      "metadata": {
+        "doi": "",
+        "arxiv_id": "2610.25092v1"
+      },
+      "abstract_zh": "强化学习通过数学和编码任务中的可验证奖励提升大型语言模型的推理能力。在 GRPO 等令牌级方法中，裁剪作用于单个令牌比率，而奖励和优势作用于完整响应。近期的序列级方法使这些单位对齐，但仍使用固定裁剪区间，其尾部概率会随着分数分布变化。我们提出共形预测启用的序列级策略优化（Conformal Prediction-Enabled Sequence-level Policy Optimization，CSPO），利用近期训练统计量自适应校准序列级裁剪边界。所得区间以指定的边际尾部预算为目标，并适应策略漂移；在按响应长度进行条件校准时，需要额外假设。我们界定了新鲜分数落在区间之外的概率，该界由目标误覆盖率加上显式的 CDF 差异项和漂移项构成。在额外矩条件下，该界还控制相对于未裁剪 GSPO 幂代理目标的目标函数误差和梯度误差。使用 Qwen3-1.7B 系列的实验显示，与 GSPO 相比，CSPO 在困难数学推理基准和 ALFWorld 上有所改进，且裁剪端点会在训练期间自适应变化。",
+      "published": "2026-10-18",
+      "author_line": "Hui Yang, Wan Tian, Tao Ren, Zhongyi Li, Yijie Peng"
+    },
+    {
+      "id": "arxiv:2610.25441v1",
+      "channel": "aixmath",
+      "related_channels": [],
+      "item_type": "paper",
+      "source": "arXiv",
+      "title": "Stepwise Reasoning Verification: Don't Generate, Classify!",
+      "url": "https://arxiv.org/abs/2610.25441v1",
+      "published_at": "2026-10-18",
+      "updated_at": "2026-10-18",
+      "creators": [
+        "Yifei Shi",
+        "Michalis Korakakis",
+        "Rami Aly",
+        "Eric Chamoun",
+        "Lukasz Szpruch",
+        "Andreas Vlachos"
+      ],
+      "language": "en",
+      "abstract_or_text": "Verifying the reasoning of large language models is increasingly important as they are applied to complex mathematical and scientific problems. Existing work focuses on large decoder models and reports mixed results for generative and discriminative verifiers, leaving unclear which paradigm is more effective and whether large models are necessary. In this work, we cast stepwise verification as a natural language inference task: the problem and partial solution prefix form the premise, while the next reasoning step serves as the hypothesis to be classified as entailed or non-entailed. This formulation enables error localisation at individual reasoning steps and direct comparison of encoder classification, decoder classification, and decoder verdict generation across model scales and annotation budgets. Across five reasoning datasets, a 0.15B encoder classifier outperforms most generative verifiers with up to 4B parameters. On identical decoder backbones, classification outperforms generation from 0.5B to 4B parameters and matches it on the strongest 7B backbone---reaching comparable performance with roughly one tenth as many annotated problems. Our findings establish classification as a parameter- and data-efficient approach to stepwise verification and show that strong verification does not require large generative decoders.",
+      "summary_zh": "论文把逐步推理验证转化为自然语言推断分类：问题和部分解答前缀是前提，下一步推理是待分类假设。五个推理数据集上，0.15B 编码器分类器超过多数更大的生成式验证器。",
+      "why_it_matters_zh": "任务定义直接对应逐步错误定位，且比较了模型规模、架构和标注预算；结果显示验证不一定需要大型生成式解码器，但仍依赖所用数据集和标注设置。",
+      "quality_score": 74.0,
+      "tags": [
+        "验证与逻辑",
+        "推理验证",
+        "错误定位",
+        "自然语言推断",
+        "效率评测"
+      ],
+      "evidence_flags": [
+        "dataset",
+        "performance"
+      ],
+      "publication_status": "preprint",
+      "rank": 4,
+      "featured": false,
+      "category": "验证与逻辑",
+      "metrics": {},
+      "metadata": {
+        "doi": "",
+        "arxiv_id": "2610.25441v1"
+      },
+      "abstract_zh": "随着大型语言模型被应用于复杂的数学和科学问题，验证其推理越来越重要。现有工作主要关注大型解码器模型，并报告生成式验证器和判别式验证器的结果不一，因此哪种范式更有效以及是否需要大型模型仍不清楚。在本工作中，我们把逐步验证建模为自然语言推断任务：问题和部分解答前缀构成前提，下一步推理构成要被分类为蕴含或不蕴含的假设。这一表述能够在单个推理步骤定位错误，并在不同模型规模和标注预算下直接比较编码器分类、解码器分类和解码器判定生成。在五个推理数据集上，一个 0.15B 的编码器分类器超过了大多数参数量最高达 4B 的生成式验证器。在相同解码器骨干上，从 0.5B 到 4B 参数规模，分类优于生成；在最强的 7B 骨干上两者相当，同时只需大约十分之一的标注问题数量即可达到类似性能。我们的发现表明，分类是进行逐步验证的一种参数和数据高效方法，并显示强验证能力并不一定需要大型生成式解码器。",
+      "published": "2026-10-18",
+      "author_line": "Yifei Shi, Michalis Korakakis, Rami Aly, Eric Chamoun, Lukasz Szpruch, Andreas Vlachos"
+    },
+    {
+      "id": "arxiv:2610.24690v1",
+      "channel": "aixmath",
+      "related_channels": [],
+      "item_type": "paper",
+      "source": "arXiv",
+      "title": "Verifying Human-Written Reasoning References",
+      "url": "https://arxiv.org/abs/2610.24690v1",
+      "published_at": "2026-10-17",
+      "updated_at": "2026-10-17",
+      "creators": [
+        "Ali Ansari",
+        "Farhana Ferdousi Liza"
+      ],
+      "language": "en",
+      "abstract_or_text": "Evaluating the reasoning of AI systems often relies on human-written reasoning chains as references, yet the logical support for their individual steps is rarely verified. Although prior neuro-symbolic approaches have formalized and checked reasoning, their reported evaluations do not systematically assess whether step conclusions in human-written reference derivations are entailed by their cited premise sets or investigate the sources of failures in those references. To address these limitations, we present a novel reference-centred assessment method for human-written derivations that combines entailment checking against cited premise sets, full-premise rechecking, and failure attribution to examine the reliability of these derivations and their formal representations. We evaluate it on P-FOLIO, using a large language model (LLM) to translate step conclusions into first-order logic (FOL) and the Z3 SMT solver to check entailment. Of 386 derivations examined, 202 (52.3%) meet all our checking criteria, meaning that every translated step is entailed by its stated support and the required target is established under the available FOL representations. Among 230 steps not entailed by their stated support, 191 become entailed when checked against the complete original premises, indicating that most initial failures reflect incomplete or mismatched support rather than unsupported claims. Manual analysis of the remaining 39 cases identifies 21 human reasoning errors, 11 FOL translation errors, and 7 dataset annotation errors. A separate manual audit of 50 randomly sampled steps that passed the entailment checks found 46 faithful FOL translations (92%). These findings suggest that disagreement with a human-written reasoning reference may originate in the reference or its formal representation rather than in the AI system being evaluated.",
+      "summary_zh": "该工作检查人类书写推理链中每一步是否被其引用前提蕴含，结合完整前提重检和失败归因；在 P-FOLIO 的 386 条推导中，202 条满足全部检查标准，并进一步区分人类、FOL 翻译和数据标注错误。",
+      "why_it_matters_zh": "它提醒评测者先验证参考推理本身，而不是把参考链当作无误标准；Z3 检查与人工审计提供了可复核证据，但结论受 FOL 表示质量影响。",
+      "quality_score": 74.0,
+      "tags": [
+        "验证与逻辑",
+        "形式逻辑",
+        "参考推理验证",
+        "Z3",
+        "评测可靠性"
+      ],
+      "evidence_flags": [
+        "dataset",
+        "evaluation"
+      ],
+      "publication_status": "preprint",
+      "rank": 5,
+      "featured": false,
+      "category": "验证与逻辑",
+      "metrics": {},
+      "metadata": {
+        "doi": "",
+        "arxiv_id": "2610.24690v1"
+      },
+      "abstract_zh": "对 AI 系统推理能力的评估经常依赖人类书写的推理链作为参考，但这些链条中各步骤的逻辑支持很少被验证。尽管先前的神经符号方法已经形式化并检查了推理，但其评估没有系统地考察人类书写的参考推导中，步骤结论是否由所引用的前提集合蕴含，也没有调查这些参考推导失败的来源。为解决这些局限，我们提出一种以参考推导为中心的评估方法，将针对所引用前提集合的蕴含检查、完整前提重检和失败归因结合起来，以考察这些推导及其形式表示的可靠性。我们在 P-FOLIO 上进行评估：使用大型语言模型把步骤结论翻译为一阶逻辑（FOL），再使用 Z3 SMT 求解器检查蕴含关系。在检查的 386 条推导中，202 条（52.3%）满足全部检查标准，这意味着每个翻译后的步骤都被其所声明的支持蕴含，并且在现有 FOL 表示下建立了所需目标。在 230 个不被其声明支持蕴含的步骤中，有 191 个在使用完整原始前提检查后变为可蕴含，说明大多数初始失败反映的是支持集合不完整或不匹配，而不是无支持的断言。对剩余 39 个案例的人工分析发现，其中有 21 个是人类推理错误、11 个是 FOL 翻译错误、7 个是数据集标注错误。对随机抽取的 50 个通过蕴含检查的步骤进行另一轮人工审计，发现其中 46 个的 FOL 翻译是忠实的（92%）。这些发现表明，与人类书写的推理参考不一致，可能源于参考本身或其形式表示，而不一定源于被评估的 AI 系统。",
+      "published": "2026-10-17",
+      "author_line": "Ali Ansari, Farhana Ferdousi Liza"
+    },
+    {
+      "id": "arxiv:2610.24519v1",
+      "channel": "aixmath",
+      "related_channels": [],
+      "item_type": "paper",
+      "source": "arXiv",
+      "title": "Axiomatic World Modeling for Physics Reasoning",
+      "url": "https://arxiv.org/abs/2610.24519v1",
+      "published_at": "2026-10-17",
+      "updated_at": "2026-10-17",
+      "creators": [
+        "Xinye Yang",
+        "Zhenyang Liu",
+        "Yuxuan Wang",
+        "Yuanyuan Lei"
+      ],
+      "language": "en",
+      "abstract_or_text": "Recent research-level physics-reasoning benchmarks for LLMs reveal a failure mode that lies not in knowledge or execution, but in modeling the world being reasoned about. Models often silently alter given quantities, fabricate laws, or inject unstated assumptions to force a problem into familiar patterns, and then reason inside this corrupted world. We define this premise-level divergence as modeling drift: the gap between a model's internal axiomatic world model (AWM) and the true physical world specified in the problem. Although RLVR and PRM have yielded substantial gains in mathematics and code, their reward shapes do not directly supervise world modeling in axiomatic domains such as physics. We propose Reinforcement Learning with Axiomatic World Modeling (RLAWM), which optimizes the policy by penalizing divergence between its inferred axiomatic world model and the true physics world. RLAWM probes physics reasoning at two hierarchical levels (modeling and solving), each scored by a physically grounded reward. The modeling reward targets abstract knowledge formulation, evaluating whether the model captures the true axiomatic world before attempting calculation. The solving reward targets instantiated knowledge reasoning, checking whether the model's concrete derivation remains consistent with the axiomatic world. This two-level structure separates what world the model believes it is reasoning in from how it reasons within that world. The framework operates exclusively during training, with no extra cost during inference. RLAWM improves performance by up to +12.2 points on PhysReason and +5.2 on PHYSICS over the baseline. It also generalizes zero-shot across difficulty, source, and domain, with a 2.45x gain and +10 points over the strongest baseline on olympiad-level physics and math.",
+      "summary_zh": "RLAWM 将物理推理拆成世界建模和求解两个层级，分别奖励是否恢复正确公理世界以及推导是否与其一致；在 PhysReason、PHYSICS 和奥赛级物理与数学任务上报告了相对基线的提升。",
+      "why_it_matters_zh": "它把“是否在正确前提下推理”与“如何求解”分开评测，任务和奖励较可检验；论文中的提升属于训练设置和指定基准上的结果，不能据此宣称模型掌握普适物理或数学规律。",
+      "quality_score": 74.0,
+      "tags": [
+        "数学推理",
+        "物理推理",
+        "公理世界模型",
+        "可验证奖励",
+        "数学基准"
+      ],
+      "evidence_flags": [
+        "benchmark",
+        "performance"
+      ],
+      "publication_status": "preprint",
+      "rank": 6,
+      "featured": false,
+      "category": "数学推理",
+      "metrics": {},
+      "metadata": {
+        "doi": "",
+        "arxiv_id": "2610.24519v1"
+      },
+      "abstract_zh": "近期针对研究级物理推理的 LLM 基准揭示了一种失败模式：问题不在知识或执行，而在于对所要推理的世界进行建模。模型经常悄悄改变给定量、编造定律或加入未声明的假设，把问题强行套入熟悉模式，然后在这个被破坏的世界中推理。我们把这种前提层面的偏离定义为建模漂移（modeling drift）：模型内部的公理世界模型（AWM）与题目所规定的真实物理世界之间的差距。尽管 RLVR 和 PRM 已在数学和代码任务上取得显著进展，它们的奖励形状并不直接监督物理这类公理性领域中的世界建模。我们提出带公理世界建模的强化学习（Reinforcement Learning with Axiomatic World Modeling，RLAWM），通过惩罚模型推断的公理世界模型与真实物理世界之间的偏离来优化策略。RLAWM 在两个层级探测物理推理：建模层级和求解层级，并在每一层使用基于物理的奖励进行评分。建模奖励针对抽象知识的表述，评估模型是否在开始计算前捕捉到真实的公理世界。求解奖励针对实例化知识推理，检查模型的具体推导是否仍与公理世界一致。这种两层结构区分了模型认为自己正在其中推理的世界，以及它如何在该世界中推理。该框架只在训练期间运行，推理时不增加额外成本。相对于基线，RLAWM 在 PhysReason 上最多提升 12.2 分，在 PHYSICS 上最多提升 5.2 分。它还在难度、来源和领域之间实现零样本泛化，在奥赛级物理和数学任务上相对最强基线取得 2.45 倍增益和 10 分提升。",
+      "published": "2026-10-17",
+      "author_line": "Xinye Yang, Zhenyang Liu, Yuxuan Wang, Yuanyuan Lei"
+    },
+    {
+      "id": "arxiv:2610.25552v1",
+      "channel": "aixmath",
+      "related_channels": [],
+      "item_type": "paper",
+      "source": "arXiv",
+      "title": "Symbolic Constraint Agents: Mining Formal Tool-Call Constraints to Prevent Agent Errors",
+      "url": "https://arxiv.org/abs/2610.25552v1",
+      "published_at": "2026-10-18",
+      "updated_at": "2026-10-18",
+      "creators": [
+        "Jinu Lee",
+        "Shraddha Barke"
+      ],
+      "language": "en",
+      "abstract_or_text": "Symbolic constraints (programmatic, deterministic checks for tool calls) enable deterministic verification of LLM agents' tool calls, but existing approaches primarily enforce predefined safety policies rather than tool dependencies in complex tool environments. We explore whether symbolic constraints can be mined from environments and observations beyond predefined policies, and whether they can improve end-to-end task performance. We present Symbolic Constraint Agents (SCA), a framework that mines symbolic constraints from API documentation, refines them against execution traces, and checks the agent's tool calls with an SMT solver at runtime. A violation triggers a natural-language warning or, when the valid replacement is uniquely determined, an automatic repair. On AppWorld, refinement raises error-detection F1 from 37.0 to 58.3 on GPT-5.5 traces and from 39.3 to 61.9 on Qwen3.5-27B traces. At runtime, repair raises GPT-5.4-mini's task success by 5.4 points under a 40-call budget and 9.8 points when environment errors are hidden, while removing 59--87\\% of failed calls across models, and transfers to τ^2-bench with gains of up to 5.6 points. These findings show that automatically acquired symbolic constraints can improve tool-calling reliability and task completion, particularly when failures are costly or difficult to diagnose.",
+      "summary_zh": "Symbolic Constraint Agents 从 API 文档和执行轨迹中挖掘符号约束，在运行时用 SMT 求解器检查工具调用，并在可唯一确定时自动修复；在 AppWorld 和 τ²-bench 上报告错误检测、任务成功率和失败调用下降。",
+      "why_it_matters_zh": "约束提取、SMT 检查和执行反馈形成了可审计的验证闭环，指标也覆盖检测、修复和跨基准迁移；结果主要反映工具调用可靠性，不等同于数学定理证明能力。",
+      "quality_score": 73.0,
+      "tags": [
+        "验证与逻辑",
+        "符号约束",
+        "SMT验证",
+        "工具调用",
+        "智能体可靠性"
+      ],
+      "evidence_flags": [
+        "performance"
+      ],
+      "publication_status": "preprint",
+      "rank": 7,
+      "featured": false,
+      "category": "验证与逻辑",
+      "metrics": {},
+      "metadata": {
+        "doi": "",
+        "arxiv_id": "2610.25552v1"
+      },
+      "abstract_zh": "符号约束（针对工具调用的程序化、确定性检查）能够对 LLM 智能体的工具调用进行确定性验证，但现有方法主要执行预先定义的安全策略，而不是复杂工具环境中的工具依赖。我们研究能否从环境和观测中挖掘符号约束，而不局限于预先定义的策略，以及这些约束能否改善端到端任务性能。我们提出 Symbolic Constraint Agents（SCA），这是一个从 API 文档中挖掘符号约束、根据执行轨迹进行细化，并在运行时使用 SMT 求解器检查智能体工具调用的框架。当发现违反约束时，系统会发出自然语言警告；如果有效替代方案是唯一确定的，则会自动修复。在 AppWorld 上，细化过程把 GPT-5.5 轨迹的错误检测 F1 从 37.0 提高到 58.3，把 Qwen3.5-27B 轨迹的 F1 从 39.3 提高到 61.9。在运行时修复中，在 40 次调用预算下，GPT-5.4-mini 的任务成功率提高 5.4 个百分点；当环境错误被隐藏时提高 9.8 个百分点，同时跨模型减少 59%--87% 的失败调用，并迁移到 τ^2-bench，最高带来 5.6 个百分点的提升。这些结果表明，自动获取的符号约束能够改善工具调用可靠性和任务完成度，尤其适用于失败代价高或难以诊断的场景。",
+      "published": "2026-10-18",
+      "author_line": "Jinu Lee, Shraddha Barke"
+    },
+    {
+      "id": "arxiv:2610.26819v1",
+      "channel": "aixmath",
+      "related_channels": [],
+      "item_type": "paper",
+      "source": "arXiv",
+      "title": "ASTOR: Benchmarking and Improving Autoformulation for Soft-Constraint Optimization with a Formal Grammar",
+      "url": "https://arxiv.org/abs/2610.26819v1",
+      "published_at": "2026-10-19",
+      "updated_at": "2026-10-19",
+      "creators": [
+        "Amer Goel",
+        "Yeganeh Alimohammadi",
+        "Andrew Daw"
+      ],
+      "language": "en",
+      "abstract_or_text": "Real-world decision problems combine two qualitatively different kinds of constraints: requirements that must be satisfied, called hard constraints, and preferences that can be violated, called soft constraints. Because these problems are often posed to decision-makers in natural language, large language models offer a natural tool for assisting with their solution. This has given rise to autoformulation, which focuses on using LLMs to translate natural-language descriptions of decision problems into executable mathematical optimization models. However, this research often neglects soft constraints like those proposed by consumers, managers, and planners, despite the fact that many practical problems require modeling them explicitly. We introduce ASTOR, an inference-time framework that maps a natural-language decision problem to a grammar-guided abstract syntax tree (AST) before deterministically compiling the resulting representation into executable optimization code. We also introduce SoftOR, a unified benchmark of natural language problems which focuses on soft constraint formulations. On SoftOR, ASTOR achieves the best aggregate accuracy among comparable single-request and multi-agent LLM methods while remaining competitive on standard autoformulation benchmarks that include only hard constraints. Code and data are available at https://anonymous.4open.science/r/astor-softor-iclr-E34C/README.md.",
+      "summary_zh": "ASTOR 将自然语言决策问题先映射为由形式文法约束的抽象语法树，再确定性编译为可执行优化代码；新建的 SoftOR 基准专门评测软约束建模，并报告 ASTOR 在聚合准确率上优于可比单请求和多智能体方法。",
+      "why_it_matters_zh": "它把自然语言到优化模型的任务拆成可检查的中间表示和确定性编译，减少只看最终答案的歧义；目前证据主要来自软约束优化基准。",
+      "quality_score": 72.0,
+      "tags": [
+        "方法与模型",
+        "自动形式化",
+        "优化建模",
+        "形式文法",
+        "基准评测"
+      ],
+      "evidence_flags": [
+        "benchmark"
+      ],
+      "publication_status": "preprint",
+      "rank": 8,
+      "featured": false,
+      "category": "方法与模型",
+      "metrics": {},
+      "metadata": {
+        "doi": "",
+        "arxiv_id": "2610.26819v1"
+      },
+      "abstract_zh": "现实决策问题结合了两类性质不同的约束：必须满足的要求称为硬约束，可以违反的偏好称为软约束。由于这些问题通常以自然语言向决策者提出，大型语言模型可以自然地用于协助求解。然而，自动建模研究经常忽视消费者、管理者和规划者提出的软约束，尽管许多实际问题需要显式地对其进行建模。我们提出 ASTOR，这是一种推理时框架，先把自然语言决策问题映射为由文法引导的抽象语法树（AST），再将所得表示确定性地编译为可执行的优化代码。我们还提出 SoftOR，这是一个统一的自然语言问题基准，重点关注软约束建模。在 SoftOR 上，ASTOR 在可比的单请求和多智能体 LLM 方法中取得最佳聚合准确率，同时在只包含硬约束的标准自动建模基准上保持竞争力。代码和数据可在 https://anonymous.4open.science/r/astor-softor-iclr-E34C/README.md 获取。",
+      "published": "2026-10-19",
+      "author_line": "Amer Goel, Yeganeh Alimohammadi, Andrew Daw"
+    },
+    {
+      "id": "arxiv:2610.25612v1",
+      "channel": "aixmath",
+      "related_channels": [],
+      "item_type": "paper",
+      "source": "arXiv",
+      "title": "Curriculum Learning Teaches LLMs Long-Horizon Implicit Reasoning, Up To A Limit",
+      "url": "https://arxiv.org/abs/2610.25612v1",
+      "published_at": "2026-10-19",
+      "updated_at": "2026-10-19",
+      "creators": [
+        "Jimson Huang",
+        "Maxwell Nickell",
+        "Ruowang Zhang",
+        "Abulhair Saparov"
+      ],
+      "language": "en",
+      "abstract_or_text": "LLMs \"reason\" by externalizing intermediate steps as tokens through chain-of-thought (CoT), yet even frontier reasoning models hit abrupt performance cliffs on long-horizon tasks. Implicit reasoning (reasoning within a single forward pass) is useful during CoT generation, as the model can \"search ahead\" to decide the correct next move without explicit search. Models with weak implicit reasoning are more likely to commit to wrong paths and must attempt to recover via backtracking, while models with strong implicit reasoning identify the correct proof strategy directly, shortening the CoT. However, prior work shows LLMs struggle to reason implicitly beyond shallow depths, with no relief from scale. We investigate whether curriculum learning can extend this depth by fine-tuning on examples with progressively increasing vocabulary size and lookahead (the number of steps a model must search ahead to identify the correct next move). At matched compute, curriculum-trained models achieve lookaheads where no-curriculum training fails. Qwen3-0.6B reaches 98% accuracy on problems with lookahead up to 256 with curriculum, compared to 45% without. However, progress slows as fine-tuning continues, following a saturating exponential that suggests a maximum intrinsic lookahead to which models can learn to reason implicitly. Larger models reach higher fitted ceilings, fine-tuning pretrained models far outpaces training from scratch, and curriculum step sizes that are too large stall progression. Finally, the capability acquired on synthetic data transfers to natural language reasoning, with curriculum-trained models outperforming models trained without curriculum at matched compute on 11 natural language reasoning benchmarks.",
+      "summary_zh": "论文研究课程学习能否延长模型的隐式前瞻推理深度；在合成任务中，Qwen3-0.6B 的 256 步前瞻准确率从无课程学习的 45% 提高到 98%，并报告向自然语言推理基准的迁移及饱和上限。",
+      "why_it_matters_zh": "它将“隐式推理深度”定义为可控的前瞻任务并报告匹配计算量的对照，提供了比单一最终准确率更具体的能力测量；结果仍受合成任务设计和训练课程影响。",
+      "quality_score": 72.0,
+      "tags": [
+        "数学推理",
+        "隐式推理",
+        "课程学习",
+        "长视界推理",
+        "能力评测"
+      ],
+      "evidence_flags": [
+        "benchmark",
+        "performance"
+      ],
+      "publication_status": "preprint",
+      "rank": 9,
+      "featured": false,
+      "category": "数学推理",
+      "metrics": {},
+      "metadata": {
+        "doi": "",
+        "arxiv_id": "2610.25612v1"
+      },
+      "abstract_zh": "LLM 通过将中间步骤作为令牌外化为思维链（CoT）来“推理”，但即使是前沿推理模型，在长视界任务上也会出现突然的性能断崖。隐式推理（在一次前向传播中进行的推理）在生成 CoT 时很有用，因为模型可以“向前搜索”，以决定下一个正确动作。隐式推理能力较弱的模型更容易走上错误路径，只能通过回溯尝试恢复；隐式推理能力较强的模型则能直接识别正确的证明策略，缩短 CoT。然而，先前工作表明，LLM 难以将隐式推理扩展到浅层以上，规模增大也没有带来缓解。我们研究课程学习能否通过在词汇量和前瞻长度（模型必须向前搜索多少步才能识别正确下一步）逐步增加的样本上微调，扩展这种深度。在计算量匹配的情况下，课程训练模型能够达到前瞻长度，而无课程训练无法达到。Qwen3-0.6B 在课程学习下对最多 256 步前瞻问题达到 98% 准确率，而没有课程学习时为 45%。不过，随着微调继续进行，进展会放缓，呈现出饱和指数曲线，这暗示模型可学习的隐式推理存在最大内在前瞻深度。更大的模型达到更高的拟合上限；微调预训练模型远快于从头训练；课程步长过大则会使进展停滞。最后，在合成数据上获得的能力可以迁移到自然语言推理，课程训练模型在计算量匹配的情况下，在 11 个自然语言推理基准上超过未进行课程训练的模型。",
+      "published": "2026-10-19",
+      "author_line": "Jimson Huang, Maxwell Nickell, Ruowang Zhang, Abulhair Saparov"
+    },
+    {
+      "id": "arxiv:2610.24917v1",
+      "channel": "aixmath",
+      "related_channels": [],
+      "item_type": "paper",
+      "source": "arXiv",
+      "title": "How Well Can LLMs Verbalize Mathematical Formulas? A Multi-Domain Evaluation",
+      "url": "https://arxiv.org/abs/2610.24917v1",
+      "published_at": "2026-10-17",
+      "updated_at": "2026-10-17",
+      "creators": [
+        "Peter Volbach",
+        "Tim Schlippe"
+      ],
+      "language": "en",
+      "abstract_or_text": "Large Language Models (LLMs) have shown strong capabilities across natural language tasks. But their ability to generate accurate written verbalizations of mathematical formulas has not been systematically evaluated. Such verbalization is important for text-to-speech systems supporting audio-based learning and visually impaired users. We evaluated five state-of-the-art LLMs across six scientific domains and constructed Read-Aloud Math, a balanced multi-domain corpus with LaTeX formulas, manually validated simple and extended transcriptions, multiple variants, textual context, domain labels, and formula complexity levels. Using multi-reference BLEU, GPT-5.2 achieved the highest score for simple transcriptions (75.9% without context, 64.9% with context), although without context it did not significantly outperform Grok 4.1 Fast or Claude Sonnet 4.5. Claude Sonnet 4.5 achieved the highest score for extended transcriptions without context (36.5%), and Grok 4.1 Fast with context (48.8%). For extended transcriptions, Statistics and Mathematics scored highest across the two context settings, while Physics scored lowest. Formula length was significantly negatively associated with BLEU for simple transcriptions without context, but not with context, whereas BLEU increased significantly with formula length for extended transcriptions in both settings. Grouping symbols were most frequently involved in transcription differences, while variable names, capitalization, and Greek letters were associated with lower BLEU scores. Overall, LLM-based formula verbalization is promising but remains sensitive to transcription type, textual context, and formula characteristics.",
+      "summary_zh": "Read-Aloud Math 是一个经人工验证的多领域 LaTeX 公式朗读语料库；论文在六个科学领域比较五个前沿模型，报告简单与扩展转述的 BLEU、上下文影响和公式复杂度效应。",
+      "why_it_matters_zh": "任务边界清晰、语料和人工验证方式明确，能直接检验模型对数学公式的语言化能力；BLEU 只衡量转述文本相似性，不等同于定理证明或数学求解能力。",
+      "quality_score": 72.0,
+      "tags": [
+        "方法与模型",
+        "数学公式",
+        "多领域评测",
+        "语音可访问性",
+        "模型比较"
+      ],
+      "evidence_flags": [
+        "state-of-the-art",
+        "evaluation"
+      ],
+      "publication_status": "preprint",
+      "rank": 10,
+      "featured": false,
+      "category": "方法与模型",
+      "metrics": {},
+      "metadata": {
+        "doi": "",
+        "arxiv_id": "2610.24917v1"
+      },
+      "abstract_zh": "大型语言模型在自然语言任务中展现了强大能力，但它们准确生成数学公式书面转述的能力尚未得到系统评估。这种转述对于支持音频学习和视障用户的文本转语音系统很重要。我们在六个科学领域评估五个最先进的 LLM，并构建了 Read-Aloud Math，这是一个平衡的多领域语料库，包含 LaTeX 公式、经过人工验证的简单和扩展转录、多个变体、文本上下文、领域标签以及公式复杂度等级。使用多参考 BLEU，GPT-5.2 在简单转录上得分最高（无上下文 75.9%，有上下文 64.9%），但在无上下文设置下并未显著超过 Grok 4.1 Fast 或 Claude Sonnet 4.5。Claude Sonnet 4.5 在无上下文的扩展转录上得分最高（36.5%），而 Grok 4.1 Fast 在有上下文时最高（48.8%）。在扩展转录中，统计学和数学在两种上下文设置下的得分最高，而物理学最低。对于无上下文的简单转录，公式长度与 BLEU 显著负相关；但在有上下文时不再显著。对于扩展转录，在两种上下文设置下，BLEU 都随公式长度显著增加。分组符号最常涉及转录差异，而变量名、大小写和希腊字母与较低的 BLEU 得分相关。总体而言，基于 LLM 的公式转述很有前景，但仍对转录类型、文本上下文和公式特征敏感。",
+      "published": "2026-10-17",
+      "author_line": "Peter Volbach, Tim Schlippe"
+    },
+    {
+      "id": "arxiv:2610.25908v1",
+      "channel": "aixmath",
+      "related_channels": [],
+      "item_type": "paper",
+      "source": "arXiv",
+      "title": "CALM: Consistency-Aware Logit Masking in Decoding Space for Mitigating Overthinking of Large Reasoning Models",
+      "url": "https://arxiv.org/abs/2610.25908v1",
+      "published_at": "2026-10-19",
+      "updated_at": "2026-10-19",
+      "creators": [
+        "Shengjing Liu",
+        "Feiyang Li",
+        "Yuxuan Yang",
+        "Yile Wang",
+        "Hui Huang"
+      ],
+      "language": "en",
+      "abstract_or_text": "Large reasoning models (LRMs) have achieved strong performance on challenging mathematical and scientific tasks through long chain-of-thought reasoning, but they often suffer from overthinking with unnecessary reasoning steps. Existing truncation-based methods typically detect consecutive trial-answer agreement and force early exit, yet such local stopping signals do not necessarily indicate final-answer stability and can disrupt useful subsequent reflection or verification, potentially leading to performance degradation. We propose consistency-aware logit masking (CALM), a training-free decoding intervention for mitigating overthinking in LRMs. CALM first monitors trial answers at step boundaries and then applies logit masking to action transition point (ATP) tokens such as \"Wait\", \"Alternatively\", and \"Hmm\", suppressing redundant transitional reasoning while allowing the model to continue its thought process more naturally. Experiments across four advanced LRMs and five benchmarks show that CALM reduces token consumption by 18.6%-25.0% compared with full CoT reasoning while maintaining performance, and can even improve accuracy by 0.07%-1.48% by reducing redundant reasoning. LLM-as-a-Judge results also demonstrate that CALM provides more coherent and concise results.",
+      "summary_zh": "CALM 是一种无需训练的解码干预：监测步骤边界的试答案一致性，并抑制“Wait”“Alternatively”“Hmm”等过渡令牌，以减少大型推理模型的过度思考。四个模型和五个基准上，令牌消耗下降 18.6%–25.0%，准确率保持或小幅提升。",
+      "why_it_matters_zh": "方法的触发信号和干预位置明确，评测同时报告成本与准确率；收益集中在特定解码策略和基准，不能解读为模型基本数学推理能力普遍增强。",
+      "quality_score": 71.0,
+      "tags": [
+        "数学推理",
+        "推理效率",
+        "解码控制",
+        "数学基准",
+        "过度思考"
+      ],
+      "evidence_flags": [
+        "benchmark",
+        "performance"
+      ],
+      "publication_status": "preprint",
+      "rank": 11,
+      "featured": false,
+      "category": "数学推理",
+      "metrics": {},
+      "metadata": {
+        "doi": "",
+        "arxiv_id": "2610.25908v1"
+      },
+      "abstract_zh": "大型推理模型通过长思维链推理在具有挑战性的数学和科学任务上取得了很强的表现，但它们经常因不必要的推理步骤而过度思考。现有基于截断的方法通常检测连续的试答案一致性并强制提前退出，但这种局部停止信号并不一定表示最终答案稳定，还可能中断有用的后续反思或验证，从而导致性能下降。我们提出一致性感知的 logit 掩码（consistency-aware logit masking，CALM），这是一种无需训练的解码干预，用于缓解大型推理模型的过度思考。CALM 首先在步骤边界监测试答案，然后对“Wait”“Alternatively”和“Hmm”等动作转换点（ATP）令牌应用 logit 掩码，抑制冗余的过渡性推理，同时允许模型更自然地继续思考。在四个先进 LRM 和五个基准上的实验表明，与完整 CoT 推理相比，CALM 将令牌消耗降低 18.6%–25.0%，同时保持性能；通过减少冗余推理，它甚至还能使准确率提高 0.07%–1.48%。LLM 作为评判者的结果也表明，CALM 产生的结果更连贯、更简洁。",
+      "published": "2026-10-19",
+      "author_line": "Shengjing Liu, Feiyang Li, Yuxuan Yang, Yile Wang, Hui Huang"
+    },
+    {
+      "id": "arxiv:2610.24835v1",
+      "channel": "aixmath",
+      "related_channels": [],
+      "item_type": "paper",
+      "source": "arXiv",
+      "title": "Pattern-Driven Evaluation of LLM Code Optimization: Isolating Compiler-Transcendent Semantic Reasoning",
+      "url": "https://arxiv.org/abs/2610.24835v1",
+      "published_at": "2026-10-17",
+      "updated_at": "2026-10-17",
+      "creators": [
+        "Wesley Lu",
+        "Runzhou Liu",
+        "Hongru Du",
+        "Xinyao Yi"
+      ],
+      "language": "en",
+      "abstract_or_text": "Existing evaluations of LLM-based code optimization primarily measure end-to-end speedup, obscuring whether a model actually performs the intended optimization. For compiled languages, this is especially problematic: observed gains may reflect transformations already recoverable by modern optimizing compilers rather than optimization behavior attributable to the model itself. We present PatternBench, a benchmark for studying compiler-transcendent optimization, i.e., performance improvements that remain after aggressive compiler optimization. PatternBench targets residual optimization opportunities across seven classes of transformations and pairs runtime evaluation with an AST-based optimization faithfulness analysis that verifies whether the intended optimization is realized in the generated program. Experiments with frontier, open-weight, and fine-tuned models show that runtime speedup alone provides an incomplete account of optimization capability. Optimization faithfulness is strongly associated with realized speedup, and fine-tuning improves both faithfulness and optimization effectiveness. These results suggest that evaluation of LLM-based code optimization should measure not only performance outcomes, but also whether the target transformation was successfully executed.",
+      "summary_zh": "PatternBench 评估编译器强优化后仍然存在的代码优化机会，并用 AST 分析核验模型是否真正执行了目标变换；实验显示，仅看运行时加速会遗漏优化忠实度，微调可同时提升两者。",
+      "why_it_matters_zh": "它把代码优化的最终性能与语义层面的目标变换核验分开，提供了可检验的模型能力指标；任务更偏程序语义推理和验证，而非数学定理证明。",
+      "quality_score": 71.0,
+      "tags": [
+        "方法与模型",
+        "程序验证",
+        "代码优化",
+        "语义评测",
+        "AST分析"
+      ],
+      "evidence_flags": [
+        "benchmark",
+        "evaluation",
+        "performance"
+      ],
+      "publication_status": "preprint",
+      "rank": 12,
+      "featured": false,
+      "category": "方法与模型",
+      "metrics": {},
+      "metadata": {
+        "doi": "",
+        "arxiv_id": "2610.24835v1"
+      },
+      "abstract_zh": "现有对基于 LLM 的代码优化的评估主要测量端到端加速，却掩盖了模型是否真正执行了预期优化。对于编译型语言，这尤其成问题，因为观察到的增益可能来自现代优化编译器已经能够恢复的变换，而不是模型本身的优化行为。我们提出 PatternBench，这是一个研究编译器超越型优化的基准，即在强力编译器优化之后仍然存在的性能改进机会。PatternBench 针对七类变换中的残余优化机会，并把运行时评估与基于 AST 的优化忠实度分析配对，以核验生成程序是否实现了目标优化。对前沿模型、开放权重模型和微调模型的实验表明，仅看运行时加速无法完整描述优化能力。优化忠实度与实际获得的加速强相关，而微调同时提升了忠实度和优化效果。这些结果表明，LLM 代码优化评估不仅应测量性能结果，还应测量目标变换是否确实被执行。",
+      "published": "2026-10-17",
+      "author_line": "Wesley Lu, Runzhou Liu, Hongru Du, Xinyao Yi"
+    },
+    {
+      "id": "arxiv:2610.26645v1",
+      "channel": "aixmath",
+      "related_channels": [],
+      "item_type": "paper",
+      "source": "arXiv",
+      "title": "Reasoning-Aware Multicalibrated Reliability Predictors for Language Models",
+      "url": "https://arxiv.org/abs/2610.26645v1",
+      "published_at": "2026-10-19",
+      "updated_at": "2026-10-19",
+      "creators": [
+        "Ekaterina Fedorova",
+        "Alessandro Morosini",
+        "Chara Podimata"
+      ],
+      "language": "en",
+      "abstract_or_text": "As people increasingly rely on large language models (LLMs) for information, model providers need to communicate meaningful estimates of whether individual responses are correct or, more generally, reliable. In the context of hallucinations, existing work uses multicalibration to make such reliability predictions meaningful across application-relevant groups, such as prompt topics. Topic groups alone, however, can conceal systematic errors: within the same topic and confidence level, responses with different chain-of-thought (CoT) properties may exhibit opposing errors that cancel on average. In this work, we introduce reasoning-aware multicalibration, a framework that supplements application-relevant topic groups with groups derived from observable properties of CoT traces. We highlight that, theoretically, groupings based on CoT are \"internally important\", i.e., groupings for which the multicalibration guarantee is not societally crucial as it is for high-risk topics, but whose inclusion in the multicalibration procedure could easily and significantly improve predictive accuracy of the final reliability predictor. Empirically, we apply our framework to hallucination prediction and unsafe-response detection across a variety of benchmarks, and find that adding CoT groups to topic-based calibration reduces Brier score in both tasks. Interestingly, we find that multicalibrating with respect to CoT groups alone (without any topic information) already improves calibration across topics, suggesting that the predictor's errors depend on how the model reasoned, rather than what it was asked about in the prompt.",
+      "summary_zh": "论文提出 reasoning-aware multicalibration，把可观察的思维链属性与主题分组一起用于可靠性预测；在幻觉预测和不安全响应检测基准上，加入 CoT 分组可降低 Brier 分数。",
+      "why_it_matters_zh": "它把推理过程特征纳入可校准性分析，并明确区分社会重要的主题分组与内部有用的 CoT 分组；结果是可靠性预测改进，不代表模型推理链本身已被证明正确。",
+      "quality_score": 70.0,
+      "tags": [
+        "验证与逻辑",
+        "可靠性预测",
+        "多重校准",
+        "思维链评测",
+        "幻觉检测"
+      ],
+      "evidence_flags": [
+        "benchmark"
+      ],
+      "publication_status": "preprint",
+      "rank": 13,
+      "featured": false,
+      "category": "验证与逻辑",
+      "metrics": {},
+      "metadata": {
+        "doi": "",
+        "arxiv_id": "2610.26645v1"
+      },
+      "abstract_zh": "随着人们越来越依赖大型语言模型获取信息，模型提供商需要传达单个回答是否正确，或更一般地说是否可靠的有意义估计。在幻觉背景下，现有工作使用多重校准，使可靠性预测在提示主题等与应用相关的群体中具有意义。然而，仅使用主题群体可能掩盖系统性错误：在相同主题和置信度水平下，具有不同思维链（CoT）属性的回答可能产生方向相反的错误，平均后彼此抵消。在本工作中，我们提出推理感知的多重校准框架，在与应用相关的主题群体之外，加入从可观察 CoT 轨迹属性构成的群体。我们从理论上指出，基于 CoT 的分组是“内部重要的”：它们不像高风险主题那样具有社会层面的校准保障重要性，但将其纳入多重校准过程却很容易显著提高最终可靠性预测器的预测准确度。在经验实验中，我们将该框架应用于多个基准上的幻觉预测和不安全响应检测，并发现，相对于仅基于主题的校准，加入 CoT 分组可降低两项任务的 Brier 分数。有趣的是，仅针对 CoT 分组进行多重校准、完全不使用主题信息，也已经能够改善跨主题的校准，这表明预测器的错误取决于模型如何推理，而不是它被要求回答的主题。",
+      "published": "2026-10-19",
+      "author_line": "Ekaterina Fedorova, Alessandro Morosini, Chara Podimata"
+    }
+  ],
+  "review": {
+    "model": "gpt-5.6-terra",
+    "reasoning_effort": "high",
+    "note": "仅保留质量分≥70且与数学推理、定理证明、形式化验证或可检验评测直接相关的条目；未发现 OpenReview 撤回项。已按目标日期之前的综合日报归档进行身份去重，未见重复报道。"
+  }
+}

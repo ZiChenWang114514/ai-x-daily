@@ -1,0 +1,759 @@
+{
+  "schema_version": "2.0",
+  "date": "2026-10-23",
+  "channel": "aixmath",
+  "generated_at": "2026-10-24T16:43:28+00:00",
+  "title": "AI × Math 每日精选",
+  "subtitle": "自动推理、形式化证明、数学智能与基础模型。",
+  "window": {
+    "start": "2026-10-20",
+    "end": "2026-10-23"
+  },
+  "method": "公开来源采集、历史去重、规则筛选与模型审阅",
+  "method_note": "系统保存当日公开元数据，与历史日报核验后排除已报道事件；论文新版本、新修订及不同软件发布等可核实更新仍可入选，随后由指定模型阅读全文摘要并完成精选。",
+  "stats": {
+    "fetched": 1316,
+    "suppressed_previous": 13,
+    "candidates": 60,
+    "selected": 16,
+    "sources": {
+      "arXiv": 1298,
+      "OpenReview": 18
+    }
+  },
+  "source_status": {
+    "arXiv": {
+      "state": "ok",
+      "count": 1298
+    },
+    "OpenReview": {
+      "state": "ok",
+      "count": 18
+    }
+  },
+  "source_errors": [],
+  "items": [
+    {
+      "id": "arxiv:2610.30524v1",
+      "channel": "aixmath",
+      "related_channels": [
+        "aixchem"
+      ],
+      "item_type": "paper",
+      "source": "arXiv",
+      "title": "LLM2Cert: LLM Synthesis of Certificates with SMT/Lean Verification",
+      "url": "https://arxiv.org/abs/2610.30524v1",
+      "published_at": "2026-10-21",
+      "updated_at": "2026-10-21",
+      "creators": [
+        "Zhipeng Cao",
+        "Peiyang Song",
+        "Nikolaus Vertovec",
+        "Weiru Cui",
+        "Zhihao Yang",
+        "Mingkang Liu",
+        "Luxia Lin",
+        "Bai Xue",
+        "Alessandro Abate"
+      ],
+      "language": "en",
+      "abstract_or_text": "Lyapunov functions and barrier certificates give state-space guarantees of stability and safety, but synthesizing and verifying them---especially for nonlinear, high-dimensional systems---remains an open challenge. Existing pipelines verify candidates with numerical solvers (sum-of-squares programs), interval methods, or satisfiability-modulo-theories (SMT) solvers, which often require relaxations, are conservative, or scale poorly with model dimension and nonlinearity. These limitations have also shaped benchmark design: standard test suites are dominated by low-dimensional polynomial systems chosen to suit what solvers can handle rather than what engineering applications require. We address both sides of this challenge. First, we introduce DynaCertBench, a benchmark of 105 instances: 80 non-redundant systems curated from the literature, extended with high-dimensional and control-constrained variants and new nonlinearly coupled systems, comprehensively spanning stability, region-of-attraction, forward-invariance, and safety tasks. Second, we present LLM2Cert, an LLM-driven framework that synthesizes candidate certificates and verifies them against their proof obligations: each obligation is routed to an SMT solver or directly to the Lean Proof-Repair agent. On DynaCertBench, LLM2Cert verifies 81 of 105 instances (77.1\\%), a 17.1 percentage point improvement over one-shot proposal without feedback. On the 81 fixed certificates, LLM2Cert verifies 22 that All-SMT leaves unresolved. Code and data are available at https://github.com/FormalCert-AI/llm2cert.",
+      "summary_zh": "提出 LLM2Cert 与 DynaCertBench：让 LLM 生成 Lyapunov 函数和 barrier certificates，再由 SMT 或 Lean Proof-Repair 检查证明义务；在 105 个实例上验证通过 81 个（77.1%），比无反馈的一次性提议高 17.1 个百分点。",
+      "why_it_matters_zh": "任务、基准和验证链条都较清晰，结果可由 SMT/Lean 与公开代码复核；同时覆盖高维、控制约束和非线性系统，较贴近实际证书综合。",
+      "quality_score": 81.0,
+      "tags": [
+        "形式化验证",
+        "证书综合",
+        "SMT",
+        "基准评测"
+      ],
+      "evidence_flags": [
+        "benchmark",
+        "github"
+      ],
+      "publication_status": "preprint",
+      "rank": 1,
+      "featured": true,
+      "category": "形式化验证",
+      "metrics": {},
+      "metadata": {
+        "doi": "",
+        "arxiv_id": "2610.30524v1"
+      },
+      "abstract_zh": "Lyapunov 函数和 barrier certificates 可以为状态空间中的稳定性与安全性提供保证，但对非线性、高维系统进行综合与验证仍是一个开放挑战。现有流程使用数值求解器（和平方程序）、区间方法或可满足性模理论（SMT）求解器验证候选证书，往往需要松弛，结果较保守，或难以随模型维度和非线性增加而扩展。这些限制也影响了基准设计：标准测试集主要由低维多项式系统组成，因为这类系统适合现有求解器处理，而不是因为它们代表工程应用的需求。我们从两个方面应对这一问题。首先，我们提出 DynaCertBench，一个包含 105 个实例的基准：其中 80 个非冗余系统来自已有文献，并扩展了高维和控制约束变体，还加入了新的非线性耦合系统，全面覆盖稳定性、吸引域、正向不变性和安全性任务。其次，我们提出 LLM2Cert，一个由 LLM 驱动的框架，用于综合候选证书并针对其证明义务进行验证：每个证明义务都会被路由到 SMT 求解器，或直接交给 Lean Proof-Repair agent。在 DynaCertBench 上，LLM2Cert 验证了 105 个实例中的 81 个（77.1%），相比没有反馈的一次性提议提高了 17.1 个百分点。在这 81 个已修正的证书中，有 22 个是 All-SMT 未能解决的。代码和数据见 https://github.com/FormalCert-AI/llm2cert。",
+      "published": "2026-10-21",
+      "author_line": "Zhipeng Cao, Peiyang Song, Nikolaus Vertovec, Weiru Cui, Zhihao Yang, Mingkang Liu, Luxia Lin, Bai Xue, Alessandro Abate"
+    },
+    {
+      "id": "arxiv:2610.29147v1",
+      "channel": "aixmath",
+      "related_channels": [],
+      "item_type": "paper",
+      "source": "arXiv",
+      "title": "VERDICT: Multi-Agent Parallel Modular Verification",
+      "url": "https://arxiv.org/abs/2610.29147v1",
+      "published_at": "2026-10-21",
+      "updated_at": "2026-10-21",
+      "creators": [
+        "Tengjie Lin",
+        "Zhongyi Wang",
+        "Haokun Li",
+        "Jianwei Yin",
+        "Mingshuai Chen"
+      ],
+      "language": "en",
+      "abstract_or_text": "Deductive verification scales to large software systems through modular reasoning, where formal contracts summarize the behavior of individual functions and enable their independent verification. Its central bottleneck is specification synthesis: constructing the contracts required for modular verification. Recent advances in large language models (LLMs) have enabled automated specification synthesis at unprecedented scale. However, existing approaches remain fundamentally bottom-up, requiring callees to be verified before their callers. This dependency limits parallelism and provides no principled mechanism for resolving interprocedural inconsistencies that propagate across call chains. We present VERDICT, a multi-agent framework for parallelizing modular deductive verification of large-scale programs. VERDICT is built on two key principles. First, assumption-based parallel specification synthesis assigns an agent to each function and allows it to proceed immediately using assumed contracts for its callees, enabling verification to proceed in parallel across the program. Second, bidirectional interprocedural conflict reconciliation resolves the inconsistencies introduced by these assumptions: when a synthesized contract contradicts an assumption, agents propagate the necessary revisions both up and down the call graph until the contracts converge. Experimental results on real-world C programs show that VERDICT synthesizes higher-quality specifications than existing approaches while substantially reducing verification time. In particular, VERDICT is the first approach that scales to the complete 20,000-line X.509 parser, ruling out nearly all the potential runtime errors within hours, whereas prior tools like PREGUSS fall far short even after days of execution.",
+      "summary_zh": "提出 VERDICT 多智能体框架，用假设式并行规范综合和双向跨过程冲突协调并行化大型程序的演绎验证；在真实 C 程序上提高规范质量并缩短验证时间，并扩展到完整的 20,000 行 X.509 解析器。",
+      "why_it_matters_zh": "将 LLM 规范生成中的调用依赖和冲突协调显式建模，任务边界清楚；实程序案例和端到端扩展性结果使其比只在小型示例上测试更可检验。",
+      "quality_score": 79.0,
+      "tags": [
+        "形式化验证",
+        "程序规范",
+        "多智能体",
+        "C 程序"
+      ],
+      "evidence_flags": [
+        "experimental"
+      ],
+      "publication_status": "preprint",
+      "rank": 2,
+      "featured": true,
+      "category": "形式化验证",
+      "metrics": {},
+      "metadata": {
+        "doi": "",
+        "arxiv_id": "2610.29147v1"
+      },
+      "abstract_zh": "演绎验证通过模块化推理扩展到大型软件系统：形式化契约概括单个函数的行为，使它们能够被独立验证。其核心瓶颈是规范综合，即构造模块化验证所需的契约。近年来，大语言模型（LLM）的进展使大规模自动规范综合成为可能。然而，现有方法从根本上仍是自底向上的，要求先验证被调用函数，再验证调用者。这种依赖限制了并行性，也没有为解决沿调用链传播的跨过程不一致提供原则性机制。我们提出 VERDICT，一个用于并行化大型程序模块化演绎验证的多智能体框架。VERDICT 建立在两个原则上。第一，基于假设的并行规范综合为每个函数分配一个 agent，使其可以使用对被调用函数的假设契约立即开始工作，从而让整个程序的验证并行进行。第二，双向跨过程冲突协调解决这些假设引入的不一致：当综合得到的契约与某个假设矛盾时，agent 沿调用图向上和向下传播必要的修订，直到契约收敛。在真实 C 程序上的实验结果表明，VERDICT 综合出的规范质量高于现有方法，同时显著减少验证时间。特别是，VERDICT 首次扩展到完整的 20,000 行 X.509 解析器，并在数小时内排除了几乎所有潜在运行时错误；此前的工具（如 PREGUSS）即使运行数天也远未达到这一规模。",
+      "published": "2026-10-21",
+      "author_line": "Tengjie Lin, Zhongyi Wang, Haokun Li, Jianwei Yin, Mingshuai Chen"
+    },
+    {
+      "id": "arxiv:2610.30432v1",
+      "channel": "aixmath",
+      "related_channels": [],
+      "item_type": "paper",
+      "source": "arXiv",
+      "title": "TrustedCode: Evaluating Large Language Models for Developing Trusted Code through Automated Program Verification",
+      "url": "https://arxiv.org/abs/2610.30432v1",
+      "published_at": "2026-10-21",
+      "updated_at": "2026-10-21",
+      "creators": [
+        "Muhammad Danial",
+        "Muhammad Taimoor Khan"
+      ],
+      "language": "en",
+      "abstract_or_text": "Recent reports, such as \"Who is using AI to code?\", indicate that approximately 30\\% of Python code contributions to GitHub are AI-generated. Given the inherent unreliability of this code, formal verification emerges as a promising approach to establish trust in software correctness. Although leveraging large language models (LLMs) for formal verification has garnered increasing attention, practical adoption remains limited due to the challenges in writing formal specifications and verifying program correctness against them. Existing tools predominantly support verification for languages such as Java and C, with minimal support for Python. We present TrustedCode, an automated framework for verifying AI-generated Python code. TrustedCode uses LLMs to (i) type-check Python code, (ii) translate it into WhyML via the Why3 framework, and (iii) verify it against formal specifications using Why3 back-end automated theorem provers. Our method integrates chain-of-thought prompting through LangGraph to identify and address LLM limitations in specification generation and proving the specified programs. To evaluate TrustedCode, we conducted experiments on ten Python programs of varying complexity. Our analysis reveals that 50\\% of the observed errors stem from domain knowledge gaps, 30\\% from syntactic inaccuracies, and the remaining 20\\% from semantic and type-related issues. These findings underscore the importance of targeted improvements in LLM-guided formal verification workflows for Python. TrustedCode is an open source tool available at: github.com/mtaimoorkhan/TrustedCode{github.com/mtaimoorkhan/TrustedCode}. The video demonstration is available at: youtu.be/Nr5I2g8ec-s{youtu.be/Nr5I2g8ec-s}",
+      "summary_zh": "提出 TrustedCode，用 LLM 将 AI 生成的 Python 代码类型检查、翻译为 WhyML，并通过 Why3 后端自动定理证明器验证形式化规范；在 10 个不同复杂度的程序上分析错误来源。",
+      "why_it_matters_zh": "把 Python 代码、形式化规格和自动证明串成可执行流程，且公开工具；但样本仅 10 个程序，结论应视为初步误差分析而非全面能力证明。",
+      "quality_score": 78.0,
+      "tags": [
+        "形式化验证",
+        "Python",
+        "Why3",
+        "自动定理证明"
+      ],
+      "evidence_flags": [
+        "open source",
+        "github"
+      ],
+      "publication_status": "preprint",
+      "rank": 3,
+      "featured": true,
+      "category": "形式化验证",
+      "metrics": {},
+      "metadata": {
+        "doi": "",
+        "arxiv_id": "2610.30432v1"
+      },
+      "abstract_zh": "近期报告（如“Who is using AI to code?”）指出，GitHub 上约 30% 的 Python 代码贡献由 AI 生成。鉴于这类代码固有的不可靠性，形式化验证是建立软件正确性信任的一条有前景的路径。尽管利用大语言模型（LLM）进行形式化验证的研究日益增多，但由于编写形式化规格以及根据规格验证程序正确性都很困难，实际采用仍然有限。现有工具主要支持 Java 和 C 等语言，对 Python 的支持很少。我们提出 TrustedCode，一个用于验证 AI 生成 Python 代码的自动化框架。TrustedCode 使用 LLM 来：（i）对 Python 代码进行类型检查；（ii）通过 Why3 框架将其翻译为 WhyML；（iii）使用 Why3 后端的自动定理证明器，根据形式化规格进行验证。我们通过 LangGraph 集成思维链提示，以识别并处理 LLM 在规格生成和证明方面的局限。为了评估 TrustedCode，我们在 10 个复杂度不同的 Python 程序上进行了实验。分析显示，观察到的错误中 50% 源于领域知识缺口，30% 源于语法不准确，其余 20% 与语义和类型有关。这些发现强调，需要有针对性地改进 LLM 引导的 Python 形式化验证流程。TrustedCode 是一个开源工具，地址为 github.com/mtaimoorkhan/TrustedCode{github.com/mtaimoorkhan/TrustedCode}。视频演示见 youtu.be/Nr5I2g8ec-s{youtu.be/Nr5I2g8ec-s}。",
+      "published": "2026-10-21",
+      "author_line": "Muhammad Danial, Muhammad Taimoor Khan"
+    },
+    {
+      "id": "arxiv:2610.29331v1",
+      "channel": "aixmath",
+      "related_channels": [
+        "aixchem",
+        "aixbio"
+      ],
+      "item_type": "paper",
+      "source": "arXiv",
+      "title": "From Prompts to Posteriors: Can LLM Agents Perform Bayesian Inference in Context?",
+      "url": "https://arxiv.org/abs/2610.29331v1",
+      "published_at": "2026-10-21",
+      "updated_at": "2026-10-21",
+      "creators": [
+        "Linus Filbry",
+        "Luckeciano C. Melo",
+        "Yarin Gal"
+      ],
+      "language": "en",
+      "abstract_or_text": "Large language models (LLMs) are increasingly applied across the scientific discovery pipeline, from synthesizing literature to generating hypotheses to informing experimental design. A unifying principle behind these tasks is the need to continuously update beliefs as evidence accumulates, for which Bayesian inference provides a natural framework. However, existing work assumes that LLMs cannot carry out principled Bayesian belief updating in context, instead relying on simplifications and heuristics. To challenge this assumption, we present a principled evaluation of Bayesian reasoning capabilities in LLMs, analyzing both the model's internal consistency as well as its ability to recover an externally determined posterior. Specifically, we build an evaluation framework spanning qualitative epistemological examples to probe probabilistic coherence, quantitative benchmarks of Bayesian inference capabilities, and analyses of the impact of non-Bayesian updates on downstream task performance. Across different scenarios, we find that LLMs generally violate Bayes' rule when updating their beliefs in context. However, when equipped with modern reasoning abilities and code execution capabilities, their performance drastically improves, enabling even the close approximation of analytically intractable posteriors. Our evaluation shows that current LLMs with access to appropriate tools could already be used to make complex belief updates in scientific discovery, enabling rapid acceleration of the efficiency and scale of AI-powered scientific discovery.",
+      "summary_zh": "系统评测 LLM 在上下文中进行贝叶斯更新的能力，覆盖概率一致性、定量推断和非贝叶斯更新的下游影响；发现模型通常违反 Bayes 规则，但结合现代推理能力和代码执行后可接近解析不可解后验。",
+      "why_it_matters_zh": "评测对象和外部可确定的后验目标明确，也区分了内部一致性与结果准确性；结论支持“工具增强后有所改善”，没有把这种改善表述成普遍的数学能力。",
+      "quality_score": 78.0,
+      "tags": [
+        "数学推理",
+        "贝叶斯推断",
+        "模型评测",
+        "工具增强"
+      ],
+      "evidence_flags": [
+        "benchmark",
+        "experimental",
+        "evaluation",
+        "performance"
+      ],
+      "publication_status": "preprint",
+      "rank": 4,
+      "featured": false,
+      "category": "数学推理",
+      "metrics": {},
+      "metadata": {
+        "doi": "",
+        "arxiv_id": "2610.29331v1"
+      },
+      "abstract_zh": "大语言模型（LLM）正越来越多地应用于科学发现流程的各个环节，从综合文献、生成假设到辅助实验设计。贯穿这些任务的一个统一原则是：随着证据积累而持续更新信念，而贝叶斯推断为此提供了自然框架。然而，现有研究假设 LLM 无法在上下文中进行有原则的贝叶斯信念更新，而只能依赖简化方法和启发式。为了挑战这一假设，我们对 LLM 的贝叶斯推理能力进行了有原则的评测，同时分析模型的内部一致性以及恢复外部确定后验的能力。具体而言，我们构建了一个评测框架，覆盖用于探测概率一致性的定性认识论示例、贝叶斯推断能力的定量基准，以及非贝叶斯更新对下游任务表现影响的分析。在不同场景下，我们发现 LLM 在上下文中更新信念时通常违反 Bayes 规则。然而，当模型具备现代推理能力和代码执行能力时，其表现会显著改善，甚至能够接近解析不可处理的后验。我们的评测表明，当前具备适当工具的 LLM 已经可以用于科学发现中的复杂信念更新，从而有望提高 AI 驱动科学发现的效率和规模。",
+      "published": "2026-10-21",
+      "author_line": "Linus Filbry, Luckeciano C. Melo, Yarin Gal"
+    },
+    {
+      "id": "arxiv:2610.30759v1",
+      "channel": "aixmath",
+      "related_channels": [],
+      "item_type": "paper",
+      "source": "arXiv",
+      "title": "RAIN: Agentic Proof Generation for Rocq-based Software Verification",
+      "url": "https://arxiv.org/abs/2610.30759v1",
+      "published_at": "2026-10-22",
+      "updated_at": "2026-10-22",
+      "creators": [
+        "Jinyi Zhou",
+        "Zenan Li",
+        "Yuan Yao",
+        "Jun Ma",
+        "Taolue Chen",
+        "Xiaoxing Ma"
+      ],
+      "language": "en",
+      "abstract_or_text": "Interactive theorem provers can provide strong correctness guarantees for software, but constructing the proofs remains a challenging and labor-intensive task. Inspired by the recent progress of modern coding agents, we present RAIN, a lightweight proof-specialized agent for Rocq proof generation. RAIN augments an LLM with proof engineering capabilities, including repository exploration, iterative refinement, and checker feedback. This design allows the agent to retrieve lemmas autonomously, revise complete proof scripts instead of isolated tactics, and iteratively refine its proof strategy using enriched proof-state information. Evaluated on a subset from CoqStoq, RAIN shows substantial improvements over the existing baselines, achieving over 90% prove success rate with at least 24.7% improvements. We also compare with general-purpose coding agents, the results show that RAIN maintains comparable prove success rate but with significant lower cost.",
+      "summary_zh": "提出面向 Rocq 的证明专用 agent RAIN，支持仓库探索、完整证明脚本迭代和 proof-state 反馈；在 CoqStoq 子集上证明成功率超过 90%，较基线提高至少 24.7%，且成本低于通用编码 agent。",
+      "why_it_matters_zh": "证明结果由 Rocq 检查，任务与基线比较清楚；同时报告成功率和成本，适合检验证明助手在真实工程流程中的实用性。",
+      "quality_score": 77.0,
+      "tags": [
+        "证明助手",
+        "Rocq",
+        "定理证明"
+      ],
+      "evidence_flags": [],
+      "publication_status": "preprint",
+      "rank": 5,
+      "featured": false,
+      "category": "证明助手",
+      "metrics": {},
+      "metadata": {
+        "doi": "",
+        "arxiv_id": "2610.30759v1"
+      },
+      "abstract_zh": "交互式定理证明器可以为软件提供强有力的正确性保证，但构造证明仍然是一项困难且劳动密集的任务。受到现代编码 agent 近期进展的启发，我们提出 RAIN，一个面向 Rocq 证明生成的轻量级、证明专用 agent。RAIN 为 LLM 增加证明工程能力，包括仓库探索、迭代式修正和检查器反馈。这种设计使 agent 能够自主检索引理，修改完整的证明脚本而非孤立的 tactic，并利用更丰富的 proof-state 信息迭代改进证明策略。在 CoqStoq 的一个子集上评测时，RAIN 取得了超过 90% 的证明成功率，相比现有基线至少提高 24.7%。我们还将其与通用编码 agent 进行比较：RAIN 保持了相当的证明成功率，同时成本显著更低。",
+      "published": "2026-10-22",
+      "author_line": "Jinyi Zhou, Zenan Li, Yuan Yao, Jun Ma, Taolue Chen, Xiaoxing Ma"
+    },
+    {
+      "id": "arxiv:2610.29507v1",
+      "channel": "aixmath",
+      "related_channels": [],
+      "item_type": "paper",
+      "source": "arXiv",
+      "title": "Keeping Time vs. Understanding Time: Neither Alone Explains Temporal Reasoning in LLMs",
+      "url": "https://arxiv.org/abs/2610.29507v1",
+      "published_at": "2026-10-21",
+      "updated_at": "2026-10-21",
+      "creators": [
+        "Auss Abbood",
+        "Fernando Martínez-Plumed",
+        "José Hernández-Orallo",
+        "Nigel Collier"
+      ],
+      "language": "en",
+      "abstract_or_text": "Temporal reasoning is widely assumed to decompose into two modes: temporal arithmetic (date and time calculations), and temporal semantics (understanding temporal and causal relations). This dichotomy shapes how benchmarks are designed, how models are trained, and how progress is measured, yet its empirical validity has never been directly tested. We provide two lines of evidence that challenge it. First, we test whether tasks labelled as arithmetic or semantic by the benchmarks support transferable gains within their purported mode. Finetuning on these subsets yields predominantly dataset-specific gains (+6.8 to +23.1 percentage points), while transfer to a different dataset in the same mode ranges from -3.2 to +1.1 percentage points. Across the two benchmark families used in the transfer analysis, this pattern provides little evidence of coherent, transferable temporal abilities. Second, using cognitive-demand-based model evaluation, we examine which capabilities actually drive performance on these benchmarks. We find that quantitative and logical reasoning, the assumed proxies for temporal arithmetic and temporal semantics, are not the primary drivers; knowledge is. Together, these findings show that current temporal reasoning benchmarks do not cleanly realise the arithmetic-semantics distinction and instead largely reward models for remembering how time typically works.",
+      "summary_zh": "检验“时间算术”和“时间语义”二分法是否反映可迁移能力；跨数据集迁移很弱，认知需求分析显示知识记忆而非定量或逻辑推理是主要驱动因素。",
+      "why_it_matters_zh": "通过迁移实验和能力分解评估了基准是否真的测量时间推理，提醒读者不要把基准分数直接等同于数学或逻辑能力。",
+      "quality_score": 79.0,
+      "tags": [
+        "数学推理",
+        "基准审计",
+        "迁移评测"
+      ],
+      "evidence_flags": [
+        "benchmark",
+        "dataset",
+        "evaluation",
+        "performance"
+      ],
+      "publication_status": "preprint",
+      "rank": 6,
+      "featured": false,
+      "category": "数学推理",
+      "metrics": {},
+      "metadata": {
+        "doi": "",
+        "arxiv_id": "2610.29507v1"
+      },
+      "abstract_zh": "人们普遍认为，时间推理可以分解为两种模式：时间算术（日期和时间计算）以及时间语义（理解时间关系和因果关系）。这一二分法影响了基准设计、模型训练和进展衡量，但其经验有效性从未被直接检验。我们提供两方面证据来质疑这一划分。第一，我们检验被基准标记为算术或语义的任务，是否能在各自声称的模式内部带来可迁移的收益。在这些子集上微调主要带来数据集特定的收益（提高 6.8 到 23.1 个百分点），而迁移到同一模式的另一个数据集时，收益范围为 -3.2 到 1.1 个百分点。在用于迁移分析的两组基准之间，这一模式几乎没有显示出连贯且可迁移的时间能力。第二，我们使用基于认知需求的模型评估，考察哪些能力实际驱动这些基准上的表现。我们发现，定量推理和逻辑推理——原本被假定为时间算术和时间语义的代理指标——并不是主要驱动因素；知识才是。综合来看，这些发现表明，当前的时间推理基准并没有清晰实现算术—语义区分，而在很大程度上奖励模型记住时间通常如何运作。",
+      "published": "2026-10-21",
+      "author_line": "Auss Abbood, Fernando Martínez-Plumed, José Hernández-Orallo, Nigel Collier"
+    },
+    {
+      "id": "arxiv:2610.31376v1",
+      "channel": "aixmath",
+      "related_channels": [],
+      "item_type": "paper",
+      "source": "arXiv",
+      "title": "Certified Execution Harness for Agentic AI: Safe and Least-Intrusive Petri-Net Supervisory Control Between Reasoning and Action",
+      "url": "https://arxiv.org/abs/2610.31376v1",
+      "published_at": "2026-10-22",
+      "updated_at": "2026-10-22",
+      "creators": [
+        "Chao Gu",
+        "Quanyan Zhu"
+      ],
+      "language": "en",
+      "abstract_or_text": "This paper studies the problem of safe tool execution for large language model (LLM) agents under prompt injection. Using Petri nets, we formalize the execution harness between the LLM and its tools as a supervisory control problem, in which marks represent capabilities, approvals and budgets. Since a transition fires only if the marks it needs are present, an injected request whose preconditions are unmet or already spent is refused regardless of its wording. Treating tool outcomes as uncontrollable, we enforce safety by the conventional maximally permissive supervisor, and this safety transfers to the running system under four assumptions. Moreover, to capture an agent that may propose again after a refusal, we introduce the notion of a replanning closed loop, in which each retry costs an inference call. We show that, in this loop, the conventional supervisor can be arbitrarily more intrusive than a stricter safe one. Furthermore, for a given proposer model, the maximally permissive least-intrusive supervisor is characterized as a value-threshold refinement of the conventional one. Under precise conditions, this refinement orders two concurrent actions by at most one monitor place. On an autonomous release agent, we find by synthesis that safe deployment requires a step that the supervisor can refuse after a rollout starts.",
+      "summary_zh": "用 Petri 网将 LLM agent 与工具之间的执行 harness 形式化为监督控制问题，证明最大许可监督器在给定假设下可传递安全性，并分析重规划闭环中的侵入性与安全权衡。",
+      "why_it_matters_zh": "安全条件、监督器性质和重试成本都被形式化，结果可通过 Petri 网综合与检查；它检验的是执行控制保证，不等于模型本身具备可靠推理。",
+      "quality_score": 76.0,
+      "tags": [
+        "形式化验证",
+        "Petri 网",
+        "安全控制",
+        "提示注入"
+      ],
+      "evidence_flags": [
+        "release"
+      ],
+      "publication_status": "preprint",
+      "rank": 7,
+      "featured": false,
+      "category": "形式化验证",
+      "metrics": {},
+      "metadata": {
+        "doi": "",
+        "arxiv_id": "2610.31376v1"
+      },
+      "abstract_zh": "本文研究提示注入条件下大语言模型（LLM）agent 的安全工具执行问题。我们使用 Petri 网，将 LLM 与其工具之间的执行 harness 形式化为一个监督控制问题，其中标记表示能力、批准和预算。由于一个变迁只有在所需标记存在时才能触发，因此无论注入请求的措辞如何，只要其前置条件未满足或相应资源已经消耗，请求都会被拒绝。将工具结果视为不可控事件后，我们通过传统的最大许可监督器实施安全性，并证明在四项假设下，这种安全性可以传递到运行中的系统。为了描述 agent 可能在被拒绝后再次提出请求的情况，我们引入重规划闭环，其中每次重试都需要一次推理调用。我们证明，在这一闭环中，传统监督器的侵入性可能任意高于一个更严格但安全的监督器。此外，对于给定的提议模型，最大许可且最小侵入的监督器可以被刻画为传统监督器的一个价值阈值细化。在精确条件下，这一细化至多通过一个监控库所对两个并发动作进行排序。在一个自主发布 agent 上，我们通过综合发现：安全部署需要一个监督器能够在 rollout 开始后拒绝的步骤。",
+      "published": "2026-10-22",
+      "author_line": "Chao Gu, Quanyan Zhu"
+    },
+    {
+      "id": "arxiv:2610.30843v1",
+      "channel": "aixmath",
+      "related_channels": [],
+      "item_type": "paper",
+      "source": "arXiv",
+      "title": "Lean Finder V2: Semantic Search for Mathlib That Disambiguates User Queries",
+      "url": "https://arxiv.org/abs/2610.30843v1",
+      "published_at": "2026-10-22",
+      "updated_at": "2026-10-22",
+      "creators": [
+        "Jialin Lu",
+        "Xiaoyu Liu",
+        "Hengrui Luo",
+        "Rodrigo Stehling",
+        "Linxi Liu",
+        "Weiran Sun",
+        "Yuepeng Wang",
+        "Wuyang Chen"
+      ],
+      "language": "en",
+      "abstract_or_text": "We introduce Lean Finder V2, a semantic search framework for Mathlib that disambiguates user queries through complementary model-level adversarial training and input-level query rewriting. Human mathematicians and coding agents rarely search Mathlib by providing detailed context. In practice, they query short properties, notation, aliases, or hypotheses, leaving much of the intended mathematics implicit. In contrast, existing Mathlib search engines unrealistically assume context-rich queries. The scarcity of real-world short queries paired with ground-truth Mathlib statements makes this ambiguity even more intractable. We argue that this is essentially a data problem. Through adversarial training, we scale up the generation of labeled short and ambiguous queries, and learn to disambiguate user queries at both model-level fine-tuning and input-level query rewriting. On the human-curated MathlibQR benchmark, our Lean Finder V2 sets a new state of the art, with at least 11% relative improvement over the previous best Mathlib semantic search engines. On top of our state-of-the-art retriever, optimized query rewriting further improves MathlibQR retrieval. On unlabeled queries from human and coding-agent interactions, Lean Finder V2 is ranked as the strongest system. Integrated with Claude Code, Lean Finder V2 improves proof success on downstream theorem-proving task. Lean Finder V2 is available at: https://leanfinder.github.io/",
+      "summary_zh": "提出 Lean Finder V2，通过对抗训练和查询重写处理 Mathlib 中短而含糊的检索请求；在 MathlibQR 上较上一最佳语义搜索引擎至少提高 11% 相对性能，并改善下游定理证明成功率。",
+      "why_it_matters_zh": "直接针对证明助手常见的“短查询、隐含上下文”问题，使用人工整理基准和下游证明成功率双重评测；结果可通过公开系统复核。",
+      "quality_score": 76.0,
+      "tags": [
+        "证明助手",
+        "Mathlib",
+        "语义检索"
+      ],
+      "evidence_flags": [
+        "benchmark",
+        "github",
+        "state-of-the-art"
+      ],
+      "publication_status": "preprint",
+      "rank": 8,
+      "featured": false,
+      "category": "证明助手",
+      "metrics": {},
+      "metadata": {
+        "doi": "",
+        "arxiv_id": "2610.30843v1"
+      },
+      "abstract_zh": "我们提出 Lean Finder V2，一个用于 Mathlib 的语义搜索框架，通过互补的模型级对抗训练和输入级查询重写来消歧用户查询。数学家和 coding agent 很少通过提供详细上下文来搜索 Mathlib。在实践中，他们会查询简短的性质、记号、别名或假设，而大部分意图数学内容是隐含的。相比之下，现有 Mathlib 搜索引擎不切实际地假设查询包含丰富上下文。与真实世界短查询配对的 Mathlib 真值陈述数据十分稀缺，使这种歧义更加难以处理。我们认为，这本质上是一个数据问题。通过对抗训练，我们扩大了带标签短查询和含糊查询的生成，并在模型级微调和输入级查询重写两个层面学习消歧。在人工整理的 MathlibQR 基准上，Lean Finder V2 达到新的最佳结果，相比此前最好的 Mathlib 语义搜索引擎至少有 11% 的相对提升。在这一最先进的检索器上，优化后的查询重写进一步提高了 MathlibQR 检索效果。在来自人类和 coding agent 交互的无标签查询上，Lean Finder V2 被评为最强系统。与 Claude Code 集成后，Lean Finder V2 提高了下游定理证明成功率。Lean Finder V2 可见于：https://leanfinder.github.io/",
+      "published": "2026-10-22",
+      "author_line": "Jialin Lu, Xiaoyu Liu, Hengrui Luo, Rodrigo Stehling, Linxi Liu, Weiran Sun, Yuepeng Wang, Wuyang Chen"
+    },
+    {
+      "id": "arxiv:2610.28987v1",
+      "channel": "aixmath",
+      "related_channels": [],
+      "item_type": "paper",
+      "source": "arXiv",
+      "title": "PerMIT: Securing Persistent Memory for LLM Agents via Machine-Checked Integrity Theorems and Scalable Community Trust",
+      "url": "https://arxiv.org/abs/2610.28987v1",
+      "published_at": "2026-10-20",
+      "updated_at": "2026-10-20",
+      "creators": [
+        "Tanqiu Jiang",
+        "Min Bai",
+        "Sadat Shahriar",
+        "Wanyu Du",
+        "Sandesh Swamy"
+      ],
+      "language": "en",
+      "abstract_or_text": "Persistent memory is a largely undefended surface for injection and poisoning, and the same risk limits memory sharing among agents. We present PerMIT, a memory architecture with provable integrity guarantees under an explicit trust assumption: only user-typed inputs and values confirmed at a gate are trusted. PerMIT mediates the release and use of untrusted environment-derived values through a finite memory interface, while preserving agent-driven multi-turn planning and tool choice. Over this finite interface, we prove two integrity theorems that are also machine-checked in Lean 4, which together ensure that environment-derived memory reaches a sensitive action only if confirmed at the gate and influences the agent's behavior only through what the gate displays. Every attack in our threat model thereby reduces to a single auditable decision, which a human, an LLM verifier, or both can make in practice. On Trojan Hippo, PerMIT records zero observed attack success with self-verification and lightweight verifiers. Because each confirmation is a logged verdict on exact content, endorsements accumulate across users, and sufficiently endorsed items become community-confirmed with no further verification required. Under explicit assumptions, we prove and corroborate in simulation a co-scaling property: as the community grows, the risks of promoting poison and of wrongly evicting benign knowledge fall, while per-user verification effort does not rise. On τ^2-bench, communities of up to 90 autonomous agents use PerMIT to build shared knowledge bases with no direct memory injection promoted, and the resulting knowledge significantly improves new agents on held-out tasks, suggesting a path toward agents that safely self-improve at test time.",
+      "summary_zh": "提出 PerMIT 持久记忆架构，在显式信任假设下用 Lean 4 机器检查两个完整性定理；在 Trojan Hippo 和 ℝ²-bench 模拟中观察到无直接记忆注入被提升，并讨论社区确认机制。",
+      "why_it_matters_zh": "定理、信任边界和攻击模型都明确，且有 Lean 4 检查；需要注意其安全结论依赖“只有用户输入和门控确认值可信”的假设。",
+      "quality_score": 76.0,
+      "tags": [
+        "形式化验证",
+        "Lean 4",
+        "智能体安全",
+        "记忆完整性"
+      ],
+      "evidence_flags": [
+        "release"
+      ],
+      "publication_status": "preprint",
+      "rank": 9,
+      "featured": false,
+      "category": "形式化验证",
+      "metrics": {},
+      "metadata": {
+        "doi": "",
+        "arxiv_id": "2610.28987v1"
+      },
+      "abstract_zh": "持久记忆是一个基本未受防护的注入和投毒面，同样的风险也限制了 agent 之间的记忆共享。我们提出 PerMIT，一种在明确的信任假设下提供可证明完整性保证的记忆架构：只有用户键入的输入和在门控处确认的值被视为可信。PerMIT 通过有限记忆接口调节源自环境的不可信值的释放和使用，同时保留 agent 驱动的多轮规划和工具选择。在这一有限接口上，我们证明了两个完整性定理，并在 Lean 4 中进行了机器检查；二者共同保证，源自环境的记忆只有在门控处得到确认后才会到达敏感动作，并且它对 agent 行为的影响仅通过门控向用户显示的内容产生。在我们的威胁模型下，每一种攻击都因此归约为一个可审计的决定，而人类、LLM 验证器或二者可以在实践中作出该决定。在 Trojan Hippo 上，PerMIT 配合自验证和轻量级验证器，观察到的攻击成功率为零。由于每次确认都是对精确内容记录的判定，背书可以跨用户累积；得到足够背书的项目可以被社区确认，无需进一步验证。在明确假设下，我们证明并通过模拟验证了共同扩展性质：随着社区规模扩大，提升投毒内容的风险和错误驱逐良性知识的风险都会下降，而每个用户的验证工作量不会增加。在 ℝ²-bench 上，最多 90 个自治 agent 使用 PerMIT 构建共享知识库，没有直接的记忆注入被提升；得到的知识显著改善了新 agent 在留出任务上的表现，这为测试时安全自我改进的 agent 提供了一条路径。",
+      "published": "2026-10-20",
+      "author_line": "Tanqiu Jiang, Min Bai, Sadat Shahriar, Wanyu Du, Sandesh Swamy"
+    },
+    {
+      "id": "arxiv:2610.30114v1",
+      "channel": "aixmath",
+      "related_channels": [],
+      "item_type": "paper",
+      "source": "arXiv",
+      "title": "The End of Consensus Research?",
+      "url": "https://arxiv.org/abs/2610.30114v1",
+      "published_at": "2026-10-21",
+      "updated_at": "2026-10-21",
+      "creators": [
+        "Clément Burgelin",
+        "Rachid Guerraoui",
+        "Zicong Hong",
+        "Yinan Hu",
+        "Anne-Marie Kermarrec",
+        "Rafael Pires",
+        "Rasmus Moorits Veski",
+        "Martijn de Vos"
+      ],
+      "language": "en",
+      "abstract_or_text": "Consensus is a fundamental problem in distributed computing and at the core of state machine replication (SMR). Despite decades of active human research, discovering practical low-latency solutions to the problem is still open, as it requires combining protocol knowledge, correctness reasoning, implementation, and experimental evaluation. We report on how AI helped us discover A-greement, a new consensus protocol for geo-replicated state machines that significantly outperforms state-of-the-art solutions. Averaged across six deployments with 5 or 9 replicas, A-greement reduces the mean latency of a geo-distributed key-value store over the fastest baseline by 12.2% and 33.3% on write-heavy and read-heavy workloads, respectively, and matches the fastest baseline on read-only workloads. A-greement combines lease-authorized local reads, direct client learning for leader-ordered writes, and a fast fixed-quorum per-key write path, selected according to network topology and workload. At the heart of our discovery lies AI-greement, an agent harness for the \"autonomous\" discovery, implementation, experimentation, and verification of candidate protocols. AI-greement integrates (1) a concept-oriented protocol knowledge base, (2) a modular implementation skeleton, and (3) a Lean-based verification framework with reusable safety definitions, reference specifications, and proofs. AI-greement is of independent interest: its Lean formalization uncovers several previously unreported vulnerabilities in existing consensus protocols, and it provides guidelines on how domain-specific harnesses can turn general-purpose coding agents into effective tools for (distributed) computing research. Yet we argue that human consensus experts remain essential before, during, and after the search: agents reshape the researcher's role rather than end consensus research.",
+      "summary_zh": "报告 AI-greement 发现并实现 A-greement 共识协议，并用 Lean 验证安全性质；在六种部署和不同读写负载下，平均延迟较最快基线降低 12.2% 或 33.3%，同时指出人类专家仍不可替代。",
+      "why_it_matters_zh": "把协议搜索、实现、实验和 Lean 验证放在同一 harness 中，性能结果有多部署对照；论文明确限制了“自主发现”的含义，避免夸大模型独立完成研究。",
+      "quality_score": 75.0,
+      "tags": [
+        "形式化验证",
+        "分布式共识",
+        "AI 科研"
+      ],
+      "evidence_flags": [
+        "experimental",
+        "state-of-the-art",
+        "evaluation"
+      ],
+      "publication_status": "preprint",
+      "rank": 10,
+      "featured": false,
+      "category": "形式化验证",
+      "metrics": {},
+      "metadata": {
+        "doi": "",
+        "arxiv_id": "2610.30114v1"
+      },
+      "abstract_zh": "共识是分布式计算中的一个基础问题，也是状态机复制（SMR）的核心。尽管人类研究了数十年，发现适用于实际场景的低延迟方案仍然开放，因为这需要结合协议知识、正确性推理、实现和实验评估。我们报告 AI 帮助发现了新的共识协议 A-greement，该协议显著优于现有的地理复制方案。在六种部署、5 个或 9 个副本的设置下，A-greement 使地理分布式键值存储的平均延迟相对于最快基线，在写密集和读密集负载下分别降低 12.2% 和 33.3%；在只读负载下与最快基线持平。A-greement 结合了租约授权的本地读取、客户端对领导者排序写入的直接学习，以及按键的快速固定法定人数写入路径，这些机制根据网络拓扑和工作负载进行选择。其发现过程的核心是 AI-greement，一个用于“自主”发现、实现、实验和验证候选协议的 agent harness。AI-greement 集成了：（1）面向概念的协议知识库；（2）模块化实现骨架；（3）基于 Lean 的验证框架，其中包含可复用的安全定义、参考规格和证明。AI-greement 本身也具有独立价值：其 Lean 形式化揭示了现有共识协议中此前未报告的若干漏洞，并为如何构建领域专用 harness、把通用 coding agent 转化为分布式计算研究工具提供了指导。不过，我们认为，在搜索之前、搜索期间和搜索之后，人类共识专家仍然不可或缺；agent 改变的是研究者的角色，而不是终结共识研究。",
+      "published": "2026-10-21",
+      "author_line": "Clément Burgelin, Rachid Guerraoui, Zicong Hong, Yinan Hu, Anne-Marie Kermarrec, Rafael Pires, Rasmus Moorits Veski, Martijn de Vos"
+    },
+    {
+      "id": "arxiv:2610.29271v1",
+      "channel": "aixmath",
+      "related_channels": [],
+      "item_type": "paper",
+      "source": "arXiv",
+      "title": "ARCANA: A Benchmark for Abstraction and Analogical Reasoning",
+      "url": "https://arxiv.org/abs/2610.29271v1",
+      "published_at": "2026-10-21",
+      "updated_at": "2026-10-21",
+      "creators": [
+        "Ruqi Chen",
+        "Zilei Wang",
+        "Wei Wang"
+      ],
+      "language": "en",
+      "abstract_or_text": "Analogical reasoning is widely considered a fundamental component of human intelligence. Few benchmarks are designed to explicitly test far analogical reasoning - reasoning between domains that are superficially dissimilar yet share deep relational or structural similarities. In this work, we introduce an analogical reasoning benchmark called Abstraction and Reasoning Corpus of ANAlogy (ARCANA). The tasks of ARCANA require performing far analogical mappings from real-world objects or physical phenomena to abstract grid-based transformations, different from the well-known ARC-AGI benchmark which primarily emphasized innate human priors. We validate ARCANA through a human study, demonstrating that humans solve these tasks reliably. In contrast, evaluations across a range of large language models show a distinct performance gap compared to humans, revealing systematic failure modes that remain challenging for current models. To address this gap, we propose ConceptSIR, a reasoning framework based on concept slippage, introspection, and reflection. Experiments demonstrate that ConceptSIR enables standard LLMs to solve several challenging ARCANA tasks that were unsolved by direct prompting in our evaluation. Overall, our results suggest that far analogical reasoning remains an open problem for contemporary LLMs. All the materials are available at sites.google.com/view/arcanacogtest. The complete codebase, including benchmark, and ConceptSIR, is publicly available at https://github.com/density-11/arcana-test. All ARCANA data and task instances can be accessed and explored at https://arcanacogtest.org/.",
+      "summary_zh": "提出 ARCANA 远距离类比推理基准，经过人类研究验证，并系统评测多种 LLM 与 ConceptSIR；模型与人类存在明显差距，但 ConceptSIR 能解出直接提示未解的一些任务。",
+      "why_it_matters_zh": "任务要求跨表面不同领域进行结构映射，且有人工可解性验证、模型对照和公开代码数据，能较清楚地检验抽象推理而非只看最终答案。",
+      "quality_score": 75.0,
+      "tags": [
+        "数学推理",
+        "类比推理",
+        "基准评测"
+      ],
+      "evidence_flags": [
+        "benchmark",
+        "github",
+        "evaluation",
+        "performance"
+      ],
+      "publication_status": "preprint",
+      "rank": 11,
+      "featured": false,
+      "category": "数学推理",
+      "metrics": {},
+      "metadata": {
+        "doi": "",
+        "arxiv_id": "2610.29271v1"
+      },
+      "abstract_zh": "类比推理通常被认为是人类智能的基本组成部分。很少有基准明确测试远距离类比推理——即在表面上不相似、但具有深层关系或结构相似性的领域之间进行推理。在这项工作中，我们提出一个名为 Abstraction and Reasoning Corpus of ANAlogy（ARCANA）的类比推理基准。ARCANA 的任务要求将现实世界物体或物理现象映射为基于抽象网格的变换，这不同于广为人知的 ARC-AGI 基准，后者主要强调人类的先天先验。我们通过人类研究验证 ARCANA，证明人类能够可靠地解决这些任务。相比之下，对多种大语言模型的评测显示，模型与人类之间存在明显的性能差距，并暴露出当前模型仍然困难的系统性失败模式。为缩小这一差距，我们提出 ConceptSIR，一种结合概念滑移、内省和反思的推理框架。实验表明，ConceptSIR 使标准 LLM 能够解决若干在我们的评测中通过直接提示尚未解决的 ARCANA 任务。总体而言，我们的结果表明，远距离类比推理仍是当代 LLM 的开放问题。所有材料见 sites.google.com/view/arcanacogtest。完整代码库（包括基准和 ConceptSIR）公开于 https://github.com/density-11/arcana-test。所有 ARCANA 数据和任务实例都可在 https://arcanacogtest.org/ 获取。",
+      "published": "2026-10-21",
+      "author_line": "Ruqi Chen, Zilei Wang, Wei Wang"
+    },
+    {
+      "id": "arxiv:2610.29145v1",
+      "channel": "aixmath",
+      "related_channels": [],
+      "item_type": "paper",
+      "source": "arXiv",
+      "title": "ORSMT: Unleashing the Potential of Satisfiability Modulo Theories for Semantic Verification and Repair in LLM-Based Optimization",
+      "url": "https://arxiv.org/abs/2610.29145v1",
+      "published_at": "2026-10-21",
+      "updated_at": "2026-10-21",
+      "creators": [
+        "Rui Zhang",
+        "Chenyu Zhou",
+        "Jianghao Lin",
+        "Yaoxin Wu",
+        "Dongdong Ge",
+        "Wen Song"
+      ],
+      "language": "en",
+      "abstract_or_text": "Large language models increasingly automate optimization modeling from natural language problems, producing written mathematics, solver code and a returned report. Verifying one optimization problem across these artifacts requires semantic comparison: unequal models can attain the same objective, equivalent models can use different auxiliary variables, and mutually consistent artifacts can omit the same source requirement. ORSMT provides a typed semantic interface and exact SMT relation queries. It aligns observable decisions, projects auxiliary variables, proves or refutes feasible region and objective relations, localizes refutations to implicated rows or domains and links source texts when available. It then reconstructs one artifact from another, and each adopted candidate passes the required relation checks. Across 3,034 problems and six generator sizes, ORSMT improves the model-code match rate in all 72 benchmark and generator combinations before selection. Protected selection raises the aggregate rate from 43.2% to 88.2% and the share that are both correct and matched from 25.2% to 40.2%. On the 1,905 refuted outputs, certified voting under the shared fallback makes 50.9% of outputs correct and matched, compared with 44.8% for ReLoop and 49.4% for Opt-Verifier. A separate one-round source revision followed by exact reconstruction restores a model-code match for 84.4% of the refuted pairs.",
+      "summary_zh": "提出 ORSMT，对自然语言优化题生成的数学模型、求解器代码和报告进行类型化语义对齐，并用精确 SMT 关系查询定位或修复不一致；在 3,034 个问题上显著提高模型—代码匹配率。",
+      "why_it_matters_zh": "把“等价模型”与“文字、模型、代码、报告一致”区分开来，验证关系可由 SMT 精确检查；基准规模和修复结果提供了可量化证据。",
+      "quality_score": 73.0,
+      "tags": [
+        "形式化验证",
+        "SMT",
+        "优化建模",
+        "语义一致性"
+      ],
+      "evidence_flags": [
+        "benchmark"
+      ],
+      "publication_status": "preprint",
+      "rank": 12,
+      "featured": false,
+      "category": "形式化验证",
+      "metrics": {},
+      "metadata": {
+        "doi": "",
+        "arxiv_id": "2610.29145v1"
+      },
+      "abstract_zh": "大语言模型越来越多地从自然语言问题自动生成优化模型、求解器代码和返回报告。要验证同一个优化问题在这些产物中的一致性，需要进行语义比较：不同的模型可能达到相同的目标，等价模型可能使用不同的辅助变量，而相互一致的产物也可能共同遗漏源文本中的某项要求。ORSMT 提供一个类型化语义接口和精确的 SMT 关系查询。它对齐可观测决策，投影辅助变量，证明或反驳可行域和目标之间的关系，将反驳定位到相关行或域，并在可用时链接源文本。随后它从一个产物重构另一个产物，而每个被采纳的候选都必须通过所需的关系检查。在 3,034 个问题和六种生成器规模上，ORSMT 在选择前的全部 72 个“基准×生成器”组合中都提高了模型—代码匹配率。受保护的选择将总体匹配率从 43.2% 提高到 88.2%，同时正确且匹配的比例从 25.2% 提高到 40.2%。在 1,905 个被反驳的输出上，共享回退机制下的认证投票使 50.9% 的输出正确且匹配，相比之下 ReLoop 为 44.8%，Opt-Verifier 为 49.4%。另一个单轮源文本修订再加精确重构的流程，使 84.4% 的被反驳配对恢复了模型—代码匹配。",
+      "published": "2026-10-21",
+      "author_line": "Rui Zhang, Chenyu Zhou, Jianghao Lin, Yaoxin Wu, Dongdong Ge, Wen Song"
+    },
+    {
+      "id": "arxiv:2610.28937v1",
+      "channel": "aixmath",
+      "related_channels": [],
+      "item_type": "paper",
+      "source": "arXiv",
+      "title": "Auditing Conformal Prediction for Language Models Under Inference-Time Model Shift",
+      "url": "https://arxiv.org/abs/2610.28937v1",
+      "published_at": "2026-10-20",
+      "updated_at": "2026-10-20",
+      "creators": [
+        "Achref Doula",
+        "Max Mühlhäuser"
+      ],
+      "language": "en",
+      "abstract_or_text": "Conformal prediction (CP) for language models is typically evaluated under a matched protocol, in which calibration and deployment use the same post-training inference configuration, such as quantization mode and inference temperature. In deployment, these choices often differ from those used at calibration to meet memory or throughput constraints or serving policies. We argue that this exposes a limitation in current CP evaluation protocols for language models. We formalize the underlying phenomenon as inference-time model shift: a change in the conformal score distribution induced by inference configuration rather than by the input--label distribution, and theoretically characterize how it breaks split-conformal exchangeability even when the task distribution and trained model are unchanged. We then evaluate its consequences across 8 language models, 4 finite-label benchmarks, and 12 inference configurations. We find that matched evaluation can substantially overstate deployment-time coverage, and that the effect is heterogeneous across models and datasets. We argue that inference configuration should be reported as a first-class experimental axis in CP evaluations for language-model systems.",
+      "summary_zh": "形式化分析推理时模型配置变化如何破坏语言模型 conformal prediction 的交换性，并在 8 个模型、4 个有限标签基准和 12 种配置上评测部署覆盖率。",
+      "why_it_matters_zh": "给出明确的分布偏移定义和理论后果，并用多模型、多数据集、多推理配置验证；结论是评测协议需报告配置轴，而非声称 conformal prediction 普遍失效。",
+      "quality_score": 73.0,
+      "tags": [
+        "形式化验证",
+        "统计推理",
+        "模型校准",
+        "评测审计"
+      ],
+      "evidence_flags": [
+        "benchmark",
+        "dataset",
+        "experimental",
+        "evaluation"
+      ],
+      "publication_status": "preprint",
+      "rank": 13,
+      "featured": false,
+      "category": "形式化验证",
+      "metrics": {},
+      "metadata": {
+        "doi": "",
+        "arxiv_id": "2610.28937v1"
+      },
+      "abstract_zh": "语言模型的 conformal prediction（CP）通常在匹配协议下评估，即校准和部署使用相同的后训练推理配置，例如量化模式和推理温度。在部署中，这些选择常常会不同于校准时的设置，以满足内存或吞吐要求，或遵循服务策略。我们认为，这暴露了当前语言模型 CP 评测协议的一个局限。我们把这一现象形式化为推理时模型偏移：由推理配置改变而引起 conformal score 分布变化，而输入—标签分布保持不变；并从理论上刻画了它如何破坏 split-conformal 的交换性，即使任务分布和训练好的模型都没有变化。随后，我们在 8 个语言模型、4 个有限标签基准和 12 种推理配置上评估其后果。我们发现，匹配配置下的评测可能显著高估部署时覆盖率，而且这种影响在不同模型和数据集之间并不一致。我们主张，在 CP 评测中应把推理配置作为一个需要单独报告的实验轴。",
+      "published": "2026-10-20",
+      "author_line": "Achref Doula, Max Mühlhäuser"
+    },
+    {
+      "id": "arxiv:2610.31130v1",
+      "channel": "aixmath",
+      "related_channels": [],
+      "item_type": "paper",
+      "source": "arXiv",
+      "title": "Post-Audit Mirage: Identifiability Limits of Offline Agent Verification",
+      "url": "https://arxiv.org/abs/2610.31130v1",
+      "published_at": "2026-10-22",
+      "updated_at": "2026-10-22",
+      "creators": [
+        "Aman Behera",
+        "Payal Payal"
+      ],
+      "language": "en",
+      "abstract_or_text": "Offline tests can fail to reveal whether an agent update will remain safe after deployment. We operationalize this post-audit mirage using matched safe and harmful lifecycles that expose identical verifier-visible evidence while an isolated scorer records opposite deployment truth. Our theorem applies standard observational-equivalence and indistinguishability ideas to this executable audit boundary and states the resulting error-abstention tradeoff. The Post-Audit Mirage benchmark makes that boundary executable across authorization, scheduling, and shared-capacity environments. IdentifiedRangeMonitor uses fresh group-labelled harm outcomes to return deploy, hold, cannot determine, or unsupported. Experiments show that monitoring can recover the missing distinction in favorable settings but may remain undecided for rare groups, small effects, or missing observations. Verifier-agent evaluation must therefore test both calculation validity and whether the available evidence supports the deployment decision.",
+      "summary_zh": "用可执行基准研究离线验证无法区分部署中安全与有害生命周期的情形，给出错误—弃权权衡定理，并用 IdentifiedRangeMonitor 输出 deploy、hold、cannot determine 或 unsupported。",
+      "why_it_matters_zh": "把“证据是否足以支持部署决策”与单纯的计算正确性分开，定理和基准都可检验；对验证 agent 的能力边界给出了克制的刻画。",
+      "quality_score": 72.0,
+      "tags": [
+        "数学推理",
+        "可识别性",
+        "验证评测"
+      ],
+      "evidence_flags": [
+        "benchmark",
+        "evaluation"
+      ],
+      "publication_status": "preprint",
+      "rank": 14,
+      "featured": false,
+      "category": "数学推理",
+      "metrics": {},
+      "metadata": {
+        "doi": "",
+        "arxiv_id": "2610.31130v1"
+      },
+      "abstract_zh": "离线测试可能无法揭示 agent 更新在部署后是否仍然安全。我们通过匹配的安全与有害生命周期来操作化这一“事后审计幻象”：两者向验证器呈现完全相同的可见证据，而隔离的评分器记录相反的部署真值。我们的定理将标准的观测等价和不可区分性思想应用于这一可执行的审计边界，并陈述相应的错误—弃权权衡。Post-Audit Mirage 基准使这一边界在授权、调度和共享容量环境中可执行。IdentifiedRangeMonitor 使用带有新鲜分组标签的危害结果，返回 deploy、hold、cannot determine 或 unsupported。当条件有利时，监控可以恢复缺失的区分；但对于稀有群体、效应较小或观测缺失的情形，它可能仍然无法作出决定。因此，对验证 agent 的评估必须同时测试计算有效性，以及现有证据是否足以支持部署决策。",
+      "published": "2026-10-22",
+      "author_line": "Aman Behera, Payal Payal"
+    },
+    {
+      "id": "arxiv:2610.30853v1",
+      "channel": "aixmath",
+      "related_channels": [],
+      "item_type": "paper",
+      "source": "arXiv",
+      "title": "Training Mixed-Monotone Neural Networks for Verification Without Set Propagation",
+      "url": "https://arxiv.org/abs/2610.30853v1",
+      "published_at": "2026-10-22",
+      "updated_at": "2026-10-22",
+      "creators": [
+        "Jonas Fingerhut",
+        "Lukas Koller",
+        "Matthias Althoff"
+      ],
+      "language": "en",
+      "abstract_or_text": "Most formal verification approaches for neural networks conservatively enclose the output set of the neural network. However, computing a tight output enclosure is in general computationally hard. We sidestep this challenge with a novel neural network architecture that realizes mixed-monotone functions as the difference of monotone subnetworks. By utilizing the theory on mixed-monotone systems, this reduces the computation of a tight output enclosure from complicated set propagation to two simple forward passes of opposite corners of an input interval. Moreover, because the size of the resulting enclosure is a closed-form function of the weights of the neural network, we can directly minimize it during training. We prove a lower bound on the size of any such enclosure, given by the total variation of the represented function generalized to several inputs, which makes it possible to compare the tightness of the enclosure against the optimum. Our evaluation on regression and dynamical-system benchmarks demonstrates that our training reduces the enclosure size to within 0.5% of the lower bound without sacrificing prediction accuracy. Computing our enclosure is orders of magnitude faster than CROWN and α-CROWN and on deep networks it is also tighter than zonotope propagation and CROWN, while its size exceeds that of α-CROWN by only 5.1%.",
+      "summary_zh": "构造以单调子网络之差表示 mixed-monotone 函数的神经网络，从而用输入区间两个对角点的前向传播得到输出包络；在回归和动力系统基准上把包络大小压到理论下界 0.5% 以内。",
+      "why_it_matters_zh": "同时给出结构性证明、理论下界和速度/紧致度对照，验证结果可复算；重点是网络可验证性，不应解读为模型具有一般数学推理能力。",
+      "quality_score": 72.0,
+      "tags": [
+        "形式化验证",
+        "神经网络",
+        "混合单调性",
+        "理论下界"
+      ],
+      "evidence_flags": [
+        "benchmark",
+        "evaluation"
+      ],
+      "publication_status": "preprint",
+      "rank": 15,
+      "featured": false,
+      "category": "形式化验证",
+      "metrics": {},
+      "metadata": {
+        "doi": "",
+        "arxiv_id": "2610.30853v1"
+      },
+      "abstract_zh": "大多数神经网络形式化验证方法都会保守地包围神经网络的输出集合。然而，计算紧的输出包络一般在计算上是困难的。我们通过一种新颖的神经网络架构避开这一挑战：该架构把 mixed-monotone 函数实现为两个单调子网络之差。利用 mixed-monotone 系统理论，这会把紧输出包络的计算从复杂的集合传播，化为对输入区间两个相反角点进行两次简单的前向传播。此外，由于所得包络的大小是神经网络权重的闭式函数，我们可以在训练过程中直接最小化它。我们证明了任意此类包络大小的一个下界，该下界由所表示函数的总变差给出，并推广到多个输入，因此可以把包络紧致度与最优值进行比较。在回归和动力系统基准上的评测显示，我们的训练在不牺牲预测精度的情况下，将包络大小降低到距离下界 0.5% 以内。计算该包络的速度比 CROWN 和 α-CROWN 快数个数量级；在深度网络上，它也比 zonotope propagation 和 CROWN 更紧，而包络大小只比 α-CROWN 高 5.1%。",
+      "published": "2026-10-22",
+      "author_line": "Jonas Fingerhut, Lukas Koller, Matthias Althoff"
+    },
+    {
+      "id": "arxiv:2610.29046v1",
+      "channel": "aixmath",
+      "related_channels": [
+        "aixchem"
+      ],
+      "item_type": "paper",
+      "source": "arXiv",
+      "title": "AutoFraming: Synthesizing Dynamic Frames of C Code with LLMs",
+      "url": "https://arxiv.org/abs/2610.29046v1",
+      "published_at": "2026-10-21",
+      "updated_at": "2026-10-21",
+      "creators": [
+        "Han Zhou",
+        "Yu Luo",
+        "Dianxiang Xu"
+      ],
+      "language": "en",
+      "abstract_or_text": "Large language models (LLMs) have shown considerable promise in synthesizing formal specifications from source code. However, existing approaches primarily focus on functional contracts and loop invariants, while largely neglecting frame conditions, which specify the memory locations that may or may not be modified during execution and constitute an essential part of formal specifications. To address this limitation, we propose an LLM-based approach for synthesizing ACSL frame specifications alongside functional contracts from C code. Our approach analyzes code property graphs (CPGs) to extract frame-relevant information from the input code and leverages this information to guide the LLM in generating accurate frame conditions. The resulting specifications capture both region-separation constraints and data dependencies that govern variable modifications. Experimental results demonstrate the effectiveness of our approach. On a benchmark of 84 ACSL-compliant functions from non-trivial real-world systems, our method successfully synthesizes error-free frame specifications for 92.9% of the functions, representing a 179% relative improvement over state-of-the-art techniques. On a second benchmark consisting of 51 functions, the success rate increases from 80.4% to 96.1%. Furthermore, when integrated as an auxiliary component into existing LLM-based ACSL-synthesis frameworks, our approach improves frame-specification generation performance by up to 61.9%.",
+      "summary_zh": "提出 AutoFraming，从 C 代码属性图中提取帧条件信息，并用 LLM 综合 ACSL 动态 frame specifications；在两个函数基准上分别达到 92.9% 和 96.1% 的无错误生成率。",
+      "why_it_matters_zh": "聚焦常被忽略但可机器检查的内存修改规范，任务定义和两个基准清楚；性能提升幅度较大，但仍需关注基准规模与跨项目泛化。",
+      "quality_score": 72.0,
+      "tags": [
+        "形式化验证",
+        "C 语言",
+        "ACSL",
+        "规范综合"
+      ],
+      "evidence_flags": [
+        "benchmark",
+        "experimental",
+        "state-of-the-art",
+        "performance"
+      ],
+      "publication_status": "preprint",
+      "rank": 16,
+      "featured": false,
+      "category": "形式化验证",
+      "metrics": {},
+      "metadata": {
+        "doi": "",
+        "arxiv_id": "2610.29046v1"
+      },
+      "abstract_zh": "大语言模型（LLM）在从源代码综合形式化规范方面显示出相当潜力。然而，现有方法主要关注功能契约和循环不变量，在很大程度上忽视了帧条件；帧条件规定执行期间可能或不可能被修改的内存位置，是形式化规范的重要组成部分。为解决这一局限，我们提出一种基于 LLM 的方法，从 C 代码中综合 ACSL 帧规范以及功能契约。我们的方法分析代码属性图（CPG），从输入代码中提取与帧相关的信息，并利用这些信息引导 LLM 生成准确的帧条件。生成的规范同时捕获区域分离约束和控制变量修改的数据依赖。在一个包含 84 个来自非平凡真实系统、符合 ACSL 的函数基准上，我们的方法为 92.9% 的函数成功综合出无错误帧规范，相比现有最先进技术相对提高 179%。在第二个包含 51 个函数的基准上，成功率从 80.4% 提高到 96.1%。此外，当作为现有基于 LLM 的 ACSL 综合框架的辅助组件时，我们的方法使帧规范生成性能最高提高 61.9%。",
+      "published": "2026-10-21",
+      "author_line": "Han Zhou, Yu Luo, Dianxiang Xu"
+    }
+  ],
+  "review": {
+    "model": "gpt-5.6-terra",
+    "reasoning_effort": "high",
+    "note": "从 60 项候选中选出 16 项，均达到质量分 70 及以上，优先保留具有明确任务、可复核评测、形式化证明或机器检查结果的工作。候选均为公开的 arXiv 预印本；未发现 OpenReview 撤回稿。已按 2026-10-23 之前的综合日报归档核对报导身份，未发现需要抑制的重复项。"
+  }
+}

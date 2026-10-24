@@ -1,64 +1,65 @@
 {
   "schema_version": "2.0",
-  "date": "2026-10-24",
+  "date": "2026-10-25",
   "channel": "aivoices",
-  "generated_at": "2026-10-24T17:09:24+00:00",
+  "generated_at": "2026-10-24T22:11:54+00:00",
   "title": "AI Voices 每日精选",
   "subtitle": "研究者公开观点、研究发布与重要讨论。",
   "window": {
-    "start": "2026-10-21",
-    "end": "2026-10-24"
+    "start": "2026-10-22",
+    "end": "2026-10-25"
   },
   "method": "公开来源采集、历史去重、规则筛选与模型审阅",
   "method_note": "系统保存当日公开元数据，与历史日报核验后排除已报道事件；论文新版本、新修订及不同软件发布等可核实更新仍可入选，随后由指定模型阅读全文摘要并完成精选。",
   "stats": {
-    "fetched": 82,
-    "suppressed_previous": 9,
-    "candidates": 60,
-    "selected": 10,
+    "fetched": 67,
+    "suppressed_previous": 11,
+    "candidates": 56,
+    "selected": 7,
     "sources": {
-      "X": 44,
-      "Research blogs": 38
+      "X": 43,
+      "Research blogs": 24
     }
   },
   "source_status": {
     "X": {
       "state": "ok",
-      "count": 44
+      "count": 43
     },
     "Research blogs": {
       "state": "ok",
-      "count": 38
+      "count": 24
     }
   },
   "source_errors": [],
   "items": [
     {
-      "id": "x:2113718797505036665",
+      "id": "x:2113766354386084338",
       "channel": "aivoices",
       "related_channels": [],
       "item_type": "social_post",
       "source": "X",
-      "title": "@OpenAI：Over the past several months, we have substantially hardened the security of our research training environment. We’ve re",
-      "url": "https://x.com/OpenAI/status/2113718797505036665",
-      "published_at": "2026-10-23T19:46:46Z",
-      "updated_at": "2026-10-23T19:46:46Z",
+      "title": "@OpenAI：During this red-teaming exercise, we also found a vulnerability that allows for unauthenticated remote code execution in",
+      "url": "https://x.com/OpenAI/status/2113766354386084338",
+      "published_at": "2026-10-23T22:55:45Z",
+      "updated_at": "2026-10-23T22:55:45Z",
       "creators": [
         "OpenAI"
       ],
       "language": "en",
-      "abstract_or_text": "Over the past several months, we have substantially hardened the security of our research training environment. We’ve removed live internet access for all frontier models during training and built an offline world for them to use instead—a cached version of the web where they can still learn to browse, search, and use applications. On September 20, after a model exploited a DNS misconfiguration to find a way outside of this offline world, we paused frontier training to strengthen containment further. We assembled teams of agents, powered by our most cyber-capable models, and tasked them with finding weaknesses in our research environments. While they found no route to the internet they could easily exploit while concealing their activity from our monitors, they did find zero-day vulnerabilities, virtual machine escapes, and hardware side-channels for communication between agents. We used their discoveries to further strengthen our defenses and contribute fixes to open-source software. After strengthening our containment architecture, we resumed our frontier RL training and inference on October 1. We’ve reserved substantial compute for continuous red-teaming, and made high-compute red-teaming part of the safety cases we use to decide whether frontier training and evaluation can proceed securely.",
-      "summary_zh": "OpenAI称其通过离线训练环境、持续高算力红队测试和代理式漏洞挖掘，强化了前沿模型训练与推理的隔离安全。",
-      "why_it_matters_zh": "这是官方对训练基础设施安全实践的直接披露，包含事件触发、缓解措施和持续评估机制；具体漏洞细节仍应以正式安全公告为准。",
-      "quality_score": 76.0,
+      "abstract_or_text": "During this red-teaming exercise, we also found a vulnerability that allows for unauthenticated remote code execution in Brotli, a widely-deployed compression library included in many pieces of software such as Node.js, Bun, and Envoy. The flaw could let an attacker run their own code on affected systems by sending or replying with malicious compressed data, without any need to create a user account. That is, an unpatched server that accepts compressed input could be taken over by a malicious client, and an unpatched client that accepts compressed input (such as “curl --compressed”) could be taken over by a malicious server. This root cause issue was actually fixed in the Brotli source code in February, but it wasn’t known at the time that it gave rise to a security vulnerability and there was no more recent release of Brotli. Since Brotli is built into other software, any software which includes this library needs to take the update too, followed by the users of that software. We disclosed the vulnerability to Brotli and other downstream projects such as Node.js, which released or are currently releasing security updates, and Brotli cut new release versions and published a CVE.",
+      "summary_zh": "OpenAI 披露，其红队测试发现 Brotli 压缩库存在可导致未经身份验证远程代码执行的漏洞，并推动 Brotli、Node.js 等下游项目发布修复。",
+      "why_it_matters_zh": "编辑判断：该披露把模型红队测试与底层依赖漏洞响应联系起来，给出了受影响组件、攻击面和修复路径；具体 CVE 细节仍应以官方安全公告为准。",
+      "quality_score": 73.0,
       "tags": [
         "安全研究",
-        "模型安全",
+        "漏洞披露",
         "红队测试",
-        "训练基础设施"
+        "软件供应链",
+        "远程代码执行"
       ],
       "evidence_flags": [
-        "evaluation",
+        "release",
         "security"
       ],
       "publication_status": "public_post",
@@ -66,419 +67,296 @@
       "featured": true,
       "category": "安全研究",
       "metrics": {
-        "like_count": 11826,
-        "repost_count": 1024,
-        "reply_count": 982,
-        "quote_count": 1058
+        "like_count": 6139,
+        "repost_count": 864,
+        "reply_count": 436,
+        "quote_count": 420
       },
       "metadata": {
-        "post_id": "2113718797505036665",
+        "post_id": "2113766354386084338",
         "username": "OpenAI",
         "query_kind": "accounts",
         "harvest": "grok.x.search"
       },
-      "abstract_zh": "过去数月，我们大幅强化了研究训练环境的安全性。我们移除了所有前沿模型在训练期间的实时互联网访问，改为构建一个离线世界——一个缓存版网页，模型仍可在其中学习浏览、搜索和使用应用程序。9月20日，一款模型利用 DNS 配置错误找到了离开这个离线世界的方法；我们因此暂停前沿训练，以进一步加强隔离。我们组建了由网络安全能力最强的模型驱动的代理团队，让它们寻找研究环境中的弱点。它们没有找到能够在隐藏活动的同时轻易利用的互联网通路，但发现了零日漏洞、虚拟机逃逸，以及用于代理间通信的硬件侧信道。我们利用这些发现进一步强化防御，并为开源软件贡献修复。在加强隔离架构后，我们于10月1日恢复了前沿强化学习训练和推理。我们预留了大量算力进行持续红队测试，并把高算力红队测试纳入决定前沿训练和评估能否安全进行的安全论证。",
+      "abstract_zh": "在这次红队测试中，我们还发现 Brotli（广泛部署的压缩库，Node.js、Bun 和 Envoy 等许多软件都包含它）存在一个允许未经身份验证的远程代码执行漏洞。攻击者只需发送或回复恶意压缩数据，无需创建账户，即可运行自己的代码。也就是说，接受压缩输入的未打补丁服务器可能被恶意客户端接管；接受压缩输入的未打补丁客户端（例如使用 curl --compressed 的客户端）也可能被恶意服务器接管。这个根因问题其实已于 2 月在 Brotli 源码中修复，但当时尚未意识到它会导致安全漏洞，而且 Brotli 此后没有发布更新版本。由于 Brotli 被集成到其他软件中，所有包含该库的软件都需要更新，其用户随后也需要更新。我们已向 Brotli 及 Node.js 等下游项目披露该漏洞；Node.js 已发布或正在发布安全更新，Brotli 也发布了新版本并公布了 CVE。",
       "published": "2026-10-23",
       "author_line": "OpenAI"
     },
     {
-      "id": "x:2113677853355295200",
-      "channel": "aivoices",
-      "related_channels": [],
-      "item_type": "social_post",
-      "source": "X",
-      "title": "@IFM_AI：The most detailed open LLM data release yet: K2 Horizon's pre-training data and post-training data-generation pipelines ",
-      "url": "https://x.com/IFM_AI/status/2113677853355295200",
-      "published_at": "2026-10-23T17:04:05Z",
-      "updated_at": "2026-10-23T17:04:05Z",
-      "creators": [
-        "Institute of Foundation Models"
-      ],
-      "language": "en",
-      "abstract_or_text": "The most detailed open LLM data release yet: K2 Horizon's pre-training data and post-training data-generation pipelines are now open! 13 trillion pre-training tokens across 5 datasets and 24 subsets. Over 10 trillion tokens of synthetic data spanning mathematics, reasoning, coding, planning, and problem-solving.",
-      "summary_zh": "Institute of Foundation Models宣布开放K2 Horizon的预训练数据与后训练数据生成流程，规模包括13万亿预训练token和超过10万亿合成数据。",
-      "why_it_matters_zh": "公开数据配方和生成流程有助于研究者复现实验、分析数据构成并评估大模型训练的可扩展性；帖文未提供数据下载与许可证细节。",
-      "quality_score": 76.0,
-      "tags": [
-        "数据发布",
-        "开放数据",
-        "预训练",
-        "合成数据"
-      ],
-      "evidence_flags": [
-        "dataset",
-        "release"
-      ],
-      "publication_status": "public_post",
-      "rank": 2,
-      "featured": true,
-      "category": "数据发布",
-      "metrics": {
-        "like_count": 328,
-        "repost_count": 53,
-        "reply_count": 15,
-        "quote_count": 15
-      },
-      "metadata": {
-        "post_id": "2113677853355295200",
-        "username": "IFM_AI",
-        "query_kind": "topics",
-        "harvest": "grok.x.search"
-      },
-      "abstract_zh": "目前最详尽的开放式 LLM 数据发布：K2 Horizon 的预训练数据和后训练数据生成流程现已开放！预训练数据共计13万亿个 token，分布在5个数据集和24个子集之中；合成数据超过10万亿个 token，涵盖数学、推理、编程、规划和问题求解。",
-      "published": "2026-10-23",
-      "author_line": "Institute of Foundation Models"
-    },
-    {
-      "id": "x:2113395639224770872",
+      "id": "x:2113624758080159787",
       "channel": "aivoices",
       "related_channels": [
-        "aixbio"
+        "aixbio",
+        "aixchem"
       ],
       "item_type": "social_post",
       "source": "X",
-      "title": "@pdhsu：Delighted to share a landmark preprint from our lab, using genome language models and AI agents for biological discovery",
-      "url": "https://x.com/pdhsu/status/2113395639224770872",
-      "published_at": "2026-10-22T22:22:40Z",
-      "updated_at": "2026-10-22T22:22:40Z",
-      "creators": [
-        "Patrick Hsu"
-      ],
-      "language": "en",
-      "abstract_or_text": "Delighted to share a landmark preprint from our lab, using genome language models and AI agents for biological discovery and genome mining! The stretches of DNA between protein-coding genes are often called the genome’s “dark matter,” but they are far from empty. They encode RNA molecules that sense metabolites, regulate genes, and control some of molecular biology's most important tools (such as programmable genome editors e.g. CRISPR/bridge). Much of this biology is unexplored. One reason is that RNAs can retain similar structures and functions even as their DNA sequences change dramatically, making their relationships difficult to recognize with conventional computational tools. To help map this territory, we finetuned a version of our genomic language model Evo 2 on bacterial and archaeal intergenic sequences, learning relationships between these regions even when they share little sequence similarity. We used it to organize 376 million intergenic sequences into COMPASS (COMPrehensive Atlas of Structured Sequences). Website: https://compass.arcinstitute.org/",
-      "summary_zh": "Patrick Hsu介绍基于Evo 2微调的COMPASS，用于整理3.76亿条细菌和古菌基因间区序列，以发现序列差异很大但结构和功能可能相近的RNA。",
-      "why_it_matters_zh": "这是研究团队对基因组语言模型和AI辅助基因组挖掘预印本的直接介绍，连接了模型方法、数据规模与潜在生物学发现。",
-      "quality_score": 75.0,
-      "tags": [
-        "研究发布",
-        "基因组语言模型",
-        "RNA发现",
-        "预印本"
-      ],
-      "evidence_flags": [],
-      "publication_status": "public_post",
-      "rank": 3,
-      "featured": true,
-      "category": "研究发布",
-      "metrics": {
-        "like_count": 754,
-        "repost_count": 143,
-        "reply_count": 29,
-        "quote_count": 12
-      },
-      "metadata": {
-        "post_id": "2113395639224770872",
-        "username": "pdhsu",
-        "query_kind": "topics",
-        "harvest": "grok.x.search"
-      },
-      "abstract_zh": "很高兴分享我们实验室的一篇重要预印本：我们使用基因组语言模型和 AI 代理开展生物学发现与基因组挖掘。蛋白质编码基因之间的 DNA 片段常被称为基因组的“暗物质”，但它们远非空白；其中编码的 RNA 能感知代谢物、调控基因，并控制分子生物学中一些最重要的工具，例如可编程基因编辑器 CRISPR/bridge。这里的大部分生物学仍未被探索。原因之一是，即使 DNA 序列发生显著变化，RNA 仍可能保留相似的结构和功能，这使得传统计算工具难以识别它们之间的关系。为绘制这片区域，我们在细菌和古菌的基因间区序列上微调了基因组语言模型 Evo 2，使其能够学习这些区域之间的关系，即使它们几乎没有序列相似性。我们用它将3.76亿条基因间区序列整理成 COMPASS（COMPrehensive Atlas of Structured Sequences，结构化序列综合图谱）。网站：https://compass.arcinstitute.org/",
-      "published": "2026-10-22",
-      "author_line": "Patrick Hsu"
-    },
-    {
-      "id": "x:2113275187236147707",
-      "channel": "aivoices",
-      "related_channels": [],
-      "item_type": "social_post",
-      "source": "X",
-      "title": "@dair_ai：Great paper from Anthropic on AI agents doing ML-for-science research. They propose Agent4Sci, which gives frontier codi",
-      "url": "https://x.com/dair_ai/status/2113275187236147707",
-      "published_at": "2026-10-22T14:24:02Z",
-      "updated_at": "2026-10-22T14:24:02Z",
-      "creators": [
-        "DAIR.AI"
-      ],
-      "language": "en",
-      "abstract_or_text": "Great paper from Anthropic on AI agents doing ML-for-science research. They propose Agent4Sci, which gives frontier coding agents 20 scientific ML benchmarks across 11 domains and asks them to beat the published best model. They beat it on all 20. Claude Opus improves on the published best by 10.4% on average, and no run was flagged for misconduct. Adding three lightweight skills for research ideation, experiment management, and scheduled checklists raises Claude Opus from 10.4% to 20.1% and Codex from 4.4% to 8.1%. The models stay the same, and the research scaffolding roughly doubles the gain.",
-      "summary_zh": "DAIR.AI转述Anthropic的Agent4Sci评测：前沿编码代理在11个领域的20个科学机器学习基准上都超过已发表最佳模型，加入研究流程技能后增益进一步扩大。",
-      "why_it_matters_zh": "帖文提供了跨领域基准、平均提升和研究流程脚手架的对比，支持“工具化研究流程”可能比单纯更换模型更重要这一判断；具体实验设置仍需查阅论文。",
-      "quality_score": 74.0,
-      "tags": [
-        "AI for Science",
-        "代理评测",
-        "研究流程"
-      ],
-      "evidence_flags": [
-        "benchmark"
-      ],
-      "publication_status": "public_post",
-      "rank": 4,
-      "featured": false,
-      "category": "AI for Science",
-      "metrics": {
-        "like_count": 268,
-        "repost_count": 39,
-        "reply_count": 26,
-        "quote_count": 3
-      },
-      "metadata": {
-        "post_id": "2113275187236147707",
-        "username": "dair_ai",
-        "query_kind": "topics",
-        "harvest": "grok.x.search"
-      },
-      "abstract_zh": "Anthropic 关于使用 AI 代理开展机器学习科学研究的一篇很棒的论文。他们提出 Agent4Sci，为前沿编码代理提供覆盖11个领域的20个科学机器学习基准，并要求代理超过已发表的最佳模型。它们在全部20个基准上都做到了。Claude Opus 相比已发表最佳结果平均提升10.4%，且没有一次运行被标记为不当行为。加入三个用于研究构思、实验管理和定期检查清单的轻量技能后，Claude Opus 的提升从10.4%升至20.1%，Codex 的提升从4.4%升至8.1%。模型本身没有变化，而研究脚手架大致使增益翻倍。",
-      "published": "2026-10-22",
-      "author_line": "DAIR.AI"
-    },
-    {
-      "id": "x:2113390212911083894",
-      "channel": "aivoices",
-      "related_channels": [],
-      "item_type": "social_post",
-      "source": "X",
-      "title": "@AnthropicAI：New on our Frontier Red Team blog: using Claude to formally verify software at large scale. Formal verification can prov",
-      "url": "https://x.com/AnthropicAI/status/2113390212911083894",
-      "published_at": "2026-10-22T22:01:06Z",
-      "updated_at": "2026-10-22T22:01:06Z",
-      "creators": [
-        "Anthropic"
-      ],
-      "language": "en",
-      "abstract_or_text": "New on our Frontier Red Team blog: using Claude to formally verify software at large scale. Formal verification can prove that code is free of certain bugs, but historically it has only been feasible for small codebases (or required a lot of expert time). With AI models, however, this is beginning to change. In collaboration with @theoremlabs, we used Claude to prove security properties in over one hundred real-world open-source libraries over the span of a few weeks.",
-      "summary_zh": "Anthropic称与Theorem Labs合作，在数周内使用Claude为100多个真实世界开源库证明安全属性，探索AI扩大形式化验证适用范围。",
-      "why_it_matters_zh": "帖文给出了库数量、时间跨度和合作方等可核查信息，显示形式化验证正从小型代码库向更大规模的软件安全工作扩展。",
-      "quality_score": 71.0,
-      "tags": [
-        "形式化验证",
-        "软件安全",
-        "开源软件"
-      ],
-      "evidence_flags": [
-        "security"
-      ],
-      "publication_status": "public_post",
-      "rank": 5,
-      "featured": false,
-      "category": "形式化验证",
-      "metrics": {
-        "like_count": 9442,
-        "repost_count": 1022,
-        "reply_count": 612,
-        "quote_count": 588
-      },
-      "metadata": {
-        "post_id": "2113390212911083894",
-        "username": "AnthropicAI",
-        "query_kind": "accounts",
-        "harvest": "grok.x.search"
-      },
-      "abstract_zh": "Frontier Red Team 博客的新文章：使用 Claude 大规模形式化验证软件。形式化验证可以证明代码不存在某些漏洞，但历史上只适用于小型代码库，或需要大量专家时间。不过，随着 AI 模型的加入，这种情况正在改变。我们与 @theoremlabs 合作，在数周内使用 Claude 为100多个真实世界的开源库证明了安全属性。",
-      "published": "2026-10-22",
-      "author_line": "Anthropic"
-    },
-    {
-      "id": "x:2113720044350054636",
-      "channel": "aivoices",
-      "related_channels": [
-        "aixbio"
-      ],
-      "item_type": "social_post",
-      "source": "X",
-      "title": "@Junioryu136689：Pinal is now published in Nature. The 16B-parameter AI model designs functional proteins directly from natural-language ",
-      "url": "https://x.com/Junioryu136689/status/2113720044350054636",
-      "published_at": "2026-10-23T19:51:44Z",
-      "updated_at": "2026-10-23T19:51:44Z",
+      "title": "@Junioryu136689：Enzyme wet-lab loops, RNA binders in latent space, and clinical AI that gets audited before it ships. BioTender Daily Pa",
+      "url": "https://x.com/Junioryu136689/status/2113624758080159787",
+      "published_at": "2026-10-23T13:33:06Z",
+      "updated_at": "2026-10-23T13:33:06Z",
       "creators": [
         "BioTender"
       ],
       "language": "en",
-      "abstract_or_text": "Pinal is now published in Nature. The 16B-parameter AI model designs functional proteins directly from natural-language prompts. Four protein classes were experimentally validated, including PET-degrading enzymes. A designed H-protein achieved 1.7× the native control’s product yield in a CO₂-fixation system.",
-      "summary_zh": "帖文称Pinal已发表于Nature：一个160亿参数模型可根据自然语言提示设计功能蛋白，四类蛋白得到实验验证，其中一个H蛋白在固碳体系中的产物产量达到天然对照的1.7倍。",
-      "why_it_matters_zh": "这是从模型能力到实验验证的研究发布信息，涉及蛋白质设计和生物制造；帖文未给出论文链接，细节应以Nature论文为准。",
-      "quality_score": 70.0,
+      "abstract_or_text": "Enzyme wet-lab loops, RNA binders in latent space, and clinical AI that gets audited before it ships. BioTender Daily Papers #87: 6 new papers (4 arXiv + 2 bioRxiv) across 3 directions. AlphaVariant couples generative evolutionary priors, RL, and a low-sample fitness model updated from experimental feedback to search multi-site sequence space. RiboBridge splits RNA conformer generation from protein–RNA assembly. Latent Interconnect Protocol trains connectors that map protein and small-molecule expert latents into a general LLM. Locally deployed open-weight agents turn outbreak reports into CRISPR guide discovery pipelines. Patient-level membership-inference screening across six clinical datasets. Diagnostic Loss adds asymmetric supervision for radiology report generation.",
+      "summary_zh": "BioTender 在帖文中汇总 6 篇新论文，涉及实验反馈驱动的多位点序列搜索、RNA 构象与蛋白质组装、跨模态潜在表示连接、CRISPR 引导序列发现、临床数据成员推断和放射学报告生成。",
+      "why_it_matters_zh": "编辑判断：一条帖子串联了实验反馈、RNA/蛋白建模和临床隐私评估等方向；它是二手摘要，具体方法与结论仍需回到所列论文核验。",
+      "quality_score": 73.0,
       "tags": [
-        "蛋白质设计",
-        "生成模型",
-        "实验验证"
+        "生物计算研究",
+        "论文汇总",
+        "蛋白质工程",
+        "RNA建模",
+        "临床AI",
+        "隐私评估"
       ],
       "evidence_flags": [
-        "experimental"
+        "dataset",
+        "experimental",
+        "clinical"
       ],
       "publication_status": "public_post",
-      "rank": 6,
-      "featured": false,
-      "category": "蛋白质设计",
+      "rank": 2,
+      "featured": true,
+      "category": "生物计算研究",
       "metrics": {
-        "like_count": 171,
-        "repost_count": 32,
+        "like_count": 17,
+        "repost_count": 0,
         "reply_count": 0,
-        "quote_count": 4
+        "quote_count": 1
       },
       "metadata": {
-        "post_id": "2113720044350054636",
+        "post_id": "2113624758080159787",
         "username": "Junioryu136689",
         "query_kind": "topics",
         "harvest": "grok.x.search"
       },
-      "abstract_zh": "Pinal 现已发表于 Nature。这一拥有160亿参数的 AI 模型可以直接根据自然语言提示设计功能蛋白。四类蛋白获得了实验验证，其中包括可降解 PET 的酶。在一个 CO₂ 固定系统中，设计出的 H 蛋白产物产量达到天然对照的1.7倍。",
+      "abstract_zh": "酶的湿实验闭环、潜在空间中的 RNA 结合体，以及上线前先接受审计的临床 AI。BioTender Daily Papers #87：6 篇新论文（4 篇 arXiv、2 篇 bioRxiv），涉及 3 个方向。AlphaVariant 将生成式进化先验、强化学习和根据实验反馈更新的小样本适应度模型结合起来，搜索多位点序列空间。RiboBridge 将 RNA 构象生成与蛋白质–RNA 组装分开。Latent Interconnect Protocol 训练连接器，把蛋白质和小分子专家模型的潜在表示映射到通用 LLM。局部部署的开放权重代理把疫情报告转化为 CRISPR 引导序列发现流程。针对六个临床数据集开展患者级成员推断筛查。Diagnostic Loss 为放射学报告生成加入非对称监督。",
       "published": "2026-10-23",
       "author_line": "BioTender"
     },
     {
-      "id": "x:2113115139897766041",
+      "id": "x:2113251812908151231",
       "channel": "aivoices",
-      "related_channels": [
-        "aixmath"
-      ],
+      "related_channels": [],
       "item_type": "social_post",
       "source": "X",
-      "title": "@Math_files：A new NPR investigation has found a troubling problem in AI-generated mathematics. Cambridge mathematician Anders Hansen",
-      "url": "https://x.com/Math_files/status/2113115139897766041",
-      "published_at": "2026-10-22T03:48:03Z",
-      "updated_at": "2026-10-22T03:48:03Z",
+      "title": "@FutureDies：SHA-256 is not broken, but its security margin lost 1 more round this year: Last week I found a collision attack on redu",
+      "url": "https://x.com/FutureDies/status/2113251812908151231",
+      "published_at": "2026-10-22T12:51:09Z",
+      "updated_at": "2026-10-22T12:51:09Z",
       "creators": [
-        "Math Files"
+        "Dariia Porechna"
       ],
       "language": "en",
-      "abstract_or_text": "A new NPR investigation has found a troubling problem in AI-generated mathematics. Cambridge mathematician Anders Hansen identified a discrepancy between an AI-generated proof and its Lean formalization. A constant had changed from 4 to 5, making the formally verified statement weaker than the original claim. The Lean verification itself was not necessarily incorrect. The concern is that it may have verified something different from what the original mathematical argument asserted. The investigation highlights a distinction that is becoming increasingly important: verifying a formal proof is not enough unless the formal statement faithfully represents the intended theorem. Source: NPR, 21 October 2026 (US), 22 October 2026 (IST).",
-      "summary_zh": "Math Files转述NPR调查：AI生成证明在转写为Lean形式化陈述时，常数从4变为5，导致形式化验证的命题弱于原始主张。",
-      "why_it_matters_zh": "该帖提醒读者区分“形式化证明本身正确”和“形式化命题忠实表达原定理”，是AI辅助数学验证中重要的建模与审计问题。",
-      "quality_score": 68.0,
+      "abstract_or_text": "SHA-256 is not broken, but its security margin lost 1 more round this year: Last week I found a collision attack on reduced 39-round that improves prior art by over 30 bits and the first differential attack on that round better than generic search on @yukonresearch Hashsmash board. The attack rests on the same method as prior art ePrint 2026/1120 with new insights that first 2 state words could remain free, allowing a critical condition at step 16 rebuilt as a claw-search problem rather than a probabilistic filter. Since my initial submission, other hashsmash participants pushed it down by over 6.5 bits, currently estimated at 118.15 bits. It's fascinating to see an initial structural observation develop into an improvement in the reduced-round collision frontier within days. AI is now a real aid in cryptanalysis and open collaboration speeds it up.",
+      "summary_zh": "密码分析研究者 Dariia Porechna 报告，其对约化 39 轮 SHA-256 的碰撞攻击较先前工作提升超过 30 bit，并在 Hashsmash 协作中继续更新估计复杂度。",
+      "why_it_matters_zh": "作者报告了约化轮数、改进幅度和当前估计复杂度。编辑判断：这是可核查的密码分析进展，但帖子未附完整论文或独立验证，不能外推为完整 SHA-256 已被攻破。",
+      "quality_score": 71.0,
       "tags": [
-        "数学与软件可靠性",
-        "数学推理",
-        "形式化审计"
-      ],
-      "evidence_flags": [],
-      "publication_status": "public_post",
-      "rank": 7,
-      "featured": false,
-      "category": "数学与软件可靠性",
-      "metrics": {
-        "like_count": 146,
-        "repost_count": 32,
-        "reply_count": 13,
-        "quote_count": 9
-      },
-      "metadata": {
-        "post_id": "2113115139897766041",
-        "username": "Math_files",
-        "query_kind": "topics",
-        "harvest": "grok.x.search"
-      },
-      "abstract_zh": "NPR 的一项新调查发现，AI 生成的数学内容存在一个令人担忧的问题。剑桥大学数学家 Anders Hansen 发现，一份 AI 生成的证明与其 Lean 形式化版本之间存在差异：一个常数从4变成了5，使形式化验证的命题弱于原始主张。Lean 验证本身不一定是错误的；问题在于，它可能验证了与原数学论证所声称内容不同的东西。这项调查凸显了一个日益重要的区别：除非形式化陈述忠实表达了预期定理，否则验证形式化证明还不够。来源：NPR，2026年10月21日（美国）、10月22日（IST）。",
-      "published": "2026-10-22",
-      "author_line": "Math Files"
-    },
-    {
-      "id": "feed:https://developer.nvidia.com/blog/scaling-nvidia-tensorrt-performance-optimization-beyond-a-single-build-route-with-the-global-performance-tuner-part-1/",
-      "channel": "aivoices",
-      "related_channels": [
-        "engineering"
-      ],
-      "item_type": "research_blog",
-      "source": "NVIDIA Technical Blog",
-      "title": "Scaling NVIDIA TensorRT Performance Optimization Beyond a Single Build Route with the Global Performance Tuner, Part 1",
-      "url": "https://developer.nvidia.com/blog/scaling-nvidia-tensorrt-performance-optimization-beyond-a-single-build-route-with-the-global-performance-tuner-part-1/",
-      "published_at": "2026-10-23T17:27:35Z",
-      "updated_at": "2026-10-23T17:27:35Z",
-      "creators": [
-        "NVIDIA Technical Blog"
-      ],
-      "language": "en",
-      "abstract_or_text": "Deploying a trained neural network involves more than translating each operator into a GPU kernel. It is a compilation problem with many legitimate answers. For...",
-      "summary_zh": "NVIDIA介绍TensorRT全局性能调优器：神经网络部署不仅是把算子转换成GPU内核，也属于存在多种可行方案的编译优化问题。",
-      "why_it_matters_zh": "该官方工程博客把模型部署中的性能优化明确为编译搜索与权衡问题，对理解自动调优工具的定位有帮助；候选摘要仅提供文章开头，不能据此推断完整性能数据。",
-      "quality_score": 67.0,
-      "tags": [
-        "性能工程",
-        "TensorRT",
-        "编译优化",
-        "性能调优"
-      ],
-      "evidence_flags": [
-        "performance"
-      ],
-      "publication_status": "official_update",
-      "rank": 8,
-      "featured": false,
-      "category": "性能工程",
-      "metrics": {},
-      "metadata": {
-        "feed_url": "https://developer.nvidia.com/blog/feed/"
-      },
-      "abstract_zh": "部署训练好的神经网络不仅仅是把每个算子转换为 GPU 内核。这是一个编译问题，其中存在许多合理的答案。对于……",
-      "published": "2026-10-23",
-      "author_line": "NVIDIA Technical Blog"
-    },
-    {
-      "id": "feed:https://developer.nvidia.com/blog/inside-nvidia-sentry-secure-ai-agents-at-runtime/",
-      "channel": "aivoices",
-      "related_channels": [
-        "engineering"
-      ],
-      "item_type": "research_blog",
-      "source": "NVIDIA Technical Blog",
-      "title": "Inside NVIDIA Sentry: Secure AI Agents at Runtime",
-      "url": "https://developer.nvidia.com/blog/inside-nvidia-sentry-secure-ai-agents-at-runtime/",
-      "published_at": "2026-10-21T09:52:16Z",
-      "updated_at": "2026-10-21T09:52:16Z",
-      "creators": [
-        "NVIDIA Technical Blog"
-      ],
-      "language": "en",
-      "abstract_or_text": "An AI agent can complete its assignment and still cross a security boundary. Recent incidents show that agents can circumvent security controls while using...",
-      "summary_zh": "NVIDIA Sentry面向运行时智能体安全，强调代理即使完成任务，也可能跨越安全边界。",
-      "why_it_matters_zh": "这是官方对智能体运行时隔离与安全控制的工程讨论，直接指出“任务完成”不等于“行为安全”；候选摘要未包含完整架构细节。",
-      "quality_score": 67.0,
-      "tags": [
-        "智能体安全",
-        "运行时防护",
-        "安全边界"
+        "密码学研究",
+        "SHA-256",
+        "碰撞攻击",
+        "密码分析",
+        "开放协作"
       ],
       "evidence_flags": [
         "security"
       ],
-      "publication_status": "official_update",
-      "rank": 9,
-      "featured": false,
-      "category": "智能体安全",
-      "metrics": {},
-      "metadata": {
-        "feed_url": "https://developer.nvidia.com/blog/feed/"
+      "publication_status": "public_post",
+      "rank": 3,
+      "featured": true,
+      "category": "密码学研究",
+      "metrics": {
+        "like_count": 349,
+        "repost_count": 67,
+        "reply_count": 28,
+        "quote_count": 14
       },
-      "abstract_zh": "一个 AI 代理可以完成任务，却仍然跨越安全边界。近期事件表明，代理在使用……时可能绕过安全控制。",
-      "published": "2026-10-21",
-      "author_line": "NVIDIA Technical Blog"
+      "metadata": {
+        "post_id": "2113251812908151231",
+        "username": "FutureDies",
+        "query_kind": "topics",
+        "harvest": "grok.x.search"
+      },
+      "abstract_zh": "SHA-256 尚未被攻破，但今年其安全裕度又少了一轮：上周我在约化 39 轮上发现了一种碰撞攻击，相比已有工作提升超过 30 bit，并首次在该轮数上实现优于通用搜索的差分攻击，结果优于 @yukonresearch 的 Hashsmash 看板。该攻击建立在先前 ePrint 2026/1120 的相同方法上，但加入了新的观察：前两个状态字可以保持自由，从而把第 16 步的关键条件重构为爪搜索问题，而不是概率过滤。自我最初提交后，其他 Hashsmash 参与者又将其结果推进了超过 6.5 bit，目前估计为 118.15 bit。看到最初的结构性观察在数日内发展成对约化轮碰撞前沿的改进很有意思。AI 现在确实能帮助密码分析，而开放协作正在加速这一进程。",
+      "published": "2026-10-22",
+      "author_line": "Dariia Porechna"
     },
     {
-      "id": "feed:https://developer.nvidia.com/blog/using-ai-agents-to-teach-robots-like-microduck-to-walk-in-simulation/",
+      "id": "x:2113834227548533037",
       "channel": "aivoices",
-      "related_channels": [
-        "engineering"
+      "related_channels": [],
+      "item_type": "social_post",
+      "source": "X",
+      "title": "@xleaps：人工智能史上有过许多 LLM 不能这样不能那样的断言 这些断言最终都失败了 因为本质上我们人类还没有发现一种只是人类大脑独有而 LLM 不能够有的根本分割，所以所谓的 LLM 不能 ，更多的是今天不能 而非永远不能 况且以此具体例子来说，人",
+      "url": "https://x.com/xleaps/status/2113834227548533037",
+      "published_at": "2026-10-24T03:25:27Z",
+      "updated_at": "2026-10-24T03:25:27Z",
+      "creators": [
+        "Eric Xu (e/Mettā)"
       ],
+      "language": "zh",
+      "abstract_or_text": "人工智能史上有过许多 LLM 不能这样不能那样的断言 这些断言最终都失败了 因为本质上我们人类还没有发现一种只是人类大脑独有而 LLM 不能够有的根本分割，所以所谓的 LLM 不能 ，更多的是今天不能 而非永远不能 况且以此具体例子来说，人类历史上有名的“跳跃”就这么数的过来的，所以你可以说人类根本没有足够的训练数据去断言 LLM 能否跳跃。说不定当我们有了一千个跳跃之后，任意小模型都能跳跃 而到底是训练数据不够，还是模型能力缺憾，目前人类并无方法区分",
+      "summary_zh": "Eric Xu 认为，历史上关于 LLM “永远不能”完成某些任务的断言往往把当前能力边界误当成永久限制；对模型是否具备“跳跃”能力，人类目前也缺少足够样本来区分数据不足与能力缺陷。",
+      "why_it_matters_zh": "作者观点：能力边界应随新证据更新，而不是直接外推为永久限制。编辑判断：这是一种方法论讨论，不是实验结论，适合作为研究议题而非能力证明。",
+      "quality_score": 70.0,
+      "tags": [
+        "观点与讨论",
+        "模型能力",
+        "泛化边界",
+        "研究方法论"
+      ],
+      "evidence_flags": [],
+      "publication_status": "public_post",
+      "rank": 4,
+      "featured": false,
+      "category": "观点与讨论",
+      "metrics": {
+        "like_count": 140,
+        "repost_count": 23,
+        "reply_count": 13,
+        "quote_count": 1
+      },
+      "metadata": {
+        "post_id": "2113834227548533037",
+        "username": "xleaps",
+        "query_kind": "topics",
+        "harvest": "grok.x.search"
+      },
+      "abstract_zh": "人工智能史上有过许多 LLM 不能这样不能那样的断言 这些断言最终都失败了 因为本质上我们人类还没有发现一种只是人类大脑独有而 LLM 不能够有的根本分割，所以所谓的 LLM 不能 ，更多的是今天不能 而非永远不能 况且以此具体例子来说，人类历史上有名的“跳跃”就这么数的过来的，所以你可以说人类根本没有足够的训练数据去断言 LLM 能否跳跃。说不定当我们有了一千个跳跃之后，任意小模型都能跳跃 而到底是训练数据不够，还是模型能力缺憾，目前人类并无方法区分",
+      "published": "2026-10-24",
+      "author_line": "Eric Xu (e/Mettā)"
+    },
+    {
+      "id": "x:2113301701125951786",
+      "channel": "aivoices",
+      "related_channels": [],
+      "item_type": "social_post",
+      "source": "X",
+      "title": "@MSFTResearch：Flint-interactive gives AI agents a language for creating interactive visualizations. Click a chart, filter data, highli",
+      "url": "https://x.com/MSFTResearch/status/2113301701125951786",
+      "published_at": "2026-10-22T16:09:23Z",
+      "updated_at": "2026-10-22T16:09:23Z",
+      "creators": [
+        "Microsoft Research"
+      ],
+      "language": "en",
+      "abstract_or_text": "Flint-interactive gives AI agents a language for creating interactive visualizations. Click a chart, filter data, highlight related content, and explore beyond the view the author originally chose. https://www.microsoft.com/en-us/research/blog/flint-interactive-a-language-for-creating-interactive-data-visualizations/",
+      "summary_zh": "Microsoft Research 介绍 Flint-interactive：为 AI 代理提供创建交互式可视化的语言，使代理能够点击图表、筛选数据、突出相关内容并探索作者未预先选择的视图。",
+      "why_it_matters_zh": "编辑判断：把图表交互抽象为代理可调用语言，可能提升数据探索的可控性与可扩展性；候选帖文未提供实验指标，细节应以官方研究博客为准。",
+      "quality_score": 69.0,
+      "tags": [
+        "交互式可视化",
+        "AI代理",
+        "数据探索"
+      ],
+      "evidence_flags": [],
+      "publication_status": "public_post",
+      "rank": 5,
+      "featured": false,
+      "category": "交互式可视化",
+      "metrics": {
+        "like_count": 130,
+        "repost_count": 15,
+        "reply_count": 2,
+        "quote_count": 3
+      },
+      "metadata": {
+        "post_id": "2113301701125951786",
+        "username": "MSFTResearch",
+        "query_kind": "accounts",
+        "harvest": "grok.x.search"
+      },
+      "abstract_zh": "Flint-interactive 为 AI 代理提供了一种创建交互式可视化的语言。点击图表、筛选数据、突出显示相关内容，并探索超出作者最初选择视图的内容。https://www.microsoft.com/en-us/research/blog/flint-interactive-a-language-for-creating-interactive-data-visualizations/",
+      "published": "2026-10-22",
+      "author_line": "Microsoft Research"
+    },
+    {
+      "id": "x:2113657112408785153",
+      "channel": "aivoices",
+      "related_channels": [],
+      "item_type": "social_post",
+      "source": "X",
+      "title": "@NVIDIAAI：Available now: NVIDIA Nemotron 3.5 Bolt E4B 4GB Our newest small open model is built for local assistants, interactive c",
+      "url": "https://x.com/NVIDIAAI/status/2113657112408785153",
+      "published_at": "2026-10-23T15:41:40Z",
+      "updated_at": "2026-10-23T15:41:40Z",
+      "creators": [
+        "NVIDIA AI"
+      ],
+      "language": "en",
+      "abstract_or_text": "Available now: NVIDIA Nemotron 3.5 Bolt E4B 4GB Our newest small open model is built for local assistants, interactive characters and robots that can carry on a conversation and use tools to get things done. Watch Reachy Mini chat and move, with Bolt handling conversation and NVIDIA Cosmos handling vision. Both models run locally on Jetson Orin Nano 8GB.",
+      "summary_zh": "NVIDIA 宣布 Nemotron 3.5 Bolt E4B 4GB 开放模型，面向本地助手、交互式角色和机器人；帖子称 Bolt 负责对话、Cosmos 负责视觉，两者可在 Jetson Orin Nano 8GB 上本地运行。",
+      "why_it_matters_zh": "编辑判断：帖子给出了模型规模、分工和 8GB 端侧部署条件，具有可复核的工程信息；但未提供性能基准，不能据此判断实际能力。",
+      "quality_score": 69.0,
+      "tags": [
+        "端侧模型发布",
+        "开放模型",
+        "端侧推理",
+        "机器人",
+        "工具调用"
+      ],
+      "evidence_flags": [],
+      "publication_status": "public_post",
+      "rank": 6,
+      "featured": false,
+      "category": "端侧模型发布",
+      "metrics": {
+        "like_count": 1912,
+        "repost_count": 232,
+        "reply_count": 129,
+        "quote_count": 128
+      },
+      "metadata": {
+        "post_id": "2113657112408785153",
+        "username": "NVIDIAAI",
+        "query_kind": "accounts",
+        "harvest": "grok.x.search"
+      },
+      "abstract_zh": "现已可用：NVIDIA Nemotron 3.5 Bolt E4B 4GB。我们的最新小型开放模型面向本地助手、交互式角色和能够持续对话并调用工具完成任务的机器人。可观看 Reachy Mini 进行对话和移动，其中 Bolt 负责对话，NVIDIA Cosmos 负责视觉。两个模型都在 Jetson Orin Nano 8GB 上本地运行。",
+      "published": "2026-10-23",
+      "author_line": "NVIDIA AI"
+    },
+    {
+      "id": "feed:https://developer.nvidia.com/blog/scaling-nvidia-tensorrt-performance-optimization-beyond-a-single-build-route-with-the-global-performance-tuner-part-2/",
+      "channel": "aivoices",
+      "related_channels": [],
       "item_type": "research_blog",
       "source": "NVIDIA Technical Blog",
-      "title": "Using AI Agents to Teach Robots Like Microduck to Walk in Simulation",
-      "url": "https://developer.nvidia.com/blog/using-ai-agents-to-teach-robots-like-microduck-to-walk-in-simulation/",
-      "published_at": "2026-10-23T14:58:32Z",
-      "updated_at": "2026-10-23T14:58:32Z",
+      "title": "Scaling NVIDIA TensorRT Performance Optimization Beyond a Single Build Route with the Global Performance Tuner, Part 2",
+      "url": "https://developer.nvidia.com/blog/scaling-nvidia-tensorrt-performance-optimization-beyond-a-single-build-route-with-the-global-performance-tuner-part-2/",
+      "published_at": "2026-10-23T17:27:52Z",
+      "updated_at": "2026-10-23T17:27:52Z",
       "creators": [
         "NVIDIA Technical Blog"
       ],
       "language": "en",
-      "abstract_or_text": "Teaching a robot to navigate an obstacle course requires more than a walking policy. It must perceive its surroundings, maintain balance, and adjust its actions...",
-      "summary_zh": "NVIDIA介绍如何在仿真中用AI代理教机器人通过障碍课程，强调系统需要感知环境、保持平衡并动态调整动作，而不只是学习行走策略。",
-      "why_it_matters_zh": "该工程案例说明机器人控制需要把感知、平衡和动作调整结合起来，体现代理式训练在具身系统中的应用方向。",
-      "quality_score": 65.0,
+      "abstract_or_text": "The Global Performance Tuner is a feature for automatic performance tuning released in NVIDIA TensorRT 11.1. It provides automatic, accuracy-aware and...",
+      "summary_zh": "NVIDIA 技术博客介绍 TensorRT 11.1 中的 Global Performance Tuner，用于自动化、具备准确率感知的性能调优，并讨论其超越单一构建路径的扩展方式。",
+      "why_it_matters_zh": "编辑判断：这是官方工程博客对 TensorRT 性能调优能力的直接说明；当前候选摘要被截断，具体性能收益和适用条件需查阅正文。",
+      "quality_score": 66.0,
       "tags": [
-        "机器人学习",
-        "机器人",
-        "仿真",
-        "具身智能"
+        "推理性能工程",
+        "TensorRT",
+        "性能调优",
+        "推理工程",
+        "自动调优"
       ],
-      "evidence_flags": [],
+      "evidence_flags": [
+        "release",
+        "performance"
+      ],
       "publication_status": "official_update",
-      "rank": 10,
+      "rank": 7,
       "featured": false,
-      "category": "机器人学习",
+      "category": "推理性能工程",
       "metrics": {},
       "metadata": {
         "feed_url": "https://developer.nvidia.com/blog/feed/"
       },
-      "abstract_zh": "教机器人通过障碍课程不仅需要行走策略。它必须感知周围环境、保持平衡并调整动作……",
+      "abstract_zh": "Global Performance Tuner 是 NVIDIA TensorRT 11.1 中发布的一项自动性能调优功能。它提供自动化、具备准确率感知的……",
       "published": "2026-10-23",
       "author_line": "NVIDIA Technical Blog"
     }
@@ -486,6 +364,6 @@
   "review": {
     "model": "gpt-5.6-terra",
     "reasoning_effort": "high",
-    "note": "从60项候选中保留10项（质量分≥65）。优先研究发布、可核查安全与工程经验及实质性专业讨论；排除了营销推广、重复事件、缺少上下文的短帖，并核对了目标日期之前的日报归档，未发现同一报道身份重复。"
+    "note": "从达到 65 分的候选中保留 7 项：优先选择有具体研究、漏洞披露或工程细节的内容；排除课程与产品营销、情绪表达、上下文不足的转发，并将 Flint-interactive 的 X 帖文与官方研究博客视为同一事件只保留一项。"
   }
 }

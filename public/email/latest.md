@@ -1,60 +1,58 @@
-# AIxDaily · 2026-10-25
+# AIxDaily · 2026-10-26
 
-今日精选：AI × Chem 5 项，AI × Bio 16 项，AI × Math 4 项，AI Voices 7 项，Engineering 8 项。今日五频道共同日期为2026年10月25日。化学、生物前三项均为预印本，涵盖催化与材料、染色质机制、医疗数据治理、皮肤病分类及临床LLM使用；数学前三项为arXiv预印本，聚焦开放式智能、UML生成幻觉和长对话状态完整性。AI Voices前三项为X公开帖文，涉及Brotli漏洞、论文串讲和约化轮SHA-256分析。Engineering前三项为GitHub Trending软件项目动态，非版本发布；前三项未见可确认的同行评议论文。
+今日精选：AI × Chem 4 项，AI × Bio 13 项，AI × Math 2 项，AI Voices 9 项，Engineering 2 项。今日五频道共呈现两类主线：研究侧精选均为预印本，涵盖脑类器官中的西尼罗病毒代谢靶点、有机磷化合物代谢、跨生物情境扰动签名、RNA 相分离序列特征及跨模型表示几何；应用评测关注饮食图像和医学考试中的多模态可靠性。AI Voices 是 X 公开观点，Engineering 是 GitHub Trending 软件项目动态；未见同行评议论文或明确的新版本发布。
 
 ## 今日重大进展
 
-- [OpenAI红队披露Brotli未授权远程代码执行漏洞，修复波及Node.js等下游生态](https://x.com/OpenAI/status/2113766354386084338) — OpenAI公布红队测试发现：广泛用于 Node.js、Bun、Envoy 等软件的 Brotli 压缩库存在可被恶意压缩数据触发的未授权远程代码执行漏洞；Brotli、Node.js 等下游项目已发布或正在发布修复。
-- [研究者报告将SHA-256约化轮碰撞推进至39轮，安全裕度再收窄](https://x.com/FutureDies/status/2113251812908151231) — 公开帖文报告：约化 39 轮 SHA-256 碰撞攻击较前人改进逾 30 bit；Hashsmash 社区将复杂度估计更新为约 118.15 bit。完整 SHA-256 仍未被攻破。
-- [片段可追溯神经模型把EI质谱预测扩展到8700万级化学库](https://doi.org/10.26434/chemrxiv.15008135/v2) — ChemRxiv 预印本提出片段可追溯的 EI-MS 神经模拟：scaffold split 上 top-1 检索准确率较最强基线提高 32%，达到量子化学模拟水平，速度约快七个数量级，并测试 8730 万分子库。
+- [Omega Desci 公布 Lean 4 机检解决55个开放问题，量子信息猜想获形式化定理](https://x.com/OmegaDesci/status/2113301987873919473) — Omega Desci 在公开帖文中报告，团队于10月22日解决文献中的55个开放问题，覆盖量子信息、图论、特殊函数和整数序列；其中包括 Chitambar 等人2021年猜想，并全部用 Lean 4 机器检查。
+- [Claude 为逾百个开源库生成 RISC-V 汇编级安全证明，LLM 形式化验证迈向规模化](https://x.com/__alpoge__/status/2113410635673550975) — 合作方在 X 上报告，与 Theorem 合作后，Claude 已为100多个真实开源软件库生成 RISC-V 汇编级安全属性的形式化证明，目标是把可证明安全保证纳入日常软件开发流程。
+- [ARC Institute 用单细胞基因组潜在空间寻找功能性 RNA，AI 开始扫描生命“暗空间”](https://x.com/patrickc/status/2113432794571641156) — Patrick Collison 转发 ARC Institute 的研究动态：团队利用单细胞生命基因组的潜在空间表示，结合深度学习与可解释性寻找新的功能性 RNA 候选，并探索智能体加速组合搜索。
 
 ## AI × Chem
 
-采集 1252，候选 60，精选 5。来源状态：各来源已完成
+采集 1320，候选 60，精选 4。来源状态：各来源已完成
 
-- [Copper-Catalyzed Borylation of 2-Bromostyrenes via 1,3-Bromine and 1,4-Boryl Group Migrations](https://doi.org/10.26434/chemrxiv.15010958/v1) — 报道铜催化 2-溴苯乙烯与二硼试剂的级联硼化，将副反应转化为 1,4-硼迁移；DFT 解析了反应机理，反应耐受氯取代，对二溴苯乙烯具有位点选择性，并可放大至克级。
-- [Controlled Decoration of Electrochemically Exfoliated Graphene with Gold Nanoparticles for Electrocatalysis and Sensing](https://doi.org/10.26434/chemrxiv.15010981/v1) — 以水、氢氧化钠和甘油为试剂，通过一锅法在电化学剥离石墨烯上原位生长无表面活性剂金纳米颗粒，并独立调控粒径与负载量；复合材料用于乙醇氧化和色氨酸传感。
-- [Aclarubicin disrupts RNA polymerase II progression at replication-coupled histone genes](https://www.biorxiv.org/content/10.64898/2026.07.08.737292) — 在 aclarubicin 处理的人细胞中使用 CUT&Tag 追踪 RNA polymerase II（Pol II）及其他转录调控因子，发现其强烈扰乱复制耦联组蛋白基因，并导致非生产性 Pol II 转录机器积累。
+- [Single-cell analysis of West Nile virus infection in brain organoids identified a serine synthesis enzyme as a determinant of viral neural tropism and a druggable antiviral target](https://www.biorxiv.org/content/10.64898/2026.10.23.761475) — 研究建立人脑类器官中的西尼罗病毒（WNV）感染模型，并用病毒纳入式单细胞 RNA 测序解析细胞嗜性与宿主反应；结果锁定 PHGDH 介导的丝氨酸合成依赖，并通过 RNA 干扰、药理抑制和 FDA 批准药物 disulfiram 验证其抗病毒潜力。
+- [Human CYP1A2 metabolism of organophosphorus pesticides and nerve agent surrogates](https://www.biorxiv.org/content/10.64898/2026.10.20.760143) — 用 LC-MS/MS 测定 CYP1A2 对有机磷化合物的降解能力，并结合 pFluor50 抑制实验和基于 CYP1A2 晶体结构 PDB ID: 2HI4 的分子对接，比较 thion 与 oxon 代谢及抑制关系。
+- [Sequence architecture of RNA reveals key molecular signatures driving RNA phase separation](https://www.biorxiv.org/content/10.64898/2026.10.23.761066) — 提出可解释的混合机器学习框架，用 167 个人工设计序列描述符与 RNA-FM 的 640 维上下文嵌入，通过交叉验证 stacking 识别与液-液相分离（LLPS）相关的 RNA，并用特征消融、SHAP 和 MALAT1、TMPO-AS1 案例分析提出机制线索。
 
 [查看频道专页](https://zichenwang114514.github.io/ai-x-daily/channels/aixchem/)
 
 ## AI × Bio
 
-采集 1986，候选 60，精选 16。来源状态：各来源已完成
+采集 1890，候选 60，精选 13。来源状态：各来源已完成
 
-- [From Healthcare Data to Actionable Intelligence: An Integrative Review and Gated Framework for Trustworthy Al-Enabled Healthcare Analytics](https://europepmc.org/article/PPR/PPR1348661) — 整合性综述提出 D2AI 门控框架，将医疗数据转化为可负责行动智能的过程划分为数据就绪、证据可追溯、输出可靠和行动就绪四个连续要求。
-- [General-Purpose Vision Models to Dermatology-Specific Foundation Models: Comparative Evaluation for Facial Skin Disease Classification](https://europepmc.org/article/PPR/PPR1347902) — 在统一下游分类框架下比较 7 种视觉表征用于 6 类面部皮肤病分类，Derm Foundation 与 XGBoost 组合在测试集达到 88.17% accuracy、88.05% macro-F1 和 98.58% macro-AUROC。
-- [Current Attitudes and Use Patterns of Large Language Models in Clinical Practice and Medical Education Among Trauma Providers](https://www.medrxiv.org/content/10.64898/2026.10.20.26366047) — 对创伤照护、临床指南制定和医学教育参与者调查 LLM 使用、态度与风险：62 名临床医生中 15% 每日使用，26% 从不使用；96% 的会后受访者支持将 LLM 教育纳入临床培训。
+- [Signature Recontextualization: Mapping perturbational signatures across biological contexts](https://www.biorxiv.org/content/10.64898/2026.08.14.744937) — 提出跨生物学情境预测扰动转录签名的统一基准，在细胞系和大鼠组织数据上比较 projectCor、netProp、scGPT、STACK 及统计基线。
+- [Image-Based Dietary Assessment Using Multimodal Large Language Models: Performance, Limitations, and Clinical Applicability in Diabetes](https://europepmc.org/article/PPR/PPR1349416) — SeeFood 基准在真实饮食照片上评估8个多模态大模型，并扩展到1680张照片和275个参与者日。
+- [Re-evaluating the benefit of training scale in cell foundation models](https://www.biorxiv.org/content/10.64898/2026.06.04.730272) — 比较不同预训练语料规模下的一、二代单细胞基础模型，指出冻结表示评估比常规微调更能显现规模效应。
 
 [查看频道专页](https://zichenwang114514.github.io/ai-x-daily/channels/aixbio/)
 
 ## AI × Math
 
-采集 357，候选 60，精选 4。来源状态：各来源已完成
+采集 358，候选 60，精选 2。来源状态：各来源已完成
 
-- [Co-Recursive Semantic Self-Extension: A Mathematical Foundation for Open-Ended Intelligence](https://arxiv.org/abs/2610.31097v1) — 提出“语义自扩展”框架，用部分赋值、不可判定性和 Kolmogorov complexity 讨论开放式智能的理论边界，并分析外部记忆与多智能体耦合的作用。
-- [Tracing Hallucinations in LLM Reasoning for UML Class Diagram Generation: An Empirical Taxonomy and Mitigation Study](https://arxiv.org/abs/2610.30946v1) — 建立 UML 类图生成中 LLM 幻觉的11类经验分类，区分提示忠实性、代码忠实性和推理质量，并在多模型数据与13个 Golden UML ModelSet 案例上评估提示约束。
-- [When LLMs Forget What They Believe: Characterizing State Integrity Collapse in Long-Horizon Dialogues](https://arxiv.org/abs/2610.31314v1) — 定义长对话中的 State Integrity Collapse，并提出 StateTrack-Bench，测试数值、格式、角色、事实记忆和逻辑规则约束在多轮对话中的持续执行。
+- [The Geometry of Meaning in Neural Manifolds](https://arxiv.org/abs/2610.30938v1) — 以语义对应为核心，研究如何在不同架构、随机初始化和优化轨迹造成的非兼容参数坐标下，对齐独立训练模型的表示；论文汇总了覆盖视觉、语言、强化学习和神经科学等领域的 14 项对应驱动方法。
+- [Would an LLM Match into a Residency? Uncertainty, Reasoning and Image Use of Open Language Models on the Spanish MIR Examination](https://arxiv.org/abs/2610.31586v1) — 在西班牙 MIR 住院医师考试的 1,552 道题上评估 4 个 8B 至 27B 参数开放模型，除准确率外还检验置信度校准、临床推理可靠性和图像使用情况。
 
 [查看频道专页](https://zichenwang114514.github.io/ai-x-daily/channels/aixmath/)
 
 ## AI Voices
 
-采集 67，候选 56，精选 7。来源状态：各来源已完成
+采集 64，候选 49，精选 9。来源状态：各来源已完成
 
-- [@OpenAI：During this red-teaming exercise, we also found a vulnerability that allows for unauthenticated remote code execution in](https://x.com/OpenAI/status/2113766354386084338) — OpenAI 披露，其红队测试发现 Brotli 压缩库存在可导致未经身份验证远程代码执行的漏洞，并推动 Brotli、Node.js 等下游项目发布修复。
-- [@Junioryu136689：Enzyme wet-lab loops, RNA binders in latent space, and clinical AI that gets audited before it ships. BioTender Daily Pa](https://x.com/Junioryu136689/status/2113624758080159787) — BioTender 在帖文中汇总 6 篇新论文，涉及实验反馈驱动的多位点序列搜索、RNA 构象与蛋白质组装、跨模态潜在表示连接、CRISPR 引导序列发现、临床数据成员推断和放射学报告生成。
-- [@FutureDies：SHA-256 is not broken, but its security margin lost 1 more round this year: Last week I found a collision attack on redu](https://x.com/FutureDies/status/2113251812908151231) — 密码分析研究者 Dariia Porechna 报告，其对约化 39 轮 SHA-256 的碰撞攻击较先前工作提升超过 30 bit，并在 Hashsmash 协作中继续更新估计复杂度。
+- [@adxtyahq：Today, I'm launching https://llmdojo.dev - The hands-on way to learn AI engineering: LLMs, RAG, agents, evals and infere](https://x.com/adxtyahq/status/2114000416245703087) — Aditya 宣布上线 LLMDojo，用交互式实验教授 LLM、RAG、智能体、评测和推理，并支持在浏览器中调整分词器、注意力、嵌入与 KV 缓存、训练神经网络。
+- [@patrickc：New from @arcinstitute: using the latent space representation of genomes from single-cell life to find new candidate fun](https://x.com/patrickc/status/2113432794571641156) — Patrick Collison 转发 ARC Institute 的工作：利用单细胞生命基因组的潜在空间表示寻找新的功能性 RNA 候选。
+- [@chelseabfinn：Generative value classifiers are a new parametrization of Q-functions that don't require action conditioning. We think t](https://x.com/chelseabfinn/status/2114117117813706782) — Chelsea Finn 介绍 Generative Value Classifiers：一种不需要动作条件输入的 Q 函数新参数化，并给出论文链接。
 
 [查看频道专页](https://zichenwang114514.github.io/ai-x-daily/channels/aivoices/)
 
 ## Engineering
 
-采集 61，候选 53，精选 8。来源状态：各来源已完成
+采集 62，候选 53，精选 2。来源状态：各来源已完成
 
-- [cloudflare/security-audit-skill](https://github.com/cloudflare/security-audit-skill) — cloudflare/security-audit-skill 为编码智能体提供多阶段安全审计，并输出可独立验证的机器可读发现；当天位列 GitHub Trending 第 1 名，新增 2271 星。
-- [NVIDIA/OpenShell](https://github.com/NVIDIA/OpenShell) — NVIDIA/OpenShell 提供面向自主 AI 智能体的安全、私有运行时；当天位列 GitHub Trending 第 2 名，新增 893 星。
-- [Nutlope/hallmark](https://github.com/Nutlope/hallmark) — Nutlope/hallmark 是面向 Claude Code、Cursor 和 Codex 的反 AI 低质设计技能；当天位列 GitHub Trending 第 4 名，新增 570 星。
+- [JetBrains/thinkrail](https://github.com/JetBrains/thinkrail) — JetBrains/thinkrail 在当日 GitHub Trending 排名第 8，新增 52 星。它把 pi agent 接入轻量级 IDE，并按个人工作方式定制智能体工作流，面向希望将规范驱动开发与 AI 编程结合起来的开发者。
+- [AgriciDaniel/claude-seo](https://github.com/AgriciDaniel/claude-seo) — AgriciDaniel/claude-seo 在当日 GitHub Trending 排名第 11，新增 179 星。它为 Claude Code 提供通用 SEO 技能，拆分为 26 个子技能和 19 个子智能体，覆盖技术 SEO、结构化数据、GEO/AEO、Agent readiness、链接、跨地区站点和报告生成。
 
 [查看频道专页](https://zichenwang114514.github.io/ai-x-daily/channels/engineering/)
 

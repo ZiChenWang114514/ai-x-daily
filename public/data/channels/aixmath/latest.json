@@ -1,30 +1,30 @@
 {
   "schema_version": "2.0",
-  "date": "2026-10-27",
+  "date": "2026-10-28",
   "channel": "aixmath",
-  "generated_at": "2026-10-26T22:09:53+00:00",
+  "generated_at": "2026-10-27T22:28:30+00:00",
   "title": "AI × Math 每日精选",
   "subtitle": "自动推理、形式化证明、数学智能与基础模型。",
   "window": {
-    "start": "2026-10-24",
-    "end": "2026-10-27"
+    "start": "2026-10-25",
+    "end": "2026-10-28"
   },
   "method": "公开来源采集、历史去重、规则筛选与模型审阅",
   "method_note": "系统保存当日公开元数据，与历史日报核验后排除已报道事件；论文新版本、新修订及不同软件发布等可核实更新仍可入选，随后由指定模型阅读全文摘要并完成精选。",
   "stats": {
-    "fetched": 0,
+    "fetched": 777,
     "suppressed_previous": 0,
-    "candidates": 0,
-    "selected": 0,
+    "candidates": 60,
+    "selected": 15,
     "sources": {
-      "arXiv": 0,
+      "arXiv": 777,
       "OpenReview": 0
     }
   },
   "source_status": {
     "arXiv": {
-      "state": "empty",
-      "count": 0
+      "state": "ok",
+      "count": 777
     },
     "OpenReview": {
       "state": "empty",
@@ -32,10 +32,674 @@
     }
   },
   "source_errors": [],
-  "items": [],
+  "items": [
+    {
+      "id": "arxiv:2610.35595v1",
+      "channel": "aixmath",
+      "related_channels": [],
+      "item_type": "paper",
+      "source": "arXiv",
+      "title": "Agentic Algorithm Design: LLMs that Propose, Formalise, and Prove Runtime Bounds for Evolutionary Algorithms in Lean",
+      "url": "https://arxiv.org/abs/2610.35595v1",
+      "published_at": "2026-10-26",
+      "updated_at": "2026-10-26",
+      "creators": [
+        "Per Kristian Lehre"
+      ],
+      "language": "en",
+      "abstract_or_text": "LLMs now prove hard theorems in Lean. Can they also design algorithms and prove their correctness and efficiency? LLM-guided design of optimisation heuristics (such as AlphaEvolve) is purely empirical. Automated theorem provers with LLMs prove given statements. So far, there has been little evidence that LLMs can do both: design an algorithm and guarantee its efficiency by a mathematical proof. We present a staged pipeline modelled after research methodology in design and analysis of evolutionary algorithms. The agent proposes black-box optimisation algorithms, and Lean guards filter out flawed designs. The agent then defines a potential function and proves drift bounds that guarantee an expected runtime improvement over the baseline algorithm. At no point in the pipeline are the algorithms compared empirically. The agent generates a black-box optimisation algorithm with expected runtime O(n^2) on a CycleUncover problem, where the classical (1+1) EA needs runtime e^{Ω(n)}. The pipeline also designs and analyses a black-box optimisation algorithm for integer-valued submodular minimisation with expected runtime O(n^{2+2c}), and it matches the optimal order O(n^2) on LeadingOnes. Across 8 problem classes, 12 of 15 runs with frontier models complete the pipeline with a machine-checked expected-runtime bound. An ablation study shows that removing the staging and asking the agent to zero-shot an algorithmic design with a runtime guarantee leads to a copy of the seeded baseline algorithm (random search) or to incomplete proofs. Our study suggests that machine-checked specifications in Lean can replace empirical evaluation in open-ended algorithm discovery. To the best of our knowledge, this is the first example of an automated pipeline that designs efficient black-box optimisation algorithms with machine-checked runtime bounds in Lean.",
+      "summary_zh": "提出分阶段的 LLM—Lean 流水线，让模型提出黑箱优化算法并形式化证明其期望运行时间界。",
+      "why_it_matters_zh": "把开放式算法发现与 Lean 中的机器检查证明连接起来，并用 8 类问题、15 次运行和消融实验检验流程可靠性。",
+      "quality_score": 84.0,
+      "tags": [
+        "形式化验证与算法设计",
+        "形式化验证",
+        "算法设计"
+      ],
+      "evidence_flags": [
+        "ablation",
+        "evaluation"
+      ],
+      "publication_status": "preprint",
+      "rank": 1,
+      "featured": true,
+      "category": "形式化验证与算法设计",
+      "metrics": {},
+      "metadata": {
+        "doi": "",
+        "arxiv_id": "2610.35595v1"
+      },
+      "abstract_zh": "LLM 现在已经能够在 Lean 中证明困难定理。它们能否同时设计算法并证明其正确性与效率？由 LLM 引导的优化启发式算法设计（例如 AlphaEvolve）纯粹是经验性的。带有 LLM 的自动定理证明器则证明给定的陈述。到目前为止，几乎没有证据表明 LLM 能同时完成这两件事：设计一个算法，并通过数学证明保证其效率。我们提出了一个分阶段的流水线，其建模对象是进化算法的设计与分析研究方法。智能体提出黑箱优化算法，Lean 防护步骤会过滤掉有缺陷的设计。随后，智能体定义势函数并证明漂移界，从而保证相对于基线算法的期望运行时间改进。在整个流水线中，算法从未进行经验比较。该流水线为 CycleUncover 问题生成了一个期望运行时间为 O(n^2) 的黑箱优化算法，而经典的 (1+1) EA 需要 e^{Ω(n)} 的运行时间。该流水线还为整数值子模最小化设计并分析了一个期望运行时间为 O(n^{2+2c}) 的黑箱优化算法，并在 LeadingOnes 上达到最优阶 O(n^2)。在 8 类问题中，前沿模型的 15 次运行有 12 次完成了带机器检查的期望运行时间界。消融研究显示，移除分阶段流程、要求智能体零样本地给出带运行时间保证的算法设计，会导致其复制种子基线算法（随机搜索）或产生未完成的证明。我们的研究表明，在开放式算法发现中，Lean 的机器检查规范可以替代经验评估。据我们所知，这是首个能够设计高效黑箱优化算法、并在 Lean 中给出机器检查运行时间界的自动化流水线。",
+      "published": "2026-10-26",
+      "author_line": "Per Kristian Lehre"
+    },
+    {
+      "id": "arxiv:2610.34923v1",
+      "channel": "aixmath",
+      "related_channels": [],
+      "item_type": "paper",
+      "source": "arXiv",
+      "title": "Attack logics, not outputs: Concept-based Property Attacks for Shortcut Elimination in Neural Networks",
+      "url": "https://arxiv.org/abs/2610.34923v1",
+      "published_at": "2026-10-26",
+      "updated_at": "2026-10-26",
+      "creators": [
+        "Raik Dankworth",
+        "Felix Mächtle",
+        "Thomas Eisenbarth",
+        "Gesina Schwalbe"
+      ],
+      "language": "en",
+      "abstract_or_text": "Deep neural networks (NNs) for computer vision are vulnerable to adversarial attacks, such that minuscule malicious changes to inputs may induce unintuitive outputs. One key approach to verify and mitigate such robustness issues is to falsify expected output behavior, which enables local robustness guarantees and adversarial training. Due to the black-box nature of NNs, current attacks only falsify a class of the final output, such as flipping from \\text{stop_sign} to \\neg \\text{stop_sign}. In this work we argue that robustness analysis should focus more generally on logical inconsistencies in concept-level reasoning rather than solely on output misclassification. We formalize this perspective through concept-based properties, i.e., constraints over human-interpretable concepts such as \\text{red} \\land \\text{octogonal} \\implies \\text{stop_sign} and study the falsification of such properties as a principled form of adversarial attack. Furthermore, an implementation of concept-based properties on already trained NNs is proposed using techniques from concept-based explainable artificial intelligence (C-XAI). For that we formally prove that attacks on concept-based properties are expected to have a reduced search space compared to simple class falsification, whilst arguably be more aligned with intuitive robustness targets. The practical effectiveness of our approach for logically informed adversarial training is shown in an empirical study across multiple models and datasets, including both vision and a security-relevant code processing task. Our results demonstrate that concept-level falsification generalizes classical adversarial attacks: Retraining on our novel attacks maintains robustness gains as compared to classical adversarial retraining whilst better eliminating semantic biases.",
+      "summary_zh": "将对抗攻击从最终类别翻转扩展到可解释概念之间的逻辑性质违例，并形式化分析搜索空间。",
+      "why_it_matters_zh": "同时给出形式化命题和跨模型、跨数据集实验，检验概念级攻击是否能减少语义捷径。",
+      "quality_score": 78.0,
+      "tags": [
+        "神经网络鲁棒性验证",
+        "形式化分析",
+        "鲁棒性",
+        "对抗攻击"
+      ],
+      "evidence_flags": [
+        "dataset",
+        "security"
+      ],
+      "publication_status": "preprint",
+      "rank": 2,
+      "featured": true,
+      "category": "神经网络鲁棒性验证",
+      "metrics": {},
+      "metadata": {
+        "doi": "",
+        "arxiv_id": "2610.34923v1"
+      },
+      "abstract_zh": "用于计算机视觉的深度神经网络容易受到对抗攻击，输入中极其微小的恶意变化就可能诱发反直觉的输出。验证和缓解这类鲁棒性问题的一种关键方法，是证伪预期的输出行为；这能够支持局部鲁棒性保证和对抗训练。由于神经网络具有黑箱性质，现有攻击只证伪最终输出的类别，例如把 stop_sign 翻转为非 stop_sign。在本文中，我们主张鲁棒性分析应更一般地关注概念层面推理中的逻辑不一致，而不应只关注输出误分类。我们通过基于概念的性质形式化这一观点，即在人类可解释概念上施加约束，例如 red 且 octogonal 蕴含 stop_sign，并研究这类性质的证伪，将其作为一种有原则的对抗攻击形式。此外，我们利用基于概念的可解释人工智能（C-XAI）技术，在已经训练好的神经网络上实现了基于概念的性质。我们形式化证明，与简单的类别证伪相比，针对基于概念性质的攻击预期具有更小的搜索空间，同时可以说更贴近直观的鲁棒性目标。我们在多个模型和数据集上进行了经验研究，包括视觉任务和与安全相关的代码处理任务，展示了该方法用于逻辑引导对抗训练的实际效果。结果表明，概念层面的证伪能够推广经典对抗攻击：与经典对抗再训练相比，使用我们提出的新型攻击进行再训练仍能保持鲁棒性增益，同时更好地消除语义偏差。",
+      "published": "2026-10-26",
+      "author_line": "Raik Dankworth, Felix Mächtle, Thomas Eisenbarth, Gesina Schwalbe"
+    },
+    {
+      "id": "arxiv:2610.35598v1",
+      "channel": "aixmath",
+      "related_channels": [
+        "aixchem",
+        "aixbio"
+      ],
+      "item_type": "paper",
+      "source": "arXiv",
+      "title": "Evolve on Graph: Self-Evolving Knowledge Graph Reasoning without Question Annotations",
+      "url": "https://arxiv.org/abs/2610.35598v1",
+      "published_at": "2026-10-26",
+      "updated_at": "2026-10-26",
+      "creators": [
+        "Zongyuan Sun",
+        "Shuai Zhao",
+        "Ke Shu",
+        "Ziyue Zhu",
+        "Shangyang Wu",
+        "Yuanlin Lin",
+        "Tao Wang",
+        "Shiyue Li",
+        "Yingjun Du",
+        "Anh Tuan Luu",
+        "Haoran Luo"
+      ],
+      "language": "en",
+      "abstract_or_text": "Knowledge graphs (KGs) provide reliable external knowledge for multi-hop factual reasoning with large language models (LLMs), yet most KGs in real-world domains such as finance and industry lack question--answer (QA) annotations. Without such annotations, existing methods struggle to improve LLM graph reasoning: training-free agents cannot improve their exploration through interaction; reinforcement learning (RL) agents depend on QA data annotated by humans or synthesized by closed-source models; and training data is typically built offline, so its topology mix is fixed and cannot follow the agent's ability. We propose Evolve on Graph (EoG), a framework that lets an LLM self-evolve its graph reasoning without any QA annotations. Through Graph Self-Play, a single LLM alternates between a Proposer that poses questions and a Solver that answers them. To make questions verifiable, Symbolically Verifiable Topology Synthesis (SVTS) samples reasoning topologies on the KG and executes the corresponding first-order logic queries, yielding topology skeletons with correct and complete answer sets; guided by a skeleton, the Proposer explores the graph to pose a multi-hop question. To let task topologies follow the Solver, a Boundary-Aware Graph Curriculum rewards the Proposer by the Solver's score variance, keeping questions at the Solver's capability boundary so that complex topologies enter training as the Solver improves. On six benchmarks over Freebase, Wikidata, and an industrial KG, EoG consistently outperforms prompting-, retrieval-, and agent-based methods, showing that LLM graph reasoning can improve through self-play without QA annotations. Our code is available at https://github.com/Szy5/EoG",
+      "summary_zh": "提出 Evolve on Graph，通过图自博弈和可符号验证的拓扑合成，让 LLM 在没有问答标注时自我提升知识图谱推理。",
+      "why_it_matters_zh": "问题答案由一阶逻辑查询生成并可核验，且在六个基准上比较了提示、检索和智能体方法。",
+      "quality_score": 77.0,
+      "tags": [
+        "符号可验证推理",
+        "符号推理",
+        "知识图谱",
+        "自博弈"
+      ],
+      "evidence_flags": [
+        "benchmark",
+        "github"
+      ],
+      "publication_status": "preprint",
+      "rank": 3,
+      "featured": true,
+      "category": "符号可验证推理",
+      "metrics": {},
+      "metadata": {
+        "doi": "",
+        "arxiv_id": "2610.35598v1"
+      },
+      "abstract_zh": "知识图谱（KG）为大型语言模型（LLM）的多跳事实推理提供可靠的外部知识，但金融和工业等现实领域的大多数 KG 缺少问答（QA）标注。没有这类标注时，现有方法难以改进 LLM 的图推理：无训练智能体无法通过交互改进探索；强化学习（RL）智能体依赖人工标注或由闭源模型合成的 QA 数据；训练数据通常离线构建，因此其拓扑混合固定，无法随智能体能力变化。我们提出 Evolve on Graph（EoG），一个让 LLM 在没有任何 QA 标注的情况下自我进化图推理的框架。通过图自博弈，单个 LLM 在提出问题的 Proposer 与回答问题的 Solver 之间交替。为使问题可验证，符号可验证拓扑合成（SVTS）在 KG 上采样推理拓扑，并执行相应的一阶逻辑查询，生成具有正确且完备答案集的拓扑骨架；Proposer 在骨架引导下探索图并提出多跳问题。为使任务拓扑跟随 Solver，边界感知图课程根据 Solver 的得分方差奖励 Proposer，使问题保持在 Solver 的能力边界，从而在 Solver 提升时让复杂拓扑进入训练。在 Freebase、Wikidata 和一个工业 KG 上的六个基准中，EoG 持续优于基于提示、检索和智能体的方法，表明无需 QA 标注也能通过自博弈改进 LLM 图推理。代码见 https://github.com/Szy5/EoG",
+      "published": "2026-10-26",
+      "author_line": "Zongyuan Sun, Shuai Zhao, Ke Shu, Ziyue Zhu, Shangyang Wu, Yuanlin Lin, Tao Wang, Shiyue Li, Yingjun Du, Anh Tuan Luu, Haoran Luo"
+    },
+    {
+      "id": "arxiv:2610.34094v1",
+      "channel": "aixmath",
+      "related_channels": [
+        "aixbio"
+      ],
+      "item_type": "paper",
+      "source": "arXiv",
+      "title": "From Document Layout to Causal Topology: An End-to-End Architecture for Temporal Causal Reasoning",
+      "url": "https://arxiv.org/abs/2610.34094v1",
+      "published_at": "2026-10-25",
+      "updated_at": "2026-10-25",
+      "creators": [
+        "Zhifeng Yang",
+        "Wei Luo",
+        "Yongjian Chen",
+        "Shiqi Ou"
+      ],
+      "language": "en",
+      "abstract_or_text": "Large language models (LLMs) generally lack deep causal reasoning capabilities in temporal reasoning. Inspired by document layout reordering, this paper proposes a paradigm shift from discrete narratives to causal topologies. It constructs two architectures: a training-free neuro-symbolic framework, temporal causal reasoning agent (TCR-Agent), which achieves interpretable causal deduction and counterfactual truncation through external causal graph instantiation and a symbolic intervention engine; and an end-to-end model, temporal causal reasoning former (TCR-Former), which internalizes these mechanisms into the Transformer attention space via a Causal-Topological Attention Mask and temporal span biases. Experiments on the TempoCausal benchmark demonstrate that TCR-Agent comprehensively surpasses existing training-free baselines. At the same time, TCR-Former achieves an accuracy 16.5% higher than that of state-of-the-art (SOTA) methods, outperforming large-scale models such as GPT-5.4 and DeepSeek-V3.2 with only approximately 8.6B parameters. Further analysis reveals a structure-reasoning disconnection phenomenon in existing methods: external symbolic constraints and chain-of-thought reasoning can improve reasoning steps, yet fail to enhance deep causal deductive capability. By internalizing temporal causal reasoning capabilities into the model, TCR-Former effectively bridges this gap, providing an efficient and reliable end-to-end foundation for complex reasoning scenarios.",
+      "summary_zh": "构建 TCR-Agent 和 TCR-Former，把时间因果推理表示为因果拓扑并结合符号干预或拓扑注意力。",
+      "why_it_matters_zh": "在 TempoCausal 基准上报告了相对基线的准确率提升，并分析了结构约束与推理能力脱节的问题。",
+      "quality_score": 77.0,
+      "tags": [
+        "神经符号因果推理",
+        "因果推理",
+        "神经符号方法",
+        "基准评测"
+      ],
+      "evidence_flags": [
+        "benchmark",
+        "state-of-the-art"
+      ],
+      "publication_status": "preprint",
+      "rank": 4,
+      "featured": false,
+      "category": "神经符号因果推理",
+      "metrics": {},
+      "metadata": {
+        "doi": "",
+        "arxiv_id": "2610.34094v1"
+      },
+      "abstract_zh": "大型语言模型（LLM）通常缺乏时间推理中的深层因果推理能力。受文档布局重排启发，本文提出从离散叙事转向因果拓扑的范式变化。我们构建了两个架构：其一是无需训练的神经符号框架 temporal causal reasoning agent（TCR-Agent），通过外部因果图实例化和符号干预引擎实现可解释的因果演绎与反事实截断；其二是端到端模型 temporal causal reasoning former（TCR-Former），通过因果拓扑注意力掩码和时间跨度偏置，将这些机制内化到 Transformer 注意力空间。在 TempoCausal 基准上的实验表明，TCR-Agent 全面超过现有无需训练的基线。同时，TCR-Former 的准确率比最先进（SOTA）方法高 16.5%，仅用约 8.6B 参数就超过 GPT-5.4 和 DeepSeek-V3.2 等大规模模型。进一步分析揭示了现有方法中的结构—推理脱节现象：外部符号约束和思维链推理可以改善推理步骤，却未能增强深层因果演绎能力。通过将时间因果推理能力内化到模型中，TCR-Former 有效弥合了这一差距，为复杂推理场景提供了高效且可靠的端到端基础。",
+      "published": "2026-10-25",
+      "author_line": "Zhifeng Yang, Wei Luo, Yongjian Chen, Shiqi Ou"
+    },
+    {
+      "id": "arxiv:2610.35269v1",
+      "channel": "aixmath",
+      "related_channels": [],
+      "item_type": "paper",
+      "source": "arXiv",
+      "title": "MechAlign: Evaluating Semantic Alignment at the Project Level in Mathematical Formalization",
+      "url": "https://arxiv.org/abs/2610.35269v1",
+      "published_at": "2026-10-26",
+      "updated_at": "2026-10-26",
+      "creators": [
+        "Hao Shen",
+        "Ruichen Qiu",
+        "Lihong Zhi",
+        "Xiao-Shan Gao"
+      ],
+      "language": "en",
+      "abstract_or_text": "Lean verifies that a formal proof establishes its stated proposition under declared assumptions, but does not check whether that proposition faithfully expresses the mathematical claim in a manuscript. Assessing this correspondence requires interpreting the main theorem through its project dependencies, which may be scattered throughout a large development. We introduce MechAlign, a framework for project-level semantic alignment review that combines formal dependency extraction with LLM-based assessment. Its extraction tool, LeanTrace, constructs a statement dependency graph from elaborated declarations, retaining definition bodies and structure constraints while excluding proof bodies and stopping at an explicit library boundary. The reviewer uses this context to investigate alignment and report discrepancies with localized evidence. We conduct a preliminary review of 201 main results from 173 OpenAI Math projects, using supplied informal descriptions and available paper context. A hyperbolic-group case illustrates how dependency inspection localizes a missing dimensional constraint relative to the manuscript, consistent with the upstream declaration of formalization scope. We also construct LeanReviewBench, comprising 501 fixed claim-statement-context triples from OpenAI Math, Fermat's Last Theorem, and Kakeya, with description provenance recorded. The resource supports controlled comparisons of more project-level semantic alignment evaluations.",
+      "summary_zh": "提出 MechAlign，结合 Lean 依赖提取与 LLM 审阅，检查形式化定理是否真正表达论文中的数学主张。",
+      "why_it_matters_zh": "审阅了 173 个 OpenAI Math 项目的 201 个主要结果，并构建了带来源记录的 LeanReviewBench。",
+      "quality_score": 75.0,
+      "tags": [
+        "数学形式化语义对齐",
+        "形式化验证",
+        "语义对齐"
+      ],
+      "evidence_flags": [
+        "evaluation"
+      ],
+      "publication_status": "preprint",
+      "rank": 5,
+      "featured": false,
+      "category": "数学形式化语义对齐",
+      "metrics": {},
+      "metadata": {
+        "doi": "",
+        "arxiv_id": "2610.35269v1"
+      },
+      "abstract_zh": "Lean 可以验证形式化证明在所声明的假设下确实建立了其命题，但不会检查该命题是否忠实表达论文中的数学主张。评估这种对应关系需要通过项目依赖来解释主定理，而这些依赖可能分散在大型开发中。我们提出 MechAlign，一个项目级语义对齐审阅框架，将形式化依赖提取与基于 LLM 的评估相结合。其提取工具 LeanTrace 从已 elaboration 的声明构建陈述依赖图，保留定义体和结构约束，排除证明体，并在明确的库边界处停止。审阅者使用这些上下文调查对齐关系，并用局部化证据报告差异。我们利用提供的非形式化描述和可用论文上下文，对 173 个 OpenAI Math 项目的 201 个主要结果进行了初步审阅。一个双曲群案例展示了依赖检查如何相对于论文定位缺失的维度约束，这与上游形式化范围的声明一致。我们还构建了 LeanReviewBench，其中包含来自 OpenAI Math、Fermat's Last Theorem 和 Kakeya 的 501 个固定的 claim—statement—context 三元组，并记录描述的来源。该资源支持对更多项目级语义对齐评估进行受控比较。",
+      "published": "2026-10-26",
+      "author_line": "Hao Shen, Ruichen Qiu, Lihong Zhi, Xiao-Shan Gao"
+    },
+    {
+      "id": "arxiv:2610.34491v1",
+      "channel": "aixmath",
+      "related_channels": [
+        "aixbio"
+      ],
+      "item_type": "paper",
+      "source": "arXiv",
+      "title": "What Effort Level Should I Choose? On the Economics of Reasoning Effort in LLM Agents",
+      "url": "https://arxiv.org/abs/2610.34491v1",
+      "published_at": "2026-10-25",
+      "updated_at": "2026-10-25",
+      "creators": [
+        "Kaiser Sun",
+        "Yongchan Kwon",
+        "Zain Hasan",
+        "Shang Zhu",
+        "Kaitlyn Zhou",
+        "Federico Bianchi"
+      ],
+      "language": "en",
+      "abstract_or_text": "Generative models increasingly expose a reasoning effort setting that lets users scale inference-time compute, trading higher cost for potentially improved performance. Users must choose an effort level before knowing whether extra reasoning will help, and even a successful run does not reveal whether the effort purchased was necessary. Reasoning effort is therefore a credence good: buyers observe the outcome but cannot assess the marginal value of the computation they paid for. In this work, we measure the counterfactual effect of effort levels on both proprietary and open-weight models on four benchmarks, spanning single-call reasoning and long-horizon agentic tasks. Effort, it turns out, does not consistently preserve tasks that lower effort solves, can overspend, and can change trajectory behavior. First, we find that although higher effort can raise accuracy in aggregate, it frequently fails on tasks that lower effort solved. Second, on the subset of easy tasks that every effort level solves, higher effort is generally more costly, with the highest effort level costing up to 42x as much as the lowest. Lastly, effort changes not only how many tokens are used, but also how agents solve tasks: at higher effort, agents verify their own work more heavily and more often search for solutions than work through problems directly, both of which lengthen trajectories without necessarily altering the outcome. These findings show that naively choosing the highest level is not only cost-inefficient but also offers no guarantee of the best instance-level performance. A simple alternative, starting at the lowest effort and escalating only after a verified failure, matches or improves on fixed top effort across all models and benchmarks at lower cost for most proprietary models.",
+      "summary_zh": "研究推理努力等级对模型准确率、轨迹行为和成本的反事实影响，并提出失败后逐步升级的策略。",
+      "why_it_matters_zh": "覆盖四个基准、专有与开放权重模型及长程智能体任务，量化了最高努力等级最高可达 42 倍的成本差异。",
+      "quality_score": 75.0,
+      "tags": [
+        "数学推理计算与评测",
+        "推理评测",
+        "成本分析",
+        "智能体"
+      ],
+      "evidence_flags": [
+        "benchmark",
+        "performance"
+      ],
+      "publication_status": "preprint",
+      "rank": 6,
+      "featured": false,
+      "category": "数学推理计算与评测",
+      "metrics": {},
+      "metadata": {
+        "doi": "",
+        "arxiv_id": "2610.34491v1"
+      },
+      "abstract_zh": "生成模型越来越多地提供推理努力设置，使用户能够缩放推理时计算，在更高成本与潜在更好性能之间进行权衡。用户必须在不知道额外推理是否有帮助之前选择努力等级，即使一次运行成功，也无法知道所购买的努力是否必要。因此，推理努力是一种信任品：购买者能观察结果，却无法评估其所支付计算的边际价值。在本文中，我们在四个基准上测量不同努力等级对专有模型和开放权重模型的反事实影响，覆盖单次调用推理和长程智能体任务。事实证明，努力等级并不能始终保持低努力可以解决的任务，会造成过度花费，并且可能改变轨迹行为。首先，尽管更高努力在总体上可以提高准确率，但它经常在低努力已经解决的任务上失败。其次，在所有努力等级都能解决的简单任务子集上，更高努力通常成本更高，最高努力等级的成本最高可达最低努力等级的 42 倍。最后，努力等级改变的不只是使用的词元数量，也改变智能体解决任务的方式：在更高努力下，智能体会更重地、也更频繁地验证自身工作，并且更常搜索解决方案而不是直接解决问题；这两者都会延长轨迹，却不一定改变结果。这些发现表明，天真地选择最高等级不仅成本低效，也不能保证实例级性能最佳。一个简单的替代方案是从最低努力开始，仅在经过验证的失败之后升级；在所有模型和基准上，该方案都能以更低成本匹配或改进固定最高努力，而对大多数专有模型而言成本更低。",
+      "published": "2026-10-25",
+      "author_line": "Kaiser Sun, Yongchan Kwon, Zain Hasan, Shang Zhu, Kaitlyn Zhou, Federico Bianchi"
+    },
+    {
+      "id": "arxiv:2610.35288v1",
+      "channel": "aixmath",
+      "related_channels": [],
+      "item_type": "paper",
+      "source": "arXiv",
+      "title": "Proof-of-Agentness: Towards Verifying Agents on the Web",
+      "url": "https://arxiv.org/abs/2610.35288v1",
+      "published_at": "2026-10-26",
+      "updated_at": "2026-10-26",
+      "creators": [
+        "Zuyao Xu",
+        "Xiang Li"
+      ],
+      "language": "en",
+      "abstract_or_text": "CAPTCHAs and bot detection have helped protect Web services from automated abuse for decades by distinguishing humans from bots. However, the emergence of LLM-powered agents introduces a new setting: Web services increasingly accommodate agents as legitimate users. Without a way to distinguish agents from other automated clients such as simple bots and scripts, these services risk large-scale automated junk submissions that waste service resources and consume users' attention or tokens. In this paper, we investigate a novel question for today's Web: \"How can a Web service obtain evidence that a client is an agent?\" We introduce the concept of \"Proof-of-Agentness\" (PoA), a mechanism for distinguishing agents from other automated clients, motivated by the parallel between human attention and an agent's inference resources. We outline two approaches: active verification through challenge-response and passive analysis of service-visible signals. Eight language models achieve an overall accuracy of 96.5% on our challenges, with an average overhead of 1,647 tokens. For passive analysis, we conduct an IRB-approved user study comparing the Web interactions of twelve human participants and representative Bot and Agent implementations, achieving an average classification accuracy of 95.8% across four classifiers, motivating further study.",
+      "summary_zh": "提出 Proof-of-Agentness，用主动挑战—响应和被动交互信号区分 LLM 智能体、普通脚本和机器人。",
+      "why_it_matters_zh": "在挑战测试和 IRB 批准的人机交互研究中分别报告了 96.5% 和 95.8% 的平均分类准确率。",
+      "quality_score": 74.0,
+      "tags": [
+        "智能体可验证性",
+        "智能体验证",
+        "安全评测"
+      ],
+      "evidence_flags": [],
+      "publication_status": "preprint",
+      "rank": 7,
+      "featured": false,
+      "category": "智能体可验证性",
+      "metrics": {},
+      "metadata": {
+        "doi": "",
+        "arxiv_id": "2610.35288v1"
+      },
+      "abstract_zh": "几十年来，CAPTCHA 和机器人检测一直通过区分人类与机器人来保护 Web 服务免受自动化滥用。然而，LLM 驱动的智能体出现后，Web 服务越来越多地将智能体视为合法用户。若没有办法把智能体与简单机器人和脚本等其他自动化客户端区分开来，这些服务就面临大规模自动垃圾提交的风险，浪费服务资源并消耗用户的注意力或词元。本文研究当今 Web 的一个新问题：Web 服务如何获得客户端是智能体的证据？我们提出 Proof-of-Agentness（PoA）概念，这是一种区分智能体与其他自动化客户端的机制，其动机来自人类注意力与智能体推理资源之间的平行关系。我们概述了两种方法：通过挑战—响应进行主动验证，以及分析服务可见信号进行被动验证。八个语言模型在我们的挑战中取得 96.5% 的总体准确率，平均开销为 1,647 个词元。对于被动分析，我们开展了一项经 IRB 批准的用户研究，比较十二名人类参与者与具有代表性的 Bot 和 Agent 实现的 Web 交互；四个分类器的平均分类准确率为 95.8%，这为进一步研究提供了动机。",
+      "published": "2026-10-26",
+      "author_line": "Zuyao Xu, Xiang Li"
+    },
+    {
+      "id": "arxiv:2610.34634v1",
+      "channel": "aixmath",
+      "related_channels": [],
+      "item_type": "paper",
+      "source": "arXiv",
+      "title": "AgentProofBench: Benchmarking Reusable Verifiers for Web Agents",
+      "url": "https://arxiv.org/abs/2610.34634v1",
+      "published_at": "2026-10-25",
+      "updated_at": "2026-10-25",
+      "creators": [
+        "Jingjie Ning",
+        "Xueqi Li",
+        "Yi Lu",
+        "Yibo Kong"
+      ],
+      "language": "en",
+      "abstract_or_text": "Reusable Web-agent verification requires a rule to follow changing requirements and support subsequent execution. We introduce AgentProofBench, which connects paired tests of a frozen acceptance rule to execution from identical saved openings. The resource spans 97 tasks, 79 families, and four Web services. Experiments with DeepSeek Flash/Pro establish two linked measurements. Across 48 families, complete-panel and decision-replay tests retain 82/96 Flash and 79/96 Pro source programs; paired reuse-rebuild BA intervals are [-5.47, 1.57] and [-10.16, 0.00] percentage points. Across 22 execution families, deployment-state panel correctness separates program assignments whose two saved openings are both delivered correctly: 32/33 assignments with error-free panels, versus 1/11 with panel errors. All reference-defined program-gate regressions and withheld deliveries occur in the latter group. Neutral continuation attains the highest correct delivery under the tested generic feedback, providing a concrete baseline for measuring the value added by a gate. Released instructions, states, programs, reference rules, and trajectories connect each test failure to its execution consequences. AgentProofBench makes reusable verification assessable at both the requirement and policy levels.",
+      "summary_zh": "提出 AgentProofBench，以配对测试评估 Web 智能体验证器在需求遵循和后续执行中的可复用性。",
+      "why_it_matters_zh": "资源包含 97 个任务、79 个任务族和 4 个 Web 服务，并把验证失败与执行后果对应起来。",
+      "quality_score": 72.0,
+      "tags": [
+        "可复用验证器评测",
+        "形式化验证",
+        "智能体基准"
+      ],
+      "evidence_flags": [
+        "benchmark",
+        "release"
+      ],
+      "publication_status": "preprint",
+      "rank": 8,
+      "featured": false,
+      "category": "可复用验证器评测",
+      "metrics": {},
+      "metadata": {
+        "doi": "",
+        "arxiv_id": "2610.34634v1"
+      },
+      "abstract_zh": "可复用的 Web 智能体验证需要一个能够遵循变化要求并支持后续执行的规则。我们提出 AgentProofBench，将冻结的接受规则配对测试与从相同保存初始状态开始的执行连接起来。该资源覆盖 97 个任务、79 个任务族和 4 个 Web 服务。使用 DeepSeek Flash/Pro 的实验建立了两个相互关联的测量。对于 48 个任务族，完整面板测试和决策重放测试分别保留了 Flash 的 82/96 个源程序和 Pro 的 79/96 个源程序；配对的复用—重建 BA 区间分别为 [-5.47, 1.57] 和 [-10.16, 0.00] 个百分点。对于 22 个执行任务族，部署状态下面板的正确性区分了两次保存的初始状态都被正确交付的程序分配：无错误面板的分配为 32/33，有面板错误的分配为 1/11。所有由参考规则定义的程序门回归和被保留的交付都出现在后一个群组中。在测试的通用反馈下，中性延续实现了最高的正确交付率，为衡量门控带来的增益提供了具体基线。发布的指令、状态、程序、参考规则和轨迹把每个测试失败与其执行后果连接起来。AgentProofBench 使得能够在需求层面和策略层面评估可复用验证。",
+      "published": "2026-10-25",
+      "author_line": "Jingjie Ning, Xueqi Li, Yi Lu, Yibo Kong"
+    },
+    {
+      "id": "arxiv:2610.34577v1",
+      "channel": "aixmath",
+      "related_channels": [],
+      "item_type": "paper",
+      "source": "arXiv",
+      "title": "Rethinking Verification in Agent Harnesses",
+      "url": "https://arxiv.org/abs/2610.34577v1",
+      "published_at": "2026-10-25",
+      "updated_at": "2026-10-25",
+      "creators": [
+        "Zhengxin Zhang",
+        "Erkang Zhu",
+        "Yin Lin",
+        "Claire Cardie",
+        "Bolin Ding",
+        "Jingren Zhou"
+      ],
+      "language": "en",
+      "abstract_or_text": "Agent harnesses enable large language models to act through tools, observe the results, and iteratively work toward a task goal. Verification checks and revises agents' work to improve output quality. Yet there is limited guidance on how harnesses should organize this effort. We study verification as an axis of test-time scaling by examining when to intervene, who checks the work, and how checking leads to revision. Our framework spans four layers of the agent lifecycle: initial instructions, mid-turn reminders, completion gates, and independent review. We compare 17 designs across seven frontier coding models on Terminal-Bench (TB) and SWE-bench Verified (SWE), and introduce VisualBench for expert evaluation of visual and interactive artifacts. Initial instructions and execution-time reminders yield modest, model-dependent average gains on the coding benchmarks, without substantially increasing average output token use. Completion gates can yield larger gains but may substantially increase cost. Independent review by a critic offers a more favorable accuracy-cost tradeoff, improving average accuracy by 5.9-9.5 percentage points on TB and 3.9-6.6 on SWE at 1.13-1.25 and 1.00-1.04 times baseline cost, respectively. On VisualBench, independent review achieves net preferences of 13.2-23.8 points over the baseline across its four designs, exceeding the evaluated L0-L2 designs. Additional review rounds or independent critics further improve average TB accuracy by up to 3.5 percentage points. Together, these results provide empirical guidance for verification design in agent harnesses and support independent review as a practical axis of test-time scaling.",
+      "summary_zh": "系统比较智能体生命周期中的四层验证设计，评估何时介入、由谁检查及如何触发修订。",
+      "why_it_matters_zh": "在 Terminal-Bench、SWE-bench Verified 和 VisualBench 上比较 17 种设计，量化独立审查的准确率—成本权衡。",
+      "quality_score": 72.0,
+      "tags": [
+        "智能体验证设计",
+        "验证设计",
+        "测试时扩展",
+        "智能体"
+      ],
+      "evidence_flags": [
+        "benchmark",
+        "evaluation"
+      ],
+      "publication_status": "preprint",
+      "rank": 9,
+      "featured": false,
+      "category": "智能体验证设计",
+      "metrics": {},
+      "metadata": {
+        "doi": "",
+        "arxiv_id": "2610.34577v1"
+      },
+      "abstract_zh": "智能体运行框架使大型语言模型能够通过工具行动、观察结果并迭代地朝任务目标工作。验证检查并修订智能体的工作，以提高输出质量。然而，关于运行框架应如何组织这一工作，指导仍然有限。我们把验证作为测试时扩展的一个轴来研究，考察何时介入、由谁检查，以及检查如何导致修订。我们的框架覆盖智能体生命周期的四个层次：初始指令、中途提醒、完成门和独立审查。我们在 Terminal-Bench（TB）和 SWE-bench Verified（SWE）上对七个前沿编码模型比较了 17 种设计，并引入 VisualBench 进行视觉和交互式产物的专家评估。初始指令和执行时提醒在编码基准上带来适度且依赖模型的平均增益，同时没有显著增加平均输出词元使用量。完成门可以带来更大增益，但可能显著增加成本。由批评者执行的独立审查提供了更有利的准确率—成本权衡：在 TB 上将平均准确率提高 5.9—9.5 个百分点，在 SWE 上提高 3.9—6.6 个百分点，而成本分别为基线的 1.13—1.25 倍和 1.00—1.04 倍。在 VisualBench 上，独立审查在四种设计中相对于基线取得 13.2—23.8 个百分点的净偏好，超过了所评估的 L0—L2 设计。额外的审查轮次或独立批评者还能使 TB 平均准确率最多再提高 3.5 个百分点。总体而言，这些结果为智能体验证设计提供了经验指导，并支持把独立审查作为测试时扩展的实用轴。",
+      "published": "2026-10-25",
+      "author_line": "Zhengxin Zhang, Erkang Zhu, Yin Lin, Claire Cardie, Bolin Ding, Jingren Zhou"
+    },
+    {
+      "id": "arxiv:2610.35596v1",
+      "channel": "aixmath",
+      "related_channels": [],
+      "item_type": "paper",
+      "source": "arXiv",
+      "title": "KAPPA: Checking the Proofs in Statistics Papers with Lean 4 and Language Model Agents",
+      "url": "https://arxiv.org/abs/2610.35596v1",
+      "published_at": "2026-10-26",
+      "updated_at": "2026-10-26",
+      "creators": [
+        "Zihua She",
+        "Xiao Wang"
+      ],
+      "language": "en",
+      "abstract_or_text": "Papers in statistical theory rest on long proofs that few readers check line by line. We present KAPPA (Kit of Agents for Proof-checking Papers with a proof Assistant), open-source software that organizes language model agents, run by Claude Code, to translate the proofs of a LaTeX paper into the proof assistant Lean 4 with its library Mathlib and check them there, result by result. Each numbered result receives one of four verdicts: verified unconditionally; verified conditionally, with every cited or unproved input stated as a named hypothesis; issue recorded, with its place in the paper and the side at fault; or unfinished, with the reason. The kit follows the paper's own proof step by step, rather than finding a new one. Separate agents write and review, each statement is compared with the paper before it is proved and fingerprinted afterwards, and every verdict rests on evidence that can be rerun without a language model. The kit runs unattended for hours, waits out usage limits, re-checks only what a revision changed and reports its cost by role, model and result. We describe the design, walk through a complete run, and apply the kit to four example papers with answer keys and to three published statistical papers, checked blind in their versions from before public corrections. In all three, the kit found the published error at the step that the correction names, together with further problems that we confirmed by hand. Given the same papers directly, the same language model working with Lean classified fewer results correctly on the longest paper and reported some statements narrower than the paper's as proved; no verdict of the kit claimed more than its Lean evidence showed.",
+      "summary_zh": "KAPPA 组织 Claude Code 驱动的语言模型智能体，把统计学论文证明逐条翻译到 Lean 4/Mathlib 并给出可重跑判定。",
+      "why_it_matters_zh": "在三个已发表统计学论文的盲检中找到了论文勘误所指出的错误，并报告了额外的人工确认问题。",
+      "quality_score": 71.0,
+      "tags": [
+        "证明助手与统计学",
+        "证明检查",
+        "统计学"
+      ],
+      "evidence_flags": [],
+      "publication_status": "preprint",
+      "rank": 10,
+      "featured": false,
+      "category": "证明助手与统计学",
+      "metrics": {},
+      "metadata": {
+        "doi": "",
+        "arxiv_id": "2610.35596v1"
+      },
+      "abstract_zh": "统计理论论文建立在很少有读者逐行检查的长篇证明之上。我们提出 KAPPA（Kit of Agents for Proof-checking Papers with a proof Assistant），这是一个开源软件，用 Claude Code 运行语言模型智能体，把 LaTeX 论文中的证明逐篇翻译到证明助手 Lean 4 及其库 Mathlib 中，并逐个结果进行检查。每个编号结果都会得到四种判定之一：无条件验证；有条件验证，其中每个被引用或未证明的输入都被列为命名假设；记录问题，并注明其在论文中的位置和责任方；或未完成，并说明原因。该工具包沿着论文自己的证明逐步执行，而不是寻找新的证明；独立的智能体分别编写和审查，每条陈述在证明前都会与论文比较，证明后还会生成指纹；每个判定都依赖无需语言模型即可重新运行的证据。该工具包可以无人值守运行数小时，等待使用限额，只有修订内容才重新检查，并按角色、模型和结果报告成本。我们描述其设计，完整演示一次运行，并将其应用于四篇带有答案键的示例论文以及三篇已发表的统计学论文；后者使用公开勘误之前的盲版本进行检查。在三篇论文中，工具包都在勘误所指明的步骤发现了已发表的错误，并发现了其他经我们手工确认的问题。若直接把相同论文交给语言模型并使用 Lean，最长论文中被正确分类的结果更少，并且有些比论文更窄的陈述被报告为已证明；工具包没有任何判定声称超出其 Lean 证据所显示的范围。",
+      "published": "2026-10-26",
+      "author_line": "Zihua She, Xiao Wang"
+    },
+    {
+      "id": "arxiv:2610.35680v1",
+      "channel": "aixmath",
+      "related_channels": [],
+      "item_type": "paper",
+      "source": "arXiv",
+      "title": "Verse: Semantics and Verification of Hybrid Multi-Agent Scenarios",
+      "url": "https://arxiv.org/abs/2610.35680v1",
+      "published_at": "2026-10-26",
+      "updated_at": "2026-10-26",
+      "creators": [
+        "Yangge Li",
+        "Katherine Braught",
+        "Alex Yuan",
+        "Sayan Mitra"
+      ],
+      "language": "en",
+      "abstract_or_text": "Verifying cyber-physical systems with many interacting agents remains difficult because interactions are mediated by sensors, individual decisions are constrained by environment (map) structure, and the resulting mode space scales combinatorially. We present Verse, a framework for writing agents, maps, and sensors in a familiar programming language syntax, with a formal semantics for the resulting scenarios. A compiler translates each scenario to a hybrid automaton whose executions correspond exactly to the runs of the scenario. Reachability analysis on this automaton builds an execution tree from two post operators, one for continuous flow over a time step and one for a single agent's mode change, and checks safety assertions at every vertex. The tree expands only the modes that are reached, without enumerating the global mode space. Experiments highlight expressive modeling across cars and drones, 2D/3D maps (including OpenDRIVE imports), noisy sensors, and multiple simultaneous safety assertions. Verse verifies a scenario with 7 agents and 37 modes in 90 seconds on a standard laptop; it is competitive with CORA and JuliaReach on ARCH benchmarks, and on multi-agent scenarios is an order of magnitude faster than JuliaReach at the cost of looser reachable sets.",
+      "summary_zh": "Verse 为多智能体场景定义形式语义，将其编译为混合自动机并进行可达性与安全性检查。",
+      "why_it_matters_zh": "报告了 7 个智能体、37 个模式场景的 90 秒验证结果，并与 CORA、JuliaReach 在 ARCH 基准上比较。",
+      "quality_score": 70.0,
+      "tags": [
+        "混合系统形式化验证",
+        "形式语义",
+        "混合自动机",
+        "可达性分析"
+      ],
+      "evidence_flags": [
+        "benchmark"
+      ],
+      "publication_status": "preprint",
+      "rank": 11,
+      "featured": false,
+      "category": "混合系统形式化验证",
+      "metrics": {},
+      "metadata": {
+        "doi": "",
+        "arxiv_id": "2610.35680v1"
+      },
+      "abstract_zh": "对具有大量交互智能体的网络物理系统进行验证仍然困难，因为交互由传感器介导，个体决策受环境（地图）结构约束，而产生的模式空间呈组合式增长。我们提出 Verse，用熟悉的编程语言语法编写智能体、地图和传感器，并为所得场景提供形式语义。编译器把每个场景转换为混合自动机，该自动机的执行与场景运行一一对应。对该自动机进行可达性分析，通过两个后置算子构建执行树：一个处理时间步上的连续流，另一个处理单个智能体的一次模式变化，并在每个顶点检查安全断言。该树只扩展实际到达的模式，而不枚举全局模式空间。实验展示了其在汽车和无人机、二维/三维地图（包括 OpenDRIVE 导入）、带噪传感器以及多个同时安全断言上的建模表达力。Verse 在标准笔记本电脑上用 90 秒验证了一个包含 7 个智能体和 37 个模式的场景；它在 ARCH 基准上与 CORA 和 JuliaReach 具有竞争力，而在多智能体场景上比 JuliaReach 快一个数量级，代价是可达集合更宽松。",
+      "published": "2026-10-26",
+      "author_line": "Yangge Li, Katherine Braught, Alex Yuan, Sayan Mitra"
+    },
+    {
+      "id": "arxiv:2610.34951v1",
+      "channel": "aixmath",
+      "related_channels": [],
+      "item_type": "paper",
+      "source": "arXiv",
+      "title": "Improving Reasoning with Rollout Agreement for Group-Based Policy Optimization",
+      "url": "https://arxiv.org/abs/2610.34951v1",
+      "published_at": "2026-10-26",
+      "updated_at": "2026-10-26",
+      "creators": [
+        "Sohyun Son",
+        "Yerim Hong",
+        "Jaeyun Park",
+        "Mujeen Sung"
+      ],
+      "language": "en",
+      "abstract_or_text": "Recent methods for Reinforcement Learning with Verifiable Rewards (RLVR) use rollout diversity to improve reasoning performance or training efficiency. Despite these gains, the extent to which differences among correct-answer rollouts reflect useful alternative reasoning or unresolved errors remains poorly understood. We investigate this question through a blind paired analysis of a model trained with Group Relative Policy Optimization (GRPO), comparing the highest- and lowest-agreement correct-answer traces for the same problem. Across 126 pairs, low-agreement traces have more spurious reasoning than high-agreement traces (35% vs. 22%), including internal inconsistencies and misuse of problem conditions. Based on these findings, we propose RoAR (Rollout-Agreement Reward), which adds reasoning-level agreement to GRPO's rewards for verified-correct rollouts. RoAR computes this signal from existing on-policy rollout groups, requiring no human-written rationales, additional sampling, or separately trained process evaluator. On five mathematical reasoning benchmarks, the 1.5B GRPO-RoAR model reaches 55.5% mean pass@1 under zero-shot evaluation using 7K training examples, exceeding GRPO and GRPO-CARE by 6.0 and 5.5 percentage points. A separate blind audit of 100 problems answered correctly by all four 1.5B models finds spurious rates of 18% for GRPO-RoAR, 32% for GRPO, 27% for GRPO-CARE, and 37% for DRA-GRPO. Our findings identify reasoning validity as an important consideration when using rollout differences to guide learning. Our code is available at https://github.com/ldi-kyunghee/RoAR.",
+      "summary_zh": "通过分析正确答案轨迹之间的推理一致性，提出 RoAR 奖励，并在五个数学推理基准上改进 GRPO。",
+      "why_it_matters_zh": "不仅测量最终答案，还审计推理中的自相矛盾和条件误用，给出 1.5B 模型的 pass@1 与伪推理率结果。",
+      "quality_score": 72.0,
+      "tags": [
+        "数学推理强化学习",
+        "数学推理",
+        "强化学习",
+        "推理审计"
+      ],
+      "evidence_flags": [
+        "benchmark",
+        "github",
+        "evaluation",
+        "performance"
+      ],
+      "publication_status": "preprint",
+      "rank": 12,
+      "featured": false,
+      "category": "数学推理强化学习",
+      "metrics": {},
+      "metadata": {
+        "doi": "",
+        "arxiv_id": "2610.34951v1"
+      },
+      "abstract_zh": "近期带可验证奖励的强化学习（RLVR）方法利用轨迹多样性来提升推理性能或训练效率。尽管取得了这些增益，正确答案轨迹之间的差异究竟反映了有用的替代推理，还是尚未解决的错误，仍然缺乏理解。我们通过对一个使用组相对策略优化（GRPO）训练的模型进行盲配对分析来研究这一问题，比较同一问题上最高一致性和最低一致性的正确答案轨迹。在 126 对轨迹中，低一致性轨迹比高一致性轨迹包含更多伪推理（35% 对 22%），包括内部不一致和误用问题条件。基于这些发现，我们提出 RoAR（Rollout-Agreement Reward），在已验证正确的轨迹上为 GRPO 奖励加入推理层面的一致性。RoAR 从现有的在线策略轨迹组中计算这一信号，不需要人工编写的推理、额外采样或单独训练的过程评估器。在五个数学推理基准上，使用 7K 个训练样例的 1.5B GRPO-RoAR 模型，在零样本评估下达到 55.5% 的平均 pass@1，超过 GRPO 和 GRPO-CARE，分别高出 6.0 和 5.5 个百分点。对四个 1.5B 模型都正确回答的 100 道题进行的另一项盲审计显示，GRPO-RoAR、GRPO、GRPO-CARE 和 DRA-GRPO 的伪推理率分别为 18%、32%、27% 和 37%。我们的发现表明，在利用轨迹差异指导学习时，推理有效性是一个重要考量。代码见 https://github.com/ldi-kyunghee/RoAR",
+      "published": "2026-10-26",
+      "author_line": "Sohyun Son, Yerim Hong, Jaeyun Park, Mujeen Sung"
+    },
+    {
+      "id": "arxiv:2610.35518v1",
+      "channel": "aixmath",
+      "related_channels": [],
+      "item_type": "paper",
+      "source": "arXiv",
+      "title": "S3AC: Stabilized, Selective, and Scalable Actor-Critic for LLM Reasoning",
+      "url": "https://arxiv.org/abs/2610.35518v1",
+      "published_at": "2026-10-26",
+      "updated_at": "2026-10-26",
+      "creators": [
+        "Shuo Shen",
+        "Guangran Cheng",
+        "Chengqi Lyu",
+        "Xiangsen Wang",
+        "Yanan Sun",
+        "Wenwei Zhang"
+      ],
+      "language": "en",
+      "abstract_or_text": "Critic-free methods are widely used in reinforcement learning with verifiable rewards (RLVR) for long chain-of-thought (CoT) reasoning, avoiding difficult and costly critic training. Common alternatives lack token-level credit assignment and typically rely on grouped rollouts to estimate prompt-specific baselines. A critic can address both limitations, but long-CoT critic training is hindered by insufficient coverage of trajectories with diverse lengths and early gradients dominated by the newly initialized value head. We introduce S3AC (Stabilized, Selective, and Scalable Actor-Critic) for LLM reasoning, built around a practical critic-training recipe. The trained critic provides token-specific advantages and prompt-specific baselines. Using the prompt-level baseline to estimate difficulty, we propose Difficulty-Aware Prompt Sampling (DAPS). DAPS combines this estimate with outcome history to select prompts before generation, reducing rollout waste without offline difficulty initialization. S3AC improves group-rollout performance across dense and mixture-of-experts models from 1.5B to 397B parameters, outperforming a modern GRPO variant (GRPO-X). At 35B, it sustains single-rollout training while tested critic-free baselines deteriorate after initial gains.",
+      "summary_zh": "提出 S3AC，通过稳定化批评者训练、词元级优势和难度感知提示采样改进长链式思维强化学习。",
+      "why_it_matters_zh": "在 1.5B 到 397B 的稠密和混合专家模型上比较群组轨迹训练，并报告单轨迹训练的稳定性。",
+      "quality_score": 70.0,
+      "tags": [
+        "LLM 数学推理训练",
+        "数学推理",
+        "强化学习",
+        "信用分配"
+      ],
+      "evidence_flags": [
+        "performance"
+      ],
+      "publication_status": "preprint",
+      "rank": 13,
+      "featured": false,
+      "category": "LLM 数学推理训练",
+      "metrics": {},
+      "metadata": {
+        "doi": "",
+        "arxiv_id": "2610.35518v1"
+      },
+      "abstract_zh": "在带可验证奖励的强化学习（RLVR）中，免批评者方法被广泛用于长链式思维（CoT）推理，以避免困难且昂贵的批评者训练。常见替代方法缺乏词元级信用分配，通常依赖群组轨迹来估计针对提示的基线。批评者可以同时解决这两个限制，但长 CoT 批评者训练受到不同长度轨迹覆盖不足的阻碍，而且早期梯度由新初始化的价值头主导。我们提出用于 LLM 推理的 S3AC（Stabilized, Selective, and Scalable Actor-Critic），其核心是一套实用的批评者训练方案。训练好的批评者提供词元级优势和针对提示的基线。我们使用提示级基线估计难度，并提出难度感知提示采样（DAPS）。DAPS 将该估计与结果历史结合，在生成前选择提示，从而减少轨迹浪费，而不需要离线难度初始化。在参数规模从 1.5B 到 397B 的稠密和混合专家模型上，S3AC 改进了群组轨迹性能，并超过一种现代 GRPO 变体（GRPO-X）。在 35B 规模上，它能够维持单轨迹训练，而测试的免批评者基线在初始增益后出现退化。",
+      "published": "2026-10-26",
+      "author_line": "Shuo Shen, Guangran Cheng, Chengqi Lyu, Xiangsen Wang, Yanan Sun, Wenwei Zhang"
+    },
+    {
+      "id": "arxiv:2610.34137v1",
+      "channel": "aixmath",
+      "related_channels": [],
+      "item_type": "paper",
+      "source": "arXiv",
+      "title": "Self-Evolution Reasoner: Continuous Optimization via Policy-Intrinsic Exploration and Exploitation",
+      "url": "https://arxiv.org/abs/2610.34137v1",
+      "published_at": "2026-10-25",
+      "updated_at": "2026-10-25",
+      "creators": [
+        "Wenhang Shi",
+        "Yiren Chen",
+        "Zhe Zhao",
+        "Jinhao Dong",
+        "Wei Lu",
+        "Xiaoyong Du"
+      ],
+      "language": "en",
+      "abstract_or_text": "Reinforcement learning with verifiable rewards (RLVR) enables large language models (LLMs) to continuously self-improve their reasoning capabilities. Compared to RLVR's scalar rewards, recent self-supervised on-policy distillation methods leverage denser supervision signals. However, both paradigms suffer from exploration bottlenecks, struggling to escape local optima when the policy fails to sample valid solutions. Relying on external demonstrations can bypass this issue; however, the off-policy nature hinders genuine self-improvement and the mismatched-distribution reasoning can not be fully exploited. In this work, we propose Self-Evolution Policy Optimization (SEPO), a framework that drives continuous reasoning capability evolution via guided exploration and in-distribution exploitation. Specifically, SEPO utilizes labels to elicit correct reasoning from the policy, unlocking the exploration potential. By treating current policy conditioned on this in-distribution reasoning as a self-teacher, SEPO distills the newly discovered solution back into the policy. Through this iterative cycle of policy-intrinsic exploration and exploitation, SEPO achieves robust and continuous capability evolution. Across scientific, tool-use, and complex logical reasoning domains, SEPO consistently achieves the best performance under identical training time or steps, demonstrating superior efficiency and convergence ceilings. Notably, SEPO maintains stable improvements even in scenarios where baselines severely underperform or fail entirely, such as on complex tasks or with small-scale models. Our code is available at https://github.com/Eric8932/SEPO.",
+      "summary_zh": "提出 SEPO，通过策略内在的探索与利用循环，让模型从自身诱导出的正确推理中持续蒸馏。",
+      "why_it_matters_zh": "在科学、工具使用和复杂逻辑推理任务上以相同训练时间或步数比较，并强调小模型和困难任务上的稳定改进。",
+      "quality_score": 70.0,
+      "tags": [
+        "可验证奖励推理",
+        "推理训练",
+        "自蒸馏",
+        "可验证奖励"
+      ],
+      "evidence_flags": [
+        "github",
+        "performance"
+      ],
+      "publication_status": "preprint",
+      "rank": 14,
+      "featured": false,
+      "category": "可验证奖励推理",
+      "metrics": {},
+      "metadata": {
+        "doi": "",
+        "arxiv_id": "2610.34137v1"
+      },
+      "abstract_zh": "带可验证奖励的强化学习（RLVR）使大型语言模型（LLM）能够持续提升推理能力。与 RLVR 的标量奖励相比，近期的自监督在线策略蒸馏方法利用了更密集的监督信号。然而，这两类范式都受到探索瓶颈的影响：当策略无法采样有效解时，很难逃离局部最优。依赖外部示例可以绕过这一问题；但在线策略之外的性质阻碍了真正的自我提升，而且不匹配分布中的推理无法被充分利用。在本文中，我们提出 Self-Evolution Policy Optimization（SEPO），一个通过引导式探索和分布内利用推动推理能力持续进化的框架。具体而言，SEPO 使用标签从策略中诱导正确推理，释放探索潜力。随后，把以这种分布内推理为条件的当前策略视为自教师，并将新发现的解蒸馏回策略。通过这一探索与利用的迭代循环，SEPO 实现了稳健且持续的能力进化。在科学、工具使用和复杂逻辑推理领域中，SEPO 在相同训练时间或步数下持续取得最佳性能，表现出更高的效率和收敛上限。值得注意的是，在基线严重表现不佳或完全失败的场景中，例如复杂任务或小规模模型，SEPO 仍能保持稳定改进。代码见 https://github.com/Eric8932/SEPO",
+      "published": "2026-10-25",
+      "author_line": "Wenhang Shi, Yiren Chen, Zhe Zhao, Jinhao Dong, Wei Lu, Xiaoyong Du"
+    },
+    {
+      "id": "arxiv:2610.33764v1",
+      "channel": "aixmath",
+      "related_channels": [],
+      "item_type": "paper",
+      "source": "arXiv",
+      "title": "All the Facts, Still the Wrong Answer: Integration Gaps in Vision-Language Models",
+      "url": "https://arxiv.org/abs/2610.33764v1",
+      "published_at": "2026-10-24",
+      "updated_at": "2026-10-24",
+      "creators": [
+        "Yuyang Dai",
+        "Yuxia Wang",
+        "Zhuohan Xie"
+      ],
+      "language": "en",
+      "abstract_or_text": "Multimodal reasoning requires models to combine multiple pieces of evidence into decisions that satisfy all relevant constraints. Evaluations centered on final-answer accuracy leave unclear whether failures arise from reading individual facts or using them together. We study this question through the multi-evidence integration gap, linking local fact recovery to global decision validity on controlled subset-selection and path-finding tasks. Our evaluation combines conditional performance given correct local answers with same-grid local queries, text-oracle inputs, retrieval controls, and constraint ablations. We further examine hidden-state probes and activation replacement across network depth, token positions, and model families. Across the evaluated models, accurate local recovery coexists with substantial global failure. For example, Gemma-3-27B recovers all evaluated isolated item facts correctly but achieves only 19.75% global validity on eight-item visual instances. Probes decode information about solution membership from global-prompt states, while corresponding clean-state replacement recovers failed decisions over model-dependent depth ranges. These findings show that recovering facts and representing solution-related information are insufficient for reliable joint decisions. They motivate evaluations and model improvements that explicitly target how available evidence is combined, alongside advances in perception and model scale.",
+      "summary_zh": "把视觉语言模型的失败拆分为局部事实恢复与全局约束整合，并用探针和激活替换研究其内部机制。",
+      "why_it_matters_zh": "在受控子集选择和路径寻找任务上结合条件性能、文本预言机和消融，展示局部事实正确并不保证全局决策有效。",
+      "quality_score": 70.0,
+      "tags": [
+        "多证据约束推理",
+        "形式化评测",
+        "多模态推理",
+        "约束推理"
+      ],
+      "evidence_flags": [
+        "ablation",
+        "evaluation",
+        "performance"
+      ],
+      "publication_status": "preprint",
+      "rank": 15,
+      "featured": false,
+      "category": "多证据约束推理",
+      "metrics": {},
+      "metadata": {
+        "doi": "",
+        "arxiv_id": "2610.33764v1"
+      },
+      "abstract_zh": "多模态推理要求模型结合多条证据，作出满足所有相关约束的决策。以最终答案准确率为中心的评估无法说明失败源于读取单个事实，还是源于把事实结合起来。我们通过多证据整合差距研究这一问题，把局部事实恢复与全局决策有效性联系到受控的子集选择和路径寻找任务上。我们的评估结合了在局部答案正确条件下的性能、同网格局部查询、文本预言机输入、检索控制和约束消融。我们还跨网络深度、词元位置和模型家族检查了隐状态探针与激活替换。在所评估的模型中，准确的局部恢复与显著的全局失败并存。例如，Gemma-3-27B 能正确恢复所有评估的孤立项目事实，但在包含八个项目的视觉实例上全局有效率只有 19.75%。探针能够从全局提示状态中解码有关解成员关系的信息，而相应的干净状态替换在依赖模型的深度范围内恢复了失败的决策。这些发现表明，恢复事实和表示与解有关的信息并不足以实现可靠的联合决策。它们促使评估和模型改进明确针对可用证据如何被组合，同时推动感知能力和模型规模的发展。",
+      "published": "2026-10-24",
+      "author_line": "Yuyang Dai, Yuxia Wang, Zhuohan Xie"
+    }
+  ],
   "review": {
     "model": "gpt-5.6-terra",
     "reasoning_effort": "high",
-    "note": "候选文件的完整候选集为空（count=0），因此没有达到质量阈值的项目可选。"
+    "note": "从候选集 60 项中选出 15 项，均为公开状态的 arXiv 预印本且质量分不低于 70。优先保留有明确形式化任务、可复现实验或基准评测、机器检查结果的工作；未纳入证据不足或与数学推理/验证关联较弱的条目。"
   }
 }

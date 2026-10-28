@@ -1,0 +1,679 @@
+{
+  "schema_version": "2.0",
+  "date": "2026-10-29",
+  "channel": "aixbio",
+  "generated_at": "2026-10-28T22:05:16+00:00",
+  "title": "AI × Bio 每日精选",
+  "subtitle": "计算生物学、组学、蛋白质与生物医学模型。",
+  "window": {
+    "start": "2026-10-26",
+    "end": "2026-10-29"
+  },
+  "method": "公开来源采集、历史去重、规则筛选与模型审阅",
+  "method_note": "系统保存当日公开元数据，与历史日报核验后排除已报道事件；论文新版本、新修订及不同软件发布等可核实更新仍可入选，随后由指定模型阅读全文摘要并完成精选。",
+  "stats": {
+    "fetched": 2611,
+    "suppressed_previous": 28,
+    "candidates": 60,
+    "selected": 14,
+    "sources": {
+      "arXiv": 894,
+      "bioRxiv": 744,
+      "medRxiv": 202,
+      "Europe PMC": 1000
+    }
+  },
+  "source_status": {
+    "arXiv": {
+      "state": "ok",
+      "count": 894
+    },
+    "bioRxiv": {
+      "state": "ok",
+      "count": 744
+    },
+    "medRxiv": {
+      "state": "ok",
+      "count": 202
+    },
+    "Europe PMC": {
+      "state": "ok",
+      "count": 1000
+    }
+  },
+  "source_errors": [],
+  "items": [
+    {
+      "id": "arxiv:2610.37074v1",
+      "channel": "aixbio",
+      "related_channels": [],
+      "item_type": "paper",
+      "source": "arXiv",
+      "title": "Systematic Morphometric Brain Autoencoding for Representation Learning in Neurodegenerative Diseases",
+      "url": "https://arxiv.org/abs/2610.37074v1",
+      "published_at": "2026-10-27",
+      "updated_at": "2026-10-27",
+      "creators": [
+        "Nuria Balbás-Esteban",
+        "Albert Belenguer-Llorens",
+        "Elaheh Moradi",
+        "Jussi Tohka",
+        "Vanessa Gómez-Verdejo",
+        "Carlos Sevilla-Salcedo"
+      ],
+      "language": "en",
+      "abstract_or_text": "Early identification of neurodegenerative disorders using structural T1-weighted MRI is essential for timely clinical intervention, yet supervised deep learning models often struggle to generalize due to limited annotations and scanner-induced distribution shift. Self-supervised learning offers a promising alternative; however, existing approaches are largely adapted from natural image paradigms, relying on contrastive objectives or generic masked reconstruction with voxel-wise losses, which may not fully capture the distributed morphometric patterns associated with neurodegeneration. We introduce SYMBA (SYstematic Morphometric Brain Autoencoding), a self-supervised pretraining framework specifically designed for structural brain MRI. SYMBA integrates anatomically constrained masking, a multi-scale structural similarity (MS-SSIM) reconstruction objective, and a progressive curriculum that transitions from local anatomical detail to global brain morphology. These components explicitly incorporate neuroanatomical structure into the self-supervised objective rather than relying on generic image priors. Pretrained on 6,953 T1-weighted MRI scans from nine heterogeneous cohorts, SYMBA is evaluated using frozen linear probing on two independent unseen datasets, enabling a strict assessment of out-of-distribution generalization. Across multiple clinical tasks, SYMBA consistently outperforms recent neuroimaging foundation models, achieving 0.930 AUROC for Alzheimer's disease classification, 0.772 for mild cognitive impairment conversion prediction, and strong performance in amyloid status prediction. In low-label regimes, SYMBA demonstrates high sample efficiency, reaching approximately 0.90 AUROC for AD/CN classification using only six labeled subjects.",
+      "summary_zh": "SYMBA 是面向结构脑 MRI 的自监督预训练框架，通过解剖约束掩码、多尺度结构相似性重建和渐进式课程学习，利用 6,953 例来自 9 个异质队列的 T1 加权 MRI，在独立数据集上评估神经退行性疾病任务。",
+      "why_it_matters_zh": "这是预印本；其跨队列训练、独立外部测试和低标注量实验提高了可复现性与转化参考价值，但 AUROC 结果仍不等同于临床诊断效能。",
+      "quality_score": 89.0,
+      "tags": [
+        "方法与模型"
+      ],
+      "evidence_flags": [
+        "dataset",
+        "clinical",
+        "performance",
+        "preprint"
+      ],
+      "publication_status": "preprint",
+      "rank": 1,
+      "featured": true,
+      "category": "方法与模型",
+      "metrics": {},
+      "metadata": {
+        "doi": "",
+        "arxiv_id": "2610.37074v1"
+      },
+      "abstract_zh": "利用结构性 T1 加权 MRI 早期识别神经退行性疾病对于及时临床干预至关重要，但由于标注有限和扫描仪导致的分布偏移，有监督深度学习模型往往难以泛化。自监督学习提供了有前景的替代方案；然而，现有方法大多从自然图像范式改造而来，依赖对比目标或通用的逐体素掩码重建损失，可能无法充分捕捉与神经退行性疾病相关的分布式形态计量模式。我们提出 SYMBA（SYstematic Morphometric Brain Autoencoding），一种专为结构性脑 MRI 设计的自监督预训练框架。SYMBA 整合了解剖约束掩码、多尺度结构相似性（MS-SSIM）重建目标，以及从局部解剖细节逐步过渡到全脑形态的渐进式课程。这些组件将神经解剖结构明确纳入自监督目标，而不是依赖通用图像先验。我们在来自 9 个异质队列的 6,953 例 T1 加权 MRI 扫描上进行预训练，并在两个独立且未见过的数据集上使用冻结线性探测进行评估，从而严格检验分布外泛化能力。在多个临床任务中，SYMBA 持续优于近期神经影像基础模型：阿尔茨海默病分类 AUROC 达到 0.930，轻度认知障碍转化预测 AUROC 为 0.772，并在淀粉样蛋白状态预测中取得较强表现。在低标注量条件下，SYMBA 展现出较高的样本效率，仅使用 6 名有标签受试者即可在 AD/CN 分类中达到约 0.90 AUROC。",
+      "published": "2026-10-27",
+      "author_line": "Nuria Balbás-Esteban, Albert Belenguer-Llorens, Elaheh Moradi, Jussi Tohka, Vanessa Gómez-Verdejo, Carlos Sevilla-Salcedo"
+    },
+    {
+      "id": "arxiv:2610.34871v1",
+      "channel": "aixbio",
+      "related_channels": [
+        "aixmath"
+      ],
+      "item_type": "paper",
+      "source": "arXiv",
+      "title": "DocTalk: Enhancing Medical Knowledge Retrieval via Fine-tuned Large Language Models with Chain-of-Thought Reasoning for Robust Clinical Decision Support",
+      "url": "https://arxiv.org/abs/2610.34871v1",
+      "published_at": "2026-10-26",
+      "updated_at": "2026-10-26",
+      "creators": [
+        "Asad Gohar",
+        "Md Ariful Islam Mozumder",
+        "Moon-Il Joo",
+        "Hee-Cheol Kim"
+      ],
+      "language": "en",
+      "abstract_or_text": "Objective: The rapid advancement of large language models (LLMs) in healthcare has opened new possibilities for AI-assisted clinical decision-making; however, safe and effective deployment remains challenging because of hallucination and domain misalignment. This study introduces DocTalk, a doctor-assistive question-answering (QA) system designed to generate concise, chart-grounded responses from de-identified discharge summaries. Methods: We developed a high-fidelity data generation pipeline that produces 500 clinically relevant QA pairs through sentence-level decomposition, chain-of-thought-guided question formulation, and expert review. Six open-source LLMs, including three general-purpose and three biomedical models, were evaluated before and after parameter-efficient instruction tuning using Low-Rank Adaptation (LoRA). The framework integrates prompt engineering, in-context learning, and medically aligned evaluation to support factual and interpretable responses. Results: On DocTalk-QA, instruction tuning produced consistent improvements across lexical, semantic, and clinical fidelity metrics. The best-performing tuned model, Llama-3-Med42-8B, achieved ROUGE-L = 0.40, BERTScore-F1 = 0.76, and UMLS-F1 = 0.49. To examine external generalization beyond the DocTalk-QA dataset, the two best-performing models, Llama-3.1-8B-Instruct and Llama-3-Med42-8B, were evaluated on PubMedQA before and after instruction tuning. Accuracy improved from 0.931 to 0.977 for Llama-3.1-8B-Instruct and from 0.935 to 0.943 for Llama-3-Med42-8B. Conclusion: DocTalk was deployed as a secure web-based platform for interactive EHR querying. These findings suggest that clinically grounded instruction tuning can improve medical QA performance and support practical clinical decision support.",
+      "summary_zh": "DocTalk 从去标识化出院小结生成 500 对临床问答，并比较 6 个开源 LLM 在 LoRA 指令微调前后的医学问答性能，同时在 PubMedQA 上测试外部泛化。",
+      "why_it_matters_zh": "这是预印本；研究把图表依据性、医学一致性和外部测试结合起来，但数据规模有限，不能据此证明临床决策安全性或因果获益。",
+      "quality_score": 88.0,
+      "tags": [
+        "生物医学与临床"
+      ],
+      "evidence_flags": [
+        "dataset",
+        "clinical",
+        "evaluation",
+        "performance",
+        "preprint"
+      ],
+      "publication_status": "preprint",
+      "rank": 2,
+      "featured": true,
+      "category": "生物医学与临床",
+      "metrics": {},
+      "metadata": {
+        "doi": "",
+        "arxiv_id": "2610.34871v1"
+      },
+      "abstract_zh": "大型语言模型（LLM）在医疗领域的快速发展为 AI 辅助临床决策带来了新可能；然而，幻觉和领域错配使安全、有效部署仍面临挑战。本研究提出 DocTalk，一种医生辅助问答（QA）系统，旨在根据去标识化出院小结生成简洁、以病历为依据的回答。我们通过句子级分解、链式思维引导的问题构造和专家审查，开发了一个高保真数据生成流程，生成 500 对具有临床相关性的问答。我们评估了 6 个开源 LLM，包括 3 个通用模型和 3 个生物医学模型，并比较其在使用低秩适配（LoRA）进行参数高效指令微调前后的表现。该框架整合提示工程、上下文学习和医学对齐评估，以支持事实性和可解释性回答。在 DocTalk-QA 上，指令微调在词汇、语义和临床保真度指标上均带来一致改进。表现最佳的微调模型 Llama-3-Med42-8B 达到 ROUGE-L = 0.40、BERTScore-F1 = 0.76 和 UMLS-F1 = 0.49。为检验超越 DocTalk-QA 数据集的外部泛化能力，我们在指令微调前后使用表现最好的两个模型 Llama-3.1-8B-Instruct 和 Llama-3-Med42-8B 评估 PubMedQA。Llama-3.1-8B-Instruct 的准确率从 0.931 提升至 0.977，Llama-3-Med42-8B 的准确率从 0.935 提升至 0.943。DocTalk 已部署为安全的基于 Web 的交互式 EHR 查询平台。这些结果表明，以临床依据为基础的指令微调可改善医学问答性能，并支持实际的临床决策支持。",
+      "published": "2026-10-26",
+      "author_line": "Asad Gohar, Md Ariful Islam Mozumder, Moon-Il Joo, Hee-Cheol Kim"
+    },
+    {
+      "id": "arxiv:2610.34878v1",
+      "channel": "aixbio",
+      "related_channels": [],
+      "item_type": "paper",
+      "source": "arXiv",
+      "title": "ClinVerse: A Realistic Multi-Agent Diagnostic Environment for Training and Evaluating Medical Agents",
+      "url": "https://arxiv.org/abs/2610.34878v1",
+      "published_at": "2026-10-26",
+      "updated_at": "2026-10-26",
+      "creators": [
+        "Sirry Chen",
+        "Fangke Chen",
+        "Xuanwen Ding",
+        "Wei Chen",
+        "Zhongyu Wei"
+      ],
+      "language": "en",
+      "abstract_or_text": "Disease diagnosis is a key application of large language model (LLM) agents in healthcare. However, existing medical agents are primarily trained and evaluated with static question-answering data, providing limited opportunities to learn active information acquisition, examination decision-making, and dynamic clinical interaction. To address this limitation, we present ClinVerse, an interactive, real-data-grounded multi-agent environment designed for training and evaluating medical diagnostic agents. Built on ClinPatient, a scalable dataset comprising 150k diagnostic cases derived from real-world electronic health records, ClinVerse supports coordinated interactions among six specialized clinical roles. Specifically, a doctor agent starts from an initial patient complaint, progressively gathers clinical evidence through patient interviews and examination requests, and ultimately produces a diagnosis. For each interaction trajectory, a rule-based scoring framework quantifies information acquisition, examination ordering, and diagnostic accuracy. These trajectory-level scores serve as reward signals for agent training while also enabling scalable evaluation. In experiments, we evaluate various general-purpose and medical-domain models and show that nine self-evolution methods across three categories consistently improve agents' diagnostic capabilities within ClinVerse. We further analyze the interplay among model capability, environment feedback, and self-evolution methods.",
+      "summary_zh": "ClinVerse 基于由真实世界 EHR 派生的 150k 个诊断病例，构建包含 6 个临床角色的多智能体动态诊断环境，并用轨迹级评分训练和评估医学智能体。",
+      "why_it_matters_zh": "这是预印本；它把信息采集、检查选择和诊断准确性纳入同一可扩展评测，但环境内提升尚不能替代真实临床前瞻性验证。",
+      "quality_score": 86.0,
+      "tags": [
+        "生物医学与临床"
+      ],
+      "evidence_flags": [
+        "dataset",
+        "clinical",
+        "evaluation",
+        "preprint"
+      ],
+      "publication_status": "preprint",
+      "rank": 3,
+      "featured": true,
+      "category": "生物医学与临床",
+      "metrics": {},
+      "metadata": {
+        "doi": "",
+        "arxiv_id": "2610.34878v1"
+      },
+      "abstract_zh": "疾病诊断是大型语言模型（LLM）智能体在医疗领域中的一个关键应用。然而，现有医学智能体主要使用静态问答数据进行训练和评估，因而缺少学习主动获取信息、决定检查项目和进行动态临床交互的机会。为解决这一问题，我们提出 ClinVerse，一个基于真实数据、可交互的多智能体环境，用于训练和评估医学诊断智能体。ClinVerse 构建于 ClinPatient 之上；ClinPatient 是一个可扩展数据集，包含从真实世界电子健康记录中提取的 150k 个诊断病例。ClinVerse 支持 6 个专门临床角色之间的协同交互。具体而言，医生智能体从初始患者主诉开始，通过患者访谈和检查请求逐步收集临床证据，最终作出诊断。对于每条交互轨迹，基于规则的评分框架量化信息获取、检查开具和诊断准确性。这些轨迹级分数既可作为智能体训练的奖励信号，也支持可扩展评估。在实验中，我们评估了多种通用模型和医学领域模型，结果显示，3 类共 9 种自我演化方法在 ClinVerse 内均能持续提升智能体的诊断能力。我们还分析了模型能力、环境反馈和自我演化方法之间的相互作用。",
+      "published": "2026-10-26",
+      "author_line": "Sirry Chen, Fangke Chen, Xuanwen Ding, Wei Chen, Zhongyu Wei"
+    },
+    {
+      "id": "biorxiv:10.64898/2026.10.21.753755",
+      "channel": "aixbio",
+      "related_channels": [],
+      "item_type": "paper",
+      "source": "bioRxiv",
+      "title": "Machine learning classification of fibromyalgia from blood transcriptomes: confounder benchmarking and implications for endometriosis-associated pain",
+      "url": "https://www.biorxiv.org/content/10.64898/2026.10.21.753755",
+      "published_at": "2026-10-26",
+      "updated_at": "2026-10-26",
+      "creators": [
+        "Ouni, S.",
+        "Ouni, F.",
+        "Chebbi, A."
+      ],
+      "language": "en",
+      "abstract_or_text": "Fibromyalgia (FM) lacks an objective biomarker, and blood transcriptomic signatures have been proposed to fill this gap. Here, the largest public peripheral blood mononuclear cell (PBMC) RNA-seq cohort of FM reporting expression subtypes (96 patients, 93 controls) was reanalysed using leakage-free nested cross-validation, with feature selection and scaling confined strictly to training folds. Gene expression discriminated patients from controls (ROC-AUC 0.821 for logistic regression and 0.825 for XGBoost), clearing a 100-repetition permutation-label null (p= 0.0099). Two simple, disease-agnostic baselines, however, reach nearly the same performance: sex alone reaches AUC 0.727, and a four-score PBMC cell-composition proxy reaches AUC 0.71-0.76. Restricting to females alone gives AUC 0.783 (0.705-0.858), and excluding X/Y-linked genes does not reduce performance, so the signal is not purely a sex-composition artifact; but the female-only expression model does not significantly exceed the composition-only proxy in the same females (0.783 vs. 0.712, paired 95% CI -0.025 to 0.175), so a composition contribution cannot be excluded. Preranked gene set enrichment analysis finds curated CLEAR/lysosomal and interferon/JAK-STAT gene sets, proxies for two subtype signatures of the original study, enriched among genes expressed lower in FM, also in females alone, but this enrichment disappears after adjusting for the composition proxies. Gynecological comorbidity, hormonal status, and medication are absent from the public metadata and remain plausible, untested contributors to the female-only estimate. These findings are hypothesis-generating, not a basis for clinical diagnosis: a single-cohort, correlational result consistent with, but not sufficient to establish, an FM-specific signal distinct from demographic, hormonal, and cell-composition confounds, pending independent replication. Future blood-based biomarker studies for FM, and for related nociplastic pain conditions such as endometriosis, should report performance relative to sex- and composition-based baselines as standard practice.",
+      "summary_zh": "研究重新分析 96 名纤维肌痛患者和 93 名对照者的 PBMC RNA-seq 数据，使用无泄漏嵌套交叉验证评估模型，并显示性别和细胞组成基线几乎可达到相近性能。",
+      "why_it_matters_zh": "这是预印本；其主要贡献是把混杂基线和标签置换检验纳入生物标志物评估，并明确声明结果为相关性、假设生成，不能用于临床诊断。",
+      "quality_score": 86.0,
+      "tags": [
+        "生物医学与临床"
+      ],
+      "evidence_flags": [
+        "benchmark",
+        "clinical",
+        "performance",
+        "preprint"
+      ],
+      "publication_status": "preprint",
+      "rank": 4,
+      "featured": false,
+      "category": "生物医学与临床",
+      "metrics": {},
+      "metadata": {
+        "doi": "10.64898/2026.10.21.753755",
+        "arxiv_id": ""
+      },
+      "abstract_zh": "纤维肌痛（FM）缺乏客观生物标志物，血液转录组特征被提出用于填补这一空白。在这里，我们重新分析了目前公开的、报告表达亚型的最大 FM 外周血单个核细胞（PBMC）RNA-seq 队列（96 名患者、93 名对照者），采用无泄漏的嵌套交叉验证，并将特征选择和缩放严格限制在训练折内。基因表达能够区分患者和对照者（逻辑回归 ROC-AUC 为 0.821，XGBoost 为 0.825），并通过了 100 次重复的置换标签零分布检验（p= 0.0099）。然而，两个简单的、与疾病无关的基线也达到了近似性能：仅性别的 AUC 为 0.727，四分数 PBMC 细胞组成代理指标的 AUC 为 0.71-0.76。仅分析女性时，AUC 为 0.783（0.705-0.858）；排除 X/Y 连锁基因并未降低性能，因此该信号并非纯粹由性别组成伪象造成。但在同一女性子集中，女性专用表达模型并未显著优于仅细胞组成代理模型（0.783 对 0.712，配对 95% CI -0.025 至 0.175），因此不能排除细胞组成的贡献。预排序基因集富集分析发现，作为原始研究两个亚型特征代理的已整理 CLEAR/溶酶体和干扰素/JAK-STAT 基因集，在 FM 中表达较低的基因中富集；女性子集也观察到这一结果，但在对细胞组成代理指标进行校正后该富集消失。公开元数据缺少妇科合并症、激素状态和用药信息，这些因素仍是女性子集估计结果中合理但未经检验的贡献者。这些发现只能用于提出假设，不能作为临床诊断依据：它们来自单一队列，是一种相关性结果，与 FM 特异性信号相一致，但不足以证明该信号独立于人口统计学、激素和细胞组成混杂因素，仍需独立重复验证。未来针对 FM 以及子宫内膜异位症等相关伤害感受性疼痛疾病的血液生物标志物研究，应将性别和细胞组成基线作为标准参照报告性能。",
+      "published": "2026-10-26",
+      "author_line": "Ouni, S., Ouni, F., Chebbi, A."
+    },
+    {
+      "id": "europepmc:ppr1350881",
+      "channel": "aixbio",
+      "related_channels": [],
+      "item_type": "paper",
+      "source": "Europe PMC",
+      "title": "Machine Learning based Classification of Ocular Pathogens using Host-transcriptomic Signatures: a proof-of-concept",
+      "url": "https://europepmc.org/article/PPR/PPR1350881",
+      "published_at": "2026-10-27",
+      "updated_at": "2026-10-28",
+      "creators": [
+        "Plumber¹ MT",
+        "Kumar R",
+        "Yadavalli T"
+      ],
+      "language": "en",
+      "abstract_or_text": "Abstract Background. Diagnosis of infectious keratitis, uveitis, and endophthalmitis is constrained by the scarcity of pathogen-derived material in small-volume ocular specimens. The host transcriptome is an abundant alternative signal: infection elicits pathogen-class-specific transcriptional responses that may permit pathogen identification without direct detection. We tested this premise as a proof of concept using publicly available in-vitro infection RNA seq. We assembled 330 human RNA-seq samples (177 infected, 153 mock) spanning six pathogens (Herpes Simplex Virus-1, Human Cytomegalovirus Virus, Aspergillus Fumigatus, Candida Albicans, Pseudomonas Aeruginosa, Mycobacterium Tuberculosis) across 36 BioProjects and 24 host cell types. Results. Per-study differential expression yielded a robust-gene feature matrix. Pathogen classification was evaluated with Random Forest under leave-one-study-out (grouped) cross-validation and contrasted against random cross-validation to quantify study-level information leakage. Under random (non-grouped) cross-validation, balanced accuracy reached 0.85–0.92 across gene panel sizes (8–700 + genes). Under honest, leakage-corrected leave-one-group-out validation, balanced accuracy was lower than random cross-validation and remained stable across panel sizes and gene-selection strategies, peaking at 0.70 (60–100 gene panel) and averaging 0.519–0.60 across the full range of gene sets tested (8 to 9,942 genes; chance level = 0.14 for 7 classes). Unsupervised UMAP visualization of the robust gene set showed distinct clustering by pathogen and by pathogen class (viral, fungal, bacterial), with cross-kingdom pathogen pairs showing more distinct separation than within-kingdom comparisons. Conclusions. Beyond established diagnostics such as PCR and metagenomics, host transcriptomic signatures analyzed via machine learning offer a promising alternative approach to pathogen classification, achieving balanced accuracy substantially above chance under rigorous, study-independent validation. These findings support the feasibility of host-transcriptome-based diagnostic classification, with dataset provenance as the primary current limitation to clinical translation.",
+      "summary_zh": "研究汇总 330 个来自 36 个 BioProjects、24 种宿主细胞类型的 RNA-seq 样本，采用按研究分组的留一法交叉验证，用宿主转录组区分 6 类眼部病原体。",
+      "why_it_matters_zh": "这是预印本；分组验证显示性能明显低于随机交叉验证但仍高于机会水平，揭示数据来源和研究间泄漏是临床转化的主要限制。",
+      "quality_score": 84.0,
+      "tags": [
+        "组学与细胞"
+      ],
+      "evidence_flags": [
+        "clinical",
+        "dataset",
+        "preprint"
+      ],
+      "publication_status": "preprint",
+      "rank": 5,
+      "featured": false,
+      "category": "组学与细胞",
+      "metrics": {},
+      "metadata": {
+        "doi": "10.21203/rs.3.rs-11233042/v1",
+        "pmid": ""
+      },
+      "abstract_zh": "背景：感染性角膜炎、葡萄膜炎和眼内炎的诊断受到小体积眼部样本中病原体来源材料稀少的限制。宿主转录组是一种丰富的替代信号：感染会诱导病原体类别特异性的转录反应，从而可能在不直接检测病原体的情况下识别病原体。我们使用公开的体外感染 RNA-seq 数据对此概念进行了验证。我们汇总了 330 个人人体 RNA-seq 样本（177 个感染样本、153 个模拟处理样本），覆盖 6 种病原体（Herpes Simplex Virus-1、Human Cytomegalovirus Virus、Aspergillus Fumigatus、Candida Albicans、Pseudomonas Aeruginosa、Mycobacterium Tuberculosis）、36 个 BioProjects 和 24 种宿主细胞类型。结果：按研究进行差异表达分析后，得到稳健基因特征矩阵。我们在按研究留一分组交叉验证下使用 Random Forest 评估病原体分类，并与随机交叉验证进行对照，以量化研究层面的信息泄漏。在随机（非分组）交叉验证中，不同基因面板规模（8-700+ 个基因）的平衡准确率达到 0.85-0.92。在诚实的、校正泄漏的留一组验证中，平衡准确率低于随机交叉验证，并且在不同基因面板规模和基因选择策略下保持稳定；其峰值为 0.70（60-100 个基因面板），在测试的全部基因集范围（8 至 9,942 个基因）内平均为 0.519-0.60（7 类分类的机会水平 = 0.14）。稳健基因集的无监督 UMAP 可视化显示，病原体及病原体类别（病毒、真菌、细菌）形成了不同聚类；跨界病原体对比比分属于同一界的病原体对比表现出更明显的分离。结论：除 PCR 和宏基因组学等既有诊断方法外，经机器学习分析的宿主转录组特征为病原体分类提供了有前景的替代路径；在严格的、研究独立的验证下，其平衡准确率显著高于机会水平。这些结果支持基于宿主转录组进行诊断分类的可行性，但数据集来源是当前临床转化的主要限制。",
+      "published": "2026-10-27",
+      "author_line": "Plumber¹ MT, Kumar R, Yadavalli T"
+    },
+    {
+      "id": "europepmc:ppr1351112",
+      "channel": "aixbio",
+      "related_channels": [],
+      "item_type": "paper",
+      "source": "Europe PMC",
+      "title": "Multi-omic profiling and machine learning reveal diagnostic metabolic signatures and distinct decidual cellular states in tubal pregnancy and spontaneous abortion",
+      "url": "https://europepmc.org/article/PPR/PPR1351112",
+      "published_at": "2026-10-27",
+      "updated_at": "2026-10-28",
+      "creators": [
+        "Huang L",
+        "Yin Y",
+        "Huang Y",
+        "Yang L",
+        "Liu X",
+        "Wu X",
+        "He J",
+        "Li K",
+        "Huang X",
+        "Liang Y",
+        "Liu Z",
+        "Leow XRK",
+        "Zhang Y",
+        "Gao J",
+        "Liu Z"
+      ],
+      "language": "en",
+      "abstract_or_text": "Abstract Background Tubal pregnancy (TP) and spontaneous abortion (SA) are prevalent early pregnancy complications that severely compromise gestational safety. Accurate differentiation between normal intrauterine pregnancy (NP), TP and SA at early gestational stages is critical for standardized clinical management and the reduction of adverse pregnancy outcomes. Clinically, intrauterine pregnancy (IUP) includes both normal viable intrauterine pregnancy and non-viable intrauterine pregnancy such as early spontaneous abortion, which serves as the main control cohort for distinguishing ectopic gestation. Traditional diagnostic approaches relying on serial β-hCG detection and transvaginal ultrasound exhibit limited accuracy for both pregnancy localization and embryonic viability assessment, easily resulting in delayed or inappropriate clinical intervention for TP and SA patients. Methods Untargeted serum metabolomics based on UHPLC-MS/MS was performed on serum samples from 50 patients with TP, 50 patients with SA and 50 individuals with uncomplicated NP. Multivariate statistical analyses and KEGG pathway enrichment were used to screen differential metabolites and characterize disease-specific metabolic perturbations. Samples were randomly allocated to a training set comprising 60% of the cohort and a validation set comprising the remaining 40%. Diagnostic models for pregnancy localization discrimination and embryonic viability assessment were established, with model efficacy verified via multiple indicators and core predictive metabolites screened through SHAP analysis. Furthermore, scRNA-seq of decidual tissues from TP, SA and NP patients was performed to decipher the cellular and molecular mechanisms underlying disease-specific metabolic perturbations. Results Two machine learning models were constructed for the staged identification of abnormal early pregnancy. First, metabolic perturbations of TP were characterized by comparing TP with combined IUP (NP + SA) samples. In total, 77 differential metabolites and nine disturbed metabolic pathways were identified, which were mainly involved in arachidonic acid-related inflammation, TCA cycle dysfunction and tryptophan metabolic disorder. The LightGBM model based on LASSO-selected core metabolites showed valid performance in TP identification (AUC = 0.948, PR-AUC = 0.919, accuracy = 0.90). 15-deoxy-Δ¹²,¹⁴-prostaglandin J₂ and kynurenine were identified as key biomarkers for TP discrimination. Second, metabolic signatures distinguishing SA from NP were screened to evaluate embryonic developmental status. A total of 81 differential metabolites were obtained in SA samples, which were enriched in lipid peroxidation and ferroptosis-associated pathways. The LightGBM model for SA identification achieved valid predictive performance (AUC = 0.985, PR-AUC = 0.986, accuracy = 0.95). Glutathione and 3-hydroxyanthranilic acid were core biomarkers for SA prediction. Single-cell transcriptomic analysis further identified decidual cell states concordant with systemic serum metabolic alterations. TP decidua was characterized by a TP-enriched macrophage state with reprogrammed lipid inflammatory and energy metabolism profiles. SA decidua exhibited pro-inflammatory macrophage polarization, accompanied by downregulated GPX4 expression and elevated ferroptosis-associated transcriptional signatures in endothelial cells and pro-inflammatory macrophages. These cell-type-specific transcriptional alterations were concordant with, and may provide a cellular context for, the systemic metabolic perturbations observed in serum. Conclusions This study combines serum untargeted metabolomics and uterine decidual single-cell transcriptomics to characterize divergent metabolic dysregulations in TP and SA. The LightGBM metabolite-based models enable reliable early discrimination of ectopic pregnancy and impaired embryonic viability, offering potential auxiliary biomarkers for risk stratification in early pregnancy.",
+      "summary_zh": "研究结合 150 例早孕血清非靶向代谢组和蜕膜单细胞转录组，分别建立 TP 与 SA 识别模型，并将血清代谢异常与特定蜕膜细胞状态联系起来。",
+      "why_it_matters_zh": "这是预印本；模型在内部训练/验证划分中表现较高，且有单细胞机制背景，但仍需独立队列和前瞻性验证，不能视为临床诊断工具。",
+      "quality_score": 84.0,
+      "tags": [
+        "组学与细胞"
+      ],
+      "evidence_flags": [
+        "clinical",
+        "performance",
+        "preprint"
+      ],
+      "publication_status": "preprint",
+      "rank": 6,
+      "featured": false,
+      "category": "组学与细胞",
+      "metrics": {},
+      "metadata": {
+        "doi": "10.21203/rs.3.rs-11191056/v1",
+        "pmid": ""
+      },
+      "abstract_zh": "背景：输卵管妊娠（TP）和自然流产（SA）是常见的早孕并发症，会严重影响妊娠安全。在早孕阶段准确区分正常宫内妊娠（NP）、TP 和 SA，对于规范化临床管理和减少不良妊娠结局至关重要。临床上，宫内妊娠（IUP）包括正常可存活宫内妊娠和早期自然流产等不可存活宫内妊娠；后者是区分异位妊娠的主要对照队列。传统上依赖连续 β-hCG 检测和经阴道超声的诊断方法，在妊娠定位和胚胎存活评估方面准确性有限，容易导致 TP 和 SA 患者干预延迟或不当。方法：对 50 名 TP 患者、50 名 SA 患者和 50 名无并发症 NP 个体的血清样本进行基于 UHPLC-MS/MS 的非靶向代谢组学分析。采用多变量统计分析和 KEGG 通路富集筛选差异代谢物并刻画疾病特异性代谢扰动。样本被随机分配为包含 60% 队列的训练集和包含其余 40% 的验证集。我们建立了用于妊娠定位判别和胚胎存活评估的诊断模型，并通过多个指标验证模型效能，再使用 SHAP 分析筛选核心预测代谢物。此外，我们对 TP、SA 和 NP 患者的蜕膜组织进行 scRNA-seq，以解析疾病特异性代谢扰动背后的细胞和分子机制。结果：我们构建了两个用于分阶段识别异常早孕的机器学习模型。首先，通过比较 TP 与合并 IUP（NP + SA）样本刻画 TP 的代谢扰动。共鉴定出 77 个差异代谢物和 9 条受扰代谢通路，主要涉及花生四烯酸相关炎症、TCA 循环功能障碍和色氨酸代谢紊乱。基于 LASSO 筛选核心代谢物的 LightGBM 模型在 TP 识别中表现良好（AUC = 0.948，PR-AUC = 0.919，准确率 = 0.90）。15-deoxy-Δ12,14-prostaglandin J2 和 kynurenine 被鉴定为 TP 判别的关键生物标志物。其次，筛选区分 SA 与 NP 的代谢特征，以评估胚胎发育状态。SA 样本共得到 81 个差异代谢物，这些代谢物富集于脂质过氧化和铁死亡相关通路。用于 SA 识别的 LightGBM 模型达到良好预测性能（AUC = 0.985，PR-AUC = 0.986，准确率 = 0.95）。Glutathione 和 3-hydroxyanthranilic acid 是 SA 预测的核心生物标志物。单细胞转录组分析进一步鉴定出与全身血清代谢改变一致的蜕膜细胞状态。TP 蜕膜以 TP 富集的巨噬细胞状态为特征，并伴随脂质炎症和能量代谢重编程。SA 蜕膜表现出促炎性巨噬细胞极化，内皮细胞和促炎性巨噬细胞中 GPX4 表达下调，并伴随铁死亡相关转录特征升高。这些细胞类型特异性转录改变与血清中的全身代谢扰动一致，并可能为其提供细胞背景。结论：本研究结合血清非靶向代谢组学和子宫蜕膜单细胞转录组学，刻画了 TP 和 SA 不同的代谢失调。基于 LightGBM 的代谢物模型可实现异位妊娠和胚胎存活受损的早期区分，具有作为风险分层辅助生物标志物的潜力。",
+      "published": "2026-10-27",
+      "author_line": "Huang L, Yin Y, Huang Y, Yang L, Liu X, Wu X, He J, Li K, Huang X, Liang Y, Liu Z, Leow XRK, Zhang Y, Gao J, Liu Z"
+    },
+    {
+      "id": "europepmc:ppr1351000",
+      "channel": "aixbio",
+      "related_channels": [],
+      "item_type": "paper",
+      "source": "Europe PMC",
+      "title": "Single-cell-informed machine learning reveals prognostic and immune features of multiple myeloma",
+      "url": "https://europepmc.org/article/PPR/PPR1351000",
+      "published_at": "2026-10-27",
+      "updated_at": "2026-10-28",
+      "creators": [
+        "Li Q",
+        "Dai J",
+        "Liu H",
+        "Sharma A",
+        "Schmidt-Wolf IG",
+        "Pu J"
+      ],
+      "language": "en",
+      "abstract_or_text": "Abstract Background Multiple myeloma (MM) is clinically heterogeneous, and the International Staging System (ISS) captures this heterogeneity only in part. We aimed to build a transcriptomic risk model anchored in single-cell and stage-associated gene expression, and to explore its immune context and therapeutic implications. Methods Bone marrow single-cell RNA sequencing data from 18 MM and 18 control samples were integrated with ISS stage-stratified RNA sequencing data from the MMRF CoMMpass cohort (n = 764). Candidate genes were filtered by univariate Cox regression, and 101 combinations of 10 machine learning algorithms were benchmarked. The model was validated in three independent cohorts (GSE136337, GSE2658 and GSE4581) and examined with T cell subclustering, immune deconvolution, drug sensitivity prediction, genetic dependency data and molecular docking. Results Integration yielded eight candidate genes, five of which ( DLGAP5 , CENPF , PFDN2 , HNRNPF and MAP2K1 ) were associated with overall survival. A random survival forest plus supervised principal components model achieved a C-index of 0.69 in training and 0.62 to 0.63 in validation, outperformed 16 published MM signatures and remained independently prognostic after adjustment for age, sex and ISS stage (HR 2.02, 95% CI 1.70 to 2.41). High-risk patients had lower immune and stromal scores, higher TIDE scores and fewer predicted immunotherapy responders. Docking supported binding of risk-associated compounds to MAP2K1 . Conclusion This five-gene signature refines risk stratification beyond ISS, marks an immune-depleted high-risk phenotype and nominates MAP2K1 as a candidate therapeutic target in MM.",
+      "summary_zh": "研究将 18 例多发性骨髓瘤与 18 例对照的骨髓单细胞 RNA 测序，与 MMRF CoMMpass 队列 764 例分期 RNA-seq 整合，建立并在 3 个独立队列验证五基因风险模型。",
+      "why_it_matters_zh": "这是预印本；模型在独立队列中保持预后关联并超越 16 个已发表特征，但免疫和药敏结论主要来自计算推断，不能视为治疗因果证据。",
+      "quality_score": 84.0,
+      "tags": [
+        "组学与细胞"
+      ],
+      "evidence_flags": [
+        "clinical",
+        "benchmark",
+        "preprint"
+      ],
+      "publication_status": "preprint",
+      "rank": 7,
+      "featured": false,
+      "category": "组学与细胞",
+      "metrics": {},
+      "metadata": {
+        "doi": "10.21203/rs.3.rs-11343762/v1",
+        "pmid": ""
+      },
+      "abstract_zh": "背景：多发性骨髓瘤（MM）具有临床异质性，国际分期系统（ISS）只能部分捕捉这种异质性。我们的目标是建立一个以单细胞和分期相关基因表达为基础的转录组风险模型，并探索其免疫背景和治疗意义。方法：我们将来自 18 例 MM 和 18 名对照者的骨髓单细胞 RNA 测序数据，与 MMRF CoMMpass 队列的分期分层 RNA 测序数据（n = 764）进行整合。候选基因先经过单变量 Cox 回归筛选，再对 10 种机器学习算法的 101 种组合进行基准比较。模型在 3 个独立队列（GSE136337、GSE2658 和 GSE4581）中验证，并结合 T 细胞亚群分析、免疫去卷积、药物敏感性预测、遗传依赖数据和分子对接进行研究。结果：整合分析得到 8 个候选基因，其中 5 个（DLGAP5、CENPF、PFDN2、HNRNPF 和 MAP2K1）与总生存相关。随机生存森林加监督主成分模型在训练集中的 C-index 为 0.69，在验证集中的 C-index 为 0.62 至 0.63；该模型优于 16 个已发表的 MM 特征，并在校正年龄、性别和 ISS 分期后仍具有独立预后意义（HR 2.02，95% CI 1.70 至 2.41）。高风险患者的免疫和基质评分较低，TIDE 评分较高，预测的免疫治疗应答者较少。对接分析支持风险相关化合物与 MAP2K1 结合。结论：这一五基因特征在 ISS 之外细化了风险分层，标记出免疫耗竭的高风险表型，并提出 MAP2K1 作为 MM 的候选治疗靶点。",
+      "published": "2026-10-27",
+      "author_line": "Li Q, Dai J, Liu H, Sharma A, Schmidt-Wolf IG, Pu J"
+    },
+    {
+      "id": "europepmc:ppr1351138",
+      "channel": "aixbio",
+      "related_channels": [
+        "aixchem"
+      ],
+      "item_type": "paper",
+      "source": "Europe PMC",
+      "title": "SPxLINCS: a GWAS-guided, tissue-resolved framework for drug repurposing in hepatocellular carcinoma",
+      "url": "https://europepmc.org/article/PPR/PPR1351138",
+      "published_at": "2026-10-27",
+      "updated_at": "2026-10-28",
+      "creators": [
+        "Peng J"
+      ],
+      "language": "en",
+      "abstract_or_text": "Abstract Background Hepatocellular carcinoma (HCC) is the third leading cause of cancer-related mortality, yet effective therapeutic options remain limited. Although Genome-Wide Association Studies (GWAS) have identified multiple HCC susceptibility loci, translating these discoveries into therapeutic leads has proven challenging. Here we present a reverse transcriptomic repurposing pipeline that combines evidence from multiple GWAS, tissue-resolved transcriptomics, and small-molecule perturbational profiles to identify candidate drugs for HCC. Materials and methods We developed a reproducible drug-repositioning pipeline linking 12 HCC-related GWAS datasets with multi-tissue GTEx regulatory profiles and LINCS L1000 perturbational signatures through S-PrediXcan and LINCS-based transcriptomic connectivity analysis (SPxLINCS). Previously calculated compound-level evidence scores were retained for ranking and visualization. Candidate networks were visualized in Cytoscape as bipartite and tripartite graphs, and clinical plausibility was assessed by Drug Set Enrichment Analysis (DrugEnrichr vs. SIDER) with Benjamini–Hochberg correction. Results Across the 12 datasets, the SPxLINCS pipeline prioritized compounds that could be grouped into five mechanism-related categories after key-tissue and reverse-signature filtering: cell-cycle and mitotic kinase inhibitors, including CDK- and PLK1-related compounds; focal adhesion kinase inhibitors; DNA-dependent protein kinase and DNA-damage-response agents; topoisomerase I inhibitors; and translation-related inhibitors. Network visualization distinguished compounds that recurred across multiple GWAS datasets from compounds primarily associated with individual phenotypes. Drug-set enrichment analysis identified enrichment of terms related to hepatocellular and other hepatic malignancy indications in the SIDER database. Importazole, ER-27319, and LDN-193189 were recurrently prioritized across multiple datasets and tissues despite limited prior characterization in HCC. These compounds should therefore be regarded as computationally nominated and hypothesis-generating candidates requiring experimental validation. Conclusions This multi-GWAS reverse transcriptomic approach yields a mechanism-guided candidate list for drug repurposing in HCC. Signal consistency across independent datasets, combined with indication-level enrichment, supports advancing prioritized compounds into biomarker-stratified preclinical and early clinical evaluation.",
+      "summary_zh": "SPxLINCS 将 12 个 HCC GWAS、GTEx 多组织调控信息和 LINCS L1000 扰动签名整合为可复现的反向转录组药物再定位流程，提出多个需实验验证的候选化合物。",
+      "why_it_matters_zh": "这是预印本；多 GWAS、一致性筛选和组织分辨率提高了候选优先级的可解释性，但文中明确这些化合物仍是计算提名，不能视为已验证疗法。",
+      "quality_score": 84.0,
+      "tags": [
+        "组学与细胞"
+      ],
+      "evidence_flags": [
+        "clinical",
+        "dataset",
+        "experimental",
+        "evaluation",
+        "preprint"
+      ],
+      "publication_status": "preprint",
+      "rank": 8,
+      "featured": false,
+      "category": "组学与细胞",
+      "metrics": {},
+      "metadata": {
+        "doi": "10.21203/rs.3.rs-11267412/v1",
+        "pmid": ""
+      },
+      "abstract_zh": "背景：肝细胞癌（HCC）是癌症相关死亡的第三大原因，但有效治疗选择仍然有限。尽管全基因组关联研究（GWAS）已发现多个 HCC 易感位点，将这些发现转化为治疗线索仍然困难。在这里，我们提出一种反向转录组药物再定位流程，将多个 GWAS、组织分辨率转录组和小分子扰动谱的证据结合起来，以识别 HCC 候选药物。材料与方法：我们开发了一个可复现的药物再定位流程 SPxLINCS，通过 S-PrediXcan 和基于 LINCS 的转录组连接性分析，将 12 个 HCC 相关 GWAS 数据集与多组织 GTEx 调控谱和 LINCS L1000 扰动特征联系起来。此前计算得到的化合物级证据分数被保留用于排序和可视化。候选网络在 Cytoscape 中以二部图和三部图进行可视化，并通过 Drug Set Enrichment Analysis（DrugEnrichr 与 SIDER）及 Benjamini-Hochberg 校正评估临床合理性。结果：在 12 个数据集中，SPxLINCS 流程在关键组织和反向特征筛选后，优先选出的化合物可归入 5 类与机制相关的类别：细胞周期和有丝分裂激酶抑制剂，包括 CDK 和 PLK1 相关化合物；黏着斑激酶抑制剂；DNA 依赖性蛋白激酶和 DNA 损伤应答药物；拓扑异构酶 I 抑制剂；以及翻译相关抑制剂。网络可视化区分了在多个 GWAS 数据集中重复出现的化合物与主要关联于单一表型的化合物。药物集富集分析显示，SIDER 数据库中与肝细胞癌及其他肝脏恶性肿瘤适应证相关的术语富集。Importazole、ER-27319 和 LDN-193189 在多个数据集和组织中被反复优先排序，尽管它们在 HCC 中的既往研究有限。因此，这些化合物应被视为需要实验验证的计算提名和假设生成候选物。结论：这种多 GWAS 反向转录组方法产生了由机制引导的 HCC 药物再定位候选清单。独立数据集之间的信号一致性，加上适应证层面的富集，支持将优先候选物推进至生物标志物分层的临床前和早期临床评估。",
+      "published": "2026-10-27",
+      "author_line": "Peng J"
+    },
+    {
+      "id": "arxiv:2610.37213v1",
+      "channel": "aixbio",
+      "related_channels": [
+        "aixchem"
+      ],
+      "item_type": "paper",
+      "source": "arXiv",
+      "title": "Retrospective macromolecular pool fraction mapping from conventional clinical MRI: a physics-guided self-supervised deep learning framework",
+      "url": "https://arxiv.org/abs/2610.37213v1",
+      "published_at": "2026-10-27",
+      "updated_at": "2026-10-27",
+      "creators": [
+        "Jelmer van Lune",
+        "Miha Fuderer",
+        "Oscar van der Heide",
+        "Matteo Maspero",
+        "Martin B. Schilder",
+        "Jan Willem Dankbaar",
+        "Stefano Mandija",
+        "Alessandro Sbrizzi"
+      ],
+      "language": "en",
+      "abstract_or_text": "Macromolecular pool fraction (MPF) is a quantitative imaging biomarker sensitive to myelin integrity and other changes in tissue macromolecular content, but specialized acquisitions and reconstruction methods limit its use in large-scale studies. We present a physics-guided, self-supervised deep learning framework for retrospectively estimating MPF directly from conventional clinical brain MRI (T_1-weighted, T_2-weighted, and fluid-attenuated inversion recovery [FLAIR]) without paired quantitative reference scans. The framework embeds an analytical two-pool magnetization transfer signal model that related sequence-averaged radiofrequency transmit power to apparent longitudinal relaxation. To accommodate heterogeneous clinical protocols, the network conditions intermediate features on acquisition parameters via adaptive instance normalization. It was trained and evaluated on a multisite, multivendor, multiprotocol dataset of 7,705 MRI sessions (3 T). Across 1,237 test sessions, mean MPF was 0.182 \\pm 0.007 in white matter and 0.144 \\pm 0.009 in gray matter, with limited variation across vendor-by-protocol groups (between-group coefficient of variation: 2.65% and 5.63%, respectively). In 70 sessions with demyelinating-disease labels, MPF was 35.6% lower in segmented lesions than in normal-appearing white matter. MPF maps from two different clinical protocols acquired in a healthy volunteer showed a mean voxel-wise absolute percentage difference of 7.7% and a concordance correlation coefficient of 0.888, indicating good cross-protocol consistency. These results suggest that magnetization transfer-informed self-supervised learning enables stable MPF mapping from conventional clinical MRI, providing a scalable approach to investigate demyelinating pathology in both existing imaging archives and prospectively acquired conventional clinical scans without dedicated qMT acquisitions.",
+      "summary_zh": "该物理引导自监督模型从常规 T1、T2 和 FLAIR MRI 回溯估计 MPF，在 7,705 次多中心、多厂商、多协议扫描上训练评估，并在脱髓鞘病变中观察到较低 MPF。",
+      "why_it_matters_zh": "这是预印本；物理模型约束、跨协议一致性和多中心规模增强了方法学价值，但临床效用仍需前瞻性验证。",
+      "quality_score": 83.0,
+      "tags": [
+        "生物医学与临床"
+      ],
+      "evidence_flags": [
+        "dataset",
+        "prospective",
+        "clinical",
+        "preprint"
+      ],
+      "publication_status": "preprint",
+      "rank": 9,
+      "featured": false,
+      "category": "生物医学与临床",
+      "metrics": {},
+      "metadata": {
+        "doi": "",
+        "arxiv_id": "2610.37213v1"
+      },
+      "abstract_zh": "大分子池分数（MPF）是一种对髓鞘完整性及组织大分子含量其他变化敏感的定量成像生物标志物，但专门的采集和重建方法限制了其在大规模研究中的使用。我们提出一种物理引导的自监督深度学习框架，可直接从常规临床脑 MRI（T_1 加权、T_2 加权和液体衰减反转恢复 [FLAIR]）回溯估计 MPF，而无需配对的定量参考扫描。该框架嵌入了一个解析双池磁化转移信号模型，将序列平均射频发射功率与表观纵向弛豫联系起来。为适应异质的临床方案，网络通过自适应实例归一化将采集参数作为中间特征的条件信息。模型在一个多中心、多厂商、多协议的数据集上训练和评估，该数据集包含 7,705 次 MRI 扫描（3 T）。在 1,237 次测试扫描中，白质和灰质的平均 MPF 分别为 0.182 ± 0.007 和 0.144 ± 0.009；不同厂商-协议组之间变化有限（组间变异系数分别为 2.65% 和 5.63%）。在具有脱髓鞘疾病标签的 70 次扫描中，分割病变中的 MPF 比外观正常白质低 35.6%。一名健康志愿者采用两种不同临床协议采集的 MPF 图之间，逐体素平均绝对百分比差为 7.7%，一致性相关系数为 0.888，表明跨协议一致性良好。这些结果表明，磁化转移信息引导的自监督学习可从常规临床 MRI 稳定地绘制 MPF 图，为利用既有影像档案以及前瞻性获取的常规临床扫描研究脱髓鞘病理提供可扩展方案，而无需专门的定量磁化转移采集。",
+      "published": "2026-10-27",
+      "author_line": "Jelmer van Lune, Miha Fuderer, Oscar van der Heide, Matteo Maspero, Martin B. Schilder, Jan Willem Dankbaar, Stefano Mandija, Alessandro Sbrizzi"
+    },
+    {
+      "id": "europepmc:ppr1351376",
+      "channel": "aixbio",
+      "related_channels": [],
+      "item_type": "paper",
+      "source": "Europe PMC",
+      "title": "An Ensemble Deep Learning Framework for Single-Cell Phenotypic Profiling of Escherichia coli under Antibiotic Stress",
+      "url": "https://europepmc.org/article/PPR/PPR1351376",
+      "published_at": "2026-10-27",
+      "updated_at": "2026-10-28",
+      "creators": [
+        "Rahman A",
+        "Rahman KM",
+        "Ghorashi SA",
+        "Ahad MAR"
+      ],
+      "language": "en",
+      "abstract_or_text": "Abstract Antimicrobial resistance (AMR) is a pressing global health threat, requiring automated and adaptive methods to understand bacterial responses to antibiotics at the single-cell level. In this study, we present a deep learning and ensemble-based framework for morphological profiling and antibiotic classification of Escherichia coli using fluorescence microscopic images. Single-cell segmentation is performed with cellpose and auto-generated masks to ensure consistent feature extraction. Thirteen Deep learning architectures, including convolutional networks and vision transformers, are trained to classify untreated cells and those exposed to Chloramphenicol, Mecillinam, MP265, and Nalidixic acid. While the Swin Transformer achieves the highest individual accuracy at 91%, an ensemble combining Swin Transformer, CoaT, and ResNet18 further improves performance. The stacking ensemble provides improved results, with average precision, recall, and F1 scores of 94%. Beyond classification, the framework identifies distinct morphological profiles associated with each antibiotic, including characteristic alterations in cellular geometry, membrane structure, and nucleoid organization. By linking morphological phenotypes to antibiotic mechanisms, this approach establishes an imaging-based methodology for bacterial phenotyping, enables 1 faster antibiotic screening, and advances the study of antimicrobial resistance through quantitative microscopy.",
+      "summary_zh": "研究用 Cellpose 分割荧光显微图像，并比较 13 种深度学习架构和集成模型对 5 种大肠杆菌处理状态的分类，集成模型平均 precision、recall 和 F1 达到 94%。",
+      "why_it_matters_zh": "这是预印本；单细胞形态表型与抗生素类别的关联为高通量耐药筛选提供了可量化路径，但摘要未给出独立外部验证。",
+      "quality_score": 82.0,
+      "tags": [
+        "组学与细胞"
+      ],
+      "evidence_flags": [
+        "performance",
+        "preprint"
+      ],
+      "publication_status": "preprint",
+      "rank": 10,
+      "featured": false,
+      "category": "组学与细胞",
+      "metrics": {},
+      "metadata": {
+        "doi": "10.21203/rs.3.rs-11132510/v1",
+        "pmid": ""
+      },
+      "abstract_zh": "摘要：抗菌药物耐药性（AMR）是一个紧迫的全球健康威胁，需要自动化且自适应的方法来理解细菌在单细胞水平上的抗生素反应。在本研究中，我们提出一个基于深度学习和集成学习的框架，利用荧光显微图像对抗生素压力下的大肠杆菌进行形态学分析和抗生素分类。使用 Cellpose 和自动生成的掩码完成单细胞分割，以确保特征提取的一致性。我们训练了 13 种深度学习架构，包括卷积网络和视觉 Transformer，用于分类未处理细胞以及暴露于 Chloramphenicol、Mecillinam、MP265 和 Nalidixic acid 的细胞。Swin Transformer 的单模型准确率最高，为 91%；由 Swin Transformer、CoaT 和 ResNet18 组成的集成模型进一步提高了性能。堆叠集成模型的平均 precision、recall 和 F1 均达到 94%。除分类外，该框架还识别出与每种抗生素相关的不同形态谱，包括细胞几何形状、膜结构和拟核组织的特征性改变。通过将形态表型与抗生素作用机制联系起来，该方法建立了基于成像的细菌表型分析流程，可实现更快的抗生素筛选，并通过定量显微技术推进对抗菌药物耐药性的研究。",
+      "published": "2026-10-27",
+      "author_line": "Rahman A, Rahman KM, Ghorashi SA, Ahad MAR"
+    },
+    {
+      "id": "biorxiv:10.64898/2026.10.23.761350",
+      "channel": "aixbio",
+      "related_channels": [],
+      "item_type": "paper",
+      "source": "bioRxiv",
+      "title": "Building virtual cell dynamics that evolve with biological measurements",
+      "url": "https://www.biorxiv.org/content/10.64898/2026.10.23.761350",
+      "published_at": "2026-10-27",
+      "updated_at": "2026-10-27",
+      "creators": [
+        "Zhang, Z.",
+        "Wang, Z.",
+        "Tian, Q.",
+        "Zhou, B.",
+        "Zhou, T.",
+        "Nie, Q.",
+        "Zhou, P."
+      ],
+      "language": "en",
+      "abstract_or_text": "Virtual cell models built from single-cell measurements need to predict how cells change over time, but new biological measurements often reveal dynamical relationships that existing models cannot express. Translating such measurements into dynamics therefore requires deciding what biological relation should be modeled, where it should enter the formulation and how its recovery should be validated. Here we present CellCompass, an agentic AI system that couples a scientific agent with an extensible dynamical engine for modeling state transitions and population change, along with fate and molecular readout. CellCompass reuses existing formulations when sufficient and designs, implements and refines new ones when experimental measurements introduce additional constraints. To assess this capability, we developed DynBench100, a benchmark of 100 simulated single-cell time-course scenarios with hidden dynamical ground truth. CellCompass achieved the highest aggregate performance among the tested general-purpose and biomedical agents across six dynamical tasks. Across four real single-cell studies, it retained an existing velocity-growth model to reconstruct context-dependent epithelial-mesenchymal transition and developed three new dynamical formulations for distinct experimental measurements. In drug-response data, incorporating metabolic RNA labeling reduced pulse-control identifiability error by 31.1%, revealing staged response programs and generating testable predictions for perturbing a candidate adaptive program. In hematopoietic lineage tracing, incorporating clonal barcodes improved clone-fate agreement by 54% over the strongest dynamical baseline, identifying early lineage priming among transcriptionally similar progenitors. Finally, in time-resolved CITE-seq data, CellCompass reduced future surface-protein distribution error by 13.2% for RNA-initialized trajectories, uncovering lineage-specific temporal offsets between transcriptional and protein programs. Together, CellCompass provides a framework in which virtual-cell dynamics can expand with the biological measurements used to constrain them.",
+      "summary_zh": "CellCompass 将科学智能体与可扩展动力学引擎结合，并在 DynBench100 和 4 个真实单细胞研究中动态加入 RNA 标记、克隆条形码与 CITE-seq 等测量约束。",
+      "why_it_matters_zh": "这是预印本；系统展示了从已有模型复用到新动力学方程设计的能力，并给出多种真实数据改进，但预测仍依赖模拟基准和特定数据集。",
+      "quality_score": 82.0,
+      "tags": [
+        "组学与细胞"
+      ],
+      "evidence_flags": [
+        "benchmark",
+        "experimental",
+        "performance",
+        "preprint"
+      ],
+      "publication_status": "preprint",
+      "rank": 11,
+      "featured": false,
+      "category": "组学与细胞",
+      "metrics": {},
+      "metadata": {
+        "doi": "10.64898/2026.10.23.761350",
+        "arxiv_id": ""
+      },
+      "abstract_zh": "由单细胞测量构建的虚拟细胞模型需要预测细胞如何随时间变化，但新的生物学测量常常揭示出现有模型无法表达的动力学关系。因此，将这些测量转化为动力学需要决定应建模哪种生物学关系、它应在公式的何处进入，以及如何验证其恢复效果。在这里，我们提出 CellCompass，一个智能体式 AI 系统，将科学智能体与可扩展的动力学引擎结合，用于建模状态转变和群体变化，并生成命运和分子读出。CellCompass 在现有公式足够时复用它们；当实验测量引入额外约束时，则设计、实现并改进新的公式。为评估这一能力，我们开发了 DynBench100，一个包含 100 个模拟单细胞时间序列场景、且隐藏动力学真实值的基准。在 6 项动力学任务中，CellCompass 在测试的通用和生物医学智能体中取得最高综合性能。在 4 个真实单细胞研究中，它保留已有的速度-生长模型以重建具有情境依赖性的上皮-间质转化，并针对不同实验测量开发了 3 个新的动力学公式。在药物反应数据中，加入代谢 RNA 标记使脉冲控制可辨识性误差降低 31.1%，揭示分阶段反应程序，并对扰动一个候选适应性程序产生可检验预测。在造血谱系追踪中，加入克隆条形码使克隆-命运一致性比最强动力学基线提高 54%，并在转录相似的祖细胞中识别出早期谱系预置。最后，在时间分辨 CITE-seq 数据中，CellCompass 将以 RNA 初始化轨迹的未来表面蛋白分布误差降低 13.2%，揭示转录程序和蛋白程序之间具有谱系特异性的时间偏移。总体而言，CellCompass 提供了一个框架，使虚拟细胞动力学能够随着用于约束它们的生物学测量而扩展。",
+      "published": "2026-10-27",
+      "author_line": "Zhang, Z., Wang, Z., Tian, Q., Zhou, B., Zhou, T., Nie, Q., Zhou, P."
+    },
+    {
+      "id": "europepmc:ppr1351360",
+      "channel": "aixbio",
+      "related_channels": [],
+      "item_type": "paper",
+      "source": "Europe PMC",
+      "title": "Integrated single cell and bulk transcriptomic analysis reveals disulfidptosis related malignant epithelial states associated with prognosis in gastric cancer",
+      "url": "https://europepmc.org/article/PPR/PPR1351360",
+      "published_at": "2026-10-27",
+      "updated_at": "2026-10-28",
+      "creators": [
+        "He Z",
+        "Li S",
+        "Gu J",
+        "Liu J",
+        "Huang X",
+        "Jing J",
+        "Sun Q",
+        "Wei M",
+        "Wang J",
+        "Fan D",
+        "Chen Z",
+        "Li J",
+        "Cao L"
+      ],
+      "language": "en",
+      "abstract_or_text": "Abstract Background: Disulfidptosis is a recently described form of regulated cell death linked to cystine uptake, redox imbalance, and actin-cytoskeleton collapse, but the malignant epithelial states associated with disulfidptosis-related transcriptional programs in gastric cancer remain unclear. Methods: We integrated GSE183904 single-cell RNA sequencing with TCGA-STAD and two independent bulk cohorts (GSE84437 and GSE62254/ACRG). Malignant epithelial cells were identified by inferred copy-number variation, stratified using a 14-gene disulfidptosis-related score, and evaluated for pathway, stemness, and cell-cell communication features. A broader 60-gene program and a six-gene LASSO-Cox risk model were assessed in bulk cohorts together with tumor-microenvironment and predicted drug-sensitivity analyses. Results: Among 158,641 cells, 6,011 malignant epithelial cells were identified. High-score cells showed higher SLC7A11 expression and enrichment of cell-cycle, mitotic-spindle, and cytoskeletal programs, whereas low-score cells displayed stronger stemness-related features. The six-gene risk score stratified overall survival in TCGA-STAD and both independent cohorts and remained independently associated with survival in 319 TCGA-STAD patients with complete clinical data. High-risk tumors showed greater stromal enrichment, lower inferred tumor purity, and differential predicted sensitivity to several targeted agents. Conclusions: This analysis links disulfidptosis-related transcriptional states at single-cell resolution with reproducible patient-level prognostic features in gastric cancer. The findings are computational and hypothesis-generating and require experimental and prospective validation.",
+      "summary_zh": "研究整合 158,641 个单细胞、TCGA-STAD 和两个独立 bulk 队列，识别与 disulfidptosis 相关的胃癌恶性上皮状态，并建立可复现的六基因生存风险模型。",
+      "why_it_matters_zh": "这是预印本；跨单细胞与多队列结果支持预后相关性，但作者明确结论为计算性和假设生成，不能解释为已证实的致病机制。",
+      "quality_score": 82.0,
+      "tags": [
+        "组学与细胞"
+      ],
+      "evidence_flags": [
+        "clinical",
+        "experimental",
+        "prospective",
+        "preprint"
+      ],
+      "publication_status": "preprint",
+      "rank": 12,
+      "featured": false,
+      "category": "组学与细胞",
+      "metrics": {},
+      "metadata": {
+        "doi": "10.21203/rs.3.rs-10992120/v1",
+        "pmid": ""
+      },
+      "abstract_zh": "背景：Disulfidptosis 是最近描述的一种调控性细胞死亡形式，与胱氨酸摄取、氧化还原失衡和肌动蛋白细胞骨架崩溃有关，但在胃癌中，与 disulfidptosis 相关转录程序对应的恶性上皮状态仍不清楚。方法：我们整合 GSE183904 单细胞 RNA 测序数据、TCGA-STAD 以及两个独立 bulk 队列（GSE84437 和 GSE62254/ACRG）。通过推断拷贝数变异识别恶性上皮细胞，使用 14 基因 disulfidptosis 相关评分进行分层，并评估通路、干性和细胞间通讯特征。在 bulk 队列中评估更广泛的 60 基因程序和一个六基因 LASSO-Cox 风险模型，同时进行肿瘤微环境和预测药物敏感性分析。结果：在 158,641 个细胞中识别出 6,011 个恶性上皮细胞。高评分细胞具有更高的 SLC7A11 表达，并富集于细胞周期、有丝分裂纺锤体和细胞骨架程序；低评分细胞则表现出更强的干性相关特征。六基因风险评分在 TCGA-STAD 和两个独立队列中均能对总生存进行分层；在具有完整临床数据的 319 名 TCGA-STAD 患者中，该评分仍与生存独立相关。高风险肿瘤具有更高的基质富集、更低的推断肿瘤纯度，并对数种靶向药物表现出不同的预测敏感性。结论：该分析将单细胞分辨率下与 disulfidptosis 相关的转录状态，与胃癌患者层面可重复的预后特征联系起来。这些发现属于计算性和假设生成结果，需要实验和前瞻性验证。",
+      "published": "2026-10-27",
+      "author_line": "He Z, Li S, Gu J, Liu J, Huang X, Jing J, Sun Q, Wei M, Wang J, Fan D, Chen Z, Li J, Cao L"
+    },
+    {
+      "id": "arxiv:2610.36361v1",
+      "channel": "aixbio",
+      "related_channels": [],
+      "item_type": "paper",
+      "source": "arXiv",
+      "title": "HELICS: Biobank-scale Conditional Synthetic Genome Generation via Latent Flow Matching",
+      "url": "https://arxiv.org/abs/2610.36361v1",
+      "published_at": "2026-10-26",
+      "updated_at": "2026-10-26",
+      "creators": [
+        "Ahmad Abdel-Azim",
+        "Xihong Lin"
+      ],
+      "language": "en",
+      "abstract_or_text": "Individual-level genotype data underpin genetic discovery, disease-risk modeling, and therapeutic development, yet many critical settings remain data-limited, including underrepresented ancestries, rare or imbalanced disease cohorts, and restricted-access biobanks. Conditional synthetic genome generation would support privacy-aware benchmarking, simulation, and data augmentation, but requires learning an ultra-high-dimensional discrete distribution over hundreds of thousands to tens of millions of correlated single-nucleotide polymorphisms (SNPs), or sites of DNA variation. We introduce HELICS: High-fidelity gEneration via Latent Interpolant Conditional Synthesis, a phasing-free latent flow matching framework for genome-wide SNP-level generation from biobank-scale genotype data. HELICS tokenizes chromosomes with convolutional autoencoders, reducing >600K SNPs to 4,096 continuous latent tokens, and trains a transformer parameterized conditional flow matching model over the concatenated multi-chromosome latent representation. Trained on over 417K genomes in the UK Biobank, HELICS generates genome-wide common-variant synthetic cohorts without haplotype phasing and achieves stronger fidelity to real genotypes than existing haplotype-based simulators, including high allele-frequency agreement in external evaluation and superior preservation of local and long-range SNP correlation structure. Conditioning on ancestry and genetic liability summaries enables targeted generation across genetic risk profiles; in perturbation analyses, by increasing the conditioned disease trait liability, HELICS induces SNP-level dosage changes in generated genomes that are highly correlated with published association weights. HELICS provides a scalable generative modeling framework for SNP-level genome data and a path toward conditional synthetic cohorts for data-limited genetic studies.",
+      "summary_zh": "HELICS 在 UK Biobank 超过 417K 个基因组上训练潜在流匹配模型，将超过 600K 个 SNP 压缩为 4,096 个潜在 token，并生成可按祖源和遗传风险条件控制的合成基因组。",
+      "why_it_matters_zh": "这是预印本；其规模、外部等位基因频率评估和局部/远程相关结构保持能力突出，但合成数据的隐私和下游任务安全性仍需独立审计。",
+      "quality_score": 80.0,
+      "tags": [
+        "方法与模型"
+      ],
+      "evidence_flags": [
+        "benchmark",
+        "evaluation",
+        "preprint"
+      ],
+      "publication_status": "preprint",
+      "rank": 13,
+      "featured": false,
+      "category": "方法与模型",
+      "metrics": {},
+      "metadata": {
+        "doi": "",
+        "arxiv_id": "2610.36361v1"
+      },
+      "abstract_zh": "个体水平基因型数据支撑遗传发现、疾病风险建模和治疗开发，但许多关键场景受到数据限制，包括代表性不足的祖源、罕见或不平衡疾病队列以及受限访问的生物样本库。条件式合成基因组生成可支持隐私友好的基准测试、模拟和数据增强，但需要学习一个超高维离散分布，其中包含数十万至数千万个相互关联的单核苷酸多态性（SNP）或 DNA 变异位点。我们提出 HELICS（High-fidelity gEneration via Latent Interpolant Conditional Synthesis），一种无需单倍型定相、基于潜在流匹配的全基因组 SNP 级生成框架，可从生物样本库规模的基因型数据生成条件式合成基因组。HELICS 使用卷积自编码器对染色体进行 token 化，将超过 600K 个 SNP 降维为 4,096 个连续潜在 token，并在拼接的多染色体潜在表示上训练一个由 Transformer 参数化的条件流匹配模型。HELICS 在 UK Biobank 超过 417K 个基因组上训练；在外部评估中，它比现有基于单倍型的模拟器更忠实于真实基因型，在等位基因频率一致性方面表现较高，并更好地保持局部和远程 SNP 相关结构。按祖源和遗传易感性摘要进行条件控制，可针对不同遗传风险谱生成数据；在扰动分析中，提高条件化疾病性状负荷会诱导生成基因组中的 SNP 级剂量变化，并且这些变化与已发表的关联权重高度相关。HELICS 提供了一个可扩展的 SNP 级基因组数据生成框架，并为数据受限的遗传学研究提供了条件式合成队列的路径。",
+      "published": "2026-10-26",
+      "author_line": "Ahmad Abdel-Azim, Xihong Lin"
+    },
+    {
+      "id": "biorxiv:10.64898/2026.09.08.750126",
+      "channel": "aixbio",
+      "related_channels": [],
+      "item_type": "paper",
+      "source": "bioRxiv",
+      "title": "PHACTn enables training-free, context-independent inference of nucleotide variant tolerance across the genome",
+      "url": "https://www.biorxiv.org/content/10.64898/2026.09.08.750126",
+      "published_at": "2026-10-28",
+      "updated_at": "2026-10-28",
+      "creators": [
+        "Yildirim, C.",
+        "Kuru, N.",
+        "Adebali, O."
+      ],
+      "language": "en",
+      "abstract_or_text": "Accurate prediction of single-nucleotide variant (SNV) tolerability across the entire human genome remains a fundamental challenge in computational genomics, particularly for non-coding regions where the regulatory landscape is vast and poorly understood. Machine learning classifiers suffer from data circularity and demographic bias, while genomic language models demand massive computational resources and offer little biological interpretability. Here, we present PHACTn (Phylogeny-Aware Computing of Tolerance for nucleotide variants), a training-free, parameter-minimal method that infers nucleotide variant tolerability by traversing the mammalian phylogenetic tree and explicitly modeling the evolutionary independence of observed substitutions and their distance from the query species. With only 4 interpretable parameters, no training and no GPU requirement, PHACTn outperforms all evaluated tools on non-coding variants curated from both the ClinVar, and on non-coding variants potentially responsible for selected Mendelian diseases curated from OMIM. Additionally, it achieves state-of-the-art performance on variants within the informative range of alignment-based inference. These results establish that principled probabilistic phylogenetic modeling captures evolutionary constraint signals that large-scale sequence models fail to recover, offering a powerful, accessible, and mechanistically transparent alternative for genome-wide variant effect prediction.",
+      "summary_zh": "PHACTn 仅用 4 个可解释参数、无需训练或 GPU，通过哺乳动物系统发育树推断全基因组 SNV 耐受性，并在 ClinVar、OMIM 非编码变异集合上超过所评估工具。",
+      "why_it_matters_zh": "这是预印本；该方法以低计算成本和可解释性展示了对大型序列模型的补充价值，但其性能仍依赖系统发育比对信息及评估集构成。",
+      "quality_score": 80.0,
+      "tags": [
+        "组学与细胞"
+      ],
+      "evidence_flags": [
+        "state-of-the-art",
+        "performance",
+        "preprint"
+      ],
+      "publication_status": "preprint",
+      "rank": 14,
+      "featured": false,
+      "category": "组学与细胞",
+      "metrics": {},
+      "metadata": {
+        "doi": "10.64898/2026.09.08.750126",
+        "arxiv_id": ""
+      },
+      "abstract_zh": "准确预测整个人人类基因组中单核苷酸变异（SNV）的耐受性仍是计算基因组学的根本挑战，尤其是在调控景观广阔且认识不足的非编码区域。机器学习分类器受到数据循环和人口偏差影响，而基因组语言模型需要巨大的计算资源，并且生物学可解释性有限。在这里，我们提出 PHACTn（Phylogeny-Aware Computing of Tolerance for nucleotide variants），一种无需训练、参数最少的方法。它通过遍历哺乳动物系统发育树来推断核苷酸变异耐受性，并明确建模观测替换的进化独立性及其与查询物种之间的距离。PHACTn 只有 4 个可解释参数，无需训练，也不需要 GPU；在从 ClinVar 整理的非编码变异以及从 OMIM 整理的、可能导致选定孟德尔疾病的非编码变异上，它优于所有评估工具。此外，在比对法推断信息充分的变异范围内，它也达到了当前最先进的性能。这些结果表明，原理化的概率系统发育建模能够捕获大型序列模型未能恢复的进化约束信号，为全基因组变异效应预测提供了一种强大、易用且具有机制透明性的替代方案。",
+      "published": "2026-10-28",
+      "author_line": "Yildirim, C., Kuru, N., Adebali, O."
+    }
+  ],
+  "review": {
+    "model": "gpt-5.6-terra",
+    "reasoning_effort": "high",
+    "note": "依据题名、摘要、publication_status 与公开元数据审阅；16 项均为 preprint，未将其表述为同行评议或临床验证结论。已排除目标日期前归档中重复的 3 项（inClinico、LC-MS/MS proteomics agent、Lassa virus vaccine）。"
+  }
+}

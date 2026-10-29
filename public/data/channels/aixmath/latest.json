@@ -1,30 +1,30 @@
 {
   "schema_version": "2.0",
-  "date": "2026-10-29",
+  "date": "2026-10-30",
   "channel": "aixmath",
-  "generated_at": "2026-10-28T22:06:03+00:00",
+  "generated_at": "2026-10-29T22:07:32+00:00",
   "title": "AI × Math 每日精选",
   "subtitle": "自动推理、形式化证明、数学智能与基础模型。",
   "window": {
-    "start": "2026-10-26",
-    "end": "2026-10-29"
+    "start": "2026-10-27",
+    "end": "2026-10-30"
   },
   "method": "公开来源采集、历史去重、规则筛选与模型审阅",
   "method_note": "系统保存当日公开元数据，与历史日报核验后排除已报道事件；论文新版本、新修订及不同软件发布等可核实更新仍可入选，随后由指定模型阅读全文摘要并完成精选。",
   "stats": {
-    "fetched": 894,
-    "suppressed_previous": 7,
+    "fetched": 371,
+    "suppressed_previous": 11,
     "candidates": 60,
-    "selected": 11,
+    "selected": 6,
     "sources": {
-      "arXiv": 894,
+      "arXiv": 371,
       "OpenReview": 0
     }
   },
   "source_status": {
     "arXiv": {
       "state": "ok",
-      "count": 894
+      "count": 371
     },
     "OpenReview": {
       "state": "empty",
@@ -34,117 +34,123 @@
   "source_errors": [],
   "items": [
     {
-      "id": "arxiv:2610.36767v1",
+      "id": "arxiv:2610.37369v1",
       "channel": "aixmath",
-      "related_channels": [],
+      "related_channels": [
+        "aixbio"
+      ],
       "item_type": "paper",
       "source": "arXiv",
-      "title": "Can LLMs Reliably Grade Olympiad Proofs? A Study of Mathematical Verification with LLMs",
-      "url": "https://arxiv.org/abs/2610.36767v1",
+      "title": "Uncovering Why LLMs Fail: From Internal Mechanisms to Adversarial Reasoning Trajectories",
+      "url": "https://arxiv.org/abs/2610.37369v1",
       "published_at": "2026-10-27",
       "updated_at": "2026-10-27",
       "creators": [
-        "Azim Ospanov",
-        "Zijin Feng",
-        "Ding Ding",
-        "Chengwu Liu",
-        "Haoli Bai",
-        "Jiacheng Sun",
-        "Lifeng Shang",
-        "Farzan Farnia"
+        "Zirui Ding",
+        "Xinxin Fan",
+        "Hao Yuan",
+        "Shaoye Luo",
+        "Men Niu",
+        "Yunfeng Lu"
       ],
       "language": "en",
-      "abstract_or_text": "Large Language Models (LLMs) have made remarkable progress on solving competition-level mathematics, yet their ability to verify natural-language mathematical proofs remains relatively underexplored. This gap is especially pronounced for Olympiad-level proofs, which require meticulous assessment of each claim in a long reasoning chain. Current proof verification thus primarily relies on expert inspection, which is costly to scale. In this paper, we present a systematic study of LLM-based verification in this setting. Specifically, we introduce a human-curated dataset of USAMO 2025 candidate solutions with expert grading, and conduct a broad evaluation of existing LLM verifiers across frontier models. We also propose TROJAN, an iterative self-critique pipeline for generating high-fidelity adversarial proofs at scale. Our comprehensive evaluation covers 20 models spanning seven metrics, two prompt styles, three inference methods, and three prompt templates, showing that state-of-the-art models still leave considerable room for improvement. To narrow this gap, we propose MABGrader, a Multi-Armed Bandit framework that reframes grading as arm selection over the discrete score space. MABGrader outperforms the SOTA ProofGrader by 26.4% in Quadratic Weighted Kappa and reduces grading error by 14%. Code and dataset are available at https://github.com/aziksh-ospanov/TROJAN.",
-      "summary_zh": "研究 LLM 对奥林匹克数学证明进行评分与验证的可靠性，构建含 USAMO 2025 候选解及专家评分的数据集，并比较 20 个模型。MABGrader 在 Quadratic Weighted Kappa 上较 ProofGrader 提高 26.4%，评分误差降低 14%。",
-      "why_it_matters_zh": "直接检验模型核验长证明链的能力，既有对抗性证明生成，也有多模型、多指标评测和公开代码数据集；结果同时显示当前模型仍有明显验证局限。",
-      "quality_score": 88.0,
+      "abstract_or_text": "Large language models (LLMs) are usually evaluated by final-output correctness or safety, yet an endpoint label does not reveal how a failure develops throughout the reasoning process. We therefore ask whether ordinary reasoning failures and adversarially induced failures can be characterized using the same internal coordinates. Towards this end, we in this paper study a white-box diagnostic framework CauTrace to disclose the root-cause of why LLM fails from three fundamental inspections: Functional States, Propagation of Representation, Temporal-State Coordination and Reasoning Trajectory. First, seven functional states are creatively defined to represent the support and constraint processing in LLMs. Second, the propagation of representation change measures how the changes among the seven states persist across subsequent Transformer blocks. Third, temporal-state coordination and trajectory topology characterize when the commitment and verification occur relative to the support, and how the dominant state sequence evolves over the full inference process. Finally, we evaluate CauTrace on both clean reasoning failures and paired adversarial perturbations. Across Qwen and LLaMA-family models, the failed traces show weaker Attention-MLP agreement on support-state updates and less verification activity relative to commitment, while the exact representation-level signatures and timing shifts vary by architecture. Held-out repair and steering tests demonstrate consistent operational signals that were in line with our claims for certain models and specific settings, with aligned steering producing the predicted directional changes in process measures. Overall, CauTrace provides a unified diagnostic framework for analyzing failure dynamics through changes in support, commitment, and verification, which would shed light on the in-depth research on LLM security.",
+      "summary_zh": "提出白盒诊断框架 CauTrace，用功能状态、表征传播、时态状态协调和推理轨迹分析 LLM 的普通及对抗性推理失败，并通过留出修复与 steering 测试检验诊断信号。",
+      "why_it_matters_zh": "把“答案错了”进一步拆解为支持、承诺和验证过程中的可观测机制，为评估模型推理可靠性提供了可检验的内部指标；摘要也明确指出信号依赖模型架构和具体设置。",
+      "quality_score": 79.0,
       "tags": [
-        "数学推理"
+        "方法与模型"
       ],
       "evidence_flags": [
-        "dataset",
-        "github",
-        "state-of-the-art",
-        "evaluation"
+        "security"
       ],
       "publication_status": "preprint",
       "rank": 1,
       "featured": true,
-      "category": "数学推理",
+      "category": "方法与模型",
       "metrics": {},
       "metadata": {
         "doi": "",
-        "arxiv_id": "2610.36767v1"
+        "arxiv_id": "2610.37369v1"
       },
-      "abstract_zh": "大语言模型（LLM）在解决竞赛级数学问题方面取得了显著进展，但其验证自然语言数学证明的能力仍相对缺乏研究。对于奥林匹克级证明，这一缺口尤其明显，因为这类证明需要细致评估长推理链中的每一条断言。目前的证明验证主要依赖专家检查，难以规模化。在本文中，我们系统研究了这一场景下基于 LLM 的验证。具体而言，我们引入了一个由人工整理、包含 USAMO 2025 候选解及专家评分的数据集，并在前沿模型上广泛评估现有 LLM 验证器。我们还提出 TROJAN，这是一种用于大规模生成高保真对抗性证明的迭代式自我批评流程。综合评测覆盖 20 个模型、七项指标、两种提示风格、三种推理方法和三种提示模板，结果表明，当前最先进的模型仍有相当大的改进空间。为缩小这一差距，我们提出 MABGrader，这是一个多臂老虎机框架，将评分重新表述为在离散分数空间上的臂选择。MABGrader 在 Quadratic Weighted Kappa 上比当前最先进的 ProofGrader 高 26.4%，并将评分误差降低 14%。代码和数据集见 https://github.com/aziksh-ospanov/TROJAN。",
+      "abstract_zh": "大型语言模型（LLM）通常按最终输出正确性或安全性评估，但终点标签无法揭示失败如何在推理过程中发展。因此，我们探讨普通推理失败与对抗诱发失败能否用相同的内部坐标刻画。为此，本文研究白盒诊断框架 CauTrace，从功能状态、表征传播、时态状态协调和推理轨迹四项基础检查入手，揭示 LLM 失败的根本原因。首先，定义七种功能状态，用于表示 LLM 中的支持处理和约束处理。其次，表征变化的传播度量七种状态之间的变化如何在后续 Transformer 层中持续。再次，时态状态协调和轨迹拓扑刻画承诺与验证相对于支持发生的时机，以及主导状态序列如何在完整推理过程中演化。最后，我们在干净的推理失败和成对的对抗扰动上评估 CauTrace。在 Qwen 和 LLaMA 系列模型中，失败轨迹在支持状态更新上的 Attention-MLP 协同性更弱，相对于承诺而言验证活动更少；但具体的表征层面信号及其时间偏移会随架构变化。留出的修复和 steering 测试表明，在某些模型和特定设置下，操作性信号与我们的主张一致；对齐后的 steering 也产生了预测方向上的过程度量变化。总体而言，CauTrace 通过支持、承诺和验证的变化，为分析失败动力学提供了统一诊断框架，可帮助深入研究 LLM 安全性。",
       "published": "2026-10-27",
-      "author_line": "Azim Ospanov, Zijin Feng, Ding Ding, Chengwu Liu, Haoli Bai, Jiacheng Sun, Lifeng Shang, Farzan Farnia"
+      "author_line": "Zirui Ding, Xinxin Fan, Hao Yuan, Shaoye Luo, Men Niu, Yunfeng Lu"
     },
     {
-      "id": "arxiv:2610.35595v2",
+      "id": "arxiv:2610.37255v1",
       "channel": "aixmath",
       "related_channels": [],
       "item_type": "paper",
       "source": "arXiv",
-      "title": "Agentic Algorithm Design: LLMs that Propose, Formalise, and Prove Runtime Bounds for Evolutionary Algorithms in Lean",
-      "url": "https://arxiv.org/abs/2610.35595v2",
-      "published_at": "2026-10-26",
+      "title": "Your Policy Is Secretly a Harness: The Decision Geometry of Agent Interfaces",
+      "url": "https://arxiv.org/abs/2610.37255v1",
+      "published_at": "2026-10-27",
       "updated_at": "2026-10-27",
       "creators": [
-        "Per Kristian Lehre"
+        "Jian Mu",
+        "Ruibo Shen",
+        "Yao Shu"
       ],
       "language": "en",
-      "abstract_or_text": "LLMs now prove hard theorems in Lean. Can they also design algorithms and prove their correctness and efficiency? LLM-guided design of optimisation heuristics (such as AlphaEvolve) is purely empirical. Automated theorem provers with LLMs prove given statements. So far, there has been little evidence that LLMs can do both: design an algorithm and guarantee its efficiency by a mathematical proof. We present a staged pipeline modelled after research methodology in design and analysis of evolutionary algorithms. The agent proposes black-box optimisation algorithms, and Lean guards filter out flawed designs. The agent then defines a potential function and proves drift bounds that guarantee an expected runtime improvement over the baseline algorithm. At no point in the pipeline are the algorithms compared empirically. The agent generates a black-box optimisation algorithm with expected runtime O(n^2) on a CycleUncover problem, where the classical (1+1) EA needs runtime e^{Ω(n)}. The pipeline also designs and analyses a black-box optimisation algorithm for integer-valued submodular minimisation with expected runtime O(n^{2+2c}), and it matches the classical runtime O(n^2) on LeadingOnes. Across 8 problem classes, 12 of 15 runs with frontier models complete the pipeline with a machine-checked expected-runtime bound. An ablation study shows that removing the staging and asking the agent to zero-shot an algorithmic design with a runtime guarantee leads to a copy of the seeded baseline algorithm (random search) or to incomplete proofs. Our study suggests that machine-checked specifications in Lean can replace empirical evaluation in open-ended algorithm discovery. To the best of our knowledge, this is the first example of an automated pipeline that designs efficient black-box optimisation algorithms with machine-checked runtime bounds in Lean.",
-      "summary_zh": "提出一个分阶段流程，让 LLM 在 Lean 中同时完成进化算法设计、形式化和运行时间证明。15 次运行中有 12 次在 8 类问题上得到机器检查的期望运行时间界，并通过消融显示分阶段设计优于零样本设计。",
-      "why_it_matters_zh": "把开放式算法发现与 Lean 机器检查结合起来，给出具体运行时间界和跨问题类别的完成率；但结果仍是预印本中的有限规模实验，不能据此外推一般数学创造力。",
-      "quality_score": 84.0,
+      "abstract_or_text": "Language model agents are post-trained and deployed through a harness, the prompts, tools, and control logic that present a task to the model and execute its outputs. Harnesses are often revised and judged by how an already trained model performs under them, which assumes that what the model learned under one harness carries over to the next. We ask what a policy learns from its harness and what survives when the harness changes. Under KL-regularized control, we show that the log odds of an optimal policy recover how strongly its harness favors each action over the others, so a trained policy carries the preferences of its harness. Deployed return then equals the ceiling of the harness, the best return it offers, minus the mismatch of the policy, the return lost to its own suboptimal decisions. Training changes only the mismatch, while changing the harness moves both terms. Comparing harnesses with a fixed model therefore mixes what each harness offers with how well that model uses it. In MiniWoB++, post-training makes a model's preferences specific to its training harness. Reversing the order of the observation fields leaves every optimal decision unchanged yet lowers a trained model's success from 85.0% to 19.2%. Conversely, every new harness that a fixed-model comparison rejects but that raises the ceiling outperforms the original agent after further training under it, and ceiling and mismatch measured beforehand predict these gains. For coding-agent harnesses on Terminal-Bench Lite, ceiling minus mismatch estimated with a stronger model as a stand-in for the optimum reproduces the accuracy ranking, while either term alone does not. Code is available at https://github.com/2020-qqtcg/HRP.",
+      "summary_zh": "在 KL 正则控制下，将智能体表现分解为 harness 提供的上限与策略失配造成的损失，并用 MiniWoB++ 和 Terminal-Bench Lite 检验这一决策几何。",
+      "why_it_matters_zh": "提醒评测智能体时要区分接口 harness 的能力与模型自身的决策质量；该分解给出了可计算的比较指标，并展示了观察字段顺序变化造成的显著性能差异。",
+      "quality_score": 73.0,
       "tags": [
-        "形式化证明"
+        "方法与模型"
       ],
       "evidence_flags": [
-        "ablation",
-        "evaluation"
+        "github"
       ],
       "publication_status": "preprint",
       "rank": 2,
       "featured": true,
-      "category": "形式化证明",
+      "category": "方法与模型",
       "metrics": {},
       "metadata": {
         "doi": "",
-        "arxiv_id": "2610.35595v2"
+        "arxiv_id": "2610.37255v1"
       },
-      "abstract_zh": "LLM 现在能够在 Lean 中证明困难定理。那么，它们是否也能设计算法并证明其正确性和效率？由 LLM 引导的优化启发式方法（例如 AlphaEvolve）纯粹依赖经验。带有 LLM 的自动定理证明器证明的是给定命题。到目前为止，几乎没有证据表明 LLM 能同时完成这两件事：设计算法并通过数学证明保证其效率。我们提出一个分阶段流程，其建模对象是进化算法的设计与分析研究方法。智能体提出黑箱优化算法，Lean 作为守门器筛除有缺陷的设计。随后，智能体定义势函数并证明漂移界，从而保证相对于基线算法的期望运行时间改进。流程中的任何时刻都不进行算法经验比较。该流程为 CycleUncover 问题生成了一个期望运行时间为 O(n^2) 的黑箱优化算法，而经典的 (1+1) EA 的运行时间为 e^{Ω(n)}。该流程还为整数值子模最小化设计并分析了一个期望运行时间为 O(n^{2+2c}) 的黑箱优化算法，并在 LeadingOnes 上达到经典的 O(n^2) 运行时间。在 8 类问题上，前沿模型的 15 次运行中有 12 次完成了整个流程，并得到机器检查的期望运行时间界。消融研究表明，去掉分阶段设计、要求智能体零样本地完成带运行时间保证的算法设计，会导致其复制种子基线算法（随机搜索）或产生未完成的证明。我们的研究表明，在开放式算法发现中，Lean 中机器检查的规格可以替代经验评估。据我们所知，这是首个由自动化流程设计高效黑箱优化算法，并在 Lean 中得到机器检查运行时间界的实例。",
-      "published": "2026-10-26",
-      "author_line": "Per Kristian Lehre"
+      "abstract_zh": "语言模型智能体通过 harness（向模型呈现任务并执行其输出的提示、工具和控制逻辑）进行后训练和部署。Harness 经常被修改，并根据一个已经训练好的模型在其上的表现来评判，这隐含假设：模型在一个 harness 下学到的东西能够迁移到下一个 harness。我们研究策略从其 harness 中学到了什么，以及当 harness 改变时哪些东西能够保留下来。在 KL 正则控制下，我们证明，最优策略的对数几率可以恢复其 harness 对各个动作相对于其他动作的偏好强度，因此训练后的策略携带了其 harness 的偏好。部署回报等于 harness 的上限（它所能提供的最佳回报）减去策略失配（由策略自身的次优决策造成的回报损失）。训练只改变失配，而改变 harness 会同时改变这两项。因此，用固定模型比较 harness，会把每个 harness 能提供的东西与该模型利用它的程度混在一起。在 MiniWoB++ 中，后训练使模型的偏好特定于其训练 harness。反转观测字段的顺序不会改变任何最优决策，却会使训练后模型的成功率从 85.0% 降至 19.2%。反过来，固定模型比较时被拒绝、但能提高上限的每个新 harness，在其上进一步训练后都会超过原始智能体；事先测得的上限和失配能够预测这些收益。对于 Terminal-Bench Lite 上的编码智能体 harness，用更强模型作为最优值的替代估计得到的“上限减失配”可以复现准确率排序，而单独使用其中任一项都不能。代码见 https://github.com/2020-qqtcg/HRP。",
+      "published": "2026-10-27",
+      "author_line": "Jian Mu, Ruibo Shen, Yao Shu"
     },
     {
-      "id": "arxiv:2610.37375v1",
+      "id": "arxiv:2610.37266v1",
       "channel": "aixmath",
       "related_channels": [],
       "item_type": "paper",
       "source": "arXiv",
-      "title": "Agent-Conditioned Routing: Diverse Reasoning Paths Within One Frozen Model",
-      "url": "https://arxiv.org/abs/2610.37375v1",
+      "title": "Watermark Basins: Black-Box Detection of Distilled LLMs",
+      "url": "https://arxiv.org/abs/2610.37266v1",
       "published_at": "2026-10-27",
       "updated_at": "2026-10-27",
       "creators": [
-        "Ananth Kalyanasundaram",
-        "Ankush Kadu",
-        "Athira Gopal",
-        "Aswanth Krishnan"
+        "Hongyan Chang",
+        "Hady Elsahar",
+        "Tom Sander",
+        "Pierre Fernandez",
+        "Saeed Mahloujifar",
+        "Sylvestre-Alvise Rebuffi",
+        "Tomáš Souček",
+        "Tuan Tran",
+        "Valeriu Lacatusu",
+        "Surya Parimi",
+        "Rashel Moritz",
+        "Vanessa Stark",
+        "Alexandre Mourachko"
       ],
       "language": "en",
-      "abstract_or_text": "Generating several solutions can expose alternative methods, but additional trajectories often paraphrase one dominant approach. We investigate whether the conditional capacity of a frozen sparse mixture-of-experts (MoE) model can provide such diversity from one problem prompt, without user-assigned roles, prescribed methods, fine-tuning, or model copies. Agent-Conditioned Routing (ACR) assigns m parallel trajectories persistent, untrained shared/private expert-eligibility masks while preserving the learned, input-dependent token router. On a screened 126-question multi-mode mathematics and physics benchmark, with model judges reading the reported derivations in full, we count the number of problems yielding at least two distinct primary methods among soft-correct solutions in four trajectories. ACR reaches approximately twice as many such problems as the strongest temperature setting under GLM 5.3 (37.3 versus 18.7), and 1.67 times as many under GPT-5.6 Sol (45.00 versus 27.00), at matched output budgets. A blinded four-expert audit on a stratified sample of 30 problems also finds more multi-method solutions with ACR on both backbones, with lower correctness. Matched-eligibility ablations show modest multi-method count advantages for ACR, while token-resampled masks attain higher correctness. An informed sequential prompt elicits more diversity still, using previous solutions and explicit requests for alternative methods. ACR adds about 160 KiB of mask state. In a three-problem microbenchmark capped at 1,024 tokens, its latency and peak VRAM usage remain within 3% of batched temperature sampling.",
-      "summary_zh": "研究冻结稀疏 MoE 模型能否通过不同专家可用性掩码产生多样数学与物理解法。ACR 在 126 题基准上提高了产生至少两种主要方法的题目比例，但盲审显示正确率较低。",
-      "why_it_matters_zh": "评测的是模型是否真正探索不同证明或解题路径，而不只是改写同一路径；同时报告了多样性与正确率之间的权衡，结论较为克制。",
+      "abstract_or_text": "Proprietary language models and their reasoning traces are vulnerable to API-based distillation, where an adversary trains a student model on the teacher model's outputs. To obtain evidence of distillation, model providers can watermark the teacher's outputs, aiming to leave a radioactive signal in the student's outputs. Existing black-box detectors search for such radioactivity using token-level statistics of the suspect model's outputs. However, token-level signals are not always detectable, for instance when the distillation traces are sampled at a low temperature. In this work, we discover the watermark basin, a persistent signal that enables more reliable watermark detection: during fine-tuning, watermarked teacher traces embed a distinct, key-specific geometric signal in parameter space that lies orthogonal to the ordinary task-specific fine-tuning subspace. Building on this, we introduce Watermark Basin Alignment (WM-Basin), a black-box watermark detector that queries the suspect model through its API, without access to its weights or logits. WM-Basin maps generated text to gradient representations using a fixed clean probe model, projects out the ordinary fine-tuning task directions, and tests whether the residual gradient aligns with the watermark basin induced by the watermark key. We evaluate WM-Basin extensively across diverse teacher models and student architectures (from 135M to 8.2B parameters) distilled on mathematical reasoning. At a strict 0.1% false-positive rate, WM-Basin detects 79% of distilled models at n-gram=1 and 45% at n-gram=3, substantially improving over the state-of-the-art token-level baseline (29% and 1.3%, respectively). Because the watermark signal resides in a persistent basin, it survives post-distillation modifications including quantization, pruning, and reinforcement-learning post-training.",
+      "summary_zh": "发现蒸馏模型参数空间中的 watermark basin，并提出无需权重或 logits 的黑盒检测器 WM-Basin；在严格 0.1% 误报率下，对数学推理蒸馏模型的检测率高于 token 级基线。",
+      "why_it_matters_zh": "任务、误报约束、模型规模和对比基线都较清晰，结果可复核；但它主要是数学推理模型的来源检测，不应解读为提升模型解题能力。",
       "quality_score": 72.0,
       "tags": [
         "数学推理"
       ],
       "evidence_flags": [
-        "benchmark",
-        "ablation"
+        "state-of-the-art"
       ],
       "publication_status": "preprint",
       "rank": 3,
@@ -153,129 +159,123 @@
       "metrics": {},
       "metadata": {
         "doi": "",
-        "arxiv_id": "2610.37375v1"
+        "arxiv_id": "2610.37266v1"
       },
-      "abstract_zh": "生成多个解法可以暴露替代方法，但额外轨迹往往只是对一种主导方法的改写。我们研究冻结的稀疏专家混合（MoE）模型的条件容量能否在同一个问题提示下提供这种多样性，而无需用户分配角色、规定方法、微调或复制模型。Agent-Conditioned Routing（ACR）为 m 条并行轨迹分配持久、未经训练的共享/私有专家资格掩码，同时保留经过学习、依赖输入的 token 路由器。在一个经过筛选的 126 题多模式数学与物理基准上，由阅读完整推导过程的模型评审员进行判断；我们统计在四条轨迹中至少产生两种不同主要方法且解答被判为软正确的问题数量。与匹配输出预算下的最佳温度设置相比，ACR 在 GLM 5.3 上达到约两倍的问题数（37.3 对 18.7），在 GPT-5.6 Sol 上达到 1.67 倍（45.00 对 27.00）。对分层抽样的 30 道题进行盲法四专家审计，也发现 ACR 在两个骨干模型上产生了更多多方法解，但正确率更低。匹配资格的消融实验显示，ACR 在多方法数量上只有温和优势，而 token 重采样掩码取得了更高正确率。知情的顺序式提示能产生更高的多样性，因为它利用先前解答并明确要求替代方法。ACR 只增加约 160 KiB 的掩码状态。在一个限制为 1,024 个 token 的三题微型基准上，其延迟和峰值显存使用均在批量温度采样的 3% 以内。",
+      "abstract_zh": "专有语言模型及其推理轨迹容易受到基于 API 的蒸馏攻击，即攻击者使用教师模型的输出训练学生模型。为了获得蒸馏证据，模型提供方可以对教师输出加水印，试图在学生输出中留下放射性信号。现有黑盒检测器通过检查可疑模型输出的 token 级统计量来寻找这种放射性，但在低温度下采样蒸馏轨迹等情况下，token 级信号并不总是可检测。本文发现了 watermark basin，这是一种能够实现更可靠水印检测的持久信号：在微调过程中，带水印的教师轨迹会在参数空间中嵌入一种独特的、与密钥相关的几何信号；该信号与普通任务特定的微调子空间正交。在此基础上，我们提出 Watermark Basin Alignment（WM-Basin），一种黑盒水印检测器，只通过 API 查询可疑模型，无需访问其权重或 logits。WM-Basin 使用固定的干净探针模型将生成文本映射为梯度表征，投影去除普通微调任务方向，并测试残余梯度是否与由水印密钥诱导的 watermark basin 对齐。我们在多种教师模型和学生架构上进行了广泛评估；这些学生模型的规模从 135M 到 8.2B 参数不等，且均通过数学推理数据蒸馏。在严格的 0.1% 误报率下，WM-Basin 在 n-gram=1 时检测出 79% 的蒸馏模型，在 n-gram=3 时检测出 45%，显著优于 token 级基线的最新方法（分别为 29% 和 1.3%）。由于水印信号位于一个持久的 basin 中，它能够经受蒸馏后的量化、剪枝和强化学习后训练等修改。",
       "published": "2026-10-27",
-      "author_line": "Ananth Kalyanasundaram, Ankush Kadu, Athira Gopal, Aswanth Krishnan"
+      "author_line": "Hongyan Chang, Hady Elsahar, Tom Sander, Pierre Fernandez, Saeed Mahloujifar, Sylvestre-Alvise Rebuffi, Tomáš Souček, Tuan Tran, Valeriu Lacatusu, Surya Parimi, Rashel Moritz, Vanessa Stark, Alexandre Mourachko"
     },
     {
-      "id": "arxiv:2610.37041v1",
+      "id": "arxiv:2610.36759v1",
       "channel": "aixmath",
       "related_channels": [],
       "item_type": "paper",
       "source": "arXiv",
-      "title": "Guided-RLVR: Guided Exploration in Reinforcement Learning with Verifiable Rewards",
-      "url": "https://arxiv.org/abs/2610.37041v1",
+      "title": "DocSkill: Skill-Integrated Agentic Reasoning for Multilingual Multi-Hop Document Question Answering",
+      "url": "https://arxiv.org/abs/2610.36759v1",
       "published_at": "2026-10-27",
       "updated_at": "2026-10-27",
       "creators": [
-        "Bo Yang",
-        "Zishuai Zhang",
-        "Weihua Li",
-        "Qinnan Zhang",
-        "Sijia Wen",
-        "Hainan Zhang"
+        "Jing Huang",
+        "Zhiya Tan",
+        "Changtao Miao",
+        "Shutao Gong",
+        "Yang Wang",
+        "Joey Tianyi Zhou",
+        "Jianshu Li",
+        "Ying Yan"
       ],
       "language": "en",
-      "abstract_or_text": "Reinforcement learning with verifiable rewards (RLVR) has shown strong empirical gains in improving the reasoning ability of large language models (LLMs) on tasks such as mathematics and programming. However, recent studies have shown that RLVR rollouts often collapse onto a narrow set of reasoning trajectories, limiting the explored reasoning space. Motivated by findings that thinking tokens at critical steps serve as critical structural elements in LLM reasoning pathways, we propose Guided-RLVR, a novel approach that augments RLVR with a lightweight controller. The controller strategically injects semantically meaningful steering tokens into the sampling distribution, encouraging the model to approach problems from multiple reasoning perspectives and thereby expanding the exploration space. Experiments on mathematical reasoning and code generation benchmarks show that Guided-RLVR consistently outperforms existing RLVR methods while producing more diverse reasoning trajectories.",
-      "summary_zh": "提出 Guided-RLVR，通过轻量控制器在可验证奖励强化学习中注入语义引导 token，鼓励模型探索多种推理视角。在数学推理和代码生成基准上，方法优于已有 RLVR 方法并产生更多样的推理轨迹。",
-      "why_it_matters_zh": "针对 RLVR 推理轨迹坍缩这一可检验问题提出干预，并在数学与代码基准上进行比较；摘要未给出具体提升幅度，因此对效果只作定性表述。",
+      "abstract_or_text": "Multilingual multi-hop document question answering (MMHop-DocQA) requires locating and integrating evidence across complex layouts, document pages, and diverse languages. Existing approaches include single-pass processing and adaptive tool use, but learning to coordinate evidence acquisition, cross-page integration, and answer verification remains challenging. To address this challenge, we present DocSkill, an agentic framework with a learned skill-orchestration policy for adaptive evidence acquisition and reasoning. The policy selects, revisits, or skips skills according to the evolving evidence state. To construct supervision for skill orchestration, bounded Monte Carlo Tree Search (MCTS) explores alternative skill trajectories offline. These trajectories provide demonstrations for supervised fine-tuning (SFT) and preference pairs for Direct Preference Optimization (DPO). We further introduce MMHop-DocBench, a multilingual multi-hop document QA dataset with training and test splits, containing 60K QA pairs across 10 languages and eight document domains. Its HopGen pipeline builds hierarchical page-element graphs to derive traceable cross-page evidence paths and generate grounded QA pairs with page- and element-level evidence annotations. Experiments show that DocSkill with Qwen3-VL-8B achieves 41.0 accuracy and 49.2 F1 on MMHop-DocBench, exceeding the strongest evaluated baseline by 5.5 and 6.3 points, respectively, and achieving competitive performance on MMLongBench-Doc and DocBench.",
+      "summary_zh": "提出 DocSkill，通过离线有界 MCTS 学习技能编排策略，并构建带页面和元素级证据标注的多语言多跳文档问答集 MMHop-DocBench。",
+      "why_it_matters_zh": "把证据获取、跨页整合和答案验证拆成可追踪步骤，评测同时给出准确率、F1、数据规模和跨基准结果，便于检验多跳推理是否真正依赖证据。",
       "quality_score": 72.0,
       "tags": [
-        "方法与模型"
+        "数学推理"
       ],
       "evidence_flags": [
-        "benchmark"
+        "dataset",
+        "performance"
       ],
       "publication_status": "preprint",
       "rank": 4,
       "featured": false,
-      "category": "方法与模型",
+      "category": "数学推理",
       "metrics": {},
       "metadata": {
         "doi": "",
-        "arxiv_id": "2610.37041v1"
+        "arxiv_id": "2610.36759v1"
       },
-      "abstract_zh": "带可验证奖励的强化学习（RLVR）在提升大语言模型（LLM）于数学和编程等任务上的推理能力方面已经显示出显著的经验收益。然而，近期研究表明，RLVR 的 rollout 往往会坍缩到一组狭窄的推理轨迹，限制了被探索的推理空间。受关键步骤中的思考 token 是 LLM 推理路径关键结构元素这一发现启发，我们提出 Guided-RLVR：用一个轻量控制器增强 RLVR，在采样分布中策略性地注入具有语义意义的引导 token，鼓励模型从多种推理视角接近问题。数学推理和代码生成基准上的实验表明，Guided-RLVR 持续优于现有 RLVR 方法，同时产生更多样的推理轨迹。",
+      "abstract_zh": "多语言多跳文档问答（MMHop-DocQA）需要在复杂版式、文档页面和多种语言之间定位并整合证据。现有方法包括单遍处理和自适应工具使用，但如何学习协调证据获取、跨页整合与答案验证仍然具有挑战。为应对这一挑战，我们提出 DocSkill，这是一个带有学习型技能编排策略的智能体框架，用于自适应证据获取和推理。该策略根据不断变化的证据状态选择、重新访问或跳过技能。为构建技能编排的监督信号，有界蒙特卡洛树搜索（MCTS）在线下探索不同的技能轨迹。这些轨迹为监督微调（SFT）提供示范，并为直接偏好优化（DPO）提供偏好对。我们进一步提出 MMHop-DocBench，这是一个多语言多跳文档问答数据集，包含训练集和测试集，覆盖 10 种语言、8 个文档领域以及 6 万个问答对。其 HopGen 流程构建分层的页面—元素图，以推导可追踪的跨页证据路径，并生成带依据的问答对，同时提供页面级和元素级证据标注。实验表明，在 MMHop-DocBench 上，使用 Qwen3-VL-8B 的 DocSkill 达到 41.0 的准确率和 49.2 的 F1，分别超过评测中最强基线 5.5 和 6.3 个百分点，并在 MMLongBench-Doc 和 DocBench 上取得具有竞争力的表现。",
       "published": "2026-10-27",
-      "author_line": "Bo Yang, Zishuai Zhang, Weihua Li, Qinnan Zhang, Sijia Wen, Hainan Zhang"
+      "author_line": "Jing Huang, Zhiya Tan, Changtao Miao, Shutao Gong, Yang Wang, Joey Tianyi Zhou, Jianshu Li, Ying Yan"
     },
     {
-      "id": "arxiv:2610.35328v1",
+      "id": "arxiv:2610.36795v1",
       "channel": "aixmath",
       "related_channels": [],
       "item_type": "paper",
       "source": "arXiv",
-      "title": "Constrained Decoding: Harmful or Beneficial? Revisiting Its Impact on LLM Performance",
-      "url": "https://arxiv.org/abs/2610.35328v1",
-      "published_at": "2026-10-26",
-      "updated_at": "2026-10-26",
+      "title": "An Algebra of Transformers",
+      "url": "https://arxiv.org/abs/2610.36795v1",
+      "published_at": "2026-10-27",
+      "updated_at": "2026-10-27",
       "creators": [
-        "Ngoc Trinh Hung Nguyen",
-        "Alonso Silva",
-        "Armen Aghasaryan",
-        "Mehwish Alam"
+        "Yong Wang",
+        "Zhiyan Wang",
+        "Hexiao Kang"
       ],
       "language": "en",
-      "abstract_or_text": "Constrained decoding guarantees that Large Language Models (LLMs) produce outputs conforming to predefined formats, but is often assumed to inherently degrade reasoning. We examine this assumption through a taxonomy of three constraint types: format constraints, which enforce output structure; validity constraints, which mask invalid answer; and reasoning constraints, which restrict reasoning trajectories. We theoretically show that appropriate constraints can preserve or improve performance by eliminating invalid paths. Across four model families and eleven open-source models, causal ablations on diverse benchmarks using state-of-the-art constrained decoding strategies reveal that apparent performance degradation largely stems from non-equivalent prompting and output formats rather than from decoder-level masking. Meanwhile, validity constraints improve reliability and extractability by eliminating invalid answers, while reasoning constraints can improve reasoning and, consequently, accuracy when they enforce beneficial trajectories. These findings show that the impact of constrained decoding depends on the type of constraint and the output space it removes. Our code is available.",
-      "summary_zh": "按格式、有效性和推理三类约束分析受限解码，理论上说明适当约束可通过排除无效路径保持或提升性能。跨 4 个模型家族、11 个开源模型的因果消融显示，性能下降常来自提示与输出格式不等价，而非解码掩码本身。",
-      "why_it_matters_zh": "同时提供理论分析、跨模型实验和因果消融，直接检验约束对数学推理可靠性与可提取性的影响；结论强调约束类型决定效果，避免一概而论。",
-      "quality_score": 72.0,
+      "abstract_or_text": "On the theoretic analyses on transforms, they mainly focus on the computability analysis, such the Turing-completeness of unbounded precision transformers, the advantage of parallelizability of unbounded precision transformers and the limitations of bounded precision transformers. This paper give transformers an algebra for reasoning, which relies heavily on the functional decomposition results of transformers. This algebra uses functional decompositions as atomic actions, includes sequential composition and parallel composition, recursion for feedback and abstraction for hidden layers. As we know, it is the first attempt to model transformers logically and can be used to verify the correctness of transformer based applications.",
+      "summary_zh": "为 Transformer 引入由函数分解、顺序/并行组合、递归和隐藏层抽象组成的代数框架，目标是对 Transformer 应用进行逻辑建模与正确性验证。",
+      "why_it_matters_zh": "直接对应形式化建模和验证方向，给出可组合的推理原语；但摘要未提供定理、形式化系统实现或实验性验证细节，因此应谨慎看待其“可验证”主张。",
+      "quality_score": 71.0,
+      "tags": [
+        "数学推理"
+      ],
+      "evidence_flags": [],
+      "publication_status": "preprint",
+      "rank": 5,
+      "featured": false,
+      "category": "数学推理",
+      "metrics": {},
+      "metadata": {
+        "doi": "",
+        "arxiv_id": "2610.36795v1"
+      },
+      "abstract_zh": "关于变换的理论分析主要聚焦于可计算性分析，例如无限精度 Transformer 的图灵完备性、无限精度 Transformer 的并行化优势以及有限精度 Transformer 的局限。本文为 Transformer 构建一个用于推理的代数，这一代数高度依赖 Transformer 的函数分解结果。该代数将函数分解作为原子动作，包含顺序组合和并行组合、用于反馈的递归，以及对隐藏层的抽象。据我们所知，这是首次尝试在逻辑上对 Transformer 建模，并可用于验证基于 Transformer 的应用的正确性。",
+      "published": "2026-10-27",
+      "author_line": "Yong Wang, Zhiyan Wang, Hexiao Kang"
+    },
+    {
+      "id": "arxiv:2610.36584v1",
+      "channel": "aixmath",
+      "related_channels": [],
+      "item_type": "paper",
+      "source": "arXiv",
+      "title": "Benchmarking LLM Agents for Behaviorally Adequate Test Generation from Software Requirements",
+      "url": "https://arxiv.org/abs/2610.36584v1",
+      "published_at": "2026-10-27",
+      "updated_at": "2026-10-27",
+      "creators": [
+        "Binhang Qi",
+        "Yiming Liu",
+        "Yun Lin",
+        "Yangjie Zhou",
+        "Hailong Sun",
+        "Jin Song Dong"
+      ],
+      "language": "en",
+      "abstract_or_text": "As large language model agents increasingly compile natural-language requirements into repository-level code, requirement-to-test generation grows in importance to provide validation constraints (or harness) to guide code generation. Yet it remains unclear whether current agents can generate tests that validate the required behavior when the implementation of that behavior is withheld. Existing test-generation benchmarks mostly focus on white-box testing, whereas the requirement--test-related study usually requires evaluation on semantic alignment between the given documents and the generated tests. We introduce Req2Test-Bench, a benchmark containing 5,086 execution-validated instances recovered from developer-authored behavior-driven development (BDD) artifacts in 8 open-source projects, spanning 5 programming languages and 4 BDD frameworks. Each instance pairs a natural-language requirement in Gherkin with its developer-written Test Implementation. Given the requirement, target interfaces of the required behavior, an agent must generate a complete, potentially multi-file Test Implementation. Evaluation of 8 agent--model--reasoning configurations reveals a substantial gap between execution success and behavioral adequacy, which is measured strictly as kill-completeness: a kill-complete test kills every mutant that the ground-truth test kills. The best-performing configuration, Codex with DeepSeek-V4.1-Flash, produces passing tests for 82.8% of instances, yet only 33.8% are behaviorally adequate. We find that (1) scaling up agents yields sharply diminishing returns in behavioral adequacy relative to generation cost; (2) under-specified requirements cause the information gap, including ambiguous setup and implicit expected outcomes; and (3) requirement-grounded harnesses that steer agent non-determinism offer a promising direction for improvement.",
+      "summary_zh": "发布 Req2Test-Bench：从 8 个开源项目的 BDD 工件中整理 5,086 个可执行验证实例，并用 kill-completeness 衡量智能体生成测试是否覆盖需求行为。",
+      "why_it_matters_zh": "将“测试能运行”与“测试真正验证需求”区分开，提供严格且可检验的行为充分性指标；结果显示通过率 82.8% 与行为充分率 33.8% 之间存在明显差距。",
+      "quality_score": 71.0,
       "tags": [
         "方法与模型"
       ],
       "evidence_flags": [
         "benchmark",
-        "state-of-the-art",
-        "ablation",
-        "performance"
-      ],
-      "publication_status": "preprint",
-      "rank": 5,
-      "featured": false,
-      "category": "方法与模型",
-      "metrics": {},
-      "metadata": {
-        "doi": "",
-        "arxiv_id": "2610.35328v1"
-      },
-      "abstract_zh": "受限解码保证大语言模型（LLM）生成符合预定义格式的输出，但人们通常认为它必然会损害推理。我们通过一个包含三类约束的分类体系考察这一假设：格式约束强制输出结构；有效性约束屏蔽无效答案；推理约束限制推理轨迹。理论上，我们证明适当的约束可以通过排除无效路径来保持或提升性能。在四个模型家族和 11 个开源模型上，针对多种基准并使用当前最先进的受限解码策略进行因果消融，结果表明，表面上的性能下降很大程度上源于不等价的提示和输出格式，而不是解码器层面的掩码。同时，有效性约束通过排除无效答案提升可靠性和可提取性；当推理约束强制采用有益轨迹时，也可以改善推理并进而提升准确率。这些结果表明，受限解码的影响取决于约束类型以及它从输出空间中移除的部分。代码已公开。",
-      "published": "2026-10-26",
-      "author_line": "Ngoc Trinh Hung Nguyen, Alonso Silva, Armen Aghasaryan, Mehwish Alam"
-    },
-    {
-      "id": "arxiv:2610.35201v1",
-      "channel": "aixmath",
-      "related_channels": [],
-      "item_type": "paper",
-      "source": "arXiv",
-      "title": "DTCA: Denoising Token Credit Assignment for Reinforcement Learning in Diffusion Language Models",
-      "url": "https://arxiv.org/abs/2610.35201v1",
-      "published_at": "2026-10-26",
-      "updated_at": "2026-10-26",
-      "creators": [
-        "Hongze Chen",
-        "Miao Pan",
-        "Lizhou Liang",
-        "Qinfeng Li",
-        "Xinyin Ma",
-        "Yongliang Shen",
-        "Weishi Wang",
-        "Daniel Dahlmeier",
-        "Xuhong Zhang",
-        "Wenqi Zhang"
-      ],
-      "language": "en",
-      "abstract_or_text": "Diffusion language models (DLMs) generate text through iterative denoising, enabling bidirectional context modeling and parallel token refinement. Recent studies have applied reinforcement learning (RL) to DLMs and improved their reasoning performance. However, the iterative denoising process makes credit assignment more challenging, as final outcome rewards provide limited information about how different tokens contribute to the final output. In this paper, we propose Denoising Token Credit Assignment (DTCA), a framework for token-level credit assignment in reinforcement learning for diffusion language models. DTCA estimates token contributions by measuring the improvement in prediction confidence of remaining masked positions after token commitment and groups these signals according to part-of-speech (POS) categories. These contribution weights are used to select informative denoising timesteps and assign token-level learning signals during RL training. DTCA further calibrates these learning signals according to token-level entropy changes induced by policy updates. Experiments on LLaDA-8B-Instruct show that DTCA consistently improves mathematical reasoning performance across different generation budgets, with gains of up to 9.0 points on MATH500 and 5.3 points on GSM8K over the base model.",
-      "summary_zh": "提出 DTCA，为扩散语言模型的强化学习进行 token 级信用分配：依据 token 提交后剩余掩码位置预测置信度的变化估计贡献，并按词性组织信号。在 LLaDA-8B-Instruct 上，MATH500 最高提升 9.0 分，GSM8K 提升 5.3 分。",
-      "why_it_matters_zh": "把扩散式生成的迭代去噪过程与数学推理奖励联系起来，给出明确的信用分配机制和可复现实验指标；摘要未说明更广泛模型规模的验证范围。",
-      "quality_score": 72.0,
-      "tags": [
-        "方法与模型"
-      ],
-      "evidence_flags": [
-        "performance"
+        "evaluation"
       ],
       "publication_status": "preprint",
       "rank": 6,
@@ -284,213 +284,16 @@
       "metrics": {},
       "metadata": {
         "doi": "",
-        "arxiv_id": "2610.35201v1"
+        "arxiv_id": "2610.36584v1"
       },
-      "abstract_zh": "扩散语言模型（DLM）通过迭代去噪生成文本，从而实现双向上下文建模和并行 token 细化。近期研究已将强化学习（RL）应用于 DLM，并改善其推理性能。然而，迭代去噪过程使信用分配更加困难，因为最终结果奖励只能有限地说明不同 token 对最终输出的贡献。在本文中，我们提出去噪 token 信用分配（Denoising Token Credit Assignment，DTCA），这是一个用于扩散语言模型强化学习的 token 级信用分配框架。DTCA 通过衡量某个 token 被提交后剩余掩码位置的预测置信度提升来估计 token 贡献，并按词性类别对这些信号进行分组。这些贡献权重用于选择信息量更高的去噪时间步，并在 RL 训练期间分配 token 级学习信号。DTCA 还根据策略更新引起的 token 级熵变化校准这些学习信号。在 LLaDA-8B-Instruct 上的实验表明，在不同生成预算下，DTCA 都能持续改善数学推理性能；相对于基础模型，在 MATH500 上最高提升 9.0 分，在 GSM8K 上提升 5.3 分。",
-      "published": "2026-10-26",
-      "author_line": "Hongze Chen, Miao Pan, Lizhou Liang, Qinfeng Li, Xinyin Ma, Yongliang Shen, Weishi Wang, Daniel Dahlmeier, Xuhong Zhang, Wenqi Zhang"
-    },
-    {
-      "id": "arxiv:2610.35101v1",
-      "channel": "aixmath",
-      "related_channels": [],
-      "item_type": "paper",
-      "source": "arXiv",
-      "title": "Spherical Brownian Diffusion for Language Modeling",
-      "url": "https://arxiv.org/abs/2610.35101v1",
-      "published_at": "2026-10-26",
-      "updated_at": "2026-10-26",
-      "creators": [
-        "Andrea Miele",
-        "Ilija Bogunovic"
-      ],
-      "language": "en",
-      "abstract_or_text": "Continuous diffusion language models involve two coupled design choices: how to corrupt continuous token representations and how to invert that corruption at generation time. Recent work has explored language generation on the unit sphere through geodesic and von Mises--Fisher (vMF) paths, raising the question of which forward process to use on this geometry and how much that choice matters relative to inference. We introduce Spherical Brownian Diffusion, using Brownian motion as the canonical isotropic diffusion on the sphere. Its heat semigroup provides a principled forward process, an additive dimension-free noise clock, and an exact ancestral bridge, while a clean-token posterior learned with cross-entropy supports multiple samplers. To separate corruption from inference, we derive high-dimensional approximation rates between Brownian and moment-matched vMF corruption and use this relationship for controlled substitutions. On Sudoku, Brownian and moment-matched vMF give nearly identical results across four samplers and five budgets under otherwise identical settings. In contrast, with the corruption process fixed, sampler choice produces a 25.0-point spread at a sampler budget of 180 calls. Using the ancestral bridge, we split this gain into a memory effect from re-noising the state, present on Sudoku and GSM8K, and a token-selection effect on GSM8K and largest at small budgets. Across reasoning tasks, categorical refinement improves performance, whereas unconditional text generation benefits from stochastic updates that preserve diversity.",
-      "summary_zh": "提出 Spherical Brownian Diffusion，将球面上的布朗运动作为连续扩散语言模型的各向同性噪声过程，并推导热半群、噪声时钟和祖先桥。实验区分了腐蚀过程与采样器的影响，显示采样器选择可带来 25.0 分差异。",
-      "why_it_matters_zh": "包含明确的几何扩散构造、近似率推导和受控替换实验，能检验理论设计与采样策略的相对作用；其主要任务仍是扩散语言模型生成，而非定理证明能力本身。",
-      "quality_score": 72.0,
-      "tags": [
-        "方法与模型"
-      ],
-      "evidence_flags": [
-        "performance"
-      ],
-      "publication_status": "preprint",
-      "rank": 7,
-      "featured": false,
-      "category": "方法与模型",
-      "metrics": {},
-      "metadata": {
-        "doi": "",
-        "arxiv_id": "2610.35101v1"
-      },
-      "abstract_zh": "连续扩散语言模型涉及两个耦合的设计选择：如何破坏连续 token 表示，以及在生成时如何逆转这种破坏。近期工作探索了在单位球面上使用测地线和 von Mises--Fisher（vMF）路径进行语言生成，这引出了一个问题：在这种几何结构上应使用哪一种前向过程，以及相较于推理过程，选择本身有多大影响。我们引入 Spherical Brownian Diffusion，使用布朗运动作为球面上的规范各向同性扩散。其热半群提供了一个有原则的前向过程、一个与维度无关的噪声时钟以及一个精确的祖先桥；通过交叉熵学习的干净 token 后验支持多种采样器。为区分腐蚀过程与推理过程，我们推导了布朗腐蚀和矩匹配 vMF 腐蚀之间的高维近似率，并利用这一关系进行受控替换。在 Sudoku 上，在其他设置完全相同的情况下，布朗过程和矩匹配 vMF 过程在四种采样器和五种预算下的结果几乎相同。相反，在固定腐蚀过程时，采样器选择在 180 次采样调用的预算下造成 25.0 分的差距。利用祖先桥，我们将这一收益分解为重新加噪状态带来的记忆效应（在 Sudoku 和 GSM8K 上都存在）以及 token 选择效应（在 GSM8K 上存在，且在小预算下最明显）。在推理任务上，类别细化会提升性能；而无条件文本生成则受益于能够保持多样性的随机更新。",
-      "published": "2026-10-26",
-      "author_line": "Andrea Miele, Ilija Bogunovic"
-    },
-    {
-      "id": "arxiv:2610.37504v1",
-      "channel": "aixmath",
-      "related_channels": [],
-      "item_type": "paper",
-      "source": "arXiv",
-      "title": "Strategyproof Deep Reinforcement Learning for Online Resource Allocation",
-      "url": "https://arxiv.org/abs/2610.37504v1",
-      "published_at": "2026-10-27",
-      "updated_at": "2026-10-27",
-      "creators": [
-        "Fariba Dehghan",
-        "Sebastian Stein",
-        "Vahid Yazdanpanah",
-        "Stephanie Gauthier"
-      ],
-      "language": "en",
-      "abstract_or_text": "Online resource allocation faces two coupled challenges: (1) allocating scarce resources efficiently under uncertain future demand, and (2) ensuring that agents report task valuations and requirements truthfully (strategyproofness). Reinforcement Learning (RL) adapts allocation decisions through experience but does not necessarily ensure strategyproofness. Existing strategyproof RL uses a linear allocation rule, which limits the resource interactions it can represent. Neural mechanism design methods offer greater expressiveness, but provide only approximate incentive guarantees. Against this background, we introduce the first strategyproof deep RL mechanism for online resource allocation. It integrates three novel components: (i) a monotonic neural network that learns nonlinear interactions by construction (higher reported value cannot reduce acceptance, while a longer reported duration or larger resource requirement cannot increase it); (ii) a generalised critical payment: the lowest accepted value, with all other inputs fixed; and (iii) training by either RL or imitation of an existing rule. Together, monotonicity and the critical payment ensure strategyproofness and individual rationality, while the neural rule provides flexibility and imitation improves training efficiency. Empirically, on a four-resource stream with two partner pairs that a linear difference cannot represent, the neural rule achieves 97.8% of an offline welfare upper bound, compared with 93.8% for a linear learner and 89.0% for first-come, first-served, closing 65% and 80% of the remaining optimality gap, respectively. Moreover, imitation reaches 97.5% in only 261 seconds, about 89 times faster than RL.",
-      "summary_zh": "提出首个策略无关的深度强化学习在线资源分配机制：用单调神经网络和临界支付保证策略无关性与个体理性，同时保留非线性交互表达能力。四资源流实验中福利达到离线上界的 97.8%。",
-      "why_it_matters_zh": "把可证明的机制设计性质与神经强化学习结合，给出单调性、临界支付和福利上界等可检验条件；实验规模有限，但理论保证比单纯性能比较更明确。",
-      "quality_score": 71.0,
-      "tags": [
-        "方法与模型"
-      ],
-      "evidence_flags": [],
-      "publication_status": "preprint",
-      "rank": 8,
-      "featured": false,
-      "category": "方法与模型",
-      "metrics": {},
-      "metadata": {
-        "doi": "",
-        "arxiv_id": "2610.37504v1"
-      },
-      "abstract_zh": "在线资源分配面临两个相互关联的挑战：（1）在未来需求不确定的情况下高效分配稀缺资源；（2）确保参与者如实报告任务估值和需求（策略无关性）。强化学习（RL）可以通过经验适应分配决策，但并不必然保证策略无关性。现有的策略无关 RL 使用线性分配规则，限制了其能够表达的资源交互。神经机制设计方法具有更强的表达能力，但只能提供近似的激励保证。针对这一背景，我们提出首个策略无关的深度 RL 在线资源分配机制。它整合了三个新组件：（i）通过构造保证单调性的神经网络学习非线性交互（更高的报告价值不会降低接受概率，而更长的报告持续时间或更大的资源需求不会提高接受概率）；（ii）广义临界支付，即在其他输入固定时最低的获接受价值；（iii）使用 RL 或模仿现有规则进行训练。单调性与临界支付共同保证策略无关性和个体理性，而神经规则提供灵活性，模仿学习则提高训练效率。在一个包含四种资源流和两对合作伙伴的场景中，线性差异无法表示其中的交互；神经规则达到离线福利上界的 97.8%，而线性学习器为 93.8%，先到先得为 89.0%，分别弥合了剩余最优性差距的 65% 和 80%。此外，模仿学习只需 261 秒即可达到 97.5%，约比 RL 快 89 倍。",
+      "abstract_zh": "随着大型语言模型智能体越来越多地将自然语言需求编译为仓库级代码，需求到测试的生成变得更加重要，因为它可以提供验证约束（或 harness）来引导代码生成。然而，当被测行为的实现被隐藏时，当前智能体能否生成验证所需行为的测试仍不清楚。现有测试生成基准大多关注白盒测试，而需求—测试相关研究通常要求评估给定文档与所生成测试之间的语义对齐。我们提出 Req2Test-Bench，这是一个包含 5,086 个经过执行验证的实例的基准，实例来自 8 个开源项目中开发者编写的行为驱动开发（BDD）工件，覆盖 5 种编程语言和 4 种 BDD 框架。每个实例将一条 Gherkin 自然语言需求与开发者编写的测试实现配对。给定需求和所需行为的目标接口，智能体必须生成一个完整的、可能跨多个文件的测试实现。对 8 种智能体—模型—推理配置的评估显示，执行成功与行为充分性之间存在显著差距；行为充分性严格按 kill-completeness 衡量，即一个测试必须杀死真实测试所杀死的每个变异体。表现最佳的配置 Codex with DeepSeek-V4.1-Flash 在 82.8% 的实例上生成通过测试，但只有 33.8% 的实例达到行为充分。我们发现：（1）相对于生成成本，扩大智能体规模会使行为充分性的收益迅速递减；（2）需求规格不足造成信息鸿沟，包括设置条件含糊和预期结果隐含；（3）以需求为依据的 harness 可以引导智能体的非确定性，是值得探索的改进方向。",
       "published": "2026-10-27",
-      "author_line": "Fariba Dehghan, Sebastian Stein, Vahid Yazdanpanah, Stephanie Gauthier"
-    },
-    {
-      "id": "arxiv:2610.36849v1",
-      "channel": "aixmath",
-      "related_channels": [],
-      "item_type": "paper",
-      "source": "arXiv",
-      "title": "When All Rollouts Fail: Policy-Compatible Joint Decoding for Hard-Problem Reasoning",
-      "url": "https://arxiv.org/abs/2610.36849v1",
-      "published_at": "2026-10-27",
-      "updated_at": "2026-10-27",
-      "creators": [
-        "Zehao Wang",
-        "Hanzhu Chen",
-        "Runquan Gui",
-        "Zhe Wang",
-        "Lin Yang"
-      ],
-      "language": "en",
-      "abstract_or_text": "Reinforcement Learning with Verifiable Rewards (RLVR) derives its learning signal from binary rewards via on-policy exploration and becomes a powerful paradigm for improving the reasoning of large language models. Yet it faces a learning cliff on problems beyond model's current ability: when every rollout fails, the samples reveal nothing about a correct solution, and group-relative estimators (e.g., GRPO, RLOO) collapse the update to zero advantage. Expert trajectories offer a remedy, but they are incompatible with the current policy and often lie in the student's low-probability regions, so the surviving updates demand large parameter shifts and decay into surface-level imitation rather than transferable reasoning. We argue that a useful learning signal on hard problems must be both verifiably correct and sufficiently compatible with the current policy. We propose Policy-Compatible Reinforcement Learning (PICO), which performs distribution-constrained joint decoding: expert data guides decoding at the token level while preserving the student's relative token probabilities, and a dynamic top-k mechanism confines the sampling distribution under a finite divergence budget, yielding trajectories that are verified and policy-compatible by construction. These trajectories are optimized jointly with on-policy rollouts under a mixed-behavior objective that mitigates their distribution mismatch via importance sampling. Experiments across reasoning diverse datasets and agentic benchmarks demonstrate that PICO consistently outperforms standard RLVR and prior off-policy baselines.",
-      "summary_zh": "提出 PICO，通过受分布约束的联合解码在困难问题上引入可验证且与当前策略兼容的专家轨迹，并用混合行为目标和重要性采样训练。摘要称其在多种推理数据集和智能体基准上持续优于 RLVR 与离线基线。",
-      "why_it_matters_zh": "针对“所有 rollout 都失败”时 RLVR 学习信号归零这一明确失效模式，提出可验证性与策略兼容性的联合约束；但摘要未报告具体增益数值，证据强度低于有详细指标的工作。",
-      "quality_score": 71.0,
-      "tags": [
-        "方法与模型"
-      ],
-      "evidence_flags": [
-        "benchmark",
-        "dataset"
-      ],
-      "publication_status": "preprint",
-      "rank": 9,
-      "featured": false,
-      "category": "方法与模型",
-      "metrics": {},
-      "metadata": {
-        "doi": "",
-        "arxiv_id": "2610.36849v1"
-      },
-      "abstract_zh": "带可验证奖励的强化学习（RLVR）通过在策略探索中使用二元奖励获得学习信号，已成为提升大语言模型推理能力的强大范式。然而，当问题超出模型当前能力、所有 rollout 都失败时，样本不会提供任何正确解信息，组相对估计器（例如 GRPO、RLOO）会将更新坍缩为零优势。专家轨迹可以提供补救，但它们与当前策略不兼容，往往位于学生模型的低概率区域，因此存活下来的更新需要较大的参数变化，并退化为表层模仿，而不是可迁移的推理。我们认为，困难问题上的有效学习信号必须既可验证正确，又与当前策略足够兼容。我们提出策略兼容强化学习（Policy-Compatible Reinforcement Learning，PICO），执行受分布约束的联合解码：专家数据在 token 级引导解码，同时保留学生模型的相对 token 概率；动态 top-k 机制将采样分布限制在有限散度预算内，从而按构造得到经过验证且与策略兼容的轨迹。随后，这些轨迹与 on-policy rollout 共同通过混合行为目标进行优化，并使用重要性采样减轻行为分布不匹配。跨多个推理数据集和智能体基准的实验表明，PICO 持续优于标准 RLVR 和以往的离线策略基线。",
-      "published": "2026-10-27",
-      "author_line": "Zehao Wang, Hanzhu Chen, Runquan Gui, Zhe Wang, Lin Yang"
-    },
-    {
-      "id": "arxiv:2610.36499v1",
-      "channel": "aixmath",
-      "related_channels": [],
-      "item_type": "paper",
-      "source": "arXiv",
-      "title": "ProCerDCL: Query-Efficient Black-Box Probabilistic Verification of Deep Learning Compiler Optimization",
-      "url": "https://arxiv.org/abs/2610.36499v1",
-      "published_at": "2026-10-27",
-      "updated_at": "2026-10-27",
-      "creators": [
-        "Zexin Li",
-        "Weibo Zhang",
-        "Linyi Li",
-        "Arvind Easwaran",
-        "Simin Chen"
-      ],
-      "language": "en",
-      "abstract_or_text": "We present \\tool, a query-efficient framework for black-box probabilistic verification. Given a fixed, sampleable input distribution and a binary property oracle, \\tool assesses the property's violation probability p against a threshold θ. Under independent sampling and stateless oracle behavior, acceptance asserts p\\leθ, rejection asserts p>θ+η for a user-specified separation margin, and an inconclusive verdict indicates insufficient evidence for either conclusion. The probability of each type of erroneous verdict is bounded by its specified error budget. To support this three-valued contract efficiently, \\tool uses a single sequential test, eliminating the interval family required by the baseline. The test accounts for repeated sampling checks through either corrected exact binomial confidence intervals or an anytime-valid confidence sequence. We apply \\tool to probabilistic local model semantic consistency, where the property oracle detects decision-level inconsistencies between reference and compiled executions under a specified perturbation distribution. Our evaluation covers 24 tasks across TorchInductor and TensorRT and examines sampling efficiency, conclusiveness, and diagnostic behavior. For sampling efficiency, we use paired one-model clean-label radius searches: the baseline requires 3.6-4.2 times as many unique samples under matched numerical parameters while providing a weaker decision contract. For model semantic consistency, checks at θ=10^{-3} yield 817 acceptances, 19 inconclusive verdicts, and 4 rejections across 840 input--backend instances from 21 tasks. Case studies of two documented compiler faults further demonstrate what these local verdicts can diagnose.",
-      "summary_zh": "提出 ProCerDCL，用单一序贯检验和三值判定对深度学习编译器优化进行黑箱概率验证，并给出错误判定概率界。覆盖 TorchInductor 与 TensorRT 的 24 个任务，基线需要约 3.6–4.2 倍样本。",
-      "why_it_matters_zh": "验证契约、误差预算和“不确定”判定都被明确形式化，结果可通过采样数量和编译器实例复核；两个已记录编译器故障案例增强了诊断价值。",
-      "quality_score": 70.0,
-      "tags": [
-        "形式化证明"
-      ],
-      "evidence_flags": [
-        "evaluation"
-      ],
-      "publication_status": "preprint",
-      "rank": 10,
-      "featured": false,
-      "category": "形式化证明",
-      "metrics": {},
-      "metadata": {
-        "doi": "",
-        "arxiv_id": "2610.36499v1"
-      },
-      "abstract_zh": "我们提出 ProCerDCL，这是一个查询高效的黑箱概率验证框架。给定固定的、可采样的输入分布和一个二元性质 oracle，ProCerDCL 评估性质违反概率 p 是否相对于阈值 θ 满足条件。在独立采样且 oracle 无状态的前提下，接受表示 p≤θ，拒绝表示 p>θ+η，其中 η 是用户指定的分离裕度；无法确定表示证据不足以支持任一结论。每类错误判定的概率都由其指定的错误预算界定。为高效支持这一三值契约，ProCerDCL 使用单一序贯检验，消除了基线所需的区间族。该检验通过校正后的精确二项置信区间或 anytime-valid 置信序列，处理重复采样检查。我们将 ProCerDCL 应用于概率局部模型语义一致性验证，其中性质 oracle 在给定扰动分布下检测参考执行与编译后执行之间的决策级不一致。评测覆盖 TorchInductor 和 TensorRT 上的 24 个任务，并考察采样效率、结论性和诊断行为。在采样效率实验中，我们使用成对的单模型干净标签半径搜索；在数值参数匹配时，基线需要的独特样本数是 ProCerDCL 的 3.6–4.2 倍，同时提供更弱的判定契约。对于模型语义一致性，在 θ=10^{-3} 时，来自 21 个任务的 840 个输入—后端实例中有 817 个接受、19 个无法确定、4 个拒绝。两个已记录的编译器故障案例进一步展示了这些局部判定能够诊断什么问题。",
-      "published": "2026-10-27",
-      "author_line": "Zexin Li, Weibo Zhang, Linyi Li, Arvind Easwaran, Simin Chen"
-    },
-    {
-      "id": "arxiv:2610.36328v1",
-      "channel": "aixmath",
-      "related_channels": [],
-      "item_type": "paper",
-      "source": "arXiv",
-      "title": "How Stable Are LLM-Generated Proofs Under Program Refactoring? A Stress Test for Verifiable Code Generation",
-      "url": "https://arxiv.org/abs/2610.36328v1",
-      "published_at": "2026-10-26",
-      "updated_at": "2026-10-26",
-      "creators": [
-        "Aravind Mandiga",
-        "Guoming Li"
-      ],
-      "language": "en",
-      "abstract_or_text": "Benchmarks for verifiable code generation usually test a proof against one fixed implementation. We ask whether the same proof remains valid after a program refactoring that preserves behavior. We introduce RefactorProof, which derives 458 Lean-certified variants from the 185 VERINA tasks that compile in our pinned environment while holding the specification and evaluated proof fixed byte-for-byte. VERINA supplies reference proofs for 46 tasks, all from its basic split; the primary model-versus-reference comparisons further match on 21-25 short, non-recursive tasks. Structural refactorings expose substantial brittleness across proof sources: task-normalized structural PSR is 4.3% for the supplied references and 13.3-26.8% for the specialized provers. On the matched tasks, specialized prover proofs nevertheless have higher overall unchanged-proof survival than the supplied reference artifacts: +15.6 points for DeepSeek-Prover-V2-7B, +18.8 for Goedel-Prover-V2-32B, and +20.3 for Goedel-Prover-V2-8B; all three 95% CIs exclude zero. The ordering persists after excluding universally survived T1 variants, under family-balanced aggregation, and under alternative deployable valid-proof selection rules. However, unchanged-proof failure is not the same as high repair cost: predefined one-identifier edits repair 51/54 eligible reference structural failures and 58/85 eligible prover failures. RefactorProof therefore measures unchanged-proof stability under program refactoring, not the cost of maintaining a proof after it breaks.",
-      "summary_zh": "提出 RefactorProof，测试 Lean 证明在保持程序行为不变的结构重构后能否原样存活。由 185 个 VERINA 任务生成 458 个 Lean 认证变体，专用证明器的未修改证明存活率高于参考证明，但证明稳定性与修复成本并不等价。",
-      "why_it_matters_zh": "把形式化证明的鲁棒性从“能否通过一次编译”扩展到对实现重构的稳定性，提供任务归一化指标、置信区间和修复分析，适合检验证明助手的工程可靠性。",
-      "quality_score": 70.0,
-      "tags": [
-        "形式化证明"
-      ],
-      "evidence_flags": [
-        "benchmark"
-      ],
-      "publication_status": "preprint",
-      "rank": 11,
-      "featured": false,
-      "category": "形式化证明",
-      "metrics": {},
-      "metadata": {
-        "doi": "",
-        "arxiv_id": "2610.36328v1"
-      },
-      "abstract_zh": "可验证代码生成基准通常在一个固定实现上测试证明。我们提出这样一个问题：在保持行为不变的程序重构之后，同一个证明是否仍然有效？我们引入 RefactorProof：它从 185 个 VERINA 任务中生成 458 个 Lean 认证变体；这些任务在我们固定的环境中可以编译，同时保持规格说明和所评估的证明逐字不变。VERINA 提供了 46 个任务的参考证明，全部来自其 basic 划分；主要的模型与参考比较进一步在 21–25 个短小、非递归任务上进行匹配。结构重构暴露出不同证明来源的显著脆弱性：任务归一化的结构 PSR 对所提供参考证明为 4.3%，对专用证明器为 13.3–26.8%。然而，在匹配任务上，专用证明器证明的总体未修改存活率仍高于所提供的参考证明：DeepSeek-Prover-V2-7B 高 15.6 个百分点，Goedel-Prover-V2-32B 高 18.8 个百分点，Goedel-Prover-V2-8B 高 20.3 个百分点；三者的 95% 置信区间都不包含零。在排除所有都能存活的 T1 变体、使用按族平衡的聚合以及采用其他可部署的有效证明选择规则后，这一排序仍然成立。然而，未修改证明失败并不等同于较高的修复成本：预先定义的单标识符编辑可以修复参考证明结构性失败中的 51/54 个，以及证明器失败中的 58/85 个。因此，RefactorProof 衡量的是结构重构下未修改证明的稳定性，而不是证明失效后的维护成本。",
-      "published": "2026-10-26",
-      "author_line": "Aravind Mandiga, Guoming Li"
+      "author_line": "Binhang Qi, Yiming Liu, Yun Lin, Yangjie Zhou, Hailong Sun, Jin Song Dong"
     }
   ],
   "review": {
     "model": "gpt-5.6-terra",
     "reasoning_effort": "high",
-    "note": "仅依据候选文件中的公开摘要与元数据审阅；入选项均达到质量分 70，优先保留有明确数学任务、形式化或可复现实验评测的工作。候选集中未见 OpenReview 撤回投稿。"
+    "note": "从质量分达到 70 的候选中选出 6 项，优先保留形式化建模、数学推理诊断、可检验评测与验证方法；均为公开预印本，未发现 OpenReview 撤回项或目标日期前归档重复。"
   }
 }

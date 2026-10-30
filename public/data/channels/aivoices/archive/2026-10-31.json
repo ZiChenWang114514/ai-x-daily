@@ -1,0 +1,461 @@
+{
+  "schema_version": "2.0",
+  "date": "2026-10-31",
+  "channel": "aivoices",
+  "generated_at": "2026-10-30T22:06:42+00:00",
+  "title": "AI Voices 每日精选",
+  "subtitle": "研究者公开观点、研究发布与重要讨论。",
+  "window": {
+    "start": "2026-10-28",
+    "end": "2026-10-31"
+  },
+  "method": "公开来源采集、历史去重、规则筛选与模型审阅",
+  "method_note": "系统保存当日公开元数据，与历史日报核验后排除已报道事件；论文新版本、新修订及不同软件发布等可核实更新仍可入选，随后由指定模型阅读全文摘要并完成精选。",
+  "stats": {
+    "fetched": 77,
+    "suppressed_previous": 5,
+    "candidates": 60,
+    "selected": 10,
+    "sources": {
+      "X": 47,
+      "Research blogs": 30
+    }
+  },
+  "source_status": {
+    "X": {
+      "state": "ok",
+      "count": 47
+    },
+    "Research blogs": {
+      "state": "ok",
+      "count": 30
+    }
+  },
+  "source_errors": [],
+  "items": [
+    {
+      "id": "x:2115842962521509968",
+      "channel": "aivoices",
+      "related_channels": [],
+      "item_type": "social_post",
+      "source": "X",
+      "title": "@Alezander9：Compaction is a mistake. When an agent's context fills up, tools like Codex and Claude Code compact it: 1. The model pre",
+      "url": "https://x.com/Alezander9/status/2115842962521509968",
+      "published_at": "2026-10-29T16:27:27Z",
+      "updated_at": "2026-10-29T16:27:27Z",
+      "creators": [
+        "Alexander Yue"
+      ],
+      "language": "en",
+      "abstract_or_text": "Compaction is a mistake. When an agent's context fills up, tools like Codex and Claude Code compact it: 1. The model prefills the entire session again 2. It writes a summary of everything so far 3. A new session starts from that summary I measured this on a real ~400k-token session with Opus 5.5: → 38 s and 1.99 when the prompt cache has expired → 29 s and 0.17 when it hasn't And the summary is lossy. The exact error message, the file path, the one number you needed is often gone. So I do something new for Mainplane Context retrieval works the other way around. Mainplane keeps the full record of every session as a file. When the context fills up, a new session starts right away with one instruction: \"You are continuing session X. Retrieve key context from it as you go.\" The agent searches the old session and copies the exact lines it needs, when it needs them. Same session, same model: 15 s and 0.10 to get back to work. It does not depend on a cache hit, and nothing is paraphrased. This is the bitter lesson applied to agent memory. Don't hand-design what the model should remember. Give it the full record and good tools, and let it decide. Mainplane is open source (MIT). Link in the first comment.",
+      "summary_zh": "作者分享 Mainplane 的上下文检索方案：保留完整会话记录，在新会话中按需检索原文，并给出约40万 token 会话的耗时与成本对比。",
+      "why_it_matters_zh": "编辑判断：这是可复核的代理工程经验，直接讨论上下文压缩的信息损失、缓存依赖和恢复效率；项目采用 MIT 许可证开源。",
+      "quality_score": 74.0,
+      "tags": [
+        "工具与实践"
+      ],
+      "evidence_flags": [
+        "open source"
+      ],
+      "publication_status": "public_post",
+      "rank": 1,
+      "featured": true,
+      "category": "工具与实践",
+      "metrics": {
+        "like_count": 2587,
+        "repost_count": 105,
+        "reply_count": 241,
+        "quote_count": 69
+      },
+      "metadata": {
+        "post_id": "2115842962521509968",
+        "username": "Alezander9",
+        "query_kind": "topics",
+        "harvest": "grok.x.search"
+      },
+      "abstract_zh": "压缩是个错误。当代理的上下文填满时，Codex 和 Claude Code 等工具会进行压缩：1. 模型重新预填充整个会话；2. 写下迄今为止的一切摘要；3. 新会话从该摘要开始。我在一次真实的约 40 万 token 会话中测得：提示缓存过期时耗时 38 秒、成本为 1.99；缓存未过期时耗时 29 秒、成本为 0.17。而摘要是有损的。你需要的确切错误消息、文件路径或某个数字经常会消失。所以我为 Mainplane 做了个新方案：上下文检索反过来工作。Mainplane 把每个会话的完整记录保存为文件。上下文填满后，立即启动新会话，只给出一条指令：“你正在继续会话 X。需要时从中检索关键上下文。”代理会搜索旧会话，在需要时复制所需的准确行。同一会话、同一模型：恢复工作耗时 15 秒、成本为 0.10。不依赖缓存命中，也没有任何改写。这是把“苦涩的教训”应用于代理记忆。不要手工设计模型应该记住什么；给它完整记录和良好工具，让它自行决定。Mainplane 采用 MIT 许可证开源。链接在第一条评论。",
+      "published": "2026-10-29",
+      "author_line": "Alexander Yue"
+    },
+    {
+      "id": "x:2116164031488868393",
+      "channel": "aivoices",
+      "related_channels": [],
+      "item_type": "social_post",
+      "source": "X",
+      "title": "@dextune：Qwen3.5-4B-3D-Coder w/ Three.js A 4B parameter model can generate interactive 3D scenes using Three.js. Qwen3.5-4B-3D-Co",
+      "url": "https://x.com/dextune/status/2116164031488868393",
+      "published_at": "2026-10-30T13:43:16Z",
+      "updated_at": "2026-10-30T13:43:16Z",
+      "creators": [
+        "dextune"
+      ],
+      "language": "en",
+      "abstract_or_text": "Qwen3.5-4B-3D-Coder w/ Three.js A 4B parameter model can generate interactive 3D scenes using Three.js. Qwen3.5-4B-3D-Coder's October 29 update makes the full FP16 weights, training dataset, and technical report publicly available. The dataset contains 4,146 synthetic examples. Training took about 60 hours, combining full fine tuning with a short LoRA stage. 3D scenes are generated as HTML and JavaScript through Chat mode, not agent tool integration.",
+      "summary_zh": "帖文介绍 Qwen3.5-4B-3D-Coder：4B 参数模型可用 Three.js 生成交互式3D场景；10月29日更新公开了 FP16 权重、训练数据集和技术报告。",
+      "why_it_matters_zh": "编辑判断：公开权重、数据集和报告使这一小模型的训练与复现实验更可核查；帖文还给出了数据规模、训练时长和生成方式。",
+      "quality_score": 71.0,
+      "tags": [
+        "工具与实践"
+      ],
+      "evidence_flags": [
+        "dataset"
+      ],
+      "publication_status": "public_post",
+      "rank": 2,
+      "featured": true,
+      "category": "工具与实践",
+      "metrics": {
+        "like_count": 133,
+        "repost_count": 15,
+        "reply_count": 3,
+        "quote_count": 0
+      },
+      "metadata": {
+        "post_id": "2116164031488868393",
+        "username": "dextune",
+        "query_kind": "topics",
+        "harvest": "grok.x.search"
+      },
+      "abstract_zh": "Qwen3.5-4B-3D-Coder 与 Three.js：一个 4B 参数模型可以使用 Three.js 生成交互式 3D 场景。Qwen3.5-4B-3D-Coder 在10月29日的更新公开了完整 FP16 权重、训练数据集和技术报告。数据集包含 4,146 个合成样本。训练耗时约60小时，结合了全量微调和一段短 LoRA 阶段。3D 场景通过 Chat 模式生成 HTML 和 JavaScript，而不是通过代理工具集成生成。",
+      "published": "2026-10-30",
+      "author_line": "dextune"
+    },
+    {
+      "id": "x:2115446436020027812",
+      "channel": "aivoices",
+      "related_channels": [],
+      "item_type": "social_post",
+      "source": "X",
+      "title": "@BenjamineYLiu：Today we’re announcing the 600M Formation Bio Drug Development Accelerator Fund. @lintaho and I started @FormationBio be",
+      "url": "https://x.com/BenjamineYLiu/status/2115446436020027812",
+      "published_at": "2026-10-28T14:11:48Z",
+      "updated_at": "2026-10-28T14:11:48Z",
+      "creators": [
+        "Ben Liu"
+      ],
+      "language": "en",
+      "abstract_or_text": "Today we’re announcing the 600M Formation Bio Drug Development Accelerator Fund. @lintaho and I started @FormationBio because we believed the biggest bottleneck in bringing new medicines to patients wasn’t drug discovery, but drug development. As AI dramatically accelerates discovery, that bottleneck is only becoming more acute. Without the capital and capacity to advance promising drugs through clinical trials, much of that progress won’t translate into medicines for patients. Our new Fund brings together dedicated capital, drug development expertise, and AI-powered development capabilities to acquire promising drugs and advance them through the clinic.",
+      "summary_zh": "Formation Bio 联合创始人宣布设立6亿美元药物开发加速基金，计划把资本、药物开发经验和 AI 能力结合起来，推动候选药物进入临床。",
+      "why_it_matters_zh": "作者的观点是：AI 正加速药物发现，真正紧迫的瓶颈转向开发与临床推进。编辑判断：这是 AI 生物医药从发现环节向临床转化能力延伸的实质性行业信号。",
+      "quality_score": 71.0,
+      "tags": [
+        "研究发布"
+      ],
+      "evidence_flags": [
+        "clinical"
+      ],
+      "publication_status": "public_post",
+      "rank": 3,
+      "featured": true,
+      "category": "研究发布",
+      "metrics": {
+        "like_count": 1197,
+        "repost_count": 117,
+        "reply_count": 97,
+        "quote_count": 44
+      },
+      "metadata": {
+        "post_id": "2115446436020027812",
+        "username": "BenjamineYLiu",
+        "query_kind": "topics",
+        "harvest": "grok.x.search"
+      },
+      "abstract_zh": "今天，我们宣布设立6亿美元的 Formation Bio 药物开发加速基金。我和 Linta Ho 创办 Formation Bio，是因为我们认为，把新药带给患者的最大瓶颈不是药物发现，而是药物开发。随着 AI 大幅加速发现，这一瓶颈只会变得更加突出。如果没有资金和能力把有前景的药物推进临床试验，许多进展都无法转化为药物。我们的新基金将汇集专门资本、药物开发专业知识和 AI 驱动的开发能力，收购有前景的药物并推动其进入临床。",
+      "published": "2026-10-28",
+      "author_line": "Ben Liu"
+    },
+    {
+      "id": "x:2116262634349818190",
+      "channel": "aivoices",
+      "related_channels": [],
+      "item_type": "social_post",
+      "source": "X",
+      "title": "@NVIDIAAI：Sound on 🔊 Listen to the difference. Our new open multilingual NemotronLabs RE-USE model from NVIDIA researchers cleans ",
+      "url": "https://x.com/NVIDIAAI/status/2116262634349818190",
+      "published_at": "2026-10-30T20:15:04Z",
+      "updated_at": "2026-10-30T20:15:04Z",
+      "creators": [
+        "NVIDIA AI"
+      ],
+      "language": "en",
+      "abstract_or_text": "Sound on 🔊 Listen to the difference. Our new open multilingual NemotronLabs RE-USE model from NVIDIA researchers cleans up background noise, echo and other audio distortions to make speech clearer. All with just 9.6M parameters. Try the demo and download the model on @huggingface →",
+      "summary_zh": "NVIDIA 介绍开放的多语言 NemotronLabs RE-USE 模型，称其可清理背景噪声、回声等失真，仅使用960万参数，并提供演示和 Hugging Face 下载。",
+      "why_it_matters_zh": "编辑判断：帖文给出参数规模、任务范围和开放获取入口，适合作为轻量语音增强模型的可核查发布信息；性能优越性本身仍需查看模型卡和基准。",
+      "quality_score": 69.0,
+      "tags": [
+        "研究发布"
+      ],
+      "evidence_flags": [],
+      "publication_status": "public_post",
+      "rank": 4,
+      "featured": false,
+      "category": "研究发布",
+      "metrics": {
+        "like_count": 189,
+        "repost_count": 15,
+        "reply_count": 18,
+        "quote_count": 6
+      },
+      "metadata": {
+        "post_id": "2116262634349818190",
+        "username": "NVIDIAAI",
+        "query_kind": "accounts",
+        "harvest": "grok.x.search"
+      },
+      "abstract_zh": "打开声音🔊 听听差别。NVIDIA 研究人员推出了新的开放多语言 NemotronLabs RE-USE 模型，可以清理背景噪声、回声和其他音频失真，使语音更清晰。整个模型只有960万参数。可在 @huggingface 试用演示并下载模型→",
+      "published": "2026-10-30",
+      "author_line": "NVIDIA AI"
+    },
+    {
+      "id": "x:2116231480045392168",
+      "channel": "aivoices",
+      "related_channels": [],
+      "item_type": "social_post",
+      "source": "X",
+      "title": "@Kay2289123：这周读完了MAI 和千问的技术报告。我非常确信，如果你不在前沿大模型的预训练团队，又想了解这些模型到底是怎么训练出来的，这两份报告绝对是你的 Top 2 选择 MAI-Thinking-1：从数据处理、预训练，一路讲到强化学习和训练基础设施",
+      "url": "https://x.com/Kay2289123/status/2116231480045392168",
+      "published_at": "2026-10-30T18:11:17Z",
+      "updated_at": "2026-10-30T18:11:17Z",
+      "creators": [
+        "美研芒格君"
+      ],
+      "language": "zh",
+      "abstract_or_text": "这周读完了MAI 和千问的技术报告。我非常确信，如果你不在前沿大模型的预训练团队，又想了解这些模型到底是怎么训练出来的，这两份报告绝对是你的 Top 2 选择 MAI-Thinking-1：从数据处理、预训练，一路讲到强化学习和训练基础设施，适合顺着完整流程学。 Qwen3.8-Flash-Next：重点看架构怎么选、训练效率怎么提高、训练稳定性怎么保证，以及这些选择背后的实验依据 我们真的应该感谢开源和技术分享",
+      "summary_zh": "作者读完 MAI-Thinking-1 与 Qwen3.8-Flash-Next 技术报告后，推荐它们作为理解前沿模型训练流程的材料，并分别指出数据处理、预训练、强化学习、架构选择、训练效率与稳定性等阅读重点。",
+      "why_it_matters_zh": "这是研究者/技术读者的明确阅读判断，不是模型性能宣称；编辑判断：它把两份技术报告映射到具体训练环节，有助于专业读者定位原始材料。",
+      "quality_score": 69.0,
+      "tags": [
+        "观点与讨论"
+      ],
+      "evidence_flags": [],
+      "publication_status": "public_post",
+      "rank": 5,
+      "featured": false,
+      "category": "观点与讨论",
+      "metrics": {
+        "like_count": 210,
+        "repost_count": 32,
+        "reply_count": 8,
+        "quote_count": 0
+      },
+      "metadata": {
+        "post_id": "2116231480045392168",
+        "username": "Kay2289123",
+        "query_kind": "topics",
+        "harvest": "grok.x.search"
+      },
+      "abstract_zh": "这周读完了MAI 和千问的技术报告。我非常确信，如果你不在前沿大模型的预训练团队，又想了解这些模型到底是怎么训练出来的，这两份报告绝对是你的 Top 2 选择 MAI-Thinking-1：从数据处理、预训练，一路讲到强化学习和训练基础设施，适合顺着完整流程学。 Qwen3.8-Flash-Next：重点看架构怎么选、训练效率怎么提高、训练稳定性怎么保证，以及这些选择背后的实验依据 我们真的应该感谢开源和技术分享",
+      "published": "2026-10-30",
+      "author_line": "美研芒格君"
+    },
+    {
+      "id": "x:2115462302078320816",
+      "channel": "aivoices",
+      "related_channels": [],
+      "item_type": "social_post",
+      "source": "X",
+      "title": "@NVIDIAAI：Nemotron 3.5 Transcribe ranks #1 among open-weight models on the @huggingface Open ASR English leaderboard with a 5.33% ",
+      "url": "https://x.com/NVIDIAAI/status/2115462302078320816",
+      "published_at": "2026-10-28T15:14:50Z",
+      "updated_at": "2026-10-28T15:14:50Z",
+      "creators": [
+        "NVIDIA AI"
+      ],
+      "language": "en",
+      "abstract_or_text": "Nemotron 3.5 Transcribe ranks #1 among open-weight models on the @huggingface Open ASR English leaderboard with a 5.33% average word error rate. Download the model → https://huggingface.co/nvidia/NVIDIA-Nemotron-3.5-Transcribe-30B-A4B Learderboard → https://huggingface.co/spaces/hf-audio/open_asr_leaderboard?proprietary=false 2/",
+      "summary_zh": "NVIDIA 称 Nemotron 3.5 Transcribe 在 Hugging Face Open ASR 英语排行榜的开放权重模型中排名第一，平均词错误率为5.33%，并给出模型和排行榜链接。",
+      "why_it_matters_zh": "编辑判断：这是带有明确指标和公开排行榜链接的可核查发布；“排名第一”是发布方表述，应结合排行榜时间点、评测设置和模型卡解读。",
+      "quality_score": 69.0,
+      "tags": [
+        "研究发布"
+      ],
+      "evidence_flags": [],
+      "publication_status": "public_post",
+      "rank": 6,
+      "featured": false,
+      "category": "研究发布",
+      "metrics": {
+        "like_count": 462,
+        "repost_count": 16,
+        "reply_count": 13,
+        "quote_count": 9
+      },
+      "metadata": {
+        "post_id": "2115462302078320816",
+        "username": "NVIDIAAI",
+        "query_kind": "accounts",
+        "harvest": "grok.x.search"
+      },
+      "abstract_zh": "Nemotron 3.5 Transcribe 在 Hugging Face Open ASR 英语排行榜的开放权重模型中排名第一，平均词错误率为5.33%。下载模型→ https://huggingface.co/nvidia/NVIDIA-Nemotron-3.5-Transcribe-30B-A4B 排行榜→ https://huggingface.co/spaces/hf-audio/open_asr_leaderboard?proprietary=false 2/",
+      "published": "2026-10-28",
+      "author_line": "NVIDIA AI"
+    },
+    {
+      "id": "x:2115885219815493909",
+      "channel": "aivoices",
+      "related_channels": [],
+      "item_type": "social_post",
+      "source": "X",
+      "title": "@wensi_ai：Long-horizon, whole-body robot policies still fail during deployment. How do we best close this last-mile gap? 🤖 🚨 Intro",
+      "url": "https://x.com/wensi_ai/status/2115885219815493909",
+      "published_at": "2026-10-29T19:15:22Z",
+      "updated_at": "2026-10-29T19:15:22Z",
+      "creators": [
+        "Wensi Ai"
+      ],
+      "language": "en",
+      "abstract_or_text": "Long-horizon, whole-body robot policies still fail during deployment. How do we best close this last-mile gap? 🤖 🚨 Introducing I3L: Iterative Interactive Imitation Learning for Whole-Body Mobile Manipulation Website: https://i-3l.github.io/ Paper: https://arxiv.org/abs/2610.17748",
+      "summary_zh": "团队介绍 I3L（迭代式交互模仿学习），针对长时程、全身移动操作策略在部署阶段失效的“最后一公里”问题，并链接项目网站和 arXiv 论文。",
+      "why_it_matters_zh": "编辑判断：帖文明确指出部署痛点、方法名称和原始论文入口，具有可追溯的研究发布信息；具体实验结果需以论文为准。",
+      "quality_score": 69.0,
+      "tags": [
+        "研究发布"
+      ],
+      "evidence_flags": [
+        "github"
+      ],
+      "publication_status": "public_post",
+      "rank": 7,
+      "featured": false,
+      "category": "研究发布",
+      "metrics": {
+        "like_count": 98,
+        "repost_count": 25,
+        "reply_count": 5,
+        "quote_count": 8
+      },
+      "metadata": {
+        "post_id": "2115885219815493909",
+        "username": "wensi_ai",
+        "query_kind": "topics",
+        "harvest": "grok.x.search"
+      },
+      "abstract_zh": "长时程、全身机器人策略在部署期间仍会失败。我们该如何最好地弥合这一“最后一公里”差距？🤖🚨 介绍 I3L：用于全身移动操作的迭代式交互模仿学习。网站：https://i-3l.github.io/ 论文：https://arxiv.org/abs/2610.17748",
+      "published": "2026-10-29",
+      "author_line": "Wensi Ai"
+    },
+    {
+      "id": "x:2115436561458168131",
+      "channel": "aivoices",
+      "related_channels": [
+        "aixchem",
+        "aixbio"
+      ],
+      "item_type": "social_post",
+      "source": "X",
+      "title": "@Junioryu136689：From natural-language protein design to audit trails for omics agents. BioTender Daily Papers #91: 6 new papers (arXiv 2",
+      "url": "https://x.com/Junioryu136689/status/2115436561458168131",
+      "published_at": "2026-10-28T13:32:33Z",
+      "updated_at": "2026-10-28T13:32:33Z",
+      "creators": [
+        "BioTender"
+      ],
+      "language": "en",
+      "abstract_or_text": "From natural-language protein design to audit trails for omics agents. BioTender Daily Papers #91: 6 new papers (arXiv 2 + bioRxiv 3 + Nature 1) across 3 directions. 🧬 Programmable proteins & agent-guided binders • Pinal maps natural-language function goals to sequence/structure candidates and reports experimental checks across fluorescent proteins, two enzyme classes, and a metabolic H protein—design starts from “what function,” not hand-written geometry constraints. 🧬 Peptide optimization & steerable molecular generation • CAMOLE-1 chains all-atom diffusion, physics filters, synthesis, and biochemical assays into an iterative loop for non-natural peptide MMP12 inhibitors. The common thread: AI×bio is shifting the entry point—from constraints and opaque latents to language, agents, and decomposable paths—while the bar for “proved” stays experimental, peer-reviewed, and system-specific.",
+      "summary_zh": "BioTender 汇总6篇论文，涵盖自然语言蛋白设计、智能体引导结合蛋白、肽优化和组学智能体审计轨迹，并强调实验验证、同行评审和系统特异性。",
+      "why_it_matters_zh": "编辑判断：这是一份有明确文献范围和实验门槛的研究者导读，连接了方法路线与验证标准；具体论文结论仍应回到原始论文。",
+      "quality_score": 66.0,
+      "tags": [
+        "研究发布"
+      ],
+      "evidence_flags": [
+        "experimental"
+      ],
+      "publication_status": "public_post",
+      "rank": 8,
+      "featured": false,
+      "category": "研究发布",
+      "metrics": {
+        "like_count": 16,
+        "repost_count": 3,
+        "reply_count": 0,
+        "quote_count": 0
+      },
+      "metadata": {
+        "post_id": "2115436561458168131",
+        "username": "Junioryu136689",
+        "query_kind": "topics",
+        "harvest": "grok.x.search"
+      },
+      "abstract_zh": "从自然语言蛋白设计到组学智能体的审计轨迹。BioTender 每日论文第91期：6篇新论文（arXiv 2篇 + bioRxiv 3篇 + Nature 1篇），涵盖3个方向。🧬 可编程蛋白与智能体引导的结合蛋白 • Pinal 将自然语言功能目标映射到序列/结构候选，并报告荧光蛋白、两类酶和一种代谢 H 蛋白上的实验检查——设计从“需要什么功能”出发，而不是从手写的几何约束出发。🧬 肽优化与可控分子生成 • CAMOLE-1 将全原子扩散、物理过滤、合成和生化测定串成一个迭代循环，用于生成非天然肽 MMP12 抑制剂。共同趋势是：AI×生物学正在改变切入点——从约束和不透明潜变量转向语言、智能体和可分解路径；而“已证明”的门槛仍然是实验、同行评审和系统特异性的。",
+      "published": "2026-10-28",
+      "author_line": "BioTender"
+    },
+    {
+      "id": "feed:https://openai.com/index/how-we-detect-frontier-model-misalignment",
+      "channel": "aivoices",
+      "related_channels": [],
+      "item_type": "research_blog",
+      "source": "OpenAI News",
+      "title": "How we detect frontier model misalignment",
+      "url": "https://openai.com/index/how-we-detect-frontier-model-misalignment",
+      "published_at": "Thu, 29 Oct 2026 09:00:00 GMT",
+      "updated_at": "Thu, 29 Oct 2026 09:00:00 GMT",
+      "creators": [
+        "OpenAI News"
+      ],
+      "language": "en",
+      "abstract_or_text": "OpenAI uses layered monitoring to detect frontier model misalignment and unauthorized agent behavior so responders can intervene before incidents escalate.",
+      "summary_zh": "OpenAI 官方研究博客摘要介绍分层监测，用于发现前沿模型失配和未经授权的智能体行为，以便在事件升级前介入。",
+      "why_it_matters_zh": "编辑判断：主题直接涉及前沿模型安全与代理治理；摘要未提供监测层级和实证细节，因此这里只报道其公开主张，不外推效果。",
+      "quality_score": 65.0,
+      "tags": [
+        "研究发布"
+      ],
+      "evidence_flags": [],
+      "publication_status": "official_update",
+      "rank": 9,
+      "featured": false,
+      "category": "研究发布",
+      "metrics": {},
+      "metadata": {
+        "feed_url": "https://openai.com/news/rss.xml"
+      },
+      "abstract_zh": "OpenAI 使用分层监测来检测前沿模型失配和未经授权的智能体行为，使响应人员能够在事件升级前进行干预。",
+      "published": "Thu, 29 Oc",
+      "author_line": "OpenAI News"
+    },
+    {
+      "id": "feed:https://developer.nvidia.com/blog/unlocking-tensor-core-performance-for-machine-learning-interatomic-potentials/",
+      "channel": "aivoices",
+      "related_channels": [],
+      "item_type": "research_blog",
+      "source": "NVIDIA Technical Blog",
+      "title": "Unlocking Tensor Core Performance for Machine Learning Interatomic Potentials",
+      "url": "https://developer.nvidia.com/blog/unlocking-tensor-core-performance-for-machine-learning-interatomic-potentials/",
+      "published_at": "2026-10-29T15:00:00Z",
+      "updated_at": "2026-10-29T15:00:00Z",
+      "creators": [
+        "NVIDIA Technical Blog"
+      ],
+      "language": "en",
+      "abstract_or_text": "Atomistic simulations help researchers understand how molecules and materials behave, from chemical reactions and phase transitions to mechanical failure. These...",
+      "summary_zh": "NVIDIA Technical Blog 发布关于提升机器学习原子间势 Tensor Core 性能的文章，摘要从原子尺度模拟在化学反应、相变和机械失效研究中的作用切入。",
+      "why_it_matters_zh": "编辑判断：该主题连接 GPU 性能工程与分子/材料模拟，适合关注 AI for Science 基础设施的读者；候选摘要信息有限，具体优化结果需阅读全文。",
+      "quality_score": 67.0,
+      "tags": [
+        "研究发布"
+      ],
+      "evidence_flags": [
+        "performance"
+      ],
+      "publication_status": "official_update",
+      "rank": 10,
+      "featured": false,
+      "category": "研究发布",
+      "metrics": {},
+      "metadata": {
+        "feed_url": "https://developer.nvidia.com/blog/feed/"
+      },
+      "abstract_zh": "原子尺度模拟帮助研究人员理解分子和材料如何表现，从化学反应和相变到机械失效。这些……",
+      "published": "2026-10-29",
+      "author_line": "NVIDIA Technical Blog"
+    }
+  ],
+  "review": {
+    "model": "gpt-5.6-terra",
+    "reasoning_effort": "high",
+    "note": "从60项候选中保留10项质量分≥65且信息较完整、未在目标日期前综合日报中出现的公开帖文或官方研究博客；排除了口号式帖文、活动通知、重复营销和缺少上下文的内容。"
+  }
+}

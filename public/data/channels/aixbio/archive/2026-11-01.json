@@ -1,0 +1,446 @@
+{
+  "schema_version": "2.0",
+  "date": "2026-11-01",
+  "channel": "aixbio",
+  "generated_at": "2026-10-31T22:13:39+00:00",
+  "title": "AI × Bio 每日精选",
+  "subtitle": "计算生物学、组学、蛋白质与生物医学模型。",
+  "window": {
+    "start": "2026-10-29",
+    "end": "2026-11-01"
+  },
+  "method": "公开来源采集、历史去重、规则筛选与模型审阅",
+  "method_note": "系统保存当日公开元数据，与历史日报核验后排除已报道事件；论文新版本、新修订及不同软件发布等可核实更新仍可入选，随后由指定模型阅读全文摘要并完成精选。",
+  "stats": {
+    "fetched": 1796,
+    "suppressed_previous": 28,
+    "candidates": 60,
+    "selected": 9,
+    "sources": {
+      "arXiv": 406,
+      "bioRxiv": 650,
+      "medRxiv": 0,
+      "Europe PMC": 1000
+    }
+  },
+  "source_status": {
+    "arXiv": {
+      "state": "ok",
+      "count": 406
+    },
+    "bioRxiv": {
+      "state": "ok",
+      "count": 650
+    },
+    "medRxiv": {
+      "state": "failed",
+      "count": 0
+    },
+    "Europe PMC": {
+      "state": "ok",
+      "count": 1000
+    }
+  },
+  "source_errors": [
+    "medRxiv: TimeoutError: The read operation timed out"
+  ],
+  "items": [
+    {
+      "id": "biorxiv:10.64898/2026.10.26.761795",
+      "channel": "aixbio",
+      "related_channels": [],
+      "item_type": "paper",
+      "source": "bioRxiv",
+      "title": "flashscenic: Accelerated GRN Analysis with RegDiffusion for Large-Scale Single-Cell Data",
+      "url": "https://www.biorxiv.org/content/10.64898/2026.10.26.761795",
+      "published_at": "2026-10-30",
+      "updated_at": "2026-10-30",
+      "creators": [
+        "Zhu, H.",
+        "Cardenal-Antolin, G.",
+        "Jin, X.",
+        "Gootenberg, J. S.",
+        "Abudayyeh, O. O.",
+        "Slonim, D. K."
+      ],
+      "language": "en",
+      "abstract_or_text": "Single-cell gene regulatory network (GRN) analysis via the SCENIC framework provides biologically interpretable cell-state representations through motif-validated transcription factor (TF) regulon activities. However, sequential, CPU-bound implementations (pySCENIC) constrain scalability to highly variable genes and make the repeated executions needed to resolve network stochasticity computationally prohibitive. Furthermore, while regulon activity is hypothesized to mitigate technical batch effects, its integration performance has never been quantitatively assessed against modern data integration benchmarks. We present flashscenic, an end-to-end GPU-accelerated framework that resolves these bottlenecks and expands the practical scope of single-cell regulatory genomics. By reformulating module construction, cisTarget motif pruning, and AUCell scoring into batched GPU tensor operations, flashscenic achieves a 12- to 27-fold downstream speedup over pySCENIC, while maintaining strict numerical equivalence (Pearson r = 0.9996). Leveraging this throughput, we conducted the first systematic benchmark of nine consensus aggregation strategies across multiple independent tissue cohorts, demonstrating that discrete post-pruning recurrence voting ([≥]50% recurrence, [≥]5 targets per regulon) maximizes biological fidelity. Finally, data integration benchmarking across a 116,043-cell acute myeloid leukemia (AML) atlas quantitatively demonstrates that uncorrected TF activity provides an intrinsic, unsupervised batch-integration benefit over raw PCA. Combining it with a standard batch integration method matches or outperforms canonical expression-based integration while accurately recovering lineage-defining and oncogenic regulators (CEBPA, HOXA9). flashscenic is available via pip install flashscenic, with source code and tutorials at https://github.com/haozhu233/flashscenic.",
+      "summary_zh": "preprint；flashscenic 将 SCENIC 基因调控网络分析重构为 GPU 张量计算，并在大规模 AML 单细胞图谱上进行整合基准测试。",
+      "why_it_matters_zh": "在保持数值等价的同时实现 12–27 倍加速，并提供 116,043 个细胞的批次整合评估和可安装代码，兼具方法创新与复现价值。",
+      "quality_score": 86.0,
+      "tags": [
+        "组学与细胞"
+      ],
+      "evidence_flags": [
+        "benchmark",
+        "github",
+        "performance"
+      ],
+      "publication_status": "preprint",
+      "rank": 1,
+      "featured": true,
+      "category": "组学与细胞",
+      "metrics": {},
+      "metadata": {
+        "doi": "10.64898/2026.10.26.761795",
+        "arxiv_id": ""
+      },
+      "abstract_zh": "通过 SCENIC 进行单细胞基因调控网络（GRN）分析，可以借助经过 motif 验证的转录因子（TF）调控子活性，提供具有生物学可解释性的细胞状态表征。然而，顺序执行、以 CPU 为主的实现（pySCENIC）限制了其对高变基因的可扩展性，也使得为解析网络随机性而进行的重复运行在计算上难以承受。此外，尽管调控子活性被认为可以减轻技术批次效应，但其整合性能从未针对现代数据整合基准进行定量评估。我们提出 flashscenic，这是一个端到端 GPU 加速框架，解决这些瓶颈并扩展单细胞调控基因组学的实际应用范围。通过将模块构建、cisTarget motif 剪枝和 AUCell 评分重构为批量 GPU 张量运算，flashscenic 相比 pySCENIC 实现了 12–27 倍的下游加速，同时保持严格的数值等价性（Pearson r = 0.9996）。借助这一吞吐能力，我们在多个独立组织队列上首次系统评估了九种共识聚合策略，结果显示，离散的剪枝后重复投票（[≥]50% 重复率，[≥]5 个调控子靶基因）最能最大化生物学保真度。最后，在一个包含 116,043 个细胞的急性髓系白血病（AML）图谱上进行数据整合基准测试，定量显示，未经校正的 TF 活性相较于原始 PCA 具有内在的、无监督的批次整合优势。将其与标准批次整合方法结合后，其表现可达到或超过经典的基于表达的整合方法，同时准确恢复谱系定义性和致癌性调控因子（CEBPA、HOXA9）。flashscenic 可通过 pip install flashscenic 获取，源代码和教程位于 https://github.com/haozhu233/flashscenic。",
+      "published": "2026-10-30",
+      "author_line": "Zhu, H., Cardenal-Antolin, G., Jin, X., Gootenberg, J. S., Abudayyeh, O. O., Slonim, D. K."
+    },
+    {
+      "id": "europepmc:ppr1353251",
+      "channel": "aixbio",
+      "related_channels": [
+        "aixchem"
+      ],
+      "item_type": "paper",
+      "source": "Europe PMC",
+      "title": "An Agentic AI Pipeline for an Evidence-Grounded Environmental Health Public Information System: Development and Evaluation",
+      "url": "https://europepmc.org/article/PPR/PPR1353251",
+      "published_at": "2026-10-29",
+      "updated_at": "2026-10-30",
+      "creators": [
+        "Ingebretsen SH",
+        "Gouripeddi R",
+        "Facelli J",
+        "Cummins M",
+        "Shah-mohammadi F"
+      ],
+      "language": "en",
+      "abstract_or_text": "Background: Existing environmental and health information systems typically provide isolated data streams, requiring users to interpret heterogeneous information sources without personalized guidance. Residents and health providers of urban regions with complex environmental conditions, such as the Salt Lake Valley, frequently seek timely, location-specific information about weather, air quality, and their associated health impacts, but may find it difficult to integrate this information in their decision-making, precluding the effective translation of valuable environmental health information into action. Objective: This study aimed to develop and evaluate an agentic artificial intelligence (AI) pipeline that delivers evidence-grounded, neighborhood-scale responses to health-related environmental questions raised lay persons by dynamically orchestrating authoritative weather, neighborhood-scale environmental observations, air quality, and health-evidence resources. Methods: We developed an agentic AI pipeline using LangGraph and OpenAI large language models to interpret natural language queries, select and invoke relevant external tools, retrieve real-time environmental data and evidence-based health guidance, and synthesize responses. The pipeline integrates multiple authoritative resources, including weather forecasts, air-quality observations, geospatial services, and a retrieval-augmented generation (RAG) module built from asthma-related clinical guidance. The system incorporates fallback mechanisms to improve robustness when external services are unavailable. We evaluated the pipeline using a curated benchmark of representative user questions, assessing tool-needed recognition, correct tool selection, avoidance of irrelevant tools, parameter mapping, analytic pathway selection, and incorporation of tool outputs into the final response. Results: The developed system successfully integrated heterogeneous environmental and health information sources into a unified conversational interface that produces evidence-grounded, neighborhood-scale responses for the Salt Lake Valley. Evaluation demonstrated generally strong tool recognition, parameter mapping, and incorporation of retrieved information across diverse question types, supporting the pipeline's ability to retrieve and integrate authoritative environmental and health information consumable by lay persons and providing an important step for the T3 and T4 phases of the translational pipeline of exposure health informatics. Conclusions: By combining existing environmental health knowledge with local sensor observations and neighborhood-scale environmental measurements, and authoritative state and national weather and air quality resources, the system delivers more localized and context-aware guidance than approaches that rely on authoritative regional or state-level information. Rather than depending on the internal knowledge of a large language model, the pipeline dynamically retrieves, synthesizes, and attributes evidence from authoritative sources. The modular architecture enables seamless integration of additional environmental data streams, health knowledge sources, and geographic regions, providing a scalable foundation for future translational pipelines, completing the T3 to T4 path for environmental health.",
+      "summary_zh": "preprint；构建证据约束的 agentic AI 环境健康信息系统，将实时环境数据与健康指南整合为社区尺度回答。",
+      "why_it_matters_zh": "展示了工具编排、检索增强生成和故障回退在环境健康问答中的组合；目前主要是系统开发与基准评估，不等同于临床疗效证据。",
+      "quality_score": 83.0,
+      "tags": [
+        "方法与模型"
+      ],
+      "evidence_flags": [
+        "clinical",
+        "benchmark",
+        "evaluation"
+      ],
+      "publication_status": "preprint",
+      "rank": 2,
+      "featured": true,
+      "category": "方法与模型",
+      "metrics": {},
+      "metadata": {
+        "doi": "10.64898/2026.10.26.26366549",
+        "pmid": ""
+      },
+      "abstract_zh": "现有的环境与健康信息系统通常提供彼此孤立的数据流，要求用户自行解释异构信息来源，而缺乏个性化指导。位于环境条件复杂城市区域（例如 Salt Lake Valley）的居民和健康提供者经常需要及时、具有地点特异性的天气、空气质量及其相关健康影响信息，但可能难以将这些信息整合进决策，从而妨碍有价值的环境健康信息有效转化为行动。本研究旨在开发并评估一个 agentic artificial intelligence（AI）管线，为普通人提出的健康相关环境问题提供基于证据、社区尺度的回答；该管线通过动态编排权威天气、社区尺度环境观测、空气质量和健康证据资源来实现这一目标。我们使用 LangGraph 和 OpenAI large language models 开发了一个 agentic AI 管线，用于解释自然语言查询、选择并调用相关外部工具、检索实时环境数据和循证健康指导，并综合生成回答。该管线整合了多个权威资源，包括天气预报、空气质量观测、地理空间服务，以及一个由哮喘相关临床指南构建的检索增强生成（RAG）模块。系统还纳入了回退机制，以提高外部服务不可用时的稳健性。我们使用一个经过整理的代表性用户问题基准评估该管线，评价工具需求识别、正确工具选择、避免无关工具、参数映射、分析路径选择，以及将工具输出纳入最终回答的能力。开发出的系统成功将异构环境与健康信息源整合进统一的对话式界面，为 Salt Lake Valley 生成基于证据、社区尺度的回答。评估显示，在不同问题类型中，工具识别、参数映射和检索信息纳入总体表现较强，支持该管线检索和整合权威信息并以普通人可使用形式呈现的能力，并为暴露健康信息学转化管线的 T3 和 T4 阶段提供重要一步。通过将现有环境健康知识与本地传感器观测、社区尺度环境测量，以及权威的州级和国家级天气与空气质量资源结合，该系统比依赖州级或区域级权威信息的方法提供了更加本地化和情境化的指导。该管线不是依赖大型语言模型的内部知识，而是动态检索、综合并标注权威来源中的证据。模块化架构支持无缝整合更多环境数据流、健康知识来源和地理区域，为未来的转化管线提供可扩展基础，完成从 T3 到 T4 的路径。",
+      "published": "2026-10-29",
+      "author_line": "Ingebretsen SH, Gouripeddi R, Facelli J, Cummins M, Shah-mohammadi F"
+    },
+    {
+      "id": "europepmc:ppr1353920",
+      "channel": "aixbio",
+      "related_channels": [],
+      "item_type": "paper",
+      "source": "Europe PMC",
+      "title": "GlioMIL: A Frozen-Backbone Multiple-Instance Learning Framework for Calibrated and Explainable Glioma Radiogenomics",
+      "url": "https://europepmc.org/article/PPR/PPR1353920",
+      "published_at": "2026-10-30",
+      "updated_at": "2026-10-31",
+      "creators": [
+        "Al-Quraishi T",
+        "Abawajy J",
+        "Albahri OS",
+        "Mishra R"
+      ],
+      "language": "en",
+      "abstract_or_text": "Abstract Non-invasive prediction of glioma molecular status from magnetic resonance imaging (MRI) could reduce reliance on invasive biopsy. Still, deep-learning pipelines for this task are often trained on small cohorts and rarely assessed for calibration or explainability. We present GlioMIL, a 2.5D multiple-instance-learning (MIL) framework predicting isocitrate dehydrogenase (IDH) mutation status, tumour grade, O 6 -methylguanine-DNA methyltransferase (MGMT) promoter methylation, and 1p/19q codeletion from multi-contrast MRI, representing each tumour as a bag of tumour-guided axial slices embedded by a frozen, ImageNet-pretrained backbone and aggregated via attention-based pooling feeding multi-task heads. On a publicly available glioma cohort, a controlled five-way ablation with bootstrap confidence intervals and paired significance testing shows this frozen-backbone approach matches a fully-supervised 3D convolutional neural network (CNN) baseline, and that fusing standardised clinical and radiomic features into the pooled representation significantly improves over image-only multi-task learning for IDH and grade. However, a plain classifier on clinical and radiomic features alone, with no image input, matches or significantly exceeds the fused model on these tasks, so the frozen image branch adds no predictive value beyond structured features. MGMT and 1p/19q codeletion remain close to chance across all conditions. The fusion model is label-efficient and reasonably well calibrated, but its attention weights correspond to tumour regions only at a near-chance level, cautioning against treating attention as a reliable spatial explanation. We report our evaluation protocol, including rejection of an earlier flawed ensembling scheme and a per-fold feature-normalisation correction, to support trustworthy, reproducible reporting.",
+      "summary_zh": "preprint；GlioMIL 用冻结的 ImageNet 预训练骨干和注意力 MIL 从多对比 MRI 预测胶质瘤分子状态，并通过消融与校准分析揭示结构化特征的作用。",
+      "why_it_matters_zh": "研究不仅报告性能，还指出影像分支未超越临床/影像组学特征，且注意力并非可靠空间解释，体现了对模型局限性的诚实评估。",
+      "quality_score": 82.0,
+      "tags": [
+        "组学与细胞"
+      ],
+      "evidence_flags": [
+        "clinical",
+        "ablation",
+        "evaluation"
+      ],
+      "publication_status": "preprint",
+      "rank": 3,
+      "featured": true,
+      "category": "组学与细胞",
+      "metrics": {},
+      "metadata": {
+        "doi": "10.21203/rs.3.rs-11214932/v1",
+        "pmid": ""
+      },
+      "abstract_zh": "从磁共振成像（MRI）无创预测胶质瘤分子状态，可能减少对侵入性活检的依赖。然而，用于该任务的深度学习管线通常在小型队列上训练，并且很少评估校准性或可解释性。我们提出 GlioMIL，这是一个 2.5D 多实例学习（MIL）框架，用于从多对比 MRI 预测异柠檬酸脱氢酶（IDH）突变状态、肿瘤分级、O 6 -methylguanine-DNA methyltransferase（MGMT）启动子甲基化以及 1p/19q 共缺失。该框架将每个肿瘤表示为由肿瘤引导的轴向切片组成的包，这些切片由一个冻结的、在 ImageNet 上预训练的骨干网络嵌入，再通过基于注意力的池化聚合，并输入多任务头。在一个公开可用的胶质瘤队列上，受控的五路消融实验、bootstrap 置信区间和配对显著性检验显示，这种冻结骨干方法达到了与完全监督的 3D 卷积神经网络（CNN）基线相当的表现；将标准化的临床和影像组学特征融合到池化表示中，相比仅使用图像的多任务学习，在 IDH 和分级任务上显著改善。然而，在这些任务上，仅使用临床和影像组学特征、完全不输入图像的普通分类器，已经达到或显著超过融合模型，因此冻结的图像分支没有提供超出结构化特征的预测价值。MGMT 和 1p/19q 共缺失在所有条件下仍接近随机水平。融合模型具有标签效率，并且校准性尚可，但其注意力权重仅以接近随机的水平对应肿瘤区域，这提醒我们不应把注意力当作可靠的空间解释。我们报告了包括拒绝早期有缺陷的集成方案以及逐折特征归一化修正在内的评估协议，以支持可信且可复现的报告。",
+      "published": "2026-10-30",
+      "author_line": "Al-Quraishi T, Abawajy J, Albahri OS, Mishra R"
+    },
+    {
+      "id": "biorxiv:10.64898/2026.10.26.761775",
+      "channel": "aixbio",
+      "related_channels": [],
+      "item_type": "paper",
+      "source": "bioRxiv",
+      "title": "Predicting Pathway Dependency in Head and Neck Squamous Cell Carcinoma from Hallmark Transcriptomic Features",
+      "url": "https://www.biorxiv.org/content/10.64898/2026.10.26.761775",
+      "published_at": "2026-10-30",
+      "updated_at": "2026-10-30",
+      "creators": [
+        "Afshar, Y.",
+        "Goli, A."
+      ],
+      "language": "en",
+      "abstract_or_text": "Despite frequent pathway activation, targeted molecular therapy remains limited in head and neck squamous cell carcinoma (HNSCC), highlighting the need to distinguish activation from dependence. Dependency is functional, context-specific, and coupled; mutations or expression alone cannot establish it. No validated framework identifies tumor pathway dependencies from baseline molecular profiles. We developed a transcriptome-based framework to infer pathway dependency in HNSCC. Nine Elastic Net models used 50 MSigDB Hallmark activity profiles from 953 GDSC cell lines and drug responses pooled across compounds annotated to each pathway. Cross-validated R2 ranged from 0.17 (IGF1R) to 0.48 (P53); leave-one-pathway-out validation retained rank agreement (Spearman {rho} = 0.19-0.56) for pathways with no drug response observed during training. We validated the models using pharmacological, genomic, and proteomic data, then applied them to TCGA-HNSC (n = 565) and GSE65858 (n = 256), examining HPV status, age, stage, tobacco history, and CD8+ infiltration. Seven of nine pathways were higher in HPV+ tumors and replicated directionally in GSE65858. Among TP53-wild-type tumors, HPV remained linked to greater P53 dependency ({beta} = +0.37, q = 0.010); HPV+ tumors also had higher p53 transcriptional activity, suggesting residual p53 function despite E6 expression. The codependency signature had a dominant global axis (PC1 = 62.3% variance; Cronbach's = 0.91), replicated across cohorts (Tucker congruence = 0.996), but largely reflected CD8+ T-cell infiltration ({rho} = 0.80). The framework uses RNA-sequenced bulk tumor cohorts to assess baseline transcriptome-based dependencies and match pathway-directed agents to likely responders before treatment. It is not prognostic.",
+      "summary_zh": "preprint；用 953 个 GDSC 细胞系训练 Elastic Net，从 Hallmark 转录组特征推断 HNSCC 通路依赖性。",
+      "why_it_matters_zh": "区分通路激活与功能依赖，并在 TCGA-HNSC 与 GSE65858 中复核；但全局共依赖轴主要反映 CD8+ T 细胞浸润，不能直接作为预后结论。",
+      "quality_score": 80.0,
+      "tags": [
+        "组学与细胞"
+      ],
+      "evidence_flags": [],
+      "publication_status": "preprint",
+      "rank": 4,
+      "featured": false,
+      "category": "组学与细胞",
+      "metrics": {},
+      "metadata": {
+        "doi": "10.64898/2026.10.26.761775",
+        "arxiv_id": ""
+      },
+      "abstract_zh": "尽管通路经常被激活，头颈部鳞状细胞癌（HNSCC）的靶向分子治疗仍然有限，这凸显了区分激活与依赖的必要性。依赖性是功能性的、情境特异的并且相互耦合；仅凭突变或表达不能确立依赖性。当前没有经过验证的框架能够根据基线分子谱识别肿瘤通路依赖性。我们开发了一个基于转录组的框架，用于推断 HNSCC 中的通路依赖性。九个 Elastic Net 模型使用来自 953 个 GDSC 细胞系的 50 个 MSigDB Hallmark 活性谱，以及按每条通路注释的化合物汇总药物反应进行训练。交叉验证 R2 范围为 0.17（IGF1R）至 0.48（P53）；留一通路验证在训练期间没有观察到药物反应的通路中仍保留了秩一致性（Spearman {rho} = 0.19–0.56）。我们使用药理学、基因组学和蛋白质组学数据验证模型，然后将其应用于 TCGA-HNSC（n = 565）和 GSE65858（n = 256），考察 HPV 状态、年龄、分期、吸烟史和 CD8+ 浸润。九条通路中有七条在 HPV+ 肿瘤中更高，并在 GSE65858 中得到方向性复现。在 TP53 野生型肿瘤中，HPV 仍与更高的 P53 依赖性相关（β = +0.37，q = 0.010）；HPV+ 肿瘤还具有更高的 p53 转录活性，提示尽管存在 E6，仍保留部分 p53 功能。共依赖特征具有一个占主导地位的全局轴（PC1 = 62.3% 方差；Cronbach's = 0.91），并在队列间复现（Tucker congruence = 0.996），但该轴在很大程度上反映了 CD8+ T 细胞浸润（{rho} = 0.80）。该框架使用 RNA 测序的实体瘤队列来评估基线、基于转录组推断的依赖性，并在治疗前将通路导向药物匹配到可能的应答者。它不是预后模型。",
+      "published": "2026-10-30",
+      "author_line": "Afshar, Y., Goli, A."
+    },
+    {
+      "id": "arxiv:2610.39316v1",
+      "channel": "aixbio",
+      "related_channels": [],
+      "item_type": "paper",
+      "source": "arXiv",
+      "title": "TaxoMFM: A Taxonomy-Aware Foundation Model for the Human Gut Microbiome",
+      "url": "https://arxiv.org/abs/2610.39316v1",
+      "published_at": "2026-10-29",
+      "updated_at": "2026-10-29",
+      "creators": [
+        "Haochen Xue",
+        "Anastasia Godneva",
+        "Yulong Li",
+        "Qi Cao",
+        "Zhaodong Wu",
+        "Kaiyu Liang",
+        "Jionglong Su",
+        "Eran Segal",
+        "Imran Razzak"
+      ],
+      "language": "en",
+      "abstract_or_text": "Existing gut microbiome foundation models typically use flat taxon representations, limiting their ability to exploit known taxonomic hierarchies. We introduce TaxoMFM, a microbiome foundation model that integrates taxonomic structure into self-supervised learning. TaxoMFM jointly learns abundance patterns across taxonomic ranks and relative proportions within groups through taxonomy-aware encoding and hierarchical compositional reconstruction. We further construct TaxoGut-HPP, comprising 100,806 gut microbiome profiles from 231 source cohorts and covering 40 classification and 8 regression tasks. TaxoMFM achieves competitive performance across disease, gut health, host trait, and liver ultrasound phenotype prediction. In cross-cohort zero-shot transfer, where target cohorts are excluded from both pretraining and downstream adaptation, TaxoMFM achieves AUROCs of 0.838, 0.736, and 0.722 for colorectal cancer, type 2 diabetes, and inflammatory bowel disease, respectively. Further analyses show that TaxoMFM recovers community changes across taxonomic scales, while preserving community information and producing consistent representations under database updates and species-vocabulary shifts. Our code is available at https://anonymous.4open.science/r/TaxoMFM-F16D/.",
+      "summary_zh": "preprint；TaxoMFM 将分类学层级纳入肠道微生物组基础模型，并在 100,806 个样本、231 个队列上进行跨队列零样本评估。",
+      "why_it_matters_zh": "数据规模大、任务覆盖广，并报告 CRC、2 型糖尿病和 IBD 的零样本 AUROC；代码公开，但仍需更多独立实验和临床验证。",
+      "quality_score": 73.0,
+      "tags": [
+        "生物医学与临床"
+      ],
+      "evidence_flags": [
+        "performance"
+      ],
+      "publication_status": "preprint",
+      "rank": 5,
+      "featured": false,
+      "category": "生物医学与临床",
+      "metrics": {},
+      "metadata": {
+        "doi": "",
+        "arxiv_id": "2610.39316v1"
+      },
+      "abstract_zh": "现有的肠道微生物组基础模型通常使用扁平的分类单元表示，限制了其利用已知分类学层级的能力。我们提出 TaxoMFM，这是一种将分类学结构整合进自监督学习的微生物组基础模型。TaxoMFM 通过分类学感知编码和分层组成重构，同时学习不同分类等级上的丰度模式以及群组内的相对比例。我们进一步构建了 TaxoGut-HPP，其中包含来自 231 个来源队列的 100,806 个肠道微生物组谱，覆盖 40 个分类和 8 个回归任务。在疾病、肠道健康、宿主性状和肝脏超声表型预测中，TaxoMFM 均取得具有竞争力的性能。在跨队列零样本迁移中，目标队列同时被排除在预训练和下游适配之外，TaxoMFM 在结直肠癌、2 型糖尿病和炎症性肠病上的 AUROC 分别达到 0.838、0.736 和 0.722。进一步分析显示，TaxoMFM 能够恢复不同分类尺度上的群落变化，同时保留群落信息，并在数据库更新和物种词汇变化下产生一致的表示。我们的代码位于 https://anonymous.4open.science/r/TaxoMFM-F16D/。",
+      "published": "2026-10-29",
+      "author_line": "Haochen Xue, Anastasia Godneva, Yulong Li, Qi Cao, Zhaodong Wu, Kaiyu Liang, Jionglong Su, Eran Segal, Imran Razzak"
+    },
+    {
+      "id": "biorxiv:10.64898/2026.10.28.762655",
+      "channel": "aixbio",
+      "related_channels": [],
+      "item_type": "paper",
+      "source": "bioRxiv",
+      "title": "EMBER: Contextualized gene representations enable compositional prediction across cellular perturbations",
+      "url": "https://www.biorxiv.org/content/10.64898/2026.10.28.762655",
+      "published_at": "2026-10-31",
+      "updated_at": "2026-10-31",
+      "creators": [
+        "Ho, N.",
+        "Xing, E. P.",
+        "Ma, J."
+      ],
+      "language": "en",
+      "abstract_or_text": "Predicting the effects of individual and combined perturbations is central to identifying context-specific vulnerabilities and designing targeted interventions. Yet learning gene representations that integrate functional relationships with cellular state and transfer across perturbation tasks remains challenging. Here, we present EMBER, a gene-centric foundation model that learns context-dependent functional representations of genes. EMBER combines interaction-guided contrastive learning with masked expression reconstruction during pretraining on a single-cell corpus curated for diversity and balanced sampling across cell types and experimental batches. EMBER decouples gene representation learning from task-specific prediction through a composable embedding framework: the pretrained encoder remains frozen, while lightweight probes combine contextualized gene embeddings to predict individual and combined perturbation effects. The same pretrained representations support single-gene perturbation-response prediction, digenic interaction prediction, and multi-target drug-response prediction. EMBER improves cross-context perturbation-response prediction and genetic-interaction ranking relative to evaluated baselines. EMBER also prioritized SCFD1, a mediator of autophagosome-lysosome fusion, as a candidate dependency during mTOR inhibition. Together, these results establish contextualized gene embeddings as reusable building blocks for modeling genetic and pharmacological perturbations, supporting the prioritization of genetic interactions and context-specific interventions for experimental testing.",
+      "summary_zh": "preprint；EMBER 学习情境依赖的基因表示，并用冻结编码器支持单基因、双基因和多靶点药物扰动预测。",
+      "why_it_matters_zh": "同一表示覆盖多种扰动任务，适合作为可组合建模基础；目前主要是相对基线改进与候选依赖性优先级，仍需实验验证。",
+      "quality_score": 72.0,
+      "tags": [
+        "组学与细胞"
+      ],
+      "evidence_flags": [
+        "experimental"
+      ],
+      "publication_status": "preprint",
+      "rank": 6,
+      "featured": false,
+      "category": "组学与细胞",
+      "metrics": {},
+      "metadata": {
+        "doi": "10.64898/2026.10.28.762655",
+        "arxiv_id": ""
+      },
+      "abstract_zh": "预测单个和组合扰动的影响，对于识别情境特异性脆弱性和设计靶向干预至关重要。然而，学习能够整合功能关系与细胞状态、并能跨扰动任务迁移的基因表示仍然具有挑战性。在这里，我们提出 EMBER，这是一种以基因为中心的基础模型，用于学习基因的情境依赖功能表示。EMBER 在一个为多样性而整理、并在细胞类型和实验批次之间进行平衡抽样的单细胞语料库上预训练，将交互引导的对比学习与掩码表达重构结合起来。EMBER 通过可组合嵌入框架，将基因表示学习与任务特异性预测解耦：预训练编码器保持冻结，而轻量级探针组合情境化基因嵌入，以预测单个和组合扰动效应。相同的预训练表示支持单基因扰动反应预测、双基因相互作用预测和多靶点药物反应预测。相对于所评估的基线，EMBER 改善了跨情境扰动反应预测和遗传相互作用排序。EMBER 还将 SCFD1（一种自噬体-溶酶体融合的介质）优先列为 mTOR 抑制期间的候选依赖基因。总之，这些结果确立了情境化基因嵌入作为建模遗传和药理学扰动的可复用构件，并支持为实验测试优先筛选遗传相互作用和情境特异性干预。",
+      "published": "2026-10-31",
+      "author_line": "Ho, N., Xing, E. P., Ma, J."
+    },
+    {
+      "id": "biorxiv:10.64898/2026.10.28.762481",
+      "channel": "aixbio",
+      "related_channels": [],
+      "item_type": "paper",
+      "source": "bioRxiv",
+      "title": "Refactored intracellular domains enhance CAR expression and function",
+      "url": "https://www.biorxiv.org/content/10.64898/2026.10.28.762481",
+      "published_at": "2026-10-29",
+      "updated_at": "2026-10-29",
+      "creators": [
+        "Bai, L.",
+        "Kumar, A.",
+        "Desai, H. J.",
+        "Li, J.",
+        "de Alwis, D. P.",
+        "Hazuda, D.",
+        "Grigoryan, G.",
+        "Wang, W.",
+        "Yi, J."
+      ],
+      "language": "en",
+      "abstract_or_text": "Chimeric antigen receptor (CAR) intracellular domains (ICDs) couple antigen recognition to T-cell activation. Here we worked with AI agents to refactor CAR ICDs, proposing designs and refining them as measurements accumulated over three rounds. This approach yielded KRGR-{zeta}1-40, a 45-amino-acid ICD less than a third the length of the clinical 4-1BB-CD3{zeta} (BB{zeta}) ICD. Compared with BB{zeta}, KRGR-{zeta}1-40 increased CAR surface expression and antigen-driven IFN-{gamma} release, without detectable antigen-independent IFN-{gamma} release. KRGR-{zeta}1-40 extended CAR expression and target-cell killing after transient mRNA delivery, supported the expression of four CARs from a shared mRNA dose, and enhanced B-cell depletion after lentiviral and lipid-nanoparticle delivery. These results show that iterative agent-guided design with experimental feedback can yield compact ICDs that enhance CAR expression and sustain CAR T-cell function.",
+      "summary_zh": "preprint；在三轮实验反馈中用 AI agents 迭代设计 CAR 细胞内结构域，得到紧凑的 KRGR-{zeta}1-40。",
+      "why_it_matters_zh": "该设计在表面表达、抗原驱动 IFN-{gamma} 释放、持续杀伤和 B 细胞清除方面显示实验改进，但证据仍来自 preprint 实验体系，不能等同于临床疗效。",
+      "quality_score": 73.0,
+      "tags": [
+        "组学与细胞"
+      ],
+      "evidence_flags": [
+        "experimental",
+        "clinical",
+        "release"
+      ],
+      "publication_status": "preprint",
+      "rank": 7,
+      "featured": false,
+      "category": "组学与细胞",
+      "metrics": {},
+      "metadata": {
+        "doi": "10.64898/2026.10.28.762481",
+        "arxiv_id": ""
+      },
+      "abstract_zh": "嵌合抗原受体（CAR）细胞内结构域（ICD）将抗原识别与 T 细胞活化耦联起来。在这里，我们与 AI agents 合作重构 CAR ICD，在测量结果逐步获得的过程中提出设计并进行改进，历经三轮。该方法产生了 KRGR-{zeta}1-40，这是一种 45 个氨基酸的 ICD，长度不到临床使用的 4-1BB-CD3{zeta}（BB{zeta}）ICD 的三分之一。与 BB{zeta} 相比，KRGR-{zeta}1-40 提高了 CAR 表面表达和抗原驱动的 IFN-{gamma} 释放，同时未检测到抗原非依赖性 IFN-{gamma} 释放。在瞬时 mRNA 递送后，KRGR-{zeta}1-40 延长了 CAR 表达和靶细胞杀伤，支持从共享 mRNA 剂量表达四种 CAR，并在慢病毒和脂质纳米颗粒递送后增强了 B 细胞清除。这些结果表明，带有实验反馈的迭代式 agent 引导设计可以产生紧凑的 ICD，从而增强 CAR 表达并维持 CAR T 细胞功能。",
+      "published": "2026-10-29",
+      "author_line": "Bai, L., Kumar, A., Desai, H. J., Li, J., de Alwis, D. P., Hazuda, D., Grigoryan, G., Wang, W., Yi, J."
+    },
+    {
+      "id": "biorxiv:10.64898/2026.10.28.762410",
+      "channel": "aixbio",
+      "related_channels": [],
+      "item_type": "paper",
+      "source": "bioRxiv",
+      "title": "Matrix biophysical cues drive transient or prolonged breast cancer dormancy programmes",
+      "url": "https://www.biorxiv.org/content/10.64898/2026.10.28.762410",
+      "published_at": "2026-10-29",
+      "updated_at": "2026-10-29",
+      "creators": [
+        "Heras, U.",
+        "Pardo Sanchez, J. M.",
+        "Berasain, J.",
+        "Toledo, I.",
+        "Iturriaga, L.",
+        "Calafel, I.",
+        "Aguirresarobe, R.",
+        "de Carcer, G.",
+        "Aguirre-Ghiso, J.",
+        "Arizaga, E.",
+        "Fernandez, M.",
+        "Zubizarreta, R.",
+        "Legorburu, A.",
+        "Riestra, A.",
+        "Mitxelena, O.",
+        "Cipitria, A."
+      ],
+      "language": "en",
+      "abstract_or_text": "Breast cancer metastasis can emerge after disease-free periods through the reawakening of dormant disseminated cancer cells. Despite evidence that the extracellular matrix (ECM) modulates this phenomenon, biophysical cues regulating dormancy fate and therapeutic responses remain poorly understood. Here, we engineered stiffness-matched gelatin methacryloyl (GelMA) and alginate-based 3D matrices to disentangle matrix stiffness from adhesion and degradability and uncover their contributions to dormancy. Deep learning-based 3D segmentation revealed that adhesive and degradable matrices supported rounded and proliferative tumour masses, whereas inert matrices favoured single cell dormancy. Within inert matrices, stiffness further determined dormancy fate, with soft matrices activating SOX9-associated transient stem-like dormancy, while stiff matrices reduced cell volume, increased intracellular macromolecular crowding of proteins and induced NR2F1-associated prolonged dormancy marked by autophagy and cellular stress. Transiently dormant cells retrieved from soft matrices retained dormancy memory and failed to form tumours in chicken chorioallantoic membranes, demonstrating persistence of matrix-induced states after removal of biophysical cues. Moreover, patient-derived cells in soft inert matrices recapitulated transient dormant states and exhibited therapy resistance. We demonstrate that tuneable biophysical cues shape distinct dormancy states, linking matrix mechanics to dormancy regulation and therapeutic response.",
+      "summary_zh": "preprint；工程化可调 3D 基质区分黏附性、可降解性和刚度，解析乳腺癌细胞的短暂与持久休眠程序。",
+      "why_it_matters_zh": "结合深度学习 3D 分割、患者来源细胞和鸡尿囊膜实验，提示基质力学与休眠记忆及治疗耐受相关，但仍不能据此确立人体因果机制。",
+      "quality_score": 73.0,
+      "tags": [
+        "生物医学与临床"
+      ],
+      "evidence_flags": [],
+      "publication_status": "preprint",
+      "rank": 8,
+      "featured": false,
+      "category": "生物医学与临床",
+      "metrics": {},
+      "metadata": {
+        "doi": "10.64898/2026.10.28.762410",
+        "arxiv_id": ""
+      },
+      "abstract_zh": "乳腺癌转移可以在无病期后通过休眠的播散癌细胞重新唤醒而出现。尽管已有证据表明细胞外基质（ECM）调节这一现象，但调控休眠命运和治疗反应的生物物理线索仍知之甚少。在这里，我们工程化制备了刚度匹配的明胶甲基丙烯酰（GelMA）和藻酸盐基 3D 基质，以区分基质刚度与黏附性、可降解性，并揭示它们对休眠的贡献。基于深度学习的 3D 分割显示，具有黏附性和可降解性的基质支持圆形且增殖性的肿瘤团块，而惰性基质更有利于单细胞休眠。在惰性基质中，刚度进一步决定休眠命运：软基质激活 SOX9 相关的短暂性干样休眠，而硬基质降低细胞体积、增加蛋白质的细胞内大分子拥挤，并诱导以自噬和细胞应激为特征的 NR2F1 相关持久休眠。从软基质中取回的短暂休眠细胞保留了休眠记忆，并且在鸡尿囊膜中未能形成肿瘤，表明在移除生物物理线索后，基质诱导的状态仍然持续。此外，患者来源细胞在软惰性基质中重现了短暂休眠状态，并表现出治疗耐受性。我们证明，可调的生物物理线索能够塑造不同的休眠状态，将基质力学与休眠调控和治疗反应联系起来。",
+      "published": "2026-10-29",
+      "author_line": "Heras, U., Pardo Sanchez, J. M., Berasain, J., Toledo, I., Iturriaga, L., Calafel, I., Aguirresarobe, R., de Carcer, G., Aguirre-Ghiso, J., Arizaga, E., Fernandez, M., Zubizarreta, R., Legorburu, A., Riestra, A., Mitxelena, O., Cipitria, A."
+    },
+    {
+      "id": "arxiv:2610.39464v1",
+      "channel": "aixbio",
+      "related_channels": [],
+      "item_type": "paper",
+      "source": "arXiv",
+      "title": "Integrating Heterogeneous Echocardiography AI Outputs in Language Space: Learnable Late Fusion with a Supervised LLM",
+      "url": "https://arxiv.org/abs/2610.39464v1",
+      "published_at": "2026-10-29",
+      "updated_at": "2026-10-29",
+      "creators": [
+        "Ryo Takizawa",
+        "Tempei Kabayama",
+        "Chiemi Yamazaki",
+        "Shun Kitamura",
+        "Ryo Matsuoka",
+        "Yuta Ando",
+        "Satoshi Kodera",
+        "Norihiko Takeda"
+      ],
+      "language": "en",
+      "abstract_or_text": "View- and target-specific echocardiography AI models capture useful but complementary information and may not achieve sufficient predictive performance in isolation. A learned ensemble is a natural way to combine these outputs, but heterogeneous models typically require each output to be converted into a binary decision, probability, confidence score, or fixed-length feature vector. We developed a supervised large language model (LLM)-based late-fusion module that directly aggregates view-specific predicted finding statements and predicted measurements in language space and learns a case-level fusion function. In patient-level three-fold cross-validation of 859 examinations from 646 patients, the proposed method integrated heterogeneous outputs within a single framework, performed comparably to the best-performing reference strategy evaluated, and outperformed a general-purpose LLM without task-specific training. These results suggest that a supervised LLM can combine multiple upstream models without model-specific output conversion or feature engineering that requires medical knowledge.",
+      "summary_zh": "preprint；用受监督 LLM 在语言空间融合异构超声心动图 AI 输出，在 646 名患者的 859 次检查上进行患者级交叉验证。",
+      "why_it_matters_zh": "展示了不依赖固定特征工程的晚期融合方案，并优于未针对任务训练的通用 LLM；仍属于回顾性模型评估。",
+      "quality_score": 73.0,
+      "tags": [
+        "生物医学与临床"
+      ],
+      "evidence_flags": [
+        "performance"
+      ],
+      "publication_status": "preprint",
+      "rank": 9,
+      "featured": false,
+      "category": "生物医学与临床",
+      "metrics": {},
+      "metadata": {
+        "doi": "",
+        "arxiv_id": "2610.39464v1"
+      },
+      "abstract_zh": "视图特异性和目标特异性的超声心动图 AI 模型能够捕获有用但互补的信息，单独使用时可能无法达到足够的预测性能。学习型集成是组合这些输出的自然方式，但异构模型通常需要将每个输出转换为二元决策、概率、置信度分数或固定长度特征向量。我们开发了一个基于受监督 large language model（LLM）的晚期融合模块，直接在语言空间聚合视图特异性的预测发现陈述和预测测量值，并学习病例级融合函数。在包含 646 名患者的 859 次检查中进行患者级三折交叉验证时，所提出的方法在单一框架内整合了异构输出，其表现与所评估的最佳参考策略相当，并优于通用 LLM。这些结果表明，受监督 LLM 可以在不进行模型特异性输出转换、也不需要医学知识驱动的特征工程的情况下，组合多个上游模型。",
+      "published": "2026-10-29",
+      "author_line": "Ryo Takizawa, Tempei Kabayama, Chiemi Yamazaki, Shun Kitamura, Ryo Matsuoka, Yuta Ando, Satoshi Kodera, Norihiko Takeda"
+    }
+  ],
+  "review": {
+    "model": "gpt-5.6-terra",
+    "reasoning_effort": "high",
+    "note": "按质量分≥70筛选；所选条目均为 preprint，未选入 peer_reviewed 或 publication_status=clinical 的条目。排序综合生物学意义、方法创新、数据规模、实验/临床证据与可复现性；摘要均为全文中文翻译，保留原始数字、基因名、模型名和专有名词。"
+  }
+}

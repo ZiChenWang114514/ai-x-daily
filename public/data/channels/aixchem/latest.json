@@ -1,24 +1,24 @@
 {
   "schema_version": "2.0",
-  "date": "2026-11-01",
+  "date": "2026-11-02",
   "channel": "aixchem",
-  "generated_at": "2026-10-31T22:12:10+00:00",
+  "generated_at": "2026-11-01T22:02:06+00:00",
   "title": "AI × Chem 每日精选",
   "subtitle": "预印本、方法、数据集与实验验证的每日精选。",
   "window": {
     "start": "2026-10-29",
-    "end": "2026-11-01"
+    "end": "2026-11-02"
   },
   "method": "公开来源采集、历史去重、规则筛选与模型审阅",
   "method_note": "系统保存当日公开元数据，与历史日报核验后排除已报道事件；论文新版本、新修订及不同软件发布等可核实更新仍可入选，随后由指定模型阅读全文摘要并完成精选。",
   "stats": {
-    "fetched": 1208,
-    "suppressed_previous": 38,
+    "fetched": 1297,
+    "suppressed_previous": 60,
     "candidates": 60,
-    "selected": 8,
+    "selected": 3,
     "sources": {
       "arXiv": 406,
-      "bioRxiv": 650,
+      "bioRxiv": 739,
       "ChemRxiv": 158
     }
   },
@@ -29,7 +29,7 @@
     },
     "bioRxiv": {
       "state": "ok",
-      "count": 650
+      "count": 739
     },
     "ChemRxiv": {
       "state": "ok",
@@ -39,42 +39,32 @@
   "source_errors": [],
   "items": [
     {
-      "id": "biorxiv:10.64898/2026.10.29.762711",
+      "id": "biorxiv:10.64898/2026.10.25.761203",
       "channel": "aixchem",
       "related_channels": [
-        "aixmath",
         "aixbio"
       ],
       "item_type": "paper",
       "source": "bioRxiv",
-      "title": "Small molecule structure elucidation from NMR spectra with generative and reasoning models",
-      "url": "https://www.biorxiv.org/content/10.64898/2026.10.29.762711",
-      "published_at": "2026-10-31",
-      "updated_at": "2026-10-31",
+      "title": "Harness engineering enables a multi-agent LLM system to generate cross-domain hypotheses beyond single-investigator reach",
+      "url": "https://www.biorxiv.org/content/10.64898/2026.10.25.761203",
+      "published_at": "2026-10-30",
+      "updated_at": "2026-10-30",
       "creators": [
-        "Xiong, Z.",
-        "Ying, V. Y.",
-        "Huang, J. Z.",
-        "Koch, Z.",
-        "Clark, J. D.",
-        "Heeter, R. C.",
-        "An, J. S.",
-        "Matanachai, K.",
-        "Rodriques, S. G.",
-        "White, A. D.",
-        "Seyedsayamdost, M. R.",
-        "Zhong, E."
+        "Omasa, T.",
+        "Watanabe, K."
       ],
       "language": "en",
-      "abstract_or_text": "Elucidating the structures of unknown small molecules remains a major challenge in chemistry, pharmacology, and drug discovery. While nuclear magnetic resonance (NMR) spectroscopy is the gold standard for structure elucidation, interpreting spectra remains labor-intensive and requires expert knowledge to navigate the vast space of possible structures. Here, we present an AI system for rapid, automated de novo structure elucidation that combines a molecular generative model with a scientific reasoning agent. Its generative component, ChefNMR2, is an atomic flow-matching model that predicts small-molecule structures from molecular formulae and one-dimensional 1H and 13C NMR spectra. ChefNMR2-Agent augments our generative model with large language models (LLMs) to reason over and refine candidate structures. Across diverse benchmarks, ChefNMR2 substantially outperforms existing tools, offering calibrated confidence estimates and two to three orders of magnitude faster inference than frontier LLMs. We use ChefNMR2-Agent to elucidate the structures of four novel natural products, matching human-chemist accuracy in a fraction of the time. Our work demonstrates how specialized generative models and general-purpose reasoning agents can unite to solve challenging scientific inverse problems and accelerate NMR structure elucidation, thus opening new possibilities for AI-driven small-molecule discovery across diverse disciplines.",
-      "summary_zh": "提出 ChefNMR2 原子级 flow-matching 模型及 ChefNMR2-Agent，依据分子式和一维 1H、13C NMR 光谱自动生成并推理小分子结构；在多项基准上优于现有工具，并解析了四种新型天然产物。",
-      "why_it_matters_zh": "将专用分子生成模型与通用推理智能体结合，有望显著加速 NMR 结构解析和天然产物发现。摘要仅报告多样基准与四个天然产物案例，预印本结果仍需独立复现，并关注二维谱图、复杂混合物和分布外结构上的泛化。",
-      "quality_score": 85.0,
+      "abstract_or_text": "Large language models (LLMs) are increasingly used to generate scientific hypotheses, and a more capable model is widely assumed to drive output quality. We tested this with a biology-focused multi-agent system coupling an LLM to five Model Context Protocol servers exposing 66 external tools. Upgrading the Synthesizer and Critic from Claude Sonnet 4.6 to Opus 4.8 initially appeared to improve quality, count, and reliability. Under a fully matched harness (identical prompts, schema, hypothesis count, and queries), the differences vanished: scores were indistinguishable on an iPSC-reprogramming task and favoured Sonnet 4.6 on a CHO cell-line-engineering task (18.4 vs 17.4; Welch t = 2.89, p < 0.05). The dominant, controllable driver of quality is therefore the prompting harness, not the model tier. We then introduce the ABCD-Stack (contract-gated prompting, diversity-first generation, adversarial refinement, and cross-family evaluation), which builds these properties in as architecture and shifts outputs toward explicitly falsifiable, causally framed hypotheses beyond the reach of a single-domain investigator. The hypotheses are falsifiable by construction but not yet experimentally validated.",
+      "summary_zh": "研究一个连接五个 Model Context Protocol 服务器、调用 66 个外部工具的生物学多智能体 LLM 系统，比较 Claude Sonnet 4.6 与 Opus 4.8，并提出 ABCD-Stack harness。结果显示，在提示词、模式、假设数量和查询完全匹配时，模型层级差异消失，harness 设计比模型升级更能决定假设质量。",
+      "why_it_matters_zh": "工作通过匹配实验把模型能力与 harness 设计的影响分离，为可复现的 AI 科学假设生成提供了架构依据。需要注意的是，评估仅覆盖 iPSC 重编程和 CHO 细胞系工程任务，生成的假设虽可证伪，但尚未经过实验验证。",
+      "quality_score": 74.0,
       "tags": [
         "方法与模型"
       ],
       "evidence_flags": [
-        "benchmark"
+        "experimental",
+        "evaluation"
       ],
       "publication_status": "preprint",
       "rank": 1,
@@ -82,313 +72,100 @@
       "category": "方法与模型",
       "metrics": {},
       "metadata": {
-        "doi": "10.64898/2026.10.29.762711",
+        "doi": "10.64898/2026.10.25.761203",
         "arxiv_id": ""
       },
-      "abstract_zh": "阐明未知小分子的结构仍是化学、药理学和药物发现中的重大挑战。尽管核磁共振（NMR）光谱是结构解析的金标准，光谱解读仍然劳动密集，并需要专业知识来处理庞大的可能结构空间。我们提出一种快速、自动化的从头结构解析 AI 系统，将分子生成模型与科学推理智能体结合。其生成组件 ChefNMR2 是一种原子级 flow-matching 模型，根据分子式和一维 1H 和 13C NMR 光谱预测小分子结构。ChefNMR2-Agent 利用大语言模型（LLM）对候选结构进行推理和细化。在多种基准测试中，ChefNMR2 显著优于现有工具，提供经过校准的置信度估计，其推理速度比前沿 LLM 快两到三个数量级。我们使用 ChefNMR2-Agent 解析了四种新型天然产物的结构，以人类化学家相当的准确度，仅用很短时间完成。该工作展示了专业生成模型和通用推理智能体如何结合，以解决具有挑战性的科学逆问题并加速 NMR 结构解析，从而为跨学科的 AI 驱动小分子发现开辟新的可能性。",
-      "published": "2026-10-31",
-      "author_line": "Xiong, Z., Ying, V. Y., Huang, J. Z., Koch, Z., Clark, J. D., Heeter, R. C., An, J. S., Matanachai, K., Rodriques, S. G., White, A. D., Seyedsayamdost, M. R., Zhong, E."
+      "abstract_zh": "大型语言模型（LLM）越来越多地用于生成科学假设，人们普遍认为能力更强的模型会带来更高质量的输出。我们测试了这一点，构建了一个面向生物学的多智能体系统，将一个 LLM 与五个 Model Context Protocol 服务器连接，暴露 66 个外部工具。将 Synthesizer 和 Critic 从 Claude Sonnet 4.6 升级到 Opus 4.8，起初似乎提高了质量、数量和可靠性。在完全匹配的 harness（提示词、模式、假设数量和查询均相同）下，差异消失：在 iPSC-reprogramming 任务上得分无差异，在 CHO cell-line-engineering 任务上 Sonnet 4.6 反而占优（18.4 vs 17.4；Welch t = 2.89, p < 0.05）。因此，质量的主要可控驱动因素是 prompting harness，而不是模型层级。随后我们提出 ABCD-Stack（contract-gated prompting、diversity-first generation、adversarial refinement 和 cross-family evaluation），将这些性质固化为架构，使输出转向明确可证伪、具有因果表述、超出单一领域研究者能力范围的假设。这些假设在构造上可证伪，但尚未进行实验验证。",
+      "published": "2026-10-30",
+      "author_line": "Omasa, T., Watanabe, K."
     },
     {
-      "id": "biorxiv:10.64898/2026.10.26.761652",
+      "id": "arxiv:2610.39685v1",
       "channel": "aixchem",
       "related_channels": [
         "aixbio"
       ],
       "item_type": "paper",
-      "source": "bioRxiv",
-      "title": "Task-Dependent Performance of GNNs and Pretrained Models in ADMET Prediction",
-      "url": "https://www.biorxiv.org/content/10.64898/2026.10.26.761652",
-      "published_at": "2026-10-30",
-      "updated_at": "2026-10-30",
+      "source": "arXiv",
+      "title": "Practical Assessment of Agentic Systems in Acoustics",
+      "url": "https://arxiv.org/abs/2610.39685v1",
+      "published_at": "2026-10-29",
+      "updated_at": "2026-10-29",
       "creators": [
-        "Stamenov, M.",
-        "Gjurovska, M.",
-        "Vodilovska, V.",
-        "Ivanoska, I."
+        "Arne Hildenbrand",
+        "Philipp Diel",
+        "Zhuo Cao",
+        "Hanno Scharr",
+        "Stefan Pischinger",
+        "Steffen Marburg"
       ],
       "language": "en",
-      "abstract_or_text": "Structure-based prediction of ADMET (absorption, distribution, metabolism, excretion, and toxicity) properties promises fast, low-cost screening of drug candidates, yet model selection remains unclear because published comparisons of molecular representations often use unmatched tuning budgets and leakage-prone evaluation protocols, producing performance differences that may not reflect model quality. To address this gap, we benchmark graph neural networks (GNNs), frozen pretrained models (ChemBERTa, MolCLR), and fingerprint baselines across six Therapeutics Data Commons ADMET endpoints under scaffold-split evaluation. To make it really fair we gave every model family a matched 50-trial, validation-selected tuning budget and reported the median over ten seeds; architecture and hyperparameter selection use validation data only, with the held-out test split reserved for final performance estimation. Under this fair comparison protocol, no model family dominates and the differences between families fall within the seed-to-seed range on most endpoints. The GNN is clearly best only on Caco-2 permeability (R^2 \\approx 0.48), and a controlled ablation shows this advantage comes entirely from auxiliary physicochemical descriptors rather than the graph representation; Morgan fingerprints are competitive on hERG (AUC \\approx 0.77) and give the best median on both clearance endpoints, while MolCLR is best on Tox21. For hepatocyte clearance and half-life, all models yield near-zero or negative R^2. No single hyperparameter-optimization strategy, among seven evaluated, consistently outperforms random search at this budget, and we show that selecting the optimizer using test-set performance or reporting only single best-trial runs can substantially inflate a favored model's apparent advantage. Reliable ADMET modeling therefore requires endpoint-specific model selection together with fair, leakage-controlled, seed-averaged evaluation, offering more trustworthy decision support for early-stage drug candidate prioritization.",
-      "summary_zh": "在六个 Therapeutics Data Commons ADMET 终点上，以 scaffold-split 和匹配调参预算比较 GNN、ChemBERTa、MolCLR 及分子指纹，发现没有模型家族普遍占优，性能高度依赖具体终点和评估协议。",
-      "why_it_matters_zh": "系统揭示公平调参、控制数据泄漏和多随机种子评估对 ADMET 模型比较的重要性，可避免把评估偏差误认为模型优势。数据集终点和实验协议仍限制外推，肝细胞清除率和半衰期上的预测能力尤其有限。",
+      "abstract_or_text": "In engineering, applications of artificial intelligence have so far been largely limited to surrogate models and optimization tasks. Large language models changed this, as they can write software from a task given in words. Placed inside a harness, a system of components that lets it search for information and execute software, such a model becomes an agent that can take over recurring engineering tasks. This work measures how the model and the elements of the harness shape the performance and behavior of the agent in two common acoustic applications. In the first, the agent detects and locates faults in audio recordings from a vehicle interior with near-perfect accuracy. A benchmark on this task shows that a weak model sets a limit that no harness design can overcome, and that design choices take effect only once the model is capable enough to use them. In the second, a case study on the design of a metamaterial unit cell, the agent reliably finds designs that achieve a specified insertion loss over a given frequency range. The results aim to help the reader understand what each element of an agent contributes and how to design an agent for acoustic tasks.",
+      "summary_zh": "评估 agent 及其 harness 组件在两类声学工程任务中的作用：车辆内音频故障检测与超材料单元设计。系统在故障定位上接近完美，并能找到满足指定频段插入损耗的超材料单元；基准分析显示，弱模型会限制 harness 的收益。",
+      "why_it_matters_zh": "该研究将 agent 架构因素与任务性能联系起来，并展示了面向超材料单元的设计案例，对材料发现中的智能体工作流具有参考价值。限制在于材料部分是单一案例，摘要未报告跨任务规模化验证或实际制备实验。",
       "quality_score": 71.0,
       "tags": [
-        "分子与药物发现"
+        "方法与模型"
       ],
       "evidence_flags": [
         "benchmark",
-        "ablation",
-        "evaluation",
         "performance"
       ],
       "publication_status": "preprint",
       "rank": 2,
       "featured": true,
-      "category": "分子与药物发现",
+      "category": "方法与模型",
       "metrics": {},
       "metadata": {
-        "doi": "10.64898/2026.10.26.761652",
-        "arxiv_id": ""
+        "doi": "",
+        "arxiv_id": "2610.39685v1"
       },
-      "abstract_zh": "基于结构预测 ADMET（吸收、分布、代谢、排泄和毒性）性质有望以快速、低成本方式筛选候选药物，但模型选择仍不明确，因为已发表的分子表示比较往往使用不匹配的调参预算和易发生数据泄漏的评估协议，导致性能差异未必反映模型质量。为弥补这一缺口，我们在六个 Therapeutics Data Commons ADMET 终点上进行基准比较，涵盖图神经网络（GNN）、冻结的预训练模型（ChemBERTa、MolCLR）和指纹基线，并采用 scaffold-split 评估。为实现真正公平的比较，我们给予每个模型家族匹配的 50 次试验、基于验证集选择的调参预算，并报告十个随机种子的中位数；架构和超参数选择仅使用验证数据，保留测试集用于最终性能估计。在这一公平比较协议下，没有任何模型家族占据统治地位，多数终点上不同家族间的差异处于随机种子波动范围内。GNN 仅在 Caco-2 渗透性上明显最佳（R^2 ≈ 0.48），且受控消融显示这一优势完全来自辅助理化描述符，而非图表示；Morgan fingerprints 在 hERG 上具有竞争力（AUC ≈ 0.77），并在两个清除终点上取得最佳中位数，而 MolCLR 在 Tox21 上最佳。对于肝细胞清除率和半衰期，所有模型的 R^2 均接近零或为负。所评估的七种超参数优化策略中，没有一种在该预算下持续优于随机搜索；我们还显示，使用测试集性能选择优化器或只报告单次最佳试验，可能会大幅夸大某一模型表面上的优势。因此，可靠的 ADMET 建模需要针对终点选择模型，并采用公平、控制泄漏、对多个随机种子取平均的评估，为早期候选药物优先级排序提供更可信的决策支持。",
-      "published": "2026-10-30",
-      "author_line": "Stamenov, M., Gjurovska, M., Vodilovska, V., Ivanoska, I."
+      "abstract_zh": "在工程领域，人工智能迄今主要局限于代理模型和优化任务。大型语言模型改变了这一点，因为它们可以根据文字描述的任务编写软件。当模型被置于一个 harness 中，即一个允许其搜索信息并执行软件的组件系统中，它就能成为可接管重复工程任务的 agent。本研究测量了模型及 harness 各要素如何影响 agent 在两个常见声学应用中的性能和行为。第一项任务中，agent 以近乎完美的准确率检测并定位车辆内饰音频记录中的故障。该任务的基准测试表明，弱模型会设定任何 harness 设计都无法突破的上限，而设计选择只有在模型具备足够能力加以利用时才会生效。第二项任务是超材料单元的设计案例研究，agent 能够可靠地找到在给定频率范围内达到指定插入损耗的设计。研究结果旨在帮助读者理解 agent 的每个组成要素能带来什么作用，以及如何为声学任务设计 agent。",
+      "published": "2026-10-29",
+      "author_line": "Arne Hildenbrand, Philipp Diel, Zhuo Cao, Hanno Scharr, Stefan Pischinger, Steffen Marburg"
     },
     {
-      "id": "biorxiv:10.64898/2026.10.29.762730",
+      "id": "biorxiv:10.64898/2026.10.29.762723",
       "channel": "aixchem",
       "related_channels": [],
       "item_type": "paper",
       "source": "bioRxiv",
-      "title": "LPT: Orchestrating bounded agentic loops for automated protein binder design",
-      "url": "https://www.biorxiv.org/content/10.64898/2026.10.29.762730",
+      "title": "Spectroscopy-Based Machine Learning to Predict Stem-End Rot in Avocados with the Temporal Effects",
+      "url": "https://www.biorxiv.org/content/10.64898/2026.10.29.762723",
       "published_at": "2026-10-30",
       "updated_at": "2026-10-30",
       "creators": [
-        "Uckelmann, M."
+        "Guo, X.",
+        "Chauhan, A."
       ],
       "language": "en",
-      "abstract_or_text": "Current large language models (LLMs) can reason over scientific information and use code-based tools, but their training knowledge is broad rather than specialized, can be out of date and is hard to attribute to sources. Furthermore, unconstrained agentic workflows and unlimited tool use can consume large amounts of tokens. Here we present LPT (little protein tiger), a framework for fixed orchestration of LLM stages, each running a bounded agentic loop with custom system prompts and tool access, to enable de novo protein binder design from a single natural language prompt. The LLM stages can query a curated literature database, containing ~14000 papers digested into key findings, enabling recall of specialized information. An LLM with database access answered 41/48 test questions drawn from database key findings correctly, while a model without access answered none. In three end-to-end design campaigns, initiated from a single prompt, LPT autonomously identified the design intent, selected targets, structures and hotspot residues and designed candidate binders to disrupt CALCRL/RAMP1, PD-1/PD-L1 and PVR-TIGIT interactions. Cross-validation with multiple folding models confirms a high in silico success rate at minimal token consumption and low computational costs.",
-      "summary_zh": "提出 LPT（little protein tiger），用固定编排的有界 LLM 循环、工具调用和约 14000 篇论文的整理数据库，仅凭自然语言提示完成蛋白质结合体设计，并针对 CALCRL/RAMP1、PD-1/PD-L1 和 PVR-TIGIT 生成候选。",
-      "why_it_matters_zh": "展示了把专业文献检索、阶段化智能体和结构预测结合起来进行蛋白质设计的可复用流程。证据主要来自 41/48 的数据库问答和三个端到端计算设计活动，尚无结合实验或细胞功能验证，所谓成功率仍是 in silico。",
-      "quality_score": 71.0,
+      "abstract_or_text": "Accurate prediction of postharvest fruit quality is essential for reducing food waste and improving supply chain efficiency. This study investigates the integration of spectral information and temporal dynamics for predicting stem-end rot in avocados using hyperspectral Vis-NIR data. Three modelling approaches were compared: a feedforward neural network using only spectral information, an extended model incorporating storage duration, and a physics-informed neural network (PINN) encoding a first-order kinetic constraint. To evaluate temporal extrapolation, models were trained on samples from early storage stages and tested on day-12 data. Results show that while spectral data provide strong predictive capability, incorporating time as a simple input can lead to overfitting. In contrast, the PINN improves generalization by guiding learning with mechanistic knowledge, achieving the best performance on unseen temporal conditions. These findings highlight the value of combining data-driven and physics-based approaches, offering a promising pathway toward more robust and interpretable models for time-dependent food quality assessment.",
+      "summary_zh": "使用鳄梨高光谱 Vis-NIR 数据预测茎端腐烂，比较仅光谱、加入储藏时长和加入一阶动力学约束的 PINN 三种模型。模型在早期储藏数据上训练、在第12天测试，PINN 在未见时间条件下泛化最好，而简单加入时间会过拟合。",
+      "why_it_matters_zh": "研究展示了将光谱机器学习与机制约束结合以提升时间外推稳健性的思路，可迁移到化学传感和质量检测。摘要未给出样本量及具体误差指标，且验证限于鳄梨采后腐烂，外部泛化能力仍待确认。",
+      "quality_score": 70.0,
       "tags": [
         "方法与模型"
       ],
-      "evidence_flags": [],
+      "evidence_flags": [
+        "performance"
+      ],
       "publication_status": "preprint",
       "rank": 3,
       "featured": true,
       "category": "方法与模型",
       "metrics": {},
       "metadata": {
-        "doi": "10.64898/2026.10.29.762730",
+        "doi": "10.64898/2026.10.29.762723",
         "arxiv_id": ""
       },
-      "abstract_zh": "当前的大语言模型（LLM）能够对科学信息进行推理并使用基于代码的工具，但其训练知识广泛而非专门化，可能过时且难以追溯来源。此外，不受约束的智能体工作流和无限工具调用会消耗大量 token。我们提出 LPT（little protein tiger），一种固定编排的 LLM 阶段框架；每个阶段都运行带有自定义系统提示和工具访问权限的有界智能体循环，从而仅凭一条自然语言提示实现从头蛋白质结合体设计。LLM 阶段可以查询一个经过整理的文献数据库，其中约 14000 篇论文已被提炼为关键发现；在测试数据库关键发现的问题上，具备数据库访问权限的 LLM 答对了 41/48 题，而没有访问权限的模型一道也没答对。在三项端到端设计活动中，LPT 从单条提示出发，自主确定设计意图、选择靶点、结构和热点残基，并设计了用于干扰 CALCRL/RAMP1、PD-1/PD-L1 和 PVR-TIGIT 相互作用的候选结合体。多个折叠模型的交叉验证证实其具有较高的计算预测成功率，同时 token 消耗和计算成本很低。",
+      "abstract_zh": "准确预测采后水果品质对于减少食物浪费和提高供应链效率至关重要。本研究使用高光谱 Vis-NIR 数据，考察将光谱信息与时间动态结合以预测鳄梨茎端腐烂。比较了三种建模方法：仅使用光谱信息的前馈神经网络、加入储藏时长的扩展模型，以及编码一阶动力学约束的物理信息神经网络（PINN）。为评估时间外推，模型在早期储藏阶段的样本上训练，并在第12天数据上测试。结果表明，虽然光谱数据具有较强预测能力，但将时间作为简单输入可能导致过拟合。相比之下，PINN 通过机制知识引导学习，改善了泛化，在未见过的时间条件下取得最佳性能。这些发现凸显了融合数据驱动方法与基于物理的方法的价值，为更稳健、可解释的时间依赖型食品品质评估提供了有前景的路径。",
       "published": "2026-10-30",
-      "author_line": "Uckelmann, M."
-    },
-    {
-      "id": "biorxiv:10.64898/2026.10.26.761000",
-      "channel": "aixchem",
-      "related_channels": [
-        "aixmath",
-        "aixbio"
-      ],
-      "item_type": "paper",
-      "source": "bioRxiv",
-      "title": "Network-guided identification of candidate biomarkers for COPD-associated comorbidities using deep learning and real-world transcriptomic data",
-      "url": "https://www.biorxiv.org/content/10.64898/2026.10.26.761000",
-      "published_at": "2026-10-30",
-      "updated_at": "2026-10-30",
-      "creators": [
-        "Mas, J. M.",
-        "Ramirez, E.",
-        "Daura, X."
-      ],
-      "language": "en",
-      "abstract_or_text": "Chronic obstructive pulmonary disease (COPD) frequently coexists with infections, metabolic disease, cardiovascular disease, inflammatory lung injury and lung cancer. Molecular markers derived by comparing a comorbidity with healthy controls need not identify the transition from an established COPD state to that comorbidity. We therefore developed a two-stage computational strategy that asks a narrower question: which proteins can distinguish COPD samples from samples annotated with a specific COPD-associated comorbidity? First, a Human Protein Network (HPN; 17,302 proteins and 492,195 relationships) was encoded by 20 graph-derived features. A convolutional-neural-network ensemble, termed the functional-distance model (FDM), was trained on known drug-target-indication relationships. Stored training-set predictions yielded an apparent balanced accuracy of 0.811 and Matthews correlation coefficient (MCC) of 0.627; these values describe resubstitution performance and are not an independent estimate of generalization. The COPD-centred network search evaluated 2,645 nearby proteins and retained 224 candidates using a COPD FDM score above 0.50. Candidate expression was then tested in independently assembled public patient-derived transcriptomic data using simple one-feature classifiers and cross-validation. The resulting exploratory panel contained GTF2I for bacterial infection, UBXN7 for type 2 diabetes, LIFR for hypertension, SRGN for lung neoplasm and FGF4 for pneumonitis. Across the saved cross-validation predictions, balanced accuracy ranged from 0.838 to 0.970 and MCC from 0.726 to 0.941. SRGN has direct experimental support in non-small-cell lung cancer, whereas the remaining candidates have varying indirect mechanistic support and should be regarded as hypotheses rather than established disease biomarkers. This work demonstrates an orthogonal discovery framework in which network-based functional prioritization and patient-derived molecular discrimination constrain one another. Its main contribution is methodological: it provides a reusable strategy for generating comorbidity-specific biomarker hypotheses from an index-disease state. Prospective longitudinal cohorts are required before claims of progression prediction or clinical utility can be made.",
-      "summary_zh": "构建两阶段网络—深度学习流程，从 COPD 蛋白质网络中筛选与特定共病相关的候选蛋白，再用独立患者转录组数据验证，提出 GTF2I、UBXN7、LIFR、SRGN 和 FGF4 候选标志物。",
-      "why_it_matters_zh": "把网络功能优先级与患者分子判别结合，为共病特异性生物标志物发现提供可复用框架。训练集指标是重代入性能，候选大多缺乏直接机制证据，且需要前瞻性纵向队列才能检验进展预测和临床效用。",
-      "quality_score": 78.0,
-      "tags": [
-        "方法与模型"
-      ],
-      "evidence_flags": [
-        "experimental",
-        "prospective",
-        "clinical",
-        "performance"
-      ],
-      "publication_status": "preprint",
-      "rank": 4,
-      "featured": false,
-      "category": "方法与模型",
-      "metrics": {},
-      "metadata": {
-        "doi": "10.64898/2026.10.26.761000",
-        "arxiv_id": ""
-      },
-      "abstract_zh": "慢性阻塞性肺疾病（COPD）常与感染、代谢病、心血管疾病、炎性肺损伤和肺癌共存。通过将共病与健康对照比较得到的分子标志物，未必能识别从既有 COPD 状态向该共病的转变。因此，我们开发了一种两阶段计算策略，提出一个更窄的问题：哪些蛋白质能够区分 COPD 样本与标注有特定 COPD 相关共病的样本？首先，将一个人类蛋白质网络（HPN；17302 个蛋白质和 492195 条关系）编码为 20 个图派生特征。卷积神经网络集成模型 functional-distance model（FDM）在已知药物—靶点—适应证关系上训练。保存的训练集预测得到表观平衡准确率 0.811 和 Matthews 相关系数（MCC）0.627；这些数值描述的是重代入性能，并不是泛化能力的独立估计。以 COPD 为中心的网络搜索评估了 2645 个邻近蛋白质，并使用 COPD FDM 得分高于 0.50 的标准保留 224 个候选。随后，使用独立汇编的公共患者来源转录组数据，通过简单的单特征分类器和交叉验证测试候选表达。最终的探索性面板包括细菌感染的 GTF2I、2 型糖尿病的 UBXN7、高血压的 LIFR、肺部肿瘤的 SRGN 以及肺炎的 FGF4。在保存的交叉验证预测中，平衡准确率范围为 0.838–0.970，MCC 范围为 0.726–0.941。SRGN 在非小细胞肺癌中有直接实验支持，而其余候选的机制支持程度不一，应被视为假设而非已确立的疾病生物标志物。该工作展示了一个正交发现框架，其中基于网络的功能优先级排序与患者来源的分子判别相互约束。其主要贡献在方法学层面：提供了一种可复用策略，用于从一个索引疾病状态生成共病特异性生物标志物假设。在声称具有进展预测能力或临床效用之前，还需要前瞻性纵向队列。",
-      "published": "2026-10-30",
-      "author_line": "Mas, J. M., Ramirez, E., Daura, X."
-    },
-    {
-      "id": "biorxiv:10.64898/2026.10.28.762473",
-      "channel": "aixchem",
-      "related_channels": [],
-      "item_type": "paper",
-      "source": "bioRxiv",
-      "title": "Oxygen drives a rapid, reversible photoprotective switch in photosynthetic antennae",
-      "url": "https://www.biorxiv.org/content/10.64898/2026.10.28.762473",
-      "published_at": "2026-10-30",
-      "updated_at": "2026-10-30",
-      "creators": [
-        "van Heerden, B.",
-        "Kyeyune, F.",
-        "Conradie, F.",
-        "Millan, S.",
-        "Gardiner, A. T.",
-        "Cogdell, R. J.",
-        "Sarewicz, M.",
-        "Osyczka, A.",
-        "Gwizdala, M.",
-        "Krüger, T. P."
-      ],
-      "language": "en",
-      "abstract_or_text": "Oxygen is the archetypal agent of photooxidative damage, and it is generally countered by removing its reactive products or by regulated, energy-costly responses. We show that in photosynthetic light-harvesting complexes, oxygen also drives a rapid, reversible photoprotective switch. Using a new bulk fluorescence method that separates reversible dark states from irreversible photobleaching, together with single-molecule spectroscopy, we find that illumination and oxygen generate a reversible, protein-stabilized charge-separated state comprising oxidized chlorophyll and superoxide. Access to this state increasingly outcompetes irreversible photodamage as excitation intensity falls to physiological levels and is strongly accelerated by ascorbic acid in native thylakoid membranes. These findings identify a constitutive oxygen-dependent photoprotective pathway and suggest that redox-state recovery can determine whether oxygen-associated chemistry protects or damages photoactive systems.",
-      "summary_zh": "结合新的群体荧光方法和单分子光谱，发现氧和光照可在光合天线复合物中诱导由氧化叶绿素与超氧化物组成的、蛋白质稳定的可逆电荷分离态，从而触发光保护开关。",
-      "why_it_matters_zh": "揭示氧在生理激发强度下也能促进光保护而非仅导致光氧化损伤，补充了光合体系的氧化还原机制。当前证据集中于光合复合物和体外/膜体系，向其他光活性材料或生物系统外推仍需验证。",
-      "quality_score": 73.0,
-      "tags": [
-        "分子与药物发现"
-      ],
-      "evidence_flags": [],
-      "publication_status": "preprint",
-      "rank": 5,
-      "featured": false,
-      "category": "分子与药物发现",
-      "metrics": {},
-      "metadata": {
-        "doi": "10.64898/2026.10.28.762473",
-        "arxiv_id": ""
-      },
-      "abstract_zh": "氧是光氧化损伤的典型因素，通常通过移除其活性产物或启动受调控且耗能的响应来应对。我们显示，在光合光捕获复合物中，氧也会驱动一种快速、可逆的光保护开关。借助一种能够将可逆暗态与不可逆光漂白分开的新型整体荧光方法，并结合单分子光谱学，我们发现，光照和氧会生成一种由氧化叶绿素和超氧化物组成、由蛋白质稳定的可逆电荷分离态。当激发强度降至生理水平时，进入该状态越来越能够胜过不可逆光损伤；在天然类囊体膜中，抗坏血酸会显著加速这一过程。这些发现确定了一条组成型的、依赖氧的光保护通路，并提示氧相关化学究竟保护还是损伤光活性系统，可能取决于氧化还原状态的恢复。",
-      "published": "2026-10-30",
-      "author_line": "van Heerden, B., Kyeyune, F., Conradie, F., Millan, S., Gardiner, A. T., Cogdell, R. J., Sarewicz, M., Osyczka, A., Gwizdala, M., Krüger, T. P."
-    },
-    {
-      "id": "arxiv:2610.39074v1",
-      "channel": "aixchem",
-      "related_channels": [],
-      "item_type": "paper",
-      "source": "arXiv",
-      "title": "HERA: Assessing an Autonomous Agent for Quantum Device Measurement",
-      "url": "https://arxiv.org/abs/2610.39074v1",
-      "published_at": "2026-10-29",
-      "updated_at": "2026-10-29",
-      "creators": [
-        "Zachary W. Gomez",
-        "Nathan Bittner",
-        "Jordan T. McCourt",
-        "Qingrui Cao",
-        "Sandesh S. Kalantre",
-        "Benjamin H. Alexander",
-        "Zhiren Zheng",
-        "Kenji Watanabe",
-        "Takashi Taniguchi",
-        "Aaron Sharpe"
-      ],
-      "language": "en",
-      "abstract_or_text": "Large language model agents have begun to carry out laboratory measurements, but their scientific conclusions are useful only if they hold up under scrutiny. Demonstrating this requires controlled studies because models are stochastic and the context a model is given steers its conclusions. Here we introduce HERA, an autonomous agent designed to carry out cryogenic transport measurements of quantum devices. HERA draws on a knowledge base curated by lab members that holds measurement protocols, software tools, and literature references. We assessed HERA with a blinded trial against an expert on the stacking order of two multilayer graphene devices, an ablation of its knowledge base, and hundreds of offline replays in which models designed the trial's central measurement without running it. HERA's conclusions matched the expert's sealed conclusions on both tested devices. The ablation and the replay studies measured the impact of the knowledge base across different models, showing that with it every model designed better measurements and reasoned more soundly. To test how readily HERA extends to a new problem, we tasked it with finding and characterizing superconductivity in a different material system. This required a few hours of expert time to develop a new experimental protocol, after which HERA did both autonomously. These results show that, with a knowledge base designed for the task, language model agents are capable of sound experimental science.",
-      "summary_zh": "提出 HERA 自主实验智能体，用实验室知识库、盲法专家对照、知识库消融和离线重放评估其进行低温量子器件测量的能力，并在新材料体系中自主发现和表征超导性。",
-      "why_it_matters_zh": "提供了对实验智能体进行受控、可审计评估的范例，尤其强调知识库和实验协议对可靠性的作用。盲法对照仅涉及两个多层石墨烯器件，迁移到新材料仍需专家先开发协议，规模化和跨实验室泛化尚未证明。",
-      "quality_score": 75.0,
-      "tags": [
-        "方法与模型"
-      ],
-      "evidence_flags": [
-        "experimental",
-        "ablation"
-      ],
-      "publication_status": "preprint",
-      "rank": 6,
-      "featured": false,
-      "category": "方法与模型",
-      "metrics": {},
-      "metadata": {
-        "doi": "",
-        "arxiv_id": "2610.39074v1"
-      },
-      "abstract_zh": "大语言模型智能体已经开始执行实验室测量，但只有经受审查的科学结论才有用。要证明这一点，需要进行受控研究，因为模型具有随机性，而且提供给模型的上下文会引导其结论。在这里，我们介绍 HERA，一种旨在执行量子器件低温输运测量的自主智能体。HERA 使用由实验室成员整理的知识库，其中包含测量协议、软件工具和文献参考。我们通过一项与专家进行的盲法试验、关于两个多层石墨烯器件堆叠顺序的评估、一次知识库消融实验，以及数百次离线重放进行评估；在离线重放中，模型设计了核心测量但没有实际执行。HERA 的结论与专家对两个器件作出的密封结论均一致。消融和重放研究测量了知识库在不同模型上的影响，结果显示，配备知识库后，每个模型设计的测量更好，推理也更可靠。为测试 HERA 对新问题的扩展能力，我们让它在另一种材料体系中寻找并表征超导性。这需要专家花费数小时制定新的实验协议，随后 HERA 自主完成了这两项工作。这些结果表明，在为任务设计的知识库支持下，语言模型智能体能够开展可靠的实验科学。",
-      "published": "2026-10-29",
-      "author_line": "Zachary W. Gomez, Nathan Bittner, Jordan T. McCourt, Qingrui Cao, Sandesh S. Kalantre, Benjamin H. Alexander, Zhiren Zheng, Kenji Watanabe, Takashi Taniguchi, Aaron Sharpe"
-    },
-    {
-      "id": "arxiv:2610.40589v1",
-      "channel": "aixchem",
-      "related_channels": [],
-      "item_type": "paper",
-      "source": "arXiv",
-      "title": "Collaborative AI agents for autonomous experimental research with solid-state quantum spins",
-      "url": "https://arxiv.org/abs/2610.40589v1",
-      "published_at": "2026-10-29",
-      "updated_at": "2026-10-29",
-      "creators": [
-        "El Mustapha Mansouri",
-        "Eikichi Kimura",
-        "Masato Koga",
-        "Keigo Arai"
-      ],
-      "language": "en",
-      "abstract_or_text": "An autonomous research laboratory could conduct an entire study, from formulating questions to preparing manuscripts. Artificial intelligence (AI) offers one route towards this goal. Recent AI systems take on several research roles, but may draw conclusions that the evidence does not support. Here, we present an autonomous research laboratory in which agents based on large language models assess one another's work and can stop or redirect investigations. They can generate and reject research questions, require separate theoretical checks and conduct experiments designed to challenge their claims. We demonstrate these capabilities by investigating ensembles of quantum spins in diamond. The agents derived the minimum number of calibration settings needed to predict responses to a defined family of microwave pulse sequences. They checked the result computationally and designed experiments to distinguish competing predictions. An initial experiment agreed with the theoretical predictions, but repeated reference measurements showed that the signal was drifting during data collection. The agents therefore treated the result as inconclusive and revised the measurement protocol without relaxing the acceptance criteria. The revised experiment met those criteria and supported the theoretical predictions. This study demonstrates that collaborating AI agents can select research questions, derive theoretical results and test their predictions experimentally.",
-      "summary_zh": "构建协作式 AI 智能体实验室，让不同智能体互相审查研究问题、理论推导和实验设计；在金刚石固态量子自旋体系中发现漂移后，系统否定初始结果、修改协议并通过修订实验。",
-      "why_it_matters_zh": "展示了将质疑、理论核验和实验复测纳入自主科研闭环的设计，对减少不受支持的科学结论具有示范意义。研究对象是定义明确的量子自旋任务，实验规模和跨领域可迁移性仍有限，且摘要未给出与人工流程的系统成本比较。",
-      "quality_score": 73.0,
-      "tags": [
-        "方法与模型"
-      ],
-      "evidence_flags": [
-        "experimental"
-      ],
-      "publication_status": "preprint",
-      "rank": 7,
-      "featured": false,
-      "category": "方法与模型",
-      "metrics": {},
-      "metadata": {
-        "doi": "",
-        "arxiv_id": "2610.40589v1"
-      },
-      "abstract_zh": "自主研究实验室可以完成从提出问题到准备论文的整项研究。人工智能（AI）为实现这一目标提供了一条路径。近期的 AI 系统承担了多种研究角色，但可能得出证据并不支持的结论。在这里，我们提出一种自主研究实验室，其中基于大语言模型的智能体相互评估工作，并能够停止或重定向研究。它们可以生成并否决研究问题，要求进行独立的理论检查，并设计旨在挑战自身主张的实验。我们通过研究金刚石中的固态量子自旋系综来展示这些能力。智能体推导出预测一组定义好的微波脉冲序列响应所需的最少校准设置数量。它们以计算方式核查了该结果，并设计实验来区分相互竞争的预测。初始实验与理论预测一致，但重复的参考测量显示，数据采集期间信号发生漂移。因此，智能体将该结果视为不确定结论，并在不降低接受标准的情况下修改测量协议。修订后的实验满足这些标准，并支持理论预测。该研究表明，协作式 AI 智能体能够选择研究问题、推导理论结果，并通过实验检验预测。",
-      "published": "2026-10-29",
-      "author_line": "El Mustapha Mansouri, Eikichi Kimura, Masato Koga, Keigo Arai"
-    },
-    {
-      "id": "arxiv:2610.39275v1",
-      "channel": "aixchem",
-      "related_channels": [],
-      "item_type": "paper",
-      "source": "arXiv",
-      "title": "LLM-Assisted Optimization for Simulation-Based Redesign",
-      "url": "https://arxiv.org/abs/2610.39275v1",
-      "published_at": "2026-10-29",
-      "updated_at": "2026-10-29",
-      "creators": [
-        "Chan-Eui Song",
-        "Jeremy J. Michalek",
-        "Christopher McComb"
-      ],
-      "language": "en",
-      "abstract_or_text": "Engineering design frequently involves redesigning a prior solution to adapt to changes in context, such as material prices or system requirements. Redesign often leverages simulators too complex and/or computationally intensive for traditional numerical solvers, which lack engineering knowledge and context, to ensure global solution quality. Large language models (LLMs) can interpret semantic information, including engineering knowledge about the system and changes in context, to help guide search, and recent studies have shown that incorporating this knowledge into optimization can improve search performance. However, how best to combine LLMs with numerical solvers in redesign remains unclear. We develop and test an integrated LLM-optimization approach for redesign and compare three methods for leveraging LLMs (warm start, variable fixing and ReAct) and four black-box solvers (Bayesian optimization, genetic algorithms, mesh adaptive direct search and random search) on an electric vehicle battery pack cost minimization case study across four types of redesign scenarios. We find that the integrated approach can match feasible design discovery of the numerical-solver baselines with 80% fewer simulator evaluations while tripling the fraction of runs that find near-optimal solutions. We find that the best LLM-solver integration approach and the way the prior solution is leveraged depend on the structure of the design requirement change, and that the benefit of increasing LLM model size grows with the extent to which the LLM controls the search. These results show clear potential for LLMs in redesign tasks for guiding or replacing numerical solvers.",
-      "summary_zh": "研究将 LLM 与数值优化器结合进行工程重设计，比较 warm start、variable fixing、ReAct 与四种黑箱求解器，在电动汽车电池包成本最小化案例中以少 80% 的仿真评估次数达到可行设计发现，并将近最优解运行比例提高三倍。",
-      "why_it_matters_zh": "为材料与能源系统的迭代设计提供了 LLM—优化器协同的定量证据，并显示最佳组合取决于需求变化类型。结果来自单一电池包案例，收益依赖 LLM 控制搜索的程度，跨化学体系和真实制造约束的泛化仍待验证。",
-      "quality_score": 71.0,
-      "tags": [
-        "材料与催化"
-      ],
-      "evidence_flags": [
-        "evaluation",
-        "performance"
-      ],
-      "publication_status": "preprint",
-      "rank": 8,
-      "featured": false,
-      "category": "材料与催化",
-      "metrics": {},
-      "metadata": {
-        "doi": "",
-        "arxiv_id": "2610.39275v1"
-      },
-      "abstract_zh": "工程设计经常涉及对既有方案进行重新设计，以适应上下文变化，例如材料价格或系统要求的变化。重新设计通常要利用复杂度高和/或计算量大的模拟器；传统数值求解器缺乏工程知识和上下文，难以保证全局解的质量。大语言模型（LLM）能够解释语义信息，包括关于系统以及上下文变化的工程知识，从而帮助引导搜索；近期研究表明，将这种知识纳入优化可以改善搜索性能。然而，在重新设计中如何最好地结合 LLM 与数值求解器仍不清楚。我们开发并测试一种集成式 LLM 优化方法用于重新设计，并在四类重新设计情景下，以电动汽车电池包成本最小化为案例，比较利用 LLM 的三种方法（warm start、variable fixing 和 ReAct）以及四种黑箱求解器（贝叶斯优化、遗传算法、mesh adaptive direct search 和随机搜索）。我们发现，该集成方法只需数值求解器基线 80% 更少的模拟器评估次数，就能达到相当的可行设计发现能力，同时找到近最优解的运行比例提高三倍。我们还发现，最佳的 LLM—求解器集成方式以及对既有方案的利用方式，取决于设计要求变化的结构；随着 LLM 对搜索控制程度增加，提高 LLM 模型规模所带来的收益也会增加。这些结果显示，LLM 在重新设计任务中用于引导或替代数值求解器具有明确潜力。",
-      "published": "2026-10-29",
-      "author_line": "Chan-Eui Song, Jeremy J. Michalek, Christopher McComb"
+      "author_line": "Guo, X., Chauhan, A."
     }
   ],
   "review": {
     "model": "gpt-5.6-terra",
     "reasoning_effort": "high",
-    "note": "从完整候选集中筛选 8 项，优先覆盖分子与药物发现、材料与催化、结构与生物、方法与模型；其余项目因相关性或验证强度不足未纳入。"
+    "note": "在质量分达到70的候选中，保留与生物科学、材料设计和科学机器学习直接相关的3项；其余高分候选与AI×Chem主题关联较弱。"
   }
 }

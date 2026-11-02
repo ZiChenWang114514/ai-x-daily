@@ -1,30 +1,30 @@
 {
   "schema_version": "2.0",
-  "date": "2026-11-02",
+  "date": "2026-11-03",
   "channel": "aixmath",
-  "generated_at": "2026-11-01T22:03:39+00:00",
+  "generated_at": "2026-11-02T22:07:29+00:00",
   "title": "AI × Math 每日精选",
   "subtitle": "自动推理、形式化证明、数学智能与基础模型。",
   "window": {
-    "start": "2026-10-29",
-    "end": "2026-11-02"
+    "start": "2026-10-31",
+    "end": "2026-11-03"
   },
   "method": "公开来源采集、历史去重、规则筛选与模型审阅",
   "method_note": "系统保存当日公开元数据，与历史日报核验后排除已报道事件；论文新版本、新修订及不同软件发布等可核实更新仍可入选，随后由指定模型阅读全文摘要并完成精选。",
   "stats": {
-    "fetched": 406,
-    "suppressed_previous": 30,
-    "candidates": 60,
-    "selected": 2,
+    "fetched": 0,
+    "suppressed_previous": 0,
+    "candidates": 0,
+    "selected": 0,
     "sources": {
-      "arXiv": 406,
+      "arXiv": 0,
       "OpenReview": 0
     }
   },
   "source_status": {
     "arXiv": {
-      "state": "ok",
-      "count": 406
+      "state": "empty",
+      "count": 0
     },
     "OpenReview": {
       "state": "empty",
@@ -32,100 +32,10 @@
     }
   },
   "source_errors": [],
-  "items": [
-    {
-      "id": "arxiv:2610.39639v1",
-      "channel": "aixmath",
-      "related_channels": [],
-      "item_type": "paper",
-      "source": "arXiv",
-      "title": "Where Do Vision Language Models Fail at 3D Reasoning?",
-      "url": "https://arxiv.org/abs/2610.39639v1",
-      "published_at": "2026-10-29",
-      "updated_at": "2026-10-29",
-      "creators": [
-        "Khai Le-Duc",
-        "Nguyen Kim Hai Bui",
-        "An Ngo",
-        "Nam D. Hoang",
-        "Yueqi Song",
-        "Jiarui Liu",
-        "Thai Quoc Hoang",
-        "Fang Wu",
-        "Chris Ngo",
-        "Terry Jingchen Zhang",
-        "Mona T. Diab",
-        "Ran Xu",
-        "Silvio Savarese",
-        "Xiao-Ming Wu"
-      ],
-      "language": "en",
-      "abstract_or_text": "Vision-language models can get individual judgments right while struggling to recover and consistently use the exact properties of a 3D object. To characterize this gap, we introduce BedBench, a controlled benchmark of thirteen procedurally generated tasks spanning individual judgments and composite answers. Across twelve open-weight and four frontier models, per-color counting exposes a pronounced weakness: humans achieve 93.3% accuracy, compared with 7.2% for the best model. Targeted fine-tuning raises one model's accuracy from 3.0% to 68.6%, but reveals a further difficulty: its answers about the most common colors remain inconsistent with its own per-color counts. Supplying those counts as text improves its judgments, showing that recovering a property does not mean using it consistently. Reasoning, scaling, and added visual cues each improve individual judgments, but none makes exact answers reliable. To locate the difficulty, we probe Qwen3.5-27B: exact per-color counts remain recoverable at the language model's input, yet the model's answers rarely recover them (65.0% for the probe vs. 3.0% for the model). Image-removal controls further show that some apparent successes require no visual evidence. These findings motivate evaluating 3D reasoning by exact correctness, consistent use, and image dependence, rather than accuracy alone. Code and dataset are publicly available: https://github.com/leduckhai/BedBench",
-      "summary_zh": "提出 BedBench，用 13 个程序生成任务评估视觉语言模型在三维推理中的单项判断、组合答案、一致使用属性和图像依赖。12 个开放权重模型与 4 个前沿模型的结果显示，模型在逐颜色计数及其一致运用上明显落后于人类；微调和提供文本计数可改善部分表现，但不能稳定解决精确组合回答。",
-      "why_it_matters_zh": "它把“看起来答对”与“准确恢复并一致使用三维属性”区分开，并用探针和去图像对照检验模型是否真正利用视觉证据。结果对模型数学/空间推理能力的评价较为克制：即使输入中可恢复计数，模型也未必能在最终答案中正确使用。",
-      "quality_score": 71.0,
-      "tags": [
-        "数学推理"
-      ],
-      "evidence_flags": [
-        "benchmark",
-        "dataset",
-        "github"
-      ],
-      "publication_status": "preprint",
-      "rank": 1,
-      "featured": true,
-      "category": "数学推理",
-      "metrics": {},
-      "metadata": {
-        "doi": "",
-        "arxiv_id": "2610.39639v1"
-      },
-      "abstract_zh": "视觉语言模型有时能够作出单项判断，却难以恢复三维物体的精确属性并始终如一地使用这些属性。为刻画这一差距，我们提出 BedBench，这是一个受控基准，包含 13 个程序生成的任务，覆盖单项判断和组合答案。在 12 个开放权重模型和 4 个前沿模型上，按颜色计数揭示出明显弱点：人类准确率为 93.3%，最佳模型仅为 7.2%。针对性微调将一个模型的准确率从 3.0% 提高到 68.6%，但也暴露出进一步的困难：它关于最常见颜色的答案与自身的逐颜色计数仍不一致。将这些计数作为文本提供给模型可以改善其判断，这说明恢复某个属性并不等于能够一致地使用该属性。推理、扩展模型规模和增加视觉线索都能改善单项判断，但没有一种方法能使精确答案变得可靠。为定位困难所在，我们探测了 Qwen3.5-27B：在语言模型输入中仍可恢复精确的逐颜色计数，但模型答案很少能恢复这些计数（探针为 65.0%，模型为 3.0%）。移除图像的对照实验进一步表明，一些表面上的成功并不需要视觉证据。这些发现表明，三维推理应通过精确正确性、一致使用和图像依赖性来评估，而不能只看准确率。代码和数据集公开于：https://github.com/leduckhai/BedBench",
-      "published": "2026-10-29",
-      "author_line": "Khai Le-Duc, Nguyen Kim Hai Bui, An Ngo, Nam D. Hoang, Yueqi Song, Jiarui Liu, Thai Quoc Hoang, Fang Wu, Chris Ngo, Terry Jingchen Zhang, Mona T. Diab, Ran Xu, Silvio Savarese, Xiao-Ming Wu"
-    },
-    {
-      "id": "arxiv:2610.39559v1",
-      "channel": "aixmath",
-      "related_channels": [],
-      "item_type": "paper",
-      "source": "arXiv",
-      "title": "Non-Zero Radius: The Missing Component of Neural Networks",
-      "url": "https://arxiv.org/abs/2610.39559v1",
-      "published_at": "2026-10-29",
-      "updated_at": "2026-10-29",
-      "creators": [
-        "Tiansi Dong",
-        "Mateja Jamnik",
-        "Pietro Liò"
-      ],
-      "language": "en",
-      "abstract_or_text": "Inspired by the analogy between the all-or-none activation of biological neurons and the true-false of logic circuits, McCulloch and Pitts proposed a mathematical model of the biological neuron in 1943 with the aim of simulating logical reasoning. Although Norbert Wiener considered the model overly simplistic at the time, it later became a building block of modern neural networks, including large language models. Despite their remarkable empirical success, however, conventional neural networks remain largely black-box systems and struggle with reliable symbolic reasoning. Viewing vectors as spheres of zero radius, we relax the zero-radius constraint and represent concepts as spheres with non-zero radii. We argue that sphere-based representations can capture additional features of biological cognition, including representing spatial concepts as regions and reasoning through model construction and inspection. Building on sphere embeddings, we introduce Sphere Neural Networks (SphNNs), which use a transition map to achieve symbolic-level Aristotelian syllogistic reasoning without training data, thereby taking an initial step toward the original goal of McCulloch and Pitts. We suggest that the zero-radius constraint may reflect an aspect of the oversimplification identified by Wiener and may limit conventional neural networks' capacity for symbolic-level logical reasoning.",
-      "summary_zh": "提出 Sphere Neural Networks（SphNNs），将概念表示为具有非零半径的球体，并以 transition map 进行无训练的亚里士多德三段论推理。论文把该表示视为对传统零半径向量表示的理论扩展，但候选摘要未提供与现有符号推理系统的系统性基准。",
-      "why_it_matters_zh": "工作直接讨论神经网络的符号推理与可检查的逻辑结构，给出明确的三段论任务和无需训练数据的推理设定。不过摘要主要是概念论证，缺少量化评测和更广泛逻辑任务结果，因此不应据此推断通用数学推理能力。",
-      "quality_score": 70.0,
-      "tags": [
-        "验证与逻辑"
-      ],
-      "evidence_flags": [],
-      "publication_status": "preprint",
-      "rank": 2,
-      "featured": true,
-      "category": "验证与逻辑",
-      "metrics": {},
-      "metadata": {
-        "doi": "",
-        "arxiv_id": "2610.39559v1"
-      },
-      "abstract_zh": "受生物神经元全或无激活与逻辑电路真假的类比启发，McCulloch 和 Pitts 于 1943 年提出了生物神经元的数学模型，旨在模拟逻辑推理。尽管 Norbert Wiener 当时认为该模型过于简单，它后来成为现代神经网络（包括大型语言模型）的组成基础。然而，尽管取得了显著的经验成功，传统神经网络在很大程度上仍是黑箱系统，并且难以进行可靠的符号推理。我们借鉴将向量视为零半径球体的类比，放宽零半径约束，用具有非零半径的球体表示概念。我们认为，基于球体的表示能够捕捉生物认知的其他特征，包括将空间概念表示为区域，以及通过模型构建和检查来进行推理。在球体嵌入的基础上，我们提出 Sphere Neural Networks（SphNNs），它们使用 transition map，在无需训练数据的情况下实现符号层面的亚里士多德三段论推理，从而朝着 McCulloch 和 Pitts 最初的目标迈出一步。我们提出，零半径约束可能体现了 Wiener 所指出的某种过度简化，并可能限制传统神经网络进行符号层面逻辑推理的能力。",
-      "published": "2026-10-29",
-      "author_line": "Tiansi Dong, Mateja Jamnik, Pietro Liò"
-    }
-  ],
+  "items": [],
   "review": {
     "model": "gpt-5.6-terra",
     "reasoning_effort": "high",
-    "note": "从 60 项候选中选出 2 项。两项均为 arXiv 公开预印本，任务定义和评测结果较清晰；未纳入缺少可检验数学结果或与 AI × Math 主题关联较弱的条目。"
+    "note": "候选集为空，无可审阅或入选条目。"
   }
 }

@@ -1,58 +1,58 @@
-# AIxDaily · 2026-11-02
+# AIxDaily · 2026-11-03
 
-今日精选：AI × Chem 3 项，AI × Bio 10 项，AI × Math 2 项，AI Voices 3 项，Engineering 7 项。11月2日，五个频道的精选以公开预印本和工程项目为主，暂无明确的同行评议论文入选。AI×Chem聚焦多智能体harness、声学agent与物理信息机器学习；AI×Bio覆盖环境健康问答、细胞重编程和膝关节力学模拟。AI×Math关注三维推理基准与球体表示的符号推理。AI Voices收录官方技术博客与研究简报，Engineering呈现浏览器、金融基础模型和多智能体工作流等GitHub项目。
+今日精选：AI × Chem 13 项，AI × Bio 15 项，AI × Math 0 项，AI Voices 10 项，Engineering 6 项。今日（2026-11-03）五频道呈现出“方法创新多、证据层级不一”的格局：AI×Chem 前三项均为预印本，聚焦蛋白构象、水合预测与溶剂排序；AI×Bio 同时有一篇同行评议综述和两篇预印本，覆盖精准给药、衰老标志与细胞重编程。AI×Math 今日没有足够高质量更新。AI Voices 收录的是公开帖文与课程、观点信息，不等同于同行评议结论；Engineering 前三项是 GitHub Trending 开源软件动向，暂非正式版本发布公告。
 
 ## 今日重大进展
 
-- [单次 MRI 驱动的膝关节力学模拟扩展到 756 膝，揭示软骨负荷与骨关节炎进展关联](https://www.medrxiv.org/content/10.64898/2026.10.29.26366866) — 预印本提出从单次膝 MRI 自动构建生物力学模型的管线，结合深度学习分割、神经形状模型和接触力学，在 756 个膝关节、7,560 次标准步态模拟中实现 99.6% 收敛，并关联组织压力与六年软骨变薄。
-- [Lightpanda 开源 AI 无头浏览器冲上 GitHub Trending 前二，瞄准代理自动化运行时](https://github.com/lightpanda-io/browser) — Lightpanda 开源轻量无头浏览器，面向 AI 代理与自动化，兼容 CDP、Playwright 和 Puppeteer；项目在 GitHub Trending 排名第 2，当日新增 827 星、累计约 4 万星。
+- [Hydrogen-1.0公布：面向科学发现的开放权重模型宣称超越GPT-6-Astra](https://x.com/chenru_duan/status/2117249292469665838) — Chenru Duan公布 Hydrogen-1.0，称其基于 GLM-5.3、在内部科学数据与实验室记录上后训练，报告 FrontierScience-Research 38.3%、GPQA-Diamonds 93.0%，并以开放权重服务科学发现。
+- [vLLM v0.33.0发布：推理栈接入大批新模型与推测解码能力](https://github.com/vllm-project/vllm/releases/tag/v0.33.0rc3) — vllm-project/vllm发布v0.33.0rc3，汇集927次提交，新增多种模型、推测解码、KV传输和OpenAI兼容接口，并默认提供CUDA 13与ROCm 10镜像，同时移除部分旧执行器与CUDA 12.9构建。
+- [QA-Bench发布：把AI代码代理的找Bug能力拉到真实应用场景](https://x.com/wuweiweiwu/status/2117306624452792446) — 作者公布QA-Bench，面向真实应用中的可复现缺陷发现，并称其智能体Mo找到的bug数量分别达到Codex的2.7倍、Claude Code的6.3倍；方法和数据已公开。
 
 ## AI × Chem
 
-采集 1297，候选 60，精选 3。来源状态：各来源已完成
+采集 509，候选 60，精选 13。来源状态：各来源已完成
 
-- [Harness engineering enables a multi-agent LLM system to generate cross-domain hypotheses beyond single-investigator reach](https://www.biorxiv.org/content/10.64898/2026.10.25.761203) — 研究一个连接五个 Model Context Protocol 服务器、调用 66 个外部工具的生物学多智能体 LLM 系统，比较 Claude Sonnet 4.6 与 Opus 4.8，并提出 ABCD-Stack harness。结果显示，在提示词、模式、假设数量和查询完全匹配时，模型层级差异消失，harness 设计比模型升级更能决定假设质量。
-- [Practical Assessment of Agentic Systems in Acoustics](https://arxiv.org/abs/2610.39685v1) — 评估 agent 及其 harness 组件在两类声学工程任务中的作用：车辆内音频故障检测与超材料单元设计。系统在故障定位上接近完美，并能找到满足指定频段插入损耗的超材料单元；基准分析显示，弱模型会限制 harness 的收益。
-- [Spectroscopy-Based Machine Learning to Predict Stem-End Rot in Avocados with the Temporal Effects](https://www.biorxiv.org/content/10.64898/2026.10.29.762723) — 使用鳄梨高光谱 Vis-NIR 数据预测茎端腐烂，比较仅光谱、加入储藏时长和加入一阶动力学约束的 PINN 三种模型。模型在早期储藏数据上训练、在第12天测试，PINN 在未见时间条件下泛化最好，而简单加入时间会过拟合。
+- [Differentiable Spin-Center Diffusion Model Enables DEER-Guided Generative Pipeline of Weighted Protein Ensembles](https://www.biorxiv.org/content/10.64898/2026.10.29.762916) — 提出可微分的自旋中心扩散模型，并将其与冻结的 Boltz-2 结构生成器结合，使 DEER 实验距离分布 P(r) 能在推理阶段直接引导加权蛋白构象集合生成；在合成数据和 PfMATE、LmrP、MhsT、P-glycoprotein 转运蛋白上恢复构象比例并估计条件依赖的自由能差。
+- [3DRISM Solvation for Accurate and Large-Scale Protein Hydration Prediction and Mechanistic Interpretation](https://doi.org/10.26434/chemrxiv.15011467/v1) — 系统评估 3DRISM 在大规模蛋白水合位点预测中的表现，并与 SuperWater 及显式溶剂 MD 对比；在3,139个域外蛋白、20个随机蛋白和 SiaP 配体结合口袋案例中检验精度、效率及突变诱导的局部脱水解释能力。
+- [SolviScope: An Interaction-Aware Graph Neural Network for Solvent Ranking of Small Organic Molecules in Pure and Multicomponent Solvent Systems](https://doi.org/10.26434/chemrxiv.15011474/v1) — 开发 SolviScope 图神经网络，用于纯溶剂和二元混合溶剂中的溶解度预测与溶剂排序；模型在结构留出集、外部基准和工业溶质混合物上评估，并对两个未见 API 进行回顾性溶剂/反溶剂优先级排序。
 
 [查看频道专页](https://zichenwang114514.github.io/ai-x-daily/channels/aixchem/)
 
 ## AI × Bio
 
-采集 1921，候选 60，精选 10。来源状态：各来源已完成
+采集 1376，候选 60，精选 15。来源状态：各来源已完成
 
-- [FateDriver: Weakly supervised dual-view graph learning for transition-specific prioritization of candidate regulators in cellular reprogramming](https://www.biorxiv.org/content/10.64898/2026.10.27.762150) — 【preprint】FateDriver 是一种弱监督双视图图神经网络，将单细胞转录组中的细胞和基因联合建模，并利用已递送诱导因子为稀疏标签，针对特定细胞重编程转变优先排序候选调控因子。
-- [Neural shape models enable cohort-scale simulation of knee cartilage mechanics](https://www.medrxiv.org/content/10.64898/2026.10.29.26366866) — 【preprint】利用深度学习分割、神经形状模型和弹性基础接触模型，从单次 MRI 自动构建膝关节生物力学模型，并在 Osteoarthritis Initiative 的 756 个膝关节和 10 种标准步态下完成队列规模模拟。
-- [Autonomous Hypothesis Testing Against Public Biomedical Data with Literature-Grounded Calibration](https://europepmc.org/article/PPR/PPR1353529) — 【preprint】提出一个四阶段、盲法且以文献校准的自主计算假设检验流程，在五项生物医学任务中评估数据发现、分析执行和结果验证能力。
+- [Machine Learning-Augmented Precision Dosing: Integrating Pharmacokinetic Modeling With Clinical Decision Support.](https://europepmc.org/article/MED/42902867) — 综述机器学习如何与群体药代动力学、PBPK、贝叶斯预测和治疗药物监测结合，用于暴露量预测、有限采样 AUC 估计、风险分层和序贯给药。
+- [Atherosclerosis and Diabetic Foot Share a Common Molecular Signature of Cellular Senescence: A Multi-Omics and Machine Learning Study](https://europepmc.org/article/PPR/PPR1354635) — 整合 DFU 与 AS 转录组、单细胞和组织验证，筛出 CALCOCO1、CCND2、FUCA1 三个共同衰老特征基因，并观察到 metformin 可在体外部分逆转成纤维细胞衰老表型。
+- [FateDriver: Weakly supervised dual-view graph learning for transition-specific prioritization of candidate regulators in cellular reprogramming](https://europepmc.org/article/PPR/PPR1354904) — FateDriver 将单细胞转录组中的细胞与基因建模为双视图图网络，把已递送诱导因子作为稀疏标签，在 OSKM、GMT 和体内部分重编程数据中进行转变特异的调控因子排序。
 
 [查看频道专页](https://zichenwang114514.github.io/ai-x-daily/channels/aixbio/)
 
 ## AI × Math
 
-采集 406，候选 60，精选 2。来源状态：各来源已完成
+采集 0，候选 0，精选 0。来源状态：各来源已完成
 
-- [Where Do Vision Language Models Fail at 3D Reasoning?](https://arxiv.org/abs/2610.39639v1) — 提出 BedBench，用 13 个程序生成任务评估视觉语言模型在三维推理中的单项判断、组合答案、一致使用属性和图像依赖。12 个开放权重模型与 4 个前沿模型的结果显示，模型在逐颜色计数及其一致运用上明显落后于人类；微调和提供文本计数可改善部分表现，但不能稳定解决精确组合回答。
-- [Non-Zero Radius: The Missing Component of Neural Networks](https://arxiv.org/abs/2610.39559v1) — 提出 Sphere Neural Networks（SphNNs），将概念表示为具有非零半径的球体，并以 transition map 进行无训练的亚里士多德三段论推理。论文把该表示视为对传统零半径向量表示的理论扩展，但候选摘要未提供与现有符号推理系统的系统性基准。
+- 今日无足够高质量更新。
 
 [查看频道专页](https://zichenwang114514.github.io/ai-x-daily/channels/aixmath/)
 
 ## AI Voices
 
-采集 20，候选 18，精选 3。来源状态：X: RuntimeError: 未找到 Grok X 检索缓存。请先按 ops/grok/x_harvest_protocol.md 采集
+采集 43，候选 38，精选 10。来源状态：各来源已完成
 
-- [Run AI Models for Edge Application Development with Just a Few Commands](https://developer.nvidia.com/blog/run-ai-models-for-edge-application-development-with-just-a-few-commands/) — 事实：NVIDIA 技术博客介绍了用少量命令运行边缘 AI 模型的方式，并以驾驶员注意力和座舱状况监测等场景为例。作者观点：AI 应用正在从数据中心扩展到边缘。编辑判断：内容面向实际部署，能为边缘智能体开发提供工程入口。
-- [Build Specialized Agents on a Stack You Control with NVIDIA NemoClaw](https://developer.nvidia.com/blog/build-specialized-agents-on-a-stack-you-control-with-nvidia-nemoclaw/) — 事实：NVIDIA 技术博客将自主智能体拆分为模型、工具链和领域专用工具，并介绍用于更安全部署的 NemoClaw 运行时。作者观点：安全部署需要由运行时强制执行约束。编辑判断：文章提供了面向可控智能体栈的具体工程框架。
-- [Microsoft Research Focus – Edition #97](https://www.microsoft.com/en-us/research/podcast/microsoft-research-focus-edition-97/) — 事实：Microsoft Research 的第 97 期节目汇总了编码智能体挑战、职场中的 AI 使用方式和扩展期天气预报等研究动态。作者观点：这些议题代表微软近期值得关注的研究方向。编辑判断：虽然是研究综述而非单篇论文，但覆盖面和官方来源使其具有信息筛选价值。
+- [@fchollet：The most grating aspect of LLM writing is that it tries to turn every single sentence into a punchline, a witty slogan, ](https://x.com/fchollet/status/2117315680119013865) — 事实：François Chollet 批评大语言模型写作把每句话都处理成“妙语”或口号。作者观点：这种平均用力的表达削弱了重点层次。编辑判断：这是对生成式写作风格的直接质量批评。
+- [@shao__meng：斯坦福大学课程 CS329A Self-Improving AI Agents @achowdhery @Azaliamirh 两位老师主讲，以 "一线经验 + 论文精读" 为骨架，以 "造一个能自我改进的智能体" 为课程目标，Youtub](https://x.com/shao__meng/status/2116901124716347815) — 事实：帖文介绍斯坦福 CS329A“Self-Improving AI Agents”课程，由两位教师授课，YouTube 已收录全部9节。编辑判断：课程将一线经验与论文精读结合，具有较明确的学习入口。
+- [@Saboo_Shubham_：AI Agent framework vs harness. A framework is a library you import to build an agent. ADK, LangGraph, and CrewAI give yo](https://x.com/Saboo_Shubham_/status/2116402491827143098) — 事实：作者区分 framework 与 harness：前者提供构建组件，后者把循环、工具、上下文、记忆和子智能体整合成可运行的智能体。编辑判断：这是一种面向工程实践的架构分类。
 
 [查看频道专页](https://zichenwang114514.github.io/ai-x-daily/channels/aivoices/)
 
 ## Engineering
 
-采集 64，候选 57，精选 7。来源状态：各来源已完成
+采集 50，候选 49，精选 6。来源状态：各来源已完成
 
-- [lightpanda-io/browser](https://github.com/lightpanda-io/browser) — Lightpanda 是面向 AI 与自动化的轻量级无头浏览器，兼容 CDP、Playwright 和 Puppeteer；2026-11-02 GitHub Trending 第 2 名，当日新增 827 颗星。
-- [shiyu-coder/Kronos](https://github.com/shiyu-coder/Kronos) — Kronos 是面向金融市场语言的基础模型，用于建模和理解市场数据；2026-11-02 GitHub Trending 第 3 名，当日新增 611 颗星。
-- [sponsors/Donchitos](https://github.com/sponsors/Donchitos) — Donchitos 将 Claude Code 组织成完整的游戏开发工作室，提供 49 个 AI 智能体、72 个工作流技能和模拟真实工作室层级的协作系统；2026-11-02 GitHub Trending 第 8 名，当日新增 970 颗星。
+- [vercel-labs/agent-desktop](https://github.com/vercel-labs/agent-desktop) — vercel-labs/agent-desktop 是面向 AI 智能体的计算机使用 CLI，位列当日 GitHub Trending 第1名，新增2243颗星。
+- [JustVugg/colibri](https://github.com/JustVugg/colibri) — JustVugg/colibri 用纯 C、零依赖和磁盘流式加载，在现有硬件上运行前沿 MoE 模型，位列当日 GitHub Trending 第10名，新增655颗星。
+- [paperclipai/paperclip](https://github.com/paperclipai/paperclip) — paperclipai/paperclip 是用于管理工作型智能体的开源应用，位列当日 GitHub Trending 第13名，新增451颗星。
 
 [查看频道专页](https://zichenwang114514.github.io/ai-x-daily/channels/engineering/)
 
